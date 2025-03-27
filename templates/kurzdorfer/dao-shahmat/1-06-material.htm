@@ -1,0 +1,201 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 6. Материал | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Глава 6. МАТЕРИАЛ</h2>
+<div class="score">
+<p>Важно знать относительную стоимость фигур и пешек, которые перемещаются по стоящей перед вами доске. Они являются основными инструментами, которыми вы можете оперировать, и менять их можно по-разному. Считаете ли вы, что три пешки весомее, чем конь? Лучше ли иметь ладью и две пешки, чем слона и коня? А как выглядит ферзь в борьбе против двух ладей? Когда вы знаете, какое материальное соотношение выгоднее в разных положениях, вам легче принимать взвешенные решения о том, какие фигуры надо оставить, а от каких следует отказаться.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 25: Имея материальное преимущество, следует менять фигуры, но не пешки.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="r1r1q1k1/pp3ppp/6n1/Q5B1/8/1PP5/P2R1PPP/3R2K1 w - - 0 1"></div>
+<div class="score">
+<p>Обоснование принципа — в математической концепции соотношения. Преимущество десять к девяти не столь велико, как преимущество два к одному, или, что еще очевиднее, одного к нулю. Когда материальное преимущество на вашей стороне, следует стремиться к увеличению соотношения путем размена фигур, но не пешек.</p>
+<p>Почему не пешек? Очень просто: если их не останется на доске, вы можете достичь большого, греющего душу материального преимущества -одной фигуры у вас против ни одной у соперника... и не иметь выигрыша! Слон (или конь) с королем не могут поставить мат одинокому королю ни при каких обстоятельствах. Поэтому вам понадобятся еще и пешки (если ваше преимущество не выражается в целой ладье или ферзе).</p>
+
+<!--img class="diagram" src="images/Tao of Chess-27.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1r1q1k1/pp3ppp/6n1/Q5B1/8/1PP5/P2R1PPP/3R2K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>У белых пешкой больше. Лучшим способом нейтрализации какой бы то ни было контригры со стороны черных является размен как можно большего числа фигур. Поэтому
+ <span class="line0" onclick='loadMove("r1r1q1k1/pp3ppp/6n1/Q5B1/8/1PP5/P2R1PPP/3R2K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("r1rRq1k1/pp3ppp/6n1/Q5B1/8/1PP5/P4PPP/3R2K1 b - - 0 1", this, "d2d8"); ' class="line0">1.Лd8</span> 
+ <span onclick='loadMove("r2rq1k1/pp3ppp/6n1/Q5B1/8/1PP5/P4PPP/3R2K1 w - - 0 2", this, "c8d8"); ' class="line0">Л:d8</span> 
+ <span onclick='loadMove("r2Rq1k1/pp3ppp/6n1/Q5B1/8/1PP5/P4PPP/6K1 b - - 0 2", this, "d1d8"); ' class="line0">2.Л:d8</span> 
+ <span onclick='loadMove("3rq1k1/pp3ppp/6n1/Q5B1/8/1PP5/P4PPP/6K1 w - - 0 3", this, "a8d8"); ' class="line0">Л:d8</span> 
+ <span onclick='loadMove("3Qq1k1/pp3ppp/6n1/6B1/8/1PP5/P4PPP/6K1 b - - 0 3", this, "a5d8"); ' class="line0">3.Ф:d8</span> 
+ <span onclick='loadMove("3q2k1/pp3ppp/6n1/6B1/8/1PP5/P4PPP/6K1 w - - 0 4", this, "e8d8"); ' class="line0">Ф:d8</span> 
+ <span onclick='loadMove("3B2k1/pp3ppp/6n1/8/8/1PP5/P4PPP/6K1 b - - 0 4", this, "g5d8"); ' class="line0">4.С:d8</span>, и вы избавляетесь от тяжелых фигур, тем самым существенно упрощая себе задачу.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Повышайте ваши шансы путем увеличения соотношения. С этой концепцией хорошо знакомы все люди спорта. Именно поэтому в хоккее легче забивать голы в большинстве, а в баскетболе трудно защищаться при игре двух против одного.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 26: Если материальное преимущество на стороне соперника, меняйте пешки, не фигуры.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="8/1k1n4/1P6/1K6/P4p2/4P3/5B2/8 b - - 0 1"></div>
+<div class="score">
+<p>Это оборотная сторона принципа 25. Вы меняете пешки для того, чтобы в окончании у вашего противника было меньше шансов провести одну из них в ферзи. Это станет вообще невозможным, если с доски исчезнут все пешки.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-28.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="8/1k1n4/1P6/1K6/P4p2/4P3/5B2/8 b - - 0 1"></div>
+<p class="caption"><b>Ход черных</b></p>
+
+<p>У черных не хватает материала и никаких шансов на контратаку. Но они могут форсировать ничью путем
+ <span class="line0" onclick='loadMove("8/1k1n4/1P6/1K6/P4p2/4P3/5B2/8 b - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("8/1k1n4/1P6/1K6/P7/4p3/5B2/8 w - - 0 2", this, "f4e3"); ' class="line0">1...f:e3</span> 
+ <span onclick='loadMove("8/1k1n4/1P6/1K6/P7/4B3/8/8 b - - 0 2", this, "f2e3"); ' class="line0">2.С:e3</span> 
+ <span onclick='loadMove("8/1k6/1n6/1K6/P7/4B3/8/8 w - - 0 3", this, "d7b6"); ' class="line0">К:b6</span> 
+ <span onclick='loadMove("8/1k6/1B6/1K6/P7/8/8/8 b - - 0 3", this, "e3b6"); ' class="line0">3.С:b6</span>, и у белых при наличии пешки «а» слон не того цвета — пешка в ферзи не проходит.</p>
+<p>Чтобы знать, когда принцип не работает, вы должны понимать, зачем меняете пешки. Например, если у соперника материальное преимущество, но у вас сильная инициатива, вам лучше просто продолжать атаку, а меняются при этом пешки или фигуры(!) — это уже вопрос второстепенный. Вы можете отыграть материал с выгодой или продолжить матовую атаку. Кто захочет менять в этих условиях пешки?</p>
+<p>В отношении этого и других принципов полезно знать причины, коими они обусловлены.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Компенсируйте потери путем избавления от того, что может привести к поражению. Даже если при этом вы лишаетесь единственных ресурсов, что есть в вашем распоряжении, — это стоящая сделка, если у вас нет шансов на выигрыш.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 27: В положениях с тремя здоровыми пешками против легкой фигуры последняя обычно сильнее в миттельшпиле, в то время как пешки, как правило, выгоднее иметь в эндшпиле.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="6r1/4n2k/4Pb2/5P1p/p1P1R2P/1p1rB3/PP5K/5R2 w - - 0 1"></div>
+<div class="score">
+<p>Пешки чувствуют себя в своей стихии на стадии эндшпиля, в то время как фигуры, особенно легкие, лучше всего проявляют себя в середине игры. Этот принцип в равной степени применим к случаю ладьи против пяти пешек, хотя ладьи в эндшпиле способны «на разбой», если их правильно расставить.</p>
+<p>Но не следуйте этому принципу слепо: многое зависит от пешечной структуры. Связаны ли пешки? Проходные ли они? Разбиты ли они на отдельные островки или группы? Сдвоены ли некоторые из них?</p>
+<p>Нельзя забывать и про фигуры: скоординированы ли их действия? Расширяется ли их свобода по мере приближения эндшпиля? Какие фигуры остались — слон с конем, два слона или два коня? Остались ли на доске еще и ладьи? Во внимание следует принимать множество факторов.</p>
+<p>Типичным случаем является положение из партии Курцдорфер — Эд Форманек (Буффало, 1992):</p>
+
+<!--img class="diagram" src="images/Tao of Chess-29.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="6r1/4n2k/4Pb2/5P1p/p1P1R2P/1p1rB3/PP5K/5R2 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>У черных конь за три пешки, которые все проходные, но не связаны между собой. Они блокированы, и черные готовы прорваться на ферзевом фланге. Белые стремятся одолеть блокаду, с тем чтобы привести свои проходные пешки в движение:</p>
+<p>
+ <span class="line0" onclick='loadMove("6r1/4n2k/4Pb2/5P1p/p1P1R2P/1p1rB3/PP5K/5R2 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("6r1/4n2k/4Pb2/5PBp/p1P1R2P/1p1r4/PP5K/5R2 b - - 0 1", this, "e3g5"); ' class="line0">1.Сg5</span> 
+ <span onclick='loadMove("5r2/4n2k/4Pb2/5PBp/p1P1R2P/1p1r4/PP5K/5R2 w - - 0 2", this, "g8f8"); ' class="line0">Лf8</span> 
+ <span onclick='loadMove("5r2/4n2k/4Pb2/5PBp/p1P1R2P/1P1r4/1P5K/5R2 b - - 0 2", this, "a2b3"); ' class="line0">2.a:b3</span> 
+ <span onclick='loadMove("5r2/4n2k/4Pb2/5PBp/2P1R2P/1p1r4/1P5K/5R2 w - - 0 3", this, "a4b3"); ' class="line0">a:b3</span> 
+ <span onclick='loadMove("5r2/4n2k/4Pb2/5PBp/2P1R2P/1p1r4/1P3R1K/8 b - - 0 3", this, "f1f2"); ' class="line0">3.Лf2</span> 
+ <span onclick='loadMove("5r2/4n2k/4P3/5Pbp/2P1R2P/1p1r4/1P3R1K/8 w - - 0 4", this, "f6g5"); ' class="line0">С:g5</span> 
+ <span onclick='loadMove("5r2/4n2k/4P3/5PPp/2P1R3/1p1r4/1P3R1K/8 b - - 0 4", this, "h4g5"); ' class="line0">4.h:g5</span> 
+ <span onclick='loadMove("8/4n2k/4P3/5rPp/2P1R3/1p1r4/1P3R1K/8 w - - 0 5", this, "f8f5"); ' class="line0">Л:f5</span> 
+ <span onclick='loadMove("8/4n2k/4P3/5RPp/2P1R3/1p1r4/1P5K/8 b - - 0 5", this, "f2f5"); ' class="line0">5.Л:f5</span> 
+ <span onclick='loadMove("8/7k/4P3/5nPp/2P1R3/1p1r4/1P5K/8 w - - 0 6", this, "e7f5"); ' class="line0">К:f5</span> 
+ <span onclick='loadMove("8/4P2k/8/5nPp/2P1R3/1p1r4/1P5K/8 b - - 0 6", this, "e6e7"); ' class="line0">6.e7</span>.</p>
+<p>Блокада прорвана, и черные вынуждены отдать фигуру, чтобы не дать пройти вражеским пешкам. Но они уже прихватили одну пешку и готовы забрать еще одну сверх той, за которую они жертвуют фигуру, так что фактически они отдают фигуру за три пешки.</p>
+<p>
+ <span onclick='loadMove("8/4P2k/8/5nPp/2P1R3/1p6/1P1r3K/8 w - - 0 7", this, "d3d2"); ' class="line0">6...Лd2+</span> 
+ <span onclick='loadMove("8/4P2k/8/5nPp/2P1R3/1p5K/1P1r4/8 b - - 0 7", this, "h2h3"); ' class="line0">7.Крh3</span> 
+ <span onclick='loadMove("8/4n2k/8/6Pp/2P1R3/1p5K/1P1r4/8 w - - 0 8", this, "f5e7"); ' class="line0">К:e7</span> 
+ <span onclick='loadMove("8/4R2k/8/6Pp/2P5/1p5K/1P1r4/8 b - - 0 8", this, "e4e7"); ' class="line0">8.Л:e7+</span> 
+ <span onclick='loadMove("8/4R3/6k1/6Pp/2P5/1p5K/1P1r4/8 w - - 0 9", this, "h7g6"); ' class="line0">Крg6</span> 
+ <span onclick='loadMove("8/1R6/6k1/6Pp/2P5/1p5K/1P1r4/8 b - - 0 9", this, "e7b7"); ' class="line0">9.Лb7</span> 
+ <span onclick='loadMove("8/1R6/6k1/6Pp/2P5/1p5K/1r6/8 w - - 0 10", this, "d2b2"); ' class="line0">Л:b2</span> 
+ <span onclick='loadMove("8/8/6k1/1R4Pp/2P5/1p5K/1r6/8 b - - 0 10", this, "b7b5"); ' class="line0">10.Лb5</span>, и партия закончилась ничьей.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">При сравнении объектов, разных по природе, всегда полезно поразмышлять об их качествах. Хотя бартер сейчас не так широко распространен, все равно полезно представлять себе примерную стоимость того, с чем вам приходится иметь дело.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 28: За лишнюю пешку можно немного и пострадать.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Конечно, следует точно понять, что значит «немного». Все хотят иметь одну-две лишних пешки (или лишнюю фигуру или фигуры) при равном в остальном материальном соотношении. В 95% случаев выигрывать пешку стоит.</p>
+<p>Проблема в том, что зачастую после выигрыша пешки приходится защищаться. Готовы ли вы забрать пешку, а затем перейти в защиту? Всё зависит от конкретной позиции.</p>
+<p>Большинство гамбитов можно описать так: хватай пешку и борись с трудностями. Многие гамбиты можно отклонить, но обычно лучше принять вызов. Гамбит Маршалла один из многих:
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1b5"); ' class="line0">3.Сb5</span> 
+ <span onclick='loadMove("r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "a7a6"); ' class="line0">a6</span> 
+ <span onclick='loadMove("r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4", this, "b5a4"); ' class="line0">4.Сa4</span> 
+ <span onclick='loadMove("r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 5", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 0 5", this, "e1g1"); ' class="line0">5.0-0</span> 
+ <span onclick='loadMove("r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 6", this, "f8e7"); ' class="line0">Сe7</span> 
+ <span onclick='loadMove("r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq - 0 6", this, "f1e1"); ' class="line0">6.Лe1</span> 
+ <span onclick='loadMove("r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq b6 0 7", this, "b7b5"); ' class="line0">b5</span> 
+ <span onclick='loadMove("r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq - 0 7", this, "a4b3"); ' class="line0">7.Сb3</span> 
+ <span onclick='loadMove("r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 0 8", this, "e8g8"); ' class="line0">0-0</span> 
+ <span onclick='loadMove("r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 8", this, "c2c3"); ' class="line0">8.c3</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - d6 0 9", this, "d7d5"); ' class="line0">d5</span>.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-30.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/2p1bppp/p1n2n2/1p1pp3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 9"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Большинство сильных игроков забирают пешку путем
+ <span onclick='loadMove("r1bq1rk1/2p1bppp/p1n2n2/1p1Pp3/8/1BP2N2/PP1P1PPP/RNBQR1K1 b - - 0 9", this, "e4d5"); ' class="line0">9.e:d5</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1bppp/p1n5/1p1np3/8/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 0 10", this, "f6d5"); ' class="line0">К:d5</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1bppp/p1n5/1p1nN3/8/1BP5/PP1P1PPP/RNBQR1K1 b - - 0 10", this, "f3e5"); ' class="line0">10.К:e5</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1bppp/p7/1p1nn3/8/1BP5/PP1P1PPP/RNBQR1K1 w - - 0 11", this, "c6e5"); ' class="line0">К:e5</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1bppp/p7/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 b - - 0 11", this, "e1e5"); ' class="line0">11.Л:e5</span> 
+ <span onclick='loadMove("r1bq1rk1/4bppp/p1p5/1p1nR3/8/1BP5/PP1P1PPP/RNBQ2K1 w - - 0 12", this, "c7c6"); ' class="line0">c6</span> 
+и посвящают следующие несколько ходов борьбе с последствиями своего поступка в надежде консолидироваться и выиграть в эндшпиле. Атака черных после <b>Сd6</b> и <b>Фh4</b> опасна, но защита от нее — дело не безнадежное. А лишняя пешка все-таки у белых есть.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons floater" data-start-fen="5rk1/p1q2ppp/1p2n3/4P3/8/1P6/P1P3RP/1KB3Q1 b - - 0 1"></div>
+<div class="score">
+
+<!--img class="diagram" src="images/Tao of Chess-31.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="5rk1/p1q2ppp/1p2n3/4P3/8/1P6/P1P3RP/1KB3Q1 b - - 0 1"></div>
+<p class="caption"><b>Ход черных</b></p>
+
+<p>А вот здесь, забрав пешку, черные поступили бы неразумно, ибо после
+ <span class="line0" onclick='loadMove("5rk1/p1q2ppp/1p2n3/4P3/8/1P6/P1P3RP/1KB3Q1 b - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("5rk1/p4ppp/1p2n3/4q3/8/1P6/P1P3RP/1KB3Q1 w - - 0 2", this, "c7e5"); ' class="line0">1...Ф:e5</span> 
+атака белых более чем опасна:
+ <span onclick='loadMove("5rk1/p4ppp/1p2n3/4q3/8/1P6/PBP3RP/1K4Q1 b - - 0 2", this, "c1b2"); ' class="line0">2.Сb2</span> 
+ <span onclick='loadMove("5rk1/p1q2ppp/1p2n3/8/8/1P6/PBP3RP/1K4Q1 w - - 0 3", this, "e5c7"); ' class="line0">Фc7</span> 
+ <span onclick='loadMove("5rk1/p1q2pRp/1p2n3/8/8/1P6/PBP4P/1K4Q1 b - - 0 3", this, "g2g7"); ' class="line0">3.Л:g7+</span> 
+ <span onclick='loadMove("5rk1/p1q2pnp/1p6/8/8/1P6/PBP4P/1K4Q1 w - - 0 4", this, "e6g7"); ' class="line0">К:g7</span> 
+ <span onclick='loadMove("5rk1/p1q2pQp/1p6/8/8/1P6/PBP4P/1K6 b - - 0 4", this, "g1g7"); ' class="line0">4.Ф:g7X</span>, и спорить больше не о чем.</p>
+<p>Конечно, взятие фигуры приводит к еще большим трудностям. Но насколько они велики, зависит от конкретной позиции. Взятие фигуры и даже ферзя невыгодно, если в результате вы проиграете партию.</p>
+<p>Очень многое в жизни сопряжено с мелкими бытовыми трудностями — подстричь лужайку, например. Многое другое дается нам трудами: найти хорошую работу или купить дом.</p>
+<p>Вам решать, стоит ли дело связанных с ним трудностей. Каждый случай надо рассматривать отдельно. Здесь нет простого, всеобъемлющего ответа.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 29: В позициях с необычным материальным соотношением инициатива зачастую — решающий фактор.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="6k1/2Rbr1bp/3p1pp1/np1P2B1/1Rn5/P5P1/4PPBP/6K1 w - - 0 1"></div>
+<div class="score">
+<p>Это хорошее правило для различных типов позиций. Например, ладья и две пешки против слона и коня; ферзь и пешка против двух ладей; ладья, конь и две пешки против ферзя, и так далее. Если вы испытываете сомнение, играйте на инициативу. Если вы идете на соперника с открытым забралом, ему будет трудно придумать против вас выигрывающий план.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-32.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/2Rbr1bp/3p1pp1/np1P2B1/1Rn5/P5P1/4PPBP/6K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Эта позиция возникла в партии Курцдорфер — Дмитрий Гуревич (Вашингтон, 1990). У белых за двух коней ладья и пешка, слон g5 под боем, а слон d7 связан. Ход белых, и я переместил атакованного слона на поле f4, и это был естественный выбор.</p>
+<p>Этого оказалось достаточно для ничьей (к которой пришла партия после осложнений, от которых волосы вставали дыбом), но если бы я помнил о принципе 29, то сыграл бы сильнее. После
+ <span class="line0" onclick='loadMove("6k1/2Rbr1bp/3p1pp1/np1P2B1/1Rn5/P5P1/4PPBP/6K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("6k1/2Rbr1bp/3p1pp1/np1P2B1/1Rn5/P5PB/4PP1P/6K1 b - - 0 1", this, "g2h3"); ' class="line0">1.Сh3</span> 
+ <span onclick='loadMove("6k1/2R1r1bp/3p1pp1/np1P2B1/1Rn5/P5Pb/4PP1P/6K1 w - - 0 2", this, "d7h3"); ' class="line0">С:h3</span> 
+ <span onclick='loadMove("6k1/4R1bp/3p1pp1/np1P2B1/1Rn5/P5Pb/4PP1P/6K1 b - - 0 2", this, "c7e7"); ' class="line0">2.Л:e7</span> 
+ <span onclick='loadMove("6k1/4R1bp/3p2p1/np1P2p1/1Rn5/P5Pb/4PP1P/6K1 w - - 0 3", this, "f6g5"); ' class="line0">f:g5</span> 
+ <span onclick='loadMove("6k1/4R1bp/3p2p1/nR1P2p1/2n5/P5Pb/4PP1P/6K1 b - - 0 3", this, "b4b5"); ' class="line0">3.Л:b5</span> 
+возникала позиция с необычным соотношением сил — две ладьи и две пешки против четырех легких фигур. Легко видеть, кто владеет инициативой, поскольку белые грозят не только
+ <span onclick='loadMove("1R4k1/4R1bp/3p2p1/n2P2p1/2n5/P5Pb/4PP1P/6K1 b - - 0 4", this, "b5b8"); ' class="line1">4.Лb8+</span> 
+ <span onclick='loadMove("1R3bk1/4R2p/3p2p1/n2P2p1/2n5/P5Pb/4PP1P/6K1 w - - 0 5", this, "g7f8"); ' class="line1">Сf8</span> 
+ <span onclick='loadMove("1R2Rbk1/7p/3p2p1/n2P2p1/2n5/P5Pb/4PP1P/6K1 b - - 0 5", this, "e7e8"); ' class="line1">5.Лe8</span>, выигрывая фигуру, но и
+ <span onclick='loadMove("6k1/R5bp/3p2p1/nR1P2p1/2n5/P5Pb/4PP1P/6K1 b - - 0 4", this, "e7a7"); ' class="line1">4.Лa7</span> 
+с выигрышем обоих коней за ладью. Черным защищаться очень непросто.</p>
+<p>Существует много способов взять ситуацию под свой контроль. Некоторые из них сопряжены с расходованием немалых сил и энергии. Поэтому потратьте время на анализ, чтобы понять, стоит ли овчинка выделки. Вы обнаружите, что цена зачастую не так уж и высока, как может показаться на первый взгляд.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,56 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Фирдоуси ответил так... | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Фирдоуси ответил так...</h3>
+<div class="score">
+
+<p>Классик таджикской и персидской литератур Абуль Касим Фирдоуси показал в своей замечательной поэме «Шах-наме» при помощи шахмат битву между индийскими царевичами Гавом и Талхандом.</p>
+<p>В главе, посвященнойэтому поединку, есть такие строки:</p>
+
+<p>Квадратную сделали доску потом</p>
+<p>Два мужа ученых и с чистым умом.</p>
+<p>Здесь ров, здесь и поле кровавой войны,</p>
+<p>Где станут два войска, отваги полны.</p>
+<p>Сто клеток победы устроили там...</p>
+<p>Чтоб двигаться войску и славным царям...</p>
+<p>Гляди — и пехота, и конница тут,</p>
+<p>Два войска построились, в битву идут...</p>
+
+<p>Подробно говорит поэт о шахматной партии, которая разыгрывалась по тогдашним правилам, во многом отличавшимся от современных. Любопытно, что сражение велось на доске не такой, как сейчас. Было «сто клеток победы».</p>
+<p>Фирдоуси очень любил шахматы и охотно проводил за ними свободное время.</p>
+<p>— Зачем ты уделяешь столько внимания шахматам? — спросили поэта.</p>
+<p>— Чтобы проникнуться их поэзией,— ответил Фирдоуси.</p>
+<p>В одной из рукописей Фирдоуси есть шахматная позиция. Вот она.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r7/8/8/8/5R2/4k3/8/4K2R w K - 0 1"></div>
+<div class="score">
+<p class="capTop diagram">213</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r7/8/8/8/5R2/4k3/8/4K2R w K - 0 1"></div>
+	<p>Белые выигрывают. Решение:
+	 <span class="line0" onclick='loadMove("r7/8/8/8/5R2/4k3/8/4K2R w K - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("r7/8/8/8/R7/4k3/8/4K2R b K - 0 1", this, "f4a4"); ' class="line0">1.Лa4!</span> 
+	</p>
+	<p>От мата избавляло и
+	 <span onclick='loadMove("r7/8/8/8/5R2/4k3/8/5RK1 b - - 0 1", this, "e1g1"); ' class="line1">1.0-0</span>, но в ту пору правила рокировки еще не было. Рокировка введена лишь в XV веке.
+	 <span onclick='loadMove("8/8/8/8/r7/4k3/8/4K2R w K - 0 1", this, "a8a4"); ' class="line0">1...Л:a4</span> 
+	 <span onclick='loadMove("8/8/8/8/r7/4k2R/8/4K3 b - - 0 1", this, "h1h3"); ' class="line0">2.Лh3+</span> 
+	 <span onclick='loadMove("8/8/8/8/r2k4/7R/8/4K3 w - - 0 1", this, "e3d4"); ' class="line0">Крd4</span> 
+	 <span onclick='loadMove("8/8/8/8/r2k3R/8/8/4K3 b - - 0 1", this, "h3h4"); ' class="line0">3.Лh4+</span> 
+	и 4. Л : a4.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

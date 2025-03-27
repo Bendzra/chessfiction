@@ -1,0 +1,186 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Эмануил Ласкер. Школа шахматной игры</a></li>
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ПРЕДИСЛОВИЕ К НАСТОЯЩЕМУ ИЗДАНИЮ</a></li>
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">УЧЕБНИК ШАХМАТНОЙ ИГРЫ</a></li>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-pervonachalnye-svedeniia-o-shahmatnoj-igre.htm' %}">I. ПЕРВОНАЧАЛЬНЫЕ СВЕДЕНИЯ О ШАХМАТНОЙ ИГРЕ</a></li>
+		<ul>
+		
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-shahmatnaya-doska.htm' %}">Шахматная доска</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-0-shahmatnye-figury.htm' %}">Шахматные фигуры</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-1-pravila-hodov.htm' %}">Правила ходов</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-2-korol.htm' %}">Король</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-3-ladya.htm' %}">Ладья</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-4-slon.htm' %}">Слон</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-5-ferz.htm' %}">Ферзь</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-6-kon.htm' %}">Конь</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-7-peshka.htm' %}">Пешка</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-iskhod-igry_mat_pat_nichya.htm' %}">Исход игры: мат, пат, ничья</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-zadacha-shahmatnoj-strategii.htm' %}">Задача шахматной стратегии</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-opisatelnaya-i-algebraicheskaya-notaciya.htm' %}">Описательная и алгебраическая нотация</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-nasha-zadacha.htm' %}">Наша задача</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-7-vygody-materialnogo-perevesa.htm' %}">Выгоды материального перевеса</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Выгоды нападения на одинокого короля</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Выгоды, получаемые несколькими одновременными нападениями</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Использование превосходства в решающем пункте</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Сравнительная ценность фигур при размене</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">II. УЧЕНИЕ О ДЕБЮТАХ</a></li>
+		<ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Открытые начала</a></li>
+			<ul>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Русская партия</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Венгерская защита</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Защита Филидора</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Защита двух коней</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Центральный дебют</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Дебют слона</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Дебют Понциани</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Атака Макса Ланге</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Венская партия</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шотландская партия</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Королевский гамбит</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Гамбит Каннингема</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Гамбит слона</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Северный гамбит</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Итальянская партия</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Гамбит Эванса</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Дебют четырех коней</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Испанская партия</a></li>
+			</ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Полуоткрытые начала</a></li>
+			<ul>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Дебют Нимцовича</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Фианкетто</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Защита Алехина</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Гамбит Фрома</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Защита Каро-Канн</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Скандинавская защита</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Сицилианская защита</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Французская защита</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Сицилианская в первой руке</a></li>
+			</ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Закрытые начала</a></li>
+			<ul>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ферзевый гамбит</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Другие виды дебюта ферзевой пешки</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Гамбит Энглунда</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Гамбит Блекмара</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Гамбит Шара — Геннига</a></li>
+				<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Дебют Цукерторта — Рети</a></li>
+			</ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Пояснительные партии</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">III. КОМБИНАЦИЯ</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">IV. ПОЗИЦИОННАЯ ИГРА</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">V. ЭСТЕТИКА ШАХМАТНОЙ ИГРЫ</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VI. ПРИМЕРНЫЕ ПАРТИИ</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VII. ОБ ОБУЧЕНИИ ШАХМАТНОЙ ИГРЕ</a></li>
+	</ul>
+
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЗДРАВЫЙ СМЫСЛ В ШАХМАТНОЙ ИГРЕ (12 ЛЕКЦИЙ О ШАХМАТНОЙ ИГРЕ)</a></li>
+	<ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие к изданию 1924 года</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие к первому изданию</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекция 1</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекция 2</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекция 3</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекция 4</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекция 5</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекция 6</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекции 7 и 8</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекция 9</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Лекции 10, 11 и 12</a></li>
+		<ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры пассивной силы короля</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры силы проходных пешек</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры на цугцванг</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Сравнительная сила фигур и полей в концах игры</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Послесловие</a></li>
+	</ul>
+
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">НАЧАТКИ ШАХМАТНОГО ЗНАНИЯ </a></li>
+	<ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">I </a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">II </a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">III </a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">I V</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">V </a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VI </a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VI I</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VII I</a></li>
+	</ul>
+
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">УРОКИ С НАЧИНАЮЩИМИ</a></li>
+	<ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 1</a></li>
+		<ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Правила игры</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ходы фигур</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Король</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ладья</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Слон</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ферзь</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Конь</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Пешка</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 2</a></li>
+		<ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Как берет пешка</a></li>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шах и мат королю</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 3</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 4</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 5</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 6</a></li>
+		<ul>
+			<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ничья и пат</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 7</a></li>
+		<ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рокировка</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Взятие на проходе (en passant)</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 8</a></li>
+		<ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Матование ладьей</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 9</a></li>
+		<ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Матование различными фигурами</a></li>
+		</ul>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 10</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 11</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 12</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 13</a></li>
+		<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Урок 14</a></li>
+	</ul>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+
+</div> <!-- iBook -->
+{% endblock content %}
+

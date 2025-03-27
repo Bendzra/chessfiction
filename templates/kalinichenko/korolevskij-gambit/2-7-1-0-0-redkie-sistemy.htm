@@ -1,0 +1,38 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>1. РЕДКИЕ СИСТЕМЫ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>1. РЕДКИЕ СИСТЕМЫ</h3>
+<p>Этот раздел посвящен гамбитным вариантам, которые вышли из практики, хотя и здесь есть исключения. Можно считать, что со стороны белых они не вполне корректны, однако все не так просто...</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-1-0-partii-268-273.htm' %}">Партии 268-273</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-1-1-0-gambit-polerio-mucio.htm' %}">ГАМБИТ ПОЛЕРИО-МУЦИО</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-1-1-partii-274-279.htm' %}">Партии 274-279</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-1-2-0-gambit-greko-filidora.htm' %}">ГАМБИТ ГРЕКО-ФИЛИДОРА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-1-2-partii-280-286.htm' %}">Партии 280-286</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-1-3-0-gambit-algajera.htm' %}">ГАМБИТ АЛЬГАЙЕРА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-1-3-partii-287-289.htm' %}">Партии 287-289</a></li>
+</ul>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

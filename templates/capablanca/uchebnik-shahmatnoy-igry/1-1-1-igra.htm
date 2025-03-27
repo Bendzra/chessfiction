@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>1. Игра | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h3>1. Игра</h3>
+<div class="score">
+<p>В шахматы играют на доске, имеющей шестьдесят четыре поля (или клетки), по восемь в ряд. Доску располагают так, чтобы белое угловое поле находилось справа от играющего. С обеих сторон устанавливают по шестнадцать фигур в порядке, указанном на диаграмме.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">1</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<p>Как легко убедиться, фигуры располагают симметрично, одни против других. Слева направо мы имеем: ладью, коня, слона, ферзя, короля, слона, коня и ладью. Перед каждой из этих фигур стоит по пешке. Партию начинает играющий белыми фигурами. Ходы делают поочередно.</p>
+<p>Целью каждого из противников является уничтожение неприятельского короля. Тот, кто, этого достиг, считается выигравшим партию.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,42 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава седьмая | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h1>Глава седьмая</h1>
+<div class="score">
+<img style="width:100%;" src="{% static 'images/'|add:book.slug|add:'/201.jpg' %}"/>
+  <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-0-pobedy-i-porazheniia.htm' %}">Победы и поражения</a></li>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-1-vosemdesiat-chasov.htm' %}">Восемьдесят часов?</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-2-za-bitogo-dvuh-nebityh-daiut.htm' %}">«За битого двух небитых дают»</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-3-nikchemnye-opravdaniia.htm' %}">Никчемные оправдания</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-4-protivnika-nado-uvazhat.htm' %}">Противника надо уважать</a></li>
+    </ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-0-proisshestviia-na-shahmatnoj-doske.htm' %}">происшествия на шахматной доске</a></li>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-1-ne-zhadnichaj.htm' %}">Не жадничай</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-2-samo-soboj-razumeetsia.htm' %}">Само собой разумеется</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-3-pat-sredstvo-zashchity.htm' %}">Пат - средство защиты</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-4-promezhutochnyj-hod.htm' %}">Промежуточный ход</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-5-ne-toropis-sdavatsia.htm' %}">Не торопись сдаваться</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-6-primenenie-mat-ucheniia.htm' %}">Применение - мать учения</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-7-davno-eto-bylo.htm' %}">Давно это было...</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-8-chto-za-chudaki-otgadaj.htm' %}">Что за чудаки_ Отгадай</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-3-resheniia.htm' %}">Решения</a></li>
+    </ul>
+  </ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

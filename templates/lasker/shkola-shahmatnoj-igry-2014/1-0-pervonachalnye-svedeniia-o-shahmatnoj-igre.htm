@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>I. ПЕРВОНАЧАЛЬНЫЕ СВЕДЕНИЯ О ШАХМАТНОЙ ИГРЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<a name="1-0-pervonachalnye-svedeniia-o-shahmatnoj-igre"></a>
+
+<div class="section">
+<h2>I. ПЕРВОНАЧАЛЬНЫЕ СВЕДЕНИЯ О ШАХМАТНОЙ ИГРЕ</h2>
+<div class="score">
+<p>У шахматной игры своя история, которая давно уже пробудила к себе интерес, но о которой мы, тем не менее, знаем очень немного. О возникновении этой игры существует несколько легенд, но их историческая правда заключается лишь в том, что они правильно переносят место возникновения в Азию, а время возникновения — в очень далекое прошлое. В египетской скульптуре были найдены изображения игр, похожих на шахматы. Найдены были также относящиеся к шахматам документы, написанные свыше тысячи лет назад. Однако шахматная игра той эпохи не была тождественна современной. На протяжении своей истории шахматы, несомненно, претерпели многочисленные изменения, и, кто знает, не является ли предком наших шахмат игра в шашки или, точнее, некоторое подобие этой игры.</p>
+<p>История шахмат в Европе началась приблизительно тысячу лет назад. В ту эпоху они пользовались в Испании большим уважением и являлись любимой игрой знати и ученых. В шахматы играли при дворах и рыцарских замках, их воспевали в прекрасных поэмах. В течение столетий они оставались утонченной игрой, доступной лишь изысканному вкусу. Постепенно шахматы проникли в Италию и Францию и в конце концов получили распространение.</p>
+<p>Шахматная игра, как сказано, подвергалась различным изменениям, но только внешним, по форме, и не по своей сущности. Последняя оставалась неизменной на протяжении тысячелетий, и раскрыть ее поэтому нетрудно: игра в шахматы всегда стремилась отображать войну между двумя противоборствующими сторонами, ожесточенную войну, которая хотя и ведется по определенным законам и установленным порядкам, но не знает, что такое милость или пощада. Это становится ясным из простого ознакомления с правилами игры.</p>
+
+</div> <!-- score -->
+<ul>
+
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-shahmatnaya-doska.htm' %}">Шахматная доска</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-0-shahmatnye-figury.htm' %}">Шахматные фигуры</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-1-pravila-hodov.htm' %}">Правила ходов</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-2-korol.htm' %}">Король</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-3-ladya.htm' %}">Ладья</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-4-slon.htm' %}">Слон</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-5-ferz.htm' %}">Ферзь</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-6-kon.htm' %}">Конь</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-7-peshka.htm' %}">Пешка</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-iskhod-igry_mat_pat_nichya.htm' %}">Исход игры: мат, пат, ничья</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-zadacha-shahmatnoj-strategii.htm' %}">Задача шахматной стратегии</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-opisatelnaya-i-algebraicheskaya-notaciya.htm' %}">Описательная и алгебраическая нотация</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-nasha-zadacha.htm' %}">Наша задача</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-7-vygody-materialnogo-perevesa.htm' %}">Выгоды материального перевеса</a></li>
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Выгоды нападения на одинокого короля</a></li>
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Выгоды, получаемые несколькими одновременными нападениями</a></li>
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Использование превосходства в решающем пункте</a></li>
+	<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Сравнительная ценность фигур при размене</a></li>
+</ul>
+
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

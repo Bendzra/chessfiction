@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава третья. Различные фигуры в борьбе против пешки | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block description %}
+<meta name="description" content="Глава третья РАЗЛИЧНЫЕ ФИГУРЫ В БОРЬБЕ ПРОТИВ ПЕШКИ, Ферзь против пешки, Ладья против пешки, Легкая фигура против пешки">
+{% endblock description %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>Глава третья<br />РАЗЛИЧНЫЕ ФИГУРЫ В БОРЬБЕ ПРОТИВ ПЕШКИ</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1_ferz-protiv-peshki.htm' %}">Ферзь против пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2_ladia-protiv-peshki.htm' %}">Ладья против пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3_legkaia-figura-protiv-peshki.htm' %}">Легкая фигура против пешки</a></li>
+</ul>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,71 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Сокольский А.П. Внимание ловушка!</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧТО ТАКОЕ ЛОВУШКА</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-debiutnye-lovushki.htm' %}">ДЕБЮТНЫЕ ЛОВУШКИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-lovushki-v-otkrytyh-debiutah.htm' %}">Ловушки в открытых дебютах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ловушки в полуоткрытых дебютах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ловушки в закрытых дебютах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Некорректные ловушки</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЛОВУШКИ В СЕРЕДИНЕ ИГРЫ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">«Попутная ловушка»</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Король в центре</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Две катастрофы на пункте f7</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Угроза мата</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Связку легко не заметить</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Главная диагональ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Капкан для ферзя</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ладья в западне</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Охота на слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Жадность наказуема!</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ладья как приманка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Жертва ферзя</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Двойной удар</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Коневая вилка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В чью пользу?</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Коварная пешка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Промежуточный ход и ловушка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Позиционные ловушки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Цейтнот и ловушка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Психологические ловушки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Пат и вечный шах</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЛОВУШКИ В ЭНДШПИЛЕ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Хитрые пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Не рой другому яму</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Этюд в партии</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Благодушие опасно!</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ловушка в этюде</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">КОРОТКИЕ ПАРТИИ</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

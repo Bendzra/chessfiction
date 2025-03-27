@@ -1,0 +1,87 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ограничение подвижности пешечных цепей | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3><a name="#37">Ограничение подвижности пешечных цепей</a></h3>
+
+<p>Итак, мы убедились в том, что мощная пешечная фаланга представляет собой большую потенциальную силу. Чтобы не допустить ее образования у противника, надо стремиться противопоставить каждой активной пешечной единице свою «тормозящую» пешку.</p>
+
+<div class="section">
+	<div class="chessBoard small" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+	<p>Возьмем самый простой пример:
+	 <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e5</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">2.Кf3</span> 
+	 <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 1", this, "b8c6"); ' class="line0">Кc6</span> 
+	 <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1", this, "f1c4"); ' class="line0">3.Сc4</span> 
+	 <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1", this, "f8c5"); ' class="line0">Сc5</span> 
+	 <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq - 0 1", this, "c2c3"); ' class="line0">4.c3</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 0 1", this, "g8f6"); ' class="line0">Кf6</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/2b1p3/2BPP3/2P2N2/PP3PPP/RNBQK2R b KQkq d3 0 1", this, "d2d4"); ' class="line0">5.d4</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/2b5/2BpP3/2P2N2/PP3PPP/RNBQK2R w KQkq - 0 1", this, "e5d4"); ' class="line0">ed</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/2b5/2BPP3/5N2/PP3PPP/RNBQK2R b KQkq - 0 1", this, "c3d4"); ' class="line0">6.cd</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/8/1bBPP3/5N2/PP3PPP/RNBQK2R w KQkq - 0 1", this, "c5b4"); ' class="line0">Сb4+</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/8/1bBPP3/5N2/PP1B1PPP/RN1QK2R b KQkq - 0 1", this, "c1d2"); ' class="line0">7.Сd2</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/8/2BPP3/5N2/PP1b1PPP/RN1QK2R w KQkq - 0 1", this, "b4d2"); ' class="line0">С:d2+</span> 
+	 <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/8/2BPP3/5N2/PP1N1PPP/R2QK2R b KQkq - 0 1", this, "b1d2"); ' class="line0">8.Кb:d2</span> 
+	 <span onclick='loadMove("r1bqk2r/ppp2ppp/2n2n2/3p4/2BPP3/5N2/PP1N1PPP/R2QK2R w KQkq d6 0 1", this, "d7d5"); ' class="line0">d5!</span> 
+	</p>
+	<p>Черные своевременно разбивают пешечный центр белых. После
+	 <span onclick='loadMove("r1bqk2r/ppp2ppp/2n2n2/3P4/2BP4/5N2/PP1N1PPP/R2QK2R b KQkq - 0 1", this, "e4d5"); ' class="line0">9.ed</span> 
+	 <span onclick='loadMove("r1bqk2r/ppp2ppp/2n5/3n4/2BP4/5N2/PP1N1PPP/R2QK2R w KQkq - 0 1", this, "f6d5"); ' class="line0">К:d5</span> 
+	черные, продолжая далее
+	<b>Кc6—e7</b> и <b>c7—c6</b>, надежно фиксируют центральную пешку белых и создают сильное фигурное воздействие в центре.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p>В ряде случаев проблема торможения пешечных цепей тесно связана со своевременными профилактическими мерами. Ведь нередко возникновение пешечной фаланги (или разрушение фаланги противника) происходит внезапно, тактическим путем.</p>
+<div class="section">
+	<div class="chessBoard small" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+	 <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+	<p>Так, после
+	 <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1", this, "g7g6"); ' class="line0">g6</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppppp1p/6p1/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">2.d4</span> 
+	 <span onclick='loadMove("rnbqk1nr/ppppppbp/6p1/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 1", this, "f8g7"); ' class="line0">Сg7</span> 
+	 <span onclick='loadMove("rnbqk1nr/ppppppbp/6p1/8/3PPP2/8/PPP3PP/RNBQKBNR b KQkq f3 0 1", this, "f2f4"); ' class="line0">3.f4</span> 
+	 <span onclick='loadMove("rnbqk1nr/pp1pppbp/6p1/2p5/3PPP2/8/PPP3PP/RNBQKBNR w KQkq c6 0 1", this, "c7c5"); ' class="line0">c5</span> 
+	 <span onclick='loadMove("rnbqk1nr/pp1pppbp/6p1/2pP4/4PP2/8/PPP3PP/RNBQKBNR b KQkq - 0 1", this, "d4d5"); ' class="line0">4.d5</span> 
+	 <span onclick='loadMove("rnbqk1nr/pp2ppbp/3p2p1/2pP4/4PP2/8/PPP3PP/RNBQKBNR w KQkq - 0 1", this, "d7d6"); ' class="line0">d6</span> 
+	 <span onclick='loadMove("rnbqk1nr/pp2ppbp/3p2p1/2pP4/4PP2/2N5/PPP3PP/R1BQKBNR b KQkq - 0 1", this, "b1c3"); ' class="line0">5.Кc3</span> 
+	 <span onclick='loadMove("rnbqk2r/pp2ppbp/3p1np1/2pP4/4PP2/2N5/PPP3PP/R1BQKBNR w KQkq - 0 1", this, "g8f6"); ' class="line0">Кf6</span> 
+	 <span onclick='loadMove("rnbqk2r/pp2ppbp/3p1np1/2pP4/4PP2/2N5/PPP1B1PP/R1BQK1NR b KQkq - 0 1", this, "f1e2"); ' class="line0">6.Сe2</span> 
+	 <span onclick='loadMove("rnbq1rk1/pp2ppbp/3p1np1/2pP4/4PP2/2N5/PPP1B1PP/R1BQK1NR w KQ - 0 1", this, "e8g8"); ' class="line0">0-0</span> 
+	естественный ход
+	 <span onclick='loadMove("rnbq1rk1/pp2ppbp/3p1np1/2pP4/4PP2/2N2N2/PPP1B1PP/R1BQK2R b KQ - 0 1", this, "g1f3"); ' class="line0">7.Кf3?</span> 
+	влечет за собой острый контрудар
+	 <span onclick='loadMove("rnbq1rk1/p3ppbp/3p1np1/1ppP4/4PP2/2N2N2/PPP1B1PP/R1BQK2R w KQ b6 0 1", this, "b7b5"); ' class="line0">7...b5!</span> 
+	Неожиданно пешки черных на ферзевом фланге оживают и энергично приходят в движение. Выясняется, что варианты
+	 <span onclick='loadMove("rnbq1rk1/p3ppbp/3p1np1/1NpP4/4PP2/5N2/PPP1B1PP/R1BQK2R b KQ - 0 1", this, "c3b5"); ' class="line0">8.К:b5</span> 
+	 <span onclick='loadMove("rnbq1rk1/p3ppbp/3p2p1/1NpP4/4nP2/5N2/PPP1B1PP/R1BQK2R w KQ - 0 1", this, "f6e4"); ' class="line0">К:e4</span> 
+	или
+	 <span onclick='loadMove("rnbq1rk1/p3ppbp/3p1np1/1BpP4/4PP2/2N2N2/PPP3PP/R1BQK2R b KQ - 0 1", this, "e2b5"); ' class="line1">8.С:b5</span> 
+	 <span onclick='loadMove("rnbq1rk1/p3ppbp/3p2p1/1BpP4/4nP2/2N2N2/PPP3PP/R1BQK2R w KQ - 0 1", this, "f6e4"); ' class="line1">К:e4!</span> 
+	 <span onclick='loadMove("rnbq1rk1/p3ppbp/3p2p1/1BpP4/4NP2/5N2/PPP3PP/R1BQK2R b KQ - 0 1", this, "c3e4"); ' class="line1">9.К:e4</span> 
+	 <span onclick='loadMove("rnb2rk1/p3ppbp/3p2p1/qBpP4/4NP2/5N2/PPP3PP/R1BQK2R w KQ - 0 1", this, "d8a5"); ' class="line1">Фa5+</span> 
+	 <span onclick='loadMove("rnb2rk1/p3ppbp/3p2p1/qBpP4/5P2/2N2N2/PPP3PP/R1BQK2R b KQ - 0 1", this, "e4c3"); ' class="line1">10.Кc3</span> 
+	 <span onclick='loadMove("rnb2rk1/p3pp1p/3p2p1/qBpP4/5P2/2b2N2/PPP3PP/R1BQK2R w KQ - 0 1", this, "g7c3"); ' class="line1">С:c3+</span> 
+	 <span onclick='loadMove("rnb2rk1/p3pp1p/3p2p1/qBpP4/5P2/2P2N2/P1P3PP/R1BQK2R b KQ - 0 1", this, "b2c3"); ' class="line1">11.bc</span> 
+	 <span onclick='loadMove("rnb2rk1/p3pp1p/3p2p1/1qpP4/5P2/2P2N2/P1P3PP/R1BQK2R w KQ - 0 1", this, "a5b5"); ' class="line1">Ф:b5</span> 
+	благоприятны для черных, разрушающих центр белых. Стремительное образование пешечной фаланги на ферзевом фланге позволяет черным уже в дебюте получить лучшие шансы.</p>
+	<p>Ошибка белых заключалась в том, что они не приняли профилактических мер против указанного контрнаступления. Вместо <b>7. Кf3</b> необходимо было
+	 <span onclick='loadMove("rnbq1rk1/pp2ppbp/3p1np1/2pP4/P3PP2/2N5/1PP1B1PP/R1BQK1NR b KQ a3 0 1", this, "a2a4"); ' class="line1">7.a4!</span>, кардинально препятствуя ходу <b>b7—b5</b>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

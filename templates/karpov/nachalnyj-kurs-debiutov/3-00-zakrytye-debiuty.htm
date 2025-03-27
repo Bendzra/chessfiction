@@ -1,0 +1,77 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЗАКРЫТЫЕ ДЕБЮТЫ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ЗАКРЫТЫЕ ДЕБЮТЫ</h1>
+<p>Современная классификация дебютов заметно отличается от принятой в прошлом. Если в то время к закрытым относили все дебюты, в которых белые на 1-м ходу играли не
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+, то ныне закрытыми признаются — по аналогии с открытыми — лишь начала с первым ходом
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2", this, "d7d5"); ' class="line0">d5</span> 
+.</p>
+<p>Остальные «бывшие закрытые» дебюты разбиты на две группы: полузакрытые и фланговые дебюты, которые различаются главным образом возникающей при их разыгрывании пешечной структурой.</p>
+<p>В обеих этих группах случаются перестановки ходов, поэтому 1-й ход не определяет дебют в точности (впрочем, подобные перестановки мы не раз встречали также в открытых и полуоткрытых дебютах, хотя и нечасто).</p>
+<p>Приступаем к изучению закрытых дебютов, главным из которых является Ферзевый гамбит.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-01-ferzevyj-gambit.htm' %}">Ферзевый гамбит</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-01-ferzevyj-gambit.htm' %}#prinyatyj-ferzevyj-gambit">Принятый ферзевый гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-01-ferzevyj-gambit.htm' %}#game-valekho-kasparov-2005">Вальехо — Каспаров</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-ortodoksalnaia-zashchita.htm' %}">Ортодоксальная защита</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-ortodoksalnaia-zashchita.htm' %}#game-karpov-yusupov-1988">Карпов — Юсупов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-ortodoksalnaia-zashchita.htm' %}#game-kasparov-short-1988">Каспаров — Шорт</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-ortodoksalnaia-zashchita.htm' %}#zashchita-tarrasha">Защита Тарраша</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-03-slavianskaia-zashchita.htm' %}">Славянская защита</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-03-slavianskaia-zashchita.htm' %}#game-adams-kasparov-1992">Адамс — Каспаров</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-03-slavianskaia-zashchita.htm' %}#game-karpov-kramnik-1994">Карпов — Крамник</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-04-katalonskoe-nachalo.htm' %}">Каталонское начало</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-04-katalonskoe-nachalo.htm' %}#game-karpov-belyavskij-1994">Карпов—Белявский</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-05-zashchita-chigorina.htm' %}">Защита Чигорина</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-05-zashchita-chigorina.htm' %}#game-tejhman-chigorin-1904">Тейхман — Чигорин</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-06-zashchita-ragozina.htm' %}">Защита Рагозина</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-06-zashchita-ragozina.htm' %}#game-halifman-serper-1994">Халифман — Серпер</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-07-kontrgambit-albina.htm' %}">Контргамбит Альбина</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-07-kontrgambit-albina.htm' %}#game-sokolov-morozevich-2005">И. Соколов — Морозевич</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-08-debiut-ferzevyh-peshek.htm' %}">Дебют ферзевых пешек</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-08-debiut-ferzevyh-peshek.htm' %}#game-bramajer-ditce-1971">Брамайер — Дитце</a></li>
+</ul>
+</li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

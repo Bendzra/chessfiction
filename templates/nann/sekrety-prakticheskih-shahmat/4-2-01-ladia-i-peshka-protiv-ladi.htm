@@ -1,0 +1,242 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ладья и пешка против ладьи | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h4>Ладья и пешка против ладьи</h4>
+
+<div class="message">
+<p>Этот эндшпиль настолько сложен, что ваш автор написал 320-страничную книгу, посвященную исключительно такому материальному соотношению (и даже тогда пришлось пренебречь несколькими интересными позициями!). Однако многие рядовые турнирные бойцы не изучали даже основные позиции этого эндшпиля. На самом деле, несколько базовых принципов довольно эффективно улучшат вашу эндшпильную технику.</p>
+<p>Если король слабейшей стороны может занять поле превращения пешки, то окончание почти всегда заканчивается вничью. Единственное исключение - когда пешка уже далеко продвинута, а фигуры соперника расположены плохо. Общая техника защиты довольно проста и называется «защита по шестому ряду».</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k3/7R/1r6/4PK2/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k3/7R/1r6/4PK2/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="4k3/7R/1r6/4PK2/8/8/8/8 w - - 0 1"></div>
+<!--p>152</p><p>Часть 4</p-->
+<p>Перед нами типичная позиция. Кажется, белые добились многого. Их ладья отрезает неприятельского короля по последнему ряду, а собственный король и пешка уже дошли до пятой горизонтали. Тем не менее, позиция абсолютно ничейна. Черные расположили свою ладью на шестой горизонтали, препятствуя немедленному надвижению белого короля. Единственный способ для него проникнуть на 6-ю линию - сыграть
+ <span onclick='loadMove("4k3/7R/1r2P3/5K2/8/8/8/8 b - - 0 1", this, "e5e6"); ' class="line0">1.e6</span> 
+, но тогда черные меняют планы и отвечают
+ <span onclick='loadMove("4k3/7R/4P3/5K2/8/8/8/1r6 w - - 0 2", this, "b6b1"); ' class="line0">1...Лb1</span> 
+, намереваясь бомбардировать белого короля шахами с тыла. Теперь, при пешке на e6, для него уже нет убежища перед пешкой, и после
+ <span onclick='loadMove("4k3/7R/4PK2/8/8/8/8/1r6 b - - 0 2", this, "f5f6"); ' class="line0">2.Крf6</span> 
+ <span onclick='loadMove("4k3/7R/4PK2/8/8/8/8/5r2 w - - 0 3", this, "b1f1"); ' class="line0">Лf1+</span> 
+ <span onclick='loadMove("4k3/7R/4P3/4K3/8/8/8/5r2 b - - 0 3", this, "f6e5"); ' class="line0">3.Крe5</span> 
+ <span onclick='loadMove("4k3/7R/4P3/4K3/8/8/8/4r3 w - - 0 4", this, "f1e1"); ' class="line0">Лe1+</span> 
+ <span onclick='loadMove("4k3/7R/3KP3/8/8/8/8/4r3 b - - 0 4", this, "e5d6"); ' class="line0">4.Крd6</span> 
+ <span onclick='loadMove("4k3/7R/3KP3/8/8/8/8/3r4 w - - 0 5", this, "e1d1"); ' class="line0">Лd1+</span> 
+и т.д. получается четкая ничья. Если в позиции на диаграмме белые выжидают ходом
+ <span onclick='loadMove("4k3/R7/1r6/4PK2/8/8/8/8 b - - 0 1", this, "h7a7"); ' class="line1">1.Лa7</span> 
+, то черные делают то же самое путем
+ <span onclick='loadMove("4k3/R7/2r5/4PK2/8/8/8/8 w - - 0 2", this, "b6c6"); ' class="line1">1...Лc6</span> 
+или
+ <span onclick='loadMove("4k3/R7/7r/4PK2/8/8/8/8 w - - 0 2", this, "b6h6"); ' class="line1">1...Лh6</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="5k2/R7/8/5PK1/8/8/8/1r6 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5k2/R7/8/5PK1/8/8/8/1r6 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="5k2/R7/8/5PK1/8/8/8/1r6 w - - 0 1"></div>
+<p>Второй важный принцип - «дистанция для шахов». Если у белого короля нет убежища от шахов черной ладьи, то фактором, определяющим, будут ли шахи небольшим неудобством или серьезной проблемой, является дистанция между королем и ладьей. Чем больше расстояние, тем лучше для слабейшей стороны.</p>
+<p>Данный пример объясняет ситуацию. Если ход белых, тот они продолжают
+ <span onclick='loadMove("5k2/R7/6K1/5P2/8/8/8/1r6 b - - 0 1", this, "g5g6"); ' class="line0">1.Крg6</span> 
+, создавая наиболее неприятные проблемы для черных. Если белые выжидают, то соперник создаст защиту по шестому ряду. К тому же ведет
+ <span onclick='loadMove("5k2/R7/5K2/5P2/8/8/8/1r6 b - - 0 1", this, "g5f6"); ' class="line1">1.Крf6</span> 
+ <span onclick='loadMove("5k2/R7/1r3K2/5P2/8/8/8/8 w - - 0 2", this, "b1b6"); ' class="line1">Лb6+</span> 
+, тогда как после
+ <span onclick='loadMove("5k2/R7/5P2/6K1/8/8/8/1r6 b - - 0 1", this, "f5f6"); ' class="line2">1.f6</span> 
+ <span onclick='loadMove("5k2/R7/5P2/6K1/8/8/8/6r1 w - - 0 2", this, "b1g1"); ' class="line2">Лg1+</span> 
+ничья получается сразу (обратите внимание на большую дистанцию для шахов).</p>
+<p>После
+ <span onclick='loadMove("5k2/R7/6K1/5P2/8/8/8/1r6 b - - 0 1", this, "g5g6"); ' class="line0">1.Крg6</span> 
+черным легко ошибиться. Например, пассивная оборона
+ <span onclick='loadMove("1r3k2/R7/6K1/5P2/8/8/8/8 w - - 0 2", this, "b1b8"); ' class="line0">1...Лb8</span> 
+ <span onclick='loadMove("1r3k2/R7/5PK1/8/8/8/8/8 b - - 0 2", this, "f5f6"); ' class="line0">2.f6</span> 
+ <span onclick='loadMove("1r4k1/R7/5PK1/8/8/8/8/8 w - - 0 3", this, "f8g8"); ' class="line0">Крg8</span> 
+рушится из-за
+ <span onclick='loadMove("1r4k1/6R1/5PK1/8/8/8/8/8 b - - 0 3", this, "a7g7"); ' class="line0">3.Лg7+</span> 
+ <span onclick='loadMove("1r3k2/6R1/5PK1/8/8/8/8/8 w - - 0 4", this, "g8f8"); ' class="line0">Крf8</span> 
+(или
+ <span onclick='loadMove("1r5k/6R1/5PK1/8/8/8/8/8 w - - 0 4", this, "g8h8"); ' class="line1">3...Крh8</span> 
+ <span onclick='loadMove("1r5k/7R/5PK1/8/8/8/8/8 b - - 0 4", this, "g7h7"); ' class="line1">4.Лh7+</span> 
+ <span onclick='loadMove("1r4k1/7R/5PK1/8/8/8/8/8 w - - 0 5", this, "h8g8"); ' class="line1">Крg8</span> 
+ <span onclick='loadMove("1r4k1/5P1R/6K1/8/8/8/8/8 b - - 0 5", this, "f6f7"); ' class="line1">5.f7+</span> 
+)
+ <span onclick='loadMove("1r3k2/7R/5PK1/8/8/8/8/8 b - - 0 4", this, "g7h7"); ' class="line0">4.Лh7</span> 
+, и план белых под названием «обход с угла» делает черных беззащитными. Обратите внимание, что этот вариант привел бы к ничье, если бы пешка белых стояла на g6, а король - на h6, поскольку не было бы пространства для обходного маневра. Отсюда можно сделать важный вывод, что если черные в подобных позициях вынуждены вести пассивную оборону с ладьей в последнем ряду, то при
+<!--p>Эндшпиль</p><p>153</p-->
+пешке a, b, g и h партия закончится вничью, а при пешке на одной из четырех других линиях позиция проиграна.</p>
+<p>В нашем примере мы имеем дело с пешкой f, поэтому пассивный план защиты недостаточен. Вместо этого черным надо пойти
+ <span onclick='loadMove("5k2/R7/6K1/5P2/8/8/8/5r2 w - - 0 2", this, "b1f1"); ' class="line1">1...Лf1</span> 
+. Этот ход препятствует белым после
+ <span onclick='loadMove("R4k2/8/6K1/5P2/8/8/8/5r2 b - - 0 2", this, "a7a8"); ' class="line1">2.Лa8+</span> 
+ <span onclick='loadMove("R7/4k3/6K1/5P2/8/8/8/5r2 w - - 0 3", this, "f8e7"); ' class="line1">Крe7</span> 
+сыграть
+ <span onclick='loadMove("R7/4k3/5PK1/8/8/8/8/5r2 b - - 0 3", this, "f5f6"); ' class="line1">3.f6+</span> 
+. Белые могут усилить позицию только путем
+ <span onclick='loadMove("5k2/R7/5K2/5P2/8/8/8/5r2 b - - 0 2", this, "g6f6"); ' class="line2">2.Крf6</span> 
+, угрожая матом. Черные должны сделать выбор между
+ <span onclick='loadMove("4k3/R7/5K2/5P2/8/8/8/5r2 w - - 0 3", this, "f8e8"); ' class="line2">2...Крe8</span> 
+и
+ <span onclick='loadMove("6k1/R7/5K2/5P2/8/8/8/5r2 w - - 0 3", this, "f8g8"); ' class="line2">2...Крg8</span> 
+. Один ход проигрывает, другой приводит к ничьей.</p>
+<p>Правильным будет то продолжение, которое позволит черным в дальнейшей игре получить достаточную дистанцию для шахов. После
+ <span onclick='loadMove("6k1/R7/5K2/5P2/8/8/8/5r2 w - - 0 3", this, "f8g8"); ' class="line2">2...Крg8!</span> 
+ <span onclick='loadMove("R5k1/8/5K2/5P2/8/8/8/5r2 b - - 0 3", this, "a7a8"); ' class="line2">3.Лa8+</span> 
+ <span onclick='loadMove("R7/7k/5K2/5P2/8/8/8/5r2 w - - 0 4", this, "g8h7"); ' class="line2">Крh7</span> 
+белые могут испробовать
+ <span onclick='loadMove("5R2/7k/5K2/5P2/8/8/8/5r2 b - - 0 4", this, "a8f8"); ' class="line2">4.Лf8</span> 
+(не помогает
+ <span onclick='loadMove("R7/7k/4K3/5P2/8/8/8/5r2 b - - 0 4", this, "f6e6"); ' class="line3">4.Крe6</span> 
+ <span onclick='loadMove("R7/6k1/4K3/5P2/8/8/8/5r2 w - - 0 5", this, "h7g7"); ' class="line3">Крg7!</span> 
+и
+ <span onclick='loadMove("8/7k/5K2/R4P2/8/8/8/5r2 b - - 0 4", this, "a8a5"); ' class="line3">4.Лa5</span> 
+ <span onclick='loadMove("6k1/8/5K2/R4P2/8/8/8/5r2 w - - 0 5", this, "h7g8"); ' class="line3">Крg8</span> 
+), намечая
+ <!--span onclick='loadMove("5R2/7k/5K2/5P2/8/8/8/5r2 w - - 0 5", this, "h7g8"); ' class="line2">4...z0</span--> 
+ <span onclick='loadMove("5R2/4K2k/8/5P2/8/8/8/5r2 b - - 0 5", this, "f6e7"); ' class="line2">5.Крe7</span> 
+ <!--span onclick='loadMove("5R2/4K2k/8/5P2/8/8/8/5r2 w - - 0 6", this, "f6e7"); ' class="line2">z0</span--> 
+и
+ <span onclick='loadMove("5R2/4K2k/5P2/8/8/8/8/5r2 b - - 0 6", this, "f5f6"); ' class="line2">6.f6</span> 
+. Если черные оставят ладью на той же позиции, то, в конце концов, проиграют, но они могут изменить директорию путем
+ <span onclick='loadMove("5R2/7k/5K2/5P2/8/8/8/r7 w - - 0 5", this, "f1a1"); ' class="line3">4...Лa1!</span> 
+Если теперь белые сделают ход королем, открывая дорогу пешке, то черные начнут шахи с фланга. У короля нет убежища, и ввиду большой дистанции для шахов белые не могут эффективно им воспрепятствовать. Конечно, они могут сыграть по-другому, но это не помогает; например, после
+ <span onclick='loadMove("4R3/7k/5K2/5P2/8/8/8/r7 b - - 0 5", this, "f8e8"); ' class="line3">5.Лe8</span> 
+(чтобы на
+ <span onclick='loadMove("4R3/7k/r4K2/5P2/8/8/8/8 w - - 0 6", this, "a1a6"); ' class="line3">5...Лa6+</span> 
+ответить
+ <span onclick='loadMove("8/7k/r3RK2/5P2/8/8/8/8 b - - 0 6", this, "e8e6"); ' class="line3">6.Лe6</span> 
+) проще всего ведет к ничьей возвращение ладьи на f1.</p>
+<p>С другой стороны,
+ <span onclick='loadMove("4k3/R7/5K2/5P2/8/8/8/5r2 w - - 0 3", this, "f8e8"); ' class="line2">2...Крe8?</span> 
+проигрывает. После
+ <span onclick='loadMove("R3k3/8/5K2/5P2/8/8/8/5r2 b - - 0 3", this, "a7a8"); ' class="line2">3.Лa8+</span> 
+ <span onclick='loadMove("R7/3k4/5K2/5P2/8/8/8/5r2 w - - 0 4", this, "e8d7"); ' class="line2">Крd7</span> 
+ <span onclick='loadMove("5R2/3k4/5K2/5P2/8/8/8/5r2 b - - 0 4", this, "a8f8"); ' class="line2">4.Лf8</span> 
+ <!--span onclick='loadMove("5R2/3k4/5K2/5P2/8/8/8/5r2 w - - 0 5", this, "a8f8"); ' class="line2">z0</span--> 
+черные никак не в состоянии помешать
+ <span onclick='loadMove("5R2/3k2K1/8/5P2/8/8/8/5r2 b - - 0 5", this, "f6g7"); ' class="line2">5.Крg7</span> 
+(или <b>Крf7</b>, если черная ладья покинет линию «f») с дальнейшим f6, и пешку не остановить. Проблема черных в том, что у них теперь нет шахов сбоку, которые спасают при
+ <span onclick='loadMove("6k1/R7/5K2/5P2/8/8/8/5r2 w - - 0 3", this, "f8g8"); ' class="line3">2...Крg8</span> 
+. На королевском фланге их ладье для шахов не хватает пространства, а шаховать с ферзевого фланга они не могут, поскольку на пути встает собственный король.</p>
+<p>Этот принцип обычно формулируется так: «Отступай королем на короткую сторону», чтобы оставить другую сторону свободной для дальних шахов ладьей, но, в конечном счете, все сводится к тому, чтобы обеспечить адекватную дистанцию для шахов.</p>
+<p>Вот другой пример:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/4k3/1r6/1P6/1K6/8/3R4 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/4k3/1r6/1P6/1K6/8/3R4 b - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/4k3/1r6/1P6/1K6/8/3R4 b - - 0 1"></div>
+<!--p>154</p><p>Часть 4</p-->
+<p>Ход черных, и они должны отразить угрозу <b>Крc4</b> с последующим <b>b5</b>. Если сыграть
+ <span onclick='loadMove("8/8/4k3/7r/1P6/1K6/8/3R4 w - - 0 2", this, "b5h5"); ' class="line1">1...Лh5</span> 
+, то белые продвинут свою пешку после
+ <span onclick='loadMove("8/8/4k3/7r/KP6/8/8/3R4 b - - 0 2", this, "b3a4"); ' class="line1">2.Крa4</span> 
+. Единственная возможность защиты - отступить ладьей по линии «b», чтобы, когда белый король пойдет на a4 или c4, встретить его шахами. Для этого черным необходимо иметь максимально возможную дистанцию для шахов, и, действительно, к ничье ведет только
+ <span onclick='loadMove("1r6/8/4k3/8/1P6/1K6/8/3R4 w - - 0 2", this, "b5b8"); ' class="line0">1...Лb8!</span> 
+После
+ <span onclick='loadMove("1r6/8/4k3/8/1P1R4/1K6/8/8 b - - 0 2", this, "d1d4"); ' class="line0">2.Лd4</span> 
+(бесполезно
+ <span onclick='loadMove("1r6/8/4k3/8/1PK5/8/8/3R4 b - - 0 2", this, "b3c4"); ' class="line1">2.Крc4</span> 
+ <span onclick='loadMove("2r5/8/4k3/8/1PK5/8/8/3R4 w - - 0 3", this, "b8c8"); ' class="line1">Лc8+</span> 
+ <span onclick='loadMove("2r5/8/4k3/1K6/1P6/8/8/3R4 b - - 0 3", this, "c4b5"); ' class="line1">3.Крb5</span> 
+ <span onclick='loadMove("1r6/8/4k3/1K6/1P6/8/8/3R4 w - - 0 4", this, "c8b8"); ' class="line1">Лb8+</span> 
+ <span onclick='loadMove("1r6/8/4k3/2K5/1P6/8/8/3R4 b - - 0 4", this, "b5c5"); ' class="line1">4.Крc5</span> 
+ <span onclick='loadMove("2r5/8/4k3/2K5/1P6/8/8/3R4 w - - 0 5", this, "b8c8"); ' class="line1">Лc8+</span> 
+ <span onclick='loadMove("2r5/8/1K2k3/8/1P6/8/8/3R4 b - - 0 5", this, "c5b6"); ' class="line1">5.Крb6</span> 
+ <span onclick='loadMove("1r6/8/1K2k3/8/1P6/8/8/3R4 w - - 0 6", this, "c8b8"); ' class="line1">Лb8+</span> 
+, и белый король должен вернуться; после же хода в партии этот вариант становится угрозой, поскольку белые смогут в конце сыграть <b>Крc7</b>)
+ <span onclick='loadMove("1r6/8/8/4k3/1P1R4/1K6/8/8 w - - 0 3", this, "e6e5"); ' class="line0">2...Крe5</span> 
+(прогоняя ладью с позиции, откуда она защищает пешку b)
+ <span onclick='loadMove("1r6/3R4/8/4k3/1P6/1K6/8/8 b - - 0 3", this, "d4d7"); ' class="line0">3.Лd7</span> 
+ <span onclick='loadMove("1r6/3R4/4k3/8/1P6/1K6/8/8 w - - 0 4", this, "e5e6"); ' class="line0">Крe6</span> 
+(черные не могут ждать;
+ <span onclick='loadMove("1r6/3R4/8/8/1P2k3/1K6/8/8 w - - 0 4", this, "e5e4"); ' class="line1">3...Крe4?</span> 
+проигрывает из-за
+ <span onclick='loadMove("1r6/3R4/8/8/1PK1k3/8/8/8 b - - 0 4", this, "b3c4"); ' class="line1">4.Крc4</span> 
+ <span onclick='loadMove("2r5/3R4/8/8/1PK1k3/8/8/8 w - - 0 5", this, "b8c8"); ' class="line1">Лc8+</span> 
+ <span onclick='loadMove("2r5/3R4/8/1K6/1P2k3/8/8/8 b - - 0 5", this, "c4b5"); ' class="line1">5.Крb5</span> 
+ <span onclick='loadMove("1r6/3R4/8/1K6/1P2k3/8/8/8 w - - 0 6", this, "c8b8"); ' class="line1">Лb8+</span> 
+ <span onclick='loadMove("1r6/3R4/8/2K5/1P2k3/8/8/8 b - - 0 6", this, "b5c5"); ' class="line1">6.Крc5</span> 
+ <span onclick='loadMove("2r5/3R4/8/2K5/1P2k3/8/8/8 w - - 0 7", this, "b8c8"); ' class="line1">Лc8+</span> 
+ <span onclick='loadMove("2r5/3R4/1K6/8/1P2k3/8/8/8 b - - 0 7", this, "c5b6"); ' class="line1">7.Крb6</span> 
+ <span onclick='loadMove("1r6/3R4/1K6/8/1P2k3/8/8/8 w - - 0 8", this, "c8b8"); ' class="line1">Лb8+</span> 
+ <span onclick='loadMove("1r6/1R6/1K6/8/1P2k3/8/8/8 b - - 0 8", this, "d7b7"); ' class="line1">8.Лb7</span> 
+ <!--span onclick='loadMove("1r6/1R6/1K6/8/1P2k3/8/8/8 w - - 0 9", this, "d7b7"); ' class="line1">z0</span--> 
+с последующим
+ <span onclick='loadMove("1r6/1R6/1K6/1P6/4k3/8/8/8 b - - 0 9", this, "b4b5"); ' class="line1">9.b5</span> 
+; в этом варианте белая ладья эффективно сокращает дистанцию для шахов, так как может прервать их по седьмому ряду)
+ <span onclick='loadMove("1r6/R7/4k3/8/1P6/1K6/8/8 b - - 0 4", this, "d7a7"); ' class="line0">4.Лa7</span> 
+ <span onclick='loadMove("1r6/R7/3k4/8/1P6/1K6/8/8 w - - 0 5", this, "e6d6"); ' class="line0">Крd6</span> 
+ <span onclick='loadMove("1r6/R7/3k4/8/KP6/8/8/8 b - - 0 5", this, "b3a4"); ' class="line0">5.Крa4</span> 
+ <span onclick='loadMove("1r6/R7/2k5/8/KP6/8/8/8 w - - 0 6", this, "d6c6"); ' class="line0">Крc6</span> 
+, и черные вовремя успевают помешать надвижению пешки. Но если бы дистанция для шахов была хоть на одно поле меньше, то черные проиграли бы, например:
+ <span onclick='loadMove("8/1r6/4k3/8/1P6/1K6/8/3R4 w - - 0 2", this, "b5b7"); ' class="line1">1...Лb7?</span> 
+ <span onclick='loadMove("8/1r6/4k3/8/1PK5/8/8/3R4 b - - 0 2", this, "b3c4"); ' class="line1">2.Крc4</span> 
+ <span onclick='loadMove("8/2r5/4k3/8/1PK5/8/8/3R4 w - - 0 3", this, "b7c7"); ' class="line1">Лc7+</span> 
+ <span onclick='loadMove("8/2r5/4k3/1K6/1P6/8/8/3R4 b - - 0 3", this, "c4b5"); ' class="line1">3.Крb5</span> 
+ <span onclick='loadMove("2r5/8/4k3/1K6/1P6/8/8/3R4 w - - 0 4", this, "c7c8"); ' class="line1">Лc8</span> 
+(пытаясь снова получить дистанцию для шахов; безнадежно
+ <span onclick='loadMove("8/1r6/4k3/1K6/1P6/8/8/3R4 w - - 0 4", this, "c7b7"); ' class="line2">3...Лb7+</span> 
+ <span onclick='loadMove("8/1r6/4k3/2K5/1P6/8/8/3R4 b - - 0 4", this, "b5c5"); ' class="line2">4.Крc5</span> 
+ <span onclick='loadMove("8/2r5/4k3/2K5/1P6/8/8/3R4 w - - 0 5", this, "b7c7"); ' class="line2">Лc7+</span> 
+ <span onclick='loadMove("8/2r5/1K2k3/8/1P6/8/8/3R4 b - - 0 5", this, "c5b6"); ' class="line2">5.Крb6</span> 
+)
+ <span onclick='loadMove("2r5/8/K3k3/8/1P6/8/8/3R4 b - - 0 4", this, "b5a6"); ' class="line1">4.Крa6</span> 
+ <span onclick='loadMove("r7/8/K3k3/8/1P6/8/8/3R4 w - - 0 5", this, "c8a8"); ' class="line1">Лa8+</span> 
+ <span onclick='loadMove("r7/1K6/4k3/8/1P6/8/8/3R4 b - - 0 5", this, "a6b7"); ' class="line1">5.Крb7</span> 
+с последующим <b>b5</b>, и белые побеждают.</p>
+<p>Мы уже видели в анализе на стр. 153, что защищающийся должен быть готов использовать свою ладью очень гибко и атаковать ею с разных направлений в зависимости от меняющейся обстановки. Вот другой очень важный пример:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="R7/6k1/P7/8/8/5K2/8/r7 b - - 0 1" data-markers="X SNCf700 SNCf600 SNCg600 SNCh600 SNCh700"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("R7/6k1/P7/8/8/5K2/8/r7 b - - 0 1", this, ""); rdrms(this); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="R7/6k1/P7/8/8/5K2/8/r7 b - - 0 1" data-markers="X SNCf700 SNCf600 SNCg600 SNCh600 SNCh700"></div>
+<p>Черные не могут перевести своего короля на ферзевый фланг, так как после <b>... Крe7</b> белые играют <b>a7</b>, и король оказывается между двух стульев. На <b>... Крd7</b> или <b>... Крf7</b> белые отвечают <b>Лh8</b>, выигрывая неприятельскую ладью. Следовательно, черный король заперт в невидимой клетке на королевском фланге, состоящей из полей, отмеченных на диаграмме (плюс поле g7, на котором король расположен
+<!--p>Эндшпиль</p><p>155</p-->
+сейчас). Для защиты черным остается только ладья, и они должны считаться с угрозой соперника перевести короля к пешке, освободить ладью и очистить проходной дорогу в ферзи. Если черные начнут шахи с тылу, то белый король спрячется на a7 (вот почему белые не должны раньше времени двигать пешку на a7), и опять ладья a8 будет свободна.</p>
+<p>Черные добиваются ничьей, гибко используя свою ладью:
+ <span onclick='loadMove("R7/6k1/P7/8/8/5K2/8/5r2 w - - 0 2", this, "a1f1"); ' class="line0">1...Лf1+</span> 
+ <span onclick='loadMove("R7/6k1/P7/8/4K3/8/8/5r2 b - - 0 2", this, "f3e4"); ' class="line0">2.Крe4</span> 
+ <span onclick='loadMove("R7/6k1/P4r2/8/4K3/8/8/8 w - - 0 3", this, "f1f6"); ' class="line0">Лf6!</span> 
+Эта смена директории - ключ к позиции; a7 больше не является убежищем, поскольку черные будут шаховать с фланга. Игра может продолжаться так:
+ <span onclick='loadMove("R7/6k1/P4r2/3K4/8/8/8/8 b - - 0 3", this, "e4d5"); ' class="line0">3.Крd5</span> 
+ <span onclick='loadMove("R7/6k1/Pr6/3K4/8/8/8/8 w - - 0 4", this, "f6b6"); ' class="line0">Лb6</span> 
+ <span onclick='loadMove("R7/6k1/Pr6/2K5/8/8/8/8 b - - 0 4", this, "d5c5"); ' class="line0">4.Крc5</span> 
+(
+ <span onclick='loadMove("8/R5k1/Pr6/3K4/8/8/8/8 b - - 0 4", this, "a8a7"); ' class="line1">4.Лa7+</span> 
+ <span onclick='loadMove("8/R7/Pr4k1/3K4/8/8/8/8 w - - 0 5", this, "g7g6"); ' class="line1">Крg6</span> 
+ <span onclick='loadMove("8/R7/Pr4k1/2K5/8/8/8/8 b - - 0 5", this, "d5c5"); ' class="line1">5.Крc5</span> 
+ <span onclick='loadMove("8/R7/P4rk1/2K5/8/8/8/8 w - - 0 6", this, "b6f6"); ' class="line1">Лf6</span> 
+приводит к тому же)
+ <span onclick='loadMove("R7/6k1/P4r2/2K5/8/8/8/8 w - - 0 5", this, "b6f6"); ' class="line0">4...Лf6</span> 
+ <span onclick='loadMove("R7/6k1/P4r2/1K6/8/8/8/8 b - - 0 5", this, "c5b5"); ' class="line0">5.Крb5</span> 
+(теперь белые угрожают отойти ладьей, поэтому черные должны начинать шахи)
+ <span onclick='loadMove("R7/6k1/P7/1K3r2/8/8/8/8 w - - 0 6", this, "f6f5"); ' class="line0">5...Лf5+</span> 
+ <span onclick='loadMove("R7/6k1/P7/5r2/2K5/8/8/8 b - - 0 6", this, "b5c4"); ' class="line0">6.Крc4</span> 
+ <span onclick='loadMove("R7/6k1/P7/8/2K2r2/8/8/8 w - - 0 7", this, "f5f4"); ' class="line0">Лf4+</span> 
+ <span onclick='loadMove("R7/6k1/P7/3K4/5r2/8/8/8 b - - 0 7", this, "c4d5"); ' class="line0">7.Крd5</span> 
+ <span onclick='loadMove("R7/6k1/P4r2/3K4/8/8/8/8 w - - 0 8", this, "f4f6"); ' class="line0">Лf6</span> 
+, и белые не могут добиться прогресса. Если бы они в какой-то момент сыграли <b>a7</b>, то черные ответили бы <b>... Лa6</b> с последующим <b>Лa1</b>, и, попытайся тогда белые поддержать пешку королем, черные добились бы ничьей шахами с тылу (укромный уголок на a7 уже недоступен). Это двойное изменение положения ладьи (с a1 на f6 и обратно на a1) довольно трудно увидеть, и действительно, оно было открыто только в 1924 году Ванчурой.</p>
+<p>Несколько лет назад меня попросили проверить ряд анализов ладейных окончаний, но я не мог понять ни один из них: владевшие преимуществом белые, казалось, заставляли черных достигнуть ничейной позиции, но черные избегали ее! Наконец, я взглянул на дату, когда были сделаны эти анализы, - 1912 год, - и осознал, что, поскольку ничья Ванчуры в то время еще не была известна, все позиции того типа, что и на предыдущей диаграмме, считались выигранными для белых. Не удивительно, что следствием этой оценки стал ряд предложенных странных (с современной точки зрения) ходов.</p>
+<p>Добавлю, что если бы в приведенной позиции белый король был ближе к пешке а, то черным могло не хватить времени для достижения ничьи «по Ванчуре». Детальное объяснение того, как близко для выигрыша должен быть король, довольно сложно, его можно найти в специализированных книгах по эндшпилю.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

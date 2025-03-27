@@ -1,0 +1,47 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Нейштадт Я.И. Ваш решающий ход. Учебник шахматной комбинации. Практикум</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-o-sovershenstvovanii.htm' %}">О ШАХМАТНОМ СОВЕРШЕНСТВОВАНИИ И НЕМНОГО ОБ ЭТОЙ КНИГЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-alfa-i-omega.htm' %}">АЛЬФА И ОМЕГА ШАХМАТ (Стратегия и тактика. Определение комбинации. Классификация)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-temy-kombinacij.htm' %}">ТЕМЫ КОМБИНАЦИЙ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-otvlechenie.htm' %}">Отвлечение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Завлечение (привлечение)</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Уничтожение защиты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Освобождение поля или линии</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Связывание и освобождение от связки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Перекрытие</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Сочетание тем</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">К ПРИЗОВОМУ ПОЛЮ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧУДЕСНОЕ СПАСЕНИЕ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЭКЗАМЕН</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ОТВЕТЫ НА ЗАДАНИЯ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ИМЕННОЙ УКАЗАТЕЛЬ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Об авторе</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

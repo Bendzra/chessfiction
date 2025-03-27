@@ -1,0 +1,71 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЯЗЫК ШАХМАТНЫХ ФИГУР | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ЯЗЫК ШАХМАТНЫХ ФИГУР</h3>
+<div class="message">
+<p>Для того чтобы описать движение фигур по доске, существует специальная нотация, своеобразный язык шахматных фигур. Язык этот очень прост, и для его усвоения не требуется лингвистических способностей. Знание этого языка необходимо для чтения шахматной литературы. Мы познакомим вас с принятой в нашей стране алгебраической нотацией.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/8/8/8 w - - 0 1" data-markers="X TNa1a1'a1 TNc2c2'c2 TNd4d4'd4 TNf6f6'f6 TNd8d8'd8 TNb2b2'b2 TNe3e3'e3 TNg7g7'g7 TNh7h7'h7"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">11</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/8/8/8 w - - 0 1" data-markers="X TNa1a1'a1 TNc2c2'c2 TNd4d4'd4 TNf6f6'f6 TNd8d8'd8 TNb2b2'b2 TNe3e3'e3 TNg7g7'g7 TNh7h7'h7"></div>
+<p>Взгляните на диаграмму. Вертикали обозначены латинскими буквами (a, b, c, d, е, f, g, h), горизонтали — цифрами от единицы до восьми. Счет ведется от левого углового поля в лагере белых. Каждое из шестидесяти четырех полей имеет «имя» и «фамилию» — обозначается буквой и цифрой. Например: a1, c2, d4, f6, d8. Фигуры движутся с одного поля на другое. При записи ходов полной нотацией обозначается «пункт отправления» и «пункт прибытия» фигуры. Применяется и краткая нотация, когда записывается лишь «пункт прибытия». На первых порах мы будем пользоваться полной нотацией.</p>
+<p>Фигуры сокращенно обозначаются так:</p>
+<ul>
+<table>
+<tr><td>Король</td><td>—</td><td>Кр</td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/wk.png' %}" style="width:16px;"/></td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/bk.png' %}" style="width:16px;"/></td></tr>
+<tr><td>Ферзь</td><td>—</td><td>Ф</td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/wq.png' %}" style="width:16px;"/></td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/bq.png' %}" style="width:16px;"/></td></tr>
+<tr><td>Ладья</td><td>—</td><td>Л</td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/wr.png' %}" style="width:16px;"/></td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/br.png' %}" style="width:16px;"/></td></tr>
+<tr><td>Слон</td><td>—</td><td>С</td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/wb.png' %}" style="width:16px;"/></td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/bb.png' %}" style="width:16px;"/></td></tr>
+<tr><td>Конь</td><td>—</td><td>К</td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/wn.png' %}" style="width:16px;"/></td><td><img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/bn.png' %}" style="width:16px;"/></td></tr>
+</table>
+</ul>
+<p>Пешки буквами не обозначаются вообще. <img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/wp.png' %}" style="width:14px;"/> <img src="{% static 'Scripts/BoardScripts/css/pieces/merida/25/bp.png' %}" style="width:14px;"/></p>
+<p>Вот вы и овладели первым секретом: зная «язык», вы можете разыграть любую напечатанную шахматную партию. Начнем, пожалуй...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>(Фигуры в начальном положении.)</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Цифра показывает порядковый номер хода, а знаки <b>e2-e4</b> означают, что на поле e4 встала белая пешка e2.</p>
+<p class="longNotation">
+ <span class="ellipsis0">1. ...</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+</p>
+<p>Три точки перед ходом обозначают, что ход — черных. Королевская пешка черных пошла с поля e7 на поле e5.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR b KQkq - 0 2", this, "d1h5"); ' class="line0">2.Фd1-h5</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR w KQkq - 0 3", this, "b8c6"); ' class="line0">Кb8-c6</span> 
+</p>
+<p>Белый ферзь с d1 пошел на h5, черный конь — с b8 на c6.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 0 3", this, "f1c4"); ' class="line0">3.Сf1-c4</span> 
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 0 4", this, "g8f6"); ' class="line0">Кg8-f6</span> 
+</p>
+<p>Белый слон <b>Сf1</b> стал на c4, черные вывели коня с g8 на f6.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/pppp1Qpp/2n2n2/4p3/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 0 4", this, "h5f7"); ' class="line0">4.Фh5:f7</span>
+.</p>
+<p>Ферзь не просто пошел. Он с поля h5 взял пешку f7. Взятие изображается двоеточием.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

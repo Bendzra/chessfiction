@@ -1,0 +1,60 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Миттельшпиль. Комбинация</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-chto-takoe-kombinaciia.htm' %}">Глава I. Что такое комбинация</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-motiv-i-tema.htm' %}">Глава II. Комбинационные элементы — мотив и тема</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-estetika-kombinacii.htm' %}">Глава III. Эстетика комбинации. Общие представления</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-zadushennyj-korol.htm' %}">Глава IV. Идея и техника в комбинации „Задушенный король“</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-o-psevdozhertve-zhertva-ferzia.htm' %}">Глава V. Еще об эстетике. О псевдожертве. Жертва ферзя</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-o-tipicheskie-idei.htm' %}">Глава VI. О теории комбинации. Типические идеи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-shedevry-konca-xix-veka.htm' %}">Глава VII. Новейшая история комбинации. Бессмертная партия. Шедевры конца XIX века</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-peshechnye-udary.htm' %}">Глава VIII. Двойной удар. Пешечные темы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-pozicionnaia-slabost.htm' %}">Глава IX. Позиционная слабость — мотив комбинации. Комбинации, вызванные слабостями в позиции рокировок. Жертва слона за пешку g3, h3, g6, h6</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-kombinacionnaia-ataka-dvuh.htm' %}">Глава X. Комбинационная атака двух слонов. Гармония ладей по второй и седьмой горизонтали. Жертва ладьи на g7</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-tema-zapiraniia-figury.htm' %}">Глава XI. Гармония ладьи и слона. Тема запирания фигуры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-priem-perekrytia.htm' %}">Глава XII. Прием перекрытия в различных комбинационных идеях</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-o-myshlenii-shahmatistov.htm' %}">Глава XIII. О мышлении шахматистов во время шахматной партии</a></li>
+</ul>
+<br />
+<h2>Петр Арсентьевич Романовский</h2>
+<h1>Миттельшпиль</h1>
+<div class="diagram">
+<p>Редактор М. А. Бейлин</p>
+<p>Художественный редактор Е. А. Золотарева</p>
+<p>Обложка художника Б. И Нестеренко</p>
+<p>Технический редактор М. И. Манина</p>
+<p>Корректор Р. Б. Шупикова</p>
+</div>
+<div class="diagram">
+<p>Изд. № 2064. Сдано в набор 28/IV-1962 г. Подписано к печ. 28/I-1963 г.</p>
+<p>Формат 84x108<sup>1</sup>/<sub>32</sub>. Объем 3,5 бум. л., 7 физ. печ. л., 11,48 усл. печ. л.,</p>
+<p>11,24 уч.-изд. л. А07141. Тираж 45000 Цена 39 коп. Заказ № 269.</p>
+</div>
+<div class="diagram">
+<p>Издательство «Физкультура и спорт».</p>
+<p>Москва, М Гнездниковский пер., 3</p>
+</div>
+<div class="diagram">
+<p>Первая Образцовая типография имени А. А. Жданова</p>
+<p>Московского городского совнархоза</p>
+<p>Москва. Ж-54, Валовая, 28.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

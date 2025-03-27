@@ -1,0 +1,91 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Бологан В. Староиндийская защита. Репертуар за черных</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-staroindijskij-domik.htm' %}">Староиндийский домик</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-redkie-prodolzheniia.htm' %}">ЧАСТЬ 1. Редкие продолжения: 1.d4 Кf6 2.c4 g6 3.Кc3 Сg7</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1_d4-Nf6-c4-g6-Nc3-Bg7-Bg5.htm' %}">1 4.Сg5</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2_d4-Nf6-c4-g6-Nc3-Bg7-Nf3-0-0-Bg5.htm' %}">2 4.Кf3 0-0 5.Сg5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3 4.Кf3 0-0 5.Сf4</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4 4.e4 d6 5.Сg5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5 4.e4 d6 5.h3 0-0 6.Сd3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6 4.e4 d6 5.h3 0-0 6.Сe3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7 4.e4 d6 5.h3 0-0 6.Сg5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8 4.e4 d6 5.h3 0-0 6.Кf3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9 4.e4 d6 5.Кge2</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10 4.e4d6 5.Сd3</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 2. Система Авербаха: 1.d4 Кf6 2.c4 g6 3.Кc3 Сg7 4.e4 d6 5.Сe2 0-0 6.Сg5</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11 6...Кa6</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">12 6...h6</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 3. Система Земиша: 1.d4 Кf6 2.c4 g6 3.Кc3 Сg7 4.e4 d6 5.f3 0-0</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">13 6.Кge2</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">14 6.Сg5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">15 6.Сe3 c5 7.d:c5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">16 6.Сe3 c5 7.d5; 7.Кge2</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 4. Вариант четырех пешек: 1.d4 Кf6 2.c4 g6 3.Кc3 Сg7 4.e4 d6 5.f4 0-0 6.Кf3 c5</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">17 7.Сe2; 7.dc</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">18 7.d5 e6 8.de; 8.Сe2 ed 9.cd Сg4</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">19 7.d5 e6 8.Сe2 ed 9.cd Лe8</a></li>
+<!--p>444</p-->
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 5. Классическая система: 1.d4 Кf6 2.c4 g6 3.Кc3 Сg7 4.e4 d6 5.Кf3 0-0 6.Сe2 e5</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">20 7.de; 7.0-0 Кc6 8.de</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">21 7.Сe3 Кg4</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">22 7.d5 a5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">23 7.0-0 Кc6 8.Сe3 Кg4; 8.d5 Кe7 9.Сg5; 9.Сd2; 9.Сe3; 9.a4</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">24 7.0-0 Кc6 8.d5 Кe7 9.b4</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">25 7.0-0 Кc6 8.d5 Кe7 9.Кe1</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">26 7.0-0 Кc6 8.d5 Кe7 9.Кd2 c6</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">27 7.0-0 Кc6 8.d5 Кe7 9.Кd2 a5</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 6. Староиндийское фианкетто: 1.d4 Кf6 2.c4 g6 3.Кf3 Сg7 4.g3 0-0 5.Сg2 d6 6.0-0 Кc6</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">28 7.d5; 7.Кc3 a6 без h3, 8.d5, 8.h3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">29 7.Кc3 a6 8.h3 Сd7</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">30 7.Кc3 a6 8.d5 Кa5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">31 7.Кc3 a6 8.b3 Лb8</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 7. Другие фианкетто</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">32 Двойное фианкетто: 1.Кf3 Кf6 2.g3 g6 3.b3 Сg7 4.Сb2 d6 5.d4 c5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">33 Фианкетто без c2-c4 и Кc3: 1.Кf3 Кf6 2.g3 g6 3.d4 Сg7 4.Сg2 0-0 5.0-0 d6</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">34 Английское фианкетто: 1.c4 Кf6 2.Кc3 g6 3.g3 Сg7 4.Сg2 0-0 5.e4; 5.0-0</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">35 Лондонская система: 1.d4 Кf6 2.Кf3 g6 3.Сf4, 1.d4 Кf6 2.Кf3 g6 3.c3 и 4.Сg5</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 8. Позиции для решения</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">36 Как бы вы сыграли?</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">37 Проверьте ваши ответы</a></li>
+</ul>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

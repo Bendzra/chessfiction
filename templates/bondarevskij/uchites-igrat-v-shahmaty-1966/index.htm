@@ -1,0 +1,61 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">УЧИТЕСЬ ИГРАТЬ В ШАХМАТЫ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01.htm' %}">Глава I. Правила игры</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02.htm' %}">Шахматная доска. Фигуры и пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03.htm' %}">Конечная цель игры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04.htm' %}">Ходы пешки и фигур</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05.htm' %}">Подробнее о мате. Шах. Открытый и двойной шахи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06.htm' %}">Различные случаи ничейного исхода партии</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07.htm' %}">Шахматная нотация</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08.htm' %}">Основные правила, определяющие порядок игры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-0.htm' %}">Задачи и упражнения к I главе</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-01.htm' %}">Задачи 1-10</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-11.htm' %}">Задачи 11-14</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-15.htm' %}">Задачи 15-18</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-19.htm' %}">Задачи 19-23</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-24.htm' %}">Упражнения к задаче 24</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-25.htm' %}">Упражнения к задаче 25</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-otvety.htm' %}">Ответы на задачи и упражнения к I главе</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00.htm' %}">Глава II. Советы начинающим шахматистам</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01.htm' %}">Как начинать партию</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02.htm' %}">Что делать после дебюта</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03.htm' %}">Получение материального преимущества и простейший пример реализации лишней пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04.htm' %}">Матование ферзем</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05.htm' %}">Матование ладьей</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06.htm' %}">Король и пешка против короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07.htm' %}">Примеры реализации материального преимущества</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08.htm' %}">Понятие о жертвах, форсированных маневрах и комбинациях</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-09.htm' %}">Атака на короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-10.htm' %}">Краткие исторические сведения</a></li>
+</ul>
+</li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

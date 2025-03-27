@@ -1,0 +1,111 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Стратегия атаки на короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vvedenie.htm' %}">Введение<!--5--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-kak-vesti-ataku.htm' %}">Часть I. Как вести атаку<!--12--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-korol-v-centre.htm' %}">Глава I. Король в центре<!--12--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-zadaniia-1.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-ataka-pozicii-korotkoj-rokirovki.htm' %}">Глава II. Атака позиции короткой рокировки<!--37--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-zadaniia-2.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-ataka-pri-raznostoronnih-rokirovkah.htm' %}">Глава III. Атака при разносторонних рокировках<!--85--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-zadaniia-3.htm' %}">Задания</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-kak-voznikaet-ataka.htm' %}">Часть II. Как возникает атака<!--107--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-0-nezaplanirovannaia-ataka.htm' %}">Раздел I. Незапланированная атака<!--107--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1-ranniaia-ataka.htm' %}">Глава I. Ранняя атака<!--107--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1-zadaniia-1.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2-vnezapnaia-ataka.htm' %}">Глава II. Внезапная атака<!--134--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2-zadaniia-2.htm' %}">Задания</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-0-puti-sozdaniia-ataki.htm' %}">Раздел II. Пути создания атаки<!--158--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3-intuitivnye-zhertvy.htm' %}">Глава III. Интуитивные жертвы<!--158--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3-partii-dlia-samostoiatelnogo-analiza.htm' %}">Партии для самостоятельного анализа</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-4-uspeshnaia-strategiia.htm' %}">Глава IV. Успешная стратегия<!--181--></a></li>
+</ul>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-resheniia.htm' %}">Решения<!--205--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0-dopolneniia.htm' %}">Дополнения</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<div class="message">
+<h2>Александр Сергеевич Волчок</h2>
+<h1>СТРАТЕГИЯ АТАКИ НА КОРОЛЯ</h1>
+</div>
+
+<div class="message">
+<p>Редактор Ю. Н. Сахаров</p>
+<p>Редактор издательства И. А. Солдатова</p>
+<p>Оформление художника Т. Т. Кузнецовой</p>
+<p>Художественный редактор А. И. Яцун.</p>
+<p>Технический редактор В. П. Бойко</p>
+<p>Корректоры А. В. Воробьева, Е. Котляр, И. К. Сопиженко, Н. Н Радченко.</p>
+</div>
+
+<div class="message">
+<p>Информ. блан № 1450</p>
+</div>
+
+<div class="message">
+<p>Сдано в набор 08.01.80. Подписано к печати 10.07.80. БФ 08108 Формат 84X108<sup>1</sup>/<sub>32</sub>. Бумага тип. № 2, Гарн. лиг. Печать выс. Усл. печ. л. 11.9. Уч.-изд. л. 9,84. Доп. тираж 25 000 экз. Зак. 6, Цена 60 коп.</p>
+</div>
+
+<div class="message">
+<p>Издательство «Здоров'я» 252021, Киев-21, ул. Кирова, 7. тел. 93-55-24</p>
+</div>
+
+<div class="message">
+<p>Отпечатано с матриц Головного предприятия на Киевской книжной фабрике республиканского производственного объединения «Полиграфкнига» Госкомиздата УССР, Киев, ул. Воровского, 24.</p>
+</div>
+
+<hr />
+
+<div class="message page">
+<p><b>Волчок А. С.</b></p>
+<p>В 68 Стратегия атаки на короля.— К.: Здоров'я, 1981,—224 с., ил., 1,66 л. ил.</p>
+</div>
+
+<p class="notification message">Автор книги знакомит читателя с типичными и оригинальными стратегическими планами игры в шахматы, описывает характерные ошибки и упущения, порождающие условия для проведения ранних и внезапных наступлений на короля, показывает пути создания атаки.</p>
+
+<div class="message warning">
+<div style="display:inline;">
+<span>B</span>
+<span>&nbsp;&nbsp;&nbsp;</span>
+<span>60904—024<br />M209(04)-81</span>
+<span>&nbsp;&nbsp;&nbsp;</span>
+<span>167-80.4202000000</span>
+</div>
+
+<div style="float:right;">ББК 75.581<br />7А9.1</div>
+
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

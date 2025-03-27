@@ -1,0 +1,77 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1><a name="0">ОГЛАВЛЕНИЕ</a></h1>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Дао шахмат</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-oglavlenie.htm' %}">Оглавление</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-blagodarnosti.htm' %}">Благодарности</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-3-vvedenie.htm' %}">Введение</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-00-tehnicheskie-aspekty.htm' %}">Часть I. Технические аспекты</a>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-doska.htm' %}">Глава 1. Доска</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-figury.htm' %}">Глава 2. Фигуры</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-razvitie.htm' %}">Глава 3. Развитие</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-centr.htm' %}">Глава 4. Центр</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-bezopasnost-korolia.htm' %}">Глава 5. Безопасность Короля</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-material.htm' %}">Глава 6. Материал</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-peshechnaia-struktura.htm' %}">Глава 7. Пешечная структура</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-prostranstvo.htm' %}">Глава 8. Пространство</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-temp.htm' %}">Глава 9. Темп</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-mobilnost.htm' %}">Глава 10. Мобильность</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-taktika.htm' %}">Глава 11. Тактика</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-forsiruiushchie-hody.htm' %}">Глава 12. Форсирующие ходы</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-13-zhertva.htm' %}">Глава 13. Жертва</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-14-strategiia.htm' %}">Глава 14. Стратегия</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-zashchita.htm' %}">Глава 15. Защита</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-16-raschet.htm' %}">Глава 16. Расчет</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-17-vzaimodejstvie-figur-i-peshek.htm' %}">Глава 17. Взаимодействие фигур и пешек</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-18-razmeny.htm' %}">Глава 18. Размены</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-19-planirovanie.htm' %}">Глава 19. Планирование</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-20-debiuty.htm' %}">Глава 20. Дебюты</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-21-mittelshpil.htm' %}">Глава 21. Миттельшпиль</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-22-okonchaniia.htm' %}">Глава 22. Окончания</a></li>
+	</ul>
+	</li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00-chelovecheskie-aspekty.htm' %}">Часть II. Человеческие аспекты</a>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-poznaj-samogo-sebia.htm' %}">Глава 23. Познай самого себя</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-uznaj-svoego-protivnika.htm' %}">Глава 24. Узнай своего противника</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-umenie-zaglianut-vpered.htm' %}">Глава 25. Умение заглянуть вперед</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-smelost.htm' %}">Глава 26. Смелость</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05-shans.htm' %}">Глава 27. Шанс</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-uverennost-v-sebe.htm' %}">Глава 28. Уверенность в себе</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-oshibki.htm' %}">Глава 29. Ошибки</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-reakciia.htm' %}">Глава 30. Реакция</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-09-boevoj-duh.htm' %}">Глава 31. Боевой дух</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-10-vremia-prinimat-reshenie.htm' %}">Глава 32. Время принимать решение</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-11-rashodovanie-vremeni.htm' %}">Глава 33. Расходование времени</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-12-myshlenie.htm' %}">Глава 34. Мышление</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-13-koncentraciia.htm' %}">Глава 35. Концентрация</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-14-terpenie.htm' %}">Глава 36. Терпение</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-15-udacha.htm' %}">Глава 37. Удача</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-16-praktika.htm' %}">Глава 38. Практика</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-17-uchenie.htm' %}">Глава 39. Учение</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-18-uvlechennost.htm' %}">Глава 40. Увлеченность</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-19-znaniia.htm' %}">Глава 41. Знания</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-20-opravdaniia.htm' %}">Глава 42. Оправдания</a></li>
+	</ul>
+	</li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-ob-avtore.htm' %}">Об авторе</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

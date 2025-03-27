@@ -1,0 +1,54 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>Оглавление</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Листенгартен Л., Ходарковский М. — 4-х ладейные окончания</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">О 4-х ладейных окончаниях</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ФИДЕ, Тренерская Комиссия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vstuplenie.htm' %}">Вступление</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-h-ladejnye-okonchaniia-v-partiiah-chempionov-mira.htm' %}">Глава 1. 4-х ладейные окончания в партиях чемпионов мира</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. Из дебюта в окончание, пропуская середину игры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. Атака по седьмой горизонтали</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. Несколько пешек в окончании минимальное преимущество (позиционное или материальное)</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 5. Обе стороны имеют проходные пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6. Атака, защита и техника в 4-х ладейных окончаниях</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6А. Материальное равенство (позиционное преимущество одной стороны и защитительные возможности другой)</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6Б. Минимальное преимущество (позиционное или материальное). Многопешечные окончания</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6В. Переход в 2-х ладейное окончание</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6Г. Поиски контригры</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 7. Этюды</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 8. О безопасности короля в 4-х ладейном окончании</a></li>
+<!--p>Оглавление 313</p-->
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 9. 4-х ладейные окончания из недавней практики</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 10. Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Послесловие</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Окончания и этюды</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ответы на решение позиции</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Литература</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

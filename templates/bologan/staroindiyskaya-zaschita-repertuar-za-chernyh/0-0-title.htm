@@ -1,0 +1,70 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<div class="message">
+<h1>СТАРОИНДИЙСКАЯ ЗАЩИТА<br />Репертуар за черных</h1>
+<h4>2-е издание, переработанное и дополненное</h4>
+<h2>Виорел Бологан</h2>
+</div>
+
+<div class="message">
+<p>Библиотека РШФ</p>
+<p>Москва 2017</p>
+</div>
+
+<div class="message">
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>Б79</p>
+</div>
+
+<div class="message page">
+<p><b>БОЛОГАН Виорел</b></p>
+<p>Б79 «Староиндийская защита. Репертуар за черных». Москва, 2017, 448 с.</p>
+<p>ISBN 978-5-9909384-8-9</p>
+</div>
+
+<div class="message notification">
+<p>2-е издание, переработанное и дополненное, популярной монографии, которая посвящена одному из самых боевых современных дебютов - староиндийской защите. Автор скрупулезно выстраивает всю оборонительную линию черных (в том числе на территории «смежных» дебютов, таких как английское начало или лондонская система), объясняет типовые планы и тактические приемы, предлагает ряд новинок в актуальных схемах. Тщательно отобранные позиции для решения помогут читателю закрепить полученные знания.</p>
+<p>Книга адресована шахматистам любого уровня, поскольку законы староиндийской одинаковы как для любителей, так и для супергроссмейстеров.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="message">
+<h2>Бологан Виорел</h2>
+<h1>Староиндийская защита. Репертуар за черных</h1>
+<p>Редактор Владимир Барский</p>
+<p>Обложка — Алексей Воронин</p>
+<p>Верстка Андрей Ельков</p>
+<p>Формат 60x90 1/16.</p>
+<p>Печать офсетная. Бумага офсетная. Заказ №</p>
+<p><b>www.ruchess.ru</b></p>
+<p>По вопросам распространения обращаться</p>
+<p>к Владимиру Барскому: barsky@ruchess.ru</p>
+</div>
+
+<div class="message warning">
+<b>ISBN 978-5-9909384-8-9</b>
+<div style="float:right;">© В. Бологан, 2017<br />© Российская шахматная федерация, 2017</div>
+<div class="clear"></div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

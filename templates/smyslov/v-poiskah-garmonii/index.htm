@@ -1,0 +1,157 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>СОДЕРЖАНИЕ</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">В поисках гармонии (В.В.Смыслов, 1978)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-moj-shahmatnyj-put.htm' %}">Мой шахматный путь</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-moj-shahmatnyj-put.htm' %}#first_steps">Первые шаги</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-moj-shahmatnyj-put.htm' %}#style_searching">Поиск стиля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-moj-shahmatnyj-put.htm' %}#struggling_on">В трудных шахматных сражениях</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-moj-shahmatnyj-put.htm' %}#chempionship">В борьбе за первенство мира</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-moj-shahmatnyj-put.htm' %}#epilogue">Вместо эпилога</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00-izbrannye-partii.htm' %}">Избранные партии</a></li>
+<ol>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game1">Герасимов — Смыслов (Дебют ферзевых пешек) Первенство Москворецкого районного Дома пионеров, Москва, 1935</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game2">Смыслов — Лилиенталь (Французская защита) Чемпионат Москвы, 1938</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game3">Смыслов — Константинопольский (Испанская партия) Тренировочный турнир, Москва, 1939</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game4">Смыслов — Вересов (Сицилианская защита) 12-е первенство СССР, Москва, 1940</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game5">Смыслов — Болеславский (Французская защита) Матч-турнир шести, Москва—Ленинград, 1941</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game6">Смыслов — Ботвинник (Испанская партия) Чемпионат Москвы, 1943</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game7">Смыслов — Котов (Сицилианская защита) Чемпионат Москвы, 1943</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game8">Смыслов — Решевский (Испанская партия) Радиоматч СССР — США, 1945</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game9">Смыслов — Эйве (Испанская партия) Гронинген, 1946</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-01-partii-01-10.htm' %}#game10">Смыслов — Решевский (Испанская партия) Матч-турнир на первенство мира, Москва, 1948</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game11">Эйве — Смыслов (Защита Грюнфельда) Матч-турнир на первенство мира, Москва, 1948</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game12">Смыслов — Кузьминых (Защита Уфимцева) Полуфинал 19-го первенства СССР, Ленинград, 1951</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game13">Смыслов — Бронштейн (Сицилианская защита) 19-е первенство СССР, Москва, 1951</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game14">Эванс — Смыслов (Принятый ферзевый гамбит) X Олимпиада, Хельсинки, 1952</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game15">Смыслов — Шмид (Староиндийская защита) X Олимпиада, Хельсинки, 1952</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game16">Пытляковский — Смыслов (Принятый ферзевый гамбит) X Олимпиада, Хельсинки, 1952</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game17">Толуш — Смыслов (Английское начало) Бухарест, 1953</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game18">Смыслов — Штольц (Защита Нимцовича) Бухарест, 1953</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game19">Смыслов — Штальберг (Французская защита) Турнир претендентов, Цюрих, 1953</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-02-partii-11-20.htm' %}#game20">Смыслов — Керес (Принятый ферзевый гамбит) Турнир претендентов, Цюрих, 1953</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game21">Смыслов — Геллер (Староиндийская защита) Турнир претендентов, Цюрих, 1953</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game22">Керес — Смыслов (Ферзевый гамбит) Турнир претендентов, Цюрих, 1953</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game23">Смыслов — Решевский (Английское начало) Турнир претендентов, Цюрих, 1953</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game24">Смыслов — Ботвинник (Французская защита) Матч на первенство мира, Москва, 1954 9-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game25">Ботвинник — Смыслов (Староиндийская защита) Матч на первенство мира, Москва, 1954 14-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game26">Смыслов — Сабо (Защита Грюнфельда) Гастингс, 1954/55</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game27">Смыслов — Ботвинник (Староиндийское начало) 22-е первенство СССР, Москва, 1955</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game28">Смыслов — Дюкштейн (Испанская партия) Загреб, 1955</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game29">Бисгайер — Смыслов (Славянская защита) Матч СССР—США, Москва, 1955</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-03-partii-21-30.htm' %}#game30">Смыслов — Бисгайер (Защита Нимцовича) Матч СССР—США, Москва, 1955</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game31">Голомбек — Смыслов (Индийская защита) Турнир памяти А. Алехина, Москва, 1956</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game32">Сабо — Смыслов (Защита Нимцовича) Турнир памяти А. Алехина, Москва, 1956</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game33">Ивков — Смыслов (Испанская партия) Матч Югославия — СССР, Белград, 1956</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game34">Геллер — Смыслов (Защита Нимцовича) Турнир претендентов, Амстердам, 1956</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game35">Смыслов — Панно (Сицилианская защита) Турнир претендентов, Амстердам, 1956</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game36">Смыслов — Бронштейн (Английское начало) Турнир претендентов, Амстердам, 1956</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game37">Смыслов — Ботвинник (Сицилианская защита) Матч на первенство мира, Москва, 1957 12-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game38">Смыслов — Ботвинник (Французская защита) Матч на первенство мира, Москва, 1957 20-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game39">Смыслов — Филип (Староиндийская защита) Командное первенство Европы, Вена, 1957</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-04-partii-31-40.htm' %}#game40">Смыслов — Ботвинник (Защита Каро-Канн) Матч-реванш на первенство мира, Москва, 1958 19-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game41">Смыслов — Спасский (Сицилианская защита) Матч Москва—Ленинград, Ленинград, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game42">Глигорич — Смыслов (Защита Грюнфельда) Матч СССР — Югославия, Киев, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game43">Фишер — Смыслов (Сицилианская защита) Турнир претендентов, Югославия, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game44">Смыслов — Таль (Сицилианская защита) Турнир претендентов, Югославия, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game45">Керес — Смыслов (Сицилианская защита) Турнир претендентов, Югославия, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game46">Глигорич — Смыслов (Защита Нимцовича) Турнир претендентов, Югославия, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game47">Петросян — Смыслов (Принятый ферзевый гамбит) Турнир претендентов, Югославия, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game48">Олафссон — Смыслов (Английское начало) Турнир претендентов, Югославия, 1959</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game49">Смыслов — Спасский (Защита Алехина) Матч Москва — Ленинград, 1960</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-05-partii-41-50.htm' %}#game50">Полугаевский — Смыслов (Славянская защита) Международный турнир ЦШК, Москва, 1960</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game51">Смыслов — Швебер (Сицилианская защита) XIV Олимпиада, Лейпциг, 1960</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game52">Смыслов — Полугаевский (Венская партия) 29-е первенство СССР, Баку, 1961</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game53">Петросян — Смыслов (Английское начало) Командное первенство СССР, Москва, 1961</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game54">Смыслов — Билек (Староиндийская защита) Турнир памяти М. Чигорина, Сочи, 1963</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game55">Смыслов — Антошин (Защита Рагозина) Турнир памяти М. Чигорина, Сочи, 1963</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game56">Штальберг — Смыслов (Английское начало) Стокгольм, 1963</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game57">Смыслов — Глигорич (Сицилианская защита) Межзональный турнир, Амстердам, 1964</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game58">Вейд — Смыслов (Защита Уфимцева) Турнир памяти X. Р. Капабланки, Гавана, 1965</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game59">Ботвинник — Смыслов (Английское начало) Командное первенство МГСПС, Москва, 1965</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-06-partii-51-60.htm' %}#game60">Болбочан — Смыслов (Славянская защита) Мар-дель-Плата, 1966</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game61">Форинтош — Смыслов (Защита Нимцовича) Монте-Карло, 1967</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game62">Смыслов — Петросян (Каталонское начало) Командное первенство Москвы, 1967</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game63">Смыслов — Симагин (Защита Уйтелки) Турнир на приз Моссовета, 1967</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game64">Крогиус — Смыслов (Новоиндийская защита) IV Спартакиада народов СССР, Москва, 1967</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game65">Портиш — Смыслов (Защита Нимцовича) Турнир, посвященный 50-летию Великого Октября, Москва, 1967</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game66">Смыслов — Либерзон (Английское начало) Командное первенство СССР, Рига, 1968</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game67">Билек — Смыслов (Английское начало) Турнир памяти А. Рубинштейна, Поляница-Здруй, 1968</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game68">Тайманов — Смыслов (Староиндийская защита) Матч Москва —Ленинград, Москва, 1968</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game69">Смыслов — Фуллер (Староиндийская защита) Гастингс, 1968/69</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-07-partii-61-70.htm' %}#game70">Смыслов — Таль (Английское начало) 37-е первенство СССР, Москва, 1969</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game71">Смыслов — Штейн (Защита Грюнфельда) 37-е первенство СССР, Москва, 1969</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game72">Смыслов — Либерзон (Староиндийская защита) 37-е первенство СССР, Москва, 1969</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game73">Шмид — Смыслов (Испанская партия) Монако, 1969</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game74">Смыслов — Решевский (Английское начало) «Матч века», Белград, 1970</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game75">Смыслов — Сабо (Английское начало) Буэнос-Айрес, 1970</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game76">Смыслов — Полугаевский (Староиндийская защита) Межзональный турнир, Пальма де-Майорка, 1970</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game77">Хюбнер — Смыслов (Испанская партия) Межзональный турнир. Пальма де-Майорка, 1970</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game78">Глигорич — Смыслов (Защита Чигорина) Амстердам, 1971</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game79">Смыслов — Тимман (Защита Уфимцева) Амстердам, 1971</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-08-partii-71-80.htm' %}#game80">Смыслов — Адорьян (Дебют Цукерторта) Амстердам, 1971</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game81">Портиш — Смыслов (Голландская защита) Порторож, 1971</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game82">Ульман — Смыслов (Новоиндийская защита) Турнир памяти А. Алехина, Москва, 1971</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game83">Фурман — Смыслов (Английское начало) Командное первенство СССР, Ростов-на-Дону, 1971</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game84">Смыслов — Карпов (Ферзевый гамбит) 39-е первенство СССР, Ленинград, 1971</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game85">Помар — Смыслов (Защита Грюнфельда) Лас-Пальмас, 1972</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game86">Смыслов — Местел (Английское начало) Гастингс, 1972/73</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game87">Смыслов — Ульман (Французская защита) Турнир памяти X. Р. Капабланки, Сьенфуэгос, 1973</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game88">Любоевич — Смыслов (Защита Каро-Канн) Межзональный турнир, Петрополис, 1973</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game89">Смыслов — Горт (Сицилианская защита) Межзональный турнир, Петрополис, 1973</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-09-partii-81-90.htm' %}#game90">Георгиу — Смыслов (Испанская партия) Межзональный турнир, Петрополис, 1973</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game91">Керес — Смыслов (Испанская партия) Межзональный турнир, Петрополис, 1973</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game92">Сигурионссон — Смыслов (Английское начало) Рейкьявик, 1974</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game93">Смыслов — Олафссон (Староиндийская защита) Рейкьявик, 1974</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game94">Саттлс — Смыслов (Венская партия) Венеция, 1974</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game95">Смыслов — Корчной (Защита Грюнфельда) VI Спартакиада народов СССР, Рига, 1975</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game96">Ломбарди — Смыслов (Венская партия) Тиссайд, 1975</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game97">Смыслов — Кастро (Двойное фианкетто) Межзональный турнир, Биль, 1976</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game98">Смыслов — Матанович (Индийская защита) Межзональный турнир, Биль, 1976</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game99">Смыслов — Романишин (Сицилианская защита) 44-е первенство СССР, высшая лига, Москва, 1976</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game100">Смыслов — Григорян (Сицилианская защита) 44-е первенство СССР, Москва, 1976</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game101">Таль — Смыслов (Испанская партия) 45-е первенство СССР, высшая лига, Ленинград, 1977</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game102">Эванс — Смыслов (Дебют Рети) Сан-Пауло, 1978</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/2-10-partii-91-103.htm' %}#game103">Кин — Смыслов (Защита Грюнфельда) Буэнос-Айрес, 1978</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-prilozheniia.htm' %}">Приложения</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-prilozheniia.htm' %}#matches">Турнирные и матчевые результаты В. Смыслова</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-prilozheniia.htm' %}#openings">Указатель дебютов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-prilozheniia.htm' %}#partners">Указатель партнеров В. Смыслова</a></li>
+</ul>
+</ul>
+
+<div class="message">
+<h3>Серия „Выдающиеся шахматисты мира“</h3>
+<h2>Василий Васильевич Смыслов</h2>
+<h1>В ПОИСКАХ ГАРМОНИИ</h1>
+</div>
+
+<p class="message">Заведующий редакцией В. И. Чепижный. Редактор Ф. М. Малкин. Художник В. Ю. Лукин. Художественный редактор Ю В. Архангельский. Технический редактор С. С. Басипова. Корректор З. Г. Самылкина.</p>
+<p class="message">ИБ № 523. Сдано в набор 23.10.78. Подписано к печати 25.0 1 79. А06615. Формат 60x84/16. Бумага тип. № 1. Гарнитура „Литературная“. Высокая печать. Усл. п. л. 13.95. Уч.-изд. л 13.70. Тираж 100000 экз. Издат. № 5435. Зак. 3307. Цена 1 р. 30 к.</p>
+<p class="message">Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по делам издательств, полиграфии и книжной торговли. 103006. Москва, К-6, Каляевская ул., 27.</p>
+<p class="message">Ордена Октябрьской Революции и ордена Трудового Красного Знамени Первая Образцовая типография имени А. А. Жданова Союзполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли. Москва, М-54, Валовая, 28.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

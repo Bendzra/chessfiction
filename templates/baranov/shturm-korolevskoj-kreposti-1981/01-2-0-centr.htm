@@ -1,0 +1,26 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Центр | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>Центр</h3>
+
+<div class="score">
+<p>Центром принято считать район шахматной доски, включающий поля e4-e5-d5-d4. Иногда говорят о так называемом расширенном центре — квадрате, ограниченном полями c3-f3-f6-c6.</p>
+<p>Вполне понятно, что фигура, находящаяся на центральном поле, может развить большую активность, чем стоящая на краю доски. Поэтому борьба за центр — первоочередная и важнейшая задача.</p>
+<p>В зависимости от расположения пешек на центральных полях различают виды пешечного центра.</p>
+</div> <!-- score -->
+
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-2-1-otkrytyj_centr.htm' %}">Открытый центр</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-2-2-podvizhnyj_centr.htm' %}">Подвижный центр</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-2-3-zakrytyj_centr.htm' %}">Закрытый центр</a></li>
+	</ul>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

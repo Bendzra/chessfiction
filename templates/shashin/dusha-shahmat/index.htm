@@ -1,0 +1,54 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Пешки - душа шахмат</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-nemnogo-istorii.htm' %}">Немного истории</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-peshki-dusha-shahmat.htm' %}">Пешки — душа шахмат</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-severnyj-filidor.htm' %}">«Северный Филидор»</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-blestiashchie-vdohnoveniia-proshlogo.htm' %}">«Блестящие вдохновения прошлого»</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-obognavshij-vremia.htm' %}">Обогнавший время</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-peshki-shturmuiut-bastiony.htm' %}">Пешки штурмуют бастионы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-neobyknovennye-prikliucheniia-peshek.htm' %}">Необыкновенные приключения пешек</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-excelsior.htm' %}">«Excelsior»</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-korol-ne-uvlekajsia-v-speshke-koronovat-spasitelnye-peshki.htm' %}">Король! Не увлекайся в спешке</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-veseliashchiesia-peshki.htm' %}">Веселящиеся пешки</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-neunyvaiushchie-izoliatory.htm' %}">Неунывающие «изоляторы»</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-strannoe-pravilo.htm' %}">«Странное» правило</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-6-kak-v-skazke.htm' %}">Как в сказке</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0-budni-i-prazdniki.htm' %}">Будни и праздники</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-v-slabosti-sila.htm' %}">В слабости — сила</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-kak-zabivaiut-gvozdi.htm' %}">Как забивают гвозди</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-chto-takoe-horosho-i-chto-takoe-ploho.htm' %}">Что такое «хорошо» и что такое «плохо»?</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-0-na-puti-k-celi.htm' %}">На пути к цели</a></li>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-1-vziavshis-za-ruki.htm' %}">Взявшись за руки! </a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-2-silnee-ferzia.htm' %}">Сильнее ферзя</a></li>
+	</ul>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-proverte-vashi-resheniia.htm' %}">Проверьте ваши решения</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

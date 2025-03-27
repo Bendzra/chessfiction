@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Единый стратегический план | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>ЕДИНЫЙ СТРАТЕГИЧЕСКИЙ ПЛАН</h2>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-50-romanovskij-griunfeld.htm' %}">№ 50. Романовский — Грюнфельд (Испанская партия)</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

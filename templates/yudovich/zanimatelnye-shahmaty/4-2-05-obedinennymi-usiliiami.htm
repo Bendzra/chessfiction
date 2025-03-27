@@ -1,0 +1,43 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Объединенными усилиями | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Объединенными усилиями</h3>
+<div class="chessBoard small floater" data-start-fen="4r3/pbrq1p1k/1p3Bpp/3pPn2/5PQ1/P6R/1P4PP/1B3RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r3/pbrq1p1k/1p3Bpp/3pPn2/5PQ1/P6R/1P4PP/1B3RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p>В следующей позиции у белых явное превосходство в силах на королевском фланге. Найди, как белые форсированно завершают атаку на черного короля.</p>
+<p class="capTop diagram">133</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4r3/pbrq1p1k/1p3Bpp/3pPn2/5PQ1/P6R/1P4PP/1B3RK1 w - - 0 1"></div>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Диаграмма № 133.
+	 <span class="line0" onclick='loadMove("4r3/pbrq1p1k/1p3Bpp/3pPn2/5PQ1/P6R/1P4PP/1B3RK1 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("4r3/pbrq1p1k/1p3Bpp/3pPn1R/5PQ1/P7/1P4PP/1B3RK1 b - - 0 1", this, "h3h5"); ' class="line0">1.Лh5!</span> 
+	 <span onclick='loadMove("4r3/pbrq1pnk/1p3Bpp/3pP2R/5PQ1/P7/1P4PP/1B3RK1 w - - 0 2", this, "f5g7"); ' class="line0">Кg7</span> 
+	 <span onclick='loadMove("4r3/pbrq1pnk/1p3BpR/3pP3/5PQ1/P7/1P4PP/1B3RK1 b - - 0 2", this, "h5h6"); ' class="line0">2.Л:h6+!</span> 
+	 <span onclick='loadMove("4r3/pbrq1pn1/1p3Bpk/3pP3/5PQ1/P7/1P4PP/1B3RK1 w - - 0 3", this, "h7h6"); ' class="line0">Кр:h6</span> 
+	 <span onclick='loadMove("4r3/pbrq1pn1/1p3Bpk/3pP3/5P1Q/P7/1P4PP/1B3RK1 b - - 0 3", this, "g4h4"); ' class="line0">3.Фh4+</span> 
+	 <span onclick='loadMove("4r3/pbrq1p2/1p3Bpk/3pP2n/5P1Q/P7/1P4PP/1B3RK1 w - - 0 4", this, "g7h5"); ' class="line0">Кh5</span> 
+	 <span onclick='loadMove("4r3/pbrq1p2/1p3Bpk/3pP1Qn/5P2/P7/1P4PP/1B3RK1 b - - 0 4", this, "h4g5"); ' class="line0">4.Фg5+</span> 
+	 <span onclick='loadMove("4r3/pbrq1p1k/1p3Bp1/3pP1Qn/5P2/P7/1P4PP/1B3RK1 w - - 0 5", this, "h6h7"); ' class="line0">Крh7</span> 
+	 <span onclick='loadMove("4r3/pbrq1p1k/1p3Bp1/3pP2Q/5P2/P7/1P4PP/1B3RK1 b - - 0 5", this, "g5h5"); ' class="line0">5.Ф:h5+</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

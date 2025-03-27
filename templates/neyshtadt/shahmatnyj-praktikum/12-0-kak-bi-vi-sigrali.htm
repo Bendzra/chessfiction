@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Как бы вы сыграли? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Как бы вы сыграли?</h2>
+
+<ul>
+	<li><a href="12-409-435.htm">Задания 409-435</a></li>
+	<li><a href="12-436-460.htm">Задания 436-460</a></li>
+	<li><a href="12-461-485.htm">Задания 461-485</a></li>
+	<li><a href="12-486-510.htm">Задания 486-510</a></li>
+	<li><a href="12-511-535.htm">Задания 511-535</a></li>
+	<li><a href="12-536-560.htm">Задания 536-560</a></li>
+	<li><a href="12-561-576.htm">Задания 561-576</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

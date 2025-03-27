@@ -1,0 +1,22 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ПОСЛЕСЛОВИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ПОСЛЕСЛОВИЕ</h1>
+<p>Конечно, не все партии, опубликованные на страницах бесчисленных книг и журналов, где встречалась в той или иной интерпретации идея Легаля, нашли свое место в этом скромном сборнике, поскольку возможности провинциального коллекционера весьма ограничены. Поэтому составитель будет искренне благодарен тем, кто сообщит ему подобные примеры, не попавшие в поле его зрения.</p>
+<p>А также прошу извинения за возможные ошибки и неточности, избежать которые полностью, как показывает практика, не удается порой даже многоопытным авторам, и буду признателен всем, кто на них укажет по адресу:</p>
+<p>352700, Майкоп, главпочтамт, до востребования.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

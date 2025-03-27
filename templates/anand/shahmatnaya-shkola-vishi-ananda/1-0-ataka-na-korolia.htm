@@ -1,0 +1,37 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Атака на короля | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h2>АТАКА НА КОРОЛЯ</h2>
+<div class="score">
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-anand-lautier.htm' %}">№ 1. В. Ананд — Ж. Лотье, Биль 1997</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-gelfand-anand.htm' %}">№ 2. Б. Гельфанд — В. Ананд, Линарес 1993</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-anand-ftacnik.htm' %}">№ 3. В. Ананд — Л. Фтачник, Биль (межзональный) 1993 </a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 4. В. Ананд — А. Белявский, Гронинген 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 5. В. Ананд — А. Халифман, Шеньян 2000</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 6. В. Ананд — К. Нинов, Багио 1987</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 7. В. Иванчук — В. Ананд, Линарес 1998</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 8. В. Ананд — И. Соколов, Брюссель (быстрые шахматы) 1992</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 9. В. Ананд — Е. Бареев, Линарес 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 10. В. Ананд — Б. Гельфанд, Вейк-ан-Зее 1996</a> </li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 11. В. Ананд — В. Топалов. Дортмунд 1996</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 12. В. Ананд — А. Карпов, Лас-Пальмас 1996</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">№ 13. В. Ананд — В. Топалов, Вейк-ан-Зее 1998</a> </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

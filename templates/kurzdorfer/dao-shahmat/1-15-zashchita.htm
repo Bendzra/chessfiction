@@ -1,0 +1,176 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 15. Защита | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Глава 15. ЗАЩИТА</h2>
+<div class="score">
+<p>Защищаться труднее, чем атаковать, потому что атаковать веселее, а защита, психологически, может оказаться слишком тяжелой ношей. Кроме того, имейте в виду, особенно если вы считаете себя мастером защиты, что хороших защитников в шахматах очень мало.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 73: Лучшая защита — это атака.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="1r2k1r1/pbppnp1p/1bn2P2/8/Q7/B1PB1q2/P4PPP/3RR1K1 w - - 0 1"></div>
+<div class="score">
+<p>Это старая истина, с которой знакомы все, кто связан со спортом и играми. Она почти всегда справедлива и относительно шахмат. Примеров, когда этот принцип применим, почти столько же, сколько самих шахматных партий. Одного будет достаточно:</p>
+
+<!--img class="diagram" src="images/Tao of Chess-83.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1r2k1r1/pbppnp1p/1bn2P2/8/Q7/B1PB1q2/P4PPP/3RR1K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>В «Вечнозеленой» партии, игранной в Берлине в 1851 году между Адольфом Андерсеном и Джином Дюффренем (это одна из знаменитейших партий в истории шахмат), черные грозят матом. Защита пункта g2 не поможет ни в малейшей степени. Единственный способ избегнуть немедленного поражения — начать беспощадную атаку на короля черных. Именно так Андерсен и поступил. Без двух коней за пешку он начал заключительную атаку, отдавая еще больше материала, чтобы добраться до вражеского короля:</p>
+<p>
+ <span class="line0" onclick='loadMove("1r2k1r1/pbppnp1p/1bn2P2/8/Q7/B1PB1q2/P4PPP/3RR1K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("1r2k1r1/pbppRp1p/1bn2P2/8/Q7/B1PB1q2/P4PPP/3R2K1 b - - 0 1", this, "e1e7"); ' class="line0">1.Л:e7+!</span> 
+ <span onclick='loadMove("1r2k1r1/pbppnp1p/1b3P2/8/Q7/B1PB1q2/P4PPP/3R2K1 w - - 0 2", this, "c6e7"); ' class="line0">К:e7</span> 
+ <span onclick='loadMove("1r2k1r1/pbpQnp1p/1b3P2/8/8/B1PB1q2/P4PPP/3R2K1 b - - 0 2", this, "a4d7"); ' class="line0">2.Ф:d7+!!</span> 
+ <span onclick='loadMove("1r4r1/pbpknp1p/1b3P2/8/8/B1PB1q2/P4PPP/3R2K1 w - - 0 3", this, "e8d7"); ' class="line0">Кр:d7</span> 
+ <span onclick='loadMove("1r4r1/pbpknp1p/1b3P2/5B2/8/B1P2q2/P4PPP/3R2K1 b - - 0 3", this, "d3f5"); ' class="line0">3.С:f5+</span> 
+ <span onclick='loadMove("1r2k1r1/pbp1np1p/1b3P2/5B2/8/B1P2q2/P4PPP/3R2K1 w - - 0 4", this, "d7e8"); ' class="line0">Крe8</span> 
+ <span onclick='loadMove("1r2k1r1/pbpBnp1p/1b3P2/8/8/B1P2q2/P4PPP/3R2K1 b - - 0 4", this, "f5d7"); ' class="line0">4.Сd7+</span> 
+ <span onclick='loadMove("1r1k2r1/pbpBnp1p/1b3P2/8/8/B1P2q2/P4PPP/3R2K1 w - - 0 5", this, "e8d8"); ' class="line0">Крd8</span> 
+ <span onclick='loadMove("1r1k2r1/pbpBBp1p/1b3P2/8/8/2P2q2/P4PPP/3R2K1 b - - 0 5", this, "a3e7"); ' class="line0">5.С:e7X</span>. Обычно данный принцип проявляется не столь драматичным образом, но само его проявление довольно часто. Хорошие игроки постоянно пытаются взять положение на доске под свой контроль, защищаясь от различных угроз противника путем создания более сильных собственных угроз.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Чтобы произошло то, что нам хочется, надо заставить его произойти. И добиться этого можно только за счет агрессивности.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 74: В защите Алехина и других гипермодернистских дебютах белые должны защищать свою инициативу.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+В этом принципе заложена глубокая идея, разработанная несколькими мастерами во время и сразу после Первой мировой войны. Гипермодернисты спокойно давали своим противникам построить сильный, классический пешечный центр. Затем они начинали «покусывать» этот центр с флангов. В защите Алехина
+(<span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/4P3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2", this, "e4e5"); ' class="line0">2.e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/8/3nP3/8/8/PPPP1PPP/RNBQKBNR w KQkq - 0 3", this, "f6d5"); ' class="line0">Кd5</span>), защите Нимцовича
+(<span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+ <span onclick='loadMove("rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4", this, "f8b4"); ' class="line0">Сb4</span>) и дебюте Рети
+(<span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">1.Кf3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span>) игра проходит именно по такому сценарию, при котором один игрок, не трогая собственных пешек, занимается тем, что атакует пешечный центр противника с флангов.</p>
+<p>Хорошей иллюстрацией действия принципа может послужить типичный вариант защиты Грюнфельда:
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3", this, "g7g6"); ' class="line0">g6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq d6 0 4", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pp1p/5np1/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4", this, "c4d5"); ' class="line0">4.c:d5</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pp1p/6p1/3n4/3P4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 5", this, "f6d5"); ' class="line0">К:d5</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pp1p/6p1/3n4/3PP3/2N5/PP3PPP/R1BQKBNR b KQkq e3 0 5", this, "e2e4"); ' class="line0">5.e4</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pp1p/6p1/8/3PP3/2n5/PP3PPP/R1BQKBNR w KQkq - 0 6", this, "d5c3"); ' class="line0">К:c3</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pp1p/6p1/8/3PP3/2P5/P4PPP/R1BQKBNR b KQkq - 0 6", this, "b2c3"); ' class="line0">6.b:c3</span> 
+ <span onclick='loadMove("rnbqk2r/ppp1ppbp/6p1/8/3PP3/2P5/P4PPP/R1BQKBNR w KQkq - 0 7", this, "f8g7"); ' class="line0">Сg7</span> 
+ <span onclick='loadMove("rnbqk2r/ppp1ppbp/6p1/8/2BPP3/2P5/P4PPP/R1BQK1NR b KQkq - 0 7", this, "f1c4"); ' class="line0">7.Сc4</span> 
+ <span onclick='loadMove("rnbq1rk1/ppp1ppbp/6p1/8/2BPP3/2P5/P4PPP/R1BQK1NR w KQ - 0 8", this, "e8g8"); ' class="line0">0-0</span> 
+ <span onclick='loadMove("rnbq1rk1/ppp1ppbp/6p1/8/2BPP3/2P5/P3NPPP/R1BQK2R b KQ - 0 8", this, "g1e2"); ' class="line0">8.Кe2</span> 
+ <span onclick='loadMove("rnbq1rk1/pp2ppbp/6p1/2p5/2BPP3/2P5/P3NPPP/R1BQK2R w KQ c6 0 9", this, "c7c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("rnbq1rk1/pp2ppbp/6p1/2p5/2BPP3/2P1B3/P3NPPP/R2QK2R b KQ - 0 9", this, "c1e3"); ' class="line0">9.Сe3</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/R2QK2R w KQ - 0 10", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/R2Q1RK1 b - - 0 10", this, "e1g1"); ' class="line0">10.0-0</span> 
+ <span onclick='loadMove("r1b2rk1/ppq1ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/R2Q1RK1 w - - 0 11", this, "d8c7"); ' class="line0">Фc7</span> 
+ <span onclick='loadMove("r1b2rk1/ppq1ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/2RQ1RK1 b - - 0 11", this, "a1c1"); ' class="line0">11.Лc1</span> 
+ <span onclick='loadMove("r1br2k1/ppq1ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/2RQ1RK1 w - - 0 12", this, "f8d8"); ' class="line0">Лd8</span> 
+ <span onclick='loadMove("r1br2k1/ppq1ppbp/2n3p1/2p5/2BPP3/2P1B3/P2QNPPP/2R2RK1 b - - 0 12", this, "d1d2"); ' class="line0">12.Фd2</span> 
+ <span onclick='loadMove("r1br2k1/ppq1ppbp/6p1/n1p5/2BPP3/2P1B3/P2QNPPP/2R2RK1 w - - 0 13", this, "c6a5"); ' class="line0">Кa5</span> 
+ <span onclick='loadMove("r1br2k1/ppq1ppbp/6p1/n1p5/3PP3/2PBB3/P2QNPPP/2R2RK1 b - - 0 13", this, "c4d3"); ' class="line0">13.Сd3</span> 
+ <span onclick='loadMove("r1br2k1/p1q1ppbp/1p4p1/n1p5/3PP3/2PBB3/P2QNPPP/2R2RK1 w - - 0 14", this, "b7b6"); ' class="line0">b6</span> 
+ <span onclick='loadMove("r1br2k1/p1q1ppbp/1p4p1/n1p5/3PPP2/2PBB3/P2QN1PP/2R2RK1 b - f3 0 14", this, "f2f4"); ' class="line0">14.f4</span>.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-84.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1br2k1/p1q1ppbp/1p4p1/n1p5/3PPP2/2PBB3/P2QN1PP/2R2RK1 b - - 0 14"></div>
+<p class="caption"><b>Ход черных</b></p>
+
+<p>Обратите внимание на то, что у черных нет пешек в центре, но тем не менее они борются за центральные поля. Партия продолжалась
+ <span onclick='loadMove("r1br2k1/p1q1p1bp/1p4p1/n1p2p2/3PPP2/2PBB3/P2QN1PP/2R2RK1 w - f6 0 15", this, "f7f5"); ' class="line0">14...f5</span> 
+ <span onclick='loadMove("r1br2k1/p1q1p1bp/1p4p1/n1p2p2/3PPP2/2PBB1N1/P2Q2PP/2R2RK1 b - - 0 15", this, "e2g3"); ' class="line0">15.Кg3</span> 
+ <span onclick='loadMove("r1br2k1/p1q3bp/1p2p1p1/n1p2p2/3PPP2/2PBB1N1/P2Q2PP/2R2RK1 w - - 0 16", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("r1br2k1/p1q3bp/1p2p1p1/n1p1Pp2/3P1P2/2PBB1N1/P2Q2PP/2R2RK1 b - - 0 16", this, "e4e5"); ' class="line0">16.e5</span> 
+ <span onclick='loadMove("r2r2k1/pbq3bp/1p2p1p1/n1p1Pp2/3P1P2/2PBB1N1/P2Q2PP/2R2RK1 w - - 0 17", this, "c8b7"); ' class="line0">Сb7</span> 
+ <span onclick='loadMove("r2r2k1/pbq3bp/1p2p1p1/n1p1Pp2/3P1P2/2PBB1N1/P4QPP/2R2RK1 b - - 0 17", this, "d2f2"); ' class="line0">17.Фf2</span> 
+ <span onclick='loadMove("2rr2k1/pbq3bp/1p2p1p1/n1p1Pp2/3P1P2/2PBB1N1/P4QPP/2R2RK1 w - - 0 18", this, "a8c8"); ' class="line0">Лac8</span> 
+и в конечном счете завершилась вничью (Клифтон Харроуби — Курцдорфер, Буффало, 1990).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Боксеры часто прижимаются к канатам, выжидая удобного момента для контратаки. Игроки в бэкгаммон нередко применяют тактику back game*(* Сказать по правде, я не знаком с игрой под названием бэкгаммон и потому обратился за помощью к А. М. Носовскому, автору книги «Нарды — Бэкгаммон». Он ответил, что соответствующего термина в русском языке нет, коротко перевести невозможно, и дал следующее разъяснение: «Это жаргонное обозначение определенной тактики игры. Если один из игроков видит, что проигрывает в обычной игре, то он оставляет в Доме соперника свой поинт (две шашки) максимально долго и старается дождаться момента, когда соперник будет вынужден начать сбрасывать шашки; тогда может выпасть такая комбинация, при которой одна из шашек останется не защищенной (останется одинокой). Тогда, если повезет и вам удастся выбросить нужную цифру на кубике, вы сможете сбить эту одинокую шашку и вернуть свои шансы в игре, так как соперник вынужден будет начать поход этой шашкой из вашего Дома и не факт, что он сможет найти там свободное поле».
+Как я понимаю, суть заключается всё в том же — выжидании удобного момента в надежде на переменчивость Фортуны. — Прим. пер.). Гипермодернистская стратегия основана на том, чтобы дать сопернику проглотить больше, чем он способен переварить.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 75: Хорошая атака выигрывает партию, хорошая защита — чемпионское звание.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="r4rk1/1b3ppp/4p3/pNb1P1q1/8/PB1Q4/1PP3PP/R4R1K w - - 0 1"></div>
+<div class="score">
+<p>Иногда ничего другого просто не остается. Вам приходится обороняться, чтобы остаться в живых. Поэтому крайне необходимо овладеть навыками ведения упорной обороны.</p>
+<p>Первое, что вам потребуется, — умение распознавать те моменты, когда надо переходить в защиту. Второе — способность выявить все угрозы, от которых необходимо защищаться. Надо понимать, что ходы пешек должны быть сведены к минимуму и что фигуры всегда должны быть готовы прийти на помощь. Вы должны уметь правильно выбирать время для контратаки в центре и момент для возврата экстра-материала. А иногда нужно чем-то и поступиться, чтобы сохранить обороноспособную позицию.</p>
+<p>Очень трудно пробить следующую оборонительную стойку:</p>
+
+<!--img class="diagram" src="images/Tao of Chess-85.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r4rk1/1b3ppp/4p3/pNb1P1q1/8/PB1Q4/1PP3PP/R4R1K w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>В матче за звание чемпиона мира черные пожертвовали пешку, чтобы получить сильную атаку. Но белые спокойно отразили все угрозы:
+ <span class="line0" onclick='loadMove("r4rk1/1b3ppp/4p3/pNb1P1q1/8/PB1Q4/1PP3PP/R4R1K w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("r4rk1/1b3ppp/4p3/pNb1P1q1/8/PB6/1PP1Q1PP/R4R1K b - - 0 1", this, "d3e2"); ' class="line0">1.Фe2</span> 
+ <span onclick='loadMove("3r1rk1/1b3ppp/4p3/pNb1P1q1/8/PB6/1PP1Q1PP/R4R1K w - - 0 2", this, "a8d8"); ' class="line0">Лad8</span> 
+ <span onclick='loadMove("3r1rk1/1b3ppp/4p3/pNb1P1q1/8/PB6/1PP1Q1PP/3R1R1K b - - 0 2", this, "a1d1"); ' class="line0">2.Лad1</span> 
+ <span onclick='loadMove("5rk1/1b3ppp/4p3/pNb1P1q1/8/PB6/1PP1Q1PP/3r1R1K w - - 0 3", this, "d8d1"); ' class="line0">Л:d1</span> 
+ <span onclick='loadMove("5rk1/1b3ppp/4p3/pNb1P1q1/8/PB6/1PP1Q1PP/3R3K b - - 0 3", this, "f1d1"); ' class="line0">3.Л:d1</span> 
+ <span onclick='loadMove("5rk1/1b3pp1/4p3/pNb1P1qp/8/PB6/1PP1Q1PP/3R3K w - h6 0 4", this, "h7h5"); ' class="line0">h5</span> 
+ <span onclick='loadMove("5rk1/1b3pp1/3Np3/p1b1P1qp/8/PB6/1PP1Q1PP/3R3K b - - 0 4", this, "b5d6"); ' class="line0">4.Кd6</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p1b1P1qp/8/PB6/1PP1Q1PP/3R3K w - - 0 5", this, "b7a8"); ' class="line0">Сa8</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p1b1P1qp/2B5/P7/1PP1Q1PP/3R3K b - - 0 5", this, "b3c4"); ' class="line0">5.Сc4</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p1b1P1q1/2B4p/P7/1PP1Q1PP/3R3K w - - 0 6", this, "h5h4"); ' class="line0">h4</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p1b1P1q1/2B4p/P6P/1PP1Q1P1/3R3K b - - 0 6", this, "h2h3"); ' class="line0">6.h3</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p3P1q1/2B4p/P3b2P/1PP1Q1P1/3R3K w - - 0 7", this, "c5e3"); ' class="line0">Сe3</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p3P1q1/2B3Qp/P3b2P/1PP3P1/3R3K b - - 0 7", this, "e2g4"); ' class="line0">7.Фg4</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p3q3/2B3Qp/P3b2P/1PP3P1/3R3K w - - 0 8", this, "g5e5"); ' class="line0">Ф:e5</span> 
+ <span onclick='loadMove("b4rk1/5pp1/3Np3/p3q3/2B4Q/P3b2P/1PP3P1/3R3K b - - 0 8", this, "g4h4"); ' class="line0">8.Ф:h4</span> 
+ <span onclick='loadMove("b4rk1/5p2/3Np3/p3q1p1/2B4Q/P3b2P/1PP3P1/3R3K w - g6 0 9", this, "g7g5"); ' class="line0">g5</span> 
+ <span onclick='loadMove("b4rk1/5p2/3Np3/p3q1p1/2B3Q1/P3b2P/1PP3P1/3R3K b - - 0 9", this, "h4g4"); ' class="line0">9.Фg4</span> 
+ <span onclick='loadMove("b4rk1/5p2/3Np3/p1b1q1p1/2B3Q1/P6P/1PP3P1/3R3K w - - 0 10", this, "e3c5"); ' class="line0">Сc5</span> 
+ <span onclick='loadMove("b4rk1/5p2/4p3/pNb1q1p1/2B3Q1/P6P/1PP3P1/3R3K b - - 0 10", this, "d6b5"); ' class="line0">10.Кb5</span> 
+ <span onclick='loadMove("b4r2/5pk1/4p3/pNb1q1p1/2B3Q1/P6P/1PP3P1/3R3K w - - 0 11", this, "g8g7"); ' class="line0">Крg7</span> 
+ <span onclick='loadMove("b4r2/5pk1/4p3/p1b1q1p1/2BN2Q1/P6P/1PP3P1/3R3K b - - 0 11", this, "b5d4"); ' class="line0">11.Кd4</span> 
+ <span onclick='loadMove("b6r/5pk1/4p3/p1b1q1p1/2BN2Q1/P6P/1PP3P1/3R3K w - - 0 12", this, "f8h8"); ' class="line0">Лh8</span> 
+ <span onclick='loadMove("b6r/5pk1/4p3/p1b1q1p1/2B3Q1/P4N1P/1PP3P1/3R3K b - - 0 12", this, "d4f3"); ' class="line0">12.Кf3</span> 
+ <span onclick='loadMove("7r/5pk1/4p3/p1b1q1p1/2B3Q1/P4b1P/1PP3P1/3R3K w - - 0 13", this, "a8f3"); ' class="line0">С:f3</span> 
+ <span onclick='loadMove("7r/5pk1/4p3/p1b1q1p1/2B5/P4Q1P/1PP3P1/3R3K b - - 0 13", this, "g4f3"); ' class="line0">13.Ф:f3</span> 
+ <span onclick='loadMove("7r/5pk1/3bp3/p3q1p1/2B5/P4Q1P/1PP3P1/3R3K w - - 0 14", this, "c5d6"); ' class="line0">Сd6</span> 
+ <span onclick='loadMove("7r/5pk1/3bp3/p3q1p1/2B5/P1Q4P/1PP3P1/3R3K b - - 0 14", this, "f3c3"); ' class="line0">14.Фc3</span> 
+ <span onclick='loadMove("7r/5pk1/3bp3/p5p1/2B5/P1q4P/1PP3P1/3R3K w - - 0 15", this, "e5c3"); ' class="line0">Ф:c3</span> 
+ <span onclick='loadMove("7r/5pk1/3bp3/p5p1/2B5/P1P4P/2P3P1/3R3K b - - 0 15", this, "b2c3"); ' class="line0">15.b:c3</span> 
+ <span onclick='loadMove("7r/5pk1/4p3/p3b1p1/2B5/P1P4P/2P3P1/3R3K w - - 0 16", this, "d6e5"); ' class="line0">Сe5</span> 
+ <span onclick='loadMove("7r/3R1pk1/4p3/p3b1p1/2B5/P1P4P/2P3P1/7K b - - 0 16", this, "d1d7"); ' class="line0">16.Лd7</span> 
+ <span onclick='loadMove("7r/3R1p2/4pk2/p3b1p1/2B5/P1P4P/2P3P1/7K w - - 0 17", this, "g7f6"); ' class="line0">Крf6</span> 
+ <span onclick='loadMove("7r/3R1p2/4pk2/p3b1p1/2B5/P1P4P/2P3P1/6K1 b - - 0 17", this, "h1g1"); ' class="line0">17.Крg1</span> 
+ <span onclick='loadMove("7r/3R1p2/4pk2/p5p1/2B5/P1b4P/2P3P1/6K1 w - - 0 18", this, "e5c3"); ' class="line0">С:c3</span> 
+ <span onclick='loadMove("7r/3R1p2/4pk2/p5p1/8/P1b4P/2P1B1P1/6K1 b - - 0 18", this, "c4e2"); ' class="line0">18.Сe2</span> 
+ <span onclick='loadMove("7r/3R1p2/4pk2/p3b1p1/8/P6P/2P1B1P1/6K1 w - - 0 19", this, "c3e5"); ' class="line0">Сe5</span> 
+ <span onclick='loadMove("7r/3R1p2/4pk2/p3b1p1/8/P6P/2P1B1P1/5K2 b - - 0 19", this, "g1f1"); ' class="line0">19.Крf1</span> 
+ <span onclick='loadMove("2r5/3R1p2/4pk2/p3b1p1/8/P6P/2P1B1P1/5K2 w - - 0 20", this, "h8c8"); ' class="line0">Лc8</span> 
+ <span onclick='loadMove("2r5/3R1p2/4pk2/p3b1pB/8/P6P/2P3P1/5K2 b - - 0 20", this, "e2h5"); ' class="line0">20.Сh5</span> 
+ <span onclick='loadMove("8/2rR1p2/4pk2/p3b1pB/8/P6P/2P3P1/5K2 w - - 0 21", this, "c8c7"); ' class="line0">Лc7</span> 
+ <span onclick='loadMove("8/2R2p2/4pk2/p3b1pB/8/P6P/2P3P1/5K2 b - - 0 21", this, "d7c7"); ' class="line0">21.Л:c7</span> 
+ <span onclick='loadMove("8/2b2p2/4pk2/p5pB/8/P6P/2P3P1/5K2 w - - 0 22", this, "e5c7"); ' class="line0">С:c7</span>, и партия, в конечном счете, завершилась вничью (Борис Спасский — Бобби Фишер, Рейкьявик, Исландия, 1972).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Универсальная подготовка необходима для грамотных действий в любой остановке. Это касается и умения защищаться. Без умения защищаться вы просто еще один хороший игрок атакующего плана. При наличии этого умения, вы Игрок с большой буквы.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,466 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ферзь в борьбе против более слабых фигур | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h3>Ферзь в борьбе против более слабых фигур</h3>
+<p>Фрагменты из двух партий чемпионки мира М. Чибурданидзе — яркая иллюстрация методов и форм борьбы в иррациональных позициях, где ферзь является и героем и, увы, жертвой.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5pk1/4p1p1/2r4p/5P2/1Q3KP1/7P/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5pk1/4p1p1/2r4p/5P2/1Q3KP1/7P/8 b - - 0 1", this, ""); '>[...]</span> 
+<h4>Чибурданидзе - Ахмыловская<br>Матч претенденток, Таллин, 1977</h4>
+<!--img src="images/Gufeld-60.png" style="width:88pt;height:89pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5pk1/4p1p1/2r4p/5P2/1Q3KP1/7P/8 b - - 0 1"></div>
+<p>Эта позиция не случайно попала в книгу о минимальном преимуществе. Черные построили крепость, которую взять штурмом весьма нелегко, если вообще возможно. Очень часто единственный метод выигрыша в подобных положениях заключается в жертве ферзя за ладью с переходом в выгодное пешечное окончание. Самое удивительное, что очень похожая позиция с переменой цвета могла встретиться в одной из партий М. Ботвинника и была им детально проанализирована. Для наглядности мы поменяем цвет фигур у «предшественника» и рассмотрим его.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5pk1/1Q2p1p1/3r3p/4KP2/6PP/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5pk1/1Q2p1p1/3r3p/4KP2/6PP/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<h4>По партии<br>Троянеску - Ботвинник<br>(с - переменой цвета)<br>Будапешт, 1952</h4>
+<!--img src="images/Gufeld-61.png" style="width:91pt;height:90pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5pk1/1Q2p1p1/3r3p/4KP2/6PP/8/8 w - - 0 1"></div>
+<p>Удивительно похожие друг на друга позиции, не правда ли? Настоящие близнецы. Анализ этого окончания давно стал классическим, и нет сомнения, что обе претендентки были знакомы с методом выигрыша, продемонстрированным Ботвинником.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/1Q2p1p1/3r3p/4KPP1/7P/8/8 b - - 0 1", this, "g3g4"); ' class="line0">1.g3-g4</span> 
+ <span onclick='loadMove("8/5pk1/1Q2p1p1/3r4/4KPp1/7P/8/8 w - - 0 2", this, "h5g4"); ' class="line0">h5:g4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/1Q2p1p1/3r4/4KPP1/8/8/8 b - - 0 2", this, "h3g4"); ' class="line0">2.h3:g4</span> 
+ <span onclick='loadMove("6k1/5p2/1Q2p1p1/3r4/4KPP1/8/8/8 w - - 0 3", this, "g7g8"); ' class="line0">Крg7-g8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6k1/2Q2p2/4p1p1/3r4/4KPP1/8/8/8 b - - 0 3", this, "b6c7"); ' class="line0">3.Фb6-c7</span> 
+ <span onclick='loadMove("8/2Q2pk1/4p1p1/3r4/4KPP1/8/8/8 w - - 0 4", this, "g8g7"); ' class="line0">Крg8-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/2Q1p1p1/3r4/4KPP1/8/8/8 b - - 0 4", this, "c7c6"); ' class="line0">4.Фc7-c6</span> 
+ <span onclick='loadMove("5k2/5p2/2Q1p1p1/3r4/4KPP1/8/8/8 w - - 0 5", this, "g7f8"); ' class="line0">Крg7-f8</span> 
+</p>
+<p>Короля белых нельзя пропускать на 5-ю горизонталь — его рейд в тылы черных окажется решающим:
+ <span onclick='loadMove("8/5pk1/2Q1p1p1/8/4KPP1/8/8/3r4 w - - 0 5", this, "d5d1"); ' class="line1">4...Лd1</span> 
+ <span onclick='loadMove("8/5pk1/4p1p1/8/4KPP1/2Q5/8/3r4 b - - 0 5", this, "c6c3"); ' class="line1">5.Фc3</span> 
+ <span onclick='loadMove("6k1/5p2/4p1p1/8/4KPP1/2Q5/8/3r4 w - - 0 6", this, "g7g8"); ' class="line1">Крg8</span> 
+ <span onclick='loadMove("6k1/5p2/4p1p1/4K3/5PP1/2Q5/8/3r4 b - - 0 6", this, "e4e5"); ' class="line1">6.Крe5</span> 
+ <span onclick='loadMove("8/5pk1/4p1p1/4K3/5PP1/2Q5/8/3r4 w - - 0 7", this, "g8g7"); ' class="line1">Крg7</span> 
+ <span onclick='loadMove("8/5pk1/4p1p1/4KP2/6P1/2Q5/8/3r4 b - - 0 7", this, "f4f5"); ' class="line1">7.f5!</span> 
+ <span onclick='loadMove("8/5pk1/6p1/4Kp2/6P1/2Q5/8/3r4 w - - 0 8", this, "e6f5"); ' class="line1">ef</span> 
+ <span onclick='loadMove("8/5pk1/6p1/4KP2/8/2Q5/8/3r4 b - - 0 8", this, "g4f5"); ' class="line1">8.gf</span> 
+ <span onclick='loadMove("8/5pk1/6p1/4KP2/8/2Q5/8/5r2 w - - 0 9", this, "d1f1"); ' class="line1">Лf1</span> 
+ <span onclick='loadMove("8/5pk1/6P1/4K3/8/2Q5/8/5r2 b - - 0 9", this, "f5g6"); ' class="line1">9.fg</span> 
+ <span onclick='loadMove("8/6k1/6p1/4K3/8/2Q5/8/5r2 w - - 0 10", this, "f7g6"); ' class="line1">fg</span> 
+ <span onclick='loadMove("8/6k1/4K1p1/8/8/2Q5/8/5r2 b - - 0 10", this, "e5e6"); ' class="line1">10.Крe6</span> 
+и т. д</p>
+<p class="longNotation">
+ <span onclick='loadMove("Q4k2/5p2/4p1p1/3r4/4KPP1/8/8/8 b - - 0 5", this, "c6a8"); ' class="line0">5.Фc6-a8+</span> 
+ <span onclick='loadMove("Q7/5pk1/4p1p1/3r4/4KPP1/8/8/8 w - - 0 6", this, "f8g7"); ' class="line0">Крf8-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/4p1p1/3Q4/4KPP1/8/8/8 b - - 0 6", this, "a8d5"); ' class="line0">6.Фa8:d5</span> 
+ <span onclick='loadMove("8/5pk1/6p1/3p4/4KPP1/8/8/8 w - - 0 7", this, "e6d5"); ' class="line0">e6:d5+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/6p1/3K4/5PP1/8/8/8 b - - 0 7", this, "e4d5"); ' class="line0">7.Крe4:d5</span> 
+,</p>
+<p>и пешечное окончание безнадежно для черных. Давайте убедимся в этом, разыграв один из главных вариантов:
+ <span onclick='loadMove("5k2/5p2/6p1/3K4/5PP1/8/8/8 w - - 0 8", this, "g7f8"); ' class="line1">7...Крf8</span> 
+ <span onclick='loadMove("5k2/5p2/3K2p1/8/5PP1/8/8/8 b - - 0 8", this, "d5d6"); ' class="line1">8.Крd6</span> 
+ <span onclick='loadMove("4k3/5p2/3K2p1/8/5PP1/8/8/8 w - - 0 9", this, "f8e8"); ' class="line1">Крe8</span> 
+ <span onclick='loadMove("4k3/5p2/3K2p1/5P2/6P1/8/8/8 b - - 0 9", this, "f4f5"); ' class="line1">9.f5</span> 
+ <span onclick='loadMove("4k3/5p2/3K4/5Pp1/6P1/8/8/8 w - - 0 10", this, "g6g5"); ' class="line1">g5</span> 
+ <span onclick='loadMove("4k3/2K2p2/8/5Pp1/6P1/8/8/8 b - - 0 10", this, "d6c7"); ' class="line1">10.Крc7</span> 
+ <span onclick='loadMove("8/2K1kp2/8/5Pp1/6P1/8/8/8 w - - 0 11", this, "e8e7"); ' class="line1">Крe7</span> 
+ <span onclick='loadMove("2K5/4kp2/8/5Pp1/6P1/8/8/8 b - - 0 11", this, "c7c8"); ' class="line1">11.Крc8!</span> 
+ <span onclick='loadMove("2K5/5p2/3k4/5Pp1/6P1/8/8/8 w - - 0 12", this, "e7d6"); ' class="line1">Крd6</span> 
+ <span onclick='loadMove("3K4/5p2/3k4/5Pp1/6P1/8/8/8 b - - 0 12", this, "c8d8"); ' class="line1">12.Крd8</span> 
+, и белые выигрывают.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5pk1/4p1p1/2r4p/5P2/1Q3KP1/7P/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5pk1/4p1p1/2r4p/5P2/1Q3KP1/7P/8 b - - 0 1", this, ""); '>[...]</span> 
+<p>Именно поэтому Е. Ахмыловская избирает другой план
+<!--p>50</p-->
+защиты за черных:
+ <span onclick='loadMove("8/5pk1/4p3/2r3pp/5P2/1Q3KP1/7P/8 w - - 0 2", this, "g6g5"); ' class="line1">1...g5</span> 
+(вместо
+ <span onclick='loadMove("8/5pk1/4p1p1/3r3p/5P2/1Q3KP1/7P/8 w - - 0 2", this, "c5d5"); ' class="line2">1...Лd5</span> 
+).</p>
+<p class="longNotation">
+ <span class="line0">1. ...</span>
+ <span onclick='loadMove("8/5pk1/4p3/2r3pp/5P2/1Q3KP1/7P/8 w - - 0 2", this, "g6g5"); ' class="line0">g6-g5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/4p3/2r3Pp/8/1Q3KP1/7P/8 b - - 0 2", this, "f4g5"); ' class="line0">2.f4:g5</span> 
+ <span onclick='loadMove("8/5pk1/4p3/6rp/8/1Q3KP1/7P/8 w - - 0 3", this, "c5g5"); ' class="line0">Лc5:g5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/4p3/6rp/8/1Q3KPP/8/8 b - - 0 3", this, "h2h3"); ' class="line0">3.h2-h3</span> 
+ <span onclick='loadMove("8/5p1k/4p3/6rp/8/1Q3KPP/8/8 w - - 0 4", this, "g7h7"); ' class="line0">Крg7-h7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5p1k/4p3/6rp/4K3/1Q4PP/8/8 b - - 0 4", this, "f3e4"); ' class="line0">4.Крf3-e4</span> 
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K3/1Q4PP/8/8 w - - 0 5", this, "g5d5"); ' class="line0">Лg5-d5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("1Q6/5p1k/4p3/3r3p/4K3/6PP/8/8 b - - 0 5", this, "b3b8"); ' class="line0">5.Фb3-b8</span> 
+ <span onclick='loadMove("1Q6/5pk1/4p3/3r3p/4K3/6PP/8/8 w - - 0 6", this, "h7g7"); ' class="line0">Крh7-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/4p3/3r3p/4K3/6PP/1Q6/8 b - - 0 6", this, "b8b2"); ' class="line0">6.Фb8-b2+</span> 
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K3/6PP/1Q6/8 w - - 0 7", this, "g7h7"); ' class="line0">Крg7-h7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K3/6PP/8/1Q6 b - - 0 7", this, "b2b1"); ' class="line0">7.Фb2-b1!</span> 
+</p>
+<p>После
+ <span onclick='loadMove("8/5p1k/4pQ2/3r3p/4K3/6PP/8/8 b - - 0 7", this, "b2f6"); ' class="line1">7.Фf6</span> 
+ <span onclick='loadMove("8/5p1k/4pQ2/5r1p/4K3/6PP/8/8 w - - 0 8", this, "d5f5"); ' class="line1">Лf5</span> 
+ <span onclick='loadMove("8/5p1k/4p3/5Q1p/4K3/6PP/8/8 b - - 0 8", this, "f6f5"); ' class="line1">8.Ф:f5</span> 
+ <span onclick='loadMove("8/5p1k/8/5p1p/4K3/6PP/8/8 w - - 0 9", this, "e6f5"); ' class="line1">ef+</span> 
+ <span onclick='loadMove("8/5p1k/8/5K1p/8/6PP/8/8 b - - 0 9", this, "e4f5"); ' class="line1">9.Кр:f5</span> 
+возникало пешечное окончание, которое на первый взгляд может показаться выигранным для белых, но черным удавалось спастись —
+ <span onclick='loadMove("8/5p1k/8/5K2/7p/6PP/8/8 w - - 0 10", this, "h5h4"); ' class="line1">9...h4!</span> 
+ <span onclick='loadMove("8/5p1k/8/5K2/6Pp/7P/8/8 b - - 0 10", this, "g3g4"); ' class="line1">10.g4</span> 
+ <span onclick='loadMove("8/5pk1/8/5K2/6Pp/7P/8/8 w - - 0 11", this, "h7g7"); ' class="line1">Крg7</span> 
+ <span onclick='loadMove("8/5pk1/8/6K1/6Pp/7P/8/8 b - - 0 11", this, "f5g5"); ' class="line1">11.Крg5</span> 
+ <span onclick='loadMove("8/6k1/5p2/6K1/6Pp/7P/8/8 w - - 0 12", this, "f7f6"); ' class="line1">f6+</span> 
+ <span onclick='loadMove("8/6k1/5p2/8/6PK/7P/8/8 b - - 0 12", this, "g5h4"); ' class="line1">12.Кр:h4</span> 
+ <span onclick='loadMove("8/8/5pk1/8/6PK/7P/8/8 w - - 0 13", this, "g7g6"); ' class="line1">Крg6</span> 
+ <span onclick='loadMove("8/8/5pk1/8/6P1/6KP/8/8 b - - 0 13", this, "h4g3"); ' class="line1">13.Крg3</span> 
+ <span onclick='loadMove("8/8/6k1/5p2/6P1/6KP/8/8 w - - 0 14", this, "f6f5"); ' class="line1">f5</span> 
+, и ничья неизбежна.</p>
+<p>Вместо
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K3/6PP/8/1Q6 b - - 0 7", this, "b2b1"); ' class="line1">7.Фb1</span> 
+, встретившегося в партии, возможно было и
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K1P1/7P/1Q6/8 b - - 0 7", this, "g3g4"); ' class="line1">7.g4</span> 
+, стремясь движением пешки «g» стеснить противника и затем вторгаться королем. Откуда вторгаться? Резонный вопрос, тем более что ответ на него единственный — через ферзевый фланг! Давайте посмотрим:
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K1P1/7P/1Q6/8 b - - 0 7", this, "g3g4"); ' class="line1">7.g4</span> 
+ <span onclick='loadMove("8/5p1k/4p3/3r4/4K1p1/7P/1Q6/8 w - - 0 8", this, "h5g4"); ' class="line1">hg</span> 
+ <span onclick='loadMove("8/5p1k/4p3/3r4/4K1P1/8/1Q6/8 b - - 0 8", this, "h3g4"); ' class="line1">8.hg</span> 
+ <span onclick='loadMove("8/5p1k/4p3/6r1/4K1P1/8/1Q6/8 w - - 0 9", this, "d5g5"); ' class="line1">Лg5</span> 
+ <span onclick='loadMove("8/5p1k/4p3/6r1/5KP1/8/1Q6/8 b - - 0 9", this, "e4f4"); ' class="line1">9.Крf4</span> 
+ <span onclick='loadMove("8/5p1k/4p1r1/8/5KP1/8/1Q6/8 w - - 0 10", this, "g5g6"); ' class="line1">Лg6</span> 
+ <span onclick='loadMove("8/5p1k/4p1r1/4Q3/5KP1/8/8/8 b - - 0 10", this, "b2e5"); ' class="line1">10.Фe5!</span> 
+ <span onclick='loadMove("6k1/5p2/4p1r1/4Q3/5KP1/8/8/8 w - - 0 11", this, "h7g8"); ' class="line1">Крg8</span> 
+ <span onclick='loadMove("6k1/5p2/4p1r1/4Q1P1/5K2/8/8/8 b - - 0 11", this, "g4g5"); ' class="line1">11.g5</span> 
+, и теперь очевидно, что ладья черных прикована к пешке g5, а значит, не сможет помешать белому королю прорваться в тыл противника.
+Отметим, что вместо
+ <span onclick='loadMove("8/5p1k/4p1r1/8/5KP1/8/1Q6/8 w - - 0 10", this, "g5g6"); ' class="line1">9...Лg6</span> 
+не помогало и
+ <span onclick='loadMove("8/5p2/4p1k1/6r1/5KP1/8/1Q6/8 w - - 0 10", this, "h7g6"); ' class="line2">9...Крg6</span> 
+:
+ <span onclick='loadMove("7Q/5p2/4p1k1/6r1/5KP1/8/8/8 b - - 0 10", this, "b2h8"); ' class="line2">10.Фh8</span> 
+ <span onclick='loadMove("7Q/5p2/6k1/4p1r1/5KP1/8/8/8 w - - 0 11", this, "e6e5"); ' class="line2">e5</span> 
+ <span onclick='loadMove("7Q/5p2/6k1/4p1r1/6P1/5K2/8/8 b - - 0 11", this, "f4f3"); ' class="line2">11.Крf3</span> 
+ <span onclick='loadMove("7Q/5p2/6k1/6r1/4p1P1/5K2/8/8 w - - 0 12", this, "e5e4"); ' class="line2">e4</span> 
+ <span onclick='loadMove("7Q/5p2/6k1/6r1/4pKP1/8/8/8 b - - 0 12", this, "f3f4"); ' class="line2">12.Крf4!</span> 
+ <span onclick='loadMove("7Q/5p2/6k1/2r5/4pKP1/8/8/8 w - - 0 13", this, "g5c5"); ' class="line2">Лc5</span> 
+ <span onclick='loadMove("6Q1/5p2/6k1/2r5/4pKP1/8/8/8 b - - 0 13", this, "h8g8"); ' class="line2">13.Фg8</span> 
+ <span onclick='loadMove("6Q1/5p2/5k2/2r5/4pKP1/8/8/8 w - - 0 14", this, "g6f6"); ' class="line2">Крf6</span> 
+ <span onclick='loadMove("6Q1/5p2/5k2/2r3P1/4pK2/8/8/8 b - - 0 14", this, "g4g5"); ' class="line2">14.g5</span> 
+ <span onclick='loadMove("6Q1/4kp2/8/2r3P1/4pK2/8/8/8 w - - 0 15", this, "f6e7"); ' class="line2">Крe7</span> 
+ <span onclick='loadMove("6Q1/4kp2/6P1/2r5/4pK2/8/8/8 b - - 0 15", this, "g5g6"); ' class="line2">15.g6</span> 
+, и оборона черных прорвана.</p>
+<p class="longNotation">
+ <span class="line0">7. ...</span>
+ <span onclick='loadMove("8/5pk1/4p3/3r3p/4K3/6PP/8/1Q6 w - - 0 8", this, "h7g7"); ' class="line0">Крh7-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5pk1/4p3/3r3p/4K3/6PP/8/Q7 b - - 0 8", this, "b1a1"); ' class="line0">8.Фb1-a1+</span> 
+ <span onclick='loadMove("8/5p2/4p1k1/3r3p/4K3/6PP/8/Q7 w - - 0 9", this, "g7g6"); ' class="line0">Крg7-g6</span> 
+</p>
+<p>На
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K3/6PP/8/Q7 w - - 0 9", this, "g7h7"); ' class="line1">8...Крh7</span> 
+хорошо
+ <span onclick='loadMove("8/5p1k/4p3/3r3p/4K1P1/7P/8/Q7 b - - 0 9", this, "g3g4"); ' class="line1">9.g4</span> 
+, стремясь к проведению плана, указанного в предыдущем примечании.</p>
+<p class="longNotation">
+ <span onclick='loadMove("7Q/5p2/4p1k1/3r3p/4K3/6PP/8/8 b - - 0 9", this, "a1h8"); ' class="line0">9.Фa1-h8</span> 
+ <span onclick='loadMove("7Q/5p2/4p1k1/6rp/4K3/6PP/8/8 w - - 0 10", this, "d5g5"); ' class="line0">Лd5-g5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6Q1/5p2/4p1k1/6rp/4K3/6PP/8/8 b - - 0 10", this, "h8g8"); ' class="line0">10.Фh8-g8+</span> 
+ <span onclick='loadMove("6Q1/5p2/4pk2/6rp/4K3/6PP/8/8 w - - 0 11", this, "g6f6"); ' class="line0">Крg6-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("3Q4/5p2/4pk2/6rp/4K3/6PP/8/8 b - - 0 11", this, "g8d8"); ' class="line0">11.Фg8-d8+</span> 
+ <span onclick='loadMove("3Q4/5p2/4p1k1/6rp/4K3/6PP/8/8 w - - 0 12", this, "f6g6"); ' class="line0">Крf6-g6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("5Q2/5p2/4p1k1/6rp/4K3/6PP/8/8 b - - 0 12", this, "d8f8"); ' class="line0">12.Фd8-f8!</span> 
+</p>
+<p>Пользуясь тем обстоятельством, что пешка g3 косвенно защищена —
+ <span onclick='loadMove("5Q2/5p2/4p1k1/7p/4K3/6rP/8/8 w - - 0 13", this, "g5g3"); ' class="line1">12...Л:g3?</span> 
+ <span onclick='loadMove("6Q1/5p2/4p1k1/7p/4K3/6rP/8/8 b - - 0 13", this, "f8g8"); ' class="line1">13.Фg8+</span> 
+— белые лишают противника возможности сыграть
+ <span onclick='loadMove("5Q2/5p2/4pk2/6rp/4K3/6PP/8/8 w - - 0 13", this, "g6f6"); ' class="line1">12...Крf6</span> 
+, что вело бы к потере пешки h5:
+ <span onclick='loadMove("5Q2/5p2/4pk2/6rp/4K3/6PP/8/8 w - - 0 13", this, "g6f6"); ' class="line1">12...Крf6</span> 
+ <span onclick='loadMove("8/5p2/4pk1Q/6rp/4K3/6PP/8/8 b - - 0 13", this, "f8h6"); ' class="line1">13.Фh6+</span> 
+ <span onclick='loadMove("8/5p2/4pkrQ/7p/4K3/6PP/8/8 w - - 0 14", this, "g5g6"); ' class="line1">Лg6</span> 
+ <span onclick='loadMove("8/5p2/4pkr1/7Q/4K3/6PP/8/8 b - - 0 14", this, "h6h5"); ' class="line1">14.Ф:h5</span> 
+.</p>
+<p class="longNotation">
+ <span class="line0">12. ...</span>
+ <span onclick='loadMove("5Q2/5p2/4p1k1/5r1p/4K3/6PP/8/8 w - - 0 13", this, "g5f5"); ' class="line0">Лg5-f5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("5Q2/5p2/4p1k1/5r1p/4K1P1/7P/8/8 b - - 0 13", this, "g3g4"); ' class="line0">13.g3-g4</span> 
+ <span onclick='loadMove("5Q2/5p2/4p1k1/5r2/4K1p1/7P/8/8 w - - 0 14", this, "h5g4"); ' class="line0">h5:g4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("5Q2/5p2/4p1k1/5r2/4K1P1/8/8/8 b - - 0 14", this, "h3g4"); ' class="line0">14.h3:g4</span> 
+ <span onclick='loadMove("5Q2/5p2/4p1k1/3r4/4K1P1/8/8/8 w - - 0 15", this, "f5d5"); ' class="line0">Лf5-d5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6Q1/5p2/4p1k1/3r4/4K1P1/8/8/8 b - - 0 15", this, "f8g8"); ' class="line0">15.Фf8-g8+</span> 
+ <span onclick='loadMove("6Q1/5p2/4pk2/3r4/4K1P1/8/8/8 w - - 0 16", this, "g6f6"); ' class="line0">Крg6-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("7Q/5p2/4pk2/3r4/4K1P1/8/8/8 b - - 0 16", this, "g8h8"); ' class="line0">16.Фg8-h8+</span> 
+ <span onclick='loadMove("7Q/5p2/4p1k1/3r4/4K1P1/8/8/8 w - - 0 17", this, "f6g6"); ' class="line0">Крf6-g6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("7Q/5p2/4p1k1/3r4/5KP1/8/8/8 b - - 0 17", this, "e4f4"); ' class="line0">17.Крe4-f4</span> 
+ <span onclick='loadMove("7Q/5p2/4p1k1/2r5/5KP1/8/8/8 w - - 0 18", this, "d5c5"); ' class="line0">Лd5-c5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6Q1/5p2/4p1k1/2r5/5KP1/8/8/8 b - - 0 18", this, "h8g8"); ' class="line0">18.Фh8-g8+</span> 
+ <span onclick='loadMove("6Q1/5p2/4pk2/2r5/5KP1/8/8/8 w - - 0 19", this, "g6f6"); ' class="line0">Крg6-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6Q1/5p2/4pk2/2r3P1/5K2/8/8/8 b - - 0 19", this, "g4g5"); ' class="line0">19.g4-g5+</span> 
+ <span onclick='loadMove("6Q1/4kp2/4p3/2r3P1/5K2/8/8/8 w - - 0 20", this, "f6e7"); ' class="line0">Крf6-e7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6Q1/4kp2/4p1P1/2r5/5K2/8/8/8 b - - 0 20", this, "g5g6"); ' class="line0">20.g5-g6</span> 
+ <span onclick='loadMove("6Q1/4kp2/4p1P1/5r2/5K2/8/8/8 w - - 0 21", this, "c5f5"); ' class="line0">Лc5-f5+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6Q1/4kp2/4p1P1/5r2/4K3/8/8/8 b - - 0 21", this, "f4e4"); ' class="line0">21.Крf4-e4</span> 
+ <span onclick='loadMove("6Q1/4k3/4p1p1/5r2/4K3/8/8/8 w - - 0 22", this, "f7g6"); ' class="line0">f7:g6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/4k3/4p1Q1/5r2/4K3/8/8/8 b - - 0 22", this, "g8g6"); ' class="line0">22.Фg8:g6</span> 
+,</p>
+<p>и черные сдались, так как возникла известная теоретическая позиция, выигранная за белых. Сначала они вытесняют короля с последней горизонтали, а затем белый король с тыла прорывается к пешке «е». Теперь, уважаемый читатель, вы можете представить себе, сколько требуется упорства и находчивости, чтобы выиграть подобное окончание. Терпение и труд — краеугольные камни нелегкого шахматного совершенствования.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/7p/6pB/3k4/1p3R2/2q5/5P1P/5NK1 w - - 0 43"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/7p/6pB/3k4/1p3R2/2q5/5P1P/5NK1 w - - 0 43", this, ""); '>[...]</span> 
+<h4>Чибурданидзе - Дудкова<br>СССР, 1976</h4>
+<!--img src="images/Gufeld-62.png" style="width:90pt;height:90pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="8/7p/6pB/3k4/1p3R2/2q5/5P1P/5NK1 w - - 0 43"></div>
+<p>У белых небольшой материальный перевес, но наличие на доске малого количества
+<!--p>51</p-->
+боевых единиц затрудняет реализацию преимущества Поучительно проследить, как Чибурданидзе виртуозно организует взаимодействие своих фигур и добивается победы.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/6pB/3k4/1p3R2/2q1N3/5P1P/6K1 b - - 0 43", this, "f1e3"); ' class="line0">43.Кf1-e3+</span> 
+ <span onclick='loadMove("8/7p/4k1pB/8/1p3R2/2q1N3/5P1P/6K1 w - - 0 44", this, "d5e6"); ' class="line0">Крd5-e6</span> 
+</p>
+<p>Нельзя
+ <span onclick='loadMove("8/7p/3k2pB/8/1p3R2/2q1N3/5P1P/6K1 w - - 0 44", this, "d5d6"); ' class="line1">43...Крd6</span> 
+из-за
+ <span onclick='loadMove("8/7p/3k2pB/8/1R6/2q1N3/5P1P/6K1 b - - 0 44", this, "f4b4"); ' class="line1">44.Л:b4</span> 
+ <!--span onclick='loadMove("8/7p/3k2pB/8/1R6/2q1N3/5P1P/6K1 w - - 0 45", this, "f4b4"); ' class="line1">z0</span--> 
+и
+ <span onclick='loadMove("5B2/7p/3k2p1/8/1R6/2q1N3/5P1P/6K1 b - - 0 45", this, "h6f8"); ' class="line1">45.Сf8+</span> 
+.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/4k1pB/8/1p2R3/2q1N3/5P1P/6K1 b - - 0 44", this, "f4e4"); ' class="line0">44.Лf4-e4+!</span> 
+ <span onclick='loadMove("8/3k3p/6pB/8/1p2R3/2q1N3/5P1P/6K1 w - - 0 45", this, "e6d7"); ' class="line0">Крe6-d7</span> 
+</p>
+<p>После
+ <span onclick='loadMove("8/5k1p/6pB/8/1p2R3/2q1N3/5P1P/6K1 w - - 0 45", this, "e6f7"); ' class="line1">44...Крf7</span> 
+к выигрышу приводит
+ <span onclick='loadMove("8/4Rk1p/6pB/8/1p6/2q1N3/5P1P/6K1 b - - 0 45", this, "e4e7"); ' class="line1">45.Лe7+</span> 
+ <!--span onclick='loadMove("8/4Rk1p/6pB/8/1p6/2q1N3/5P1P/6K1 w - - 0 46", this, "e4e7"); ' class="line1">z0</span--> 
+и
+ <span onclick='loadMove("8/4Rk1p/6pB/3N4/1p6/2q5/5P1P/6K1 b - - 0 46", this, "e3d5"); ' class="line1">46.Кd5</span> 
+.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/3kR2p/6pB/8/1p6/2q1N3/5P1P/6K1 b - - 0 45", this, "e4e7"); ' class="line0">45.Лe4-e7+!</span> 
+ <span onclick='loadMove("8/4R2p/2k3pB/8/1p6/2q1N3/5P1P/6K1 w - - 0 46", this, "d7c6"); ' class="line0">Крd7-c6</span> 
+</p>
+<p>Упрощает задачу белых. Но и после
+ <span onclick='loadMove("2k5/4R2p/6pB/8/1p6/2q1N3/5P1P/6K1 w - - 0 46", this, "d7c8"); ' class="line1">45...Крc8</span> 
+белые выигрывают следующим образом:
+ <span onclick='loadMove("2k5/4R2p/6p1/8/1p3B2/2q1N3/5P1P/6K1 b - - 0 46", this, "h6f4"); ' class="line1">46.Сf4</span> 
+ <span onclick='loadMove("2k5/4R2p/6p1/8/5B2/1pq1N3/5P1P/6K1 w - - 0 47", this, "b4b3"); ' class="line1">b3</span> 
+ <span onclick='loadMove("2k5/4R2p/6p1/3N4/5B2/1pq5/5P1P/6K1 b - - 0 47", this, "e3d5"); ' class="line1">47.Кd5</span> 
+ <span onclick='loadMove("2k5/4R2p/6p1/3N4/5B2/1p6/5P1P/q5K1 w - - 0 48", this, "c3a1"); ' class="line1">Фa1+</span> 
+ <span onclick='loadMove("2k5/4R2p/6p1/3N4/5B2/1p6/5PKP/q7 b - - 0 48", this, "g1g2"); ' class="line1">48.Крg2</span> 
+ <span onclick='loadMove("2k5/4R2p/6p1/3N4/5B2/8/1p3PKP/q7 w - - 0 49", this, "b3b2"); ' class="line1">b2</span> 
+ <span onclick='loadMove("2k5/2R4p/6p1/3N4/5B2/8/1p3PKP/q7 b - - 0 49", this, "e7c7"); ' class="line1">49.Лc7+</span> 
+ <span onclick='loadMove("3k4/2R4p/6p1/3N4/5B2/8/1p3PKP/q7 w - - 0 50", this, "c8d8"); ' class="line1">Крd8</span> 
+ <span onclick='loadMove("3k4/2R4p/6p1/3N2B1/8/8/1p3PKP/q7 b - - 0 50", this, "f4g5"); ' class="line1">50.Сg5+</span> 
+ <span onclick='loadMove("4k3/2R4p/6p1/3N2B1/8/8/1p3PKP/q7 w - - 0 51", this, "d8e8"); ' class="line1">Крe8</span> 
+ <span onclick='loadMove("4k3/4R2p/6p1/3N2B1/8/8/1p3PKP/q7 b - - 0 51", this, "c7e7"); ' class="line1">51.Лe7+</span> 
+ <span onclick='loadMove("3k4/4R2p/6p1/3N2B1/8/8/1p3PKP/q7 w - - 0 52", this, "e8d8"); ' class="line1">Крd8</span> 
+ <span onclick='loadMove("3k4/6Rp/6p1/3N2B1/8/8/1p3PKP/q7 b - - 0 52", this, "e7g7"); ' class="line1">52.Лg7</span> 
+ <span onclick='loadMove("4k3/6Rp/6p1/3N2B1/8/8/1p3PKP/q7 w - - 0 53", this, "d8e8"); ' class="line1">Крe8</span> 
+ <span onclick='loadMove("4k3/2N3Rp/6p1/6B1/8/8/1p3PKP/q7 b - - 0 53", this, "d5c7"); ' class="line1">53.Кc7+</span> 
+ <span onclick='loadMove("5k2/2N3Rp/6p1/6B1/8/8/1p3PKP/q7 w - - 0 54", this, "e8f8"); ' class="line1">Крf8</span> 
+ <span onclick='loadMove("5k2/6Rp/4N1p1/6B1/8/8/1p3PKP/q7 b - - 0 54", this, "c7e6"); ' class="line1">54.Кe6+</span> 
+и мат следующим ходом.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/2R4p/2k3pB/8/1p6/2q1N3/5P1P/6K1 b - - 0 46", this, "e7c7"); ' class="line0">46.Лe7-c7+</span> 
+ <span onclick='loadMove("8/2k4p/6pB/8/1p6/2q1N3/5P1P/6K1 w - - 0 47", this, "c6c7"); ' class="line0">Крc6:c7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/2k4p/6pB/3N4/1p6/2q5/5P1P/6K1 b - - 0 47", this, "e3d5"); ' class="line0">47.Кe3-d5+</span> 
+ <span onclick='loadMove("8/7p/3k2pB/3N4/1p6/2q5/5P1P/6K1 w - - 0 48", this, "c7d6"); ' class="line0">Крc7-d6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/3k2pB/8/1p6/2N5/5P1P/6K1 b - - 0 48", this, "d5c3"); ' class="line0">48.Кd5:c3</span> 
+ <span onclick='loadMove("8/7p/3k2pB/8/8/2p5/5P1P/6K1 w - - 0 49", this, "b4c3"); ' class="line0">b4:c3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/3k2pB/8/8/2p5/5PKP/8 b - - 0 49", this, "g1g2"); ' class="line0">49.Крg1-g2</span> 
+ <span onclick='loadMove("8/7p/6pB/3k4/8/2p5/5PKP/8 w - - 0 50", this, "d6d5"); ' class="line0">Крd6-d5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/6pB/3k4/8/2p2K2/5P1P/8 b - - 0 50", this, "g2f3"); ' class="line0">50.Крg2-f3</span> 
+ <span onclick='loadMove("8/7p/6pB/8/2k5/2p2K2/5P1P/8 w - - 0 51", this, "d5c4"); ' class="line0">Крd5-c4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/6pB/8/2k4P/2p2K2/5P2/8 b - h3 0 51", this, "h2h4"); ' class="line0">51.h2-h4</span> 
+ <span onclick='loadMove("8/7p/6pB/8/7P/1kp2K2/5P2/8 w - - 0 52", this, "c4b3"); ' class="line0">Крc4-b3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/6pB/8/6KP/1kp5/5P2/8 b - - 0 52", this, "f3g4"); ' class="line0">52.Крf3-g4</span> 
+ <span onclick='loadMove("8/7p/6pB/8/6KP/1k6/2p2P2/8 w - - 0 53", this, "c3c2"); ' class="line0">c3-c2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7p/6p1/8/6KP/1k2B3/2p2P2/8 b - - 0 53", this, "h6e3"); ' class="line0">53.Сh6-e3</span> 
+.</p>
+<p>Черные сдались.</p>
+<p>Следующий пример взят из практики борьбы ферзя против двух ладей. Активность и точный расчет — вот слагаемые успеха в этой борьбе.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7r/5rk1/6p1/p3p3/2P1P1P1/2Q4p/2P4P/6K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7r/5rk1/6p1/p3p3/2P1P1P1/2Q4p/2P4P/6K1 b - - 0 1", this, ""); '>[...]</span> 
+<h4>Станчу - Вайсман<br>Румыния 1978</h4>
+<!--img src="images/Gufeld-63.png" style="width:89pt;height:90pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="7r/5rk1/6p1/p3p3/2P1P1P1/2Q4p/2P4P/6K1 b - - 0 1"></div>
+<p>Две ладьи являются более чем достаточным материальным эквивалентом за ферзя. Если же им удастся наладить взаимодействие, то ферзю придется весьма трудно. Под ударом у черных две пешки — a5 и e5. Защитить их одновременно не удается, это очевидно. Поэтому сейчас очень важно для черных найти возможность быстрой эвакуации ладей.</p>
+<p class="longNotation">
+ <span class="line0">1. ...</span>
+ <span onclick='loadMove("3r4/5rk1/6p1/p3p3/2P1P1P1/2Q4p/2P4P/6K1 w - - 0 2", this, "h8d8"); ' class="line0">Лh8-d8!</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("3r4/5rk1/6p1/p3p3/2P1P1P1/7Q/2P4P/6K1 b - - 0 2", this, "c3h3"); ' class="line0">2.Фc3:h3</span> 
+</p>
+<p>Черные угрожали дать мат, и пешку h3 необходимо уничтожить.</p>
+<p class="longNotation">
+ <span class="line0">2. ...</span>
+ <span onclick='loadMove("8/5rk1/6p1/p3p3/2P1P1P1/7Q/2P4P/3r2K1 w - - 0 3", this, "d8d1"); ' class="line0">Лd8-d1+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5rk1/6p1/p3p3/2P1P1P1/7Q/2P3KP/3r4 b - - 0 3", this, "g1g2"); ' class="line0">3.Крg1-g2</span> 
+ <span onclick='loadMove("8/5rk1/6p1/p3p3/2P1P1P1/7Q/2Pr2KP/8 w - - 0 4", this, "d1d2"); ' class="line0">Лd1-d2+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5rk1/6p1/p3p3/2P1P1P1/7Q/2Pr3P/6K1 b - - 0 4", this, "g2g1"); ' class="line0">4.Крg2-g1</span> 
+</p>
+<p>Подниматься на g3 нельзя —
+ <span onclick='loadMove("8/5rk1/6p1/p3p3/2P1P1P1/6KQ/2Pr3P/8 b - - 0 4", this, "g2g3"); ' class="line1">4.Крg3</span> 
+и белым фигурам явно тесно.</p>
+<p class="longNotation">
+ <span class="line0">4. ...</span>
+ <span onclick='loadMove("8/1r4k1/6p1/p3p3/2P1P1P1/7Q/2Pr3P/6K1 w - - 0 5", this, "f7b7"); ' class="line0">Лf7-b7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/1r4k1/6p1/p3p3/2P1P1P1/8/2Pr3P/5QK1 b - - 0 5", this, "h3f1"); ' class="line0">5.Фh3-f1</span> 
+ <span onclick='loadMove("8/6k1/6p1/p3p3/2P1P1P1/8/1rPr3P/5QK1 w - - 0 6", this, "b7b2"); ' class="line0">Лb7-b2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/6k1/6p1/p3p3/2P1P1PP/8/1rPr4/5QK1 b - h3 0 6", this, "h2h4"); ' class="line0">6.h2-h4</span> 
+ <span onclick='loadMove("8/6k1/6p1/p3p3/2P1P1PP/8/2rr4/5QK1 w - - 0 7", this, "b2c2"); ' class="line0">Лb2:c2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/6k1/6p1/p3p2P/2P1P1P1/8/2rr4/5QK1 b - - 0 7", this, "h4h5"); ' class="line0">7.h4-h5</span> 
+</p>
+<p>Теперь, когда черные ладьи полностью контролируют 2-ю горизонталь, у белых единственный шанс на спасение: движением пешек на королевском фланге раскрыть позицию черного короля и попытаться объявить вечный шах. Черные должны быть начеку!</p>
+<p class="longNotation">
+ <span class="line0">7. ...</span>
+ <span onclick='loadMove("8/6k1/8/p3p2p/2P1P1P1/8/2rr4/5QK1 w - - 0 8", this, "g6h5"); ' class="line0">g6:h5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/6k1/8/p3p2P/2P1P3/8/2rr4/5QK1 b - - 0 8", this, "g4h5"); ' class="line0">8.g4:h5</span> 
+ <span onclick='loadMove("8/8/7k/p3p2P/2P1P3/8/2rr4/5QK1 w - - 0 9", this, "g7h6"); ' class="line0">Крg7-h6!!</span> 
+</p>
+<p>Король бесстрашно идет вперед — под шахи белого ферзя. Оптимизм черных основан на точном расчете.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/8/2rr4/5QK1 b - - 0 9", this, "c4c5"); ' class="line0">9.c4-c5</span> 
+</p>
+<p>Попробуем зашаховать черного короля:
+ <span onclick='loadMove("8/8/5Q1k/p3p2P/2P1P3/8/2rr4/6K1 b - - 0 9", this, "f1f6"); ' class="line1">9.Фf6+</span> 
+ <span onclick='loadMove("8/8/5Q2/p3p2k/2P1P3/8/2rr4/6K1 w - - 0 10", this, "h6h5"); ' class="line1">Кр:h5</span> 
+ <span onclick='loadMove("8/8/8/p3Q2k/2P1P3/8/2rr4/6K1 b - - 0 10", this, "f6e5"); ' class="line1">10.Ф:e5+</span> 
+ <span onclick='loadMove("8/8/8/p3Q3/2P1P1k1/8/2rr4/6K1 w - - 0 11", this, "h5g4"); ' class="line1">Крg4</span> 
+ <span onclick='loadMove("8/8/8/p4Q2/2P1P1k1/8/2rr4/6K1 b - - 0 11", this, "e5f5"); ' class="line1">11.Фf5+</span> 
+ <span onclick='loadMove("8/8/8/p4Q2/2P1P3/6k1/2rr4/6K1 w - - 0 12", this, "g4g3"); ' class="line1">Крg3</span> 
+, и становится очевидным, что вечного шаха не будет, а король резко активизировался.</p>
+<!--p>52</p-->
+<p class="longNotation">
+ <span class="line0">9. ...</span>
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/8/1r1r4/5QK1 w - - 0 10", this, "c2b2"); ' class="line0">Лc2-b2!</span> 
+</p>
+<p>Брать пешку на h5, значит, помочь белым —
+ <span onclick='loadMove("8/8/8/p1P1p2k/4P3/8/2rr4/5QK1 w - - 0 10", this, "h6h5"); ' class="line1">9...Кр:h5?</span> 
+ <span onclick='loadMove("8/8/8/p1P1p2k/4P3/7Q/2rr4/6K1 b - - 0 10", this, "f1h3"); ' class="line1">10.Фh3+</span> 
+.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/8/1r1r4/5Q1K b - - 0 10", this, "g1h1"); ' class="line0">10.Крg1-h1</span> 
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/8/1r3r2/5Q1K w - - 0 11", this, "d2f2"); ' class="line0">Лd2-f2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/3Q4/1r3r2/7K b - - 0 11", this, "f1d3"); ' class="line0">11.Фf1-d3</span> 
+</p>
+<p>Еще хуже
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/8/1r3r2/6QK b - - 0 11", this, "f1g1"); ' class="line1">11.Фg1</span> 
+ <span onclick='loadMove("8/8/8/p1P1p2k/4P3/8/1r3r2/6QK w - - 0 12", this, "h6h5"); ' class="line1">Кр:h5</span> 
+ <span onclick='loadMove("8/8/8/p1P1p2k/4P3/8/1r3r2/3Q3K b - - 0 12", this, "g1d1"); ' class="line1">12.Фd1+</span> 
+ <span onclick='loadMove("8/8/8/p1P1p3/4P2k/8/1r3r2/3Q3K w - - 0 13", this, "h5h4"); ' class="line1">Крh4</span> 
+</p>
+<p class="longNotation">
+ <span class="line0">11. ...</span>
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/3Q4/3r1r2/7K w - - 0 12", this, "b2d2"); ' class="line0">Лb2-d2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/7k/p1P1p2P/4P3/4Q3/3r1r2/7K b - - 0 12", this, "d3e3"); ' class="line0">12.Фd3-e3+</span> 
+ <span onclick='loadMove("8/7k/8/p1P1p2P/4P3/4Q3/3r1r2/7K w - - 0 13", this, "h6h7"); ' class="line0">Крh6-h7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/7k/8/p1P1p2P/4P3/4Q3/3r1r2/6K1 b - - 0 13", this, "h1g1"); ' class="line0">13.Крh1-g1</span> 
+ <span onclick='loadMove("8/7k/8/p1P1p2P/4P3/4Q3/3rr3/6K1 w - - 0 14", this, "f2e2"); ' class="line0">Лf2-e2</span> 
+</p>
+<p>Белые сдались</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

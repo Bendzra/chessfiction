@@ -1,0 +1,59 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Геометрия шахматной доски | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Геометрия шахматной доски</h3>
+<div class="chessBoard small floater" data-start-fen="8/4k3/8/4K3/p7/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/4k3/8/4K3/p7/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/4k3/8/4K3/p7/8/8/8 w - - 0 1"></div>
+<p>А как быстро определить, проходит пешка в ферзи или нет? Возвратимся к предыдущей диаграмме. Можно, конечно, в уме рассчитать маршруты движения белого короля и пешки: скажем, так: я пойду королем на d4, он — пешкой на a3. Я — королем на c3, он — пешкой на a2. Я — королем на b2,
+<!--p>— 105 —</p-->
+и пешка черных погибает. Но такие расчеты довольно длинны и требуют много времени. </p>
+<p>В подобного рода окончаниях существуют и своего рода геометрические способы расчета. Есть такое «правило квадрата». Построй мысленно квадрат, взяв прежде всего ту его линию, по которой пешка марширует в ферзи.</p>
+<p>Квадрат пешки a4 — это прямоугольник <b>a4—а1—d1-d4</b>.</p>
+<p>Если твой король при своем ходе вступает в этот квадрат или уже находится в нем, пешка будет задержана. В противном случае она пройдет беспрепятственно в ферзи.</p>
+<p>Правило квадрата имеет серьезное практическое значение. Вот, например, такая позиция:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/ppp5/6k1/PPP5/8/8/6K1/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/ppp5/6k1/PPP5/8/8/6K1/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">143</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/ppp5/6k1/PPP5/8/8/6K1/8 w - - 0 1"></div>
+<p>Как здесь играть белым? Очевидно, что если они станут приближать своего короля к пешкам, то черный король также направится туда и окажется у пешек раньше. Вот характерный вариант:
+ <span onclick='loadMove("8/ppp5/6k1/PPP5/8/5K2/8/8 b - - 0 1", this, "g2f3"); ' class="line1">1.Крg2-f3</span> 
+ <span onclick='loadMove("8/ppp5/8/PPP2k2/8/5K2/8/8 w - - 0 2", this, "g6f5"); ' class="line1">Крg6-f5</span> 
+ <span onclick='loadMove("8/ppp5/8/PPP2k2/8/4K3/8/8 b - - 0 2", this, "f3e3"); ' class="line1">2.Крf3-e3</span> 
+ <span onclick='loadMove("8/ppp5/8/PPP1k3/8/4K3/8/8 w - - 0 3", this, "f5e5"); ' class="line1">Крf5-e5</span> 
+ <span onclick='loadMove("8/ppp5/8/PPP1k3/8/3K4/8/8 b - - 0 3", this, "e3d3"); ' class="line1">3.Крe3-d3</span> 
+ <span onclick='loadMove("8/ppp5/8/PPPk4/8/3K4/8/8 w - - 0 4", this, "e5d5"); ' class="line1">Крe5-d5</span> 
+, и пешки белых обречены на гибель.</p>
+<p>В распоряжении белых есть, однако, красивая комбинация:
+ <span onclick='loadMove("8/ppp5/1P4k1/P1P5/8/8/6K1/8 b - - 0 1", this, "b5b6"); ' class="line0">1.b5-b6</span> 
+ <span onclick='loadMove("8/pp6/1p4k1/P1P5/8/8/6K1/8 w - - 0 2", this, "c7b6"); ' class="line0">c7:b6</span> 
+(Не меняет дела и
+ <span onclick='loadMove("8/1pp5/1p4k1/P1P5/8/8/6K1/8 w - - 0 2", this, "a7b6"); ' class="line1">1...ab</span> 
+ <span onclick='loadMove("8/1pp5/1pP3k1/P7/8/8/6K1/8 b - - 0 2", this, "c5c6"); ' class="line1">2.c6!</span> 
+)
+ <span onclick='loadMove("8/pp6/Pp4k1/2P5/8/8/6K1/8 b - - 0 2", this, "a5a6"); ' class="line0">2.a5-a6!</span> 
+ <span onclick='loadMove("8/p7/pp4k1/2P5/8/8/6K1/8 w - - 0 3", this, "b7a6"); ' class="line0">b7:a6</span> 
+ <span onclick='loadMove("8/p7/ppP3k1/8/8/8/6K1/8 b - - 0 3", this, "c5c6"); ' class="line0">3.c5-c6</span> 
+, и пешка прорывается к восьмой горизонтали. Король черных задержать ее не может. Квадрат пешки <b>c6-c8-e8-e6</b>. Черный король в этот квадрат не попадает. </p>
+<p>Давай сдвинем королей на f2 и f6. Теперь уже прорыв <b>1.b5-b6</b> не получится. Король с f6 попадает в квадрат пешки c6, и черные легко добьются победы.</p>
+<p>Применяя правило квадрата, надо помнить, что оно обычно действует для позиций, в которых ничто не мешает маневрированию королей. Стоит, скажем, поставить в положении диаграммы № 142 белую пешку на c3, и белым не избежать поражения, хотя их король и вступает в квадрат пешки a4. Дело в том, что собственная пешка c3 мешает королю приблизиться к нужным полям.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

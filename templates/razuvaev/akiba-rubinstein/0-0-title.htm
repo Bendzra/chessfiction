@@ -1,0 +1,68 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/akiba.jpg' %}" />
+</div>
+<div class="score">
+<h6>ВЫДАЮЩИЕСЯ ШАХМАТИСТЫ МИРА</h6>
+
+<h2>Ю.С.РАЗУВАЕВ В.И. МУРАХВЕРИ</h2>
+<h1>АКИБА РУБИНШТЕЙН</h1>
+
+<div class="diagram">
+<p>МОСКВА</p>
+<p>«ФИЗКУЛЬТУРА И СПОРТ»</p>
+<p>1980</p>
+</div>
+
+<div class="message">
+<p>ББК 75.581</p>
+<p>Р17</p>
+</div>
+
+<div class="page message">
+<p>Разуваев Ю. С., Мурахвери В. И.</p>
+<p>Р17 <b>Акиба Рубинштейн</b>.— М.: Физкультура и спорт, 1980.— 222 с., портр., факс.— (Выдающиеся шахматисты мира).</p>
+</div>
+
+<div class="notification message">
+<p>Книга рассказывает о жизненном и творческом пути выдающегося польского шахматиста, одного из главных претендентов на шахматную корону в годы, предшествующие первой мировой войне, А. Рубинштейна. Рубинштейн внес значительный вклад в развитие теории шахмат. Очерк о Рубинштейне написан известным шахматным журналистом В. Мурахвери. Комментарии к партиям и статьи «Звездная мозаика» и «Рубинштейн и теория шахмат» принадлежат гроссмейстеру Ю. Разуваеву. В книгу включены также те немногие партии, которые прокомментировал сам А. Рубинштейн.</p>
+<p>Рассчитана на шахматистов высокой квалификации.</p>
+</div>
+
+<div class="message">
+
+<div style="float:left;">
+<div style="float:left;">Р&nbsp;</div>
+<div style="float:right;">&nbsp;148-80</div>
+<div style="float:right;">60904-202<br />009(01)-80</div>
+</div>
+
+<div style="float:right;">
+<p>ББК 75.581</p>
+<p>7А9.1</p>
+</div>
+
+<div style="float:right;">
+<p>4202000000</p>
+</div>
+
+<div class="clear"></div>
+</div>
+
+<p class="message">© Издательство «Физкультура и спорт», 1980 г.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

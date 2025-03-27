@@ -1,0 +1,169 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Они встречаются часто | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Они встречаются часто</h3>
+<div class="score">
+<p>А теперь познакомимся с несколькими другими окончаниями,которые часто встречаются в практической игре.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k3/7R/r7/4PK2/8/8/8/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k3/7R/r7/4PK2/8/8/8/8 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">150</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4k3/7R/r7/4PK2/8/8/8/8 b - - 0 1"></div>
+<p>Здесь черные должны держать ладью на шестой горизонтали, мешая вторжению белого короля, что создало бы угрозу мата. Ладья остается на этой горизонтали, пока белые не продвинут пешку на e6. Тогда ладья отправляется на первую горизонталь и начинает непрерывно шаховать белого короля. Если король уйдет далеко от пешки, ладья нападет на нее. Попытки закрыться от шахов ладьей во многих случаях приводят к ничейным пешечным окончаниям.</p>
+<p>Если черные изберут неверный план защиты, скажем, сыграют
+ <span onclick='loadMove("4k3/7R/8/r3PK2/8/8/8/8 w - - 0 2", this, "a6a5"); ' class="line1">1...Лa6-a5?</span> 
+, то они не смогут избежать поражения. Вот примерный вариант:
+ <span onclick='loadMove("4k3/7R/5K2/r3P3/8/8/8/8 b - - 0 2", this, "f5f6"); ' class="line1">2.Крf5-f6!</span> 
+ <span onclick='loadMove("4k3/7R/r4K2/4P3/8/8/8/8 w - - 0 3", this, "a5a6"); ' class="line1">Лa5-a6+</span> 
+ <span onclick='loadMove("4k3/7R/r3PK2/8/8/8/8/8 b - - 0 3", this, "e5e6"); ' class="line1">3.e5-e6</span> 
+ <span onclick='loadMove("3k4/7R/r3PK2/8/8/8/8/8 w - - 0 4", this, "e8d8"); ' class="line1">Крe8-d8</span> 
+ <span onclick='loadMove("3k3R/8/r3PK2/8/8/8/8/8 b - - 0 4", this, "h7h8"); ' class="line1">4.Лh7-h8+</span> 
+ <span onclick='loadMove("7R/2k5/r3PK2/8/8/8/8/8 w - - 0 5", this, "d8c7"); ' class="line1">Крd8-c7</span> 
+.</p>
+<p>Семафор открыт, и пешка e6 скоро начнет свой путь в ферзи.</p>
+<p>
+ <span onclick='loadMove("7R/2k2K2/r3P3/8/8/8/8/8 b - - 0 5", this, "f6f7"); ' class="line1">5.Крf6-f7</span> 
+ <span onclick='loadMove("7R/2k2K2/4P3/8/8/8/8/r7 w - - 0 6", this, "a6a1"); ' class="line1">Лa6-a1</span> 
+ <span onclick='loadMove("7R/2k1PK2/8/8/8/8/8/r7 b - - 0 6", this, "e6e7"); ' class="line1">6.e6-e7</span> 
+ <span onclick='loadMove("7R/2k1PK2/8/8/8/8/8/5r2 w - - 0 7", this, "a1f1"); ' class="line1">Лa1-f1+</span> 
+ <span onclick='loadMove("4K2R/2k1P3/8/8/8/8/8/5r2 b - - 0 7", this, "f7e8"); ' class="line1">7.Крf7-e8</span> 
+ <span onclick='loadMove("4K2R/2k1P3/8/8/8/8/5r2/8 w - - 0 8", this, "f1f2"); ' class="line1">Лf1-f2</span> 
+ <span onclick='loadMove("4K3/2k1P3/8/8/7R/8/5r2/8 b - - 0 8", this, "h8h4"); ' class="line1">8.Лh8-h4!</span> 
+</p>
+<p>Обрати особое внимание на этот маневр. Белые строят так называемый мост и готовятся укрыть своего короля, убрав его с пути движения пешки.</p>
+<p>
+ <span onclick='loadMove("4K3/2k1P3/8/8/7R/8/8/5r2 w - - 0 9", this, "f2f1"); ' class="line1">8...Лf2-f1</span> 
+ <span onclick='loadMove("4K3/2k1P3/8/8/2R5/8/8/5r2 b - - 0 9", this, "h4c4"); ' class="line1">9.Лh4-c4+</span> 
+ <span onclick='loadMove("4K3/4P3/1k6/8/2R5/8/8/5r2 w - - 0 10", this, "c7b6"); ' class="line1">Крc7-b6</span> 
+(Или
+ <span onclick='loadMove("4K3/4P3/3k4/8/2R5/8/8/5r2 w - - 0 10", this, "c7d6"); ' class="line2">9...Крd6</span> 
+ <span onclick='loadMove("3K4/4P3/3k4/8/2R5/8/8/5r2 b - - 0 10", this, "e8d8"); ' class="line2">10.Крd8</span> 
+)
+ <span onclick='loadMove("8/3KP3/1k6/8/2R5/8/8/5r2 b - - 0 10", this, "e8d7"); ' class="line1">10.Крe8-d7</span> 
+ <span onclick='loadMove("8/3KP3/1k6/8/2R5/8/8/3r4 w - - 0 11", this, "f1d1"); ' class="line1">Лf1-d1+</span> 
+ <span onclick='loadMove("8/4P3/1k2K3/8/2R5/8/8/3r4 b - - 0 11", this, "d7e6"); ' class="line1">11.Крd7-e6</span> 
+ <span onclick='loadMove("8/4P3/1k2K3/8/2R5/8/8/4r3 w - - 0 12", this, "d1e1"); ' class="line1">Лd1-e1+</span> 
+ <span onclick='loadMove("8/4P3/1k3K2/8/2R5/8/8/4r3 b - - 0 12", this, "e6f6"); ' class="line1">12.Крe6-f6</span> 
+ <span onclick='loadMove("8/4P3/1k3K2/8/2R5/8/8/5r2 w - - 0 13", this, "e1f1"); ' class="line1">Лe1-f1+</span> 
+ <span onclick='loadMove("8/4P3/1k6/4K3/2R5/8/8/5r2 b - - 0 13", this, "f6e5"); ' class="line1">13.Крf6-e5</span> 
+ <span onclick='loadMove("8/4P3/1k6/4K3/2R5/8/8/4r3 w - - 0 14", this, "f1e1"); ' class="line1">Лf1-e1+</span> 
+ <span onclick='loadMove("8/4P3/1k6/4K3/4R3/8/8/4r3 b - - 0 14", this, "c4e4"); ' class="line1">14.Лc4-e4</span> 
+.</p>
+<p>«Мост» построен, и черные не могут предупредить появление нового белого ферзя. </p>
+<p>В эндшпиле нередко сказывается то обстоятельство, что слон значительно более подвижен, чем конь, и лучше сражается против проходных пешек противника. Однако и конь может успешно постоять за себя.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/pk6/N5K1/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/pk6/N5K1/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">151</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/pk6/N5K1/8 w - - 0 1"></div>
+<!--p>— 110 —</p-->
+<p>Король белых далек от театра военных действий, и коню трудно противостоять соединенным усилиям короля и пешки черных. Все же это ему удается. Отметим, кстати, что коню труднее всего бороться против крайних пешек. Если ты подумаешь, то без труда поймешь, почему это происходит.</p>
+<p>В позиции № 151 белые играют
+ <span onclick='loadMove("8/8/8/8/8/pk6/6K1/2N5 b - - 0 1", this, "a2c1"); ' class="line0">1.Кa2-c1+</span> 
+ <span onclick='loadMove("8/8/8/8/8/p7/1k4K1/2N5 w - - 0 2", this, "b3b2"); ' class="line0">Крb3-b2</span> 
+ <span onclick='loadMove("8/8/8/8/8/p2N4/1k4K1/8 b - - 0 2", this, "c1d3"); ' class="line0">2.Кc1-d3+</span> 
+ <span onclick='loadMove("8/8/8/8/8/p2N4/2k3K1/8 w - - 0 3", this, "b2c2"); ' class="line0">Крb2-c2</span> 
+ <span onclick='loadMove("8/8/8/8/1N6/p7/2k3K1/8 b - - 0 3", this, "d3b4"); ' class="line0">3.Кd3-b4+</span> 
+ <span onclick='loadMove("8/8/8/8/1N6/pk6/6K1/8 w - - 0 4", this, "c2b3"); ' class="line0">Крc2-b3</span> 
+ <span onclick='loadMove("8/8/8/8/8/pk1N4/6K1/8 b - - 0 4", this, "b4d3"); ' class="line0">4.Кb4-d3</span> 
+. Ничья.
+Если
+ <span onclick='loadMove("8/8/8/8/8/1k1N4/p5K1/8 w - - 0 5", this, "a3a2"); ' class="line0">4...a2</span> 
+, то
+ <span onclick='loadMove("8/8/8/8/8/1k6/p5K1/2N5 b - - 0 5", this, "d3c1"); ' class="line0">5.Кc1+</span> 
+, и белые жертвуют коня за пешку.</p>
+<p>«Разноцветные слоны». Так называются слоны, которые действуют на полях разного цвета. В позициях, где у противников остались разноцветные слоны, этот фактор имеет немаловажное значение.</p>
+<p>В середине игры при разноцветных слонах атака часто усиливается. Ведь давлению по полям определенного цвета, на которых действует слон, защищающейся стороне труднее что-либо противопоставить.</p>
+<p>В эндшпиле разноцветные слоны, наоборот, обычно являются якорем спасения. При разноцветных слонах перевеса на одну, а иногда и на несколько пешек бывает недостаточно для выигрыша.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/2p5/3b4/4k3/1p6/pB6/K7 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/2p5/3b4/4k3/1p6/pB6/K7 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">152</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/2p5/3b4/4k3/1p6/pB6/K7 w - - 0 1"></div>
+<p>Белые достигают ничьей, маневрируя слоном по диагонали b2-h8. Когда черные подойдут королем на c2 и затем начнут марш пешкой c6 на c3, белые отдадут слона на c3, и если слон будет взят, белый король окажется запатованным.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5rk1/8/5Q1K/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5rk1/8/5Q1K/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Вот еще одна важная позиция, в которой полезно ясно представлять себе пути достижения победы.</p>
+<p class="capTop diagram">153</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5rk1/8/5Q1K/8/8/8/8 w - - 0 1"></div>
+<p>Здесь необходимо правильно организовать взаимодействие короля и ферзя. План белых состоит в том, чтобы оттеснить короля черных и вынудить черных уйти ладьей в сторону от своего короля. Тогда серия шахов приведет к выигрышу этой ладьи.</p>
+<p>
+ <span onclick='loadMove("8/5rk1/8/6QK/8/8/8/8 b - - 0 1", this, "f5g5"); ' class="line0">1.Фf5-g5+</span> 
+ <span onclick='loadMove("7k/5r2/8/6QK/8/8/8/8 w - - 0 2", this, "g7h8"); ' class="line0">Крg7-h8</span> 
+ <span onclick='loadMove("7k/5r2/8/4Q2K/8/8/8/8 b - - 0 2", this, "g5e5"); ' class="line0">2.Фg5-e5+</span> 
+ <span onclick='loadMove("8/5r1k/8/4Q2K/8/8/8/8 w - - 0 3", this, "h8h7"); ' class="line0">Крh8-h7</span> 
+<!--p>— 111 —</p-->
+(Конечно, не
+ <span onclick='loadMove("7k/6r1/8/4Q2K/8/8/8/8 w - - 0 3", this, "f7g7"); ' class="line1">2...Лg7</span> 
+ <span onclick='loadMove("7k/6r1/7K/4Q3/8/8/8/8 b - - 0 3", this, "h5h6"); ' class="line1">3.Крh6</span> 
+)
+ <span onclick='loadMove("8/5r1k/8/4Q1K1/8/8/8/8 b - - 0 3", this, "h5g5"); ' class="line0">3.Крh5-g5</span> 
+ <span onclick='loadMove("8/r6k/8/4Q1K1/8/8/8/8 w - - 0 4", this, "f7a7"); ' class="line0">Лf7-a7</span> 
+(Если
+ <span onclick='loadMove("8/6rk/8/4Q1K1/8/8/8/8 w - - 0 4", this, "f7g7"); ' class="line1">3...Лg7+</span> 
+, то
+ <span onclick='loadMove("8/6rk/5K2/4Q3/8/8/8/8 b - - 0 4", this, "g5f6"); ' class="line1">4.Крf6</span> 
+и на
+ <span onclick='loadMove("8/7k/5Kr1/4Q3/8/8/8/8 w - - 0 5", this, "g7g6"); ' class="line1">4...Лg6+</span> 
+ <span onclick='loadMove("8/5K1k/6r1/4Q3/8/8/8/8 b - - 0 5", this, "f6f7"); ' class="line1">5.Крf7</span> 
+)
+ <span onclick='loadMove("8/r6k/8/6K1/4Q3/8/8/8 b - - 0 4", this, "e5e4"); ' class="line0">4.Фe5-e4+</span> 
+ <span onclick='loadMove("6k1/r7/8/6K1/4Q3/8/8/8 w - - 0 5", this, "h7g8"); ' class="line0">Крh7-g8</span> 
+ <span onclick='loadMove("6k1/r7/8/6K1/2Q5/8/8/8 b - - 0 5", this, "e4c4"); ' class="line0">5.Фe4-c4+</span> 
+ <span onclick='loadMove("8/r6k/8/6K1/2Q5/8/8/8 w - - 0 6", this, "g8h7"); ' class="line0">Крg8-h7</span> 
+ <span onclick='loadMove("8/r6k/5K2/8/2Q5/8/8/8 b - - 0 6", this, "g5f6"); ' class="line0">6.Крg5-f6</span> 
+ <span onclick='loadMove("8/6rk/5K2/8/2Q5/8/8/8 w - - 0 7", this, "a7g7"); ' class="line0">Лa7-g7</span> 
+(Или
+ <span onclick='loadMove("7k/r7/5K2/8/2Q5/8/8/8 w - - 0 7", this, "h7h8"); ' class="line1">6...Крh8</span> 
+ <span onclick='loadMove("2Q4k/r7/5K2/8/8/8/8/8 b - - 0 7", this, "c4c8"); ' class="line1">7.Фc8+</span> 
+ <span onclick='loadMove("2Q5/r6k/5K2/8/8/8/8/8 w - - 0 8", this, "h8h7"); ' class="line1">Крh7</span> 
+ <span onclick='loadMove("8/r6k/5K2/8/8/7Q/8/8 b - - 0 8", this, "c8h3"); ' class="line1">8.Фh3+</span> 
+ <span onclick='loadMove("6k1/r7/5K2/8/8/7Q/8/8 w - - 0 9", this, "h7g8"); ' class="line1">Крg8</span> 
+ <span onclick='loadMove("6k1/r7/5K2/8/8/6Q1/8/8 b - - 0 9", this, "h3g3"); ' class="line1">9.Фg3+</span> 
+ <span onclick='loadMove("8/r6k/5K2/8/8/6Q1/8/8 w - - 0 10", this, "g8h7"); ' class="line1">Крh7</span> 
+ <span onclick='loadMove("8/r6k/5K2/8/8/8/7Q/8 b - - 0 10", this, "g3h2"); ' class="line1">10.Фh2+</span> 
+ <span onclick='loadMove("6k1/r7/5K2/8/8/8/7Q/8 w - - 0 11", this, "h7g8"); ' class="line1">Крg8</span> 
+ <span onclick='loadMove("6k1/r7/5K2/8/8/8/8/6Q1 b - - 0 11", this, "h2g1"); ' class="line1">11.Фg1+</span> 
+, и черные теряют ладью)
+ <span onclick='loadMove("8/6rk/5K2/8/7Q/8/8/8 b - - 0 7", this, "c4h4"); ' class="line0">7.Фc4-h4+</span> 
+ <span onclick='loadMove("6k1/6r1/5K2/8/7Q/8/8/8 w - - 0 8", this, "h7g8"); ' class="line0">Крh7-g8</span> 
+ <span onclick='loadMove("6k1/6r1/5K2/7Q/8/8/8/8 b - - 0 8", this, "h4h5"); ' class="line0">8.Фh4-h5</span> 
+.</p>
+<p>Белые достигли своей цели. У черных уже нет удов-л етвор ител ьной защиты. Разбери сам эту позицию, найди, как выигрывают белые при
+ <span onclick='loadMove("5k2/6r1/5K2/7Q/8/8/8/8 w - - 0 9", this, "g8f8"); ' class="line1">8...Крf8</span> 
+,
+ <span onclick='loadMove("6k1/8/5K2/7Q/8/8/8/6r1 w - - 0 9", this, "g7g1"); ' class="line1">8...Лg1</span> 
+и
+ <span onclick='loadMove("6k1/8/5K2/7Q/8/6r1/8/8 w - - 0 9", this, "g7g3"); ' class="line1">8...Лg3</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,30 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>1.7. Три связанные проходные | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="score">
+<h2>1.7. Три связанные проходные</h2>
+<p>Королю трудно бороться против трех связанных проходных пешек. В следующих трех позициях начинающий выигрывает, ставя противника в цугцванг:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/2p5/P1k5/P7/5ppp/8/6K1/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/2p5/P1k5/P7/5ppp/8/6K1/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">№ 31</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/2p5/P1k5/P7/5ppp/8/6K1/8 w - - 0 1"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

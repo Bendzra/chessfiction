@@ -1,0 +1,84 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ПОЛУЗАКРЫТЫЕ ДЕБЮТЫ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ПОЛУЗАКРЫТЫЕ ДЕБЮТЫ</h1>
+<p>По аналогии с полуоткрытыми, полузакрытыми мы будем называть такие дебюты, в которых на
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+черные играют как угодно, кроме
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2", this, "d7d5"); ' class="line1">1...d5</span> 
+.</p>
+<p>Многие из них — например, Защита Нимцовича, Защита Грюнфельда, Староиндийская защита — обязаны своим рождением нежеланию черных играть «симметричный» Ферзевый гамбит, в свое время считавшийся недостаточным для уравнения.</p>
+<p>Значительная часть полузакрытых начал характеризует гибкая пешечная структура в центре и фигурно-пешечное воздействие на него со стороны черных.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-staroindijskaia-zashchita.htm' %}">Староиндийская защита</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-staroindijskaia-zashchita.htm' %}#sovremennaya-zashchita">Современная защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-staroindijskaia-zashchita.htm' %}#zakrytaya-sistema">Закрытая система</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-staroindijskaia-zashchita.htm' %}#game-kasparov-smirin-1988">Каспаров — Смирин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-staroindijskaia-zashchita.htm' %}#game-karpov-kasparov-1990">Карпов — Каспаров</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-staroindijskaia-zashchita.htm' %}#game-gelfand-topalov-1997">Гельфанд — Топалов</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-02-zashchita-benoni.htm' %}">Защита Бенони</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-02-zashchita-benoni.htm' %}#i-klassicheskaya-sistema">I. Классическая система</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-02-zashchita-benoni.htm' %}#ii-modern-benoni">II. Модерн-Бенони</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-02-zashchita-benoni.htm' %}#game-kasparov-nann-1982">Каспаров — Нанн</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-03-volzhskij-gambit.htm' %}">Волжский гамбит</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-03-volzhskij-gambit.htm' %}#game-ivanov-halifman-1997">С. Иванов — Халифман</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-04-zashchita-griunfelda.htm' %}">Защита Грюнфельда</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-04-zashchita-griunfelda.htm' %}#game-karpov-svidler-1999">Карпов — Свидлер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-04-zashchita-griunfelda.htm' %}#game-halifman-leko-2000">Халифман — Леко</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-05-novoindijskaia-zashchita.htm' %}">Новоиндийская защита</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-05-novoindijskaia-zashchita.htm' %}#game-kasparov-petrosyan-1982">Каспаров — Петросян</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-05-novoindijskaia-zashchita.htm' %}#game-belyavskij-karpov-1992">Белявский — Карпов</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-06-zashchita-nimcovicha.htm' %}">Защита Нимцовича</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-06-zashchita-nimcovicha.htm' %}#game-shirov-karpov-1992">Широв — Карпов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-06-zashchita-nimcovicha.htm' %}#game-kasparov-adams-2005">Каспаров — Адамс</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-07-gollandskaia-zashchita.htm' %}">Голландская защита</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-07-gollandskaia-zashchita.htm' %}#game-karpov-malanyuk-1988">Карпов — Маланюк</a></li>
+</ul>
+</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-08-budapeshtskij-gambit.htm' %}">Будапештский гамбит</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-08-budapeshtskij-gambit.htm' %}#game-spasskij-ileskas-1990">Спасский — Ильескас</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-09-debiut-ferzevoj-peshki.htm' %}">Дебют ферзевой пешки</a>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-09-debiut-ferzevoj-peshki.htm' %}#game-adams-karpov-1994">Адамс — Карпов</a></li>
+</ul>
+</li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

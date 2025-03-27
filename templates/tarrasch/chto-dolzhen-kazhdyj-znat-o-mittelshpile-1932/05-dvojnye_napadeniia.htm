@@ -1,0 +1,893 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Двойные нападения | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h2>ДВОЙНЫЕ НАПАДЕНИЯ</h2>
+
+<p>Если фигура одновременно нападает да две незащищенные фигуры, то обычно одна из них теряется, если она не может отойти с шахом или с контрнападением.</p>
+<p>Двойные нападения могут производиться любыми фигурами, но более всего для них приспособлены ферзь и конь, при чем конь может напасть даже на три или большее число фигур. Двойное нападение
+<!--p>19</p-->
+пешкой, называемое „вилкой”, представляет собою наиболее простой вид двойных нападений. Приводим ряд примеров.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="rn1r3k/p3bp1n/bp5p/2p5/6Q1/4B1N1/PPP2PPP/2K4R w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rn1r3k/p3bp1n/bp5p/2p5/6Q1/4B1N1/PPP2PPP/2K4R w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 39</p>
+<!--img src="images/Tarrash_1933-39.png" style="width:119pt;height:91pt;"/-->
+<p>Посредством
+ <span onclick='loadMove("rn1r3k/p3bp1n/bp5p/2p5/4Q3/4B1N1/PPP2PPP/2K4R b - - 0 1", this, "g4e4"); ' class="line0">1.Фg4-e4</span> 
+белые нападают одновременно на ладью a8 и слона e7, выигрывая одну из этих фигур. На этом примере видно, какие последствия может иметь фианкетто при неразвитом на большой диагонали слоне. Если бы черные развивались нормально, т. е. <b>Сb7</b>, они были бы достаточно защищены от двойных нападений.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3r1rk1/ppp1bppp/8/4N3/4n3/8/PPP2PPP/R1B1R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3r1rk1/ppp1bppp/8/4N3/4n3/8/PPP2PPP/R1B1R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 40</p>
+<!--img src="images/Tarrash_1933-40.png" style="width:122pt;height:91pt;"/-->
+<p>В положении на диагр. № 40 белые, конечно, не могут бить коня e4 из-за мата на d1. Однако посредством
+ <span onclick='loadMove("3r1rk1/ppp1bppp/8/8/4n3/3N4/PPP2PPP/R1B1R1K1 b - - 0 1", this, "e5d3"); ' class="line0">1.Кe5-d3</span> 
+они
+<!--p>20</p-->
+нападают одновременно и на коня и на стоящего за ним по той же линии слона (
+ <span onclick='loadMove("3r1rk1/ppp1bppp/8/8/4n3/5N2/PPP2PPP/R1B1R1K1 b - - 0 1", this, "e5f3"); ' class="line1">1.Кe5-f3</span> 
+в данной позиции слабее, так как после
+ <span onclick='loadMove("3r1rk1/ppp1b1pp/8/5p2/4n3/5N2/PPP2PPP/R1B1R1K1 w - f6 0 2", this, "f7f5"); ' class="line1">1...f7-f5</span> 
+белые не имеют возможности продолжать атаку). Черные защищаются посредством
+ <span onclick='loadMove("3r1rk1/ppp1b1pp/8/5p2/4n3/3N4/PPP2PPP/R1B1R1K1 w - f6 0 2", this, "f7f5"); ' class="line0">1...f7-f5</span> 
+, на что, конечно, следует
+ <span onclick='loadMove("3r1rk1/ppp1b1pp/8/5p2/4n3/3N1P2/PPP3PP/R1B1R1K1 b - - 0 2", this, "f2f3"); ' class="line0">2.f2-f3</span> 
+. Теперь конь e4 не может уйти, так как берется слон e7. Однако черные играют
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2b2p2/4n3/3N1P2/PPP3PP/R1B1R1K1 w - - 0 3", this, "e7c5"); ' class="line0">2...Сe7-c5</span> 
+по-видимому спасая обе фигуры. В самом деле, если король уходит на h1
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2b2p2/4n3/3N1P2/PPP3PP/R1B1R2K b - - 0 3", this, "g1h1"); ' class="line0">3.Крg1-h1</span> 
+, то после
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2b2p2/8/3N1P2/PPP2nPP/R1B1R2K w - - 0 4", this, "e4f2"); ' class="line0">3...Кe4-f2+</span> 
+вынуждается размен, после чего устраняется всякая опасность.
+ Если же король отступает на f1
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2b2p2/4n3/3N1P2/PPP3PP/R1B1RK2 b - - 0 3", this, "g1f1"); ' class="line1">3.Крf1</span> 
+, то обе фигуры черных все же как будто остаются под ударом. Однако король оказывается на линии черной ладьи f8, и этим обстоятельством черные могут с выгодой для себя воспользоваться. Они отходят слоном на b6
+ <span onclick='loadMove("3r1rk1/ppp3pp/1b6/5p2/4n3/3N1P2/PPP3PP/R1B1RK2 w - - 0 4", this, "c5b6"); ' class="line1">3...Сb6</span> 
+и после
+ <span onclick='loadMove("3r1rk1/ppp3pp/1b6/5p2/4P3/3N4/PPP3PP/R1B1RK2 b - - 0 4", this, "f3e4"); ' class="line1">4.f3:e4</span> 
+отыгрывают, посредством
+ <span onclick='loadMove("3r1rk1/ppp3pp/1b6/8/4p3/3N4/PPP3PP/R1B1RK2 w - - 0 5", this, "f5e4"); ' class="line1">4...f5:e4+</span> 
+, фигуру. Опять-таки двойной удар, который отражает такой же удар белых!
+ Правда, белые могут после
+ <span onclick='loadMove("3r1rk1/ppp3pp/1b6/8/4p3/3N4/PPP3PP/R1B1RK2 w - - 0 5", this, "f5e4"); ' class="line2">4...f5:e4+</span> 
+пойти конем на f4
+ <span onclick='loadMove("3r1rk1/ppp3pp/1b6/8/4pN2/8/PPP3PP/R1B1RK2 b - - 0 5", this, "d3f4"); ' class="line2">5.Кf4</span> 
+, однако после
+ <span onclick='loadMove("3r1rk1/ppp4p/1b6/6p1/4pN2/8/PPP3PP/R1B1RK2 w - g6 0 6", this, "g7g5"); ' class="line2">5...g7-g5</span> 
+конь все же теряется, и черные в результате всей операции в худшем случае остаются с пешкой. Следует обратить внимание в этом примере на переплетении мотивов двойных ударов и связки.</p>
+<p>Однако мы еще не закончили анализ позиции, так как белые могут сыграть сильнее, чем в приведенном варианте. Они должны учесть все указанные моменты и на
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2b2p2/4n3/3N1P2/PPP3PP/R1B1R1K1 w - - 0 3", this, "e7c5"); ' class="line1">2...Сe7-c5+</span> 
+продолжать просто
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2N2p2/4n3/5P2/PPP3PP/R1B1R1K1 b - - 0 3", this, "d3c5"); ' class="line1">3.Кd3:c5</span> 
+. Черные как-будто избежали теперь всяких опасностей, но это только видимость. После
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2n2p2/8/5P2/PPP3PP/R1B1R1K1 w - - 0 4", this, "e4c5"); ' class="line1">3...Кe4:c5</span> 
+белые посредством
+ <span onclick='loadMove("3r1rk1/ppp3pp/8/2n2pB1/8/5P2/PPP3PP/R3R1K1 b - - 0 4", this, "c1g5"); ' class="line1">4.Сc1-g5</span> 
+нападают на ладью d8 и одновременно угрожают выиграть после <b>Сg5-e7</b> качество. Против этой угрозы нет защиты, так как на
+ <span onclick='loadMove("5rk1/ppp3pp/8/2nr1pB1/8/5P2/PPP3PP/R3R1K1 w - - 0 5", this, "d8d5"); ' class="line1">4...Лd8-d5</span> 
+ <span onclick='loadMove("5rk1/ppp1B1pp/8/2nr1p2/8/5P2/PPP3PP/R3R1K1 b - - 0 5", this, "g5e7"); ' class="line1">5.Сg5-e7</span> 
+ <span onclick='loadMove("4r1k1/ppp1B1pp/8/2nr1p2/8/5P2/PPP3PP/R3R1K1 w - - 0 6", this, "f8e8"); ' class="line1">Лf8-e8</span> 
+(или f7) белые ходом
+ <span onclick='loadMove("4r1k1/ppp1B1pp/8/2nr1p2/2P5/5P2/PP4PP/R3R1K1 b - c3 0 6", this, "c2c4"); ' class="line1">6.c2-c4</span> 
+оттесняют защищающую коня ладью и вынуждают черных, чтобы спастись от более чувствительных материальных потерь, отдать качество на e7.</p>
+<p>Все это логически вытекает из невыгодного расположения их фигур.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1bq1rk1/p1p2ppp/3b4/2p5/8/2N1B3/PPP1QPPP/R3R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1bq1rk1/p1p2ppp/3b4/2p5/8/2N1B3/PPP1QPPP/R3R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 41</p>
+<!--img src="images/Tarrash_1933-41.png" style="width:120pt;height:91pt;"/-->
+<p>В положении на диагр. № 41 белые посредством
+ <span onclick='loadMove("r1bq1rk1/p1p2ppp/3b4/2p5/4N3/4B3/PPP1QPPP/R3R1K1 b - - 0 1", this, "c3e4"); ' class="line0">1.Кc3-e4</span> 
+вторично нападают на пешку c5. Черные могут пожертвовать слона d6 на h2, чтобы затем отыграть фигуру посредством <b>Фh4+</b>, — очень часто встречающееся двойное нападение, которое, однако, в данном случае черным невыгодно, ибо после</p>
+<p>
+ <span onclick='loadMove("r1bq1rk1/p1p2ppp/8/2p5/4N3/4B3/PPP1QPPb/R3R1K1 w - - 0 2", this, "d6h2"); ' class="line0">1...Сd6:h2+</span> 
+ <span onclick='loadMove("r1bq1rk1/p1p2ppp/8/2p5/4N3/4B3/PPP1QPPK/R3R3 b - - 0 2", this, "g1h2"); ' class="line0">2.Крg1:h2</span> 
+ <span onclick='loadMove("r1b2rk1/p1p2ppp/8/2p5/4N2q/4B3/PPP1QPPK/R3R3 w - - 0 3", this, "d8h4"); ' class="line0">Фd8-h4+</span> 
+ <span onclick='loadMove("r1b2rk1/p1p2ppp/8/2p5/4N2q/4B3/PPP1QPP1/R3R1K1 b - - 0 3", this, "h2g1"); ' class="line0">3.Крh2-g1</span> 
+ <span onclick='loadMove("r1b2rk1/p1p2ppp/8/2p5/4q3/4B3/PPP1QPP1/R3R1K1 w - - 0 4", this, "h4e4"); ' class="line0">Фh4:e4</span> 
+белые отыгрывают посредством
+ <span onclick='loadMove("r1b2rk1/p1p2ppp/8/2B5/4q3/8/PPP1QPP1/R3R1K1 b - - 0 4", this, "e3c5"); ' class="line0">4.Сe3:c5</span> 
+(С двойным нападением на ферзя и ладью)
+ <span onclick='loadMove("r1b2rk1/p1p2ppp/8/2B5/8/8/PPP1qPP1/R3R1K1 w - - 0 5", this, "e4e2"); ' class="line0">4...Фe4:e2</span> 
+ <span onclick='loadMove("r1b2rk1/p1p2ppp/8/2B5/8/8/PPP1RPP1/R5K1 b - - 0 5", this, "e1e2"); ' class="line0">5.Лe1:e2</span> 
+пешку и с выгодой для себя вторгаются ладьей на 7-ую линию. Поэтому черным лучше всего играть</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/3b4/2p5/4N3/4B3/PPP1QPPP/R3R1K1 w - - 0 2", this, "c8b7"); ' class="line1">1...Сc8-b7</span> 
+. Если теперь белые дважды бьют на c5:</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/3b4/2N5/8/4B3/PPP1QPPP/R3R1K1 b - - 0 2", this, "e4c5"); ' class="line1">2.Кe4:c5</span> 
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/8/2b5/8/4B3/PPP1QPPP/R3R1K1 w - - 0 3", this, "d6c5"); ' class="line1">Сd6:c5</span> 
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/8/2B5/8/8/PPP1QPPP/R3R1K1 b - - 0 3", this, "e3c5"); ' class="line1">3.Сe3:c5</span> 
+, то посредством двойного нападения
+ <span onclick='loadMove("r4rk1/pbp2ppp/8/2B3q1/8/8/PPP1QPPP/R3R1K1 w - - 0 4", this, "d8g5"); ' class="line1">3...Фd8-g5</span> 
+(Угрожая матом на g2 и атакуя слона) черные по меньшей мере выигрывают слона. Лучше для белых брать на c5 сначала слоном, однако и в этом случае после
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/3b4/2B5/4N3/8/PPP1QPPP/R3R1K1 b - - 0 2", this, "e3c5"); ' class="line2">2.Сe3:c5</span> 
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/8/2b5/4N3/8/PPP1QPPP/R3R1K1 w - - 0 3", this, "d6c5"); ' class="line2">Сd6:c5!</span> 
+(Плохо
+ <span onclick='loadMove("r2q1rk1/p1p2ppp/3b4/2B5/4b3/8/PPP1QPPP/R3R1K1 w - - 0 3", this, "b7e4"); ' class="line3">2...С:e4</span> 
+в виду
+ <span onclick='loadMove("r2q1rk1/p1p2ppp/3B4/8/4b3/8/PPP1QPPP/R3R1K1 b - - 0 3", this, "c5d6"); ' class="line3">3.С:d6</span> 
+)</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/8/2N5/8/8/PPP1QPPP/R3R1K1 b - - 0 3", this, "e4c5"); ' class="line2">3.Кe4:c5</span> 
+белые, в виду двойного нападения, должны отдать выигранную пешку обратно, именно:
+ <span onclick='loadMove("r2q1rk1/p1p2ppp/8/2N5/8/8/PPP1QPbP/R3R1K1 w - - 0 4", this, "b7g2"); ' class="line2">3...Сb7:g2</span> 
+ <span onclick='loadMove("r2q1rk1/p1p2ppp/8/2N5/8/8/PPP1QPKP/R3R3 b - - 0 4", this, "g1g2"); ' class="line2">4.Крg1:g2</span> 
+ <span onclick='loadMove("r4rk1/p1p2ppp/8/2N3q1/8/8/PPP1QPKP/R3R3 w - - 0 5", this, "d8g5"); ' class="line2">Фd8-g5+</span> 
+и затем
+ <!--span onclick='loadMove("r4rk1/p1p2ppp/8/2N3q1/8/8/PPP1QPKP/R3R3 b - - 0 5", this, "d8g5"); ' class="line2">5.z0</span--> 
+
+ <span onclick='loadMove("r4rk1/p1p2ppp/8/2q5/8/8/PPP1QPKP/R3R3 w - - 0 6", this, "g5c5"); ' class="line2">5...Фg5:c5</span> 
+. Таким образом посредством
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/3b4/2p5/4N3/4B3/PPP1QPPP/R3R1K1 w - - 0 2", this, "c8b7"); ' class="line1">1...Сc8-b7</span> 
+черные косвенно защитили пешку e5.</p>
+<p>Белым на это лучше всего продолжать
+ <span onclick='loadMove("r2q1rk1/pbp2ppp/3N4/2p5/8/4B3/PPP1QPPP/R3R1K1 b - - 0 2", this, "e4d6"); ' class="line1">2.Кe4:d6</span> 
+, так как, хотя при этом и выправляются черные пешки, вместе с тем, однако, устраняется один из сильных черных слонов, серьезно угрожающих белому королю.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="5rk1/p5pp/8/4R3/5n1p/5P2/P1r4P/4RBK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5rk1/p5pp/8/4R3/5n1p/5P2/P1r4P/4RBK1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 42</p>
+<!--img src="images/Tarrash_1933-42.png" style="width:119pt;height:91pt;"/-->
+<p>Черные только что вторгнулись ладьей на 2-ую линию и заставили белого слона отступить на f1. Они намеревались взять теперь пешку a2, но в последний момент заметили угрозу двойного удара <b>Сe2-c4+</b>, который стоил бы им целой ладьи. Итак, всегда нужно быть настороже!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2kr2r1/pppn1p1p/8/3P4/1q3N1Q/5N2/P4PPP/R5K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2kr2r1/pppn1p1p/8/3P4/1q3N1Q/5N2/P4PPP/R5K1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 43</p>
+<!--img src="images/Tarrash_1933-43.png" style="width:120pt;height:91pt;"/-->
+<p>Посредством
+ <span onclick='loadMove("2kr2r1/pppn1p1p/8/3P4/5N1Q/2q2N2/P4PPP/R5K1 w - - 0 2", this, "b4c3"); ' class="line0">1...Фb4-c3</span> 
+черный ферзь нападает не только на ладью a1, но и на коня f3, который также незащищен, потому что пешка g2 связана ладьей g8. Одна из белых фигур погибает.</p>
+<p>Если бы черный король находился не на c8, а на b8, то белые имели бы возможность отразить все угрозы. Они сыграли бы <b>2. Лa1-d1</b> Возможно также <b>Лe1</b> или <b>Лf1</b>) и на <b>Фc3:f3</b> спаслись бы ходом <b>3. Фh4:d8+!</b>, который после <b>Лg8:d8</b> заставляет черных развязать ладью. Опять-таки типичная для подобных положений комбинация!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="3r1rk1/ppp3pp/2n5/1B1pP3/3PN3/P3Q3/1P4qP/R3K2R w KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3r1rk1/ppp3pp/2n5/1B1pP3/3PN3/P3Q3/1P4qP/R3K2R w KQ - 0 1", this, ""); '>[...]</span> 
+<p>№ 44</p>
+<!--img src="images/Tarrash_1933-44.png" style="width:120pt;height:91pt;"/-->
+<p>Ходом <b>Фg6:g2</b> черные атаковали одновременно ладью h1 и коня e4. Белые могут спасти обе фигуры посредством
+ <span onclick='loadMove("3r1rk1/ppp3pp/2n5/1B1pP3/3P4/P3Q1N1/1P4qP/R3K2R b KQ - 0 1", this, "e4g3"); ' class="line0">1.Кe4-g3</span> 
+(Но не
+ <span onclick='loadMove("3r1rk1/ppp3pp/2n5/1B1pP3/3P4/P3Q3/1P3NqP/R3K2R b KQ - 0 1", this, "e4f2"); ' class="line1">1.Кf2</span> 
+в виду
+ <span onclick='loadMove("3r2k1/ppp3pp/2n5/1B1pP3/3P4/P3Q3/1P3rqP/R3K2R w KQ - 0 2", this, "f8f2"); ' class="line1">1...Л:f2</span> 
+). Однако теперь следует новое двойное нападение
+ <span onclick='loadMove("3r1rk1/ppp3pp/2n5/1B1pP3/3P4/P3Q1N1/1q5P/R3K2R w KQ - 0 2", this, "g2b2"); ' class="line0">1...Фg2:b2</span> 
+, и под ударом оказываются ладья a1 и слон b5. На этот раз одна из фигур обречена на гибель.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="rnb1k2r/ppp1n1b1/5p1p/3BP1pq/3P1p1P/2N2N2/PP4P1/R1BQ1K1R w kq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnb1k2r/ppp1n1b1/5p1p/3BP1pq/3P1p1P/2N2N2/PP4P1/R1BQ1K1R w kq - 0 1", this, ""); '>[...]</span> 
+<p>№ 45</p>
+<!--img src="images/Tarrash_1933-45.png" style="width:119pt;height:91pt;"/-->
+<!--p>22</p-->
+<p>Белые сыграли
+ <span onclick='loadMove("rnb1k2r/ppp1n1b1/4Pp1p/3B2pq/3P1p1P/2N2N2/PP4P1/R1BQ1K1R b kq - 0 1", this, "e5e6"); ' class="line0">1.e5-e6?</span> 
+, после чего черные посредством
+ <span onclick='loadMove("rnb1k2r/ppp1n1b1/4Pp1p/3B3q/3P1ppP/2N2N2/PP4P1/R1BQ1K1R w kq - 0 2", this, "g5g4"); ' class="line0">1...g5-g4</span> 
+выигрывают либо слона d5, либо коня f3.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2qk2r/ppp2ppp/2n1bP2/2b3N1/2pp4/8/PPP2PPP/RNBQR1K1 b kq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2qk2r/ppp2ppp/2n1bP2/2b3N1/2pp4/8/PPP2PPP/RNBQR1K1 b kq - 0 1", this, ""); '>[...]</span> 
+<p>№ 46</p>
+<!--img src="images/Tarrash_1933-46.png" style="width:120pt;height:90pt;"/-->
+<p>Теоретическое положение. Если черные играют
+ <span onclick='loadMove("r3k2r/ppp2ppp/2n1bq2/2b3N1/2pp4/8/PPP2PPP/RNBQR1K1 w kq - 0 2", this, "d8f6"); ' class="line0">1...Фd8:f6?</span> 
+, на это следует
+ <span onclick='loadMove("r3k2r/ppp2ppp/2n1Nq2/2b5/2pp4/8/PPP2PPP/RNBQR1K1 b kq - 0 2", this, "g5e6"); ' class="line0">2.Кg5:e6</span> 
+ <span onclick='loadMove("r3k2r/ppp3pp/2n1pq2/2b5/2pp4/8/PPP2PPP/RNBQR1K1 w kq - 0 3", this, "f7e6"); ' class="line0">f7:e6</span> 
+ <span onclick='loadMove("r3k2r/ppp3pp/2n1pq2/2b4Q/2pp4/8/PPP2PPP/RNB1R1K1 b kq - 0 3", this, "d1h5"); ' class="line0">3.Фd1-h5+</span> 
+(двойное нападение) с выигрышем слона. Правильный ход здесь
+ <span onclick='loadMove("r3k2r/ppp2ppp/2n1bP2/2bq2N1/2pp4/8/PPP2PPP/RNBQR1K1 w kq - 0 2", this, "d8d5"); ' class="line1">1...Фd8-d5</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="4r3/2r3kp/pp1qp1p1/3pR3/3P4/2P5/PPQ2PPP/4R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r3/2r3kp/pp1qp1p1/3pR3/3P4/2P5/PPQ2PPP/4R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 47</p>
+<!--img src="images/Tarrash_1933-47.png" style="width:120pt;height:90pt;"/-->
+<p>Белые посредством
+ <span onclick='loadMove("4r3/2r3kp/pp1qp1p1/3pR3/3P4/2P5/PP2QPPP/4R1K1 b - - 0 1", this, "c2e2"); ' class="line0">1.Фc2-e2</span> 
+выигрывают пешку a6 или e6. Если бы в положении на диаграмме ход был черных, то в предвидении двойного нападения им следовало бы сыграть
+ <!--span onclick='loadMove("4r3/2r3kp/pp1qp1p1/3pR3/3P4/2P5/PPQ2PPP/4R1K1 b - - 0 1", this, "c2e2"); ' class="line1">1.z0</span--> 
+
+ <span onclick='loadMove("4r3/2r3kp/p2qp1p1/1p1pR3/3P4/2P5/PPQ2PPP/4R1K1 w - - 0 2", this, "b6b5"); ' class="line1">1...b6-b5</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="1k4r1/p3n1r1/1pnq1p2/1B1p4/3P2bp/2P5/RP1Q1PPN/4RNK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1k4r1/p3n1r1/1pnq1p2/1B1p4/3P2bp/2P5/RP1Q1PPN/4RNK1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 48</p>
+<!--img src="images/Tarrash_1933-48.png" style="width:119pt;height:90pt;"/-->
+<p>После отхода слона g4 белым уже угрожает мат в 2 хода:</p>
+<p><b>Лg7:g2+</b>, <b>Крg1-h1</b>, <b>Лg2-g1X</b>. Отсюда легко сделать вывод, что слон должен куда-то отойти. Но куда? Лучше всего на e2, откуда он нападает на слона b5 и выигрывает его, так как белые должны немедленно защититься от мата.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r6r/ppqbnkpp/4p3/3pP3/3QPPp1/2N5/PP4PP/R1B1K2R w KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r6r/ppqbnkpp/4p3/3pP3/3QPPp1/2N5/PP4PP/R1B1K2R w KQ - 0 1", this, ""); '>[...]</span> 
+<p>№ 49</p>
+<!--img src="images/Tarrash_1933-49.png" style="width:120pt;height:90pt;"/-->
+<p>Здесь последовало
+ <span onclick='loadMove("r6r/ppqbnkpp/4p3/3pPP2/3QP1p1/2N5/PP4PP/R1B1K2R b KQ - 0 1", this, "f4f5"); ' class="line0">1.f4-f5</span> 
+.</p>
+<p>На
+ <span onclick='loadMove("r6r/ppqbnkpp/8/3pPp2/3QP1p1/2N5/PP4PP/R1B1K2R w KQ - 0 2", this, "e6f5"); ' class="line0">1...e6:f5?</span> 
+(Лучше
+ <span onclick='loadMove("r6r/ppqbnkpp/4p3/4PP2/3Qp1p1/2N5/PP4PP/R1B1K2R w KQ - 0 2", this, "d5e4"); ' class="line1">1...d5:e4</span> 
+) белые ответили
+ <span onclick='loadMove("r6r/ppqbnkpp/8/3PPp2/3Q2p1/2N5/PP4PP/R1B1K2R b KQ - 0 2", this, "e4d5"); ' class="line0">2.e4:d5</span> 
+и получали две проходных пешки, которые уже сами по себе представляют грозную силу, а в данном случае еще грозят „вилкой” посредством <b>e5-e6+</b> и <b>d5-d6</b>.</p>
+<!--p>23</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2q1rk1/pp3ppp/2n2n2/2bp1b2/8/2N1PN2/PP2BPPP/R1BQ1RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2q1rk1/pp3ppp/2n2n2/2bp1b2/8/2N1PN2/PP2BPPP/R1BQ1RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 50</p>
+<!--img src="images/Tarrash_1933-50.png" style="width:89pt;height:90pt;"/-->
+<p>Белые сыграли
+ <span onclick='loadMove("r2q1rk1/pp3ppp/2n2n2/2bp1b2/3N4/2N1P3/PP2BPPP/R1BQ1RK1 b - - 0 1", this, "f3d4"); ' class="line0">1.Кf3-d4?</span> 
+, что после
+ <span onclick='loadMove("r2q1rk1/pp3ppp/2n2n2/3p1b2/3b4/2N1P3/PP2BPPP/R1BQ1RK1 w - - 0 2", this, "c5d4"); ' class="line0">1...Сc5:d4!</span> 
+ <span onclick='loadMove("r2q1rk1/pp3ppp/2n2n2/3p1b2/3P4/2N5/PP2BPPP/R1BQ1RK1 b - - 0 2", this, "e3d4"); ' class="line0">2.e3:d4</span> 
+ <span onclick='loadMove("r4rk1/pp3ppp/1qn2n2/3p1b2/3P4/2N5/PP2BPPP/R1BQ1RK1 w - - 0 3", this, "d8b6"); ' class="line0">Фd8-b6</span> 
+оказалось ошибкой. Белые могут защитить пешку d4 только посредством <b>Сc1-e3</b>, но тогда оказывается беззащитной пешка b2.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Очень часто двойное нападение подготовляется жертвой. В этих случаях после жертвы обычно следует нападение на две фигуры, одна из которых не может быть защищена, или же атакующая сторона добивается каких-либо других преимуществ. Приведем несколько примеров.</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r1b2r1k/ppp4p/3p4/3Pbpq1/B4N2/2P5/PP2Q1PP/R4RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b2r1k/ppp4p/3p4/3Pbpq1/B4N2/2P5/PP2Q1PP/R4RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 51</p>
+<!--img src="images/Tarrash_1933-51.png" style="width:89pt;height:91pt;"/-->
+<p>Белые здесь сыграли
+ <span onclick='loadMove("r1b2r1k/ppp4p/3p4/3Pbpq1/B7/2PN4/PP2Q1PP/R4RK1 b - - 0 1", this, "f4d3"); ' class="line0">1.Кf4-d3?</span> 
+, после чего черные посредством маневра
+ <span onclick='loadMove("r1b2r1k/ppp4p/3p4/3P1pq1/B7/2PN4/PP2Q1Pb/R4RK1 w - - 0 2", this, "e5h2"); ' class="line0">1...Сe5:h2+</span> 
+ <span onclick='loadMove("r1b2r1k/ppp4p/3p4/3P1pq1/B7/2PN4/PP2Q1PK/R4R2 b - - 0 2", this, "g1h2"); ' class="line0">2.Крg1:h2</span> 
+ <span onclick='loadMove("r1b2r1k/ppp4p/3p4/3P1p2/B6q/2PN4/PP2Q1PK/R4R2 w - - 0 3", this, "g5h4"); ' class="line0">Фg5-h4+</span> 
+ <span onclick='loadMove("r1b2r1k/ppp4p/3p4/3P1p2/B6q/2PN4/PP2Q1P1/R4RK1 b - - 0 3", this, "h2g1"); ' class="line0">3.Крh2-g1</span> 
+ <span onclick='loadMove("r1b2r1k/ppp4p/3p4/3P1p2/q7/2PN4/PP2Q1P1/R4RK1 w - - 0 4", this, "h4a4"); ' class="line0">Фh4:a4</span> 
+выиграли пешку. Как мы уже указывали в примере № 41, маневр этот часто встречается. В несколько усложненной форме он повторяется в следующем примере.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r4k1r/ppp1qpp1/3p1n1p/1B1Pp3/4P3/P1PP1Q2/1P4PP/R3K2R b KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4k1r/ppp1qpp1/3p1n1p/1B1Pp3/4P3/P1PP1Q2/1P4PP/R3K2R b KQ - 0 1", this, ""); '>[...]</span> 
+<p>№ 52</p>
+<!--img src="images/Tarrash_1933-52.png" style="width:87pt;height:90pt;"/-->
+<p>Последовало
+ <span onclick='loadMove("r4k1r/1pp1qpp1/p2p1n1p/1B1Pp3/4P3/P1PP1Q2/1P4PP/R3K2R w KQ - 0 2", this, "a7a6"); ' class="line0">1...a7-a6</span> 
+ <span onclick='loadMove("r4k1r/1pp1qpp1/p2p1n1p/3Pp3/B3P3/P1PP1Q2/1P4PP/R3K2R b KQ - 0 2", this, "b5a4"); ' class="line0">2.Сb5-a4?</span> 
+(Правильно
+ <span onclick='loadMove("r4k1r/1pp1qpp1/p2p1n1p/3Pp3/2B1P3/P1PP1Q2/1P4PP/R3K2R b KQ - 0 2", this, "b5c4"); ' class="line1">2.Сb5-c4</span> 
+)
+ <span onclick='loadMove("r4k1r/1pp1qpp1/p2p3p/3np3/B3P3/P1PP1Q2/1P4PP/R3K2R w KQ - 0 3", this, "f6d5"); ' class="line0">2...Кf6:d5</span> 
+ <span onclick='loadMove("r4k1r/1pp1qpp1/p2p3p/3Pp3/B7/P1PP1Q2/1P4PP/R3K2R b KQ - 0 3", this, "e4d5"); ' class="line0">3.e4:d5</span> 
+ <span onclick='loadMove("r4k1r/1pp2pp1/p2p3p/3Pp3/B6q/P1PP1Q2/1P4PP/R3K2R w KQ - 0 4", this, "e7h4"); ' class="line0">Фe7-h4+</span> 
+(Нападая на короля и слона) и затем <b>Фh4:a4</b>, с выигрышем пешки.</p>
+<p>У сильных шахматистов подобные промахи расцениваются как грубые ошибки („зевки”): их нужно предвидеть, и они не должны случаться в партиях.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r1bq1rk1/1pp1bppp/p1p5/2n1P3/3N4/2N1B3/PPP1QPPP/R4RK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1bq1rk1/1pp1bppp/p1p5/2n1P3/3N4/2N1B3/PPP1QPPP/R4RK1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 53</p>
+<!--img src="images/Tarrash_1933-53.png" style="width:89pt;height:90pt;"/-->
+<p>Черные необдуманно сыграли
+ <span onclick='loadMove("r1bq1rk1/1pp1b1pp/p1p2p2/2n1P3/3N4/2N1B3/PPP1QPPP/R4RK1 w - - 0 2", this, "f7f6"); ' class="line0">1...f7-f6?</span> 
+, недооценив последствий допускаемого этим ходом шаха на c4.
+<!--p>24</p-->
+Действительно, комбинация, которою белые доказали ошибочность последнего хода черных, построена целиком на этом шахе:
+ <span onclick='loadMove("r1bq1rk1/1pp1b1pp/p1N2p2/2n1P3/8/2N1B3/PPP1QPPP/R4RK1 b - - 0 2", this, "d4c6"); ' class="line0">2.Кd4:c6!</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1b1pp/p1p2p2/2n1P3/8/2N1B3/PPP1QPPP/R4RK1 w - - 0 3", this, "b7c6"); ' class="line0">b7:c6</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1b1pp/p1p2p2/2B1P3/8/2N5/PPP1QPPP/R4RK1 b - - 0 3", this, "e3c5"); ' class="line0">3.Сe3:c5</span> 
+(Но не
+ <span onclick='loadMove("r1bq1rk1/2p1b1pp/p1p2p2/2n1P3/2Q5/2N1B3/PPP2PPP/R4RK1 b - - 0 3", this, "e2c4"); ' class="line1">3.Фc4+?</span> 
+ <span onclick='loadMove("r1bq1rk1/2p1b1pp/p1p1np2/4P3/2Q5/2N1B3/PPP2PPP/R4RK1 w - - 0 4", this, "c5e6"); ' class="line1">Кe6</span> 
+)
+ <span onclick='loadMove("r1bq1rk1/2p3pp/p1p2p2/2b1P3/8/2N5/PPP1QPPP/R4RK1 w - - 0 4", this, "e7c5"); ' class="line0">3...Сe7:c5</span> 
+, и только теперь
+ <span onclick='loadMove("r1bq1rk1/2p3pp/p1p2p2/2b1P3/2Q5/2N5/PPP2PPP/R4RK1 b - - 0 4", this, "e2c4"); ' class="line0">4.Фe2-c4+</span> 
+ <!--span onclick='loadMove("r1bq1rk1/2p3pp/p1p2p2/2b1P3/2Q5/2N5/PPP2PPP/R4RK1 w - - 0 5", this, "e2c4"); ' class="line0">z0</span--> 
+и
+ <span onclick='loadMove("r1bq1rk1/2p3pp/p1p2p2/2Q1P3/8/2N5/PPP2PPP/R4RK1 b - - 0 5", this, "c4c5"); ' class="line0">5.Фc4:c5</span> 
+с выигрышем пешки.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r3r1k1/p6p/1p1qp1pn/3p2N1/3P4/2PQ4/PP3PPP/R3R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3r1k1/p6p/1p1qp1pn/3p2N1/3P4/2PQ4/PP3PPP/R3R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 54</p>
+<!--img src="images/Tarrash_1933-54.png" style="width:89pt;height:91pt;"/-->
+<p>Белые сыграли
+ <span onclick='loadMove("r3r1k1/p6p/1p1qp1pn/3p2N1/3P4/2P4Q/PP3PPP/R3R1K1 b - - 0 1", this, "d3h3"); ' class="line0">1.Фd3-h3</span> 
+и на
+ <span onclick='loadMove("r3r3/p5kp/1p1qp1pn/3p2N1/3P4/2P4Q/PP3PPP/R3R1K1 w - - 0 2", this, "g8g7"); ' class="line0">1...Крg8-g7</span> 
+(Естественный ход, тем более, что при других ответах черным не избежать материальных потерь) посредством
+ <span onclick='loadMove("r3r3/p5kp/1p1qp1pQ/3p2N1/3P4/2P5/PP3PPP/R3R1K1 b - - 0 2", this, "h3h6"); ' class="line0">2.Фh3:h6+!</span> 
+ <span onclick='loadMove("r3r3/p6p/1p1qp1pk/3p2N1/3P4/2P5/PP3PPP/R3R1K1 w - - 0 3", this, "g7h6"); ' class="line0">Крg7:h6</span> 
+ <span onclick='loadMove("r3r3/p4N1p/1p1qp1pk/3p4/3P4/2P5/PP3PPP/R3R1K1 b - - 0 3", this, "g5f7"); ' class="line0">3.Кg5-f7+</span> 
+ <span onclick='loadMove("r3r3/p4Nkp/1p1qp1p1/3p4/3P4/2P5/PP3PPP/R3R1K1 w - - 0 4", this, "h6g7"); ' class="line0">Крh6-g7</span> 
+ <span onclick='loadMove("r3r3/p5kp/1p1Np1p1/3p4/3P4/2P5/PP3PPP/R3R1K1 b - - 0 4", this, "f7d6"); ' class="line0">4.Кf7:d6</span> 
+остались с лишней фигурой.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Та же комбинация в несколько измененном виде:</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r3k1nr/ppp2ppp/1b1p4/1P6/3PPq2/2B1nB2/P2Q2PP/RN3RK1 b kq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3k1nr/ppp2ppp/1b1p4/1P6/3PPq2/2B1nB2/P2Q2PP/RN3RK1 b kq - 0 1", this, ""); '>[...]</span> 
+<p>№ 55</p>
+<!--img src="images/Tarrash_1933-55.png" style="width:89pt;height:90pt;"/-->
+<p>Черные предыдущим ходом напали посредством <b>Кg4-e3</b> на ферзя и ладью. Спасти качество белые могут лишь связкой коня, но вместо правильного <b>Фd1-c1</b> они отошли ферзем на d2. Теперь следует красивая жертва ферзя:
+ <span onclick='loadMove("r3k1nr/ppp2ppp/1b1p4/1P6/3PP3/2B1nB2/P2Q2Pq/RN3RK1 w kq - 0 2", this, "f4h2"); ' class="line0">1...Фf4:h2+</span> 
+ <span onclick='loadMove("r3k1nr/ppp2ppp/1b1p4/1P6/3PP3/2B1nB2/P2Q2PK/RN3R2 b kq - 0 2", this, "g1h2"); ' class="line0">2.Крg1:h2</span> 
+ <span onclick='loadMove("r3k1nr/ppp2ppp/1b1p4/1P6/3PP3/2B2B2/P2Q2PK/RN3n2 w kq - 0 3", this, "e3f1"); ' class="line0">Кe3:f1+</span> 
+, и после
+ <!--span onclick='loadMove("r3k1nr/ppp2ppp/1b1p4/1P6/3PP3/2B2B2/P2Q2PK/RN3n2 b kq - 0 3", this, "e3f1"); ' class="line0">3.z0</span--> 
+
+ <span onclick='loadMove("r3k1nr/ppp2ppp/1b1p4/1P6/3PP3/2B2B2/P2n2PK/RN6 w kq - 0 4", this, "f1d2"); ' class="line0">3...Кf1:d2</span> 
+черные всё же выиграли качество.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r1br2k1/pp2qppp/1npb1n2/8/3NP3/2N5/PPQ2PPP/R1BR1BK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1br2k1/pp2qppp/1npb1n2/8/3NP3/2N5/PPQ2PPP/R1BR1BK1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 56</p>
+<!--img src="images/Tarrash_1933-56.png" style="width:89pt;height:91pt;"/-->
+<p>Здесь черные жертвуют сначала на h2 слона и после
+ <span onclick='loadMove("r1br2k1/pp2qppp/1np2n2/8/3NP3/2N5/PPQ2PPb/R1BR1BK1 w - - 0 2", this, "d6h2"); ' class="line0">1...Сd6:h2+</span> 
+ <span onclick='loadMove("r1br2k1/pp2qppp/1np2n2/8/3NP3/2N5/PPQ2PPK/R1BR1B2 b - - 0 2", this, "g1h2"); ' class="line0">2.Крg1:h2</span> 
+еще качество:
+ <span onclick='loadMove("r1b3k1/pp2qppp/1np2n2/8/3rP3/2N5/PPQ2PPK/R1BR1B2 w - - 0 3", this, "d8d4"); ' class="line0">2...Лd8:d4</span> 
+ <span onclick='loadMove("r1b3k1/pp2qppp/1np2n2/8/3RP3/2N5/PPQ2PPK/R1B2B2 b - - 0 3", this, "d1d4"); ' class="line0">3.Лd1:d4</span> 
+. Затем двойным нападением
+ <span onclick='loadMove("r1b3k1/pp3ppp/1np2n2/4q3/3RP3/2N5/PPQ2PPK/R1B2B2 w - - 0 4", this, "e7e5"); ' class="line0">3...Фe7-e5+</span> 
+они отыгрывают ладью и остаются в результате с лишней пешкой.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r1b2rk1/pp1p1ppp/3p4/3Nn3/P2N3q/8/1PP2PPP/R2QR1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b2rk1/pp1p1ppp/3p4/3Nn3/P2N3q/8/1PP2PPP/R2QR1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 57</p>
+<!--img src="images/Tarrash_1933-57.png" style="width:89pt;height:91pt;"/-->
+<p>В данном примере ход
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p4/3Nn3/P2N3q/6P1/1PP2P1P/R2QR1K1 b - - 0 1", this, "g2g3"); ' class="line0">1.g2-g3?</span> 
+<!--p>25</p-->
+был бы грубой ошибкой, так как черные жертвуют на d4 ферзя и после
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p4/3Nn3/P2q4/6P1/1PP2P1P/R2QR1K1 w - - 0 2", this, "h4d4"); ' class="line0">1...Фh4:d4</span> 
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p4/3Nn3/P2Q4/6P1/1PP2P1P/R3R1K1 b - - 0 2", this, "d1d4"); ' class="line0">2.Фd1:d4</span> 
+отыгрывают его посредством
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p4/3N4/P2Q4/5nP1/1PP2P1P/R3R1K1 w - - 0 3", this, "e5f3"); ' class="line0">2...Кe5-f3+</span> 
+(двойное нападение на ферзя и короля). Вместо ошибочного хода пешкой белые могут продолжать
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p4/3NnN2/P6q/8/1PP2PPP/R2QR1K1 b - - 0 1", this, "d4f5"); ' class="line1">1.Кd4-f5</span> 
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p4/3NnN2/P5q1/8/1PP2PPP/R2QR1K1 w - - 0 2", this, "h4g4"); ' class="line1">Фh4-g4?</span> 
+(Правильно
+ <span onclick='loadMove("r1bq1rk1/pp1p1ppp/3p4/3NnN2/P7/8/1PP2PPP/R2QR1K1 w - - 0 2", this, "h4d8"); ' class="line2">1...Фd8</span> 
+) и теперь
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p3N/3Nn3/P5q1/8/1PP2PPP/R2QR1K1 b - - 0 2", this, "f5h6"); ' class="line1">2.Кf5-h6+</span> 
+ <span onclick='loadMove("r1b2rk1/pp1p1p1p/3p3p/3Nn3/P5q1/8/1PP2PPP/R2QR1K1 w - - 0 3", this, "g7h6"); ' class="line1">g7:h6</span> 
+ <span onclick='loadMove("r1b2rk1/pp1p1p1p/3p1N1p/4n3/P5q1/8/1PP2PPP/R2QR1K1 b - - 0 3", this, "d5f6"); ' class="line1">3.Кd5-f6+</span> 
+, или
+ <span onclick='loadMove("r1b2rk1/pp1p1ppp/3p1N2/4nN2/P5q1/8/1PP2PPP/R2QR1K1 b - - 0 2", this, "d5f6"); ' class="line2">2.Кd5-f6+</span> 
+ <span onclick='loadMove("r1b2rk1/pp1p1p1p/3p1p2/4nN2/P5q1/8/1PP2PPP/R2QR1K1 w - - 0 3", this, "g7f6"); ' class="line2">g7:f6</span> 
+ <span onclick='loadMove("r1b2rk1/pp1p1p1p/3p1p1N/4n3/P5q1/8/1PP2PPP/R2QR1K1 b - - 0 3", this, "f5h6"); ' class="line2">3.Кf5-h6+</span> 
+, выигрывая ферзя.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Еще один пример с весьма сложной жертвенной игрой.</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="6rk/p6p/4n3/3q2B1/2Bp4/1P3r1P/P3QPR1/7K b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6rk/p6p/4n3/3q2B1/2Bp4/1P3r1P/P3QPR1/7K b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 58</p>
+<!--img src="images/Tarrash_1933-58.png" style="width:120pt;height:90pt;"/-->
+<p>Здесь последовало
+ <span onclick='loadMove("6rk/p6p/4n3/3q2B1/2Bp4/1P5r/P3QPR1/7K w - - 0 2", this, "f3h3"); ' class="line0">1...Лf3:h3+</span> 
+ <span onclick='loadMove("6rk/p6p/4n3/3q2B1/2Bp4/1P5r/P3QPR1/6K1 b - - 0 2", this, "h1g1"); ' class="line0">2.Крh1-g1</span> 
+ <span onclick='loadMove("6rk/p6p/4n3/6B1/2Bp4/1P5r/P3QPq1/6K1 w - - 0 3", this, "d5g2"); ' class="line0">Фd5:g2+!</span> 
+ <span onclick='loadMove("6rk/p6p/4n3/6B1/2Bp4/1P5r/P3QPK1/8 b - - 0 3", this, "g1g2"); ' class="line0">3.Крg1:g2</span> 
+ <span onclick='loadMove("6rk/p6p/8/6B1/2Bp1n2/1P5r/P3QPK1/8 w - - 0 4", this, "e6f4"); ' class="line0">Кe6-f4+</span> 
+, отыгрывая ферзя и получая достаточное для выигрыша преимущество. Однако черные могут на
+ <span onclick='loadMove("6rk/p6p/8/6B1/2Bp1n2/1P5r/P3QP2/6K1 b - - 0 4", this, "g2g1"); ' class="line0">4.Крg2-g1</span> 
+сыграть еще сильнее:
+ <span onclick='loadMove("7k/p6p/8/6r1/2Bp1n2/1P5r/P3QP2/6K1 w - - 0 5", this, "g8g5"); ' class="line0">4...Лg8:g5+!</span> 
+ <span onclick='loadMove("7k/p6p/8/6r1/2Bp1n2/1P5r/P3QP2/5K2 b - - 0 5", this, "g1f1"); ' class="line0">5.Крg1-f1</span> 
+ <span onclick='loadMove("7k/p6p/8/6r1/2Bp1n2/1P6/P3QP2/5K1r w - - 0 6", this, "h3h1"); ' class="line0">Лh3-h1X</span> 
+. Когда видишь сильное, быть может решающее продолжение, все же следует внимательно посмотреть, нет ли еще более сильного хода.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2qkb1r/pppb1ppp/5n2/1B1P4/3Q4/2N5/PPP2PPP/R1B1K2R b KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2qkb1r/pppb1ppp/5n2/1B1P4/3Q4/2N5/PPP2PPP/R1B1K2R b KQkq - 0 1", this, ""); '>[...]</span> 
+<p>№ 59</p>
+<!--img src="images/Tarrash_1933-59.png" style="width:119pt;height:90pt;"/-->
+<p>Черные полагают, что после
+ <span onclick='loadMove("r2qkb1r/ppp2ppp/5n2/1b1P4/3Q4/2N5/PPP2PPP/R1B1K2R w KQkq - 0 2", this, "d7b5"); ' class="line0">1...Сd7:b5</span> 
+ <span onclick='loadMove("r2qkb1r/ppp2ppp/5n2/1N1P4/3Q4/8/PPP2PPP/R1B1K2R b KQkq - 0 2", this, "c3b5"); ' class="line0">2.Кc3:b5</span> 
+ <span onclick='loadMove("r2qkb1r/ppp2ppp/8/1N1n4/3Q4/8/PPP2PPP/R1B1K2R w KQkq - 0 3", this, "f6d5"); ' class="line0">Кf6:d5?</span> 
+они выигрывают пешку, не замечая, что весьма элементарная и часто встречающаяся комбинация
+ <span onclick='loadMove("r2qkb1r/ppp2ppp/8/1N1Q4/8/8/PPP2PPP/R1B1K2R b KQkq - 0 3", this, "d4d5"); ' class="line0">3.Фd4:d5!</span> 
+ <span onclick='loadMove("r3kb1r/ppp2ppp/8/1N1q4/8/8/PPP2PPP/R1B1K2R w KQkq - 0 4", this, "d8d5"); ' class="line0">Фd8:d5</span> 
+ <span onclick='loadMove("r3kb1r/ppN2ppp/8/3q4/8/8/PPP2PPP/R1B1K2R b KQkq - 0 4", this, "b5c7"); ' class="line0">4.Кb5:c7+</span> 
+ <!--span onclick='loadMove("r3kb1r/ppN2ppp/8/3q4/8/8/PPP2PPP/R1B1K2R w KQkq - 0 5", this, "b5c7"); ' class="line0">z0</span--> 
+и затем
+ <span onclick='loadMove("r3kb1r/pp3ppp/8/3N4/8/8/PPP2PPP/R1B1K2R b KQkq - 0 5", this, "c7d5"); ' class="line0">5.Кc7:d5</span> 
+ведет к потере коня.</p>
+<p>Комбинацию нужно всегда рассчитывать до конца. Если бы черные в своих расчетах продумали на один ход дальше, они не проиграли бы фигуры.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="6k1/3R3p/p2p2p1/4b1N1/P3P3/7P/1rr3P1/6RK b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/3R3p/p2p2p1/4b1N1/P3P3/7P/1rr3P1/6RK b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 60</p>
+<!--img src="images/Tarrash_1933-60.png" style="width:121pt;height:90pt;"/-->
+<p>Черные сдвоением ладей заставили белых сделать пассивный ход <b>Лg1</b>, который однако связан с небольшой ловушкой. Именно, на соблазнительное
+ <span onclick='loadMove("6k1/3R3p/p2p2p1/6N1/P2bP3/7P/1rr3P1/6RK w - - 0 2", this, "e5d4"); ' class="line0">1...Сe5-d4?</span> 
+последует
+ <span onclick='loadMove("3R2k1/7p/p2p2p1/6N1/P2bP3/7P/1rr3P1/6RK b - - 0 2", this, "d7d8"); ' class="line0">2.Лd7-d8+</span> 
+ <span onclick='loadMove("3R4/6kp/p2p2p1/6N1/P2bP3/7P/1rr3P1/6RK w - - 0 3", this, "g8g7"); ' class="line0">Крg8-g7</span> 
+ <span onclick='loadMove("3R4/6kp/p2pN1p1/8/P2bP3/7P/1rr3P1/6RK b - - 0 3", this, "g5e6"); ' class="line0">3.Кg5-e6+</span> 
+, выигрывая слона.</p>
+<!--p>26</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r1b1kb1r/ppp2ppp/5q2/8/4P3/2NB4/PP3PPP/R2Q1RK1 w kq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b1kb1r/ppp2ppp/5q2/8/4P3/2NB4/PP3PPP/R2Q1RK1 w kq - 0 1", this, ""); '>[...]</span> 
+<p>№ 61</p>
+<!--img src="images/Tarrash_1933-61.png" style="width:89pt;height:91pt;"/-->
+<p>После
+ <span onclick='loadMove("r1b1kb1r/ppp2ppp/5q2/3N4/4P3/3B4/PP3PPP/R2Q1RK1 b kq - 0 1", this, "c3d5"); ' class="line0">1.Кc3-d5</span> 
+ <span onclick='loadMove("r1b1kb1r/ppp2ppp/2q5/3N4/4P3/3B4/PP3PPP/R2Q1RK1 w kq - 0 2", this, "f6c6"); ' class="line0">Фf6-c6?</span> 
+(Правильно
+ <span onclick='loadMove("r1b1kb1r/ppp2ppp/3q4/3N4/4P3/3B4/PP3PPP/R2Q1RK1 w kq - 0 2", this, "f6d6"); ' class="line1">1...Фd6</span> 
+или
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/8/3N4/4P3/3B4/PP3PPP/R2Q1RK1 w kq - 0 2", this, "f6d8"); ' class="line1">1...Фd8</span> 
+) следует
+ <span onclick='loadMove("r1b1kb1r/ppp2ppp/2q5/1B1N4/4P3/8/PP3PPP/R2Q1RK1 b kq - 0 2", this, "d3b5"); ' class="line0">2.Сd3-b5!</span> 
+ <span onclick='loadMove("r1b1kb1r/ppp2ppp/8/1q1N4/4P3/8/PP3PPP/R2Q1RK1 w kq - 0 3", this, "c6b5"); ' class="line0">Фc6:b5</span> 
+ <span onclick='loadMove("r1b1kb1r/ppN2ppp/8/1q6/4P3/8/PP3PPP/R2Q1RK1 b kq - 0 3", this, "d5c7"); ' class="line0">3.Кd5:c7+</span> 
+, и черный ферзь погиб.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2q1rk1/1ppb2pp/2np1p2/PBb5/4P3/6R1/1BP2PPP/1N1Q1RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2q1rk1/1ppb2pp/2np1p2/PBb5/4P3/6R1/1BP2PPP/1N1Q1RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 62</p>
+<!--img src="images/Tarrash_1933-62.png" style="width:85pt;height:89pt;"/-->
+<p>Белые посредством
+ <span onclick='loadMove("r2q1rk1/1ppb2pp/P1np1p2/1Bb5/4P3/6R1/1BP2PPP/1N1Q1RK1 b - - 0 1", this, "a5a6"); ' class="line0">1.a5-a6</span> 
+жертвует пешку, чтобы после</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/2pb2pp/p1np1p2/1Bb5/4P3/6R1/1BP2PPP/1N1Q1RK1 w - - 0 2", this, "b7a6"); ' class="line0">1...b7:a6</span> 
+ <span onclick='loadMove("r2q1rk1/2pb2pp/p1np1p2/1BbQ4/4P3/6R1/1BP2PPP/1N3RK1 b - - 0 2", this, "d1d5"); ' class="line0">2.Фd1-d5+</span> 
+ <!--span onclick='loadMove("r2q1rk1/2pb2pp/p1np1p2/1BbQ4/4P3/6R1/1BP2PPP/1N3RK1 w - - 0 3", this, "d1d5"); ' class="line0">z0</span--> 
+с последующим
+ <span onclick='loadMove("r2q1rk1/2pb2pp/p1Bp1p2/2bQ4/4P3/6R1/1BP2PPP/1N3RK1 b - - 0 3", this, "b5c6"); ' class="line0">3.Сb5:c6</span> 
+выиграть коня. Опять-таки двойное нападение на короля и плохо защищенную фигуру.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r4rk1/4qp1p/p1p1b1p1/1pnpP3/5P2/1BN1Q3/PPP3PP/3R1RK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4rk1/4qp1p/p1p1b1p1/1pnpP3/5P2/1BN1Q3/PPP3PP/3R1RK1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 63</p>
+<!--img src="images/Tarrash_1933-63.png" style="width:89pt;height:91pt;"/-->
+<p>Здесь ошибочным был бы ход
+ <span onclick='loadMove("r4rk1/4q2p/p1p1b1p1/1pnpPp2/5P2/1BN1Q3/PPP3PP/3R1RK1 w - f6 0 2", this, "f7f5"); ' class="line0">1...f7-f5?</span> 
+Именно, после
+ <span onclick='loadMove("r4rk1/4q2p/p1p1bPp1/1pnp4/5P2/1BN1Q3/PPP3PP/3R1RK1 b - - 0 2", this, "e5f6"); ' class="line0">2.e5:f6</span> 
+ <span onclick='loadMove("r5k1/4q2p/p1p1brp1/1pnp4/5P2/1BN1Q3/PPP3PP/3R1RK1 w - - 0 3", this, "f8f6"); ' class="line0">Лf8:f6</span> 
+(Ферзь должен защищать коня) вследствие связки слона e6 становится возможным двойное нападение:
+ <span onclick='loadMove("r5k1/4q2p/p1p1brp1/1pnB4/5P2/2N1Q3/PPP3PP/3R1RK1 b - - 0 3", this, "b3d5"); ' class="line0">3.Сb3:d5!</span> 
+ <span onclick='loadMove("r5k1/4q2p/p3brp1/1pnp4/5P2/2N1Q3/PPP3PP/3R1RK1 w - - 0 4", this, "c6d5"); ' class="line0">c6:d5</span> 
+ <span onclick='loadMove("r5k1/4q2p/p3brp1/1pnN4/5P2/4Q3/PPP3PP/3R1RK1 b - - 0 4", this, "c3d5"); ' class="line0">4.Кc3:d5</span> 
+ <span onclick='loadMove("r5k1/5q1p/p3brp1/1pnN4/5P2/4Q3/PPP3PP/3R1RK1 w - - 0 5", this, "e7f7"); ' class="line0">Фe7-f7</span> 
+ <span onclick='loadMove("r5k1/5q1p/p3bNp1/1pn5/5P2/4Q3/PPP3PP/3R1RK1 b - - 0 5", this, "d5f6"); ' class="line0">5.Кd5:f6+</span> 
+ <span onclick='loadMove("r5k1/7p/p3bqp1/1pn5/5P2/4Q3/PPP3PP/3R1RK1 w - - 0 6", this, "f7f6"); ' class="line0">Фf7:f6</span> 
+ <span onclick='loadMove("r5k1/7p/p3bqp1/1pQ5/5P2/8/PPP3PP/3R1RK1 b - - 0 6", this, "e3c5"); ' class="line0">6.Фe3:c5</span> 
+, и белые выигрывают качество и две пешки, что вполне обеспечивает им победу.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="1rb1r1k1/p1pn1p2/2pp1q1p/6p1/2BbP3/2N3BP/PPPQ1PP1/R3R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/6p1/2BbP3/2N3BP/PPPQ1PP1/R3R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 64</p>
+<!--img src="images/Tarrash_1933-64.png" style="width:89pt;height:91pt;"/-->
+<p>Весьма часто встречающаяся позиция. Черные ходом <b>Лa8-b8</b> напали на пешку b2. Если белые защищают ее посредством
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/6p1/2BbP3/2N3BP/PPPQ1PP1/1R2R1K1 b - - 0 1", this, "a1b1"); ' class="line0">1.Лa1-b1?</span> 
+, то черные жертвуют на b2 ладью
+ <span onclick='loadMove("2b1r1k1/p1pn1p2/2pp1q1p/6p1/2BbP3/2N3BP/PrPQ1PP1/1R2R1K1 w - - 0 2", this, "b8b2"); ' class="line0">1...Лb8:b2</span> 
+ и после
+ <span onclick='loadMove("2b1r1k1/p1pn1p2/2pp1q1p/6p1/2BbP3/2N3BP/PRPQ1PP1/4R1K1 b - - 0 2", this, "b1b2"); ' class="line0">2.Лb1:b2</span> 
+ <span onclick='loadMove("2b1r1k1/p1pn1p2/2pp1q1p/6p1/2B1P3/2b3BP/PRPQ1PP1/4R1K1 w - - 0 3", this, "d4c3"); ' class="line0">Сd4:c3</span> 
+забирают сперва коня, а затем, пользуясь двойным нападением, и ладью, оставаясь в результате с лишним конем и пешкой.</p>
+<p>Вместо ошибочного
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/6p1/2BbP3/2N3BP/PPPQ1PP1/1R2R1K1 b - - 0 1", this, "a1b1"); ' class="line1">1.Лa1-b1</span> 
+в распоряжении белых имеются два вполне удовлетворительных продолжения: они могут защитить пешку b2 либо посредством
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/6p1/3bP3/1BN3BP/PPPQ1PP1/R3R1K1 b - - 0 1", this, "c4b3"); ' class="line1">1.Сc4-b3</span> 
+, либо, как было сыграно в партии, нападением на слона d4:
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/6p1/2BbP3/2N3BP/PPPQ1PP1/3RR1K1 b - - 0 1", this, "a1d1"); ' class="line1">1.Лa1-d1</span> 
+. Если теперь черные играют
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/4b1p1/2B1P3/2N3BP/PPPQ1PP1/3RR1K1 w - - 0 2", this, "d4e5"); ' class="line1">1...Сd4-e5</span> 
+, то невыгодно
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/4B1p1/2B1P3/2N4P/PPPQ1PP1/3RR1K1 b - - 0 2", this, "g3e5"); ' class="line1">2.Сg3:e5</span> 
+, так как этим белые способствуют развитию черного коня.</p>
+<p>Заслуживает внимания такой вариант:
+ <span onclick='loadMove("1rb1r1k1/p1p2p2/2pp1q1p/4n1p1/2B1P3/2N4P/PPPQ1PP1/3RR1K1 w - - 0 3", this, "d7e5"); ' class="line1">2...Кd7:e5</span> 
+ <span onclick='loadMove("1rb1r1k1/p1p2p2/2pp1q1p/4n1p1/4P3/1BN4P/PPPQ1PP1/3RR1K1 b - - 0 3", this, "c4b3"); ' class="line1">3.Сc4-b3</span> 
+ <span onclick='loadMove("1r2r1k1/p1p2p2/2pp1q1p/4n1p1/4P3/1BN4b/PPPQ1PP1/3RR1K1 w - - 0 4", this, "c8h3"); ' class="line1">Сc8:h3</span> 
+ <span onclick='loadMove("1r2r1k1/p1p2p2/2pp1q1p/4n1p1/4P3/1BN4P/PPPQ1P2/3RR1K1 b - - 0 4", this, "g2h3"); ' class="line1">4.g2:h3</span> 
+, и теперь двойной шах
+ <span onclick='loadMove("1r2r1k1/p1p2p2/2pp1q1p/6p1/4P3/1BN2n1P/PPPQ1P2/3RR1K1 w - - 0 5", this, "e5f3"); ' class="line1">4...Кe5-f3+</span> 
+ведет к потере ферзя. Поэтому белые отошли для защиты пешки
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/4b1p1/4P3/1BN3BP/PPPQ1PP1/3RR1K1 b - - 0 2", this, "c4b3"); ' class="line2">2.Сc4-b3</span> 
+и согласились на ухудшение пешечного расположения королевского фланга после
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/6p1/4P3/1BN3bP/PPPQ1PP1/3RR1K1 w - - 0 3", this, "e5g3"); ' class="line2">2...Сe5:g3</span> 
+ <span onclick='loadMove("1rb1r1k1/p1pn1p2/2pp1q1p/6p1/4P3/1BN3PP/PPPQ2P1/3RR1K1 b - - 0 3", this, "f2g3"); ' class="line2">3.f2:g3</span> 
+, в надежде получить компенсацию в виде открытой линии f.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2rq1rk1/pp2bpp1/2pn1n1p/3p4/3P1B1P/2NBP3/PPQ2PP1/R3K2R w KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2rq1rk1/pp2bpp1/2pn1n1p/3p4/3P1B1P/2NBP3/PPQ2PP1/R3K2R w KQ - 0 1", this, ""); '>[...]</span> 
+<p>№ 65</p>
+<!--img src="images/Tarrash_1933-65.png" style="width:89pt;height:91pt;"/-->
+<p>Белые сыграли
+ <span onclick='loadMove("2rq1rk1/pp2bpp1/2pn1n1p/3p4/3P1BPP/2NBP3/PPQ2P2/R3K2R b KQ g3 0 1", this, "g2g4"); ' class="line0">1.g2-g4</span> 
+, намереваясь посредством <b>g4-g5</b> открыть себе линий для атаки. Если черные бьют пешку g4
+ <span onclick='loadMove("2rq1rk1/pp2bpp1/2pn3p/3p4/3P1BnP/2NBP3/PPQ2P2/R3K2R w KQ - 0 2", this, "f6g4"); ' class="line0">1...Кf6:g4</span> 
+, то после
+ <span onclick='loadMove("2rq1rk1/pp2bpp1/2pB3p/3p4/3P2nP/2NBP3/PPQ2P2/R3K2R b KQ - 0 2", this, "f4d6"); ' class="line0">2.Сf4:d6</span> 
+ <span onclick='loadMove("2rq1rk1/pp3pp1/2pb3p/3p4/3P2nP/2NBP3/PPQ2P2/R3K2R w KQ - 0 3", this, "e7d6"); ' class="line0">Сe7:d6</span> 
+ <span onclick='loadMove("2rq1rk1/pp3pp1/2pb3p/3p1B2/3P2nP/2N1P3/PPQ2P2/R3K2R b KQ - 0 3", this, "d3f5"); ' class="line0">3.Сd3-f5</span> 
+они теряют качество в виду двойного нападения на ладью и коня.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="8/1p1k1ppp/1Brp3b/PR6/4rP2/6PP/1P1R3K/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/1p1k1ppp/1Brp3b/PR6/4rP2/6PP/1P1R3K/8 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 66</p>
+<!--img src="images/Tarrash_1933-66.png" style="width:89pt;height:91pt;"/-->
+<p>Черные посредством
+ <span onclick='loadMove("8/1p1k1ppp/1Brp3b/PR6/5r2/6PP/1P1R3K/8 w - - 0 2", this, "e4f4"); ' class="line0">1...Лe4:f4</span> 
+жертвуют ладью, чтобы после
+ <span onclick='loadMove("8/1p1k1ppp/1Brp3b/PR6/5P2/7P/1P1R3K/8 b - - 0 2", this, "g3f4"); ' class="line0">2.g3:f4?</span> 
+ <span onclick='loadMove("8/1p1k1ppp/1Brp4/PR6/5b2/7P/1P1R3K/8 w - - 0 3", this, "h6f4"); ' class="line0">Сh6:f4+</span> 
+и
+ <!--span onclick='loadMove("8/1p1k1ppp/1Brp4/PR6/5b2/7P/1P1R3K/8 b - - 0 3", this, "h6f4"); ' class="line0">3.z0</span--> 
+
+ <span onclick='loadMove("8/1p1k1ppp/1Brp4/PR6/8/7P/1P1b3K/8 w - - 0 4", this, "f4d2"); ' class="line0">3...Сf4:d2</span> 
+остаться с двумя лишними пешками. Само собой разумеется, что, потеряв одну пешку, белые могут уйти ладьей d2 и сохранить таким образом вторую пешку.
+В данном положении белые могут сыграть еще сильнее:
+ <span onclick='loadMove("8/1p1k1ppp/2rp3b/PR6/5r2/4B1PP/1P1R3K/8 b - - 0 2", this, "b6e3"); ' class="line1">2.Сb6-e3</span> 
+, с двойным нападением на ладью f4 и пешку b7, отыгрывая потерянную пешку.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2q3r/pp1bbk2/3p1p2/2pNn1pN/4P1Pn/4BP2/PPPQBK2/3R3R b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2q3r/pp1bbk2/3p1p2/2pNn1pN/4P1Pn/4BP2/PPPQBK2/3R3R b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 67</p>
+<!--img src="images/Tarrash_1933-67.png" style="width:92pt;height:92pt;"/-->
+<p>В этом положении последовало
+ <span onclick='loadMove("r2q3r/pp2bk2/2bp1p2/2pNn1pN/4P1Pn/4BP2/PPPQBK2/3R3R w - - 0 2", this, "d7c6"); ' class="line0">1...Сd7-c6</span> 
+ <span onclick='loadMove("r2q3r/pp2Nk2/2bp1p2/2p1n1pN/4P1Pn/4BP2/PPPQBK2/3R3R b - - 0 2", this, "d5e7"); ' class="line0">2.Кd5:e7</span> 
+ <span onclick='loadMove("r2q3r/pp2k3/2bp1p2/2p1n1pN/4P1Pn/4BP2/PPPQBK2/3R3R w - - 0 3", this, "f7e7"); ' class="line0">Крf7:e7</span> 
+(Необходимо защитить пешку d6), и теперь белые жертвуют на f6 коня, которого, в виду двойного нападения <b>Сe3:g5+</b> с выигрышем ферзя, брать нельзя. После потери пешек f6 и g5 вся позиция черных распадается.</p>
+<!--p>28</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="k7/P1P2ppp/8/Q2r1b2/3q4/7P/P2p1PP1/3R2K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("k7/P1P2ppp/8/Q2r1b2/3q4/7P/P2p1PP1/3R2K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 68</p>
+<!--img src="images/Tarrash_1933-68.png" style="width:89pt;height:90pt;"/-->
+<p>Еще один изящный пример жертвы с последующим двойным нападением. Белые посредством
+ <span onclick='loadMove("k1Q5/P4ppp/8/Q2r1b2/3q4/7P/P2p1PP1/3R2K1 b - - 0 1", this, "c7c8"); ' class="line0">1.c7-c8Ф+</span> 
+жертвуют важную пешку; однако после вынужденного
+ <span onclick='loadMove("k1b5/P4ppp/8/Q2r4/3q4/7P/P2p1PP1/3R2K1 w - - 0 2", this, "f5c8"); ' class="line0">1...Сf5:c8</span> 
+ <span onclick='loadMove("k1b5/P1Q2ppp/8/3r4/3q4/7P/P2p1PP1/3R2K1 b - - 0 2", this, "a5c7"); ' class="line0">2.Фa5-c7</span> 
+, с угрозой мата на b8, они выигрывают слона.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2r3rk/1p5p/3p4/4n3/3QPq2/7P/PPP3P1/3R1RK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2r3rk/1p5p/3p4/4n3/3QPq2/7P/PPP3P1/3R1RK1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 69</p>
+<!--img src="images/Tarrash_1933-69.png" style="width:89pt;height:90pt;"/-->
+<p>Последовало:
+ <span onclick='loadMove("2r4k/1p5p/3p4/4n3/3QPq2/7P/PPP3r1/3R1RK1 w - - 0 2", this, "g8g2"); ' class="line0">1...Лg8:g2+</span> 
+ <span onclick='loadMove("2r4k/1p5p/3p4/4n3/3QPq2/7P/PPP3K1/3R1R2 b - - 0 2", this, "g1g2"); ' class="line0">2.Крg1:g2</span> 
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/3QPq2/7P/PPr3K1/3R1R2 w - - 0 3", this, "c8c2"); ' class="line0">Лc8:c2+</span> 
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/3QPq2/7P/PPr2RK1/3R4 b - - 0 3", this, "f1f2"); ' class="line0">3.Лf1-f2</span> 
+(Нельзя
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/3QPq2/7P/PPr5/3R1RK1 b - - 0 3", this, "g2g1"); ' class="line1">3.Крg1</span> 
+в виду
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/3QP3/7P/PPr4q/3R1RK1 w - - 0 4", this, "f4h2"); ' class="line1">3...Фh2X</span> 
+)
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/3QP3/5q1P/PPr2RK1/3R4 w - - 0 4", this, "f4f3"); ' class="line0">3...Фf4-f3+</span> 
+(Двойное нападение на короля и ладью)
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/3QP3/5q1P/PPr2R2/3R2K1 b - - 0 4", this, "g2g1"); ' class="line0">4.Крg2-g1</span> 
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/3QP3/5q1P/PP3r2/3R2K1 w - - 0 5", this, "c2f2"); ' class="line0">Лc2:f2</span> 
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/4P3/5q1P/PP3Q2/3R2K1 b - - 0 5", this, "d4f2"); ' class="line0">5.Фd4:f2</span> 
+ <span onclick='loadMove("7k/1p5p/3p4/4n3/4P3/7P/PP3Q2/3q2K1 w - - 0 6", this, "f3d1"); ' class="line0">Фf3:d1+</span> 
+, и черные выиграли.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r4r2/7k/bq1pp1pp/p1pn1p2/3P1P2/P3PNQ1/1P4PP/R1B1K2R b KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4r2/7k/bq1pp1pp/p1pn1p2/3P1P2/P3PNQ1/1P4PP/R1B1K2R b KQ - 0 1", this, ""); '>[...]</span> 
+<p>№ 70</p>
+<!--img src="images/Tarrash_1933-70.png" style="width:89pt;height:91pt;"/-->
+<p>Черные ходом
+ <span onclick='loadMove("r4r2/7k/bq1pp1pp/p1p2p2/3P1P2/P3nNQ1/1P4PP/R1B1K2R w KQ - 0 2", this, "d5e3"); ' class="line0">1...Кd5:e3</span> 
+жертвуют коня, чтобы после
+ <span onclick='loadMove("r4r2/7k/bq1pp1pp/p1p2p2/3P1P2/P3BNQ1/1P4PP/R3K2R b KQ - 0 2", this, "c1e3"); ' class="line0">2.Сc1:e3</span> 
+ <span onclick='loadMove("r4r2/7k/b2pp1pp/p1p2p2/3P1P2/P3BNQ1/1q4PP/R3K2R w KQ - 0 3", this, "b6b2"); ' class="line0">Фb6:b2</span> 
+, угрожая матом на e2 и выигрышем ладьи a1, остаться с лишним качеством. Белые могли бы защититься от всех угроз, если бы слон на a6 не мешал их рокировке.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2br1rk1/1p3ppp/pq1b4/5nP1/2NPp3/P1N5/1PPQ1B1P/R4RK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2br1rk1/1p3ppp/pq1b4/5nP1/2NPp3/P1N5/1PPQ1B1P/R4RK1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 71</p>
+<!--img src="images/Tarrash_1933-71.png" style="width:89pt;height:91pt;"/-->
+<p>Последний ход белых <b>Кe5-c4</b> был ошибкою. Черные ответили</p>
+<p>
+ <span onclick='loadMove("2br1rk1/1p3ppp/pq6/5nP1/2NPp3/P1N5/1PPQ1B1b/R4RK1 w - - 0 2", this, "d6h2"); ' class="line0">1...Сd6:h2+</span> 
+ <span onclick='loadMove("2br1rk1/1p3ppp/pq6/5nP1/2NPp3/P1N5/1PPQ1B1K/R4R2 b - - 0 2", this, "g1h2"); ' class="line0">2.Крg1:h2</span> 
+ <span onclick='loadMove("2br1rk1/1pq2ppp/p7/5nP1/2NPp3/P1N5/1PPQ1B1K/R4R2 w - - 0 3", this, "b6c7"); ' class="line0">Фb6-c7+</span> 
+и посредством двойного нападения отыграли фигуру. Не помогает
+ <span onclick='loadMove("2br1rk1/1pq2ppp/p7/4NnP1/3Pp3/P1N5/1PPQ1B1K/R4R2 b - - 0 3", this, "c4e5"); ' class="line0">3.Кc4-e5</span> 
+, так как после
+ <span onclick='loadMove("2br1rk1/1p3ppp/p7/4qnP1/3Pp3/P1N5/1PPQ1B1K/R4R2 w - - 0 4", this, "c7e5"); ' class="line0">3...Фc7:e5+</span> 
+ <span onclick='loadMove("2br1rk1/1p3ppp/p7/4PnP1/4p3/P1N5/1PPQ1B1K/R4R2 b - - 0 4", this, "d4e5"); ' class="line0">4.d4:e5</span> 
+забирается незащищенный ферзь d2. В результате комбинации черные выиграли пешку h2.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r4bk1/2q2p1p/2b3p1/1p2PN2/1n2pB2/2N3Q1/1PP3PP/2R4K w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4bk1/2q2p1p/2b3p1/1p2PN2/1n2pB2/2N3Q1/1PP3PP/2R4K w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 72</p>
+<!--img src="images/Tarrash_1933-72.png" style="width:89pt;height:91pt;"/-->
+<!--p>29</p-->
+<p>После
+ <span onclick='loadMove("r4bk1/2q2p1p/2b1P1p1/1p3N2/1n2pB2/2N3Q1/1PP3PP/2R4K b - - 0 1", this, "e5e6"); ' class="line0">1.e5-e6</span> 
+ <span onclick='loadMove("r4bk1/1q3p1p/2b1P1p1/1p3N2/1n2pB2/2N3Q1/1PP3PP/2R4K w - - 0 2", this, "c7b7"); ' class="line0">Фc7-b7</span> 
+белые пожертвовали пешку
+ <span onclick='loadMove("r4bk1/1q2Pp1p/2b3p1/1p3N2/1n2pB2/2N3Q1/1PP3PP/2R4K b - - 0 2", this, "e6e7"); ' class="line0">2.e6-e7</span> 
+, чтобы после
+ <span onclick='loadMove("r5k1/1q2bp1p/2b3p1/1p3N2/1n2pB2/2N3Q1/1PP3PP/2R4K w - - 0 3", this, "f8e7"); ' class="line0">2...Сf8:e7?</span> 
+(Лучше
+ <span onclick='loadMove("r5k1/1q2Ppbp/2b3p1/1p3N2/1n2pB2/2N3Q1/1PP3PP/2R4K w - - 0 3", this, "f8g7"); ' class="line1">2...Сg7</span> 
+)
+ <span onclick='loadMove("r5k1/1q2Np1p/2b3p1/1p6/1n2pB2/2N3Q1/1PP3PP/2R4K b - - 0 3", this, "f5e7"); ' class="line0">3.Кf5:e7+</span> 
+ <span onclick='loadMove("r5k1/4qp1p/2b3p1/1p6/1n2pB2/2N3Q1/1PP3PP/2R4K w - - 0 4", this, "b7e7"); ' class="line0">Фb7:e7</span> 
+посредством двойного нападения
+ <span onclick='loadMove("r5k1/4qp1p/2bB2p1/1p6/1n2p3/2N3Q1/1PP3PP/2R4K b - - 0 4", this, "f4d6"); ' class="line0">4.Сf4-d6</span> 
+выиграть коня b4.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r1b1kb1r/pp3ppp/1qn2n2/2p5/2pP1B2/2N1PN2/PP2BPPP/R2QK2R w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b1kb1r/pp3ppp/1qn2n2/2p5/2pP1B2/2N1PN2/PP2BPPP/R2QK2R w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>№ 73</p>
+<!--img src="images/Tarrash_1933-73.png" style="width:120pt;height:91pt;"/-->
+<p>Белые защищают атакованную противником пешку посредством
+ <span onclick='loadMove("r1b1kb1r/pp3ppp/1qn2n2/2p5/2pP1B2/2N1PN2/PPQ1BPPP/R3K2R b KQkq - 0 1", this, "d1c2"); ' class="line0">1.Фd1-c2?</span> 
+(Правильно было
+ <span onclick='loadMove("r1b1kb1r/pp3ppp/1qn2n2/2p5/2pP1B2/2N1PN2/PP1QBPPP/R3K2R b KQkq - 0 1", this, "d1d2"); ' class="line1">1.Фd2</span> 
+). Этим промахом черные немедленно пользуются, продолжая
+ <span onclick='loadMove("r3kb1r/pp3ppp/1qn2n2/2p2b2/2pP1B2/2N1PN2/PPQ1BPPP/R3K2R w KQkq - 0 2", this, "c8f5"); ' class="line0">1...Сc8-f5!</span> 
+Если белые берут слона
+ <span onclick='loadMove("r3kb1r/pp3ppp/1qn2n2/2p2Q2/2pP1B2/2N1PN2/PP2BPPP/R3K2R b KQkq - 0 2", this, "c2f5"); ' class="line0">2.Фc2:f5</span> 
+, то следует
+ <span onclick='loadMove("r3kb1r/pp3ppp/2n2n2/2p2Q2/2pP1B2/2N1PN2/Pq2BPPP/R3K2R w KQkq - 0 3", this, "b6b2"); ' class="line0">2...Фb6:b2</span> 
+, и черные двойным нападением на ладью a1 и коня c3 отыгрывают фигуру. Если же белые вместо того, чтобы бить слона, отходят ферзем на d2, то они теряют важный темп в развитии.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r3r1k1/1p3pp1/2p2np1/p2P4/P2Qp1P1/2P3KP/1q1N1P2/R3R3 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3r1k1/1p3pp1/2p2np1/p2P4/P2Qp1P1/2P3KP/1q1N1P2/R3R3 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 74</p>
+<!--img src="images/Tarrash_1933-74.png" style="width:120pt;height:91pt;"/-->
+<!--p>30</p-->
+<p>В этом положении двойная жертва подготовляет двойное нападение:
+ <span onclick='loadMove("r3r1k1/1p3pp1/2p2np1/p2P4/P2Q2P1/2P1p1KP/1q1N1P2/R3R3 w - - 0 2", this, "e4e3"); ' class="line0">1...e4-e3</span> 
+ <span onclick='loadMove("r3r1k1/1p3pp1/2p2np1/p2P4/P2Q2P1/2P1P1KP/1q1N4/R3R3 b - - 0 2", this, "f2e3"); ' class="line0">2.f2:e3</span> 
+(Ладья не может бить на e3, так как другая ладья остается без защиты. На отход коня на c4 или f1 следует <b>Ф:f2Х</b>).
+ <span onclick='loadMove("r3r1k1/1p3pp1/2p2np1/p2P4/P2Q2P1/2P1P1KP/3q4/R3R3 w - - 0 3", this, "b2d2"); ' class="line0">2...Фb2:d2!</span> 
+ <span onclick='loadMove("r3r1k1/1p3pp1/2p2np1/p2P4/P5P1/2P1P1KP/3Q4/R3R3 b - - 0 3", this, "d4d2"); ' class="line0">3.Фd4:d2</span> 
+ <span onclick='loadMove("r3r1k1/1p3pp1/2p3p1/p2P4/P3n1P1/2P1P1KP/3Q4/R3R3 w - - 0 4", this, "f6e4"); ' class="line0">Кf6-e4+</span> 
+с последующим
+ <!--span onclick='loadMove("r3r1k1/1p3pp1/2p3p1/p2P4/P3n1P1/2P1P1KP/3Q4/R3R3 b - - 0 4", this, "f6e4"); ' class="line0">4.z0</span--> 
+ <span onclick='loadMove("r3r1k1/1p3pp1/2p3p1/p2P4/P5P1/2P1P1KP/3n4/R3R3 w - - 0 5", this, "e4d2"); ' class="line0">4...Кe4:d2</span> 
+, и черные останься с лишней фигурой.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2q3k1/5pb1/p5pp/1p6/3rPP2/P7/NP2Q1PP/3R2K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2q3k1/5pb1/p5pp/1p6/3rPP2/P7/NP2Q1PP/3R2K1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 75</p>
+<!--img src="images/Tarrash_1933-75.png" style="width:120pt;height:91pt;"/-->
+<p>Посредством
+ <span onclick='loadMove("6k1/5pb1/p5pp/1p6/2qrPP2/P7/NP2Q1PP/3R2K1 w - - 0 2", this, "c8c4"); ' class="line0">1...Фc8-c4!</span> 
+черные нападают одновременно на коня и ферзя, а косвенно еще и на ладью d1. Белые не могут бить ферзя на c4
+ <span onclick='loadMove("6k1/5pb1/p5pp/1p6/2QrPP2/P7/NP4PP/3R2K1 b - - 0 2", this, "e2c4"); ' class="line0">2.Фe2:c4</span> 
+, потому что черные сначала забирают ладью с шахом
+ <span onclick='loadMove("6k1/5pb1/p5pp/1p6/2Q1PP2/P7/NP4PP/3r2K1 w - - 0 3", this, "d4d1"); ' class="line0">2...Лd4:d1+</span> 
+и на
+ <span onclick='loadMove("6k1/5pb1/p5pp/1p6/4PP2/P7/NP4PP/3r1QK1 b - - 0 3", this, "c4f1"); ' class="line0">3.Фc4-f1?</span> 
+продолжают
+ <span onclick='loadMove("6k1/5p2/p5pp/1p6/3bPP2/P7/NP4PP/3r1QK1 w - - 0 4", this, "g7d4"); ' class="line0">3...Сg7-d4+</span> 
+ <span onclick='loadMove("6k1/5p2/p5pp/1p6/3bPP2/P7/NP4PP/3r1Q1K b - - 0 4", this, "g1h1"); ' class="line0">4.Крg1-h1</span> 
+ <span onclick='loadMove("6k1/5p2/p5pp/1p6/3bPP2/P7/NP4PP/5r1K w - - 0 5", this, "d1f1"); ' class="line0">Лd1:f1X</span> 
+. Наконец, на
+ <span onclick='loadMove("6k1/5pb1/p5pp/1p6/2qrPP2/P1N5/1P2Q1PP/3R2K1 b - - 0 2", this, "a2c3"); ' class="line1">2.Кa2-c3</span> 
+или
+ <span onclick='loadMove("6k1/5pb1/p5pp/1p6/2qrPP2/P7/1P2Q1PP/2NR2K1 b - - 0 2", this, "a2c1"); ' class="line1">2.Кc1</span> 
+черные сначала разменивают ферзей, после чего забирают ладью. Белые поэтому не имеют ничего лучшего, как отступить ферзем на e1, после чего теряется конь на a2.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2k2rnr/pppb2b1/2np1q1p/5Pp1/1P1P4/2PB1NN1/P1Q4P/R1B2RK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2k2rnr/pppb2b1/2np1q1p/5Pp1/1P1P4/2PB1NN1/P1Q4P/R1B2RK1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 76</p>
+<!--img src="images/Tarrash_1933-76.png" style="width:89pt;height:91pt;"/-->
+<!--p>(См. диаграмму № 76)</p-->
+<p>После
+ <span onclick='loadMove("2k2rnr/pppb2b1/2np1q1p/5P2/1P1P2p1/2PB1NN1/P1Q4P/R1B2RK1 w - - 0 2", this, "g5g4"); ' class="line0">1...g5-g4</span> 
+ <span onclick='loadMove("2k2rnr/pppb2b1/2np1q1p/5P2/1P1P2p1/2PB2N1/P1Q4P/R1B1NRK1 b - - 0 2", this, "f3e1"); ' class="line0">2.Кf3-e1</span> 
+(Лучше все же
+ <span onclick='loadMove("2k2rnr/pppb2b1/2np1q1p/5P2/1P1PN1p1/2PB1N2/P1Q4P/R1B2RK1 b - - 0 2", this, "g3e4"); ' class="line1">2.Кe4</span> 
+) следует жертва на d4 с дальнейшим двойным нападением на короля и ладью a1:
+ <span onclick='loadMove("2k2rnr/pppb2b1/3p1q1p/5P2/1P1n2p1/2PB2N1/P1Q4P/R1B1NRK1 w - - 0 3", this, "c6d4"); ' class="line0">2...Кc6:d4!</span> 
+ <span onclick='loadMove("2k2rnr/pppb2b1/3p1q1p/5P2/1P1P2p1/3B2N1/P1Q4P/R1B1NRK1 b - - 0 3", this, "c3d4"); ' class="line0">3.c3:d4</span> 
+ <span onclick='loadMove("2k2rnr/pppb2b1/3p3p/5P2/1P1q2p1/3B2N1/P1Q4P/R1B1NRK1 w - - 0 4", this, "f6d4"); ' class="line0">Фf6:d4+</span> 
+ <span onclick='loadMove("2k2rnr/pppb2b1/3p3p/5P2/1P1q2p1/3B2N1/P1Q4P/R1B1NR1K b - - 0 4", this, "g1h1"); ' class="line0">4.Крg1-h1</span> 
+ <span onclick='loadMove("2k2rnr/pppb2b1/3p3p/5P2/1P4p1/3B2N1/P1Q4P/q1B1NR1K w - - 0 5", this, "d4a1"); ' class="line0">Фd4:a1</span> 
+, и черные остаются с качеством и двумя лишними пешками.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r1b1rk2/ppp1q1p1/2np2Qp/8/4NP2/2B4P/PPP3P1/1K1R3R w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b1rk2/ppp1q1p1/2np2Qp/8/4NP2/2B4P/PPP3P1/1K1R3R w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 77</p>
+<!--img src="images/Tarrash_1933-77.png" style="width:89pt;height:91pt;"/-->
+<p>В этом положении возможна атака на черного ферзя и ладью по линии е, именно благодаря тому обстоятельству, что ферзь должен прикрывать грозящий на g7 мат. Последовало:
+ <span onclick='loadMove("r1b1rk2/ppp1q1p1/2nN2Qp/8/5P2/2B4P/PPP3P1/1K1R3R b - - 0 1", this, "e4d6"); ' class="line0">1.Кe4:d6!</span> 
+ <span onclick='loadMove("r1b1rk2/pp2q1p1/2np2Qp/8/5P2/2B4P/PPP3P1/1K1R3R w - - 0 2", this, "c7d6"); ' class="line0">c7:d6</span> 
+ <span onclick='loadMove("r1b1rk2/pp2q1p1/2np2Qp/8/5P2/2B4P/PPP3P1/1K2R2R b - - 0 2", this, "d1e1"); ' class="line0">2.Лd1-e1</span> 
+(Другая ладья может быть использована по линии f). Если теперь
+ <span onclick='loadMove("r1b1rk2/pp3qp1/2np2Qp/8/5P2/2B4P/PPP3P1/1K2R2R w - - 0 3", this, "e7f7"); ' class="line0">2...Фe7-f7</span> 
+, то
+ <span onclick='loadMove("r1b1rk2/pp3qB1/2np2Qp/8/5P2/7P/PPP3P1/1K2R2R b - - 0 3", this, "c3g7"); ' class="line0">3.Сc3:g7+!</span> 
+(Но не
+ <span onclick='loadMove("r1b1Rk2/pp3qp1/2np2Qp/8/5P2/2B4P/PPP3P1/1K5R b - - 0 3", this, "e1e8"); ' class="line1">3.Л:e8?+</span> 
+ <span onclick='loadMove("r1b1k3/pp3qp1/2np2Qp/8/5P2/2B4P/PPP3P1/1K5R w q - 0 4", this, "f8e8"); ' class="line1">Кр:e8!</span> 
+)
+ <span onclick='loadMove("r1b1r1k1/pp3qB1/2np2Qp/8/5P2/7P/PPP3P1/1K2R2R w - - 0 4", this, "f8g8"); ' class="line0">3...Крf8-g8</span> 
+(или
+ <span onclick='loadMove("r1b1rk2/pp4q1/2np2Qp/8/5P2/7P/PPP3P1/1K2R2R w - - 0 4", this, "f7g7"); ' class="line1">3...Ф:g7</span> 
+ <span onclick='loadMove("r1b1Qk2/pp4q1/2np3p/8/5P2/7P/PPP3P1/1K2R2R b - - 0 4", this, "g6e8"); ' class="line1">4.Ф:e8X</span> 
+)
+ <span onclick='loadMove("r1b1R1k1/pp3qB1/2np2Qp/8/5P2/7P/PPP3P1/1K5R b - - 0 4", this, "e1e8"); ' class="line0">4.Лe1:e8+</span> 
+, и черные должны отдать ферзя. На
+ <span onclick='loadMove("r3rk2/pp2q1p1/2npb1Qp/8/5P2/2B4P/PPP3P1/1K2R2R w - - 0 3", this, "c8e6"); ' class="line1">2...Сc8-e6</span> 
+белые бьют ладьей слона, и ферзь не может брать ладью, так как он должен прикрывать мат на g7. Поэтому последовало:
+ <span onclick='loadMove("r1b1rk2/pp2q1p1/3p2Qp/4n3/5P2/2B4P/PPP3P1/1K2R2R w - - 0 3", this, "c6e5"); ' class="line2">2...Кc6-e5</span> 
+ <span onclick='loadMove("r1b1rk2/pp2q1p1/3p2Qp/4P3/8/2B4P/PPP3P1/1K2R2R b - - 0 3", this, "f4e5"); ' class="line2">3.f4:e5</span> 
+ <span onclick='loadMove("r1b1rk2/pp2q1p1/6Qp/3pP3/8/2B4P/PPP3P1/1K2R2R w - - 0 4", this, "d6d5"); ' class="line2">d6-d5</span> 
+ <span onclick='loadMove("r1b1rk2/pp2q1p1/4P1Qp/3p4/8/2B4P/PPP3P1/1K2R2R b - - 0 4", this, "e5e6"); ' class="line2">4.e5-e6</span> 
+, и белые, выиграв пешку, сохранили сильную атаку.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

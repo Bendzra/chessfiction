@@ -1,0 +1,40 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>СОДЕРЖАНИЕ:</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-0-title.htm' %}">Шацкий Р. Мемориал Легаля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-2-vvedenie.htm' %}">Введение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-chistyj-legal.htm' %}">Стенд № 1: «Чистый Легаль»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-sverh-legal.htm' %}">Стенд № 2: «Сверх-Легаль»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-ustraniaia-prepiatstviia.htm' %}">Стенд № 3: Устраняя препятствия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-benefis-ferzevogo-slona_figura-pervaia.htm' %}">Стенд № 4: «Бенефис» ферзевого слона /фигура первая/</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-benefis-ferzevogo-slona_figura-vtoraia.htm' %}">Стенд № 5: «Бенефис» ферзевого слона /фигура вторая/</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-o-polze-svoevremennoj-rokirovki.htm' %}">Стенд № 6: О пользе своевременной рокировки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-prikliucheniia-na-ferzevom-flange_atakuiut-chernye.htm' %}">Стенд № 7: Приключения на ферзевом фланге /атакуют черные/</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-prikliuchenie-na-ferzevom-flange_atakuiut-belye.htm' %}">Стенд № 8: Приключения на ферзевом фланге /атакуют белые/</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-rtutnaia-peshka-v-teme-legalia.htm' %}">Стенд № 9: «Ртутная пешка» в «теме Легаля»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-nestandart_vmesto-zakliucheniia.htm' %}">Стенд № 10: «Нестандарт» /вместо заключения/</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-perechen-partij.htm' %}">Перечень партий</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-alfavitnyj-ukazatel.htm' %}">Алфавитный указатель</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-ukazatel-debiutov.htm' %}">Указатель дебютов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/14-osnovnye-istochniki.htm' %}">Список литературы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-posleslovie.htm' %}">Послесловие</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

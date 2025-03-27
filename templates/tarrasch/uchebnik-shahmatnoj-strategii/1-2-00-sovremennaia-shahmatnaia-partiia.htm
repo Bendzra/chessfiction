@@ -1,0 +1,443 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОВРЕМЕННАЯ ШАХМАТНАЯ ПАРТИЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h1>СОВРЕМЕННАЯ ШАХМАТНАЯ ПАРТИЯ</h1>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Предисловие к первому изданию</h1>
+<p>Характер развития шахматного искусства в течение последних десятилетий, повышение общего уровня игры и глубина научной трактовки шахматной партии,— все эти вопросы освещаются особенно ярко, если критически рассмотреть собрание партий из прошлого, даже совсем еще не столь давнего времени, например, книгу парижского турнира за 1878 год. В большинстве этих партий мы встречаем такой дилетантизм в понимании и технике игры, что не слишком смелым будет мое утверждение, что уровень игры маэстро того времени соответствует примерно уровню современных лучших игроков первой категории. Ввиду такой разницы между «тогда» и «теперь» не будет неуместным издание собрания партий современных маэстро, тем более, что такого сборника, исключая тех, которые относятся к шахматным конгрессам, до сего времени нет. Таким образом, эта книга, в сущности, дает коллекцию более двухсот избранных партий из турниров и матчей последних десяти лет.</p>
+<p>Конечно, читатель не знал бы, что ему делать с такой книгой, если бы она не содержала в себе ничего, кроме самих партий. <i>Без обстоятельных примечаний абсолютно невозможно понять партию при переигрывании</i>, не говоря уже о том, чтобы полностью воспринять и усвоить ее содержание.</p>
+<p><i>Каждую отдельную партию я сделал предметом глубокого изучения</i>, результаты которого я предлагаю читателям, перед которыми, таким образом, открывается полная возможность без особого труда понять партию. <i>Я сажусь с читателем за доску и самым подробным образом объясняю ему партию</i>, но, надеюсь, его не утомляю. <i>Я вскрываю перед ним внутреннюю сущность и неизбежность всего совершающегося в шахматной партии</i>; показываю, как из одного вытекает другое; я учу — да будет мне позволено посмеяться над собой,— что</p>
+<div class="diagram">
+<p>Сначала так, потом вот так;</p>
+<p>Ну, а теперь уж нужно так;</p>
+<p>И если б не было вот так,</p>
+<p>То не могло бы быть и так.</p>
+</div>
+<!--p>Современная шахматная партия</p><p>39</p-->
+<p>Я показываю ему, как наказывается всякая провинность, правда, не в нашей земной жизни, но, во всяком случае, на 64 полях доски, и что проклятие плохого хода заключается в том, что он всегда влечет за собой новое зло. Я обращаю его взоры на дивные красоты нашего прекрасного искусства, которое поистине, поскольку речь идет о красоте, может не бояться сравнения ни с одним из общепризнанных и принятых за мерила искусств. Я провожу попутно интересные параллели с событиями дня, так что одинокому шахматисту-любителю, пожалуй, могу заменить партнера. Я не ограничиваюсь рассмотрением только данной партии, а ищу основной причины в ходе явлений. Я большею частью <i>обобщаю отдельные случаи и устанавливаю массу принципов и правил, значение которых чрезвычайно важно для уверенного ведения игры</i>. С особенной любовью я разбираю ту часть партии, обучать которой является самым благодарным трудом, — дебют и основной план партии. Здесь я отдал предпочтение модным дебютам,— испанской партии и ферзевому гамбиту, которые составляют две трети всей книги. При этом я обращал особенное внимание на перестановку ходов. Например, партия, которая начинается
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">1.Кg1-f3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2", this, "d7d5"); ' class="line0">d7-d5</span> 
+и далее продолжается
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d2-d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/8/2pp4/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq c6 0 3", this, "c7c5"); ' class="line0">c7-c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/8/2pp4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq c3 0 3", this, "c2c4"); ' class="line0">3.c2-c4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/4p3/2pp4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4", this, "e7e6"); ' class="line0">e7-e6</span> 
+, является для меня не дебютом Цукерторта и не дебютом ферзевых пешек, а ферзевым гамбитом с современной защитой <b>c7-c5</b>, ибо она носит все отличительные признаки этого дебюта. Я старался сгруппировать все партии, приходящие по существу к однотипным положениям, даже и в том случае, если таковые возникли в результате различных начальных ходов. Так, например, в испанском дебюте все партии, в коих дебют характеризуется тем, что черные запирают своего королевского слона ходом <b>d7-d6</b>, я рассматривал в одном отделе. Я делал это именно потому, что все эти партии характеризуются указанным признаком. Путем сравнения большого количества таких партий изучающий лучше всего усвоит соответствующий метод их трактовки. Я до некоторой степени горжусь той точной классификацией, которую мне удалось провести в ферзевом гамбите и которая вносит ясность в массу относящихся к нему вариантов; несколькими короткими, характерными и сильными словами, как например «нормальное положение», «расширенное фианкетто ферзевого слона» и т. п., я заключил в рамки схемы этот упрямый дебют, так что теперь всякая игранная им партия может быть отнесена к соответствующей группе.</p> <p>Таким образом, эта <i>книга представляет собою учебник современной шахматной стратегии</i>, но, во всяком случае, не в виде
+<!--p>40 Современная шахматная партия</p-->
+установившейся системы, а в свободной форме, наподобие, скажем, моих «300 шахматных партий», с тою разницей, что изложена она гораздо более поучительно. Я был далек от мысли составить систематический учебник дебютов. Этот гигантский труд я намереваюсь начать, если предлагаемая книга встретит такое же дружеское признание и прием, каким меня раньше в подобных случаях баловал шахматный мир.</p>
+<div class="diagram">
+<p style="text-align:right;"><i>Д-р Тарраш</i></p>
+<p>Нюрнберг, декабрь 1912 г.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Предисловие ко второму изданию</h1>
+<p>Эта книга встретила в шахматном мире блестящий прием, которым я горжусь; первое издание разошлось в течение менее чем полутора лет, и уже давно назрела потребность во втором, но этому помешала мировая война.</p>
+<p>Тщательно просматривая книгу, я нашел в ней очень и очень мало ошибок, — всего две или три. Теоретические достижения последних трех лет везде внесены мною дополнительно, так что книга опять является выразителем современной точки зрения в учении о дебютах.</p>
+<div class="diagram">
+<p style="text-align:right;"><i>Д-р Тарраш</i></p>
+<p>Мюнхен, май 1916 г.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Предисловие к четвертому изданию*</h1>
+<p>Это издание модернизировано и дополнено несколькими новыми партиями.</p>
+<div class="diagram">
+<p style="text-align:right;"><i>Д-р Тарраш</i></p>
+<p>Мюнхен, ноябрь 1923 г.</p>
+</div>
+<p>* Предлагаемый перевод книги Тарраша «Die moderne Schachpartie» сделан с последнего (4-го) немецкого издания 1924 г.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>СБОРНИК ПАРТИЙ</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-0-ispanskaia-partiia.htm' %}">Испанская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}">1. Защита d7-d6? (запирается королевский слон черных) с ходом a7-a6 или без него</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game1">Партия № 1. Капабланка — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game2">Партия № 2. Яновский — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game3">Партия № 3. Яновский — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game4">Партия № 4. Тарраш — Фогель</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game5">Партия № 5. Мизес — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game6">Партия № 6. Мароци — Вольф</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game7">Партия № 7. Тарраш — Фогель</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game8">Партия № 8. Эм. Ласкер — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game9">Партия № 9. Эм. Ласкер — Кон</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game10">Партия № 10. Шлехтер — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game11">Партия № 11. Тарраш — Круциус, Ульрих и Вендт</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game12">Партия № 12. Тарраш — Берн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game13">Партия № 13. Тарраш — Берн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game14">Партия № 14. Эм. Ласкер — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game15">Партия № 15. Капабланка — Бернштейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game16">Партия № 16. Тарраш — Буш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game17">Партия № 17. Тарраш — Марко</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-1-zashchita-d7-d6.htm' %}#game18">Партия № 18. Тарраш — Шлехтер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}">2. Вариант 3...a6 4.Сa4 Кf6 5.0-0 Сe7</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game19">Партия № 19. Зюхтинг — Сальве</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game20">Партия № 20. Шлехтер — Зюхтинг</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game21">Партия № 21. Эм. Ласкер — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game22">Партия № 22. Капабланка — Дуз-Хотимирский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game23">Партия № 23. Шлехтер — Сальве</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game24">Партия № 24. Шпильман — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game25">Партия № 25. Капабланка — Молина</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game26">Партия № 26. Тейхман — Берн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game27">Партия № 27. Тейхман — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game28">Партия № 28. Эм. Ласкер — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game29">Партия № 29. Тарраш — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-2-variant-3_a6-4-Ba4-5-0-0-Be7.htm' %}#game30">Партия № 30. Эм. Ласкер — Тейхман</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-3-luchshaia-zashchita-3_a6-4-Ba4-Nf6-5-0-0-Nxe4.htm' %}">3. Лучшая защита: 3...a6 4.Сa4 Кf6 5.0-0 К:e4!</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-3-luchshaia-zashchita-3_a6-4-Ba4-Nf6-5-0-0-Nxe4.htm' %}#game31">Партия № 31. Шпильман — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-3-luchshaia-zashchita-3_a6-4-Ba4-Nf6-5-0-0-Nxe4.htm' %}#game32">Партия № 32. Брейер — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-3-luchshaia-zashchita-3_a6-4-Ba4-Nf6-5-0-0-Nxe4.htm' %}#game33">Партия № 33. Тейхман — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-3-luchshaia-zashchita-3_a6-4-Ba4-Nf6-5-0-0-Nxe4.htm' %}#game34">Партия № 34. N.N. — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-3-luchshaia-zashchita-3_a6-4-Ba4-Nf6-5-0-0-Nxe4.htm' %}#game35">Партия № 35. Алехин — Рубинштейн</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}">4. Разменный вариант в испанской партии</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game36">Партия № 36. Марко — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game37">Партия № 37. Фокс — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game38">Партия № 38. Кенлейн — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game39">Партия № 39. Тартаковер — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game40">Партия № 40. Эм. Ласкер — Чигорин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game41">Партия № 41. Эм. Ласкер — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game42">Партия № 42. Мизес — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-4-razmennyj-variant-v-ispanskoj-partii.htm' %}#game43">Партия № 43. Тарраш — Мосбахер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-5-menee-energichnyj-sposob-ataki-hodom-5-d2-0d3.htm' %}">5. Менее энергичный способ атаки ходом 5.d2-d3</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-5-menee-energichnyj-sposob-ataki-hodom-5-d2-0d3.htm' %}#game44">Партия № 44. Дурас — Кон</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-5-menee-energichnyj-sposob-ataki-hodom-5-d2-0d3.htm' %}#game45">Партия № 45. Дурас — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-5-menee-energichnyj-sposob-ataki-hodom-5-d2-0d3.htm' %}#game46">Партия № 46. Дурас — Зюхтинг</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-6-zashchita-3_Nf6-4-0-0-Nxe4.htm' %}">6. Защита 3...Кf6 4.0-0 К : e4</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-6-zashchita-3_Nf6-4-0-0-Nxe4.htm' %}#game47">Партия № 47. Тарраш — Таубенгауз</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-6-zashchita-3_Nf6-4-0-0-Nxe4.htm' %}#game48">Партия № 48. Ион — Зюхтинг</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-6-zashchita-3_Nf6-4-0-0-Nxe4.htm' %}#game49">Партия № 49. Дюрш, Ган и Гайзлер — Тарраш</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-7-gambitnaia-zashchita-ispanskoj-partii.htm' %}">7. Гамбитная защита испанской партии</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-7-gambitnaia-zashchita-ispanskoj-partii.htm' %}#game50">Партия № 50. Вольф — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-7-gambitnaia-zashchita-ispanskoj-partii.htm' %}#game51">Партия № 51. Пильсбери — Тарраш</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-8-ataka-hodom-5-d2-0d4.htm' %}">8. Атака ходом 5.d2-d4</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-8-ataka-hodom-5-d2-0d4.htm' %}#game52">Партия № 52. Бэрри (Америка) — Вальтух (Англия)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-9-ataka-hodom-5-Qe2.htm' %}">9. Атака ходом 5.Фe2</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-9-ataka-hodom-5-Qe2.htm' %}#game53">Партия № 53. Шпильман — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-9-ataka-hodom-5-Qe2.htm' %}#game54">Партия № 54. Алапин — Шпильман</a></li>
+</ul>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}">Дебют четырех коней</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game55">Партия № 55. Тарраш — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game56">Партия № 56. Мароци — Сальве</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game57">Партия № 57. Яновский — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game58">Партия № 58. Яновский — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game59">Партия № 59. Алехин — Видмар</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game60">Партия № 60. Штерк — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game61">Партия № 61. Тейхман — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game62">Партия № 62. Яновский — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game63">Партия № 63. Блэкберн — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game64">Партия № 64. Чигорин — Форгач</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-debiut-chetyreh-konej.htm' %}#game65">Партия № 65. Тарраш — Тейхман</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-0-ferzevyj-gambit-i-debiut-ferzevyh-peshek.htm' %}">Ферзевый гамбит и дебют ферзевых пешек</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-1-priniatyj-ferzevyj-gambit.htm' %}">1. Принятый ферзевый гамбит</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-1-priniatyj-ferzevyj-gambit.htm' %}#game66">Партия № 66. Маршалл — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-1-priniatyj-ferzevyj-gambit.htm' %}#game67">Партия № 67. Леонгардт — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-1-priniatyj-ferzevyj-gambit.htm' %}#game68">Партия № 68. Маршалл — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-1-priniatyj-ferzevyj-gambit.htm' %}#game69">Партия № 69. Тейхман — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-1-priniatyj-ferzevyj-gambit.htm' %}#game70">Партия № 70. Маршалл — Вольф</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-1-priniatyj-ferzevyj-gambit.htm' %}#game71">Партия № 71. Форгач — Дураc</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}">2. «Ортодоксальная» защита (3...Кf6?)</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game72">Партия № 72. Шлехтер — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game73">Партия № 73. Шлехтер — Пшепюрка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game74">Партия № 74. Шлехтер — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game75">Партия № 75. Видмар — Тейхман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game76">Партия № 76. Видмар — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game77">Партия № 77. Ловцкий — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game78">Партия № 78. Рубинштейн — Бернштейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game79">Партия № 79. Бамптон, Мартинес и Стюарт-Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game80">Партия № 80. Маршалл — Тейхман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game81">Партия № 81. Шпильман — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game82">Партия № 82. Тарраш — Алапин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game83">Партия № 83. Тарраш — Леонгардт</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game84">Партия № 84. Маршалл — Капабланка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game85">Партия № 85. Маршалл — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game86">Партия № 86. Рубинштейн — Зноско-Боровский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game87">Партия № 87. Ротлеви — Тейхман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game88">Партия № 88. Костич — Тейхман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game89">Партия № 89. Пильсбери — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-2-ortodoksalnaia-zashchita-3_Nf6.htm' %}#game90">Партия № 90. Рубинштейн — Эм. Ласкер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}">3. Современная защита c7-c5!</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game91">Партия № 91. Маршалл — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game92">Партия № 92. Мароци — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game93">Партия № 93. Бернштейн — Марко</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game94">Партия № 94. Бернштейн — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game95">Партия № 95. Эм. Ласкер — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game96">Партия № 96. Эм. Ласкер — Лоуренс</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game97">Партия № 97. Маршалл — Э. Кон</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game98">Партия № 98. Пшепюрка — В. Кон</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game99">Партия № 99. Берн — Зноско-Боровский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game100">Партия № 100. Шлехтер — Дуз-Хотимирский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game101">Партия № 101. Чайес — Перлис</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game102">Партия № 102. Маршалл — Капабланка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game103">Партия № 103. Берн — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game104">Партия № 104. Берн — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game105">Партия № 105. Яновский — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game106">Партия № 106. Дуз-Хотимирский — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game107">Партия № 107. Бергер — Мароци</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game108">Партия № 108. Оппенгейм — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game109">Партия № 109. Яновский — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game110">Партия № 110. Тарраш — Фогель</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game111">Партия № 111. Тарраш — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game112">Партия № 112. Леонгардт — Дураc</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game113">Партия № 113. Тарраш — Дураc</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game114">Партия № 114. Тейхман — Дуз-Хотимирский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game115">Партия № 115. Шлехтер — Мароци</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game116">Партия № 116. Яновский — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-03-3-sovremennaia-zashchita-c7-c5.htm' %}#game117">Партия № 117. Леонгардт — Капабланка</a></li>
+</ul>
+
+<!-- второй том -->
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-4-zashchita-2_c7-c6.htm' %}">4. Защита c7-c6</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-4-zashchita-2_c7-c6.htm' %}#game118">Партия № 118. Маршалл — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-4-zashchita-2_c7-c6.htm' %}#game119">Партия № 119. Шлехтер — Чигорин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-4-zashchita-2_c7-c6.htm' %}#game120">Партия № 120. Шлехтер — Зюхтинг</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-4-zashchita-2_c7-c6.htm' %}#game121">Партия № 121. Пильсбери — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-4-zashchita-2_c7-c6.htm' %}#game122">Партия № 122. Эм. Ласкер — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-4-zashchita-2_c7-c6.htm' %}#game123">Партия № 123. Рубинштейн — Алапин</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}">5. Ферзевый гамбит во второй руке</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game124">Партия № 124. Яновский — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game125">Партия № 125. Свидерский — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game126">Партия № 126. Свидерский — Зноско-Боровский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game127">Партия № 127. Свидерский — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game128">Партия № 128. Рубинштейн — Дураc</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game129">Партия № 129. Свидерский — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game130">Партия № 130. Фарни — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game131">Партия № 131. Видмар — Рубинштейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game132">Партия № 132. Капабланка — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game133">Партия № 133. Свидерский — Бергер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-5-ferzevyj-gambit-vo-vtoroj-ruke.htm' %}#game134">Партия № 134. Тарраш — Дикгоф</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-6-nepravilnaia-zashchita-v-debiute-ferzevyh-peshek.htm' %}">6. Неправильная защита в дебюте ферзевых пешек</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-6-nepravilnaia-zashchita-v-debiute-ferzevyh-peshek.htm' %}#game135">Партия № 135. Маршалл — Пильсбери</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-6-nepravilnaia-zashchita-v-debiute-ferzevyh-peshek.htm' %}#game136">Партия № 136. Сальве — Тартаковер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-6-nepravilnaia-zashchita-v-debiute-ferzevyh-peshek.htm' %}#game137">Партия № 137. Рубинштейн — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-6-nepravilnaia-zashchita-v-debiute-ferzevyh-peshek.htm' %}#game138">Партия № 138. Рубинштейн — Ловцкий</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-03-6-nepravilnaia-zashchita-v-debiute-ferzevyh-peshek.htm' %}#game139">Партия № 139. Видмар — Шпильман</a></li>
+</ul>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}">Итальянская партия и защита двух коней</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}#game140">Партия № 140. Тарраш — Капабланка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}#game141">Партия № 141. Ховелл — Митчелл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}#game142">Партия № 142. Маршалл — Берн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}#game143">Партия № 143. Шпильман — Форгач</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}#game144">Партия № 144. Сальве — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}#game145">Партия № 145. Тарраш — Таубенгауз</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-04-italianskaia-partiia-i-zashchita-dvuh-konej.htm' %}#game146">Партия № 146. Тарраш — Барделебен и Линдстрём</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-05-shotlandskaia-partiia.htm' %}">Шотландская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-05-shotlandskaia-partiia.htm' %}#game147">Партия № 147. Нимцович — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-05-shotlandskaia-partiia.htm' %}#game148">Партия № 148. Нимцович — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-05-shotlandskaia-partiia.htm' %}#game149">Партия № 149. Мизес — Вольф</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-05-shotlandskaia-partiia.htm' %}#game150">Партия № 150. Мизес — Форгач</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-06-anglijskaia-partiia.htm' %}">Английская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-06-anglijskaia-partiia.htm' %}#game151">Партия № 151. Хельман (Берлин) — Леви (Вена)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-07-russkaia-partiia.htm' %}">Русская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-07-russkaia-partiia.htm' %}#game152">Партия № 152. Эм. Ласкер — Тейхман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-07-russkaia-partiia.htm' %}#game153">Партия № 153. Тейхман — Марко</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-07-russkaia-partiia.htm' %}#game154">Партия № 154. Шовальтер — Пильсбери</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-07-russkaia-partiia.htm' %}#game155">Партия № 155. Шлехтер — Форгач</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-07-russkaia-partiia.htm' %}#game156">Партия № 156. Рук — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-07-russkaia-partiia.htm' %}#game157">Партия № 157. Ион — Маршалл</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-08-zashchita-filidora.htm' %}">Защита Филидора</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-08-zashchita-filidora.htm' %}#game158">Партия № 158. Шлехтер — Алехин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-08-zashchita-filidora.htm' %}#game159">Партия № 159. Дурас — Нимцович</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-09-debiut-slona.htm' %}">Дебют слона</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-09-debiut-slona.htm' %}#game160">Партия № 160. Шлехтер — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-09-debiut-slona.htm' %}#game161">Партия № 161. Шпильман — Левицкий</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-09-debiut-slona.htm' %}#game162">Партия № 162. Шпильман — Ионер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-10-venskaia-partiia.htm' %}">Венская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-10-venskaia-partiia.htm' %}#game163">Партия № 163. Мизес — Рубинштейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-10-venskaia-partiia.htm' %}#game164">Партия № 164. Шлехтер — Бергер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-10-venskaia-partiia.htm' %}#game165">Партия № 165. Тартаковер — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-10-venskaia-partiia.htm' %}#game166">Партия № 166. Мизес — Рубинштейн</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-11-severnyj-gambit.htm' %}">Северный гамбит</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-11-severnyj-gambit.htm' %}#game167">Партия № 167. Мизес — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-11-severnyj-gambit.htm' %}#game168">Партия № 168. Мизес — Леви</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-11-severnyj-gambit.htm' %}#game169">Партия № 169. Мизес — Рубинштейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-11-severnyj-gambit.htm' %}#game170">Партия № 170. Мизес — Алапин</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}">Королевский гамбит</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}#game171">Партия № 171. Флямберг — Рубинштейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}#game172">Партия № 172. Тартаковер — Шлехтер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}#game173">Партия № 173. Эм. Ласкер — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}#game174">Партия № 174. Алапин — Яновский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}#game175">Партия № 175. Чигорин — Берн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}#game176">Партия № 176. Мизес — Пильсбери</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-12-korolevskij-gambit.htm' %}#game177">Партия № 177. Рети — Флямберг</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-0-francuzskaia-partiia.htm' %}">Французская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-1-nepravilnye-prodolzheniia.htm' %}">1. Неправильные продолжения</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-1-nepravilnye-prodolzheniia.htm' %}#game178">Партия № 178. Чигорин — Марко</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-1-nepravilnye-prodolzheniia.htm' %}#game179">Партия № 179. Нимцович — Капабланка</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-2-variant-3-Nc3-de.htm' %}">2. Вариант 3.Кc3 de?</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-2-variant-3-Nc3-de.htm' %}#game180">Партия № 180. Тарраш — Алапин</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-3-variant-mak-ketchona.htm' %}">3. Вариант Мак-Кэтчона</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-3-variant-mak-ketchona.htm' %}#game181">Партия № 181. Бернштейн — Зноско-Боровский</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-4-variant-4-Bg5-Be7.htm' %}">4. Вариант 4.Сg5 Сe7</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-4-variant-4-Bg5-Be7.htm' %}#game182">Партия № 182. Форгач — Тартаковер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-4-variant-4-Bg5-Be7.htm' %}#game183">Партия № 183. Тарраш — Макс Кюршнер, Иценхофер и Фогель</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-4-variant-4-Bg5-Be7.htm' %}#game184">Партия № 184. Тарраш — Кенлейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-4-variant-4-Bg5-Be7.htm' %}#game185">Партия № 185. Бернштейн — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-4-variant-4-Bg5-Be7.htm' %}#game186">Партия № 186. Тарраш — Тейхман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-4-variant-4-Bg5-Be7.htm' %}#game187">Партия № 187. Тарраш — Ловцкий</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-5-variant-3-Nc3-Bb4.htm' %}">5. Вариант 3.Кc3 Сb4?</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-5-variant-3-Nc3-Bb4.htm' %}#game188">Партия № 188. Тарраш — Дураc</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-6-variant-3-e4-e5.htm' %}">6. Вариант 3.e4-e5</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-6-variant-3-e4-e5.htm' %}#game189">Партия № 189. Нимцович — Леонгардт</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-7-razmennyj-variant.htm' %}">7. Разменный вариант</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-13-7-razmennyj-variant.htm' %}#game190">Партия № 190. Нимцович — Ионер</a></li>
+</ul>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-0-sicilianskaia-zashchita.htm' %}">Сицилианская защита</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-1-variant-marshalla-2_e7-e6-i-3_d7-d5.htm' %}">1. Вариант Маршалла (e7-e6 и d7-d5)</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-1-variant-marshalla-2_e7-e6-i-3_d7-d5.htm' %}#game191">Партия № 191. Яновский — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-1-variant-marshalla-2_e7-e6-i-3_d7-d5.htm' %}#game192">Партия № 192. Каро — Маршалл</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-1-variant-marshalla-2_e7-e6-i-3_d7-d5.htm' %}#game193">Партия № 193. Мароци — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-1-variant-marshalla-2_e7-e6-i-3_d7-d5.htm' %}#game194">Партия № 194. Шлехтер — Маршалл</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-2-variant-3_g7-g6.htm' %}">2. Вариант 3...g7-g6</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-2-variant-3_g7-g6.htm' %}#game195">Партия № 195. Мизес — Тарраш</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-2-variant-3_g7-g6.htm' %}#game196">Партия № 196. Яновский — Эм. Ласкер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-2-variant-3_g7-g6.htm' %}#game197">Партия № 197. Барделебен — Каро</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-2-variant-3_g7-g6.htm' %}#game198">Партия № 198. Шлехтер — Эм. Ласкер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-3-variant-3-g2-g3.htm' %}">3. Вариант 3.g2-g3</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-3-variant-3-g2-g3.htm' %}#game199">Партия № 199. Чигорин — Тарраш</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-4-variant-5_e7-e5.htm' %}">4. Вариант 5...e7-e5?</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-4-variant-5_e7-e5.htm' %}#game200">Партия № 200. Шлехтер — Эм. Ласкер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-5-variant-3-c2-c4.htm' %}">5. Вариант 3.c2-c4?</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-14-5-variant-3-c2-c4.htm' %}#game201">Партия № 201. Перлис — Тарраш</a></li>
+</ul>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}">Скандинавская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game202">Партия № 202. Тарраш — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game203">Партия № 203. Сальве — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game204">Партия № 204. Олланд — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game205">Партия № 205. Дурас — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game206">Партия № 206. Шлехтер — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game207">Партия № 207. Шлехтер — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game208">Партия № 208. Шлехтер — Мизес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game209">Партия № 209. Мизес — Меллер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game210">Партия № 210. Тарраш — Пильсбери</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-15-skandinavskaia-partiia.htm' %}#game211">Партия № 211. Мизес — Тартаковер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-16-zashchita-karo-kann.htm' %}">Защита Каро-Канн</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-16-zashchita-karo-kann.htm' %}#game212">Партия № 212. Фендрих и Кауфман — Капабланка и Тартаковер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-16-zashchita-karo-kann.htm' %}#game213">Партия № 213. Шпильман — Тартаковер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-16-zashchita-karo-kann.htm' %}#game214">Партия № 214. Левитт — Каро</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-17-partiia-s-nepravilnymi-nachalami-1.f2-f4-1.d2-d3.htm' %}">Партия с неправильными началами (f2-f4, d2-d3)</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-17-partiia-s-nepravilnymi-nachalami-1.f2-f4-1.d2-d3.htm' %}#game215">Партия № 215. Тартаковер — Шпильман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-17-partiia-s-nepravilnymi-nachalami-1.f2-f4-1.d2-d3.htm' %}#game216">Партия № 216. Тарраш — Проф. Маротти, Наполи, де Симоне и дель Джиндиче</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-17-partiia-s-nepravilnymi-nachalami-1.f2-f4-1.d2-d3.htm' %}#game217">Партия № 217. Мизес — Тейхман</a></li>
+</ul>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

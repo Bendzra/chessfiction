@@ -1,0 +1,408 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГРАНИЧЕНИЯ КОМПЬЮТЕРНОГО АНАЛИЗА | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ОГРАНИЧЕНИЯ КОМПЬЮТЕРНОГО АНАЛИЗА</h3>
+
+<div class="message">
+<p>Наверное, вам доводилось сталкиваться со специально составленными искусственного вида позициями, в которых компьютеры не могли, на потеху людям, найти правильный ход, но очень важно осознавать, что машина может также забуксовать и во вполне обычной позиции. Вот пример.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r4rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 b - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="r4rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 b - - 0 1"></div>
+<p><i>Ход черных</i></p>
+<p>В этой абсолютно спокойной позиции у белых крошечный перевес за счет того, что их
+<!--p>Использование компьютера</p><p>231</p-->
+тяжелые фигуры уже оккупировали открытую линию «d». Я отвел ведущим движкам по 10 минут на то, чтобы обдумать ситуацию и предложить 4 лучших хода, сопроводив их своими оценками. Вот результаты:</p>
+<p>«Deep Fritz 8»</p>
+<ul>
+<p>
+ <span onclick='loadMove("3r1rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8d8"); ' class="line0">1...Лad8</span> 
+0.00</p>
+<p>
+ <span onclick='loadMove("r2r2k1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "f8d8"); ' class="line0">1...Лfd8</span> 
+0.00</p>
+<p>
+ <span onclick='loadMove("r4rk1/pp3pp1/6qp/2p5/8/7P/PPPQ1PP1/3R1RK1 w - c6 0 2", this, "c7c5"); ' class="line0">1...c5</span> 
+0.04</p>
+<p>
+ <span onclick='loadMove("r3r1k1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "f8e8"); ' class="line0">1...Лfe8</span> 
+0.08</p>
+</ul>
+<p>«Deep Junior 10»</p>
+<ul>
+<p>
+ <span onclick='loadMove("r2r2k1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "f8d8"); ' class="line0">1...Лfd8</span> 
+0.10</p>
+<p>
+ <span onclick='loadMove("3r1rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8d8"); ' class="line0">1...Лad8</span> 
+0.10</p>
+<p>
+ <span onclick='loadMove("4rrk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8e8"); ' class="line0">1...Лae8</span> 
+0.16</p>
+<p>
+ <span onclick='loadMove("r3r1k1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "f8e8"); ' class="line0">1...Лfe8</span> 
+0.16</p>
+</ul>
+<p>«Deep Shredder 10»</p>
+<ul>
+<p>
+ <span onclick='loadMove("r3r1k1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "f8e8"); ' class="line0">1...Лfe8</span> 
+0.16</p>
+<p>
+ <span onclick='loadMove("4rrk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8e8"); ' class="line0">1...Лae8</span> 
+0.17</p>
+<p>
+ <span onclick='loadMove("r4rk1/pp3pp1/6qp/2p5/8/7P/PPPQ1PP1/3R1RK1 w - c6 0 2", this, "c7c5"); ' class="line0">1...c5</span> 
+0.20</p>
+<p>
+ <span onclick='loadMove("r4rk1/ppp2pp1/1q5p/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "g6b6"); ' class="line0">1...Фb6</span> 
+0.23</p>
+</ul>
+<p>«Deep Rybka 2.1»</p>
+<ul>
+<p>
+ <span onclick='loadMove("r3r1k1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "f8e8"); ' class="line0">1...Лfe8</span> 
+0.06</p>
+<p>
+ <span onclick='loadMove("r4rk1/ppp2pp1/2q4p/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "g6c6"); ' class="line0">1...Фc6</span> 
+0.06</p>
+<p>
+ <span onclick='loadMove("r4rk1/pp3pp1/6qp/2p5/8/7P/PPPQ1PP1/3R1RK1 w - c6 0 2", this, "c7c5"); ' class="line0">1...c5</span> 
+0.06</p>
+<p>
+ <span onclick='loadMove("4rrk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8e8"); ' class="line0">1...Лae8</span> 
+0.08</p>
+</ul>
+<p>Удивительно, что две программы хотят поставить ладью на d8, позволяя белым выиграть две ладьи за ферзя. Чисто математически, это дает белым лишнюю пешку без видимой компенсации у черных (после
+ <span onclick='loadMove("3r1rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8d8"); ' class="line1">1...Лad8</span> 
+ <span onclick='loadMove("3Q1rk1/ppp2pp1/6qp/8/8/7P/PPP2PP1/3R1RK1 b - - 0 2", this, "d2d8"); ' class="line1">2.Ф:d8</span> 
+ <span onclick='loadMove("3r2k1/ppp2pp1/6qp/8/8/7P/PPP2PP1/3R1RK1 w - - 0 3", this, "f8d8"); ' class="line1">Л:d8</span> 
+ <span onclick='loadMove("3R2k1/ppp2pp1/6qp/8/8/7P/PPP2PP1/5RK1 b - - 0 3", this, "d1d8"); ' class="line1">3.Л:d8+</span> 
+ <span onclick='loadMove("3R4/ppp2ppk/6qp/8/8/7P/PPP2PP1/5RK1 w - - 0 4", this, "g8h7"); ' class="line1">Крh7</span> 
+ <span onclick='loadMove("8/ppp2ppk/6qp/8/8/7P/PPPR1PP1/5RK1 b - - 0 4", this, "d8d2"); ' class="line1">4.Лd2</span> 
+белые без проблем защищают свои пешки). «Deep Shredder»
+помещает
+ <span onclick='loadMove("3r1rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8d8"); ' class="line1">1...Лad8</span> 
+на 28-е (!) место в списке лучших ходов за черных и после него оценивает перевес белых в пешку с лишним, тогда как «Deep Rybka» менее сурова и ставит
+ <span onclick='loadMove("3r1rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8d8"); ' class="line1">1...Лad8</span> 
+на 18-е место в списке лучших ходов за черных с оценкой «преимущество белых равно 0.30 пешки». Справедливости ради надо сказать, что эта « Q против 2R аномалия», сохранявшаяся в нескольких версиях «Фрица», вроде бы устранена в однопроцессорной версии «Fritz 9», которая ставит
+ <span onclick='loadMove("3r1rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8d8"); ' class="line1">1...Лad8</span> 
+на 17-е место с оценкой 0.35 в пользу белых. Даже в такой простой позиции оценка варианта
+ <span onclick='loadMove("3r1rk1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "a8d8"); ' class="line1">1...Лad8</span> 
+ <span onclick='loadMove("3Q1rk1/ppp2pp1/6qp/8/8/7P/PPP2PP1/3R1RK1 b - - 0 2", this, "d2d8"); ' class="line1">2.Ф:d8</span> 
+варьируется от 0.10 у «Deep Junior» до пешки с лишним у «Deep Shredder».</p>
+<p>На мой взгляд, в позиции на диаграмме самый простой ход за черных -
+ <span onclick='loadMove("r4rk1/ppp2pp1/5q1p/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "g6f6"); ' class="line1">1...Фf6</span> 
+, атакуя пешку b2 и подготавливая выход ладьи на d8. После
+ <span onclick='loadMove("r4rk1/ppp2pp1/5q1p/8/3Q4/7P/PPP2PP1/3R1RK1 b - - 0 2", this, "d2d4"); ' class="line1">2.Фd4</span> 
+ <span onclick='loadMove("r4rk1/ppp2pp1/7p/8/3q4/7P/PPP2PP1/3R1RK1 w - - 0 3", this, "f6d4"); ' class="line1">Ф:d4</span> 
+ <span onclick='loadMove("r4rk1/ppp2pp1/7p/8/3R4/7P/PPP2PP1/5RK1 b - - 0 3", this, "d1d4"); ' class="line1">3.Л:d4</span> 
+ <span onclick='loadMove("3r1rk1/ppp2pp1/7p/8/3R4/7P/PPP2PP1/5RK1 w - - 0 4", this, "a8d8"); ' class="line1">Лad8</span> 
+ <span onclick='loadMove("3r1rk1/ppp2pp1/7p/8/3R4/7P/PPP2PP1/3R2K1 b - - 0 4", this, "f1d1"); ' class="line1">4.Лfd1</span> 
+ <span onclick='loadMove("5rk1/ppp2pp1/7p/8/3r4/7P/PPP2PP1/3R2K1 w - - 0 5", this, "d8d4"); ' class="line1">Л:d4</span> 
+ <span onclick='loadMove("5rk1/ppp2pp1/7p/8/3R4/7P/PPP2PP1/6K1 b - - 0 5", this, "d1d4"); ' class="line1">5.Л:d4</span> 
+ <span onclick='loadMove("2r3k1/ppp2pp1/7p/8/3R4/7P/PPP2PP1/6K1 w - - 0 6", this, "f8c8"); ' class="line1">Лc8</span> 
+ <span onclick='loadMove("2r3k1/pppR1pp1/7p/8/8/7P/PPP2PP1/6K1 b - - 0 6", this, "d4d7"); ' class="line1">6.Лd7</span> 
+ <span onclick='loadMove("2r2k2/pppR1pp1/7p/8/8/7P/PPP2PP1/6K1 w - - 0 7", this, "g8f8"); ' class="line1">Крf8</span> 
+с последующим <b>...Крe8</b> ладья изгоняется с 7-й горизонтали, и черные получают возможность сыграть <b>...Лd8</b> с полным равенством. Разумеется, черные не проигрывают и после таких ходов, как
+ <span onclick='loadMove("r3r1k1/ppp2pp1/6qp/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "f8e8"); ' class="line1">1...Лfe8</span> 
+, которому отдали предпочтение две программы, но интересно, что ни один движок не рассматривает
+<!--p>Часть 5</p><p>232</p-->
+ <span onclick='loadMove("r4rk1/ppp2pp1/5q1p/8/8/7P/PPPQ1PP1/3R1RK1 w - - 0 2", this, "g6f6"); ' class="line1">1...Фf6</span> 
+среди своих четырех лучших ходов.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Когда позиция несбалансированная, различия в оценке могут быть еще более радикальными. Типичная для системы Найдорфа позиция возникает после
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", this, "c7c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d7d6"); ' class="line0">d6</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", this, "d2d4"); ' class="line0">3.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", this, "c5d4"); ' class="line0">cd</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", this, "f3d4"); ' class="line0">4.К:d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 5", this, "b1c3"); ' class="line0">5.Кc3</span> 
+ <span onclick='loadMove("rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "a7a6"); ' class="line0">a6</span> 
+ <span onclick='loadMove("rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N2P2/PPP3PP/R1BQKB1R b KQkq - 0 6", this, "f2f3"); ' class="line0">6.f3</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p2p1n2/4p3/3NP3/2N2P2/PPP3PP/R1BQKB1R w KQkq e6 0 7", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p2p1n2/4p3/4P3/1NN2P2/PPP3PP/R1BQKB1R b KQkq - 0 7", this, "d4b3"); ' class="line0">7.Кb3</span> 
+ <span onclick='loadMove("rn1qkb1r/1p3ppp/p2pbn2/4p3/4P3/1NN2P2/PPP3PP/R1BQKB1R w KQkq - 0 8", this, "c8e6"); ' class="line0">Сe6</span> 
+ <span onclick='loadMove("rn1qkb1r/1p3ppp/p2pbn2/4p3/4P3/1NN1BP2/PPP3PP/R2QKB1R b KQkq - 0 8", this, "c1e3"); ' class="line0">8.Сe3</span> 
+ <span onclick='loadMove("r2qkb1r/1p1n1ppp/p2pbn2/4p3/4P3/1NN1BP2/PPP3PP/R2QKB1R w KQkq - 0 9", this, "b8d7"); ' class="line0">Кbd7</span> 
+ <span onclick='loadMove("r2qkb1r/1p1n1ppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPP4P/R2QKB1R b KQkq g3 0 9", this, "g2g4"); ' class="line0">9.g4</span> 
+ <span onclick='loadMove("r2qk2r/1p1nbppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPP4P/R2QKB1R w KQkq - 0 10", this, "f8e7"); ' class="line0">Сe7</span> 
+ <span onclick='loadMove("r2qk2r/1p1nbppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPPQ3P/R3KB1R b KQkq - 0 10", this, "d1d2"); ' class="line0">10.Фd2</span> 
+ <span onclick='loadMove("r2q1rk1/1p1nbppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPPQ3P/R3KB1R w KQ - 0 11", this, "e8g8"); ' class="line0">0-0</span> 
+ <span onclick='loadMove("r2q1rk1/1p1nbppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPPQ3P/2KR1B1R b - - 0 11", this, "e1c1"); ' class="line0">11.0-0-0</span> 
+ <span onclick='loadMove("r4rk1/1pqnbppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPPQ3P/2KR1B1R w - - 0 12", this, "d8c7"); ' class="line0">Фc7</span> 
+ <span onclick='loadMove("r4rk1/1pqnbppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPPQ3P/1K1R1B1R b - - 0 12", this, "c1b1"); ' class="line0">12.Крb1</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbppp/p2pbn2/4p3/4P1P1/1NN1BP2/PPPQ3P/1K1R1B1R w - - 0 13", this, "f8c8"); ' class="line0">Лfc8</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbppp/p2pbn2/4p1P1/4P3/1NN1BP2/PPPQ3P/1K1R1B1R b - - 0 13", this, "g4g5"); ' class="line0">13.g5</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbppp/p2pb3/4p1Pn/4P3/1NN1BP2/PPPQ3P/1K1R1B1R w - - 0 14", this, "f6h5"); ' class="line0">Кh5</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbppp/p2pb3/3Np1Pn/4P3/1N2BP2/PPPQ3P/1K1R1B1R b - - 0 14", this, "c3d5"); ' class="line0">14.Кd5</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbppp/p2p4/3bp1Pn/4P3/1N2BP2/PPPQ3P/1K1R1B1R w - - 0 15", this, "e6d5"); ' class="line0">С:d5</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbppp/p2p4/3Pp1Pn/8/1N2BP2/PPPQ3P/1K1R1B1R b - - 0 15", this, "e4d5"); ' class="line0">15.ed</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/p2p2p1/3Pp1Pn/8/1N2BP2/PPPQ3P/1K1R1B1R w - - 0 16", this, "g7g6"); ' class="line0">g6</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/p2p2p1/3Pp1Pn/8/1N2BP2/PPPQ3P/1K1R1BR1 b - - 0 16", this, "h1g1"); ' class="line0">16.Лg1</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/3p2p1/p2Pp1Pn/8/1N2BP2/PPPQ3P/1K1R1BR1 w - - 0 17", this, "a6a5"); ' class="line0">a5</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/3p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 b - - 0 17", this, "a2a3"); ' class="line0">17.a3</span> 
+.</p>
+<!--r1r3k1/1pqnbp1p/3p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 b - - 0 1-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1r3k1/1pqnbp1p/3p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 b - - 0 17"></div>
+<p>Оставив ведущие движки на 10 минут, получим следующие оценки (мы приводим по два лучших, по мнению программ, хода):</p>
+<p>«Deep Fritz 8»</p>
+<ul>
+<p>
+ <span onclick='loadMove("r1r3k1/1pq1bp1p/1n1p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "d7b6"); ' class="line1">17...Кb6</span> 
+0.75</p>
+<p>
+ <span onclick='loadMove("r1rb2k1/1pqn1p1p/3p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "e7d8"); ' class="line1">17...Сd8</span> 
+0.98</p>
+</ul>
+<p>«Deep Junior 10»</p>
+<ul>
+<p>
+ <span onclick='loadMove("r1r3k1/1pq1bp1p/1n1p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "d7b6"); ' class="line1">17...Кb6</span> 
+0.50</p>
+<p>
+ <span onclick='loadMove("r1r3k1/1pqnbpnp/3p2p1/p2Pp1P1/8/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "h5g7"); ' class="line1">17...Кg7</span> 
+0.50</p>
+</ul>
+<p>«Deep Shredder 10»</p>
+<ul>
+<p>
+ <span onclick='loadMove("r1r3k1/1pq1bp1p/1n1p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "d7b6"); ' class="line1">17...Кb6</span> 
+-0.16</p>
+<p>
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/3p2p1/3Pp1Pn/p7/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "a5a4"); ' class="line1">17...a4</span> 
+-0.07</p>
+</ul>
+<p>«Deep Rybka 2.1»</p>
+<ul>
+<p>
+ <span onclick='loadMove("r1r3k1/1pq1bp1p/1n1p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "d7b6"); ' class="line1">17...Кb6</span> 
+0.09</p>
+<p>
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/3p2p1/3Pp1Pn/p7/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "a5a4"); ' class="line1">17...a4</span> 
+0.29</p>
+</ul>
+<p>Оценки расположились в диапазоне, почти равном пешке. Очевидно, не все они корректны. В блиц-партии Кантария - Канеп (Интернет 2004) белые легко выиграли после
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/3p2p1/3Pp1Pn/p7/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "a5a4"); ' class="line0">17...a4</span> 
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/3p2p1/3Pp1Pn/p7/P3BP2/1PPQ3P/1KNR1BR1 b - - 0 18", this, "b3c1"); ' class="line0">18.Кc1</span> 
+ <span onclick='loadMove("r1r2bk1/1pqn1p1p/3p2p1/3Pp1Pn/p7/P3BP2/1PPQ3P/1KNR1BR1 w - - 0 19", this, "e7f8"); ' class="line0">Сf8</span> 
+ <span onclick='loadMove("r1r2bk1/1pqn1p1p/3p2p1/3Pp1Pn/p7/P3BP2/NPPQ3P/1K1R1BR1 b - - 0 19", this, "c1a2"); ' class="line0">19.Кa2</span> 
+ <span onclick='loadMove("r1r3k1/1pqn1pbp/3p2p1/3Pp1Pn/p7/P3BP2/NPPQ3P/1K1R1BR1 w - - 0 20", this, "f8g7"); ' class="line0">Сg7</span> 
+ <span onclick='loadMove("r1r3k1/1pqn1pbp/3p2p1/3Pp1Pn/p7/P1N1BP2/1PPQ3P/1K1R1BR1 b - - 0 20", this, "a2c3"); ' class="line0">20.Кc3</span> 
+ <span onclick='loadMove("r1r3k1/1pq2pbp/3p2p1/2nPp1Pn/p7/P1N1BP2/1PPQ3P/1K1R1BR1 w - - 0 21", this, "d7c5"); ' class="line0">Кc5</span> 
+ <span onclick='loadMove("r1r3k1/1pq2pbp/3p2p1/2nPp1Pn/p7/P1N1BP1B/1PPQ3P/1K1R2R1 b - - 0 21", this, "f1h3"); ' class="line0">21.Сh3</span> 
+ <span onclick='loadMove("rr4k1/1pq2pbp/3p2p1/2nPp1Pn/p7/P1N1BP1B/1PPQ3P/1K1R2R1 w - - 0 22", this, "c8b8"); ' class="line0">Лcb8</span> 
+ <span onclick='loadMove("rr4k1/1pq2pbp/3p2p1/1NnPp1Pn/p7/P3BP1B/1PPQ3P/1K1R2R1 b - - 0 22", this, "c3b5"); ' class="line0">22.Кb5</span> 
+ <span onclick='loadMove("rr4k1/1p3pbp/1q1p2p1/1NnPp1Pn/p7/P3BP1B/1PPQ3P/1K1R2R1 w - - 0 23", this, "c7b6"); ' class="line0">Фb6</span> 
+ <span onclick='loadMove("rr4k1/1p3pbp/1q1p2p1/1NnPp1Pn/pQ6/P3BP1B/1PP4P/1K1R2R1 b - - 0 23", this, "d2b4"); ' class="line0">23.Фb4</span> 
+ <span onclick='loadMove("1r4k1/1p3pbp/1q1p2p1/rNnPp1Pn/pQ6/P3BP1B/1PP4P/1K1R2R1 w - - 0 24", this, "a8a5"); ' class="line0">Лa5</span> 
+ <span onclick='loadMove("1r4k1/1p3pbp/1q1N2p1/r1nPp1Pn/pQ6/P3BP1B/1PP4P/1K1R2R1 b - - 0 24", this, "b5d6"); ' class="line0">24.К:d6</span> 
+ <span onclick='loadMove("1r4k1/1pq2pbp/3N2p1/r1nPp1Pn/pQ6/P3BP1B/1PP4P/1K1R2R1 w - - 0 25", this, "b6c7"); ' class="line0">Фc7</span> 
+ <span onclick='loadMove("1r4k1/1pq2pbp/6p1/r1nPp1Pn/pQN5/P3BP1B/1PP4P/1K1R2R1 b - - 0 25", this, "d6c4"); ' class="line0">25.Кc4</span> 
+ <span onclick='loadMove("1r4k1/1pq2pbp/n5p1/r2Pp1Pn/pQN5/P3BP1B/1PP4P/1K1R2R1 w - - 0 26", this, "c5a6"); ' class="line0">Кa6</span> 
+ <span onclick='loadMove("1r4k1/1pq2pbp/n2P2p1/r3p1Pn/pQN5/P3BP1B/1PP4P/1K1R2R1 b - - 0 26", this, "d5d6"); ' class="line0">26.d6</span> 
+ <span onclick='loadMove("1r4k1/1p3pbp/n1qP2p1/r3p1Pn/pQN5/P3BP1B/1PP4P/1K1R2R1 w - - 0 27", this, "c7c6"); ' class="line0">Фc6</span> 
+ <span onclick='loadMove("1r4k1/1p3pbp/n1qP2p1/Q3p1Pn/p1N5/P3BP1B/1PP4P/1K1R2R1 b - - 0 27", this, "b4a5"); ' class="line0">27.Ф:a5</span> 
+ <span onclick='loadMove("1r4k1/1p3pbp/n2P2p1/Q3p1Pn/p1q5/P3BP1B/1PP4P/1K1R2R1 w - - 0 28", this, "c6c4"); ' class="line0">Ф:c4</span> 
+ <span onclick='loadMove("1r4k1/1p1P1pbp/n5p1/Q3p1Pn/p1q5/P3BP1B/1PP4P/1K1R2R1 b - - 0 28", this, "d6d7"); ' class="line0">28.d7</span> 
+ <span onclick='loadMove("1r4k1/3P1pbp/np4p1/Q3p1Pn/p1q5/P3BP1B/1PP4P/1K1R2R1 w - - 0 29", this, "b7b6"); ' class="line0">b6</span> 
+ <span onclick='loadMove("1r1Q2k1/5pbp/np4p1/Q3p1Pn/p1q5/P3BP1B/1PP4P/1K1R2R1 b - - 0 29", this, "d7d8"); ' class="line0">29.d8Ф+</span> 
+ <span onclick='loadMove("1r1Q1bk1/5p1p/np4p1/Q3p1Pn/p1q5/P3BP1B/1PP4P/1K1R2R1 w - - 0 30", this, "g7f8"); ' class="line0">Сf8</span> 
+ <span onclick='loadMove("1r1Q1bk1/5p1p/Qp4p1/4p1Pn/p1q5/P3BP1B/1PP4P/1K1R2R1 b - - 0 30", this, "a5a6"); ' class="line0">30.Ф:a6</span> 
+ <span onclick='loadMove("1r1Q1bk1/5p1p/qp4p1/4p1Pn/p7/P3BP1B/1PP4P/1K1R2R1 w - - 0 31", this, "c4a6"); ' class="line0">Ф:a6</span> 
+ <span onclick='loadMove("1Q3bk1/5p1p/qp4p1/4p1Pn/p7/P3BP1B/1PP4P/1K1R2R1 b - - 0 31", this, "d8b8"); ' class="line0">31.Ф:b8</span> 
+, но, поскольку это был блиц, мы не можем сделать окончательный вывод. Конечно,
+ <span onclick='loadMove("r1r3k1/1pqnbp1p/3p2p1/3Pp1Pn/p7/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "a5a4"); ' class="line1">17...a4</span> 
+выглядит сомнительно, поскольку этот ход лишь подгоняет белого коня ближе к полю c3, где он расположен очень хорошо. Компьютеры отдают предпочтение
+ <span onclick='loadMove("r1r3k1/1pq1bp1p/1n1p2p1/p2Pp1Pn/8/PN2BP2/1PPQ3P/1K1R1BR1 w - - 0 18", this, "d7b6"); ' class="line1">17...Кb6</span> 
+, и это действительно выглядит как лучший ход, но если вы намереваетесь включить вариант в свой репертуар, то вам, наверное, захочется узнать, у кого здесь перевес. Прямой компьютерный анализ не даст вам достаточно надежного ответа, хотя вы можете, наверное, получить некоторую информацию, организовав компьютерный турнир.</p>
+<p>Переходя к еще более экстремальной ситуации, рассмотрим такую позицию.</p>
+<!--p>Использование компьютера</p><p>233</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7k/8/Q7/8/5pp1/3ppq2/7P/4K3 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7k/8/Q7/8/5pp1/3ppq2/7P/4K3 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="7k/8/Q7/8/5pp1/3ppq2/7P/4K3 w - - 0 1"></div>
+<p>Здесь машины выдают следующее (они не особо меняют свои выводы, даже если вы оставляете их на гораздо более длительное время, чем десять минут):</p>
+<p>«Deep Fritz 8» -5.26</p>
+<p>«Deep Junior 10» -4.75</p>
+<p>«Deep Shredder 10» -3.81</p>
+<p>«Deep Rybka 2.1» -2.36</p>
+<p>Здесь амплитуда составляет почти три пешки, но ни один из движков не видит, что белые могут сразу форсировать вечный шах, например:
+ <span onclick='loadMove("7k/8/7Q/8/5pp1/3ppq2/7P/4K3 b - - 0 1", this, "a6h6"); ' class="line0">1.Фh6+</span> 
+ <span onclick='loadMove("6k1/8/7Q/8/5pp1/3ppq2/7P/4K3 w - - 0 2", this, "h8g8"); ' class="line0">Крg8</span> 
+ <span onclick='loadMove("6k1/8/6Q1/8/5pp1/3ppq2/7P/4K3 b - - 0 2", this, "h6g6"); ' class="line0">2.Фg6+</span> 
+ <span onclick='loadMove("5k2/8/6Q1/8/5pp1/3ppq2/7P/4K3 w - - 0 3", this, "g8f8"); ' class="line0">Крf8</span> 
+ <span onclick='loadMove("5k2/8/5Q2/8/5pp1/3ppq2/7P/4K3 b - - 0 3", this, "g6f6"); ' class="line0">3.Фf6+</span> 
+ <span onclick='loadMove("4k3/8/5Q2/8/5pp1/3ppq2/7P/4K3 w - - 0 4", this, "f8e8"); ' class="line0">Крe8</span> 
+ <span onclick='loadMove("4k3/8/4Q3/8/5pp1/3ppq2/7P/4K3 b - - 0 4", this, "f6e6"); ' class="line0">4.Фe6+</span> 
+ <span onclick='loadMove("3k4/8/4Q3/8/5pp1/3ppq2/7P/4K3 w - - 0 5", this, "e8d8"); ' class="line0">Крd8</span> 
+ <span onclick='loadMove("3k4/8/3Q4/8/5pp1/3ppq2/7P/4K3 b - - 0 5", this, "e6d6"); ' class="line0">5.Фd6+</span> 
+ <span onclick='loadMove("2k5/8/3Q4/8/5pp1/3ppq2/7P/4K3 w - - 0 6", this, "d8c8"); ' class="line0">Крc8</span> 
+ <span onclick='loadMove("2k5/8/4Q3/8/5pp1/3ppq2/7P/4K3 b - - 0 6", this, "d6e6"); ' class="line0">6.Фe6+</span> 
+ <span onclick='loadMove("8/2k5/4Q3/8/5pp1/3ppq2/7P/4K3 w - - 0 7", this, "c8c7"); ' class="line0">Крc7</span> 
+ <span onclick='loadMove("8/2k1Q3/8/8/5pp1/3ppq2/7P/4K3 b - - 0 7", this, "e6e7"); ' class="line0">7.Фe7+</span> 
+ <span onclick='loadMove("8/4Q3/1k6/8/5pp1/3ppq2/7P/4K3 w - - 0 8", this, "c7b6"); ' class="line0">Крb6</span> 
+ <span onclick='loadMove("8/8/1k6/8/1Q3pp1/3ppq2/7P/4K3 b - - 0 8", this, "e7b4"); ' class="line0">8.Фb4+</span> 
+ <span onclick='loadMove("8/8/k7/8/1Q3pp1/3ppq2/7P/4K3 w - - 0 9", this, "b6a6"); ' class="line0">Крa6</span> 
+ <span onclick='loadMove("8/8/k7/8/2Q2pp1/3ppq2/7P/4K3 b - - 0 9", this, "b4c4"); ' class="line0">9.Фc4+</span> 
+ <span onclick='loadMove("8/1k6/8/8/2Q2pp1/3ppq2/7P/4K3 w - - 0 10", this, "a6b7"); ' class="line0">Крb7</span> 
+ <span onclick='loadMove("8/1k6/8/1Q6/5pp1/3ppq2/7P/4K3 b - - 0 10", this, "c4b5"); ' class="line0">10.Фb5+</span> 
+ <span onclick='loadMove("8/2k5/8/1Q6/5pp1/3ppq2/7P/4K3 w - - 0 11", this, "b7c7"); ' class="line0">Крc7</span> 
+ <span onclick='loadMove("8/2k5/8/4Q3/5pp1/3ppq2/7P/4K3 b - - 0 11", this, "b5e5"); ' class="line0">11.Фe5+</span> 
+ <span onclick='loadMove("8/8/2k5/4Q3/5pp1/3ppq2/7P/4K3 w - - 0 12", this, "c7c6"); ' class="line0">Крc6</span> 
+ <span onclick='loadMove("8/8/2k1Q3/8/5pp1/3ppq2/7P/4K3 b - - 0 12", this, "e5e6"); ' class="line0">12.Фe6+</span> 
+ <span onclick='loadMove("8/8/4Q3/2k5/5pp1/3ppq2/7P/4K3 w - - 0 13", this, "c6c5"); ' class="line0">Крc5</span> 
+ <span onclick='loadMove("8/4Q3/8/2k5/5pp1/3ppq2/7P/4K3 b - - 0 13", this, "e6e7"); ' class="line0">13.Фe7+</span> 
+ <span onclick='loadMove("8/4Q3/8/8/2k2pp1/3ppq2/7P/4K3 w - - 0 14", this, "c5c4"); ' class="line0">Крc4</span> 
+(черные ближе всего подошли к победе; у белых есть только один шах, который не дает черным закрыться ферзем)
+ <span onclick='loadMove("8/2Q5/8/8/2k2pp1/3ppq2/7P/4K3 b - - 0 14", this, "e7c7"); ' class="line0">14.Фc7+</span> 
+ <span onclick='loadMove("8/2Q5/8/8/5pp1/1k1ppq2/7P/4K3 w - - 0 15", this, "c4b3"); ' class="line0">Крb3</span> 
+ <span onclick='loadMove("8/8/1Q6/8/5pp1/1k1ppq2/7P/4K3 b - - 0 15", this, "c7b6"); ' class="line0">15.Фb6+</span> 
+и так далее.</p>
+<p>Человеку нетрудно увидеть, что здесь всегда найдется шах, в ответ на который нельзя закрыться ферзем, но компьютер не в состоянии это разглядеть, поскольку здесь так много различных полей и шахов, что реальное повторение ходов не наступает в течение длительного времени, вследствие чего ничья оказывается за компьютерным горизонтом.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/5p2/6p1/7p/P2r3P/6P1/5P2/4R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/5p2/6p1/7p/P2r3P/6P1/5P2/4R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/5p2/6p1/7p/P2r3P/6P1/5P2/4R1K1 w - - 0 1"></div>
+<p>Здесь сильнейший ход -
+ <span onclick='loadMove("6k1/5p2/6p1/7p/P2r3P/6P1/5P2/R5K1 b - - 0 1", this, "e1a1"); ' class="line0">1.Лa1</span> 
+, располагая ладью позади проходной пешки. То, что подобная позиция выиграна, известно по крайней мере благодаря знаменитой партии Алехин - Капабланка (Буэнос-Айрес 1927, 34-я партия матча за звание чемпиона мира). Движки проделали хорошую работу, выбирая этот ход в течение обычных 10 минут, отведенных на обдумывание, и «Deep Junior 10», «Deep Shredder» и «Deep Fritz» отдали предпочтение правильному ходу (хотя более ранняя версия,
+<!--p>Часть 5</p><p>234</p-->
+«Deep Junior 9» его не находит). «Deep Rybka», однако, предпочитает
+ <span onclick='loadMove("4R1k1/5p2/6p1/7p/P2r3P/6P1/5P2/6K1 b - - 0 1", this, "e1e8"); ' class="line1">1.Лe8+</span> 
+даже на глубине 30, тогда как
+ <span onclick='loadMove("6k1/5p2/6p1/7p/P2r3P/6P1/5P2/R5K1 b - - 0 1", this, "e1a1"); ' class="line1">1.Лa1</span> 
+ставит только на второе место. Подозреваю, что большинство клубных игроков не будут испытывать особых проблем с нахождением хода
+ <span onclick='loadMove("6k1/5p2/6p1/7p/P2r3P/6P1/5P2/R5K1 b - - 0 1", this, "e1a1"); ' class="line1">1.Лa1</span> 
+, поскольку правило, согласно которому в ладейных окончаниях ладью следует располагать позади проходной пешки, известно очень хорошо. Однако если немного усложнить пример, то программы заходят в тупик.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4R3/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4R3/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="4R3/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 w - - 0 1"></div>
+<p>Здесь лучший ход -
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/4R1K1 b - - 0 1", this, "e8e1"); ' class="line1">1.Лe1!</span> 
+ <!--span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/4R1K1 w - - 0 2", this, "e8e1"); ' class="line1">z0</span--> 
+с последующим
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/R5K1 b - - 0 2", this, "e1a1"); ' class="line1">2.Лa1</span> 
+. Тогда черным придется поставить свою ладью перед проходной, что приведет к тому же типу позиции, как и в предыдущем примере. Действительно, черный король тут немного активнее, но особого значения это не имеет. Например, после
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/4R1K1 b - - 0 1", this, "e8e1"); ' class="line0">1.Лe1</span> 
+ <span onclick='loadMove("8/5p2/3r1kp1/P6p/7P/6P1/5P2/4R1K1 w - - 0 2", this, "g7f6"); ' class="line0">Крf6</span> 
+ <span onclick='loadMove("8/5p2/3r1kp1/P6p/7P/6P1/5P2/R5K1 b - - 0 2", this, "e1a1"); ' class="line0">2.Лa1</span> 
+ <span onclick='loadMove("8/5p2/r4kp1/P6p/7P/6P1/5P2/R5K1 w - - 0 3", this, "d6a6"); ' class="line0">Лa6</span> 
+ <span onclick='loadMove("8/5p2/r4kp1/P6p/7P/6P1/5PK1/R7 b - - 0 3", this, "g1g2"); ' class="line0">3.Крg2</span> 
+ <span onclick='loadMove("8/5p2/r5p1/P3k2p/7P/6P1/5PK1/R7 w - - 0 4", this, "f6e5"); ' class="line0">Крe5</span> 
+ <span onclick='loadMove("8/5p2/r5p1/P3k2p/R6P/6P1/5PK1/8 b - - 0 4", this, "a1a4"); ' class="line0">4.Лa4</span> 
+ <span onclick='loadMove("8/5p2/r5p1/P2k3p/R6P/6P1/5PK1/8 w - - 0 5", this, "e5d5"); ' class="line0">Крd5</span> 
+ <span onclick='loadMove("8/5p2/r5p1/P2k3p/R6P/5KP1/5P2/8 b - - 0 5", this, "g2f3"); ' class="line0">5.Крf3</span> 
+ <span onclick='loadMove("8/5p2/r5p1/P1k4p/R6P/5KP1/5P2/8 w - - 0 6", this, "d5c5"); ' class="line0">Крc5</span> 
+ <span onclick='loadMove("8/5p2/r5p1/P1k4p/R4K1P/6P1/5P2/8 b - - 0 6", this, "f3f4"); ' class="line0">6.Крf4</span> 
+ <span onclick='loadMove("8/5p2/r5p1/Pk5p/R4K1P/6P1/5P2/8 w - - 0 7", this, "c5b5"); ' class="line0">Крb5</span> 
+ <span onclick='loadMove("8/5p2/r5p1/Pk5p/5K1P/6P1/5P2/R7 b - - 0 7", this, "a4a1"); ' class="line0">7.Лa1</span> 
+ <span onclick='loadMove("8/8/r4pp1/Pk5p/5K1P/6P1/5P2/R7 w - - 0 8", this, "f7f6"); ' class="line0">f6</span> 
+(иначе <b>Крg5</b>)
+ <span onclick='loadMove("8/8/r4pp1/Pk5p/5K1P/5PP1/8/R7 b - - 0 8", this, "f2f3"); ' class="line0">8.f3</span> 
+ <span onclick='loadMove("8/8/r4pp1/P6p/2k2K1P/5PP1/8/R7 w - - 0 9", this, "b5c4"); ' class="line0">Крc4</span> 
+ <span onclick='loadMove("8/8/r4pp1/P6p/2k2KPP/5P2/8/R7 b - - 0 9", this, "g3g4"); ' class="line0">9.g4</span> 
+белые открывают своему королю дорожку на королевском фланге. Белые также могут защитить свою проходную спереди или сбоку, но если черным удастся расположить свою ладью позади проходной, то они получат хорошие шансы на ничью</p>
+<p>
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/4R1K1 b - - 0 1", this, "e8e1"); ' class="line1">1.Лe1!</span> 
+- это единственный ход, который позволяет белым поместить ладью позади проходной, поскольку, например,
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/4RP2/6K1 b - - 0 1", this, "e8e2"); ' class="line1">1.Лe2?</span> 
+допускает
+ <span onclick='loadMove("8/5pk1/6p1/P6p/7P/6P1/4RP2/3r2K1 w - - 0 2", this, "d6d1"); ' class="line1">1...Лd1+</span> 
+и
+ <!--span onclick='loadMove("8/5pk1/6p1/P6p/7P/6P1/4RP2/3r2K1 b - - 0 2", this, "d6d1"); ' class="line1">2.z0</span--> 
+
+ <span onclick='loadMove("8/5pk1/6p1/P6p/7P/6P1/4RP2/r5K1 w - - 0 3", this, "d1a1"); ' class="line1">2...Лa1</span> 
+.</p>
+<p>Однако программы после обычных 10 минут приходят к следующим выводам:</p>
+<p>«Deep Shredder»</p>
+<ul>
+<p>
+ <span onclick='loadMove("R7/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 b - - 0 1", this, "e8a8"); ' class="line1">1.Лa8</span> 
+2.37</p>
+<p>
+ <span onclick='loadMove("4R3/5pk1/3r2p1/P6p/7P/6P1/5P2/5K2 b - - 0 1", this, "g1f1"); ' class="line1">1.Крf1</span> 
+2.04</p>
+<p>
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/4R1K1 b - - 0 1", this, "e8e1"); ' class="line1">1.Лe1</span> 
+2.04</p>
+</ul>
+<p>«Deep Junior»</p>
+<ul>
+<p>
+ <span onclick='loadMove("R7/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 b - - 0 1", this, "e8a8"); ' class="line1">1.Лa8</span> 
+2.09</p>
+<p>
+ <span onclick='loadMove("1R6/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 b - - 0 1", this, "e8b8"); ' class="line1">1.Лb8</span> 
+1.72</p>
+<p>
+ <span onclick='loadMove("4R3/5pk1/3r2p1/P6p/7P/6P1/5PK1/8 b - - 0 1", this, "g1g2"); ' class="line1">1.Крg2</span> 
+1.72</p>
+</ul>
+<p>«Deep Rybka»</p>
+<ul>
+<p>
+ <span onclick='loadMove("R7/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 b - - 0 1", this, "e8a8"); ' class="line1">1.Лa8</span> 
+1.65</p>
+<p>
+ <span onclick='loadMove("1R6/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 b - - 0 1", this, "e8b8"); ' class="line1">1.Лb8</span> 
+1.35</p>
+<p>
+ <span onclick='loadMove("4R3/5pk1/3r2p1/P6p/7P/6P1/5PK1/8 b - - 0 1", this, "g1g2"); ' class="line1">1.Крg2</span> 
+1.21</p>
+</ul>
+<p>«Deep Fritz»</p>
+<ul>
+<p>
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/4R1K1 b - - 0 1", this, "e8e1"); ' class="line1">1.Лe1</span> 
+1.54</p>
+<p>
+ <span onclick='loadMove("1R6/5pk1/3r2p1/P6p/7P/6P1/5P2/6K1 b - - 0 1", this, "e8b8"); ' class="line1">1.Лb8</span> 
+1.19</p>
+<p>
+ <span onclick='loadMove("8/5pk1/3r2p1/P3R2p/7P/6P1/5P2/6K1 b - - 0 1", this, "e8e5"); ' class="line1">1.Лe5</span> 
+1.19</p>
+</ul>
+<p>Как мы видим, лишь одна программа из четырех нашла
+<!--p>Использование компьютера</p><p>235</p-->
+правильное продолжение, а два движка даже не включили его в число трех своих лучших ходов. Предполагаю, что практически все мастера и большинство клубных игроков нашли бы в этой позиции
+ <span onclick='loadMove("8/5pk1/3r2p1/P6p/7P/6P1/5P2/4R1K1 b - - 0 1", this, "e8e1"); ' class="line1">1.Лe1!</span> 
+, поэтому перед нами тот самый случай, когда компьютеры, несмотря на всю их аналитическую мощь, выступают слабее, чем скромные люди.</p>
+<p>Перейдем теперь к одной из самых привлекательных областей применения компьютеров, а именно - к дебютной подготовке. Обычно такая работа включает в себя использование и баз данных, и аналитических модулей. Технику подобной работы проще объяснить на примере, поэтому мы рассмотрим две контрастирующие друг с другом ситуации из реальной практики. В первом случае мы собираемся проанализировать очень острую позицию на глубину, достаточную для того, чтобы ее мог разыгрывать за доской любой шахматист вплоть до гроссмейстерского уровня. Второй пример - быстрая подготовка к сравнительно спокойному варианту. Это может быть полезно, например, в том случае, если вы выступаете в опене и у вас мало времени на подготовку к сопернику. Также используемые во втором примере методы могут пригодиться многим шахматистам, у кого насыщенная жизнь и не хватает времени на дебютную подготовку. Одна из наиболее распространенных жалоб по поводу шахмат заключается в том, что на изучение дебютов необходимо затратить массу усилий. Эффективное использование компьютера может решительным образом сократить необходимое для этого время.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

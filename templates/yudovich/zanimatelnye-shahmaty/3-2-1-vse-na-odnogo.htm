@@ -1,0 +1,1160 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Все на одного | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Все на одного</h3>
+<div class="score">
+<p>Матовать одинокого короля, если ты имеешь подавляющий перевес в силах,— дело, конечно, не хитрое. Ты знаешь, что по правилам шахматного кодекса на такое матование «ассигновано» очень много ходов — пятьдесят. Но вот представь себе, что игру вел неопытный шахматист. Он потерял много времени понапрасну. Почти все ходы из пятидесяти он использовал на бесплановые шахи.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3k4/8/3K4/8/8/8/8/3Q4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3k4/8/3K4/8/8/8/8/3Q4 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">98</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3k4/8/3K4/8/8/8/8/3Q4 w - - 0 1"></div>
+<p>В этой позиции в распоряжении белых осталось только два хода. И все же у них есть еще три способа заматовать черного короля. Как достигается мат?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Мат в два хода</b>:
+	 <span class="line0" onclick='loadMove("3k4/8/3K4/8/8/8/8/3Q4 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("3k4/8/3K4/3Q4/8/8/8/8 b - - 0 1", this, "d1d5"); ' class="line0">1.Фd5</span> 
+	,
+	 <span onclick='loadMove("3k4/8/3K4/8/Q7/8/8/8 b - - 0 1", this, "d1a4"); ' class="line0">1.Фa4</span> 
+	,
+	 <span onclick='loadMove("3k4/8/3K4/8/6Q1/8/8/8 b - - 0 1", this, "d1g4"); ' class="line0">1.Фg4</span> 
+	(диагр. 98).</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/7q/8/8/3k4/8/1K6/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/7q/8/8/3k4/8/1K6/8 b - - 0 1", this, ""); '>[...]</span> 
+<p>Найди кратчайшее количество ходов, в которое можно дать мат белым в позиции: белые — Крb2 (1), черные — Крd4, Фh7 (2).</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("8/7q/8/8/3k4/8/1K6/8 b - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/8/8/8/3k4/3q4/1K6/8 w - - 0 2", this, "h7d3"); ' class="line0">1...Фd3</span> 
+	 <span onclick='loadMove("8/8/8/8/3k4/3q4/8/2K5 b - - 0 2", this, "b2c1"); ' class="line0">2.Крc1</span> 
+	 <span onclick='loadMove("8/8/8/8/3k4/8/4q3/2K5 w - - 0 3", this, "d3e2"); ' class="line0">Фe2</span> 
+	 <span onclick='loadMove("8/8/8/8/3k4/8/4q3/1K6 b - - 0 3", this, "c1b1"); ' class="line0">3.Крb1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/2k5/4q3/1K6 w - - 0 4", this, "d4c3"); ' class="line0">Крc3</span> 
+	 <span onclick='loadMove("8/8/8/8/8/2k5/4q3/K7 b - - 0 4", this, "b1a1"); ' class="line0">4.Крa1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/2k5/1q6/K7 w - - 0 5", this, "e2b2"); ' class="line0">Фb2X</span> 
+	или
+	 <span onclick='loadMove("8/8/8/8/3k4/3q4/K7/8 b - - 0 2", this, "b2a2"); ' class="line1">2.Крa2</span> 
+	 <span onclick='loadMove("8/8/8/8/8/2kq4/K7/8 w - - 0 3", this, "d4c3"); ' class="line1">Крc3</span> 
+	 <span onclick='loadMove("8/8/8/8/8/2kq4/8/K7 b - - 0 3", this, "a2a1"); ' class="line1">3.Крa1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/2k5/3q4/K7 w - - 0 4", this, "d3d2"); ' class="line1">Фd2</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/6k1/R7/4K3/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/6k1/R7/4K3/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Как дать мат в семь ходов черным в таком положении: белые — Крe5, Лa6 (2); черные - Крg7 (1)?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В семь ходов</b>:
+	 <span class="line0" onclick='loadMove("8/6k1/R7/4K3/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/6k1/5R2/4K3/8/8/8/8 b - - 0 1", this, "a6f6"); ' class="line0">1.Лf6</span> 
+	 <span onclick='loadMove("6k1/8/5R2/4K3/8/8/8/8 w - - 0 2", this, "g7g8"); ' class="line0">Крg8</span> 
+	 <span onclick='loadMove("6k1/8/5R2/5K2/8/8/8/8 b - - 0 2", this, "e5f5"); ' class="line0">2.Крf5</span> 
+	 <span onclick='loadMove("8/6k1/5R2/5K2/8/8/8/8 w - - 0 3", this, "g8g7"); ' class="line0">Крg7</span> 
+	 <span onclick='loadMove("8/6k1/5R2/6K1/8/8/8/8 b - - 0 3", this, "f5g5"); ' class="line0">3.Крg5</span> 
+	 <span onclick='loadMove("8/7k/5R2/6K1/8/8/8/8 w - - 0 4", this, "g7h7"); ' class="line0">Крh7</span> 
+	 <span onclick='loadMove("8/5R1k/8/6K1/8/8/8/8 b - - 0 4", this, "f6f7"); ' class="line0">4.Лf7+</span> 
+	 <span onclick='loadMove("7k/5R2/8/6K1/8/8/8/8 w - - 0 5", this, "h7h8"); ' class="line0">Крh8</span> 
+	(
+	 <span onclick='loadMove("6k1/5R2/8/6K1/8/8/8/8 w - - 0 5", this, "h7g8"); ' class="line1">4...Крg8</span> 
+	 <span onclick='loadMove("6k1/5R2/6K1/8/8/8/8/8 b - - 0 5", this, "g5g6"); ' class="line1">5.Крg6</span> 
+	)
+	 <span onclick='loadMove("7k/5R2/6K1/8/8/8/8/8 b - - 0 5", this, "g5g6"); ' class="line0">5.Крg6</span> 
+	 <span onclick='loadMove("6k1/5R2/6K1/8/8/8/8/8 w - - 0 6", this, "h8g8"); ' class="line0">Крg8</span> 
+	 <span onclick='loadMove("6k1/8/5RK1/8/8/8/8/8 b - - 0 6", this, "f7f6"); ' class="line0">6.Лf6</span> 
+	 <span onclick='loadMove("7k/8/5RK1/8/8/8/8/8 w - - 0 7", this, "g8h8"); ' class="line0">Крh8</span> 
+	 <span onclick='loadMove("5R1k/8/6K1/8/8/8/8/8 b - - 0 7", this, "f6f8"); ' class="line0">7.Лf8X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/3NB3/6K1/8/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/3NB3/6K1/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Найди мат в три хода в позиции: белые — Крg6, Кd7, Сe7 (3); черные — Крg8 (1).</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("6k1/3NB3/6K1/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("5Bk1/3N4/6K1/8/8/8/8/8 b - - 0 1", this, "e7f8"); ' class="line0">1.Сf8!</span> 
+	 <span onclick='loadMove("5B1k/3N4/6K1/8/8/8/8/8 w - - 0 2", this, "g8h8"); ' class="line0">Крh8</span> 
+	 <span onclick='loadMove("7k/3N2B1/6K1/8/8/8/8/8 b - - 0 2", this, "f8g7"); ' class="line0">2.Сg7+</span> 
+	 <span onclick='loadMove("6k1/3N2B1/6K1/8/8/8/8/8 w - - 0 3", this, "h8g8"); ' class="line0">Крg8</span> 
+	 <span onclick='loadMove("6k1/6B1/5NK1/8/8/8/8/8 b - - 0 3", this, "d7f6"); ' class="line0">3.Кf6X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3R4/R7/8/1K6/8/8/1k3N2/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3R4/R7/8/1K6/8/8/1k3N2/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">99</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3R4/R7/8/1K6/8/8/1k3N2/8 w - - 0 1"></div>
+<p>Король черных оттеснен к крайним горизонталям, его атакуют две ладьи и конь, и все же мат в три хода дать королю совсем не просто. Для этого нужен хороший план.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Диаграмма № 99</b>.
+	 <span class="line0" onclick='loadMove("3R4/R7/8/1K6/8/8/1k3N2/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("3R4/4R3/8/1K6/8/8/1k3N2/8 b - - 0 1", this, "a7e7"); ' class="line0">1.Лe7!</span> 
+	 <span onclick='loadMove("3R4/4R3/8/1K6/8/8/2k2N2/8 w - - 0 2", this, "b2c2"); ' class="line0">Крc2</span> 
+	 <span onclick='loadMove("3R4/8/8/1K6/8/8/2k1RN2/8 b - - 0 2", this, "e7e2"); ' class="line0">2.Лe2+</span> 
+	 <span onclick='loadMove("3R4/8/8/1K6/8/2k5/4RN2/8 w - - 0 3", this, "c2c3"); ' class="line0">Крc3</span> 
+	 <span onclick='loadMove("8/8/8/1K6/8/2kR4/4RN2/8 b - - 0 3", this, "d8d3"); ' class="line0">3.Лd3X</span> 
+	;
+	 <span onclick='loadMove("3R4/4R3/8/1K6/8/8/5N2/2k5 w - - 0 2", this, "b2c1"); ' class="line1">1...Крc1</span> 
+	 <span onclick='loadMove("3R4/8/8/1K6/8/8/4RN2/2k5 b - - 0 2", this, "e7e2"); ' class="line1">2.Лe2</span> 
+	 <!--span onclick='loadMove("3R4/8/8/1K6/8/8/4RN2/2k5 w - - 0 3", this, "e7e2"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("8/8/8/1K6/8/8/4RN2/2kR4 b - - 0 3", this, "d8d1"); ' class="line1">3.Лd1X</span> 
+	;
+	 <span onclick='loadMove("3R4/4R3/8/1K6/8/1k6/5N2/8 w - - 0 2", this, "b2b3"); ' class="line1">1...Крb3</span> 
+	 <span onclick='loadMove("3R4/8/8/1K6/8/1k6/4RN2/8 b - - 0 2", this, "e7e2"); ' class="line1">2.Лe2</span> 
+	 <span onclick='loadMove("3R4/8/8/1K6/8/k7/4RN2/8 w - - 0 3", this, "b3a3"); ' class="line1">Крa3</span> 
+	 <span onclick='loadMove("8/8/8/1K6/8/k2R4/4RN2/8 b - - 0 3", this, "d8d3"); ' class="line1">3.Лd3X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2Q5/8/1k6/8/B7/8/1K6/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2Q5/8/1k6/8/B7/8/1K6/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>А теперь попробуй дать мат в три хода черному королю в такой позиции: белые — Крb2, Фc8, Сa4 (3); черные — Крb6 (1). И здесь задача белых сложнее, чем это кажется на первый взгляд.</p>
+<p>Обрати внимание на необходимость организации взаимодействия всех фигур для выполнения этого и всех других заданий, которые мы разбираем.</p>
+<p>Такое взаимодействие является одним из основных требований шахматной стратегии. Оно предусматривает наилучшее использование силы каждой фигуры, причем все фигуры должны действовать согласованно для выполнения поставленной задачи.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("2Q5/8/1k6/8/B7/8/1K6/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("2Q5/8/1k6/8/8/1B6/1K6/8 b - - 0 1", this, "a4b3"); ' class="line0">1.Сb3!</span> 
+	 <span onclick='loadMove("2Q5/k7/8/8/8/1B6/1K6/8 w - - 0 2", this, "b6a7"); ' class="line0">Крa7</span> 
+	 <span onclick='loadMove("8/k1Q5/8/8/8/1B6/1K6/8 b - - 0 2", this, "c8c7"); ' class="line0">2.Фc7+</span> 
+	;
+	 <span onclick='loadMove("2Q5/8/8/1k6/8/1B6/1K6/8 w - - 0 2", this, "b6b5"); ' class="line1">1...Крb5</span> 
+	 <span onclick='loadMove("8/2Q5/8/1k6/8/1B6/1K6/8 b - - 0 2", this, "c8c7"); ' class="line1">2.Фc7</span> 
+	;
+	 <span onclick='loadMove("2Q5/8/8/k7/8/1B6/1K6/8 w - - 0 2", this, "b6a5"); ' class="line1">1...Крa5</span> 
+	 <span onclick='loadMove("8/8/2Q5/k7/8/1B6/1K6/8 b - - 0 2", this, "c8c6"); ' class="line1">2.Фc6</span> 
+	 <span onclick='loadMove("8/8/2Q5/8/1k6/1B6/1K6/8 w - - 0 3", this, "a5b4"); ' class="line1">Крb4</span> 
+	 <span onclick='loadMove("8/8/1Q6/8/1k6/1B6/1K6/8 b - - 0 3", this, "c6b6"); ' class="line1">3.Фb6X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+<!--p>— 72 —</p-->
+<img style="width:100%;" src="{% static 'images/'|add:book.slug|add:'/110.jpg' %}"/>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/7k/8/5K2/8/3R4/8/1B6 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/7k/8/5K2/8/3R4/8/1B6 w - - 0 1", this, ""); '>[...]</span> 
+<p>Вот несложный пример взаимодействия. Белые: Крf5, Лd3, Сb1 (3). Черные: Крh7 (1). Как кратчайшим путем белые могут заматовать черного короля?</p>
+<p>К мату в два хода ведет продолжение
+ <span onclick='loadMove("8/7k/5K2/8/8/3R4/8/1B6 b - - 0 1", this, "f5f6"); ' class="line0">1.Крf6</span> 
+. Таким путем белые отнимают поле g7 у черного короля, препятствуют ходу
+ <!--span onclick='loadMove("8/7k/8/5K2/8/3R4/8/1B6 b - - 0 1", this, "f5f6"); ' class="line1">1.z0</span--> 
+
+ <span onclick='loadMove("8/8/7k/5K2/8/3R4/8/1B6 w - - 0 2", this, "h7h6"); ' class="line1">1...Крh6</span> 
+из-за мата ладьей на h3 и создают решающее взаимодействие ладьи, действующей по горизонталям, и слона, атакующего из засады диагональ b1-h7.</p>
+<p>Как бы черные ни играли, они получают мат следующим ходом.</p>
+<p>Взаимодействие фигур проявляется на всех этапах шахматной борьбы. Основам этого стратегического закона лучше всего учиться на упражнениях в матовании одинокого короля.</p>
+<p>Только правильно налаженное взаимодействие ферзя, слона и белых пешек может привести здесь к мату в три хода.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2K5/4B3/8/3k4/P7/5P2/5P2/Q7 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2K5/4B3/8/3k4/P7/5P2/5P2/Q7 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">100</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2K5/4B3/8/3k4/P7/5P2/5P2/Q7 w - - 0 1"></div>
+<p>Хотя в этой позиции возможны два решения, но найти их не так просто, как кажется. Поэтому не торопись со своими выводами.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Диаграмма № 100</b>.
+	 <span class="line0" onclick='loadMove("2K5/4B3/8/3k4/P7/5P2/5P2/Q7 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("2K5/4B3/8/3k4/P7/5P2/5P2/1Q6 b - - 0 1", this, "a1b1"); ' class="line0">1.Фb1</span> 
+	 <span onclick='loadMove("2K5/4B3/8/8/P1k5/5P2/5P2/1Q6 w - - 0 2", this, "d5c4"); ' class="line0">Крc4</span> 
+	 <span onclick='loadMove("2K5/8/8/8/PBk5/5P2/5P2/1Q6 b - - 0 2", this, "e7b4"); ' class="line0">2.Сb4</span> 
+	 <!--span onclick='loadMove("2K5/8/8/8/PBk5/5P2/5P2/1Q6 w - - 0 3", this, "e7b4"); ' class="line0">z0</span--> 
+	и
+	 <span onclick='loadMove("2K5/8/8/8/PBk1Q3/5P2/5P2/8 b - - 0 3", this, "b1e4"); ' class="line0">3.Фe4X</span> 
+	;
+	 <span onclick='loadMove("2K5/4B3/4k3/8/P7/5P2/5P2/1Q6 w - - 0 2", this, "d5e6"); ' class="line1">1...Крe6</span> 
+	 <span onclick='loadMove("2K5/4B2Q/4k3/8/P7/5P2/5P2/8 b - - 0 2", this, "b1h7"); ' class="line1">2.Фh7!</span> 
+	 <!--span onclick='loadMove("2K5/4B2Q/4k3/8/P7/5P2/5P2/8 w - - 0 3", this, "b1h7"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("2K5/4B3/4k3/8/P3Q3/5P2/5P2/8 b - - 0 3", this, "h7e4"); ' class="line1">3.Фe4X</span> 
+	;
+	 <span onclick='loadMove("2K5/4B3/8/8/P2k4/5P2/5P2/1Q6 w - - 0 2", this, "d5d4"); ' class="line1">1...Крd4</span> 
+	 <span onclick='loadMove("2K5/4B3/8/8/P2k4/5P2/2Q2P2/8 b - - 0 2", this, "b1c2"); ' class="line1">2.Фc2!</span> 
+	 <!--span onclick='loadMove("2K5/4B3/8/8/P2k4/5P2/2Q2P2/8 w - - 0 3", this, "b1c2"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("2K5/4B3/8/8/P2kQ3/5P2/5P2/8 b - - 0 3", this, "c2e4"); ' class="line1">3.Фe4X</span> 
+	;
+	или
+	 <span onclick='loadMove("2K5/4B3/8/3k4/P7/5P2/Q4P2/8 b - - 0 1", this, "a1a2"); ' class="line1">1.Фa2+</span> 
+	 <span onclick='loadMove("2K5/4B3/8/8/P2k4/5P2/Q4P2/8 w - - 0 2", this, "d5d4"); ' class="line1">Крd4</span> 
+	 <span onclick='loadMove("2K5/4B3/8/8/P2k4/5P2/2Q2P2/8 b - - 0 2", this, "a2c2"); ' class="line1">2.Фc2</span> 
+	 <!--span onclick='loadMove("2K5/4B3/8/8/P2k4/5P2/2Q2P2/8 w - - 0 3", this, "a2c2"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("2K5/4B3/8/8/P2kQ3/5P2/5P2/8 b - - 0 3", this, "c2e4"); ' class="line1">3.Фe4X</span> 
+	,
+	если
+	 <span onclick='loadMove("2K5/4B3/8/4k3/P7/5P2/Q4P2/8 w - - 0 2", this, "d5e5"); ' class="line2">1...Крe5</span> 
+	, то
+	 <span onclick='loadMove("2K5/4B3/8/4k3/P1Q5/5P2/5P2/8 b - - 0 2", this, "a2c4"); ' class="line2">2.Фc4!</span> 
+	</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/3k4/P6P/4R1R1/1P2K3/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/3k4/P6P/4R1R1/1P2K3/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Во сколько ходов кратчайшим способом можно дать мат черному королю в следующем положении? Белые: Крe4, Лe5, Лg5, п. a6, b4, h6 (6); черные: Крd7 (1).</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Сколько ходов?</b>
+	 <span class="line0" onclick='loadMove("8/3k4/P6P/4R1R1/1P2K3/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/3k4/P6P/1R4R1/1P2K3/8/8/8 b - - 0 1", this, "e5b5"); ' class="line0">1.Лb5!</span> 
+	 <span onclick='loadMove("8/8/P2k3P/1R4R1/1P2K3/8/8/8 w - - 0 2", this, "d7d6"); ' class="line0">Крd6</span> 
+	 <span onclick='loadMove("8/1R6/P2k3P/6R1/1P2K3/8/8/8 b - - 0 2", this, "b5b7"); ' class="line0">2.Лb7</span> 
+	 <!--span onclick='loadMove("8/1R6/P2k3P/6R1/1P2K3/8/8/8 w - - 0 3", this, "b5b7"); ' class="line0">z0</span--> 
+	и
+	 <span onclick='loadMove("8/1R6/P2k2RP/8/1P2K3/8/8/8 b - - 0 3", this, "g5g6"); ' class="line0">3.Лg6X</span> 
+	;
+	 <span onclick='loadMove("8/8/P3k2P/1R4R1/1P2K3/8/8/8 w - - 0 2", this, "d7e6"); ' class="line1">1...Крe6</span> 
+	 <span onclick='loadMove("8/6R1/P3k2P/1R6/1P2K3/8/8/8 b - - 0 2", this, "g5g7"); ' class="line1">2.Лg7</span> 
+	 <!--span onclick='loadMove("8/6R1/P3k2P/1R6/1P2K3/8/8/8 w - - 0 3", this, "g5g7"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("8/6R1/PR2k2P/8/1P2K3/8/8/8 b - - 0 3", this, "b5b6"); ' class="line1">3.Лb6X</span> 
+	</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="Q3KR2/4P3/3k4/8/8/4P3/P7/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("Q3KR2/4P3/3k4/8/8/4P3/P7/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>А теперь найди мат в три хода при таком расположении фигур и пешек: белые — Крe8, Фa8, Лf8, п. a2, e3, e7 (6); черные: Крd6 (1). </p>
+<!--p>- 73 -</p-->
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("Q3KR2/4P3/3k4/8/8/4P3/P7/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("4KR2/4P3/3k4/8/Q7/4P3/P7/8 b - - 0 1", this, "a8a4"); ' class="line0">1.Фa4!</span> 
+	 <span onclick='loadMove("4KR2/2k1P3/8/8/Q7/4P3/P7/8 w - - 0 2", this, "d6c7"); ' class="line0">Крc7</span> 
+	 <span onclick='loadMove("4KR2/2k1P3/Q7/8/8/4P3/P7/8 b - - 0 2", this, "a4a6"); ' class="line0">2.Фa6!</span> 
+	 <span onclick='loadMove("1k2KR2/4P3/Q7/8/8/4P3/P7/8 w - - 0 3", this, "c7b8"); ' class="line0">Крb8</span> 
+	 <span onclick='loadMove("1k3R2/3KP3/Q7/8/8/4P3/P7/8 b - - 0 3", this, "e8d7"); ' class="line0">3.Крd7X</span> 
+	;
+	 <span onclick='loadMove("4KR2/4P3/4k3/8/Q7/4P3/P7/8 w - - 0 2", this, "d6e6"); ' class="line1">1...Крe6</span> 
+	 <span onclick='loadMove("4KR2/4P3/4k3/Q7/8/4P3/P7/8 b - - 0 2", this, "a4a5"); ' class="line1">2.Фa5</span> 
+	 <span onclick='loadMove("4KR2/4P3/3k4/Q7/8/4P3/P7/8 w - - 0 3", this, "e6d6"); ' class="line1">Крd6</span> 
+	 <span onclick='loadMove("4K3/4P3/3k1R2/Q7/8/4P3/P7/8 b - - 0 3", this, "f8f6"); ' class="line1">3.Лf6X</span> 
+	;
+	 <span onclick='loadMove("4KR2/4P3/8/2k5/Q7/4P3/P7/8 w - - 0 2", this, "d6c5"); ' class="line1">1...Крc5</span> 
+	 <span onclick='loadMove("4K3/4P3/5R2/2k5/Q7/4P3/P7/8 b - - 0 2", this, "f8f6"); ' class="line1">2.Лf6</span> 
+	 <span onclick='loadMove("4K3/4P3/5R2/3k4/Q7/4P3/P7/8 w - - 0 3", this, "c5d5"); ' class="line1">Крd5</span> 
+	 <span onclick='loadMove("4K3/4P3/5R2/3k4/3Q4/4P3/P7/8 b - - 0 3", this, "a4d4"); ' class="line1">3.Фd4X</span> 
+	;
+	 <span onclick='loadMove("4KR2/4P3/8/3k4/Q7/4P3/P7/8 w - - 0 2", this, "d6d5"); ' class="line1">1...Крd5</span> 
+	 <span onclick='loadMove("4K3/4P3/8/3k1R2/Q7/4P3/P7/8 b - - 0 2", this, "f8f5"); ' class="line1">2.Лf5+</span> 
+	 <span onclick='loadMove("4K3/4P3/4k3/5R2/Q7/4P3/P7/8 w - - 0 3", this, "d5e6"); ' class="line1">Крe6</span> 
+	 <span onclick='loadMove("4K3/3QP3/4k3/5R2/8/4P3/P7/8 b - - 0 3", this, "a4d7"); ' class="line1">3.Фd7X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/5K2/R7/B4k2/QP6/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/5K2/R7/B4k2/QP6/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">101</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/5K2/R7/B4k2/QP6/8 w - - 0 1"></div>
+<p>Вот еще одно очень полезное упражнение. План белых должен заключаться в том, чтобы прежде всего объединить усилия ферзя и ладьи, преследующих черного короля. Как это сделать? При лучшем продолжении белые могут заматовать черных в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Диаграмма № 101</b>.
+	 <span class="line0" onclick='loadMove("8/8/8/5K2/R7/B4k2/QP6/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/8/8/5K2/R7/BP3k2/Q7/8 b - - 0 1", this, "b2b3"); ' class="line0">1.b3!</span> 
+	 <span onclick='loadMove("8/8/8/5K2/R7/BP2k3/Q7/8 w - - 0 2", this, "f3e3"); ' class="line0">Крe3</span> 
+	 <span onclick='loadMove("8/8/8/5K2/3R4/BP2k3/Q7/8 b - - 0 2", this, "a4d4"); ' class="line0">2.Лd4!</span> 
+	 <span onclick='loadMove("8/8/8/5K2/3k4/BP6/Q7/8 w - - 0 3", this, "e3d4"); ' class="line0">Кр:d4</span> 
+	 <span onclick='loadMove("8/8/8/5K2/3k4/BP6/3Q4/8 b - - 0 3", this, "a2d2"); ' class="line0">3.Фd2X</span> 
+	;
+	 <span onclick='loadMove("8/8/8/5K2/3R4/BP3k2/Q7/8 w - - 0 3", this, "e3f3"); ' class="line1">2...Крf3</span> 
+	 <span onclick='loadMove("8/8/8/5K2/8/BP1R1k2/Q7/8 b - - 0 3", this, "d4d3"); ' class="line1">3.Лd3X</span> 
+	;
+	 <span onclick='loadMove("8/8/8/5K2/R7/BP4k1/Q7/8 w - - 0 2", this, "f3g3"); ' class="line1">1...Крg3</span> 
+	 <span onclick='loadMove("8/8/8/5K2/7R/BP4k1/Q7/8 b - - 0 2", this, "a4h4"); ' class="line1">2.Лh4!</span> 
+	 <span onclick='loadMove("8/8/8/5K2/7k/BP6/Q7/8 w - - 0 3", this, "g3h4"); ' class="line1">Кр:h4</span> 
+	 <span onclick='loadMove("8/8/8/5K2/7k/BP6/7Q/8 b - - 0 3", this, "a2h2"); ' class="line1">3.Фh2X</span> 
+	;
+	 <span onclick='loadMove("8/8/8/5K2/7R/BP3k2/Q7/8 w - - 0 3", this, "g3f3"); ' class="line2">2...Крf3</span> 
+	 <span onclick='loadMove("8/8/8/5K2/8/BP3k1R/Q7/8 b - - 0 3", this, "h4h3"); ' class="line2">3.Лh3X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6K1/8/4N3/8/8/5k1N/1Q6/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6K1/8/4N3/8/8/5k1N/1Q6/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Попробуй организовать взаимодействие ферзя и двух коней так, чтобы дать мат в три хода черным в такой позиции: белые — Крg8, Фb2 Кe6, Кh3(4); черные — Крf3 (1).</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("6K1/8/4N3/8/8/5k1N/1Q6/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("6K1/8/4N3/8/8/5k2/1Q6/6N1 b - - 0 1", this, "h3g1"); ' class="line0">1.Кg1+</span> 
+	 <span onclick='loadMove("6K1/8/4N3/8/4k3/8/1Q6/6N1 w - - 0 2", this, "f3e4"); ' class="line0">Крe4</span> 
+	 <span onclick='loadMove("6K1/8/4N3/1Q6/4k3/8/8/6N1 b - - 0 2", this, "b2b5"); ' class="line0">2.Фb5</span> 
+	 <span onclick='loadMove("6K1/8/4N3/1Q6/8/4k3/8/6N1 w - - 0 3", this, "e4e3"); ' class="line0">Крe3</span> 
+	 <span onclick='loadMove("6K1/8/4N3/8/8/4k3/4Q3/6N1 b - - 0 3", this, "b5e2"); ' class="line0">3.Фe2X</span> 
+	;
+	 <span onclick='loadMove("6K1/8/4N3/8/8/6k1/1Q6/6N1 w - - 0 2", this, "f3g3"); ' class="line1">1...Крg3</span> 
+	 <span onclick='loadMove("6K1/8/4N3/8/8/6k1/3Q4/6N1 b - - 0 2", this, "b2d2"); ' class="line1">2.Фd2</span> 
+	 <span onclick='loadMove("6K1/8/4N3/8/7k/8/3Q4/6N1 w - - 0 3", this, "g3h4"); ' class="line1">Крh4</span> 
+	 <span onclick='loadMove("6K1/8/4N3/6Q1/7k/8/8/6N1 b - - 0 3", this, "d2g5"); ' class="line1">3.Фg5X</span> 
+	;
+	 <span onclick='loadMove("6K1/8/4N3/8/6k1/8/1Q6/6N1 w - - 0 2", this, "f3g4"); ' class="line1">1...Крg4</span> 
+	 <span onclick='loadMove("6K1/8/4N3/4Q3/6k1/8/8/6N1 b - - 0 2", this, "b2e5"); ' class="line1">2.Фe5</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/7Q/4k3/K7/7R/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/7Q/4k3/K7/7R/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Что может быть проще, чем мат одинокому королю ферзем и ладьей? Но, как я уже тебе говорил, игравший белыми упустил слишком много драгоценного времени, в его распоряжении осталось всего четыре хода. Как за такой срок дать мат черным в этом положении? Белые: Крa3, Фh5, Лh2 (3). Черные: Крe4 (1).</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("8/8/8/7Q/4k3/K7/7R/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/5Q2/8/8/4k3/K7/7R/8 b - - 0 1", this, "h5f7"); ' class="line0">1.Фf7</span> 
+	 <span onclick='loadMove("8/5Q2/8/4k3/8/K7/7R/8 w - - 0 2", this, "e4e5"); ' class="line0">Крe5</span> 
+	 <span onclick='loadMove("8/5Q2/8/4k3/1K6/8/7R/8 b - - 0 2", this, "a3b4"); ' class="line0">2.Крb4</span> 
+	 <span onclick='loadMove("8/5Q2/3k4/8/1K6/8/7R/8 w - - 0 3", this, "e5d6"); ' class="line0">Крd6</span> 
+	 <span onclick='loadMove("8/5Q2/3k4/7R/1K6/8/8/8 b - - 0 3", this, "h2h5"); ' class="line0">3.Лh5</span> 
+	;
+	 <span onclick='loadMove("8/5Q2/8/8/1K2k3/8/7R/8 w - - 0 3", this, "e5e4"); ' class="line1">2...Крe4</span> 
+	 <span onclick='loadMove("8/5Q2/8/8/1K2k3/8/4R3/8 b - - 0 3", this, "h2e2"); ' class="line1">3.Лe2+</span> 
+	;
+	 <span onclick='loadMove("8/5Q2/8/8/3k4/K7/7R/8 w - - 0 2", this, "e4d4"); ' class="line1">1...Крd4</span> 
+	 <span onclick='loadMove("8/8/4Q3/8/3k4/K7/7R/8 b - - 0 2", this, "f7e6"); ' class="line1">2.Фe6</span> 
+	 <span onclick='loadMove("8/8/4Q3/2k5/8/K7/7R/8 w - - 0 3", this, "d4c5"); ' class="line1">Крc5</span> 
+	 <span onclick='loadMove("8/8/4Q3/2k5/7R/K7/8/8 b - - 0 3", this, "h2h4"); ' class="line1">3.Лh4</span> 
+	;
+	 <span onclick='loadMove("8/8/4Q3/8/8/K1k5/7R/8 w - - 0 3", this, "d4c3"); ' class="line2">2...Крc3</span> 
+	 <span onclick='loadMove("8/3Q4/8/8/8/K1k5/7R/8 b - - 0 3", this, "e6d7"); ' class="line2">3.Фd7</span> 
+	.</p>
+	<br />
+	<p>
+	 <span class="line0" onclick='loadMove("5R2/8/8/4k3/1Q6/8/8/5K2 w - - 0 1", this, ""); '>[...]</span> 
+	Сходная по идее позиция. Белые: Крf1, Фb4, Лf8 (3); черные: Крe5 (1) решается в четыре хода после
+	 <span onclick='loadMove("5R2/8/1Q6/4k3/8/8/8/5K2 b - - 0 1", this, "b4b6"); ' class="line0">1.Фb6!</span> 
+	</p>
+
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="K3k3/8/2R5/3P1B1P/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("K3k3/8/2R5/3P1B1P/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Расставь на доске такую позицию: белые — Крa8, Лc6, Сf5, п. d5, h5 (5); черные — Крe8 (1). Это задача Г. Пономарева, опубликованная в журнале «Шахматный листок» еще в 1862 году. Как здесь заматовать в четыре хода черного короля?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Задача Г. Пономарева</b>:
+	 <span class="line0" onclick='loadMove("K3k3/8/2R5/3P1B1P/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("K3k3/8/6R1/3P1B1P/8/8/8/8 b - - 0 1", this, "c6g6"); ' class="line0">1.Лg6</span> 
+	 <span onclick='loadMove("K2k4/8/6R1/3P1B1P/8/8/8/8 w - - 0 2", this, "e8d8"); ' class="line0">Крd8</span> 
+	 <span onclick='loadMove("K2k4/8/3P2R1/5B1P/8/8/8/8 b - - 0 2", this, "d5d6"); ' class="line0">2.d6</span> 
+	 <span onclick='loadMove("K3k3/8/3P2R1/5B1P/8/8/8/8 w - - 0 3", this, "d8e8"); ' class="line0">Крe8</span> 
+	 <span onclick='loadMove("K3k3/8/3PB1R1/7P/8/8/8/8 b - - 0 3", this, "f5e6"); ' class="line0">3.Сe6</span> 
+	 <span onclick='loadMove("K4k2/8/3PB1R1/7P/8/8/8/8 w - - 0 4", this, "e8f8"); ' class="line0">Крf8</span> 
+	 <span onclick='loadMove("K4kR1/8/3PB3/7P/8/8/8/8 b - - 0 4", this, "g6g8"); ' class="line0">4.Лg8X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2N5/K1kB4/4P3/2N5/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2N5/K1kB4/4P3/2N5/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Взгляни на следующую диаграмму. Король черных попал в западню. У него остался только один ход на d8. Белые фигуры хорошо взаимодействуют друг с другом.</p>
+<p class="capTop diagram">102</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2N5/K1kB4/4P3/2N5/8/8/8/8 w - - 0 1"></div>
+<p>Найди, как дать мат черным в четыре хода, используя в нужный момент превращение пешки e6 в фигуру.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Диаграмма № 102</b>.
+	 <span class="line0" onclick='loadMove("2N5/K1kB4/4P3/2N5/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("K1N5/2kB4/4P3/2N5/8/8/8/8 b - - 0 1", this, "a7a8"); ' class="line0">1.Крa8</span> 
+	 <span onclick='loadMove("K1Nk4/3B4/4P3/2N5/8/8/8/8 w - - 0 2", this, "c7d8"); ' class="line0">Крd8</span> 
+	 <span onclick='loadMove("K1Nk4/3BP3/8/2N5/8/8/8/8 b - - 0 2", this, "e6e7"); ' class="line0">2.e7+</span> 
+	 <span onclick='loadMove("K1N5/2kBP3/8/2N5/8/8/8/8 w - - 0 3", this, "d8c7"); ' class="line0">Крc7</span> 
+	 <span onclick='loadMove("K1N1B3/2kB4/8/2N5/8/8/8/8 b - - 0 3", this, "e7e8"); ' class="line0">3.e8С</span> 
+	 <span onclick='loadMove("K1NkB3/3B4/8/2N5/8/8/8/8 w - - 0 4", this, "c7d8"); ' class="line0">Крd8</span> 
+	 <span onclick='loadMove("K1NkB3/3B4/4N3/8/8/8/8/8 b - - 0 4", this, "c5e6"); ' class="line0">4.Кe6X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+<br />
+<p>И еще примеры охоты за одиноким королем:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/7Q/8/5K2/8/3k4/1RN5/2R5 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/7Q/8/5K2/8/3k4/1RN5/2R5 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крf5, Фh7, Лc1, Лb2, Кc2 (5). Черные: Крd3 (1). Мат в два хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В два хода</b>:
+	 <span class="line0" onclick='loadMove("8/7Q/8/5K2/8/3k4/1RN5/2R5 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/Q7/8/5K2/8/3k4/1RN5/2R5 b - - 0 1", this, "h7a7"); ' class="line0">1.Фa7!</span> 
+	 <span onclick='loadMove("8/Q7/8/5K2/8/8/1RN1k3/2R5 w - - 0 2", this, "d3e2"); ' class="line0">Крe2</span> 
+	 <span onclick='loadMove("8/8/8/5K2/8/4Q3/1RN1k3/2R5 b - - 0 2", this, "a7e3"); ' class="line0">2.Фe3X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="R7/8/K1Q5/4k3/8/8/5P2/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("R7/8/K1Q5/4k3/8/8/5P2/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крa6, Фc6, Лa8, п. f2 (4). Черные: Крe5 (1). Мат в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("R7/8/K1Q5/4k3/8/8/5P2/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("R7/3Q4/K7/4k3/8/8/5P2/8 b - - 0 1", this, "c6d7"); ' class="line0">1.Фd7</span> 
+	 <span onclick='loadMove("R7/3Q4/K4k2/8/8/8/5P2/8 w - - 0 2", this, "e5f6"); ' class="line0">Крf6</span> 
+	 <span onclick='loadMove("R7/3Q4/K4k2/8/5P2/8/8/8 b - f3 0 2", this, "f2f4"); ' class="line0">2.f4</span> 
+	 <span onclick='loadMove("R7/3Q4/K5k1/8/5P2/8/8/8 w - - 0 3", this, "f6g6"); ' class="line0">Крg6</span> 
+	 <span onclick='loadMove("7R/3Q4/K5k1/8/5P2/8/8/8 b - - 0 3", this, "a8h8"); ' class="line0">3.Лh8</span> 
+	;
+	 <span onclick='loadMove("R7/3Q4/K7/8/5k2/8/5P2/8 w - - 0 2", this, "e5f4"); ' class="line1">1...Крf4</span> 
+	 <span onclick='loadMove("R7/8/K7/3Q4/5k2/8/5P2/8 b - - 0 2", this, "d7d5"); ' class="line1">2.Фd5</span> 
+	 <span onclick='loadMove("R7/8/K7/3Q4/6k1/8/5P2/8 w - - 0 3", this, "f4g4"); ' class="line1">Крg4</span> 
+	 <span onclick='loadMove("7R/8/K7/3Q4/6k1/8/5P2/8 b - - 0 3", this, "a8h8"); ' class="line1">3.Лh8</span> 
+	;
+	 <span onclick='loadMove("R7/3Q4/K7/8/4k3/8/5P2/8 w - - 0 2", this, "e5e4"); ' class="line1">1...Крe4</span> 
+	 <span onclick='loadMove("5R2/3Q4/K7/8/4k3/8/5P2/8 b - - 0 2", this, "a8f8"); ' class="line1">2.Лf8</span> 
+	 <span onclick='loadMove("5R2/3Q4/K7/4k3/8/8/5P2/8 w - - 0 3", this, "e4e5"); ' class="line1">Крe5</span> 
+	 <span onclick='loadMove("8/3Q4/K7/4kR2/8/8/5P2/8 b - - 0 3", this, "f8f5"); ' class="line1">3.Лf5+</span> 
+	 <span onclick='loadMove("8/3Q4/K7/5R2/4k3/8/5P2/8 w - - 0 4", this, "e5e4"); ' class="line1">Крe4</span> 
+	 <span onclick='loadMove("8/8/K7/3Q1R2/4k3/8/5P2/8 b - - 0 4", this, "d7d5"); ' class="line1">4.Фd5X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/2N5/8/k1K3B1/8/3N4/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/2N5/8/k1K3B1/8/3N4/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крc4, Сg4, Кc6, Кd2 (4). Черные: Крa4 (1). Мат в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("8/8/2N5/8/k1K3B1/8/3N4/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/8/8/8/kNK3B1/8/3N4/8 b - - 0 1", this, "c6b4"); ' class="line0">1.Кb4</span> 
+	 <span onclick='loadMove("8/8/8/8/1NK3B1/k7/3N4/8 w - - 0 2", this, "a4a3"); ' class="line0">Крa3</span> 
+	 <span onclick='loadMove("8/8/8/8/1N4B1/k1K5/3N4/8 b - - 0 2", this, "c4c3"); ' class="line0">2.Крc3</span> 
+	 <span onclick='loadMove("8/8/8/8/kN4B1/2K5/3N4/8 w - - 0 3", this, "a3a4"); ' class="line0">Крa4</span> 
+	 <span onclick='loadMove("8/3B4/8/8/kN6/2K5/3N4/8 b - - 0 3", this, "g4d7"); ' class="line0">3.Сd7+</span> 
+	;
+	 <span onclick='loadMove("8/8/8/k7/1NK3B1/8/3N4/8 w - - 0 2", this, "a4a5"); ' class="line1">1...Крa5</span> 
+	 <span onclick='loadMove("8/8/8/k1K5/1N4B1/8/3N4/8 b - - 0 2", this, "c4c5"); ' class="line1">2.Крc5</span> 
+	 <span onclick='loadMove("8/8/8/2K5/kN4B1/8/3N4/8 w - - 0 3", this, "a5a4"); ' class="line1">Крa4</span> 
+	 <span onclick='loadMove("8/8/8/2K5/kN6/8/3N4/3B4 b - - 0 3", this, "g4d1"); ' class="line1">3.Сd1+</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/4K3/2k1P3/8/6B1/4N3/1R6/6B1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/4K3/2k1P3/8/6B1/4N3/1R6/6B1 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крe7, Лb2, Сg1, Сg4, Кe3, п. e6 (6). Черные: Крc6 (1). Мат в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("8/4K3/2k1P3/8/6B1/4N3/1R6/6B1 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/4K3/2k1P3/8/8/4N3/1R2B3/6B1 b - - 0 1", this, "g4e2"); ' class="line0">1.Сe2</span> 
+	 <span onclick='loadMove("8/2k1K3/4P3/8/8/4N3/1R2B3/6B1 w - - 0 2", this, "c6c7"); ' class="line0">Крc7</span> 
+	 <span onclick='loadMove("8/2k1K3/4P3/8/8/4NB2/1R6/6B1 b - - 0 2", this, "e2f3"); ' class="line0">2.Сf3</span> 
+	 <span onclick='loadMove("2k5/4K3/4P3/8/8/4NB2/1R6/6B1 w - - 0 3", this, "c7c8"); ' class="line0">Крc8</span> 
+	 <span onclick='loadMove("2k5/8/3KP3/8/8/4NB2/1R6/6B1 b - - 0 3", this, "e7d6"); ' class="line0">3.Крd6</span> 
+	 <span onclick='loadMove("3k4/8/3KP3/8/8/4NB2/1R6/6B1 w - - 0 4", this, "c8d8"); ' class="line0">Крd8</span> 
+	 <span onclick='loadMove("1R1k4/8/3KP3/8/8/4NB2/8/6B1 b - - 0 4", this, "b2b8"); ' class="line0">4.Лb8X</span> 
+	;
+	 <span onclick='loadMove("8/4K3/4P3/2k5/8/4N3/1R2B3/6B1 w - - 0 2", this, "c6c5"); ' class="line1">1...Крc5</span> 
+	 <span onclick='loadMove("8/3K4/4P3/2k5/8/4N3/1R2B3/6B1 b - - 0 2", this, "e7d7"); ' class="line1">2.Крd7</span> 
+	 <span onclick='loadMove("8/3K4/4P3/8/3k4/4N3/1R2B3/6B1 w - - 0 3", this, "c5d4"); ' class="line1">Крd4</span> 
+	 <span onclick='loadMove("8/8/3KP3/8/3k4/4N3/1R2B3/6B1 b - - 0 3", this, "d7d6"); ' class="line1">3.Крd6</span> 
+	 <span onclick='loadMove("8/8/3KP3/8/4k3/4N3/1R2B3/6B1 w - - 0 4", this, "d4e4"); ' class="line1">Крe4</span> 
+	 <span onclick='loadMove("8/8/3KP3/8/1R2k3/4N3/4B3/6B1 b - - 0 4", this, "b2b4"); ' class="line1">4.Лb4X</span> 
+	.</p>
+	<p>Позиция допускает и другое решение:
+	 <span onclick='loadMove("8/4K3/2k1P3/8/2N3B1/8/1R6/6B1 b - - 0 1", this, "e3c4"); ' class="line1">1.Кc4</span> 
+	 <span onclick='loadMove("8/4K3/4P3/3k4/2N3B1/8/1R6/6B1 w - - 0 2", this, "c6d5"); ' class="line1">Крd5</span> 
+	 <span onclick='loadMove("8/4K3/4P3/3k4/2N3B1/8/2R5/6B1 b - - 0 2", this, "b2c2"); ' class="line1">2.Лc2</span> 
+	 <span onclick='loadMove("8/4K3/4P3/8/2N1k1B1/8/2R5/6B1 w - - 0 3", this, "d5e4"); ' class="line1">Крe4</span> 
+	 <span onclick='loadMove("8/4K3/4P3/8/2N1k1B1/4B3/2R5/8 b - - 0 3", this, "g1e3"); ' class="line1">3.Сe3</span> 
+	 <span onclick='loadMove("8/4K3/4P3/3k4/2N3B1/4B3/2R5/8 w - - 0 4", this, "e4d5"); ' class="line1">Крd5</span> 
+	 <span onclick='loadMove("8/4K3/4P3/3k4/2N5/4BB2/2R5/8 b - - 0 4", this, "g4f3"); ' class="line1">4.Сf3X</span> 
+	;
+	 <span onclick='loadMove("8/2k1K3/4P3/8/2N3B1/8/1R6/6B1 w - - 0 2", this, "c6c7"); ' class="line2">1...Крc7</span> 
+	 <span onclick='loadMove("8/2k1K3/3NP3/8/6B1/8/1R6/6B1 b - - 0 2", this, "c4d6"); ' class="line2">2.Кd6</span> 
+	 <span onclick='loadMove("8/4K3/2kNP3/8/6B1/8/1R6/6B1 w - - 0 3", this, "c7c6"); ' class="line2">Крc6</span> 
+	 <span onclick='loadMove("8/4K3/2kNP3/8/8/5B2/1R6/6B1 b - - 0 3", this, "g4f3"); ' class="line2">3.Сf3+</span> 
+	 <span onclick='loadMove("8/2k1K3/3NP3/8/8/5B2/1R6/6B1 w - - 0 4", this, "c6c7"); ' class="line2">Крc7</span> 
+	 <span onclick='loadMove("8/1Rk1K3/3NP3/8/8/5B2/8/6B1 b - - 0 4", this, "b2b7"); ' class="line2">4.Лb7X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="kB6/2P5/2K5/8/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("kB6/2P5/2K5/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крc6, Сb8, п. c7 (3). Черные: Крa8 (1). Мат в три хода.</p>
+<!--p>— 74 —</p-->
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("kB6/2P5/2K5/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("k7/B1P5/2K5/8/8/8/8/8 b - - 0 1", this, "b8a7"); ' class="line0">1.Сa7!</span> 
+	 <span onclick='loadMove("8/k1P5/2K5/8/8/8/8/8 w - - 0 2", this, "a8a7"); ' class="line0">Кр:a7</span> 
+	 <span onclick='loadMove("2R5/k7/2K5/8/8/8/8/8 b - - 0 2", this, "c7c8"); ' class="line0">2.c8Л</span> 
+	 <span onclick='loadMove("2R5/8/k1K5/8/8/8/8/8 w - - 0 3", this, "a7a6"); ' class="line0">Крa6</span> 
+	 <span onclick='loadMove("R7/8/k1K5/8/8/8/8/8 b - - 0 3", this, "c8a8"); ' class="line0">3.Лa8X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2RN4/8/8/8/3k1K2/8/2P5/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2RN4/8/8/8/3k1K2/8/2P5/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крf4, Лc8, Кd8, п. c2 (4). Черные: Крd4 (1). Мат в семь ходов.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В семь ходов</b>:
+	 <span class="line0" onclick='loadMove("2RN4/8/8/8/3k1K2/8/2P5/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("3N4/2R5/8/8/3k1K2/8/2P5/8 b - - 0 1", this, "c8c7"); ' class="line0">1.Лc7</span> 
+	 <span onclick='loadMove("3N4/2R5/8/3k4/5K2/8/2P5/8 w - - 0 2", this, "d4d5"); ' class="line0">Крd5</span> 
+	 <span onclick='loadMove("3N4/8/2R5/3k4/5K2/8/2P5/8 b - - 0 2", this, "c7c6"); ' class="line0">2.Лc6</span> 
+	 <span onclick='loadMove("3N4/8/2R5/8/3k1K2/8/2P5/8 w - - 0 3", this, "d5d4"); ' class="line0">Крd4</span> 
+	 <span onclick='loadMove("8/5N2/2R5/8/3k1K2/8/2P5/8 b - - 0 3", this, "d8f7"); ' class="line0">3.Кf7</span> 
+	 <span onclick='loadMove("8/5N2/2R5/3k4/5K2/8/2P5/8 w - - 0 4", this, "d4d5"); ' class="line0">Крd5</span> 
+	 <span onclick='loadMove("8/8/2R5/3kN3/5K2/8/2P5/8 b - - 0 4", this, "f7e5"); ' class="line0">4.Кe5</span> 
+	 <span onclick='loadMove("8/8/2R5/4N3/3k1K2/8/2P5/8 w - - 0 5", this, "d5d4"); ' class="line0">Крd4</span> 
+	<!--p>- 88 -</p-->
+	 <span onclick='loadMove("8/8/2R5/8/3k1K2/3N4/2P5/8 b - - 0 5", this, "e5d3"); ' class="line0">5.Кd3</span> 
+	 <span onclick='loadMove("8/8/2R5/3k4/5K2/3N4/2P5/8 w - - 0 6", this, "d4d5"); ' class="line0">Крd5</span> 
+	 <span onclick='loadMove("8/8/2R5/3k4/1N3K2/8/2P5/8 b - - 0 6", this, "d3b4"); ' class="line0">6.Кb4+</span> 
+	 <span onclick='loadMove("8/8/2R5/8/1N1k1K2/8/2P5/8 w - - 0 7", this, "d5d4"); ' class="line0">Крd4</span> 
+	 <span onclick='loadMove("8/8/2R5/8/1N1k1K2/2P5/8/8 b - - 0 7", this, "c2c3"); ' class="line0">7.c3X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/4R3/8/7K/7R/6k1/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/4R3/8/7K/7R/6k1/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крh4, Лh3, Лe6 (3). Черные: Крg2 (1). Мат в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("8/8/4R3/8/7K/7R/6k1/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/8/4R3/8/7K/8/6k1/7R b - - 0 1", this, "h3h1"); ' class="line0">1.Лh1!</span> 
+	 <span onclick='loadMove("8/8/4R3/8/7K/8/8/7k w - - 0 2", this, "g2h1"); ' class="line0">Кр:h1</span> 
+	 <span onclick='loadMove("8/8/4R3/8/8/6K1/8/7k b - - 0 2", this, "h4g3"); ' class="line0">2.Крg3</span> 
+	 <span onclick='loadMove("8/8/4R3/8/8/6K1/8/6k1 w - - 0 3", this, "h1g1"); ' class="line0">Крg1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/6K1/8/4R1k1 b - - 0 3", this, "e6e1"); ' class="line0">3.Лe1X</span> 
+	;
+	 <span onclick='loadMove("8/8/4R3/8/7K/5k2/8/7R w - - 0 2", this, "g2f3"); ' class="line1">1...Крf3</span> 
+	 <span onclick='loadMove("8/8/4R3/8/7K/5k2/7R/8 b - - 0 2", this, "h1h2"); ' class="line1">2.Лh2</span> 
+	 <span onclick='loadMove("8/8/4R3/8/5k1K/8/7R/8 w - - 0 3", this, "f3f4"); ' class="line1">Крf4</span> 
+	 <span onclick='loadMove("8/8/4R3/8/5k1K/8/5R2/8 b - - 0 3", this, "h2f2"); ' class="line1">3.Лf2X</span> 
+	;
+	 <span onclick='loadMove("8/8/4R3/8/7K/8/5k2/7R w - - 0 2", this, "g2f2"); ' class="line1">1...Крf2</span> 
+	 <span onclick='loadMove("8/8/4R3/8/8/7K/5k2/7R b - - 0 2", this, "h4h3"); ' class="line1">2.Крh3</span> 
+	 <span onclick='loadMove("8/8/4R3/8/8/5k1K/8/7R w - - 0 3", this, "f2f3"); ' class="line1">Крf3</span> 
+	 <span onclick='loadMove("8/8/4R3/8/8/5k1K/8/5R2 b - - 0 3", this, "h1f1"); ' class="line1">3.Лf1X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7R/8/8/1K6/8/k7/2B5/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7R/8/8/1K6/8/k7/2B5/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крb5, Лh8, Сc2 (3). Черные: Крa3 (1). Мат в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("7R/8/8/1K6/8/k7/2B5/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("7R/8/8/8/2K5/k7/2B5/8 b - - 0 1", this, "b5c4"); ' class="line0">1.Крc4!</span> 
+	 <span onclick='loadMove("7R/8/8/8/2K5/8/1kB5/8 w - - 0 2", this, "a3b2"); ' class="line0">Крb2</span> 
+	 <span onclick='loadMove("7R/8/8/8/2K5/3B4/1k6/8 b - - 0 2", this, "c2d3"); ' class="line0">2.Сd3!</span> 
+	 <!--span onclick='loadMove("7R/8/8/8/2K5/3B4/1k6/8 w - - 0 3", this, "c2d3"); ' class="line0">z0</span--> 
+	Кр куда угодно
+	 <span onclick='loadMove("7R/8/8/8/8/2KB4/1k6/8 b - - 0 3", this, "c4c3"); ' class="line0">3.Крc3</span> 
+	, и мат ладьей на a8 или h1.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/3N4/1R6/8/k7/2K5/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/3N4/1R6/8/k7/2K5/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крc2, Лb5, Кd6 (3). Черные: Крa3 (1). Мат в три хода.</p>
+<p>Крутится, вертится юркий черный король между белыми пешками. А задание дается точное и определенное — заматовать бродягу в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("8/8/3N4/1R6/8/k7/2K5/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/8/8/1R6/4N3/k7/2K5/8 b - - 0 1", this, "d6e4"); ' class="line0">1.Кe4</span> 
+	 <span onclick='loadMove("8/8/8/1R6/k3N3/8/2K5/8 w - - 0 2", this, "a3a4"); ' class="line0">Крa4</span> 
+	 <span onclick='loadMove("8/8/8/1R6/k7/2N5/2K5/8 b - - 0 2", this, "e4c3"); ' class="line0">2.Кc3+</span> 
+	 <span onclick='loadMove("8/8/8/1R6/8/k1N5/2K5/8 w - - 0 3", this, "a4a3"); ' class="line0">Крa3</span> 
+	 <span onclick='loadMove("8/8/8/8/8/kRN5/2K5/8 b - - 0 3", this, "b5b3"); ' class="line0">3.Лb3X</span> 
+	;
+	 <span onclick='loadMove("8/8/8/1R6/4N3/8/k1K5/8 w - - 0 2", this, "a3a2"); ' class="line1">1...Крa2</span> 
+	 <span onclick='loadMove("8/8/8/1R6/8/2N5/k1K5/8 b - - 0 2", this, "e4c3"); ' class="line1">2.Кc3+</span> 
+	 <span onclick='loadMove("8/8/8/1R6/8/2N5/2K5/k7 w - - 0 3", this, "a2a1"); ' class="line1">Крa1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/2N5/2K5/kR6 b - - 0 3", this, "b5b1"); ' class="line1">3.Лb1X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/6K1/8/3P1PkP/4R3/3P1P1P/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/6K1/8/3P1PkP/4R3/3P1P1P/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">103</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/6K1/8/3P1PkP/4R3/3P1P1P/8 w - - 0 1"></div>
+<p>Этой задаче румынского мастера В. Паули уже шестьдесят лет от роду. Многие любители шахмат решали ее. Проверь свою шахматную сноровку и ты.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Задача В. Паули</b>:
+	 <span class="line0" onclick='loadMove("8/8/6K1/8/3P1PkP/4R3/3P1P1P/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/5K2/8/8/3P1PkP/4R3/3P1P1P/8 b - - 0 1", this, "g6f7"); ' class="line0">1.Крf7!</span> 
+	 <span onclick='loadMove("8/5K2/8/5k2/3P1P1P/4R3/3P1P1P/8 w - - 0 2", this, "g4f5"); ' class="line0">Крf5</span> 
+	 <span onclick='loadMove("8/5K2/8/5k2/3P1P1P/4R2P/3P1P2/8 b - - 0 2", this, "h2h3"); ' class="line0">2.h3</span> 
+	 <span onclick='loadMove("8/5K2/8/8/3P1k1P/4R2P/3P1P2/8 w - - 0 3", this, "f5f4"); ' class="line0">Кр:f4</span> 
+	 <span onclick='loadMove("8/5K2/8/8/3P1k1P/3PR2P/5P2/8 b - - 0 3", this, "d2d3"); ' class="line0">3.d3</span> 
+	 <span onclick='loadMove("8/5K2/8/5k2/3P3P/3PR2P/5P2/8 w - - 0 4", this, "f4f5"); ' class="line0">Крf5</span> 
+	 <span onclick='loadMove("8/5K2/8/5k2/3P3P/3P1R1P/5P2/8 b - - 0 4", this, "e3f3"); ' class="line0">4.Лf3X</span> 
+	,
+	или
+	 <span onclick='loadMove("8/5K2/8/7k/3P1P1P/4R3/3P1P1P/8 w - - 0 2", this, "g4h5"); ' class="line1">1...Крh5</span> 
+	 <span onclick='loadMove("8/5K2/8/7k/3P1P1P/6R1/3P1P1P/8 b - - 0 2", this, "e3g3"); ' class="line1">2.Лg3</span> 
+	 <span onclick='loadMove("8/5K2/8/8/3P1P1k/6R1/3P1P1P/8 w - - 0 3", this, "h5h4"); ' class="line1">Кр:h4</span> 
+	 <span onclick='loadMove("8/5K2/8/8/3P1P1k/5PR1/3P3P/8 b - - 0 3", this, "f2f3"); ' class="line1">3.f3</span> 
+	 <span onclick='loadMove("8/5K2/8/7k/3P1P2/5PR1/3P3P/8 w - - 0 4", this, "h4h5"); ' class="line1">Крh5</span> 
+	 <span onclick='loadMove("8/5K2/8/7k/3P1P2/5P1R/3P3P/8 b - - 0 4", this, "g3h3"); ' class="line1">4.Лh3X</span> 
+	,
+	или
+	 <span onclick='loadMove("8/5K2/8/8/3P1k1P/4R3/3P1P1P/8 w - - 0 2", this, "g4f4"); ' class="line0">1...Кр:f4</span> 
+	 <span onclick='loadMove("8/5K2/8/8/3P1k1P/4RP2/3P3P/8 b - - 0 2", this, "f2f3"); ' class="line0">2.f3</span> 
+	 <span onclick='loadMove("8/5K2/8/5k2/3P3P/4RP2/3P3P/8 w - - 0 3", this, "f4f5"); ' class="line0">Крf5</span> 
+	 <span onclick='loadMove("8/5K2/4R3/5k2/3P3P/5P2/3P3P/8 b - - 0 3", this, "e3e6"); ' class="line0">3.Лe6</span> 
+	 <span onclick='loadMove("8/5K2/4R3/8/3P1k1P/5P2/3P3P/8 w - - 0 4", this, "f5f4"); ' class="line0">Крf4</span> 
+	 <span onclick='loadMove("8/5K2/5R2/8/3P1k1P/5P2/3P3P/8 b - - 0 4", this, "e6f6"); ' class="line0">4.Лf6X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+<br />
+<p>Для того, чтобы дать мат слоном и конем, надо хорошо продумать план действий. Мат возможен лишь на угловом поле цвета слона. Постепенно король, слон и конь оттесняют вражеского короля на такое поле, и затем, не выпуская короля из угла, фигуры перестраиваются для нанесения решающего удара.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7N/8/8/8/8/5K2/6B1/6k1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7N/8/8/8/8/5K2/6B1/6k1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">104</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7N/8/8/8/8/5K2/6B1/6k1 w - - 0 1"></div>
+<p>Здесь конь находится пока вдали от театра военных действий. Как дать мат в шесть ходов черному королю?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В шесть ходов</b>:
+	 <span class="line0" onclick='loadMove("7N/8/8/8/8/5K2/6B1/6k1 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/5N2/8/8/8/5K2/6B1/6k1 b - - 0 1", this, "h8f7"); ' class="line0">1.Кf7!</span> 
+	 <span onclick='loadMove("8/5N2/8/8/8/5K2/6Bk/8 w - - 0 2", this, "g1h2"); ' class="line0">Крh2</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/5K2/6Bk/8 b - - 0 2", this, "f7g5"); ' class="line0">2.Кg5</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/5K2/6B1/6k1 w - - 0 3", this, "h2g1"); ' class="line0">Крg1</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/5K1B/8/6k1 b - - 0 3", this, "g2h3"); ' class="line0">3.Сh3</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/5K1B/7k/8 w - - 0 4", this, "g1h2"); ' class="line0">Крh2</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/7B/5K1k/8 b - - 0 4", this, "f3f2"); ' class="line0">4.Крf2</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/7B/5K2/7k w - - 0 5", this, "h2h1"); ' class="line0">Крh1</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/8/5KB1/7k b - - 0 5", this, "h3g2"); ' class="line0">5.Сg2+</span> 
+	 <!--span onclick='loadMove("8/8/8/6N1/8/8/5KB1/7k w - - 0 6", this, "h3g2"); ' class="line0">z0</span--> 
+	и
+	 <span onclick='loadMove("8/8/8/8/8/5N2/5KB1/7k b - - 0 6", this, "g5f3"); ' class="line0">6.Кf3X</span> 
+	;
+	или
+	 <span onclick='loadMove("8/8/8/6N1/8/5K1B/8/7k w - - 0 4", this, "g1h1"); ' class="line1">3...Крh1</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/6KB/8/7k b - - 0 4", this, "f3g3"); ' class="line1">4.Крg3</span> 
+	 <span onclick='loadMove("8/8/8/6N1/8/6KB/8/6k1 w - - 0 5", this, "h1g1"); ' class="line1">Крg1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/5NKB/8/6k1 b - - 0 5", this, "g5f3"); ' class="line1">5.Кf3+</span> 
+	 <!--span onclick='loadMove("8/8/8/8/8/5NKB/8/6k1 w - - 0 6", this, "g5f3"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("8/8/8/8/8/5NK1/6B1/6k1 b - - 0 6", this, "h3g2"); ' class="line1">6.Сg2X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6B1/8/8/8/7Q/k7/8/B3K3 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6B1/8/8/8/7Q/k7/8/B3K3 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крe1, Фh4, Сa1, Сg8 (4). Черные: Крa3 (1). Мат в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В три хода</b>:
+	 <span class="line0" onclick='loadMove("6B1/8/8/8/7Q/k7/8/B3K3 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("6B1/8/8/6Q1/8/k7/8/B3K3 b - - 0 1", this, "h4g5"); ' class="line0">1.Фg5!</span> 
+	 <span onclick='loadMove("6B1/8/8/6Q1/1k6/8/8/B3K3 w - - 0 2", this, "a3b4"); ' class="line0">Крb4</span> 
+	 <span onclick='loadMove("6B1/8/8/6Q1/1k6/2B5/8/4K3 b - - 0 2", this, "a1c3"); ' class="line0">2.Сc3+</span> 
+	 <span onclick='loadMove("6B1/8/8/6Q1/8/2k5/8/4K3 w - - 0 3", this, "b4c3"); ' class="line0">Кр:c3</span> 
+	 <span onclick='loadMove("6B1/8/8/8/8/2k5/3Q4/4K3 b - - 0 3", this, "g5d2"); ' class="line0">3.Фd2X</span> 
+	,
+	 <span onclick='loadMove("6B1/8/8/6Q1/k7/2B5/8/4K3 w - - 0 3", this, "b4a4"); ' class="line1">2...Крa4</span> 
+	 <span onclick='loadMove("6B1/8/8/Q7/k7/2B5/8/4K3 b - - 0 3", this, "g5a5"); ' class="line1">3.Фa5X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/3K4/8/8/8/8/8/7R w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/3K4/8/8/8/8/8/7R w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крd7, Лh1 (2). Черные: Крg8 (1). Мат в шесть ходов.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В шесть ходов</b>:
+	 <span class="line0" onclick='loadMove("6k1/3K4/8/8/8/8/8/7R w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("6k1/8/4K3/8/8/8/8/7R b - - 0 1", this, "d7e6"); ' class="line0">1.Крe6</span> 
+	 <span onclick='loadMove("8/6k1/4K3/8/8/8/8/7R w - - 0 2", this, "g8g7"); ' class="line0">Крg7</span> 
+	 <span onclick='loadMove("8/6k1/4K3/8/8/8/8/6R1 b - - 0 2", this, "h1g1"); ' class="line0">2.Лg1+</span> 
+	 <span onclick='loadMove("8/8/4K2k/8/8/8/8/6R1 w - - 0 3", this, "g7h6"); ' class="line0">Крh6</span> 
+	 <span onclick='loadMove("8/8/7k/5K2/8/8/8/6R1 b - - 0 3", this, "e6f5"); ' class="line0">3.Крf5</span> 
+	 <span onclick='loadMove("8/7k/8/5K2/8/8/8/6R1 w - - 0 4", this, "h6h7"); ' class="line0">Крh7</span> 
+	 <span onclick='loadMove("8/7k/5K2/8/8/8/8/6R1 b - - 0 4", this, "f5f6"); ' class="line0">4.Крf6</span> 
+	 <span onclick='loadMove("7k/8/5K2/8/8/8/8/6R1 w - - 0 5", this, "h7h8"); ' class="line0">Крh8</span> 
+	 <span onclick='loadMove("7k/5K2/8/8/8/8/8/6R1 b - - 0 5", this, "f6f7"); ' class="line0">5.Крf7</span> 
+	 <span onclick='loadMove("8/5K1k/8/8/8/8/8/6R1 w - - 0 6", this, "h8h7"); ' class="line0">Крh7</span> 
+	 <span onclick='loadMove("8/5K1k/8/8/8/8/8/7R b - - 0 6", this, "g1h1"); ' class="line0">6.Лh1X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/1K6/8/8/k7/1R6/2P5/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/1K6/8/8/k7/1R6/2P5/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крb7, Лb3, п. c2 (3). Черные: Крa4 (1). Мат в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("8/1K6/8/8/k7/1R6/2P5/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/2K5/8/8/k7/1R6/2P5/8 b - - 0 1", this, "b7c7"); ' class="line0">1.Крc7!</span> 
+	 <span onclick='loadMove("8/2K5/8/k7/8/1R6/2P5/8 w - - 0 2", this, "a4a5"); ' class="line0">Крa5</span> 
+	 <span onclick='loadMove("8/8/2K5/k7/8/1R6/2P5/8 b - - 0 2", this, "c7c6"); ' class="line0">2.Крc6</span> 
+	 <span onclick='loadMove("8/8/2K5/8/k7/1R6/2P5/8 w - - 0 3", this, "a5a4"); ' class="line0">Крa4</span> 
+	 <span onclick='loadMove("8/8/8/2K5/k7/1R6/2P5/8 b - - 0 3", this, "c6c5"); ' class="line0">3.Крc5</span> 
+	 <span onclick='loadMove("8/8/8/k1K5/8/1R6/2P5/8 w - - 0 4", this, "a4a5"); ' class="line0">Крa5</span> 
+	 <span onclick='loadMove("8/8/8/k1K5/8/R7/2P5/8 b - - 0 4", this, "b3a3"); ' class="line0">4.Лa3X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/6K1/8/8/2N5/4R3/6N1/3k4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/6K1/8/8/2N5/4R3/6N1/3k4 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крg7, Лe3, Кc4, Кg2 (4). Черные: Крd1 (1). Мат в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>В четыре хода</b>:
+	 <span class="line0" onclick='loadMove("8/6K1/8/8/2N5/4R3/6N1/3k4 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/6K1/8/8/2N5/4R3/8/3kN3 b - - 0 1", this, "g2e1"); ' class="line0">1.Кe1!</span> 
+	 <span onclick='loadMove("8/6K1/8/8/2N5/4R3/8/2k1N3 w - - 0 2", this, "d1c1"); ' class="line0">Крc1</span> 
+	 <span onclick='loadMove("8/6K1/8/8/2N5/3R4/8/2k1N3 b - - 0 2", this, "e3d3"); ' class="line0">2.Лd3!</span> 
+	 <span onclick='loadMove("8/6K1/8/8/2N5/3R4/8/1k2N3 w - - 0 3", this, "c1b1"); ' class="line0">Крb1</span> 
+	 <span onclick='loadMove("8/6K1/8/8/2N5/R7/8/1k2N3 b - - 0 3", this, "d3a3"); ' class="line0">3.Лa3</span> 
+	 <span onclick='loadMove("8/6K1/8/8/2N5/R7/8/2k1N3 w - - 0 4", this, "b1c1"); ' class="line0">Крc1</span> 
+	 <span onclick='loadMove("8/6K1/8/8/2N5/8/8/R1k1N3 b - - 0 4", this, "a3a1"); ' class="line0">4.Лa1X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3R4/8/8/2R5/1P1PBB2/KPP1P3/1P6/k7 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3R4/8/8/2R5/1P1PBB2/KPP1P3/1P6/k7 w - - 0 1", this, ""); '>[...]</span> 
+<p>Комичная позиция приведена на следующей диаграмме:</p>
+<p class="capTop diagram">105</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3R4/8/8/2R5/1P1PBB2/KPP1P3/1P6/k7 w - - 0 1"></div>
+<!--p>— 75 —</p-->
+<p>Черный король укрылся за частоколом белых пешек, к тому же он находится сейчас в патовом положении. Остроумно маневрируя, белые могут все же заматовать хитрого короля в пять ходов. Смотри, как это происходит.</p>
+<p>
+ <span onclick='loadMove("3R4/8/8/2R5/1P1P1B2/KPP1P3/1P6/k6B b - - 0 1", this, "e4h1"); ' class="line0">1.Сh1!</span> 
+ <span onclick='loadMove("3R4/8/8/2R5/1P1P1B2/KPP1P3/1P6/1k5B w - - 0 2", this, "a1b1"); ' class="line0">Крb1</span> 
+ <span onclick='loadMove("7R/8/8/2R5/1P1P1B2/KPP1P3/1P6/1k5B b - - 0 2", this, "d8h8"); ' class="line0">2.Лh8</span> 
+ <span onclick='loadMove("7R/8/8/2R5/1P1P1B2/KPP1P3/1Pk5/7B w - - 0 3", this, "b1c2"); ' class="line0">Крc2</span> 
+ <span onclick='loadMove("8/8/8/2R5/1P1P1B2/KPP1P3/1Pk4R/7B b - - 0 3", this, "h8h2"); ' class="line0">3.Лh2+</span> 
+ <span onclick='loadMove("8/8/8/2R5/1P1P1B2/KPPkP3/1P5R/7B w - - 0 4", this, "c2d3"); ' class="line0">Крd3</span> 
+ <span onclick='loadMove("8/8/8/2R5/1P1P1B2/KPPkP3/1P4R1/7B b - - 0 4", this, "h2g2"); ' class="line0">4.Лg2!</span> 
+ <span onclick='loadMove("8/8/8/2R5/1P1PkB2/KPP1P3/1P4R1/7B w - - 0 5", this, "d3e4"); ' class="line0">Крe4</span> 
+ <span onclick='loadMove("8/8/8/2R5/1P1PkB2/KPP1P3/1P1R4/7B b - - 0 5", this, "g2d2"); ' class="line0">5.Лd2</span> 
+, мат.</p>
+<p>Есть в задаче и другие занятные варианты. Советую тебе их найти.</p>
+<br />
+<p>Поучительна и красива серия позиций, разработанных в конце прошлого века знаменитым американским шахматным композитором С. Лойдом. Все они связаны с превращением далеко прорвавшихся пешек в различные фигуры.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/3QPk2/8/8/8/8/4K3/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/3QPk2/8/8/8/8/4K3/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крe2, Фd7, п. e7 (3). Черные: Крf7 (1). Мат в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Три задачи С. Лойда</b>: а)
+	 <span class="line0" onclick='loadMove("8/3QPk2/8/8/8/8/4K3/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/4Pk2/3Q4/8/8/8/4K3/8 b - - 0 1", this, "d7d6"); ' class="line0">1.Фd6!</span> 
+	 <span onclick='loadMove("4k3/4P3/3Q4/8/8/8/4K3/8 w - - 0 2", this, "f7e8"); ' class="line0">Крe8</span> 
+	 <span onclick='loadMove("4k3/4P3/8/4Q3/8/8/4K3/8 b - - 0 2", this, "d6e5"); ' class="line0">2.Фe5</span> 
+	 <span onclick='loadMove("8/3kP3/8/4Q3/8/8/4K3/8 w - - 0 3", this, "e8d7"); ' class="line0">Крd7</span> 
+	 <span onclick='loadMove("4Q3/3k4/8/4Q3/8/8/4K3/8 b - - 0 3", this, "e7e8"); ' class="line0">3.e8ФX</span> 
+	или
+	 <span onclick='loadMove("8/4P1k1/3Q4/8/8/8/4K3/8 w - - 0 2", this, "f7g7"); ' class="line1">1...Крg7</span> 
+	 <span onclick='loadMove("4Q3/6k1/3Q4/8/8/8/4K3/8 b - - 0 2", this, "e7e8"); ' class="line1">2.e8Ф</span> 
+	 <!--span onclick='loadMove("4Q3/6k1/3Q4/8/8/8/4K3/8 w - - 0 3", this, "e7e8"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("4Q3/6k1/6Q1/8/8/8/4K3/8 b - - 0 3", this, "d6g6"); ' class="line1">3.Фdg6X</span> 
+	;</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5PkP/4K3/8/5P2/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5PkP/4K3/8/5P2/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Белые: Крe6, п. f4, f7, h7 (4). Черные: Крg7 (1).</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>б)
+	 <span class="line0" onclick='loadMove("8/5PkP/4K3/8/5P2/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("5R2/6kP/4K3/8/5P2/8/8/8 b - - 0 1", this, "f7f8"); ' class="line0">1.f8Л!</span> 
+	 <span onclick='loadMove("5R2/7P/4K1k1/8/5P2/8/8/8 w - - 0 2", this, "g7g6"); ' class="line0">Крg6</span> 
+	 <span onclick='loadMove("5R1R/8/4K1k1/8/5P2/8/8/8 b - - 0 2", this, "h7h8"); ' class="line0">2.h8Л!</span> 
+	 <span onclick='loadMove("5R1R/6k1/4K3/8/5P2/8/8/8 w - - 0 3", this, "g6g7"); ' class="line0">Крg7</span> 
+	 <span onclick='loadMove("6RR/6k1/4K3/8/5P2/8/8/8 b - - 0 3", this, "f8g8"); ' class="line0">3.Лfg8X</span> 
+	или
+	 <span onclick='loadMove("5R2/7k/4K3/8/5P2/8/8/8 w - - 0 2", this, "g7h7"); ' class="line1">1...Кр:h7</span> 
+	 <span onclick='loadMove("5R2/7k/5K2/8/5P2/8/8/8 b - - 0 2", this, "e6f6"); ' class="line1">2.Крf6</span> 
+	. Этот ход привел бы к пату, если белые превратили бы пешку f7 в ферзя;</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/PP3k2/5P2/5K2/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/PP3k2/5P2/5K2/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">106</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/PP3k2/5P2/5K2/8/8/8/8 w - - 0 1"></div>
+<p>И в этом положении мат достигается также в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>в)
+	 <span class="line0" onclick='loadMove("8/PP3k2/5P2/5K2/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("B7/1P3k2/5P2/5K2/8/8/8/8 b - - 0 1", this, "a7a8"); ' class="line0">1.a8С!</span> 
+	 <span onclick='loadMove("B4k2/1P6/5P2/5K2/8/8/8/8 w - - 0 2", this, "f7f8"); ' class="line0">Крf8</span> 
+	 <span onclick='loadMove("BQ3k2/8/5P2/5K2/8/8/8/8 b - - 0 2", this, "b7b8"); ' class="line0">2.b8Ф+</span> 
+	 <span onclick='loadMove("BQ6/5k2/5P2/5K2/8/8/8/8 w - - 0 3", this, "f8f7"); ' class="line0">Крf7</span> 
+	 <span onclick='loadMove("1Q6/5k2/5P2/3B1K2/8/8/8/8 b - - 0 3", this, "a8d5"); ' class="line0">3.Сd5X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+<br />
+<p>В заключение этого раздела — позиции, уже в течение полувека радующие любителей шахмат остроумием выдумки и тонким осуществлением взаимодействия фигур.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1K6/8/1k6/3B4/1P6/3N4/R7/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1K6/8/1k6/3B4/1P6/3N4/R7/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">107</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1K6/8/1k6/3B4/1P6/3N4/R7/8 w - - 0 1"></div>
+<p>Как дать мат в три хода? Решающее значение в этой позиции приобретают действия белого короля, оттесняющего короля черных. Задача решается так:
+ <span onclick='loadMove("RK6/8/1k6/3B4/1P6/3N4/8/8 b - - 0 1", this, "a2a8"); ' class="line0">1.Лa8!</span> 
+ <span onclick='loadMove("RK6/8/8/1k1B4/1P6/3N4/8/8 w - - 0 2", this, "b6b5"); ' class="line0">Крb5</span> 
+ <span onclick='loadMove("R7/K7/8/1k1B4/1P6/3N4/8/8 b - - 0 2", this, "b8a7"); ' class="line0">2.Крa7!</span> 
+ <span onclick='loadMove("R7/K7/8/3B4/kP6/3N4/8/8 w - - 0 3", this, "b5a4"); ' class="line0">Крa4</span> 
+ <span onclick='loadMove("R7/8/1K6/3B4/kP6/3N4/8/8 b - - 0 3", this, "a7b6"); ' class="line0">3.Крb6X</span> 
+. Снова безотказно сработал механизм вскрытого шаха.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/4P2R/R2Pk3/8/8/8/8/1K6 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/4P2R/R2Pk3/8/8/8/8/1K6 w - - 0 1", this, ""); '>[...]</span> 
+<p>Очень трудно решить задачу-трехходовку, составленную известным латышским мастером К. Бетиньшем, хотя охоту на одинокого черного короля ведут две грозные ладьи белых.</p>
+<p class="capTop diagram">108</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/4P2R/R2Pk3/8/8/8/8/1K6 w - - 0 1"></div>
+<!--p>— 76 —</p-->
+<p>Здесь не обойтись без превращения пешки и притом еще в три различные фигуры!</p>
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Задача К. Бетиньша</b>:
+	 <span class="line0" onclick='loadMove("8/4P2R/R2Pk3/8/8/8/8/1K6 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/4P2R/3Pk3/R7/8/8/8/1K6 b - - 0 1", this, "a6a5"); ' class="line0">1.Лa5!</span> 
+	 <span onclick='loadMove("8/4P2R/3P1k2/R7/8/8/8/1K6 w - - 0 2", this, "e6f6"); ' class="line0">Крf6</span> 
+	 <span onclick='loadMove("4B3/7R/3P1k2/R7/8/8/8/1K6 b - - 0 2", this, "e7e8"); ' class="line0">2.e8С</span> 
+	 <span onclick='loadMove("4B3/7R/3Pk3/R7/8/8/8/1K6 w - - 0 3", this, "f6e6"); ' class="line0">Крe6</span> 
+	 <span onclick='loadMove("4B3/8/3Pk2R/R7/8/8/8/1K6 b - - 0 3", this, "h7h6"); ' class="line0">3.Лh6X</span> 
+	или
+	 <span onclick='loadMove("8/4P2R/3k4/R7/8/8/8/1K6 w - - 0 2", this, "e6d6"); ' class="line1">1...Кр:d6</span> 
+	 <span onclick='loadMove("4R3/7R/3k4/R7/8/8/8/1K6 b - - 0 2", this, "e7e8"); ' class="line1">2.e8Л</span> 
+	 <span onclick='loadMove("4R3/7R/2k5/R7/8/8/8/1K6 w - - 0 3", this, "d6c6"); ' class="line1">Крc6</span> 
+	 <span onclick='loadMove("8/7R/2k1R3/R7/8/8/8/1K6 b - - 0 3", this, "e8e6"); ' class="line1">3.Лe6X</span> 
+	. Ты обратил, конечно, внимание, что в этом варианте у белых действуют уже три ладьи. Ну что же. Теоретически это вполне возможно.
+	И, наконец, такой вариант —
+	 <span onclick='loadMove("8/3kP2R/3P4/R7/8/8/8/1K6 w - - 0 2", this, "e6d7"); ' class="line1">1...Крd7</span> 
+	 <span onclick='loadMove("4Q3/3k3R/3P4/R7/8/8/8/1K6 b - - 0 2", this, "e7e8"); ' class="line1">2.e8Ф+</span> 
+	 <span onclick='loadMove("4k3/7R/3P4/R7/8/8/8/1K6 w - - 0 3", this, "d7e8"); ' class="line1">Кр:e8</span> 
+	 <span onclick='loadMove("R3k3/7R/3P4/8/8/8/8/1K6 b - - 0 3", this, "a5a8"); ' class="line1">3.Лa8X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/1P6/R3K3/2k5 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/1P6/R3K3/2k5 w - - 0 1", this, ""); '>[...]</span> 
+<p>И, наконец, составь план действий, который позволит тебе в кратчайший срок заматовать короля черных в этом положении.</p>
+<p class="capTop diagram">109</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/1P6/R3K3/2k5 w - - 0 1"></div>
+<p>Учти, что наиболее короткий путь к цели — пять ходов.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Диаграмма № 109</b>.
+	 <span class="line0" onclick='loadMove("8/8/8/8/8/1P6/R3K3/2k5 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/8/8/8/8/1P6/3RK3/2k5 b - - 0 1", this, "a2d2"); ' class="line0">1.Лd2</span> 
+	 <span onclick='loadMove("8/8/8/8/8/1P6/3RK3/1k6 w - - 0 2", this, "c1b1"); ' class="line0">Крb1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/1P6/3R4/1k1K4 b - - 0 2", this, "e2d1"); ' class="line0">2.Крd1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/1P6/3R4/k2K4 w - - 0 3", this, "b1a1"); ' class="line0">Крa1</span> 
+	 <span onclick='loadMove("8/8/8/8/8/1P6/2KR4/k7 b - - 0 3", this, "d1c2"); ' class="line0">3.Крc2</span> 
+	 <span onclick='loadMove("8/8/8/8/8/1P6/k1KR4/8 w - - 0 4", this, "a1a2"); ' class="line0">Крa2</span> 
+	 <span onclick='loadMove("8/8/8/8/3R4/1P6/k1K5/8 b - - 0 4", this, "d2d4"); ' class="line0">4.Лd4</span> 
+	 <!--span onclick='loadMove("8/8/8/8/3R4/1P6/k1K5/8 w - - 0 5", this, "d2d4"); ' class="line0">z0</span--> 
+	и
+	 <span onclick='loadMove("8/8/8/8/R7/1P6/k1K5/8 b - - 0 5", this, "d4a4"); ' class="line0">5.Лa4X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

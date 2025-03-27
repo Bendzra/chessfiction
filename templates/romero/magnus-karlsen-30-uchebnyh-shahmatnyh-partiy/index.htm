@@ -1,0 +1,84 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Д. Барлов, Л. Берналь, Р. Васкес, А. Ромеро. Магнус Карлсен. 30 УЧЕБНЫХ ШАХМАТНЫХ ПАРТИЙ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">ПРЕДИСЛОВИЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-ataka-na-korolia.htm' %}">АТАКА НА КОРОЛЯ</a></li>
+<ol start="1">
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-karlsen-aronian.htm' %}">Карлсен — Аронян, «Большой шлем», Бильбао 2008</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-karlsen-gelfand.htm' %}">Карлсен — Гельфанд, Ницца 2008, партия вслепую</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-karlsen-harestad.htm' %}">Карлсен — Харестад, Копенгаген 2003</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-karlsen-l_ami.htm' %}">Карлсен — Л’Ами, Вейк-ан-Зее 2006, турнир «В»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-karlsen-ivanchuk.htm' %}">Карлсен — Иванчук, Сан-Паулу/Бильбао 2011</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Каруана — Карлсен, Вейк-ан-Зее 2015, 6 тур</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Раджабов, Вейк-ан-Зее 2015, 9 тур</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Накамура, Вейк-ан-Зее 2011</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ван Хао, Биль 2012</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ли Чао, Доха 2015</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">НАСТУПЛЕНИЕ НА ФЕРЗЕВОМ ФЛАНГЕ</a></li>
+<ol start="11">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Шорт, Лондон 2010</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Гельфанд, Турнир претендентов, Лондон 2013</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">СТРАТЕГИЯ ЦЕНТРА</a></li>
+<ol start="13">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ван Юэ, Базна 2010</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ананд, Москва 2013</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ван Юэ — Карлсен, Базна 2010</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Накамура, Лондон 2010</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ПОЗИЦИОННАЯ ЖЕРТВА</a></li>
+<ol start="17">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Хауэлл, Лондон 2011</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Накамура, Лондон 2011</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ананд, Сан-Паулу/ Бильбао 2012</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Харикришна, Вейк-ан-Зее 2013</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Каруана, Цюрих, 4 тур, 2014</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Со, Кубок Синкфилда, Сент-Луис 2015, 5 тур</a></li>
+<!--p>164</p><p>Оглавление</p-->
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ИГРА НА ДВУХ ФЛАНГАХ</a></li>
+<ol start="23">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ананд, Кристиансунн 2010</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Каруана, Сан-Паулу/Бильбао 2012</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЗАЩИТА И КОНТРАТАКА</a></li>
+<ol start="25">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Хузман — Карлсен, Калитея 2008</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ананд — Карлсен, Матч на первенство мира, 9 партия, Ченнай 2013</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЭНДШПИЛЬ</a></li>
+<ol start="27">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Аронян, Турнир претендентов, Элиста 2007</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Нисипяну, Медиаш 2011</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Гельфанд, Цюрих, 1 тур, 2014</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Вашье-Лаграв, Мемориал Гашимова, Шамкир 2015, 5 тур</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">СПИСОК АВТОРОВ КОММЕНТАРИЕВ ПО ПАРТИЯМ</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,63 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+<img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<!--div>
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>Т81</p>
+</div-->
+
+<h2>Тукмаков Владимир</h2>
+<!--p>Т81</p-->
+<h1>РИСК И БЛЕФ В ШАХМАТАХ</h1>
+<p>Издательство «Андрей Ельков», Москва, 2015, 237 с.</p>
+<h4>ISBN 978-5-906254-18-4</h4>
+<div class="notification message">
+<p>Риск и блеф - непременные элементы Большой Игры. Именно им посвящена новая книга известного гроссмейстера и опытного тренера Владимира Тукмакова. Почему игроки рискуют, и что толкает больших шахматистов на отчаянный блеф? На эти и многие другие вопросы автор отвечает обычно серьезно, иногда с иронией.</p>
+<p>В книге 104 примера из практики сильнейших шахматистов мира. Почти у каждой диаграммы есть вопрос (выделяется курсивом), что делает книгу ценным пособием в тренерской работе.</p>
+<p>Пожалуй, эта первая попытка разобраться в природе риска и практике блефа в шахматах.</p>
+<p>Для широкого круга читателей - от простых любителей до гроссмейстеров, и шахматных тренеров.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div class="message warning">
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<hr />
+<h3>Тукмаков Владимир</h3>
+<h2>РИСК И БЛЕФ В ШАХМАТАХ.</h2>
+<p>Оформление, верстка Андрей Ельков</p>
+<p>Формат 60x90 1/16.</p>
+<p>Печать офсетная. Бумага офсетная.</p>
+<p>Тел./факс: (495) 963-80-17</p>
+<p>e-mail: elkov_andrey@mail.ru, murad@chess-m.com</p>
+<p>http://www.elkov.ru</p>
+<p>http://www.chessm.ru - Интернет-магазин</p>
+
+<p>ISBN 978-5-906254-18-4</p>
+</div -->
+
+<p>© Тукмаков В., 2015</p>
+<p>© Издатель Ельков А., 2015</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,25 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава первая. Матование одинокого короля | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block description %}
+<meta name="description" content="Глава первая, МАТОВАНИЕ ОДИНОКОГО КОРОЛЯ, Мат ферзем, Мат ладьей, Мат двумя слонами, Мат слоном и конем, Мат двумя конями">
+{% endblock description %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>Глава первая<br />МАТОВАНИЕ ОДИНОКОГО КОРОЛЯ</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1_mat-ferzem.htm' %}">Мат ферзем</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2_mat-ladej.htm' %}">Мат ладьей</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3_mat-dvumia-slonami.htm' %}">Мат двумя слонами</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4_mat-slonom-i-konem.htm' %}">Мат слоном и конем</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5_mat-dvumia-koniami.htm' %}">Мат двумя конями</a></li>
+</ul>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,163 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Содержание</h2>
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">ЛОВУШКИ ФЕРЗЬБЕРИ</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-ot-avtora.htm' %}">От автора</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-00-v-dzhungliah-debiutnyh-kombinacij.htm' %}">В джунглях дебютных комбинаций</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-tridcat-let-tomu-nazad.htm' %}">Тридцать лет тому назад</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-vkusnaia-peshka.htm' %}">«Вкусная пешка»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-tak-govoril-kapablanka.htm' %}">Так говорил Капабланка</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-kak-pobedit-bobbi-fishera.htm' %}">«Как победить Бобби Фишера»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-opasnye-progulki.htm' %}">Опасные прогулки</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-debiut-chetyreh-ferzej.htm' %}">Дебют четырех ферзей</a></li>
+        </ul>
+      </li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-mnimaia-zhertva.htm' %}">Мнимая жертва</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-vnimanie_kon-razviazalsia.htm' %}">Внимание! Конь развязался</a></li>
+        </ul>
+      </li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-oproverzhenie-cherez-trista-let.htm' %}">Опровержение через триста лет</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-dzhokko-fortissimo.htm' %}">«Джокко фортиссимо»</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-genij_graf-i-gercog.htm' %}">Гений, граф и герцог</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-mess-mend.htm' %}">«Месс-Менд»</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-13-verhom-na-tigre.htm' %}">Верхом на тигре</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-14-dlia-kandidatov-v-mastera.htm' %}">Для кандидатов в мастера</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-shestdesiat-vtoroj-slon.htm' %}">Шестьдесят второй слон</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-16-fiordy-francuzskoj-zashchity.htm' %}">Фиорды французской защиты</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-17-sadko.htm' %}">Садко</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-18-pobeda-malymi-silami.htm' %}">Победа малыми силами</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-19-ne-gliadia-v-lico.htm' %}">Не глядя в лицо</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-20-nado-bylo-popast-v-lovushku.htm' %}">Надо было попасть в ловушку</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-21-kliuchevoj-hod.htm' %}">Ключевой ход</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-22-ot-vilniusa-do-stokgolma.htm' %}">От Вильнюса до Стокгольма</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-23-nahodchivost-grossmejstera-flora.htm' %}">Находчивость гроссмейстера Флора</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-24-opechatka-na-diagramme.htm' %}">Опечатка на диаграмме</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-25-lovushka-avtomat.htm' %}">Ловушка-автомат</a></li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-26-o-chem-mechtaiut-peshki.htm' %}">О чем мечтают пешки?</a></li>
+    </ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-tehnika-bezopasnosti.htm' %}">Техника безопасности</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-disciplina-igry.htm' %}">Дисциплина игры</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-kuda-devalis-moi-figury.htm' %}">Куда девались мои фигуры?</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-korol-upal-s-doski.htm' %}">Король упал с доски</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-sdalsia_ne-sdelav-hoda.htm' %}">Сдался, не сделав хода</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-samyj-plohoj-hod.htm' %}">Самый плохой ход</a></li>
+        </ul>
+      </li>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-samaia-korotkaia-partiia.htm' %}">Самая короткая партия</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-vosmoj-val.htm' %}">«Восьмой вал»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-8-sekretnyj-hod.htm' %}">Секретный ход</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-00-neobychajnye-istorii.htm' %}">Необычайные истории</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-01-luchshij-shahmatist-sredi-barabanshchikov.htm' %}">Лучший шахматист среди барабанщиков</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-privet-iz-za-okeana.htm' %}">Привет из-за океана</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-03-pismo-iz-parizha.htm' %}">Письмо из Парижа</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-04-hladnokrovie-maestro-fon-frejmana.htm' %}">Хладнокровие маэстро фон-Фреймана</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-05-kak-master-sam-s-soboj-igral-v-shahmaty.htm' %}">Как мастер сам с собой играл в шахматы</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-06-pod-maskoj-prostaka.htm' %}">Под маской простака</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-07-butylka-vina-i-nol-v-tablice.htm' %}">Бутылка вина и ноль в таблице</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-08-priz-za-krasotu.htm' %}">Приз за красоту</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-09-slishkom-silen-dlia-kotikova.htm' %}">Слишком силен для Котикова</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-10-istoricheskaia-partiia.htm' %}">«Историческая» партия</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-00-kodeks-chesti.htm' %}">Кодекс чести</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-pravila-borby.htm' %}">Правила борьбы</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-02-medal-za-spravedlivuiu-igru.htm' %}">Медаль «За справедливую игру»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-03-pobedu-prisudili-pioneru.htm' %}">Победу присудили пионеру</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-04-zabyl-perevesti-chasy.htm' %}">Забыл перевести часы</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-05-predlozhil-nichiu.htm' %}">Предложил ничью</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-06-predsmertnyj-shah_ili-sudia-v-lovushke.htm' %}">Предсмертный шах, или Судья в ловушке</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-07-ne-te-ladi.htm' %}">Не те ладьи</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-08-mat-s-odnocvetnymi-slonami.htm' %}">Мат с одноцветными слонами</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-09-nichia_v-chetyre-hoda.htm' %}">Ничья... в четыре хода</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-10-ne-zapisal-hod.htm' %}">Не записал ход</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-11-zapisal-dva-hoda.htm' %}">Записал два хода</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-12-kodeks-chesti.htm' %}">Кодекс чести</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-00-kontrgambit-ferzberi.htm' %}">Контргамбит Ферзьбери</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-01-razoblachenie-komissara-zhiuva.htm' %}">Разоблачение комиссара Жюва</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-02-mertvaia-zyb-v-gaskonskom-zalive.htm' %}">Мертвая зыбь в Гасконском заливе</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-03-neobychnyj-seans.htm' %}">Необычный сеанс</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-04-bazovyj-variant-qd3-b5.htm' %}">Базовый вариант Фd3-b5</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-05-troianskij-kon.htm' %}">«Троянский конь»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-06-firmennye-varianty-ferzberi.htm' %}">Фирменные варианты Ферзьбери</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-07-kinzhalnyj-udar.htm' %}">«Кинжальный удар»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-08-10_b2-b4-i-sdavajtes.htm' %}">«10.b2-b4 и сдавайтесь!»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-09-mercaiushchie-shahmaty.htm' %}">«Мерцающие шахматы»</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-10-ferzberi-na-pliazhe_ili-po-chervoncu.htm' %}">Ферзьбери на пляже, или По червонцу</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-0-neischerpaemaia-kladovaia.htm' %}">Неисчерпаемая кладовая</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-1-parad-debiutov.htm' %}">Парад дебютов</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-2-skolko-vsego-kombinacij.htm' %}">Сколько всего комбинаций?</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-3-kombinaciia-dusha-shahmat.htm' %}">Комбинация — душа шахмат</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-0-lovushki-dlia_suevernyh.htm' %}">Ловушки для... суеверных?</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-sakramentalnaia-istoriia.htm' %}">СакраменТАЛЬная история</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-seans-volfa-messinga.htm' %}">Сеанс Вольфа Мессинга</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-3-svengali.htm' %}">Свенгали</a></li>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-4-spory-vokrug-gipotezy.htm' %}">Споры вокруг гипотезы</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-0-naedine-s-poziciej.htm' %}">Наедине с позицией</a>
+    <ul>
+      <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-1-voprosy-bez-otvetov.htm' %}">Вопросы без ответов</a>
+        <ul>
+          <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-2-zagadochnyj-variant-rustema-reziapova.htm' %}">Загадочный вариант Рустема Резяпова</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

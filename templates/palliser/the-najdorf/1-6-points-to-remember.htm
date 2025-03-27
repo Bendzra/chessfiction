@@ -1,0 +1,24 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Points to Remember | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Points to Remember</h3>
+<p>1) Gallagher's favourite <b>...Nc5</b> idea has ensured that former adherents of the Karpov system have turned their attention elsewhere in a bid for a positional edge.</p>
+<p>2) Black should also try to follow up an exchange of knights on d5 with <b>...Nc5</b>. White can then gain a passed d-pawn, but must face a mobile black kingside majority.</p>
+<p>3) With no other minor pieces left, an unopposed knight on d5 against a black dark-squared bishop usually spells trouble. Black should always try to ensure that White must recapture on d5 with a pawn, but if White does win d5 for a piece, such as in the <b>8.Bg5</b> lines, Black must seek active counterplay on the flanks.</p>
+<p>4) Meeting <b>9.a4 Be6 10.f4</b> with <b>10...exf4</b> should ensure Black of an easy game so long as he remembers to activate his e7-bishop with ...Ne8.</p>
+<p>5) The popular <b>9.Kh1</b> should be treated with respect, but the equally crafty <b>9...b6</b> gives Black a perfectly acceptable position.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

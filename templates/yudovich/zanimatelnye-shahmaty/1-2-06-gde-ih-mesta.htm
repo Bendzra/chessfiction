@@ -1,0 +1,138 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Где их места? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Где их места?</h3>
+<div class="chessBoard small floater" data-start-fen="8/8/5P1P/8/K6Q/b4B2/1P6/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/5P1P/8/K6Q/b4B2/1P6/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Расставь на доске такую позицию. Белые: Крa4, Фh4, Сf3, п. b2, f6, h6 (6). Черные: Сa3 (1).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/5P1P/8/K6Q/b4B2/1P6/8 w - - 0 1"></div>
+<p>Как? Наверное, произошла ошибка в записи! Ведь не могут же черные вести борьбу, не имея короля? Так решишь ты.</p>
+<!--p>— 19 —</p-->
+<p>И будешь прав. Задача в том и заключается, что надо поставить на любое поле доски черного короля. Но так, чтобы белые могли, начиная игру, дать ему мат в два хода. Где же место черного короля?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Где их места?</b> В первой позиции черный король должен стоять на c5. К мату в два хода ведет продолжение
+	 <span onclick='loadMove("8/8/5P1P/8/K7/b4B2/1P6/4Q3 b - - 0 1", this, "h4e1"); ' class="line0">1.Фe1!</span> 
+	</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3K4/b3N1BP/1n6/5Pp1/3P2P1/P1P1P3/1R1N1nrq/2Q5 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3K4/b3N1BP/1n6/5Pp1/3P2P1/P1P1P3/1R1N1nrq/2Q5 w - - 0 1", this, ""); '>[...]</span> 
+<p>А вот другая позиция, в которой также надо определить, где должен находиться черный король. И здесь, после того как король займет свое место, он получает мат в два хода.</p>
+<p>Белые: Крd8, Фc1, Лb2, Сg7, Кd2, Кe7, п. a3, c3, d4, e3, f5, g4, h7 (13). Черные: Фh2, Лg2, Сa7, Кb6, Кf2, п. g5 (6).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3K4/b3N1BP/1n6/5Pp1/3P2P1/P1P1P3/1R1N1nrq/2Q5 w - - 0 1"></div>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Во второй позиции место короля на d6. Мат в два хода достигается после
+	 <span onclick='loadMove("3K4/b3N1BP/1n6/5Pp1/3P2P1/P1P1P3/1R1N1nrq/7Q b - - 0 1", this, "c1h1"); ' class="line0">1.Фh1!</span> 
+	</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/2P3p1/1p4P1/1P2B3/5pK1/3R1P2/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/2P3p1/1p4P1/1P2B3/5pK1/3R1P2/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Очень интересна следующая задача. В ней черного короля можно поставить на четыре различных поля, и каждый раз черные получают мат в два хода, причем пешка c7 во всех решениях превращается в разные фигуры.</p>
+<p class="capTop diagram">22</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/2P3p1/1p4P1/1P2B3/5pK1/3R1P2/8/8 w - - 0 1"></div>
+<p>Вот как решается задача: 1) черный король на b1.
+ <span onclick='loadMove("2Q5/6p1/1p4P1/1P2B3/5pK1/3R1P2/8/8 b - - 0 1", this, "c7c8"); ' class="line1">1.c8Ф</span> 
+; 2) черный король на e7.
+ <span onclick='loadMove("2R5/6p1/1p4P1/1P2B3/5pK1/3R1P2/8/8 b - - 0 1", this, "c7c8"); ' class="line1">1.c8Л</span> 
+; 3) черный король на a7.
+ <span onclick='loadMove("2B5/6p1/1p4P1/1P2B3/5pK1/3R1P2/8/8 b - - 0 1", this, "c7c8"); ' class="line1">1.c8С</span> 
+; 4) черный король на e8.
+ <span onclick='loadMove("2N5/6p1/1p4P1/1P2B3/5pK1/3R1P2/8/8 b - - 0 1", this, "c7c8"); ' class="line1">1.c8К</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1nbqrn2/bprkp3/2p1p1p1/2p4p/p7/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1nbqrn2/bprkp3/2p1p1p1/2p4p/p7/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>А в этом удивительном положении белых пока еще нет. Поставь сам короля и одну пешку, но так, чтобы белые могли дать мат в три хода черному королю.</p>
+<p class="capTop diagram">23</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1nbqrn2/bprkp3/2p1p1p1/2p4p/p7/8/8/8 w - - 0 1"></div>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>В положении на диаграмме № 23 белые ставят своего короля на e5 и пешку на b6. Решается задача так: <b>1.ba Кa6 2.a8К</b> с неизбежным матом на b6.</p>
+	<br />
+	<p>Сходная задача была опубликована сто лет назад немецким мастером М. Ланге.</p>
+	<p class="capTop diagram">54</p>
+		<div class="chessBoard analysis nobuttons" data-start-fen="2nbqrn1/pbppkp1r/1p1p1p1p/8/8/8/8/8 w - - 0 1"></div>
+	<p>Белые ставят короля на f5, пешку на a6. Решает <b>1.ab</b> с неизбежным <b>2.bcК</b>X.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/6Q1/2K5/8/6B1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/6Q1/2K5/8/6B1 w - - 0 1", this, ""); '>[...]</span> 
+<p>Следующая позиция содержит три каверзных вопроса, связанных с таинственным пребыванием черного короля. Куда надо поставить его, чтобы он был заматован, чтобы он был запатован, чтобы белые могли дать ему мат в один ход?</p>
+<p>Белые фигуры расположены так: Крc3, Фg4, Сg1.</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/6Q1/2K5/8/6B1 w - - 0 1"></div>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Три вопроса</b>. <b>А.</b> На e3. <b>Б.</b> На h1. <b>В.</b> На a8 (
+	 <span onclick='loadMove("2Q5/8/8/8/8/2K5/8/6B1 b - - 0 1", this, "g4c8"); ' class="line0">1.Фc8X</span> 
+	).</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5B2/6p1/5N1k/6p1/6R1/4K3/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5B2/6p1/5N1k/6p1/6R1/4K3/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Представь себе, что тебе поручено... вести следствие по делу о пропаже белой пешки. И куда она только запропастилась?</p>
+<p>Расставь на доске такую позицию. Белые: Крe2, Лg3, Сf7, Кf5(4). Черные: Крh5, п. g4, g6 (3).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5B2/6p1/5N1k/6p1/6R1/4K3/8 w - - 0 1"></div>
+<p>Найди теперь пропавшую белую пешку и поставь ее на такое поле, чтобы белые смогли заматовать в два хода черного короля.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Пропавшая пешка. Белая пешка на h2. <b>1.h4!</b> Подумай, почему пешка не может находиться на f2?</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+<!--p>— 20 —</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

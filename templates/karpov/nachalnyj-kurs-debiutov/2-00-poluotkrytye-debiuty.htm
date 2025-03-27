@@ -1,0 +1,64 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ПОЛУОТКРЫТЫЕ ДЕБЮТЫ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ПОЛУОТКРЫТЫЕ ДЕБЮТЫ</h1>
+<p>Так называются дебюты, в которых на
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e2-e4</span> 
+черные отвечают любым ходом, кроме
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line1">1...e7-e5</span> 
+. Тем самым они не препятствуют созданию белыми пешечного центра, но готовятся впоследствии его атаковать.</p>
+<p>Обычно белые получают здесь некоторый перевес в развитии и стремятся к открытой игре, что всегда выгоднее лучше развитой стороне. Черные, напротив, стараются поддерживать закрытый характер игры, пока не окажутся достаточно развиты для того, чтобы приступить к атаке центра противника.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-francuzskaia-zashchita.htm' %}">Французская защита</a></li>
+<ul>	
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-francuzskaia-zashchita.htm' %}#game-karpov-vaganyan-1976">Карпов — Ваганян</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-francuzskaia-zashchita.htm' %}#game-grishuk-radzhabov-2002">Грищук — Раджабов</a></li>
+</ul>	
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-zashchita-karo-kann.htm' %}">Защита Каро-Канн</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-zashchita-karo-kann.htm' %}#game-anand-karpov-1998">Ананд — Карпов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-zashchita-karo-kann.htm' %}#game-topalov-anand-1999">Топалов — Ананд</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-sicilianskaia-zashchita.htm' %}">Сицилианская защита</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-sicilianskaia-zashchita.htm' %}#game-karpov-shnapik-1986">Карпов — Шнапик</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-sicilianskaia-zashchita.htm' %}#game-spasskij-hyartarson-1988">Спасский — Хьяртарсон</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-sicilianskaia-zashchita.htm' %}#game-kasparov-gelfand-1993">Каспаров — Гельфанд</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-sicilianskaia-zashchita.htm' %}#game-movsesyan-kasparov-2000">Мовсесян — Каспаров</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-sicilianskaia-zashchita.htm' %}#game-grishchuk-ponomarev-2005">Грищук — Пономарев</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-zashchita-alehina.htm' %}">Защита Алехина</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-zashchita-alehina.htm' %}#game-morozevich-bagirov-1995">Морозевич — Багиров</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05-skandinavskaia-zashchita.htm' %}">Скандинавская защита</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05-skandinavskaia-zashchita.htm' %}#game-anand-lote-1997">Ананд — Лотье</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-debiut-nimcovicha.htm' %}">Дебют Нимцовича</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-debiut-nimcovicha.htm' %}#game-keres-larsen-1967">Керес — Ларсен</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-zashchita-pirca-ufimceva.htm' %}">Защита Пирца-Уфимцева</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-zashchita-pirca-ufimceva.htm' %}#game-kasparov-topalov-1999">Каспаров — Топалов</a></li>
+</ul>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,28 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Слон | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<a name="1-2-4-slon"></a>
+
+<div class="section">
+<h3>Слон</h3>
+<div class="chessBoard small nobuttons" data-start-fen="6k1/5r2/5b2/8/2B5/2B5/3r4/K1R5 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/5r2/5b2/8/2B5/2B5/3r4/K1R5 w - - 0 1", this, ""); '>[...]</span> 
+<p>В этом положении на доске имеются три слона: на c3, c4, f6; кроме них — три ладьи: на c1, d2, f7 и, конечно, два короля — ведь короли не снимаются — на a1 и g8.</p>
+<p>Так как слоны ходят по диагоналям, то слон c3 может взять слона f6, и наоборот. Однако взять ладью d2 слон c3 не может, так как он связан слоном f6, заставляющим его защищать своего короля.</p>
+<p>Слон c4 может взять ладью f7; последняя же вообще никуда уйти не может, так как она связана, будучи вынужденной защищать своего короля от нападения слона c4.</p>
+<p>Число полей, на которые могут пойти в данном положении слоны: слон c3 — на четыре поля (b2, d4, e5, f6), слон c4 — на десять (a2, b3, d5, e6, f7, a6, b5, d3, e2, f1) и, наконец, слон f6 — на девять полей (h8, g7, e5, d4, c3, d8, e7, g5, h4).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Неисчерпаемая кладовая | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<a name="151"></a>
+<h1>НЕИСЧЕРПАЕМАЯ КЛАДОВАЯ</h1>
+
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/6-neischerpaemaia-kladovaia.png' %}" />
+</div>
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-1-parad-debiutov.htm' %}">Парад дебютов</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-2-skolko-vsego-kombinacij.htm' %}">Сколько всего комбинаций?</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-3-kombinaciia-dusha-shahmat.htm' %}">Комбинация — душа шахмат</a></li>
+	</ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

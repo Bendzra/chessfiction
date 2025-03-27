@@ -1,0 +1,73 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>title | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h3>Выдающиеся шахматисты мира</h3>
+
+<!--div class="message"-->
+<!--img src="smyslov_files/smyslov-1.png" style="width:248pt;height:362pt;"/-->
+<!--/div-->
+
+<div class="message">
+<h3>ВЫДАЮЩИЕСЯ ШАХМАТИСТЫ МИРА</h3>
+<h2>В.В. СМЫСЛОВ</h2>
+<h1>В ПОИСКАХ ГАРМОНИИ</h1>
+</div>
+
+<div class="message">
+<p>МОСКВА</p>
+<p>«ФИЗКУЛЬТУРА И СПОРТ»</p>
+<p>1979</p>
+</div>
+
+<hr/>
+
+<div class="message">
+<p>ББК 75.581</p>
+<p>С 52</p>
+</div>
+
+<div class="message">
+<p>С 52</p>
+<p><b>Смыслов В. В.</b></p>
+<p>В поисках гармонии.— М.: Физкультура и спорт, 1979.— 238 с., 20 ил., портр.— (Выдающиеся шахматисты мира)</p>
+</div>
+
+<div class="message">
+<p>В своей книге экс-чемпион мира рассказывает о творческом пути, делится своими взглядами на шахматную игру, знакомит с лучшими партиями, специально отобранными и прокомментированными для этой книги.</p>
+<p>Из этой книги читатель узнает о большом вкладе В. Смыслова в теорию шахмат. Издание предназначено высококвалифицированным шахматистам.</p>
+</div>
+<div class="message">
+<table style="float:left;">
+<tr><td rowspan="2">С</td><td>60904-040</td><td rowspan="2">142-79</td></tr>
+<tr><td>009 (01)-79</td></tr>
+</table>
+<div style="float:right;">
+<p>ББК75.581</p>
+<p>7А9.1</p>
+</div>
+<div style="clear:both;"></div>
+</div>
+
+<div class="message">
+<p style="float:right;">© Издательство «Физкультура и спорт», 1979 г.</p>
+<div style="clear:both;"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

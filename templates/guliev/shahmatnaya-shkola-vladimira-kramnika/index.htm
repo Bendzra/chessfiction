@@ -1,0 +1,84 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<u>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Сархан Гулиев. Шахматная школа Владимира Крамника</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">ПРЕДИСЛОВИЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-ataka-na-korolia.htm' %}">АТАКА НА КОРОЛЯ</a></li>
+<ol start="1">
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-B33-iudasin-kramnik-vejk-an-zee-1994.htm' %}">Л. Юдасин — В. Крамник, Вейк-ан-Зее, 1-я партия матча претендентов, 1994</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-D27-kramnik-sadvakasov-astana-2001.htm' %}">В. Крамник — Д. Садвакасов, Астана 2001</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-C42-najdich-kramnik-dortmund-2009.htm' %}">А. Найдич — В. Крамник, Дортмунд 2009</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Г. Серпер, Дортмунд 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Л. Ван Вели, Дортмунд 2008</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Б. Абрамович, Биль, межзональный турнир, 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Т. Раджабов, Линареc 2003</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">КОНТРАТАКА</a></li>
+<ol start="8">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Иванчук — В. Крамник, Линареc 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">П. Леко — В. Крамник, Линареc 2004</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">НАСТУПЛЕНИЕ НА ФЕРЗЕВОМ ФЛАНГЕ</a></li>
+<ol start="10">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Л. Портиш — В. Крамник, Биль, межзональный турнир, 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">И. Смирин — В. Крамник, Клубный чемпионат Европы, Бугойно 1999</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — А. Широв, Вейк-ан-Зее 2007</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">СИЛА ИЗОЛИРОВАННОЙ ПЕШКИ d4</a></li>
+<ol start="13">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — В. Ананд, Дос-Эрманас 1999</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — В. Ананд, Дортмунд 2001</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Р. Хюбнер, Дортмунд 2000</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Г. Каспаров, Матч на первенство мира, 10-я партия, Лондон 2000</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">БОРЬБА ПРОТИВ ИЗОЛИРОВАННОЙ И «ВИСЯЧИХ» ПЕШЕК</a></li>
+<ol start="17">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — М. Адамс, Вейк-ан-Зее 2000</a></li>
+<!--p>168</p><p>Оглавление</p-->
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — М. Ильескас, Линареc 1994</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — З. Рибли, Гронинген 1993</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">СТРАТЕГИЯ ЦЕНТРА</a></li>
+<ol start="20">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — В. Звягинцев, Тилбург 1998</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — М. Ильескас, Дос-Эрманас 1999</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — А. Тимофеев, Чемпионат России, Москва 2011</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЭНДШПИЛЬ</a></li>
+<ol start="23">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Б. Гельфанд, Астана 2001</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — А. Морозевич, Дортмунд 2001</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Е. Бареев, Вейк-ан-Зее 2003</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — П. Леко, Матч на первенство мира, 14-я партия, Бриссаго 2004</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — А. Широв, Мемориал Таля, Москва 2007</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЖЕРТВА КАЧЕСТВА</a></li>
+<ol start="28">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Г. Каспаров, Линареc 1994</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — П. Леко, Чемпионат мира, Мехико 2007</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — Л. МакШейн, Лондон 2012</a></li>
+</ol>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

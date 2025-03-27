@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>6. Шахматная нотация | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater nobuttons" data-start-fen="8/8/8/8/8/8/8/8 w - - 0 1" data-markers="X TLa1a1'a1 TLa2a2'a2 TLa3a3'a3 TLa4a4'a4 TLa5a5'a5 TLa6a6'a6 TLa7a7'a7 TLa8a8'a8 TLb1b1'b1 TLb2b2'b2 TLb3b3'b3 TLb4b4'b4 TLb5b5'b5 TLb6b6'b6 TLb7b7'b7 TLb8b8'b8 TLc1c1'c1 TLc2c2'c2 TLc3c3'c3 TLc4c4'c4 TLc5c5'c5 TLc6c6'c6 TLc7c7'c7 TLc8c8'c8 TLd1d1'd1 TLd2d2'd2 TLd3d3'd3 TLd4d4'd4 TLd5d5'd5 TLd6d6'd6 TLd7d7'd7 TLd8d8'd8 TLe1e1'e1 TLe2e2'e2 TLe3e3'e3 TLe4e4'e4 TLe5e5'e5 TLe6e6'e6 TLe7e7'e7 TLe8e8'e8 TLf1f1'f1 TLf2f2'f2 TLf3f3'f3 TLf4f4'f4 TLf5f5'f5 TLf6f6'f6 TLf7f7'f7 TLf8f8'f8 TLg1g1'g1 TLg2g2'g2 TLg3g3'g3 TLg4g4'g4 TLg5g5'g5 TLg6g6'g6 TLg7g7'g7 TLg8g8'g8 TLh1h1'h1 TLh2h2'h2 TLh3h3'h3 TLh4h4'h4 TLh5h5'h5 TLh6h6'h6 TLh7h7'h7 TLh8h8'h8"></div>
+<div class="score">
+<h3>6. Шахматная нотация</h3>
+<p>Для записи партий и разных положений на доске и ходов,
+<!--p>12</p><p>Часть I. Общие сведения о шахматной игре</p-->
+делаемых в шахматной партии, существует определенный способ обозначения, с которым начинающему непременно нужно познакомиться.</p>
+<p>Как вертикальные, так и горизонтальные ряды имеют свои названия: вертикальные обозначаются первыми буквами латинского алфавита: а, b, с, d, е, f, g, h; горизонтальные — цифрами от 1 до 8. Каждый ход можно назвать и записать, указав сначала поле, на котором стоит фигура, а затем, после тире — поле, на которое она идет.</p>
+
+<p class="capTop diagram">16</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/8/8/8 w - - 0 1" data-markers="X TLa1a1'a1 TLa2a2'a2 TLa3a3'a3 TLa4a4'a4 TLa5a5'a5 TLa6a6'a6 TLa7a7'a7 TLa8a8'a8 TLb1b1'b1 TLb2b2'b2 TLb3b3'b3 TLb4b4'b4 TLb5b5'b5 TLb6b6'b6 TLb7b7'b7 TLb8b8'b8 TLc1c1'c1 TLc2c2'c2 TLc3c3'c3 TLc4c4'c4 TLc5c5'c5 TLc6c6'c6 TLc7c7'c7 TLc8c8'c8 TLd1d1'd1 TLd2d2'd2 TLd3d3'd3 TLd4d4'd4 TLd5d5'd5 TLd6d6'd6 TLd7d7'd7 TLd8d8'd8 TLe1e1'e1 TLe2e2'e2 TLe3e3'e3 TLe4e4'e4 TLe5e5'e5 TLe6e6'e6 TLe7e7'e7 TLe8e8'e8 TLf1f1'f1 TLf2f2'f2 TLf3f3'f3 TLf4f4'f4 TLf5f5'f5 TLf6f6'f6 TLf7f7'f7 TLf8f8'f8 TLg1g1'g1 TLg2g2'g2 TLg3g3'g3 TLg4g4'g4 TLg5g5'g5 TLg6g6'g6 TLg7g7'g7 TLg8g8'g8 TLh1h1'h1 TLh2h2'h2 TLh3h3'h3 TLh4h4'h4 TLh5h5'h5 TLh6h6'h6 TLh7h7'h7 TLh8h8'h8"></div>
+<p>При ходах фигурами (за исключением пешек) всегда ставится их графическое обозначение. Кроме того, необходимо запомнить еще следующие знаки:</p>
+<div class="message">
+<p><b>:</b> вместо тире означает, что одна фигура бьет другую</p>
+<p><b>+</b> шах X мат</p>
+<p><b>0-0</b> короткая рокировка</p>
+<p><b>0-0-0</b> длинная рокировка</p>
+<p><b>!</b> хороший ход</p>
+<p><b>?</b> плохой ход</p>
+<p><b>~</b> любой ход.</p>
+</div>
+<p>При сокращенной записи указывают только поле, на которое фигура становится; например: вместо <b>Кf3-g5</b> пишут <b>Кg5</b>; вместо <b>a3:b4</b> просто <b>ab</b>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2kq4/2pn3r/1pRp1b2/1P1PR3/Q2K1PBr/2N5/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2kq4/2pn3r/1pRp1b2/1P1PR3/Q2K1PBr/2N5/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">17</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2kq4/2pn3r/1pRp1b2/1P1PR3/Q2K1PBr/2N5/8/8 w - - 0 1"></div>
+<p>Этой диаграммой можно воспользоваться для упражнения в записи положения фигур на доске. Здесь мы имеем следующее расположение. Белые: Крd4, Фa4, Лc6 и Лe5, Сg4, Кc3, п. b5, d5, f4. Черные: Крc8, Фd8, Лh4 и Лh7, Сf6, Кd7, п. b6, c7, d6.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

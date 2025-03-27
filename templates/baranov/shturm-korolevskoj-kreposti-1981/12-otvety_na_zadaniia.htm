@@ -1,0 +1,21 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ответы на задания | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>Ответы на задания</h2>
+
+<div class="spoiler-wrap">
+	  <div class="spoiler-head folded">Решение</div>
+	  <div class="spoiler-body">
+<p class="score"><a href="{% url 'page-view' book.root_dir|add:'/11-zadaniia.htm' %}">на предыдущей странице</a></p>
+	  </div>
+	</div> <!-- spoiler-wrap -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

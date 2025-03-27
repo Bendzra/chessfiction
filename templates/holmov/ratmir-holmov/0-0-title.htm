@@ -1,0 +1,60 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="diagram">
+<h1>Ратмир Холмов</h1>
+</div>
+
+<div class="diagram">
+<p>МОСКВА</p>
+<p>«ФИЗКУЛЬТУРА И СПОРТ»</p>
+<p>1982</p>
+</div>
+
+<div class="message">
+<p>ББК 75.581</p>
+<p>X 72</p>
+</div>
+
+<div class="message">
+<p>Холмов Р. Д.</p>
+<p>Х72 Творчество; Избранные партии.— М.: Физкультура и спорт, 1982.— 144 с., ил.</p>
+</div>
+
+<div class="message">
+<p>Книга о творчестве международного гроссмейстера Р. Холмова открывается очерком Евг. Ильина, в котором рассказывается о жизненном и спортивном пути известного шахматиста. Основная часть книги — избранные партии Холмова с его комментариями.</p>
+<p>Рассчитана на массовых любителей шахмат.</p>
+</div>
+
+<div class="message">
+<table style="float:left;">
+<tr><td rowspan="2">Х</td><td>60904—119</td><td rowspan="2">139—82</td><td rowspan="2">4202000000</td></tr>
+<tr><td>009(01)—82</td></tr>
+</table>
+<div style="float:right;">
+<p>ББК 75.581</p>
+<p>7А9.1</p>
+</div>
+<div style="clear:both;"></div>
+</div>
+
+<p style="text-align:right;">© Издательство «Физкультура и спорт», 1982 г.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

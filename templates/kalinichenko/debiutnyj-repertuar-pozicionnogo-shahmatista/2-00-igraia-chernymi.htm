@@ -1,0 +1,36 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЧАСТЬ ВТОРАЯ. ИГРАЯ ЧЕРНЫМИ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ЧАСТЬ ВТОРАЯ. ИГРАЯ ЧЕРНЫМИ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-sicilianskaia-zashchita.htm' %}">Глава 7. Сицилианская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-14-staroindijskaia-zashchita.htm' %}">СТАРОИНДИЙСКАЯ ЗАЩИТА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-variant-chetyreh-peshek.htm' %}">Глава 8. Вариант четырех пешек</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-09-sistema-zemisha.htm' %}">Глава 9. Система Земиша</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-10-sistema-s-razvitiem-slona-na-g2.htm' %}">Глава 10. Система с развитием слона на g2</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-11-klassicheskaia-sistema.htm' %}">Глава 11. Классическая система</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-12-otkloneniia-belyh-ot-klassicheskoj-sistemy.htm' %}">Глава 12. Отклонения белых от классической системы (5.Сd3, Кge2)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-13-variant-makogonova.htm' %}">Глава 13. Вариант Макогонова</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-14-sistema-averbaha.htm' %}">Глава 14. Система Авербаха</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-15-ataka-torre.htm' %}">Глава 15. Атака Торре</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-16-debiut-trompovskogo.htm' %}">Глава 16. Дебют Тромповского</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-17-anglijskoe-nachalo.htm' %}">Глава 17. Английское начало</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-18-debiut-berda.htm' %}">Глава 18. Дебют Берда</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

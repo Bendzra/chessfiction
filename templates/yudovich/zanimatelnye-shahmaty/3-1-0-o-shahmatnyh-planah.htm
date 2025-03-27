@@ -1,0 +1,29 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>О шахматных планах | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>О шахматных планах</h2>
+<div class="score">
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-1-obdumannoe-predpolozhenie.htm' %}">Обдуманное предположение</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-2-razve-eto-plan.htm' %}">Разве это план?</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-3-ia-budu-zashchishchatsia.htm' %}">Я буду защищаться</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-4-kak-sozdaetsia-plan.htm' %}">Как создается план</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-5-shag-za-shagom.htm' %}">Шаг за шагом</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-6-v-seredine-igry.htm' %}">В середине игры</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-7-sovety-i-pozhelaniia.htm' %}">Советы и пожелания</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

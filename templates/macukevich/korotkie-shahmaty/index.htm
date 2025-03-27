@@ -1,0 +1,149 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>Оглавление</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Короткие шахматы: 555 дебютных ошибок / А. Мацукевич / 2002</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-nepobedimye-oshibki.htm' %}">Непобедимые ошибки. Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-00-otkrytye-debiuty.htm' %}">I. ОТКРЫТЫЕ ДЕБЮТЫ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-russkaia-partiia.htm' %}">Русская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-latyshskij-gambit.htm' %}">Латышский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-kontrataka-2_d5.htm' %}">Контратака 2...d5</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-zashchita-filidora.htm' %}">Защита Филидора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-debiut-ponciani.htm' %}">Дебют Понциани</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-shotlandskaia-partiia.htm' %}">Шотландская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-shotlandskij-gambit.htm' %}">Шотландский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-vengerskaia-zashchita.htm' %}">Венгерская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-italianskaia-partiia.htm' %}">Итальянская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-gambit-evansa.htm' %}">Гамбит Эванса</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-otkazannyj-gambit-evansa.htm' %}">Отказанный гамбит Эванса</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-debiut-dvuh-konej.htm' %}">Дебют двух коней</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-13-debiut-treh-konej.htm' %}">Дебют трех коней</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-14-debiut-chetyreh-konej.htm' %}">Дебют четырех коней</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-ispanskaia-partiia.htm' %}">Испанская партия</a></li>
+<!--p>360</p-->
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-16-nepravilnye-zashchity.htm' %}">Неправильные защиты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-17-centralnyj-debiut.htm' %}">Центральный дебют</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-18-centralnyj-gambit.htm' %}">Центральный гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-19-severnyj-gambit.htm' %}">Северный гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-20-korolevskij-gambit.htm' %}">Королевский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-21-otkazannyj-korolevskij-gambit.htm' %}">Отказанный королевский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-22-venskaia-partiia.htm' %}">Венская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-23-debiut-slona.htm' %}">Дебют слона</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-24-debiut-alapina.htm' %}">Дебют Алапина</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00-poluotkrytye-debiuty.htm' %}">II. ПОЛУОТКРЫТЫЕ ДЕБЮТЫ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-skandinavskaia-zashchita.htm' %}">Скандинавская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-zashchita-alehina.htm' %}">Защита Алехина</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-francuzskaia-zashchita.htm' %}">Французская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-zashchita-karo-kann.htm' %}">Защита Каро-Канн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05-zashchita-pirca-ufimceva.htm' %}">Защита Пирца-Уфимцева</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-sicilianskaia-zashchita.htm' %}">Сицилианская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-sicilianskij-gambit.htm' %}">Сицилианский гамбит</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-00-zakrytye-debiuty.htm' %}">III. ЗАКРЫТЫЕ ДЕБЮТЫ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-01-ferzevyj-gambit.htm' %}">Ферзевый гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-priniatyj-ferzevyj-gambit.htm' %}">Принятый ферзевый гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-03-debiut-ferzevyh-peshek.htm' %}">Дебют ферзевых пешек</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-04-debiut-ferzevoj-peshki.htm' %}">Дебют ферзевой пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-05-slavianskaia-zashchita.htm' %}">Славянская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-06-zashchita-chigorina.htm' %}">Защита Чигорина</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-07-katalonskoe-nachalo.htm' %}">Каталонское начало</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-08-kontrgambit-albina.htm' %}">Контргамбит Альбина</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-09-budapeshtskij-gambit.htm' %}">Будапештский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-10-zashchita-nimcovicha.htm' %}">Защита Нимцовича</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-11-novoindijskaia-zashchita.htm' %}">Новоиндийская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-12-zashchita-bogoliubova.htm' %}">Защита Боголюбова</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-13-zashchita-griunfelda.htm' %}">Защита Грюнфельда</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-14-staroindijskaia-zashchita.htm' %}">Староиндийская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-15-staroindijskoe-nachalo.htm' %}">Староиндийское начало</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-16-zashchita-benoni.htm' %}">Защита Бенони</a></li>
+<!--p>361</p-->
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-17-volzhskij-gambit.htm' %}">Волжский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-18-gollandskaia-zashchita.htm' %}">Голландская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-19-anglijskoe-nachalo.htm' %}">Английское начало</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-20-debiut-reti.htm' %}">Дебют Рети</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-00-redkie-debiuty.htm' %}">IV. РЕДКИЕ ДЕБЮТЫ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-debiut-sokolskogo.htm' %}">Дебют Сокольского</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-02-gambit-blekmara-dimera.htm' %}">Гамбит Блекмара-Димера</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-03-debiut-berda.htm' %}">Дебют Берда</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-04-debiut-groba.htm' %}">Дебют Гроба</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-05-polskaia-zashchita.htm' %}">Польская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-06-debiut-simagina-larsena.htm' %}">Дебют Симагина-Ларсена</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-07-debiut-mizesa.htm' %}">Дебют Мизеса</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-08-debiut-nimcovicha.htm' %}">Дебют Нимцовича</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-09-gambit-tennisona.htm' %}">Гамбит Теннисона</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-10-gambit-englunda.htm' %}">Гамбит Энглунда</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-grossmejstery-v-korotkih-shahmatah.htm' %}">Гроссмейстеры в «Коротких шахматах»</a></li>
+</ul>
+
+<div class="diagram">
+<h3>Научно-популярное издание</h3>
+<h2>Мацукевич Анатолий Александрович</h2>
+<h1>КОРОТКИЕ ШАХМАТЫ</h1>
+<h4>555 дебютных ошибок</h4>
+</div>
+
+<div class="diagram">
+<p>Редактор Д. Р. Кондахсазова</p>
+<p>Технический редактор Т. П. Тимошина</p>
+<p>Корректор И.Н.Мокина</p>
+<p>Компьютерная верстка Ю. А. Хмеличек</p>
+</div>
+
+<div class="diagram">
+<p>Общероссийский классификатор продукции</p>
+<p>ОК-005-93, том 2; 953004 — книги, брошюры</p>
+</div>
+
+<div class="diagram">
+<p>Санитарно-эпидемиологическое заключение</p>
+<p>№ 77.99.11.953.П.002870.10.01 от 25.10.2001 г.</p>
+</div>
+
+<div class="diagram">
+<p><b>ООО «Издательство Астрель»</b></p>
+<p>Изд. лиц. ЛР № 066647 от 07.06.99.</p>
+<p>143900, Московская обл., г. Балашиха, пр-т Ленина, 81</p>
+</div>
+
+<div class="diagram">
+<p>ООО «Издательство АСТ»</p>
+<p>Изд. лиц. ИД № 02694 от 30.08.00.</p>
+<p>674460, Читинская обл., Агинский р-н, п. Агинское, ул. Базара Ринчино, 84</p>
+</div>
+
+<div class="diagram">
+<p>Наши электронные адреса:</p>
+<p>www.ast.ru</p>
+<p>E-mail: astpub@aha.ru</p>
+</div>
+
+<div class="diagram">
+<p>Отпечатано с готовых диапозитивов</p>
+<p>в ОАО «Рыбинский Дом печати»</p>
+<p>152901, г. Рыбинск, ул. Чкалова, 8.</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

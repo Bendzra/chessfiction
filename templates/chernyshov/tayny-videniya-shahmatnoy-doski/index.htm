@@ -1,0 +1,44 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Чернышов К.В. Тайны видения шахматной доски и расчета вариантов</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Введение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Видение доски и расчет вариантов</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Трудность 1</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-neobyknovennoe-rassledovanie.htm' %}">Необыкновенное расследование</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ложные и реальные цели</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Трудность 2</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Необыкновенное расследование</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Трудность 2 (продолжение)</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Необыкновенное расследование</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Концентрация внимания</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Трудность 3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Необыкновенное расследование</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Трудность 3 (продолжение)</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Необыкновенное расследование</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Заключение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ответы и Советы</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

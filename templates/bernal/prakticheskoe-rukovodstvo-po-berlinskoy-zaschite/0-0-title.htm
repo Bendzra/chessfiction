@@ -1,0 +1,78 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+ 
+<!--div>
+<p>УДК 794 ББК</p>
+<p>75.581 Б51</p>
+</div-->
+
+<div class="message page">
+<p>Берналь Л.</p>
+<p>Б51 Практическое руководство по Берлинской защите. — М.: «RUSSIAN CHESS HOUSE/Русский Шахматный Дом», 2018. — 264с. (Шахматный университет).</p>
+<p>ISBN 978-5-94693-666-8</p>
+</div>
+
+<div class="message notification">
+<p>Книга международного мастера, опытного тренера и шахматного журналиста Луиса Берналя посвящена Берлинской защите, получившей особую популярность после успешного ее применения Владимиром Крамником в матче на звание чемпиона мира 2000-го года против Гарри Каспарова.</p>
+<p>Рассматривается не только легендарный «берлинский эндшпиль», но и полный спектр других, «анти-берлинских» возможностей. Автор старался не перегружать работу подробными вариантами, а давать больше идей и типовых решений.</p>
+<p>Книга состоит из трех частей: раздела теории, примерных партий с комментариями и набора типовых позиций по характерным темам.</p>
+<p>Сегодня Берлинская защита — постоянный гость в супер-турнирах и входит в репертуар большинства сильнейших гроссмейстеров мира. Особую и постоянную любовь к этому дебюту питает чемпион мира Магнус Карлсен.</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+
+<div class="message">
+<h4>Учебное издание</h4>
+<h2>Луис Берналь</h2>
+<h1>ПРАКТИЧЕСКОЕ РУКОВОДСТВО ПО БЕРЛИНСКОЙ ЗАЩИТЕ</h1>
+</div>
+
+<div class="diagram">
+<p>Редактор и верстка Андрей Ельков</p>
+<p>Перевод с испанского Сергей Худяков</p>
+<p>Художник Наталья Кустова</p>
+</div>
+
+<!--div>
+<p>Подписано в печать 31.08.2017. Формат 60 х 90/16.</p>
+<p>Гарнитура «Ньютон». Усл. п. л. 16,50.</p>
+</div-->
+
+<!--div>
+<p>Издательство «RUSSIAN CHESS HOUSE»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел.: +7(495) 963-8017(пн-пт с 11.00до 18.00) email: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+
+<div class="message warning">
+<b>ISBN 978-5-94693-666-8</b>
+<p style="float;right;">© Издательство «RUSSIAN CHESS HOUSE», 2018</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,20 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Различные методы борьбы за инициативу | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2><a name="#57">Различные методы борьбы за инициативу</a></h2>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-1-metod-kontrigry.htm' %}">Метод контригры</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-2-ob-ostroj-dinamicheskoj-borbe-za-iniciativu-v-sovremennyh-debiutah.htm' %}">Об острой динамической борьбе за инициативу в современных дебютах</a></li>
+</ul>
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

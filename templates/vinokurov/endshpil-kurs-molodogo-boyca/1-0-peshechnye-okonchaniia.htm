@@ -1,0 +1,45 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Раздел 1. ПЕШЕЧНЫЕ ОКОНЧАНИЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Раздел 1. ПЕШЕЧНЫЕ ОКОНЧАНИЯ</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-tri-bazovye-pozicii.htm' %}">1.1. Три базовые позиции</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-oppoziciia.htm' %}">1.2. Оппозиция</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-korol-na-6-j-gorizontali.htm' %}">1.3. Король на 6-й горизонтали</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-dalnij-obhod-korolia-zahod-s-tyla-minirovannye-polia.htm' %}">1.4. Дальний обход короля, заход с тыла, «минированные» поля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-treugolnik.htm' %}">1.5. Треугольник</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-pravilo-kvadrata.htm' %}">1.6. Правило квадрата</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-7-tri-sviazannye-prohodnye.htm' %}">1.7. Три связанные проходные</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.8. Блуждающий квадрат</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.9. Идея Рети</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.10. Пешечные гонки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.11. Активный король</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.12. Отталкивание плечом</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.13. Прорыв</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.14. Отдаленная проходная</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.15. Защищенная проходная</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.16. Подрыв, усиление позиции, укрепление позиции</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.17. Пешки на одном фланге</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.18. Ничейные мотивы: крепость, пат</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.19. Ладейные пешки</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

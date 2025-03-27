@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>New In Chess Code System | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>New In Chess Code System</h2>
+<table border="1">
+<tr><td>White stands slightly better</td><td>+/=</td></tr>
+<tr><td>Black stands slightly better</td><td>=/+</td></tr>
+<tr><td>White stands better</td><td>+/-</td></tr>
+<tr><td>Black stands better</td><td>-/+</td></tr>
+<tr><td>White has a decisive advantage</td><td>+-</td></tr>
+<tr><td>Black has a decisive advantage</td><td>-+</td></tr>
+<tr><td>balanced position</td><td>=</td></tr>
+<tr><td>unclear position</td><td>&#8734;</td></tr>
+<tr><td>compensation for the material</td><td>&#8240;</td></tr>
+<tr><td>strong (sufficient)</td><td>&gt;</td></tr>
+<tr><td>weak (insufficient)</td><td>&lt;</td></tr>
+<tr><td>better is</td><td>&#8805;</td></tr>
+<tr><td>weaker is</td><td>&#8804;</td></tr>
+<tr><td>good move</td><td>!</td></tr>
+<tr><td>excellent move</td><td>!!</td></tr>
+<tr><td>bad move</td><td>?</td></tr>
+<tr><td>blunder</td><td>??</td></tr>
+<tr><td>interesting move</td><td>!?</td></tr>
+<tr><td>dubious move</td><td>?!</td></tr>
+<tr><td>only move</td><td>&#9633;</td></tr>
+<tr><td>with the idea</td><td>&#8710;</td></tr>
+<tr><td>attack</td><td>&#8594;</td></tr>
+<tr><td>initiative</td><td>&#8593;</td></tr>
+<tr><td>lead in development</td><td>&#8593;&#8593;</td></tr>
+<tr><td>counterplay</td><td>&#8596;</td></tr>
+<tr><td>correspondence</td><td>corr.</td></tr>
+</table>
+<!--p>270</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

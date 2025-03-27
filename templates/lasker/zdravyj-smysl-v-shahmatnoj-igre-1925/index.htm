@@ -1,0 +1,43 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Эмануил Ласкер. Здравый смысл в шахматной игре</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">ПРЕДИСЛОВИЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-predislovie-k-pervomu-izdaniiu.htm' %}">ПРЕДИСЛОВИЕ к первому изданию</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-lekciia-1.htm' %}">Лекция 1</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-lekciia-2.htm' %}">Лекция 2</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-lekciia-3.htm' %}">Лекция 3</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-lekciia-4.htm' %}">Лекция 4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-lekciia-5.htm' %}">Лекция 5</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-lekciia-6.htm' %}">Лекция 6</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-lekcii-7-8.htm' %}">Лекции 7 и 8</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-lekciia-9.htm' %}">Лекция 9</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-0-lekcii-10-12.htm' %}">Лекции 10, 11 и 12</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-1-primery-aktivnoj-sily-korolia.htm' %}">Примеры активной силы короля</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-2-primery-passivnoj-sily-korolia.htm' %}">Примеры пассивной силы короля</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-3-primery-sily-prohodnyh-peshek.htm' %}">Примеры силы проходных пешек</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-4-primery-na-zugzvang.htm' %}">Примеры на Цугцванг</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-5-pat.htm' %}">Пат</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-6-sravnitelnaia-sila-figur-i-polej-v-koncah-igry.htm' %}">Сравнительная сила фигур и полей в концах игры</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-7-obrazcovo-provedennye-koncy.htm' %}">Образцово проведенные концы</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-posleslovie.htm' %}">Послесловие</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

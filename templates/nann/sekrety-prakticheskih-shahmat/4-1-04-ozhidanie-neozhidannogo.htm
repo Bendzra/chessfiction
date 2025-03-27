@@ -1,0 +1,153 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ожидание неожиданного | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h4>Ожидание неожиданного</h4>
+
+<div class="message">
+<p>Читатели могли обратить внимание на несколько странных маневров короля в предыдущих примерах. Это не случайное совпадение; парадоксальные ходы королем -довольно распространенное явление в пешечных окончаниях. Очень важно уметь замечать возможность «неестественных» ходов короля, как за себя, так и за соперника. Невозможно дать правила по поиску таких ходов, главным образом потому, что они часто бывают «одноразовыми», т.е. срабатывают в одной конкретной позиции. Однако это не может помешать мне привести несколько занимательных примеров.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5p2/8/8/5K2/5P2/8/7k w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5p2/8/8/5K2/5P2/8/7k w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>И. Роджерс - А. Широв</strong><br />Гронинген 1990</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5p2/8/8/5K2/5P2/8/7k w - - 0 1"></div>
+<!--p>Эндшпиль</p><p>147</p-->
+<p>Широв пошел на эту позицию, потому что она выглядит очевидной ничьей, например,
+ <span onclick='loadMove("8/5p2/8/6K1/8/5P2/8/7k b - - 0 1", this, "f4g5"); ' class="line1">1.Крg5</span> 
+ <span onclick='loadMove("8/5p2/8/6K1/8/5P2/6k1/8 w - - 0 2", this, "h1g2"); ' class="line1">Крg2</span> 
+ <span onclick='loadMove("8/5p2/8/6K1/5P2/8/6k1/8 b - - 0 2", this, "f3f4"); ' class="line1">2.f4</span> 
+ <span onclick='loadMove("8/5p2/8/6K1/5P2/5k2/8/8 w - - 0 3", this, "g2f3"); ' class="line1">Крf3</span> 
+ <span onclick='loadMove("8/5p2/8/5PK1/8/5k2/8/8 b - - 0 3", this, "f4f5"); ' class="line1">3.f5</span> 
+ <span onclick='loadMove("8/5p2/8/5PK1/4k3/8/8/8 w - - 0 4", this, "f3e4"); ' class="line1">Крe4</span> 
+. Однако после неожиданного
+ <span onclick='loadMove("8/5p2/8/8/8/5PK1/8/7k b - - 0 1", this, "f4g3"); ' class="line0">1.Крg3!</span> 
+Широв сдался. Угроза проста: дотолкать пешку до f6 и затем бежать королем за пешкой f7, одновременно защищая свою собственную пешку. Черные могут попытаться вырваться королем из коробочки путем
+ <span onclick='loadMove("8/5p2/8/8/8/5PK1/8/6k1 w - - 0 2", this, "h1g1"); ' class="line0">1...Крg1</span> 
+ <span onclick='loadMove("8/5p2/8/8/5P2/6K1/8/6k1 b - - 0 2", this, "f3f4"); ' class="line0">2.f4</span> 
+ <span onclick='loadMove("8/5p2/8/8/5P2/6K1/8/5k2 w - - 0 3", this, "g1f1"); ' class="line0">Крf1</span> 
+ <span onclick='loadMove("8/5p2/8/5P2/8/6K1/8/5k2 b - - 0 3", this, "f4f5"); ' class="line0">3.f5</span> 
+ <span onclick='loadMove("8/5p2/8/5P2/8/6K1/4k3/8 w - - 0 4", this, "f1e2"); ' class="line0">Крe2</span> 
+, однако белым удается удержать короля соперника в безвыходном положении:
+ <span onclick='loadMove("8/5p2/8/5P2/5K2/8/4k3/8 b - - 0 4", this, "g3f4"); ' class="line0">4.Крf4</span> 
+ <span onclick='loadMove("8/8/5p2/5P2/5K2/8/4k3/8 w - - 0 5", this, "f7f6"); ' class="line0">f6</span> 
+(или
+ <span onclick='loadMove("8/5p2/8/5P2/5K2/3k4/8/8 w - - 0 5", this, "e2d3"); ' class="line1">4...Крd3</span> 
+ <span onclick='loadMove("8/5p2/8/4KP2/8/3k4/8/8 b - - 0 5", this, "f4e5"); ' class="line1">5.Крe5</span> 
+, и выигрьшают после
+ <span onclick='loadMove("8/5p2/8/4KP2/8/4k3/8/8 w - - 0 6", this, "d3e3"); ' class="line1">5...Крe3</span> 
+ <span onclick='loadMove("8/5p2/5P2/4K3/8/4k3/8/8 b - - 0 6", this, "f5f6"); ' class="line1">6.f6</span> 
+или
+ <span onclick='loadMove("8/5p2/8/4KP2/2k5/8/8/8 w - - 0 6", this, "d3c4"); ' class="line2">5...Крc4</span> 
+ <span onclick='loadMove("8/5p2/5K2/5P2/2k5/8/8/8 b - - 0 6", this, "e5f6"); ' class="line2">6.Крf6</span> 
+)
+ <span onclick='loadMove("8/8/5p2/5P2/4K3/8/4k3/8 b - - 0 5", this, "f4e4"); ' class="line0">5.Крe4!</span> 
+ <span onclick='loadMove("8/8/5p2/5P2/4K3/8/5k2/8 w - - 0 6", this, "e2f2"); ' class="line0">Крf2</span> 
+ <span onclick='loadMove("8/8/5p2/3K1P2/8/8/5k2/8 b - - 0 6", this, "e4d5"); ' class="line0">6.Крd5</span> 
+. Попятный ход белого короля настолько противоестественен, что даже такой сильный шахматист, как Широв, просмотрел его.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/6p1/7p/1R2k2P/3r1pK1/5P2/8/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/6p1/7p/1R2k2P/3r1pK1/5P2/8/8 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>М. Хебден - Г. Флир</strong><br />Брайтон 1980</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/6p1/7p/1R2k2P/3r1pK1/5P2/8/8 b - - 0 1"></div>
+<p>Большую часть партии у черных была лишняя пешка, но тут они решили прекратить попытки добиться выигрыша и сыграли
+ <span onclick='loadMove("8/6p1/7p/1R1rk2P/5pK1/5P2/8/8 w - - 0 2", this, "d4d5"); ' class="line0">1...Лd5?!</span> 
+, и соперники согласились на ничью. Действительно, после
+ <span onclick='loadMove("8/6p1/7p/3Rk2P/5pK1/5P2/8/8 b - - 0 2", this, "b5d5"); ' class="line0">2.Л:d5+</span> 
+ <span onclick='loadMove("8/6p1/7p/3k3P/5pK1/5P2/8/8 w - - 0 3", this, "e5d5"); ' class="line0">Кр:d5</span> 
+ <span onclick='loadMove("8/6p1/7p/3k3P/5K2/5P2/8/8 b - - 0 3", this, "g4f4"); ' class="line0">3.Кр:f4</span> 
+ <span onclick='loadMove("8/6p1/4k2p/7P/5K2/5P2/8/8 w - - 0 4", this, "d5e6"); ' class="line0">Крe6</span> 
+продолжать борьбу, очевидно, нет смысла. Однако вскоре после заключения мира шахматисты неожиданно заметили, что вместо
+ <span onclick='loadMove("8/6p1/7p/3k3P/5K2/5P2/8/8 b - - 0 3", this, "g4f4"); ' class="line1">3.Кр:f4</span> 
+можно сыграть
+ <span onclick='loadMove("8/6p1/7p/3k1K1P/5p2/5P2/8/8 b - - 0 3", this, "g4f5"); ' class="line1">3.Крf5!</span> 
+</p>
+<!--8/6p1/7p/3k1K1P/5p2/5P2/8/8 b - - 0 1-->
+<div class="chessBoard analysis nobuttons" data-start-fen="8/6p1/4k2p/7P/5K2/5P2/8/8 w - - 0 4"></div>
+<p>Неожиданно черные сталкиваются с проблемами. После
+ <span onclick='loadMove("8/6p1/7p/5K1P/3k1p2/5P2/8/8 w - - 0 4", this, "d5d4"); ' class="line1">3...Крd4</span> 
+ <span onclick='loadMove("8/6p1/7p/7P/3k1K2/5P2/8/8 b - - 0 4", this, "f5f4"); ' class="line1">4.Кр:f4</span> 
+ <span onclick='loadMove("8/6p1/7p/7P/5K2/3k1P2/8/8 w - - 0 5", this, "d4d3"); ' class="line1">Крd3</span> 
+ <span onclick='loadMove("8/6p1/7p/5K1P/8/3k1P2/8/8 b - - 0 5", this, "f4f5"); ' class="line1">5.Крf5</span> 
+ <span onclick='loadMove("8/6p1/7p/5K1P/8/4kP2/8/8 w - - 0 6", this, "d3e3"); ' class="line1">Крe3</span> 
+ <span onclick='loadMove("8/6p1/6Kp/7P/8/4kP2/8/8 b - - 0 6", this, "f5g6"); ' class="line1">6.Крg6</span> 
+ <span onclick='loadMove("8/6p1/6Kp/7P/5k2/5P2/8/8 w - - 0 7", this, "e3f4"); ' class="line1">Крf4</span> 
+ <span onclick='loadMove("8/6K1/7p/7P/5k2/5P2/8/8 b - - 0 7", this, "g6g7"); ' class="line1">7.Кр:g7</span> 
+ <span onclick='loadMove("8/6K1/7p/6kP/8/5P2/8/8 w - - 0 8", this, "f4g5"); ' class="line1">Крg5</span> 
+ <span onclick='loadMove("8/6K1/7p/6kP/5P2/8/8/8 b - - 0 8", this, "f3f4"); ' class="line1">8.f4+</span> 
+ <span onclick='loadMove("8/6K1/7p/7k/5P2/8/8/8 w - - 0 9", this, "g5h5"); ' class="line1">Кр:h5</span> 
+ <span onclick='loadMove("8/6K1/7p/5P1k/8/8/8/8 b - - 0 9", this, "f4f5"); ' class="line1">9.f5</span> 
+пешка f проходит в ферзи. В то же время,
+ <span onclick='loadMove("8/6p1/3k3p/5K1P/5p2/5P2/8/8 w - - 0 4", this, "d5d6"); ' class="line2">3...Крd6</span> 
+ <span onclick='loadMove("8/6p1/3k2Kp/7P/5p2/5P2/8/8 b - - 0 4", this, "f5g6"); ' class="line2">4.Крg6</span> 
+ <span onclick='loadMove("8/6p1/4k1Kp/7P/5p2/5P2/8/8 w - - 0 5", this, "d6e6"); ' class="line2">Крe6</span> 
+(или
+ <span onclick='loadMove("8/6p1/6Kp/4k2P/5p2/5P2/8/8 w - - 0 5", this, "d6e5"); ' class="line3">4...Крe5</span> 
+ <span onclick='loadMove("8/6K1/7p/4k2P/5p2/5P2/8/8 b - - 0 5", this, "g6g7"); ' class="line3">5.Кр:g7</span> 
+ <span onclick='loadMove("8/6K1/7p/7P/3k1p2/5P2/8/8 w - - 0 6", this, "e5d4"); ' class="line3">Крd4</span> 
+ <span onclick='loadMove("8/8/7K/7P/3k1p2/5P2/8/8 b - - 0 6", this, "g7h6"); ' class="line3">6.Кр:h6</span> 
+ <span onclick='loadMove("8/8/7K/7P/5p2/4kP2/8/8 w - - 0 7", this, "d4e3"); ' class="line3">Крe3</span> 
+ <span onclick='loadMove("8/8/8/6KP/5p2/4kP2/8/8 b - - 0 7", this, "h6g5"); ' class="line3">7.Крg5!</span> 
+ <span onclick='loadMove("8/8/8/6KP/5p2/5k2/8/8 w - - 0 8", this, "e3f3"); ' class="line3">Кр:f3</span> 
+ <span onclick='loadMove("8/8/7P/6K1/5p2/5k2/8/8 b - - 0 8", this, "h5h6"); ' class="line3">8.h6</span> 
+ <span onclick='loadMove("8/8/7P/6K1/5p2/6k1/8/8 w - - 0 9", this, "f3g3"); ' class="line3">Крg3</span> 
+ <span onclick='loadMove("8/7P/8/6K1/5p2/6k1/8/8 b - - 0 9", this, "h6h7"); ' class="line3">9.h7</span> 
+ <span onclick='loadMove("8/7P/8/6K1/8/5pk1/8/8 w - - 0 10", this, "f4f3"); ' class="line3">f3</span> 
+ <span onclick='loadMove("7Q/8/8/6K1/8/5pk1/8/8 b - - 0 10", this, "h7h8"); ' class="line3">10.h8Ф</span> 
+ <span onclick='loadMove("7Q/8/8/6K1/8/6k1/5p2/8 w - - 0 11", this, "f3f2"); ' class="line3">f2</span> 
+ <span onclick='loadMove("8/8/8/6K1/8/6k1/5p2/7Q b - - 0 11", this, "h8h1"); ' class="line3">11.Фh1</span> 
+; в этом варианте черные проигрывают, потому что на 8-м ходу их король не может пойти на g2)
+ <span onclick='loadMove("8/6K1/4k2p/7P/5p2/5P2/8/8 b - - 0 5", this, "g6g7"); ' class="line2">5.Кр:g7</span> 
+ <span onclick='loadMove("8/4k1K1/7p/7P/5p2/5P2/8/8 w - - 0 6", this, "e6e7"); ' class="line2">Крe7</span> 
+ <span onclick='loadMove("8/4k3/7K/7P/5p2/5P2/8/8 b - - 0 6", this, "g7h6"); ' class="line2">6.Кр:h6</span> 
+ <span onclick='loadMove("8/8/5k1K/7P/5p2/5P2/8/8 w - - 0 7", this, "e7f6"); ' class="line2">Крf6</span> 
+безнадежно для черных, поскольку белые могут высвободить своего короля
+<!--p>148</p><p>Часть 4</p-->
+благодаря оставшемуся темпу пешки h:
+ <span onclick='loadMove("8/7K/5k2/7P/5p2/5P2/8/8 b - - 0 7", this, "h6h7"); ' class="line2">7.Крh7</span> 
+ <span onclick='loadMove("8/5k1K/8/7P/5p2/5P2/8/8 w - - 0 8", this, "f6f7"); ' class="line2">Крf7</span> 
+ <span onclick='loadMove("8/5k1K/7P/8/5p2/5P2/8/8 b - - 0 8", this, "h5h6"); ' class="line2">8.h6</span> 
+ <span onclick='loadMove("5k2/7K/7P/8/5p2/5P2/8/8 w - - 0 9", this, "f7f8"); ' class="line2">Крf8</span> 
+ <span onclick='loadMove("5k2/8/6KP/8/5p2/5P2/8/8 b - - 0 9", this, "h7g6"); ' class="line2">9.Крg6</span> 
+ <span onclick='loadMove("6k1/8/6KP/8/5p2/5P2/8/8 w - - 0 10", this, "f8g8"); ' class="line2">Крg8</span> 
+ <span onclick='loadMove("6k1/8/7P/5K2/5p2/5P2/8/8 b - - 0 10", this, "g6f5"); ' class="line2">10.Крf5</span> 
+ <span onclick='loadMove("8/7k/7P/5K2/5p2/5P2/8/8 w - - 0 11", this, "g8h7"); ' class="line2">Крh7</span> 
+ <span onclick='loadMove("8/7k/7P/6K1/5p2/5P2/8/8 b - - 0 11", this, "f5g5"); ' class="line2">11.Крg5</span> 
+ <!--span onclick='loadMove("8/7k/7P/6K1/5p2/5P2/8/8 w - - 0 12", this, "f5g5"); ' class="line2">z0</span--> 
+и
+ <span onclick='loadMove("8/7k/7P/8/5K2/5P2/8/8 b - - 0 12", this, "g5f4"); ' class="line2">12.Кр:f4</span> 
+.</p>
+<p>Установив, что как
+ <span onclick='loadMove("8/6p1/7p/5K1P/3k1p2/5P2/8/8 w - - 0 4", this, "d5d4"); ' class="line2">3...Крd4</span> 
+, так и
+ <span onclick='loadMove("8/6p1/3k3p/5K1P/5p2/5P2/8/8 w - - 0 4", this, "d5d6"); ' class="line2">3...Крd6</span> 
+проигрывает, можно прийти к поспешному выводу, что позиция выиграна для белых, однако помните: «Ожидайте неожиданное». Чего должны добиться черные, чтобы свести партию вничью? Прежде всего, им надо суметь защитить пешку g7, если белые сыграют <b>Кр:f4</b> с последующим <b>Крf5-g6</b>. Это означает, что их король должен находиться не далее трех полей от поля f8. Если же белые прибегнут к альтернативному плану и сразу направятся к пешке g7, не уничтожив пешку f4, тогда черные должны успеть на <b>Кр:h6</b> ответить <b>...Кр:f3</b>; промедление на один ход - и белые побеждают, как было указано выше. Поскольку белым нужно три хода для того, чтобы забрать пешку h6, то черный король должен находиться на расстоянии в три поля от пешки f3. Для выполнения первого условия король должен находиться на c5, c6 или d6, для выполнения второго - на c4, d4 или c5. К счастью для черных, одно из этих полей совпадает, а именно поле c5. Поэтому
+ <span onclick='loadMove("8/6p1/7p/2k2K1P/5p2/5P2/8/8 w - - 0 4", this, "d5c5"); ' class="line2">3...Крc5!!</span> 
+ведет к ничьей, например:
+ <span onclick='loadMove("8/6p1/6Kp/2k4P/5p2/5P2/8/8 b - - 0 4", this, "f5g6"); ' class="line2">4.Крg6</span> 
+ <span onclick='loadMove("8/6p1/6Kp/7P/3k1p2/5P2/8/8 w - - 0 5", this, "c5d4"); ' class="line2">Крd4</span> 
+,
+ <span onclick='loadMove("8/6p1/7p/2k4P/5K2/5P2/8/8 b - - 0 4", this, "f5f4"); ' class="line3">4.Кр:f4</span> 
+ <span onclick='loadMove("8/6p1/3k3p/7P/5K2/5P2/8/8 w - - 0 5", this, "c5d6"); ' class="line3">Крd6</span> 
+или
+ <span onclick='loadMove("8/6p1/7p/2k1K2P/5p2/5P2/8/8 b - - 0 4", this, "f5e5"); ' class="line3">4.Крe5</span> 
+ <span onclick='loadMove("8/6p1/2k4p/4K2P/5p2/5P2/8/8 w - - 0 5", this, "c5c6"); ' class="line3">Крc6</span> 
+.</p>
+<p>Довольно трудно четко описать, какими причинами определяется этот мотив; конечно, он не имеет ничего общего с оппозицией. Возможно, он ближе к маневру Рети, ведь черный король пытается выполнить две задачи одновременно.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ГЛАВА ЧЕТВЕРТАЯ. АЗБУКА ПОЛКОВОДЦА | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>ГЛАВА ЧЕТВЕРТАЯ. АЗБУКА ПОЛКОВОДЦА</h2>
+
+<div class="section">
+<div class="score">
+<div class="notification message" style="float:right;">
+<p><i>В смятении и тот, и этот строй.</i></p>
+<p><i>И разгорается все жарче бой.</i></p>
+<p><i>Ладьи все время сыплют стрелы с башен,</i></p>
+<p><i>Удар слонов безжалостен и страшен.</i></p>
+<p style="float:right;"><i>Я. Кохановский. «Шахматы»</i></p>
+</div>
+
+<img src="{% static 'images/'|add:book.slug|add:'/chap-04.jpg' %}" style="width:95%" />
+
+<div class="message">
+<p>«Пешка — душа шахмат». Так поэтично французский шахматист XVIII века Андре Филидор определил роль пешки. В самом деле, обязанности слабейших единиц шахматной армии, ее рядовых бойцов велики и разнообразны. В начале и середине партии они прикрывают короля и другие фигуры. В наступлении пешки теснят вражеские фигуры и захватывают территорию, а при штурме таранят неприятельскую позицию, пробивая в ней бреши.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

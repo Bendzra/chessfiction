@@ -1,0 +1,108 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--p>303</p-->
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Капабланка Х.Р. Учебник шахматной игры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие к русскому изданию</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие автора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-0-obshchie-svedeniia-o-shahmatnoj-igre.htm' %}">Часть I. ОБЩИЕ СВЕДЕНИЯ О ШАХМАТНОЙ ИГРЕ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-0-igra-figury-ih-hody-cel-igry.htm' %}">Глава 1. Игра, фигуры, их ходы, цель игры</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-1-igra.htm' %}">1. Игра</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-2-hody.htm' %}">2. Ходы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-3-shah-i-mat.htm' %}">3. Шах и мат</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-4-pat-nichia.htm' %}">4. Пат. Ничья</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-5-rokirovka.htm' %}">5. Рокировка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-6-shahmatnaia-notaciia.htm' %}">6. Шахматная нотация</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-7-vziatie-na-prohode.htm' %}">7. Взятие на проходе</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-0-kak-nauchitsia-igre-i-usovershenstvovatsia-v-nej.htm' %}">Глава 2. Как научиться игре и усовершенствоваться в ней</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-1-prostye-maty.htm' %}">1. Простые маты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-2-prostye-endshpili-prodvizhenie-peshek.htm' %}">2. Простые Эндшпили. Продвижение Пешек</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-3-dve-peshki-protiv-odnoj.htm' %}">3. Две пешки против одной</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-4-sravnitelnaia-cennost-figur.htm' %}">4. Сравнительная ценность фигур</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-0-elementarnoe-obiasnenie-debiutov.htm' %}">Глава 3. Элементарное объяснение дебютов</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. Середина игры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 5. Эндшпиль</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6. Практические советы</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Часть II. СТРАТЕГИЯ И ТАКТИКА ШАХМАТНОЙ ИГРЫ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Введение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 1. Эндшпиль</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1. Классическое окончание</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2. Получение проходной пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3. Как определить, какая из пешек первая пройдет в ферзи?</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4. Оппозиция</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5. Сравнительная сила коня и слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6. Мат конем и слоном одинокому королю</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7. Ферзь против ладьи</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. Середина игры</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1. Центральные поля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2. Конфигурация пешек</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3. Расположение пешек после рокировки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4. Типичные позиции и комбинации</a></li>
+<!--p>304</p-->
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. Достижение выигрыша в серединной стадии игры</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1. Атака без помощи коней</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2. Атака, где кони играют главную роль</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3. Выигрыш посредством косвенной атаки</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. Общая теория</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1. Инициатива</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2. Прямая, «массовая» атака</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3. Сила угрозы</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4. Отказ от инициативы</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5. Изоляция фигуры от театра военных действий</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6. Влияние «дыр»</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7. Критика соображений игрока на взятом из практики примере</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 5. Стратегия в эндшпиле</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1. Внезапная атака на другом фланге</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2. Опасности надежных позиций</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3. Эндшпиль с одной ладьей и пешками</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4. Трудный эндшпиль: две ладьи и пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5. Ладья, слон и пешки против ладьи, коня и пешек</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6. Оценка позиции в середине игры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 7. Дебюты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 8. Еще немного об эндшпиле</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Соображения общего характера</a></li>
+</ul>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Часть III. ПРИМЕРНЫЕ ПАРТИИ</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,79 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Жертва в шахматах</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-1_foreword.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01_chapter_I.htm' %}">Глава 1. Абсолютная и относительная ценность фигур</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02_chapter_II.htm' %}">Глава 2. Комбинация и жертва</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03_chapter_III.htm' %}">Глава 3. Реальные жертвы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04_chapter_IV.htm' %}">Глава 4. Заветы Пауля Морфи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-1_chapter_V-1.htm' %}">Глава 5. Преследующая жертва</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-1_chapter_V-1.htm' %}">Неувядаемая тема</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-2_chapter_V-2.htm' %}">Психология жертвы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-3_chapter_V-3.htm' %}">Современные примеры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-4_chapter_V-4.htm' %}">Король возвращается...</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-5_chapter_V-5.htm' %}">Почему дрогнул Таль?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-1_chapter_VI-1.htm' %}">Глава 6. Развивающая жертва</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-1_chapter_VI-1.htm' %}">Один из семи "смертных грехов"</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-2_chapter_VI-2.htm' %}">Рыцарский жест</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-3_chapter_VI-3.htm' %}">Увлечения королевы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-4_chapter_VI-4.htm' %}">Ферзь на прогулке</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-5_chapter_VI-5.htm' %}">Гибель "пирата"</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-1_chapter_VII-1.htm' %}">Глава 7. Препятствующая жертва</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-1_chapter_VII-1.htm' %}">Захват диагонали а3-f8</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-2_chapter_VII-2.htm' %}">Магическое поле</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-3_chapter_VII-3.htm' %}">"Трагедия одного темпа ..."</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-4_chapter_VII-4.htm' %}">Внезапная жертва</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-5_chapter_VII-5.htm' %}">Взрывная жертва</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-6_chapter_VII-6.htm' %}">Неотвратимая беда</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-7_chapter_VII-7.htm' %}">Роль тактики</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-8_chapter_VII-8.htm' %}">Препятствующая жертва как метод контратаки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-9_chapter_VII-9.htm' %}">Проблема рокировки</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-1_chapter_VIII-1.htm' %}">Глава 8. Тормозящая жертва</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-1_chapter_VIII-1.htm' %}">Блокадная жертва</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-2_chapter_VIII-2.htm' %}">Пешечный клин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-3_chapter_VIII-3.htm' %}">Фигуры мешают пешкам</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-4_chapter_VIII-4.htm' %}">Временная слабость может стать решающей</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-1_chapter_IX-1.htm' %}">Глава 9. Стратегическая жертва</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-1_chapter_IX-1.htm' %}">Борьба за центральные поля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-2_chapter_IX-2.htm' %}">Освобождающая жертва</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-3_chapter_IX-3.htm' %}">Разрушение пешечной цепи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-4_chapter_IX-4.htm' %}">Страшные пешки</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10_chapter_X-0.htm' %}">Глава 10. Интуитивная жертва</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-1_chapter_XI-1.htm' %}">Глава 11. О гамбитах</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-1_chapter_XI-1.htm' %}">Кризис классических гамбитов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-2_chapter_XI-2.htm' %}">Гамбитное решение дебютных проблем</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-3_chapter_XI-3.htm' %}">Локальные жертвы</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12_afterword.htm' %}">Вместо послесловия</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

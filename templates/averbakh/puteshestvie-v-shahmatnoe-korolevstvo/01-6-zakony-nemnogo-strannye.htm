@@ -1,0 +1,89 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЗАКОНЫ НЕМНОГО СТРАННЫЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ЗАКОНЫ НЕМНОГО СТРАННЫЕ</h3>
+<div class="message">
+<p>Осталось познакомиться еще с двумя правилами, вернее сказать, с исключениями из правил. А потом пора будет и поиграть.</p>
+<p>Вы уже знаете, что за один ход можно передвинуть только одну фигуру. Однако раз в течение партии белым и черным разрешено сделать двойной ход — рокировку, одновременную перестановку короля и ладьи. Рокировка — не что иное, как эвакуация короля в тыл. Как это делается, вы увидите на следующем примере.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r3k2r/ppp2ppp/8/8/8/8/PPP2PPP/R3K2R w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3k2r/ppp2ppp/8/8/8/8/PPP2PPP/R3K2R w KQkq - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">45</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r3k2r/ppp2ppp/8/8/8/8/PPP2PPP/R3K2R w KQkq - 0 1"></div>
+<p>И белые, и черные могут рокировать в обе стороны — короткую и длинную. Какая из сторон длиннее, видно на глаз. Рокировку делают так: ладья придвигается вплотную к королю, а король перепрыгивает через нее и становится с другой стороны (в официальных соревнованиях рокировку принято делать по-иному: сначала двигается король, затем ладья).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2kr3r/ppp2ppp/8/8/8/8/PPP2PPP/R4RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2kr3r/ppp2ppp/8/8/8/8/PPP2PPP/R4RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">46</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2kr3r/ppp2ppp/8/8/8/8/PPP2PPP/R4RK1 w - - 0 1"></div>
+<p>Вы видите положение после рокировки. При своем ходе белые рокировали в короткую сторону, а черные — в длинную, но могло быть и по-иному.</p>
+<p>В записи короткая рокировка обозначается так: 0-0, длинная так: 0-0-0. Запрещено рокировать, если:</p>
+<p>1. <i>Король или ладья — участники рокировки — хотя бы один раз ходили.</i></p>
+<p>2. <i>Королю объявлен шах. Спасаться от шаха рокировкой нельзя</i>.</p>
+<p>3. <i>После рокировки ладья или король окажутся под боем.</i></p>
+<p>Проверьте, как вы усвоили правила рокировки, на следующих упражнениях.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r3k2r/pp3p1p/7N/1q6/8/6B1/P1P2PPP/R3K2R w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3k2r/pp3p1p/7N/1q6/8/6B1/P1P2PPP/R3K2R w KQkq - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">47</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r3k2r/pp3p1p/7N/1q6/8/6B1/P1P2PPP/R3K2R w KQkq - 0 1"></div>
+<p>Условимся, что короли и ладьи еще не ходили. Пусть очередь хода за белыми. Могут ли они рокировать в короткую сторону? А в длинную?</p>
+<p>Теперь предположим, что ход черных. Ответьте на те же вопросы.</p>
+
+<div class="spoiler-wrap">
+<div class="spoiler-head folded">Решение</div>
+<div class="spoiler-body">
+ <span class="line0" onclick='loadMove("r3k2r/pp3p1p/7N/1q6/8/6B1/P1P2PPP/R3K2R w KQkq - 0 1", this, ""); '>[...]</span> 
+<p><b>№47.</b>
+<br>1. Не могут.<br>
+2. Могут.<br>
+3. Не могут.<br>
+4. Могут.</p>
+</div>
+</div> <!-- spoiler-wrap -->
+
+<br />
+<p>Нам осталось узнать последнее правило — взятие на проходе.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2k5/3p4/8/2P5/p3p3/3P4/1P6/2K5 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2k5/3p4/8/2P5/p3p3/3P4/1P6/2K5 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">48</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2k5/3p4/8/2P5/p3p3/3P4/1P6/2K5 w - - 0 1"></div>
+<p>Из начального положения пешкой можно пойти на два поля.</p>
+<p class="longNotation">
+ <span onclick='loadMove("2k5/3p4/8/2P5/pP2p3/3P4/8/2K5 b - b3 0 1", this, "b2b4"); ' class="line0">1.b2-b4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Пешка сделала двойной ход, прошла через поле b3, на которое нацелилась пешка черных a4. Оказывается, перебежка под огнем для пешки не всегда безопасна. При желании черные могут побить эту пешку, как говорят, на проходе: снять ее с доски, а свою пешку a4 переместить на поле b3, как будто бы белые пошли пешкой только на одно поле. Взятие на проходе записывается обычным способом —
+ <span onclick='loadMove("2k5/3p4/8/2P5/4p3/1p1P4/8/2K5 w - - 0 2", this, "a4b3"); ' class="line0">1...a4:b3</span>.</p>
+<p>Запомните, что на проходе бьет только пешка пешку, и притом немедленно. Сделан двойной ход пешкой, а ваша пешка имеет право взять ее на проходе — решать надо сразу. Сейчас или никогда! Пешка как бы пробежала поле, которое было на мушке вашего стрелка.</p>
+<p>Выходит, что обдумывая, брать или не брать на проходе, шахматист решает особо ответственную задачу. Так оно и есть, но волноваться не надо. Мы раскроем секрет: любой ход — ответственный, любой может оказаться роковым. Так что обдумывайте представившуюся возможность хладнокровно.</p>
+<p>Вернемся к диаграмме №48. Если белые сыграют
+ <span onclick='loadMove("2k5/3p4/8/2P5/p2Pp3/8/1P6/2K5 b - - 0 1", this, "d3d4"); ' class="line0">1.d3-d4</span>, уходя с битого поля, то брать на проходе нельзя: пешка ушла с битого поля, а не прошла его.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

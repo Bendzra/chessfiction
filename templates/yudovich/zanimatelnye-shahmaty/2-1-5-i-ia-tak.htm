@@ -1,0 +1,128 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>И я так... | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>И я так...</h3>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Давно это было. Встретился я как-то в клубе с одним начинающим любителем шахмат. Разговорились.</p>
+<p>«А я вот думаю, что смогу и против мастеров играть»,— сказал мне мой новый знакомый.</p>
+<p>«В будущем — наверняка»,— ответил я.</p>
+<p>«Да не в будущем, а сейчас. Буду повторять ходы, куда мастер, туда и я. Вот и пусть попробует выиграть».</p>
+<p>«Что ж, давай попытаюсь»,— сказал я. Сели за доску, и вскоре моему
+знакомому стало ясно, что симметрия в шахматах очень опасна для того, кто слепо копирует, не вникая в существо создающихся положений. Неизбежно наступает такой момент, когда повторять ходы невозможно, скажем, объявят тебе шах. Придется защищаться от шаха, вряд ли при этом удастся сделать встречный шах. А если уж объявят тебе мат, какая польза будет в том, что следующим ходом и ты сможешь дать мат? Будет уже поздно.</p>
+<p>Да, неспроста любил говорить известный мастер С. Бе-лавенец, что «шахматы — это трагедия одного темпа. То не хватает темпа для выигрыша, то не хватает темпа для ничьей».</p>
+<p>Вот что получается, если бездумно, механически копировать ходы противника.</p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d2-d4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2", this, "d7d5"); ' class="line0">d7-d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/3Q4/PPP1PPPP/RNB1KBNR b KQkq - 0 2", this, "d1d3"); ' class="line0">2.Фd1-d3</span> 
+ <span onclick='loadMove("rnb1kbnr/ppp1pppp/3q4/3p4/3P4/3Q4/PPP1PPPP/RNB1KBNR w KQkq - 0 3", this, "d8d6"); ' class="line0">Фd8-d6</span> 
+ <span onclick='loadMove("rnb1kbnr/ppp1pppp/3q4/3p4/3P4/7Q/PPP1PPPP/RNB1KBNR b KQkq - 0 3", this, "d3h3"); ' class="line0">3.Фd3-h3</span> 
+ <span onclick='loadMove("rnb1kbnr/ppp1pppp/7q/3p4/3P4/7Q/PPP1PPPP/RNB1KBNR w KQkq - 0 4", this, "d6h6"); ' class="line0">Фd6-h6</span> 
+ <span onclick='loadMove("rnQ1kbnr/ppp1pppp/7q/3p4/3P4/8/PPP1PPPP/RNB1KBNR b KQkq - 0 4", this, "h3c8"); ' class="line0">4.Фh3:c8X</span> 
+.</p>
+<p>Рассказывают, что такая партия была сыграна между известным шахматным композитором С. Лойдом и начинающим любителем, отстаивавшим целесообразность повторения ходов противника.</p>
+<p>«В таком случае белыми объявляю вам мат в четыре хода»,— сказал Лойд. Было заключено пари, и состоялась «партия», которую ты видел.</p>
+<!--p>— 43 —</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>А вот другой пример нелепого копирования.</p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/6P1/PPPPPP1P/RNBQKBNR b KQkq - 0 1", this, "g2g3"); ' class="line0">1.g2-g3</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppp1p/6p1/8/8/6P1/PPPPPP1P/RNBQKBNR w KQkq - 0 2", this, "g7g6"); ' class="line0">g7-g6</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppp1p/6p1/8/8/6P1/PPPPPPBP/RNBQK1NR b KQkq - 0 2", this, "f1g2"); ' class="line0">2.Сf1-g2</span> 
+ <span onclick='loadMove("rnbqk1nr/ppppppbp/6p1/8/8/6P1/PPPPPPBP/RNBQK1NR w KQkq - 0 3", this, "f8g7"); ' class="line0">Сf8-g7</span> 
+ <span onclick='loadMove("rnbqk1nr/ppppppbp/6p1/8/8/6P1/PPPPPPBP/RNBQ1KNR b kq - 0 3", this, "e1f1"); ' class="line0">3.Крe1-f1</span> 
+ <span onclick='loadMove("rnbq1knr/ppppppbp/6p1/8/8/6P1/PPPPPPBP/RNBQ1KNR w - - 0 4", this, "e8f8"); ' class="line0">Крe8-f8</span> 
+ <span onclick='loadMove("rnbq1knr/ppppppbp/6p1/8/2P5/6P1/PP1PPPBP/RNBQ1KNR b - c3 0 4", this, "c2c4"); ' class="line0">4.c2-c4</span> 
+ <span onclick='loadMove("rnbq1knr/pp1pppbp/6p1/2p5/2P5/6P1/PP1PPPBP/RNBQ1KNR w - c6 0 5", this, "c7c5"); ' class="line0">c7-c5</span> 
+ <span onclick='loadMove("rnbq1knr/pp1pppbp/6p1/2p5/2PP4/6P1/PP2PPBP/RNBQ1KNR b - d3 0 5", this, "d2d4"); ' class="line0">5.d2-d4</span> 
+ <span onclick='loadMove("rnbq1knr/pp2ppbp/6p1/2pp4/2PP4/6P1/PP2PPBP/RNBQ1KNR w - d6 0 6", this, "d7d5"); ' class="line0">d7-d5</span> 
+ <span onclick='loadMove("rnbq1knr/pp2ppbp/6p1/2Pp4/2P5/6P1/PP2PPBP/RNBQ1KNR b - - 0 6", this, "d4c5"); ' class="line0">6.d4:c5</span> 
+ <span onclick='loadMove("rnbq1knr/pp2ppbp/6p1/2P5/2p5/6P1/PP2PPBP/RNBQ1KNR w - - 0 7", this, "d5c4"); ' class="line0">d5:c4</span> 
+.</p>
+<p>Черные достигли своей цели. Симметрия полная и безупречная, но ход белых, и они берут ферзя, матуя черного короля.</p>
+<p>Однако шутки в сторону. Надо иметь в виду, что в симметричных положениях в дебютах обладающий правом делать очередной ход может рассчитывать на получение перевеса.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1bq1rk1/ppp2ppp/2np1n2/1B2p3/1b2P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 0 7"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1bq1rk1/ppp2ppp/2np1n2/1B2p3/1b2P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 0 7", this, ""); '>[...]</span> 
+<p>Вернемся, например, к диаграмме № 56, показывающей позицию, возникшую из дебюта четырех коней. Продолжим игру из этого положения </p>
+<p>
+ <span onclick='loadMove("r1bq1rk1/ppp2ppp/2np1n2/1B2p1B1/1b2P3/2NP1N2/PPP2PPP/R2Q1RK1 b - - 0 7", this, "c1g5"); ' class="line0">7.Сc1-g5</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/2np1n2/1B2p1B1/1b2P1b1/2NP1N2/PPP2PPP/R2Q1RK1 w - - 0 8", this, "c8g4"); ' class="line0">Сc8-g4?</span> 
+(Этот симметричный ход неудачен. Черные должны были менять слона b4 на коня)
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/2np1n2/1B1Np1B1/1b2P1b1/3P1N2/PPP2PPP/R2Q1RK1 b - - 0 8", this, "c3d5"); ' class="line0">8.Кc3-d5</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/1B1Np1B1/1b1nP1b1/3P1N2/PPP2PPP/R2Q1RK1 w - - 0 9", this, "c6d4"); ' class="line0">Кc6-d4</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/1B2p1B1/1N1nP1b1/3P1N2/PPP2PPP/R2Q1RK1 b - - 0 9", this, "d5b4"); ' class="line0">9.Кd5:b4</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/1n2p1B1/1N2P1b1/3P1N2/PPP2PPP/R2Q1RK1 w - - 0 10", this, "d4b5"); ' class="line0">Кd4:b5</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/1n1Np1B1/4P1b1/3P1N2/PPP2PPP/R2Q1RK1 b - - 0 10", this, "b4d5"); ' class="line0">10.Кb4-d5</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/3Np1B1/3nP1b1/3P1N2/PPP2PPP/R2Q1RK1 w - - 0 11", this, "b5d4"); ' class="line0">Кb5-d4</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/3Np1B1/3nP1b1/3P1N2/PPPQ1PPP/R4RK1 b - - 0 11", this, "d1d2"); ' class="line0">11.Фd1-d2!</span> 
+</p>
+<p class="capTop diagram">58</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/ppp2ppp/3p1n2/3Np1B1/3nP1b1/3P1N2/PPPQ1PPP/R4RK1 b - - 0 11"></div>
+<p>Белые первые и с разрушительным эффектом отказываются от симметрии.
+Теперь возможны следующие варианты:</p>
+<p>(а)
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/3Np1B1/4P1b1/3P1n2/PPPQ1PPP/R4RK1 w - - 0 12", this, "d4f3"); ' class="line1">11...К:f3+</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/3Np1B1/4P1b1/3P1P2/PPPQ1P1P/R4RK1 b - - 0 12", this, "g2f3"); ' class="line1">12.gf</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/3Np1B1/4P3/3P1P1b/PPPQ1P1P/R4RK1 w - - 0 13", this, "g4h3"); ' class="line1">Сh3</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1B2/3Np3/4P3/3P1P1b/PPPQ1P1P/R4RK1 b - - 0 13", this, "g5f6"); ' class="line1">13.С:f6</span> 
+ <span onclick='loadMove("r4rk1/pppq1ppp/3p1B2/3Np3/4P3/3P1P1b/PPPQ1P1P/R4RK1 w - - 0 14", this, "d8d7"); ' class="line1">Фd7</span> 
+(
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p2/3Np3/4P3/3P1P1b/PPPQ1P1P/R4RK1 w - - 0 14", this, "g7f6"); ' class="line2">13...gf</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/3Np3/4P3/3P1P1b/PPP2P1P/R4RK1 b - - 0 14", this, "d2h6"); ' class="line2">14.Фh6</span> 
+)
+ <span onclick='loadMove("r4rk1/pppqNppp/3p1B2/4p3/4P3/3P1P1b/PPPQ1P1P/R4RK1 b - - 0 14", this, "d5e7"); ' class="line1">14.Кe7+</span> 
+ <span onclick='loadMove("r4r1k/pppqNppp/3p1B2/4p3/4P3/3P1P1b/PPPQ1P1P/R4RK1 w - - 0 15", this, "g8h8"); ' class="line1">Крh8</span> 
+ <span onclick='loadMove("r4r1k/pppqNpBp/3p4/4p3/4P3/3P1P1b/PPPQ1P1P/R4RK1 b - - 0 15", this, "f6g7"); ' class="line1">15.С:g7+</span> 
+ <span onclick='loadMove("r4r2/pppqNpkp/3p4/4p3/4P3/3P1P1b/PPPQ1P1P/R4RK1 w - - 0 16", this, "h8g7"); ' class="line1">Кр:g7</span> 
+ <span onclick='loadMove("r4r2/pppqNpkp/3p4/4p1Q1/4P3/3P1P1b/PPP2P1P/R4RK1 b - - 0 16", this, "d2g5"); ' class="line1">16.Фg5+</span> 
+ <span onclick='loadMove("r4r1k/pppqNp1p/3p4/4p1Q1/4P3/3P1P1b/PPP2P1P/R4RK1 w - - 0 17", this, "g7h8"); ' class="line1">Крh8</span> 
+ <span onclick='loadMove("r4r1k/pppqNp1p/3p1Q2/4p3/4P3/3P1P1b/PPP2P1P/R4RK1 b - - 0 17", this, "g5f6"); ' class="line1">17.Фf6X</span> 
+;</p>
+<p>(б)
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1n2/3Np1B1/3nP3/3P1b2/PPPQ1PPP/R4RK1 w - - 0 12", this, "g4f3"); ' class="line1">11...С:f3</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2ppp/3p1B2/3Np3/3nP3/3P1b2/PPPQ1PPP/R4RK1 b - - 0 12", this, "g5f6"); ' class="line1">12.С:f6</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p2/3Np3/3nP3/3P1b2/PPPQ1PPP/R4RK1 w - - 0 13", this, "g7f6"); ' class="line1">gf</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/3Np3/3nP3/3P1b2/PPP2PPP/R4RK1 b - - 0 13", this, "d2h6"); ' class="line1">13.Фh6</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/3Np3/4P3/3P1b2/PPP1nPPP/R4RK1 w - - 0 14", this, "d4e2"); ' class="line1">Кe2+</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/3Np3/4P3/3P1b2/PPP1nPPP/R4R1K b - - 0 14", this, "g1h1"); ' class="line1">14.Крh1</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/3Np3/4P3/3P4/PPP1nPbP/R4R1K w - - 0 15", this, "f3g2"); ' class="line1">С:g2+</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/3Np3/4P3/3P4/PPP1nPKP/R4R2 b - - 0 15", this, "h1g2"); ' class="line1">15.Кр:g2</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/3Np3/4Pn2/3P4/PPP2PKP/R4R2 w - - 0 16", this, "e2f4"); ' class="line1">Кf4+</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/4p3/4PN2/3P4/PPP2PKP/R4R2 b - - 0 16", this, "d5f4"); ' class="line1">16.К:f4</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2PKP/R4R2 w - - 0 17", this, "e5f4"); ' class="line1">ef</span> 
+ <span onclick='loadMove("r2q1rk1/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2P1P/R4R1K b - - 0 17", this, "g2h1"); ' class="line1">17.Крh1</span> 
+ <span onclick='loadMove("r2q1r1k/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2P1P/R4R1K w - - 0 18", this, "g8h8"); ' class="line1">Крh8</span> 
+ <span onclick='loadMove("r2q1r1k/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2P1P/R5RK b - - 0 18", this, "f1g1"); ' class="line1">18.Лg1</span> 
+ <span onclick='loadMove("r2q2rk/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2P1P/R5RK w - - 0 19", this, "f8g8"); ' class="line1">Лg8</span> 
+ <span onclick='loadMove("r2q2Rk/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2P1P/R6K b - - 0 19", this, "g1g8"); ' class="line1">19.Л:g8+</span> 
+ <span onclick='loadMove("r5qk/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2P1P/R6K w - - 0 20", this, "d8g8"); ' class="line1">Ф:g8</span> 
+ <span onclick='loadMove("r5qk/ppp2p1p/3p1p1Q/8/4Pp2/3P4/PPP2P1P/6RK b - - 0 20", this, "a1g1"); ' class="line1">20.Лg1</span> 
+, и белые выигрывают.</p>
+<p>Разбери внимательно эти варианты, они будут полезными для тебя.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

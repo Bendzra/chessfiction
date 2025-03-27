@@ -1,0 +1,39 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ГАРРИ КАСПАРОВ</h2>
+<h1>Человек и компьютер: Взгляд в будущее</h1>
+
+<div class="message notification">
+<p>Сегодня искусственный интеллект меняет каждый аспект нашей жизни – ничего подобного мы не видели со времен открытия электричества. Но любая новая мощная технология несет с собой потенциальные опасности, и такие выдающиеся личности, как Стивен Хокинг и Илон Маск, не скрывают, что видят в ИИ возможную угрозу существованию человечества. Так стоит ли нам бояться умных машин?</p>
+<p>Матчи Гарри Каспарова с суперкомпьютером IBM Deep Blue стали самыми известными в истории поединков человека с машинами. И теперь он использует свой многолетний опыт противостояния с компьютерами, чтобы взглянуть на будущее искусственного интеллекта. Каспаров рассказывает, почему не надо опасаться новых технологий и как интеллектуальные машины помогут людям превращать мечты в реальность.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="message">
+<b>ISBN 978-5-94693-897-6</b>
+<div style="float:right;">
+<p>© Альпина Диджитал</p>
+<p>Москва 2018</p>
+</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

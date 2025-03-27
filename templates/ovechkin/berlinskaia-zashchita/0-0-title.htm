@@ -1,0 +1,53 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>Игорь Лысый<br />Роман Овечкин</h2>
+<h1>БЕРЛИНСКАЯ ЗАЩИТА</h1>
+
+<h3>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1b5"); ' class="line0">3.Сb5</span> 
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "g8f6"); ' class="line0">Кf6</span> 
+</h3>
+
+<div class="diagram">
+<p><b class="CAChess">&#163;</b></p>
+<p>Соловьёв Сергей</p>
+<p>С.-Петербург</p>
+</div>
+<div class="diagram">
+<p>С.-Петербург 2012</p>
+</div>
+<div class="diagram">
+<p><strong>Лысый И., Овечкин Р. Берлинская защита.</strong></p>
+<p>СПб.: Издательство Соловьёв Сергей Николаевич, 2012. – 272 с.</p>
+<p>ISBN 978-5-903609-23-9</p>
+</div>
+<div class="notification message">
+<p>Уже с романтических времен XIX века “Испанская пытка” была грозным оружием некоронованных чемпионов мира – Адольфа Андерсена и Пола Морфи. Она держала в страхе черных во времена Хосе-Рауля Капабланки, Василия Смыслова и Роберта Фишера. Приносила массу очков Гарри Каспарову. Свержение этого “титана современных шахмат” произошло в 2000 году усилиями другого чемпиона мира – Владимира Крамника – во многом благодаря удачной дебютной стратегии, главной находкой которой было применение Берлинской защиты. В этой книге отражено современное состояние теории наиболее неприятного, на наш взгляд, для белых варианта Испанской партии.</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+<div class="diagram">
+<p>© И.Лысый, Р.Овечкин, 2012</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,40 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Восемь и пять | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Восемь и пять</h3>
+<div class="score">
+<p>Попробуй на пустой доске расставить восемь ферзей так, чтобы ни один не мог взять другого.</p>
+<p>А как расставить восемь ферзей, чтобы при этом оставалось наибольшее число неатакованных ферзями полей?</p>
+<p>Удастся ли тебе так расположить пять ферзей, чтобы они держали под ударом все клетки доски?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+
+	<p><b>Восемь и пять</b>. Головоломка имеет занятную историю. Более ста лет назад (в 1862 г.) русский мастер, математик К. Яниш доказал, что таких расстановок может быть девяносто две. Девяносто две, а найти не просто даже одну! Вот пример двух таких расстановок: ферзей надо поставить на поля a6, b4, c7, d1, e8, f2, g5 и h3 или на поля a3, b5, c2, d8, e1, f7, g4 и h6.</p>
+	<div style="display: flex; flex-wrap: wrap;">
+	<div class="chessBoard analysis nobuttons" data-start-fen="4Q3/2Q5/Q7/6Q1/1Q6/7Q/5Q2/3Q4 w - - 0 1"></div>
+	<div class="chessBoard analysis nobuttons" data-start-fen="3Q4/5Q2/7Q/1Q6/6Q1/Q7/2Q5/4Q3 w - - 0 1"></div>
+	</div>
+	<p>Наибольшее число полей, не атакованных восемью ферзями,— одиннадцать. Вот необходимая для этого расстановка ферзей: b1, b2, f2, g1, g3, g7, h2, h7.</p>
+	<div class="chessBoard analysis nobuttons" data-start-fen="8/6QQ/8/8/8/6Q1/1Q3Q1Q/1Q4Q1 w - - 0 1"></div>
+	<p>Пять ферзей, на a2, c4, d5, e6, g8, держат под ударом все клетки доски. Задача имеет более 4000 решений.</p>
+	<div class="chessBoard analysis nobuttons" data-start-fen="6Q1/8/4Q3/3Q4/2Q5/8/Q7/8 w - - 0 1"></div>
+	  
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

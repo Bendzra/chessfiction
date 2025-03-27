@@ -1,0 +1,122 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Мнимая жертва | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2><a name="25">Мнимая жертва</a></h2>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>— В защите двух коней (после
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e5</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">2.Кf3</span>
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 1", this, "b8c6"); ' class="line0">Кc6</span>
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1", this, "f1c4"); ' class="line0">3.Сc4</span>
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1", this, "g8f6"); ' class="line0">Кf6</span>), где, как мы видели, могут получиться весьма «опасные прогулки», белым не обязательно бросаться в скороспелую атаку
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p1N1/2B1P3/8/PPPP1PPP/RNBQK2R b KQkq - 0 1", this, "f3g5"); ' class="line1">4.Кg5</span>; вместо этого они могут пойти ферзевой пешкой на шаг или на два вперед и даже просто рокировать.</p>
+<p>— А как им играть лучше всего? — поинтересовался Николай.</p>
+<p>— Мы сейчас все эти варианты разбирать не станем, а посмотрим только, что будет, если белые выведут ферзевого коня —
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "b1c3"); ' class="line0">4.Кc3</span>. Тогда у черных появляется возможность провести «маленькую» комбинацию, а именно: сыграть
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n5/4p3/2B1n3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 1", this, "f6e4"); ' class="line0">4...К:e4</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/pppp1ppp/2n5/4p3/2B1n3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 1"></div>
+<p class="caption"><b>Диаграмма 16</b></p>
+
+<p>— Ничего себе «маленькая» комбинация!— воскликнул Николай. — Размером в целого коня.</p>
+<p>— Это так называемая мнимая жертва, ибо требуется всего два хода, чтобы отыграть фигуру:
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n5/4p3/2B1N3/5N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "c3e4"); ' class="line0">5.К:e4</span>
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/2n5/3pp3/2B1N3/5N2/PPPP1PPP/R1BQK2R w KQkq d6 0 1", this, "d7d5"); ' class="line0">d5!</span>
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/2n5/3pp3/4N3/3B1N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "c4d3"); ' class="line0">6.Сd3</span>
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/2n5/4p3/4p3/3B1N2/PPPP1PPP/R1BQK2R w KQkq - 0 1", this, "d5e4"); ' class="line0">de</span>
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/2n5/4p3/4B3/5N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "d3e4"); ' class="line0">7.С:e4</span>. Золотых гор черные, конечно, не нажили, однако они уничтожили центральную пешку белых и открыли линии для слонов и ферзя. Дебютного преимущества у белых нет.</p>
+<p>— А если поискать? — хитро улыбнулся молчавший до этого Сережа. — То, может, дебютное преимущество и отыщется? Зачем было сразу брать коня? Не лучше ли сначала
+ <span onclick='loadMove("r1bqkb1r/pppp1Bpp/2n5/4p3/4n3/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "c4f7"); ' class="line1">5.С:f7+!</span>
+(восклицательный знак принадлежит Сереже. — Б. В.) и лишь на
+ <span onclick='loadMove("r1bq1b1r/pppp1kpp/2n5/4p3/4n3/2N2N2/PPPP1PPP/R1BQK2R w KQ - 0 1", this, "e8f7"); ' class="line1">5...Кр:f7</span>
+взять коня —
+ <span onclick='loadMove("r1bq1b1r/pppp1kpp/2n5/4p3/4N3/5N2/PPPP1PPP/R1BQK2R b KQ - 0 1", this, "c3e4"); ' class="line1">6.К:e4</span>?</p>
+<p>— Слов нет, белые получают немало удовольствия: «жертвуют» слона, дают шах, лишают черного короля рокировки, а после
+ <span onclick='loadMove("r1bq1b1r/ppp2kpp/2n5/3pp3/4N3/5N2/PPPP1PPP/R1BQK2R w KQ d6 0 1", this, "d7d5"); ' class="line1">6...d5</span>
+могут объявить еще один шах любым конем... Но чего они в итоге достигают?</p>
+<p>
+ <span onclick='loadMove("r1bq1b1r/ppp2kpp/2n5/3pp1N1/8/5N2/PPPP1PPP/R1BQK2R b KQ - 0 1", this, "e4g5"); ' class="line1">7.Кeg5+</span>
+ <span onclick='loadMove("r1bq1bkr/ppp3pp/2n5/3pp1N1/8/5N2/PPPP1PPP/R1BQK2R w KQ - 0 1", this, "f7g8"); ' class="line1">Крg8</span>
+ <span onclick='loadMove("r1bq1bkr/ppp3pp/2n5/3pp1N1/8/3P1N2/PPP2PPP/R1BQK2R b KQ - 0 1", this, "d2d3"); ' class="line1">8.d3</span>
+ <span onclick='loadMove("r1bq1bkr/ppp3p1/2n4p/3pp1N1/8/3P1N2/PPP2PPP/R1BQK2R w KQ - 0 1", this, "h7h6"); ' class="line1">h6</span>
+ <span onclick='loadMove("r1bq1bkr/ppp3p1/2n4p/3pp3/8/3P1N1N/PPP2PPP/R1BQK2R b KQ - 0 1", this, "g5h3"); ' class="line1">9.Кh3</span>
+ <span onclick='loadMove("r2q1bkr/ppp3p1/2n4p/3pp3/8/3P1N1b/PPP2PPP/R1BQK2R w KQ - 0 1", this, "c8h3"); ' class="line1">С:h3</span>
+ <span onclick='loadMove("r2q1bkr/ppp3p1/2n4p/3pp3/8/3P1N1P/PPP2P1P/R1BQK2R b KQ - 0 1", this, "g2h3"); ' class="line1">10.gh</span>
+ <span onclick='loadMove("r4bkr/ppp3p1/2n2q1p/3pp3/8/3P1N1P/PPP2P1P/R1BQK2R w KQ - 0 1", this, "d8f6"); ' class="line1">Фf6</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="r4bkr/ppp3p1/2n2q1p/3pp3/8/3P1N1P/PPP2P1P/R1BQK2R b KQ - 0 1"></div>
+<p class="caption"><b>Диаграмма 17</b></p>
+
+<p>Попробуем дать шах другим конем:
+ <span onclick='loadMove("r1bq1b1r/ppp2kpp/2n5/3pp1N1/4N3/8/PPPP1PPP/R1BQK2R b KQ - 0 1", this, "f3g5"); ' class="line2">7.Кfg5+</span>
+ <span onclick='loadMove("r1bqkb1r/ppp3pp/2n5/3pp1N1/4N3/8/PPPP1PPP/R1BQK2R w KQkq - 0 1", this, "f7e8"); ' class="line2">Крe8</span>
+ <span onclick='loadMove("r1bqkb1r/ppp3pp/2n5/3pp1NQ/4N3/8/PPPP1PPP/R1B1K2R b KQkq - 0 1", this, "d1h5"); ' class="line2">8.Фh5+</span>
+ <span onclick='loadMove("r1bqkb1r/ppp4p/2n3p1/3pp1NQ/4N3/8/PPPP1PPP/R1B1K2R w KQkq - 0 1", this, "g7g6"); ' class="line2">g6</span>
+ <span onclick='loadMove("r1bqkb1r/ppp4p/2n3p1/3pp1N1/4N3/5Q2/PPPP1PPP/R1B1K2R b KQkq - 0 1", this, "h5f3"); ' class="line2">9.Фf3</span>
+ <span onclick='loadMove("r2qkb1r/ppp4p/2n3p1/3ppbN1/4N3/5Q2/PPPP1PPP/R1B1K2R w KQkq - 0 1", this, "c8f5"); ' class="line2">Сf5</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="r2qkb1r/ppp4p/2n3p1/3ppbN1/4N3/5Q2/PPPP1PPP/R1B1K2R w KQkq - 0 1"></div>
+<p class="caption"><b>Диаграмма 18</b></p>
+
+<p>В обоих вариантах у черных заметное преимущество. Важно лишь не перепутать, как отвечать на шах конем: в одном случае <b>Крe8</b>, в другом — <b>Крg8</b>. Даже если белые не станут шаховать (и это, вероятно, самое лучшее), а отведут коня —
+ <span onclick='loadMove("r1bq1b1r/ppp2kpp/2n5/3pp3/8/5NN1/PPPP1PPP/R1BQK2R b KQ - 0 1", this, "e4g3"); ' class="line2">7.Кg3</span>
+ <span onclick='loadMove("r1bq1b1r/ppp2kpp/2n5/3p4/4p3/5NN1/PPPP1PPP/R1BQK2R w KQ - 0 1", this, "e5e4"); ' class="line2">e4</span>
+ <span onclick='loadMove("r1bq1b1r/ppp2kpp/2n5/3p4/4p3/6N1/PPPP1PPP/R1BQK1NR b KQ - 0 1", this, "f3g1"); ' class="line2">8.Кg1</span>
+ <span onclick='loadMove("r1bq1b1r/ppp2kp1/2n5/3p3p/4p3/6N1/PPPP1PPP/R1BQK1NR w KQ h6 0 1", this, "h7h5"); ' class="line2">h5</span>, то и тогда у черных приятная игра.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Подобные мнимые жертвы возможны и в других началах, скажем, в дебюте четырех коней:
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e5</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">2.Кf3</span>
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 1", this, "b8c6"); ' class="line0">Кc6</span>
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 1", this, "b1c3"); ' class="line0">3.Кc3</span>
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 1", this, "g8f6"); ' class="line0">Кf6</span>
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "f1c4"); ' class="line0">4.Сc4</span>
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n5/4p3/2B1n3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 1", this, "f6e4"); ' class="line0">К:e4</span>
+(возникла «наша» позиция)
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n5/4p3/2B1N3/5N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "c3e4"); ' class="line0">5.К:e4</span>
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/2n5/3pp3/2B1N3/5N2/PPPP1PPP/R1BQK2R w KQkq d6 0 1", this, "d7d5"); ' class="line0">d5</span>. Если теперь белые играют
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/2n5/3pp3/4N3/3B1N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "c4d3"); ' class="line0">6.Сd3</span>, то черные могут не брать сразу фигуру, а сначала пойти
+ <span onclick='loadMove("r1bqkb1r/ppp3pp/2n5/3ppp2/4N3/3B1N2/PPPP1PPP/R1BQK2R w KQkq f6 0 1", this, "f7f5"); ' class="line0">6...f5</span>
+ <span onclick='loadMove("r1bqkb1r/ppp3pp/2n5/3ppp2/8/2NB1N2/PPPP1PPP/R1BQK2R b KQkq - 0 1", this, "e4c3"); ' class="line0">7.Кc3</span>
+ <span onclick='loadMove("r1bqkb1r/ppp3pp/2n5/3p1p2/4p3/2NB1N2/PPPP1PPP/R1BQK2R w KQkq - 0 1", this, "e5e4"); ' class="line0">e4</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/ppp3pp/2n5/3p1p2/4p3/2NB1N2/PPPP1PPP/R1BQK2R b KQkq - 0 1"></div>
+<p class="caption"><b>Диаграмма 19</b></p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p style="text-align:center"><b>* * *</b></p>
+
+<div class="section">
+<div class="score">
+<p>— Зачем вы тогда показали нам эти мнимые жертвы? — спросил Николай Фомич. — Не лучше ли было придерживаться сравнительно спокойных вариантов, не осложнять изучение дебютов?</p>
+<p>— Ребятам органически присуще стремление к инициативе, известная агрессивность, что ли. Иной раз она принимает даже грубые формы, доходит до подавления более слабых товарищей, до хулиганства. Бороться с ней принудительными средствами без толку, да и надо ли бороться? Можно ведь придать ей формы соревновательности через спорт, особенно через его игровые виды, или же через активность интеллекта, в том числе в шахматах. Поэтому мы выделяем принцип Капабланки: «Инициатива — это уже преимущество». Стремитесь к инициативе, а остальное все приложится! При этом необходимо учитывать природные способности молодого человека, и даже на более ранней стадии — склонности ребенка.</p>
+<p>Вы, например, Николай Фомич — математик, у вас логический склад мышления, вам ни к чему эти мнимые жертвы, «маленькие» комбинации, опасные прогулки. А в Сергее я разглядел другое: он стремится к активному самовыражению, ему по душе рискованные комбинации, жертвы, пусть даже не всегда корректные. Он ищет быстрых побед, которые, впрочем, далеко не всегда достижимы. Эти рассказы, да и два следующие, — для таких, как он. Ты согласен, Сергей Викторович?</p>
+<p>— Вам видней. А скажите, почему вы назвали ту книгу «Комбинации и ловушки»? Ну, комбинации — это понятно, а ловушки? Ведь вроде нехорошо рыть яму другому? Неэтично...</p>
+<p>— Неэтично, если нарушаешь правила. Подножка, например, в классической борьбе недопустима, а в вольной — законный и красивый прием; правда, она называется по-другому — подсечка, но суть от этого не меняется. Или удар кулаком: в боксе — основной прием, а в футболе — хулиганство.</p>
+<p>Наша шахматная ловушка — это озорная улыбка товарища, это безобидный розыгрыш, когда сам «потерпевший» смеется вместе с партнером: «Ну, и хитрец же ты! Как это я попался?» А если не попался, если вовремя разглядел западню — тоже не грех посмеяться!</p>
+<p>Бывает и так, что ловушка — единственный выход. Мол, партия все равно катится под откос, попробую-ка по пути хоть чем-то озадачить партнера: авось польстится на приманку... Другое дело, что комбинация — это воплощенная справедливость в искусстве. Хотя с «научным» определением комбинации мы погодим, сперва давайте посмотрим их побольше в натуре.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

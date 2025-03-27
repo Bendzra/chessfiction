@@ -1,0 +1,60 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Десять шахов подряд | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Десять шахов подряд</h3>
+<div class="chessBoard small floater" data-start-fen="2b5/Bk1p4/pP6/2P5/7p/6bK/8/5B2 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2b5/Bk1p4/pP6/2P5/7p/6bK/8/5B2 w - - 0 1", this, ""); '>[...]</span> 
+<p>Есть такая шахматная поговорка: шах — это четверть мата. Увы, поговорка эта почти никогда не оправдывается в шахматной партии. Наоборот, излишнее увлечение шахами может принести только вред.</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2b5/Bk1p4/pP6/2P5/7p/6bK/8/5B2 w - - 0 1"></div>
+<p>Вот, например, в такой позиции — белые: Крh3, Сf1, Сa7, п. b6, c5 (5); черные: Крb7, Сc8, Сg3, п. a6, d7, h4 (6) — стоит белым дать поспешный шах
+ <span onclick='loadMove("2b5/Bk1p4/pP6/2P5/7p/6bK/6B1/8 b - - 0 1", this, "f1g2"); ' class="line0">1.Сg2</span> 
+, как в ответ последует неожиданный мат
+ <span onclick='loadMove("2b5/Bk6/pP6/2Pp4/7p/6bK/6B1/8 w - d6 0 2", this, "d7d5"); ' class="line0">1...d5X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7Q/8/3ppr2/R1b2kr1/2Pn4/1P1P1NP1/2BP1K1N/2B5 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7Q/8/3ppr2/R1b2kr1/2Pn4/1P1P1NP1/2BP1K1N/2B5 w - - 0 1", this, ""); '>[...]</span> 
+<p>Но в следующей занятной позиции белые могут дать мат черному королю, объявляя подряд шесть шахов. Интересно, что и черные, защищаясь от угроз, также непрерывно дают шахи белому королю. Какие же это шахи?</p>
+<p class="capTop diagram">21</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7Q/8/3ppr2/R1b2kr1/2Pn4/1P1P1NP1/2BP1K1N/2B5 w - - 0 1"></div>
+
+	<div class="spoiler-wrap">
+	  <div class="spoiler-head folded">Решение</div>
+	  <div class="spoiler-body">
+	<p><b>Десять шахов подряд</b>.
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b2kr1/2Pn3N/1P1P2P1/2BP1K1N/2B5 b - - 0 1", this, "f3h4"); ' class="line0">1.Кh4+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2Pn3N/1P1P2P1/2BP1K1N/2B5 w - - 0 2", this, "f5e5"); ' class="line0">Крe5</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2Pn3N/1P1P1NP1/2BP1K2/2B5 b - - 0 2", this, "h2f3"); ' class="line0">2.К2f3+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2P4N/1P1P1nP1/2BP1K2/2B5 w - - 0 3", this, "d4f3"); ' class="line0">К:f3+</span> 
+	<!--p>— 35 —</p-->
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2PP3N/1P3nP1/2BP1K2/2B5 b - - 0 3", this, "d3d4"); ' class="line0">3.d4+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2Pn3N/1P4P1/2BP1K2/2B5 w - - 0 4", this, "f3d4"); ' class="line0">К:d4+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2Pn4/1P3NP1/2BP1K2/2B5 b - - 0 4", this, "h4f3"); ' class="line0">4.Кf3+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2P5/1P3nP1/2BP1K2/2B5 w - - 0 5", this, "d4f3"); ' class="line0">К:f3+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2PP4/1P3nP1/2B2K2/2B5 b - d3 0 5", this, "d2d4"); ' class="line0">5.d4+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2Pn4/1P4P1/2B2K2/2B5 w - - 0 6", this, "f3d4"); ' class="line0">К:d4+</span> 
+	 <span onclick='loadMove("7Q/8/3ppr2/R1b1k1r1/2Pn1B2/1P4P1/2B2K2/8 b - - 0 6", this, "c1f4"); ' class="line0">6.Сf4X</span> 
+	.</p>
+
+	  </div>
+	</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

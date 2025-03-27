@@ -1,0 +1,172 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 7. Пешечная структура | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h2>Глава 7. ПЕШЕЧНАЯ СТРУКТУРА</h2>
+
+<blockquote>
+«Проходная пешка — преступник, которого следует держать под замком. Мягкие меры, такие, как полицейский надзор, недостаточны».
+<p style="text-align:right;"><i>Арон Нимцович, «Моя Система»</i></p>
+</blockquote>
+
+<div class="notification message">
+<p>Пешечная структура является ключом к любым возможным в будущем планам игры. Этот факт является следствием присущей пешкам слабости — они не могут ходить вбок и назад. Поэтому пешки стремятся к мертвой стойке, при которой они поддерживают друг друга или фигуры, либо терпеливо ждут, когда они смогут это делать.</p>
+<p>Фигуры же могут перемещаться произвольно, поэтому любая фигурная структура, на получение которой вы играете, носит временный характер, если только вы не берете в расчет структуру пешечную.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 30: Проходные пешки стремятся к продвижению.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="4b3/4n1k1/pb3p2/1ppPr2p/6p1/1P2N1P1/P4PBP/3R1NK1 w - - 0 1"></div>
+<div class="score">
+<p>Проходные пешки устремлены вперед, как учил Арон Нимцович. Объясняется это просто — с каждым шагом они ближе к полю превращения. Большинство других пешек двигаться вперед не особенно стремятся.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-33.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="4b3/4n1k1/pb3p2/1ppPr2p/6p1/1P2N1P1/P4PBP/3R1NK1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Посмотрите на крепыша на поле d5. Следующие несколько ходов вполне очевидны:
+ <span class="line0" onclick='loadMove("4b3/4n1k1/pb3p2/1ppPr2p/6p1/1P2N1P1/P4PBP/3R1NK1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("4b3/4n1k1/pb1P1p2/1pp1r2p/6p1/1P2N1P1/P4PBP/3R1NK1 b - - 0 1", this, "d5d6"); ' class="line0">1.d6</span> 
+ <span onclick='loadMove("4b3/6k1/pb1P1pn1/1pp1r2p/6p1/1P2N1P1/P4PBP/3R1NK1 w - - 0 2", this, "e7g6"); ' class="line0">Кg6</span> 
+ <span onclick='loadMove("4b3/3P2k1/pb3pn1/1pp1r2p/6p1/1P2N1P1/P4PBP/3R1NK1 b - - 0 2", this, "d6d7"); ' class="line0">2.d7</span> 
+ <span onclick='loadMove("8/3P1bk1/pb3pn1/1pp1r2p/6p1/1P2N1P1/P4PBP/3R1NK1 w - - 0 3", this, "e8f7"); ' class="line0">Сf7</span> 
+ <span onclick='loadMove("3Q4/5bk1/pb3pn1/1pp1r2p/6p1/1P2N1P1/P4PBP/3R1NK1 b - - 0 3", this, "d7d8"); ' class="line0">3.d8Ф</span>, и черные вынуждены отдать фигуру за новорожденного ферзя —
+ <span onclick='loadMove("3b4/5bk1/p4pn1/1pp1r2p/6p1/1P2N1P1/P4PBP/3R1NK1 w - - 0 4", this, "b6d8"); ' class="line0">3...С:d8</span> 
+ <span onclick='loadMove("3R4/5bk1/p4pn1/1pp1r2p/6p1/1P2N1P1/P4PBP/5NK1 b - - 0 4", this, "d1d8"); ' class="line0">4.Л:d8</span>. Другие варианты кончаются аналогичным образом. Черные вынуждены отдать фигуру за проходную пешку.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Идите вперед без раздумий, когда впереди ясная цель.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 31: Сдвоенные пешки являются слабостью в том отношении, что лишены мобильности, и силой потому, что предоставляют полуоткрытые линии для ладей.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Этот принцип просто определяет, в чем состоит сила и слабость сдвоенных пешек. У них есть другие сильные стороны — дополнительные поля, которые они контролируют по вертикалям, и слабые — неспособность защищать друг друга. Ваша задача, когда вы решаете, соглашаться ли вам на сдвоенные пешки или создавать их в позиции вашего соперника, заключается в умении обращать себе на пользу сильные стороны ваших сдвоенных пешек и слабые — сдвоенных пешек соперника.</p>
+<p>Известный пример сдвоенных пешек дает нам защита Нимцовича, когда после ходов
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+ <span onclick='loadMove("rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4", this, "f8b4"); ' class="line0">Сb4</span> 
+ <span onclick='loadMove("rnbqk2r/pppp1ppp/4pn2/8/1bPP4/P1N5/1P2PPPP/R1BQKBNR b KQkq - 0 4", this, "a2a3"); ' class="line0">4.a3</span> 
+ <span onclick='loadMove("rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1b5/1P2PPPP/R1BQKBNR w KQkq - 0 5", this, "b4c3"); ' class="line0">С:c3</span> 
+ <span onclick='loadMove("rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1P5/4PPPP/R1BQKBNR b KQkq - 0 5", this, "b2c3"); ' class="line0">5.b:c3</span> 
+белые соглашаются на образование в их позиции сдвоенных пешек по линии «с» в обмен на укрепление своих позиций в центре. Они также получают возможность использовать полуоткрытую линию «b», в то время как черные отказываются от двух слонов.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-34.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/pppp1ppp/4pn2/8/2PP4/P1P5/4PPPP/R1BQKBNR b KQkq - 0 5"></div>
+<p class="caption"><b>Ход черных</b></p>
+
+<p>Черные зачастую играют в этом положении
+ <span onclick='loadMove("rnbqk2r/pp1p1ppp/4pn2/2p5/2PP4/P1P5/4PPPP/R1BQKBNR w KQkq c6 0 6", this, "c7c5"); ' class="line0">5...c5</span>, чтобы зафиксировать пешки для последующей их атаки. Вся игра может строиться на том, что белые будут доказывать силу этих сдвоенных пешек, а черные — слабость.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Сильные и слабые стороны наличествуют у многих вещей; возможно, они имеют всеобъемлющий характер. Эта мысль является объединяющей в китайской философии, основанной на понятиях инь и ян; суть ее в том, что у любого предмета или идеи имеются две противоположные стороны. При рассмотрении двойных пешек напрашивается ассоциация с мистером Джекилом и мистером Хайдом.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 32: Старайтесь избавляться от отсталых и изолированных пешек.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="r1bq1rk1/4bppp/p1n1pn2/1p4B1/2BP4/P1N2N2/1P3PPP/R2QR1K1 w - - 0 1"></div>
+<div class="score">
+<p>Недостаток отсталых и изолированных пешек ясен из их названия — они лишены пешечной поддержки. Поэтому приходится защищать их фигурами. Но у фигур есть дела поважнее.</p>
+<p>Часто лучшим способом решения дилеммы является избавление от оскорбляющего ваши чувства «слабака». В качестве бонуса вы можете получить открытые диагонали для слонов или открытые вертикали или горизонтали для ладей. Или даже обеспечить форпост для коня.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-35.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/4bppp/p1n1pn2/1p4B1/2BP4/P1N2N2/1P3PPP/R2QR1K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>В этой позиции у белых не только атакован слон, но имеется и изолированная пешка «d». Слон может спокойно отступить, но почему бы не решить проблему изолированной пешки? Эта идея срабатывает — тем более что фигуры белых лучше развиты.</p>
+<p>
+ <span class="line0" onclick='loadMove("r1bq1rk1/4bppp/p1n1pn2/1p4B1/2BP4/P1N2N2/1P3PPP/R2QR1K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("r1bq1rk1/4bppp/p1n1pn2/1p1P2B1/2B5/P1N2N2/1P3PPP/R2QR1K1 b - - 0 1", this, "d4d5"); ' class="line0">1.d5</span> 
+ <span onclick='loadMove("r1bq1rk1/4bppp/p1n2n2/1p1p2B1/2B5/P1N2N2/1P3PPP/R2QR1K1 w - - 0 2", this, "e6d5"); ' class="line0">e:d5</span> 
+ <span onclick='loadMove("r1bq1rk1/4bppp/p1n2n2/1p1B2B1/8/P1N2N2/1P3PPP/R2QR1K1 b - - 0 2", this, "c4d5"); ' class="line0">2.С:d5</span> 
+ <span onclick='loadMove("r1bq1rk1/4bppp/p1n5/1p1n2B1/8/P1N2N2/1P3PPP/R2QR1K1 w - - 0 3", this, "f6d5"); ' class="line0">К:d5</span> 
+ <span onclick='loadMove("r1bq1rk1/4bppp/p1n5/1p1Q2B1/8/P1N2N2/1P3PPP/R3R1K1 b - - 0 3", this, "d1d5"); ' class="line0">3.Ф:d5</span> 
+ <span onclick='loadMove("r1bq1rk1/5ppp/p1n5/1p1Q2b1/8/P1N2N2/1P3PPP/R3R1K1 w - - 0 4", this, "e7g5"); ' class="line0">С:g5</span> 
+ <span onclick='loadMove("r1bq1rk1/5ppp/p1Q5/1p4b1/8/P1N2N2/1P3PPP/R3R1K1 b - - 0 4", this, "d5c6"); ' class="line0">4.Ф:c6</span> 
+ <span onclick='loadMove("r2q1rk1/5ppp/p1Q5/1p4b1/6b1/P1N2N2/1P3PPP/R3R1K1 w - - 0 5", this, "c8g4"); ' class="line0">Сg4</span> 
+ <span onclick='loadMove("r2q1rk1/5ppp/p1Q5/1p2N1b1/6b1/P1N5/1P3PPP/R3R1K1 b - - 0 5", this, "f3e5"); ' class="line0">5.Кe5</span> 
+ <span onclick='loadMove("r2q1rk1/5ppp/p1Q1b3/1p2N1b1/8/P1N5/1P3PPP/R3R1K1 w - - 0 6", this, "g4e6"); ' class="line0">Сe6</span> 
+ <span onclick='loadMove("r2q1rk1/5ppp/p1Q1b3/1p2N1b1/8/P1N5/1P3PPP/3RR1K1 b - - 0 6", this, "a1d1"); ' class="line0">6.Лad1</span>.</p>
+<p>Все фигуры белых работают по открытым линиям, в то время как черным еще предстоит пристроить к делу свои ладьи. Более того, им пока не до этого, поскольку их ферзь под атакой (Курцдорфер — Харвей Селиб, Буффало, 1987).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Избавление от того, что становится обузой — старая стратегия в бизнесе, и не только в бизнесе, как мне кажется. Если это еще способствует укреплению активов, то колебаний быть не должно.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 33: Чем меньше пешечных «островков», тем позиция здоровее.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="1r5k/2p2p1p/p1p2p2/8/3R1Pb1/2N5/PPP2KPP/8 w - - 0 1"></div>
+<div class="score">
+<p>
+<span class="line0" onclick='loadMove("1r5k/2p2p1p/p1p2p2/8/3R1Pb1/2N5/PPP2KPP/8 w - - 0 1", this, ""); '>[...]</span>
+Пешечными островками являются группы пешек, связанные тем или иным способом между собой и способные друг друга защищать. Способность взаимозащиты делает пешки здоровыми. Если пешкам не требуется защита со стороны фигур, последние могут заниматься своими делами, не заботясь об оставленных пешках.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-36.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1r5k/2p2p1p/p1p2p2/8/3R1Pb1/2N5/PPP2KPP/8 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Данная позиция (из партии Алекс Дунне — Курцдорфер, Филадельфия, 1978) наглядно иллюстрирует разницу между здоровыми пешками и нездоровыми. Черные малыши не могут помочь друг другу. Каждый должен заботиться о себе сам. Поэтому фигуры черных должны защищать пешки, если не хотят их потерять. У белых же два здоровых пешечных островка, где каждая пешка может рассчитывать на помощь со стороны товарок. Поэтому фигуры белых свободны в своих действиях и могут, например, напасть на слабые пешки соперника.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Чем меньше вы должны исполнять обслуживающих функций, тем больше у вас шансов воспользоваться теми возможностями, которые возникают на жизненном пути. Вот почему руководители всех сортов имеют секретарей — они избавляют от рутины своих боссов, которые могут заниматься более важными делами. Те же, кто предпочитает всё делать сам, не способны добиться эффективности в бизнесе.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 34: Если вы вынуждены смириться с пешечной слабостью, постарайтесь получить за это компенсацию в той или иной форме.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Согласие на возникновение слабой пешки или пешек иногда является необходимой ценой, которую приходится платить за то или иное достижение. Старайтесь, чтобы оно, это достижение, было достаточно весомо, иначе окажетесь в чистом минусе.</p>
+<p>Компенсация может иметь любой вид или форму. Получение пары слонов против коня и слона, захват инициативы, выигрыш пешки, обеспечение форпоста для коня, получение контроля над центром — всё это поможет вам стерпеть возникновение слабых пешек. Но каждый случай требует конкретного подхода. Какая компенсация будет достаточна за ту или иную пешечную слабость — вот вопрос, на который нет универсального ответа.</p>
+<p>Примером компенсации может служить получение черными свободной игры для фигур и сильного центра за изолированную пешку «d» в варианте Тарраша Ферзевого гамбита:
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/4p3/2pp4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq c6 0 4", this, "c7c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/4p3/2pP4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4", this, "c4d5"); ' class="line0">4.c:d5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/8/2pp4/3P4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 5", this, "e6d5"); ' class="line0">e:d5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/8/2pp4/3P4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 0 5", this, "g1f3"); ' class="line0">5.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n5/2pp4/3P4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 6", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n5/2pp4/3P4/2N2NP1/PP2PP1P/R1BQKB1R b KQkq - 0 6", this, "g2g3"); ' class="line0">6.g3</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n2n2/2pp4/3P4/2N2NP1/PP2PP1P/R1BQKB1R w KQkq - 0 7", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n2n2/2pp4/3P4/2N2NP1/PP2PPBP/R1BQK2R b KQkq - 0 7", this, "f1g2"); ' class="line0">7.Сg2</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n2n2/2pp4/3P4/2N2NP1/PP2PPBP/R1BQK2R w KQkq - 0 8", this, "f8e7"); ' class="line0">Сe7</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n2n2/2pp4/3P4/2N2NP1/PP2PPBP/R1BQ1RK1 b kq - 0 8", this, "e1g1"); ' class="line0">8.0-0</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n2n2/2pp4/3P4/2N2NP1/PP2PPBP/R1BQ1RK1 w - - 0 9", this, "e8g8"); ' class="line0">0-0</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n2n2/2pp2B1/3P4/2N2NP1/PP2PPBP/R2Q1RK1 b - - 0 9", this, "c1g5"); ' class="line0">9.Сg5</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n2n2/3p2B1/3p4/2N2NP1/PP2PPBP/R2Q1RK1 w - - 0 10", this, "c5d4"); ' class="line0">c:d4</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n2n2/3p2B1/3N4/2N3P1/PP2PPBP/R2Q1RK1 b - - 0 10", this, "f3d4"); ' class="line0">10.К:d4</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bpp1/2n2n1p/3p2B1/3N4/2N3P1/PP2PPBP/R2Q1RK1 w - - 0 11", this, "h7h6"); ' class="line0">h6</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bpp1/2n2n1p/3p4/3N4/2N1B1P1/PP2PPBP/R2Q1RK1 b - - 0 11", this, "g5e3"); ' class="line0">11.Сe3</span> 
+ <span onclick='loadMove("r1bqr1k1/pp2bpp1/2n2n1p/3p4/3N4/2N1B1P1/PP2PPBP/R2Q1RK1 w - - 0 12", this, "f8e8"); ' class="line0">Лe8</span>.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-37.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqr1k1/pp2bpp1/2n2n1p/3p4/3N4/2N1B1P1/PP2PPBP/R2Q1RK1 w - - 0 12"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Вопрос о том, достаточна ли компенсация за изолированную пешку, до сих пор остается открытым. Но вопроса о том, стоит ли идти на это без какой бы то ни было компенсации, быть не может.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Не расставайтесь ни с чем, ничего не получая взамен. Любая слабость (невыгодное положение) в одном месте должна быть компенсирована силой (выгодным положением) в другом. Иначе вы рискуете стать неудачником.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

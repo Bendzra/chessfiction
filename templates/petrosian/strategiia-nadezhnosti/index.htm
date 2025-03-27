@@ -1,0 +1,74 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>СОДЕРЖАНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Стратегия надежности (Т. Петросян, 1985)</a></li>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predisloviia.htm' %}#shehtman">От составителя</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predisloviia.htm' %}#krogius">Н. Крогиус. Логика таланта</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predisloviia.htm' %}#gligoric">С. Глигорич. Человек, которого я знал</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predisloviia.htm' %}#tarasov">Н. Тарасов. Дорога через улицу</a></li>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-00-izbrannye-partii.htm' %}">Избранные партии</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-1945-1948.htm' %}">1945—1948</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-1949-1951.htm' %}">1949—1951</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-1952-1953.htm' %}">1952—1953</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-1954-1957.htm' %}">1954—1957</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-1958-1960.htm' %}">1958—1960</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-1961-1962.htm' %}">1961—1962</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-1963-1965.htm' %}">1963—1965</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-1966-1968.htm' %}">1966—1968</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-1969-1970.htm' %}">1969—1970</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-1971-1972.htm' %}">1971—1972</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-1973-1978.htm' %}">1973—1978</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-1979-1982.htm' %}">1979—1982</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-lekcii-po-debiutnoj-strategii.htm' %}">Тигран Петросян: лекции по дебютной стратегии</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-lekcii-po-debiutnoj-strategii.htm' %}#trust_but_verify">Доверяй, но проверяй</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-lekcii-po-debiutnoj-strategii.htm' %}#information_and_objectivity">Информация и объективность</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-lekcii-po-debiutnoj-strategii.htm' %}#assessments_change">Оценки меняются</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-lekcii-po-debiutnoj-strategii.htm' %}#debut_to_my_taste">Дебют на свой вкус, или Почему я люблю ход Сg5</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-partii-poslednih-let.htm' %}">Партии последних лет</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-prilozheniia.htm' %}">Приложения</a></li>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-prilozheniia.htm' %}#tournaments">Турнирные и матчевые результаты Т. Петросяна</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-prilozheniia.htm' %}#partners">Указатель партнеров Т. Петросяна</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-prilozheniia.htm' %}#openings">Указатель дебютов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-prilozheniia.htm' %}#biography">Биографическая справка</a></li>
+</ul>
+</ul>
+
+<hr />
+<div class="message">
+<h4>Серия «Выдающиеся шахматисты мира»</h4>
+<h2>Тигран Вартанович Петросян</h2>
+<h1>СТРАТЕГИЯ НАДЕЖНОСТИ</h1>
+</div>
+<div class="message">
+<p>Составитель Эдуард Иосифович Шехтман</p>
+</div>
+<div class="message">
+<p>Заведующий редакцией В. И, Чепижный. Редактор С. Б. Воронков. Художник С. С. Верховский. Художественный редактор В. А. Жигарев. Технический редактор Е. И. Блиндер. Корректоры В. А. Шашкова, З. Г. Самылкина. ИБ 2104. Сдано в набор 03.06.85. Подписано к печати 01.11.85. Формат 60х84<sup>1</sup>/<sub>16</sub>. Бумага тип. № 1. Гарнитура «Литературная». Высокая печать. Усл.п.л. 23,25. Усл. кр.-отт. 23,48, в суперобложке 23,83. Уч.-изд. л. 24,43. Тираж 99 000 экз, в суперобложке 1000 экз. Издат. № 7781. Зак. 1267. Цена 2 р. Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по Делам издательств, полиграфии и книжной торговли. 101421, Москва, Каляевская ул., 27. Ордена Октябрьской Революции и ордена Трудового Красного Знамени МПО «Первая Образцовая типография» имени А. А. Жданова Союзполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли. 113054, Москва, Валовая, 28</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

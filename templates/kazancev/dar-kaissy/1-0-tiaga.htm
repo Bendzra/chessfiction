@@ -1,0 +1,37 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть первая. ТЯГА | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<hr />
+<h2>Часть первая. ТЯГА</h2>
+<div class="small floater" style="height:250px;">
+<img src="{% static 'images/kazancev_kaissa/dk_1.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="notification message">
+<i><p>Шахматная игра - это говорливая грамматика</p>
+<p>человеческого сердца.</p></i>
+<p>Карел Крупский,</p>
+<p>польский пропагандист шахмат</p>
+</div>
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-perepoloh-na-nebe.htm' %}">Глава первая. ПЕРЕПОЛОХ НА НЕБЕ</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-trudnoe-zadanie.htm' %}">Глава вторая. ТРУДНОЕ ЗАДАНИЕ</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-doska-razluchnica.htm' %}">Глава третья. ДОСКА-РАЗЛУЧНИЦА</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-chernyj-ugolok.htm' %}">Глава четвертая. ЧЕРНЫЙ УГОЛОК</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

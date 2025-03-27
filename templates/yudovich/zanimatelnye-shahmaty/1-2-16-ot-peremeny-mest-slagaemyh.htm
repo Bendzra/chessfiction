@@ -1,0 +1,311 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>От перемены мест слагаемых... | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>От перемены мест слагаемых...</h3>
+<div class="chessBoard small floater" data-start-fen="8/8/1Q6/6N1/8/2kP4/4K3/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/1Q6/6N1/8/2kP4/4K3/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>От перемены мест слагаемых сумма в задачах по арифметике не меняется. И не только сумма, даже действия ты будешь проводить примерно те же и в таком же порядке. Но в шахматах все обстоит иначе. Поменяй различные фигуры и пешки местами, и совсем по-иному могут развернуться события, другим может быть и результат борьбы.</p>
+<p>Давай проверим, что происходит от перемены мест слагаемых в некоторых, даже и не очень сложных, позициях.</p>
+<p class="capTop diagram">43</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/1Q6/6N1/8/2kP4/4K3/8 w - - 0 1"></div>
+<p>На диаграмме приведена задача, в которой белые дают мат в три хода черному королю. Решается она так:
+ <span onclick='loadMove("8/8/1Q6/6N1/8/2kP4/8/3K4 b - - 0 1", this, "e2d1"); ' class="line0">1.Крd1</span> 
+ <span onclick='loadMove("8/8/1Q6/6N1/8/3k4/8/3K4 w - - 0 2", this, "c3d3"); ' class="line0">Кр:d3</span> 
+ <span onclick='loadMove("8/8/8/6N1/1Q6/3k4/8/3K4 b - - 0 2", this, "b6b4"); ' class="line0">2.Фb4</span> 
+ <span onclick='loadMove("8/8/8/6N1/1Q6/4k3/8/3K4 w - - 0 3", this, "d3e3"); ' class="line0">Крe3</span> 
+ <span onclick='loadMove("8/8/8/6N1/8/4k3/3Q4/3K4 b - - 0 3", this, "b4d2"); ' class="line0">3.Фd2X</span> 
+. </p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/1Q6/6N1/8/2KP4/4k3/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/1Q6/6N1/8/2KP4/4k3/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>А теперь посмотри на следующую диаграмму. Позиция претерпела самые небольшие изменения, поменялись местами лишь белый и черный короли. Сумма на этот раз не изменилась, мат и теперь достигается в три хода, но решение стало совсем другим.</p>
+<p class="capTop diagram">44</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/1Q6/6N1/8/2KP4/4k3/8 w - - 0 1"></div>
+<p>Найди, как решается эта задача, столь похожая на предыдущую, что ее можно назвать «задачей-близнецом».</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>От перемены мест слагаемых...</b> № 44.
+	 <span class="line0" onclick='loadMove("8/8/1Q6/6N1/8/2KP4/4k3/8 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/8/1Q2N3/8/8/2KP4/4k3/8 b - - 0 1", this, "g5e6"); ' class="line0">1.Кe6</span> 
+	 <span onclick='loadMove("8/8/1Q2N3/8/8/2KP4/8/5k2 w - - 0 2", this, "e2f1"); ' class="line0">Крf1</span> 
+	 <span onclick='loadMove("8/8/1Q6/8/5N2/2KP4/8/5k2 b - - 0 2", this, "e6f4"); ' class="line0">2.Кf4</span> 
+	 <span onclick='loadMove("8/8/1Q6/8/5N2/2KP4/8/4k3 w - - 0 3", this, "f1e1"); ' class="line0">Крe1</span> 
+	 <span onclick='loadMove("8/8/8/8/5N2/2KP4/8/4k1Q1 b - - 0 3", this, "b6g1"); ' class="line0">3.Фg1X</span> 
+	;
+	 <span onclick='loadMove("8/8/1Q2N3/8/8/2KP1k2/8/8 w - - 0 2", this, "e2f3"); ' class="line1">1...Крf3</span> 
+	 <span onclick='loadMove("8/8/4N3/8/8/2KP1k2/8/6Q1 b - - 0 2", this, "b6g1"); ' class="line1">2.Фg1</span> 
+	 <span onclick='loadMove("8/8/4N3/8/8/2KP4/4k3/6Q1 w - - 0 3", this, "f3e2"); ' class="line1">Крe2</span> 
+	 <span onclick='loadMove("8/8/8/8/3N4/2KP4/4k3/6Q1 b - - 0 3", this, "e6d4"); ' class="line1">3.Кd4X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k3/3pPp2/8/8/8/4R3/4K3/4Q3 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k3/3pPp2/8/8/8/4R3/4K3/4Q3 w - - 0 1", this, ""); '>[...]</span> 
+<p>Черный король спрятался за пешку, но ненадежно это укрытие.</p>
+<p class="capTop diagram">45</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4k3/3pPp2/8/8/8/4R3/4K3/4Q3 w - - 0 1"></div>
+<!--p>- 30 -</p-->
+<p>Найди, как белые дают здесь мат в два хода черному королю. А потом представь себе, что все фигуры и пешки шагнули на одну клетку вправо. </p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Шаг направо</b>, a)
+	 <span class="line0" onclick='loadMove("4k3/3pPp2/8/8/8/4R3/4K3/4Q3 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("4k3/3pPp2/8/8/7Q/4R3/4K3/8 b - - 0 1", this, "e1h4"); ' class="line0">1.Фh4</span> 
+	</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="5k2/4pPp1/8/8/8/5R2/5K2/5Q2 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5k2/4pPp1/8/8/8/5R2/5K2/5Q2 w - - 0 1", this, ""); '>[...]</span> 
+<p>Тогда положение станет таким:</p>
+<p>Белые: Крf2, Фf1, Лf3, п. f7 (4). Черные: Крf8, п. e7, g7 (3).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="5k2/4pPp1/8/8/8/5R2/5K2/5Q2 w - - 0 1"></div>
+<p>И здесь мат достигается в два хода. Каким образом?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>б)
+	 <span class="line0" onclick='loadMove("5k2/4pPp1/8/8/8/5R2/5K2/5Q2 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("5k2/4pPp1/8/8/8/5R2/5K2/Q7 b - - 0 1", this, "f1a1"); ' class="line0">1.Фa1</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/4pp2/1p2pR2/1Qp1k2K/1N1Rp2N/4p3/4P3/4B3 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/4pp2/1p2pR2/1Qp1k2K/1N1Rp2N/4p3/4P3/4B3 w - - 0 1", this, ""); '>[...]</span> 
+<p>С пешкой и без нее. Так можно было бы назвать следующую занятную задачу. Белые: Крh5, Фb5, Лd4, Лf6, Сe1, Кb4, Кh4, п. e2 (8). Черные: Крe5, п. b6, c5, e7, e6, e4, e3, f7 (8).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/4pp2/1p2pR2/1Qp1k2K/1N1Rp2N/4p3/4P3/4B3 w - - 0 1"> </div>
+<p>В этой позиции мат достигается в два хода. После того как ты найдешь решение, сними с доски пешку f7. Задание не изменится — мат в два хода, но решение будет уже иное.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>С пешкой и без нее</b>. а)
+	 <span class="line0" onclick='loadMove("8/4pp2/1p2pR2/1Qp1k2K/1N1Rp2N/4p3/4P3/4B3 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/4pp2/1p1RpR2/1Qp1k2K/1N2p2N/4p3/4P3/4B3 b - - 0 1", this, "d4d6"); ' class="line0">1.Лd6!</span> 
+	,</p>
+	<p>б)
+	 <span class="line0" onclick='loadMove("8/4p3/1p2pR2/1Qp1k2K/1N1Rp2N/4p3/4P3/4B3 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/4p3/1p2p3/1Qp1k2K/1N1RpR1N/4p3/4P3/4B3 b - - 0 1", this, "f6f4"); ' class="line0">1.Лf4!</span> 
+	</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7B/8/3p3k/5p2/3P1N2/5N1K/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7B/8/3p3k/5p2/3P1N2/5N1K/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>А вот и целая семья «задач-близнецов». «Близнецы» происходят от позиции, приведенной на диаграмме.</p>
+<p class="capTop diagram">46</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7B/8/3p3k/5p2/3P1N2/5N1K/8/8 w - - 0 1"></div>
+<p>К мату в три хода здесь ведет продолжение
+ <span onclick='loadMove("7B/8/3p3k/5p2/3P1N2/5NK1/8/8 b - - 0 1", this, "h3g3"); ' class="line0">1.Крg3</span> 
+ <span onclick='loadMove("7B/8/7k/3p1p2/3P1N2/5NK1/8/8 w - - 0 2", this, "d6d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("7B/8/7k/3pNp2/3P1N2/6K1/8/8 b - - 0 2", this, "f3e5"); ' class="line0">2.Кe5</span> 
+ <span onclick='loadMove("7B/8/8/3pNpk1/3P1N2/6K1/8/8 w - - 0 3", this, "h6g5"); ' class="line0">Крg5</span> 
+ <span onclick='loadMove("7B/5N2/8/3p1pk1/3P1N2/6K1/8/8 b - - 0 3", this, "e5f7"); ' class="line0">3.Кf7X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7B/8/6Pk/5p2/3P1N1p/5N1K/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7B/8/6Pk/5p2/3P1N1p/5N1K/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>А теперь сам разбери сходные позиции.</p>
+<p>I. Белые: Крh3, Сh8, Кf3, Кf4, п. g6, d4 (6). Черные: Крh6, п. f5, h4 (3).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7B/8/6Pk/5p2/3P1N1p/5N1K/8/8 w - - 0 1"></div>
+<p>Мат в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>I.
+	 <span onclick='loadMove("7B/8/6Pk/5p2/3P1N1p/7K/3N4/8 b - - 0 1", this, "f3d2"); ' class="line0">1.Кd2</span> 
+	 <span onclick='loadMove("7B/8/6P1/5pk1/3P1N1p/7K/3N4/8 w - - 0 2", this, "h6g5"); ' class="line0">Крg5</span> 
+	 <span onclick='loadMove("8/6B1/6P1/5pk1/3P1N1p/7K/3N4/8 b - - 0 2", this, "h8g7"); ' class="line0">2.Сg7</span> 
+	 <span onclick='loadMove("8/6B1/6P1/5p2/3P1k1p/7K/3N4/8 w - - 0 3", this, "g5f4"); ' class="line0">Кр:f4</span> 
+	 <span onclick='loadMove("8/8/6PB/5p2/3P1k1p/7K/3N4/8 b - - 0 3", this, "g7h6"); ' class="line0">3.Сh6X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7B/8/6Pk/5p2/5N1p/5N1K/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7B/8/6Pk/5p2/5N1p/5N1K/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>II. Белые: Крh3, Сh8, Кf3, Кf4, п. g6 (5). Черные: Крh6, п. f5, h4 (3).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7B/8/6Pk/5p2/5N1p/5N1K/8/8 w - - 0 1"></div>
+<p>Мат в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>II.
+	 <span onclick='loadMove("7B/8/6Pk/5p2/3N1N1p/7K/8/8 b - - 0 1", this, "f3d4"); ' class="line0">1.Кd4</span> 
+	 <span onclick='loadMove("7B/8/6P1/5pk1/3N1N1p/7K/8/8 w - - 0 2", this, "h6g5"); ' class="line0">Крg5</span> 
+	 <span onclick='loadMove("7B/8/4N1P1/5pk1/5N1p/7K/8/8 b - - 0 2", this, "d4e6"); ' class="line0">2.Кde6+</span> 
+	 <span onclick='loadMove("7B/8/4N1Pk/5p2/5N1p/7K/8/8 w - - 0 3", this, "g5h6"); ' class="line0">Крh6</span> 
+	 <span onclick='loadMove("8/6B1/4N1Pk/5p2/5N1p/7K/8/8 b - - 0 3", this, "h8g7"); ' class="line0">3.Сg7X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7B/8/6Pk/8/3P1N2/5N1K/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7B/8/6Pk/8/3P1N2/5N1K/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>III. Белые: Крh3, Сh8, Кf3, Кf4, п. d4, g6 (6). Черные: Крh6 (1). </p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7B/8/6Pk/8/3P1N2/5N1K/8/8 w - - 0 1"></div>
+<p>Мат в пять ходов.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>III.
+	 <span onclick='loadMove("7B/8/6Pk/8/3P1N1N/7K/8/8 b - - 0 1", this, "f3h4"); ' class="line0">1.Кh4</span> 
+	 <span onclick='loadMove("7B/8/6P1/6k1/3P1N1N/7K/8/8 w - - 0 2", this, "h6g5"); ' class="line0">Крg5</span> 
+	 <span onclick='loadMove("7B/8/6P1/6k1/3P1N1N/6K1/8/8 b - - 0 2", this, "h3g3"); ' class="line0">2.Крg3</span> 
+	 <span onclick='loadMove("7B/8/6Pk/8/3P1N1N/6K1/8/8 w - - 0 3", this, "g5h6"); ' class="line0">Крh6</span> 
+	 <span onclick='loadMove("7B/8/6Pk/5N2/3P1N2/6K1/8/8 b - - 0 3", this, "h4f5"); ' class="line0">3.Кf5+</span> 
+	 <span onclick='loadMove("7B/8/6P1/5Nk1/3P1N2/6K1/8/8 w - - 0 4", this, "h6g5"); ' class="line0">Крg5</span> 
+	 <span onclick='loadMove("7B/8/3N2P1/6k1/3P1N2/6K1/8/8 b - - 0 4", this, "f5d6"); ' class="line0">4.Кd6</span> 
+	 <span onclick='loadMove("7B/8/3N2Pk/8/3P1N2/6K1/8/8 w - - 0 5", this, "g5h6"); ' class="line0">Крh6</span> 
+	 <span onclick='loadMove("7B/5N2/6Pk/8/3P1N2/6K1/8/8 b - - 0 5", this, "d6f7"); ' class="line0">5.Кf7X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7B/8/6Pk/5p2/3P1N1p/7K/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7B/8/6Pk/5p2/3P1N1p/7K/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>IV. Белые: Крh3, Сh8, Кf4, п. d4, g6 (5). Черные: Крh6, п. f5, h4 (3).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7B/8/6Pk/5p2/3P1N1p/7K/8/8 w - - 0 1"></div>
+<p>Мат в четыре хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>IV.
+	 <span onclick='loadMove("8/8/6Pk/4Bp2/3P1N1p/7K/8/8 b - - 0 1", this, "h8e5"); ' class="line0">1.Сe5</span> 
+	 <span onclick='loadMove("8/8/6P1/4Bpk1/3P1N1p/7K/8/8 w - - 0 2", this, "h6g5"); ' class="line0">Крg5</span> 
+	 <span onclick='loadMove("8/6P1/8/4Bpk1/3P1N1p/7K/8/8 b - - 0 2", this, "g6g7"); ' class="line0">2.g7</span> 
+	 <span onclick='loadMove("8/6P1/7k/4Bp2/3P1N1p/7K/8/8 w - - 0 3", this, "g5h6"); ' class="line0">Крh6</span> 
+	 <span onclick='loadMove("6R1/8/7k/4Bp2/3P1N1p/7K/8/8 b - - 0 3", this, "g7g8"); ' class="line0">3.g8Л</span> 
+	 <span onclick='loadMove("6R1/7k/8/4Bp2/3P1N1p/7K/8/8 w - - 0 4", this, "h6h7"); ' class="line0">Крh7</span> 
+	 <span onclick='loadMove("7R/7k/8/4Bp2/3P1N1p/7K/8/8 b - - 0 4", this, "g8h8"); ' class="line0">4.Лh8X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7B/8/6Pk/5p2/3P3p/5N1K/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7B/8/6Pk/5p2/3P3p/5N1K/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>V. Белые: Крh3, Сh8, Кf3, п. d4, g6 (5). Черные: Крh6, п. f5, h4 (3). </p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7B/8/6Pk/5p2/3P3p/5N1K/8/8 w - - 0 1"></div>
+<p>Мат в семь ходов.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>V.
+	 <span onclick='loadMove("7B/6P1/7k/5p2/3P3p/5N1K/8/8 b - - 0 1", this, "g6g7"); ' class="line0">1.g7</span> 
+	 <span onclick='loadMove("7B/6Pk/8/5p2/3P3p/5N1K/8/8 w - - 0 2", this, "h6h7"); ' class="line0">Крh7</span> 
+	 <span onclick='loadMove("7B/6Pk/8/5pN1/3P3p/7K/8/8 b - - 0 2", this, "f3g5"); ' class="line0">2.Кg5+</span> 
+	 <span onclick='loadMove("6kB/6P1/8/5pN1/3P3p/7K/8/8 w - - 0 3", this, "h7g8"); ' class="line0">Крg8</span> 
+	 <span onclick='loadMove("6kB/6P1/8/5pN1/3P3K/8/8/8 b - - 0 3", this, "h3h4"); ' class="line0">3.Кр:h4</span> 
+	 <span onclick='loadMove("6kB/6P1/8/6N1/3P1p1K/8/8/8 w - - 0 4", this, "f5f4"); ' class="line0">f4</span> 
+	 <span onclick='loadMove("6kB/6P1/8/6NK/3P1p2/8/8/8 b - - 0 4", this, "h4h5"); ' class="line0">4.Крh5</span> 
+	 <span onclick='loadMove("6kB/6P1/8/6NK/3P4/5p2/8/8 w - - 0 5", this, "f4f3"); ' class="line0">f3</span> 
+	 <span onclick='loadMove("6kB/6P1/6K1/6N1/3P4/5p2/8/8 b - - 0 5", this, "h5g6"); ' class="line0">5.Крg6</span> 
+	 <span onclick='loadMove("6kB/6P1/6K1/6N1/3P4/8/5p2/8 w - - 0 6", this, "f3f2"); ' class="line0">f2</span> 
+	 <span onclick='loadMove("6kB/5NP1/6K1/8/3P4/8/5p2/8 b - - 0 6", this, "g5f7"); ' class="line0">6.Кf7</span> 
+	 <span onclick='loadMove("6kB/5NP1/6K1/8/3P4/8/8/5q2 w - - 0 7", this, "f2f1"); ' class="line0">f1Ф</span> 
+	 <span onclick='loadMove("6kB/6P1/6KN/8/3P4/8/8/5q2 b - - 0 7", this, "f7h6"); ' class="line0">7.Кh6X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+<p>Все позиции занятной семейки «близнецов» придумал известный чешский составитель задач Я. Добруский.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1k6/1N6/1K6/1B4p1/1p4B1/6K1/6N1/6k1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1k6/1N6/1K6/1B4p1/1p4B1/6K1/6N1/6k1 w - - 0 1", this, ""); '>[...]</span> 
+<p>Следующая диаграмма необычная, на ней сразу изображены две разные задачи. Фигуры поменялись местами, изменилось и решение, но любопытно, что в обоих случаях белые дают мат в четыре хода.</p>
+<p class="capTop diagram">47</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1k6/1N6/1K6/1B4p1/1p4B1/6K1/6N1/6k1 w - - 0 1"></div>
+<!--p>- 31 -</p-->
+<p>A.
+ <span onclick='loadMove("1k6/1N1B4/1K6/6p1/1p4B1/6K1/6N1/6k1 b - - 0 1", this, "b5d7"); ' class="line0">1.Сb5-d7</span> 
+ <span onclick='loadMove("k7/1N1B4/1K6/6p1/1p4B1/6K1/6N1/6k1 w - - 0 2", this, "b8a8"); ' class="line0">Крa8</span> 
+ <span onclick='loadMove("k7/3B4/1K6/2N3p1/1p4B1/6K1/6N1/6k1 b - - 0 2", this, "b7c5"); ' class="line0">2.Кc5</span> 
+ <span onclick='loadMove("1k6/3B4/1K6/2N3p1/1p4B1/6K1/6N1/6k1 w - - 0 3", this, "a8b8"); ' class="line0">Крb8</span> 
+ <span onclick='loadMove("1k6/3B4/NK6/6p1/1p4B1/6K1/6N1/6k1 b - - 0 3", this, "c5a6"); ' class="line0">3.Кa6+</span> 
+.</p>
+<p>Б.
+ <span onclick='loadMove("1k6/1N6/1K6/1B4p1/1p4B1/4N1K1/8/6k1 b - - 0 1", this, "g2e3"); ' class="line1">1.Кe3</span> 
+ <span onclick='loadMove("1k6/1N6/1K6/1B4p1/1p4B1/4N1K1/8/7k w - - 0 2", this, "g1h1"); ' class="line1">Крh1</span> 
+ <span onclick='loadMove("1k6/1N6/1K6/1B4p1/1p4B1/4N3/5K2/7k b - - 0 2", this, "g3f2"); ' class="line1">2.Крf2</span> 
+ <span onclick='loadMove("1k6/1N6/1K6/1B4p1/1p4B1/4N3/5K1k/8 w - - 0 3", this, "h1h2"); ' class="line1">Крh2</span> 
+ <span onclick='loadMove("1k6/1N6/1K6/1B4p1/1p4B1/8/5K1k/5N2 b - - 0 3", this, "e3f1"); ' class="line1">3.Кf1+</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,90 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="diagram">
+<h2>Яков Дамский</h2>
+<h1>КОРОЛЬ БОРИС ДЕСЯТЫЙ</h1>
+</div>
+
+<div class="diagram">
+<p>РИПОЛ КЛАССИК</p>
+<p>МОСКВА</p>
+<p>2004</p>
+</div>
+<hr />
+
+<div class="diagram">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>Д16</p>
+</div>
+
+<div class="diagram">
+<p>Серия «Великие шахматисты мира» основана в 2002 г.</p>
+<p>В оформлении использованы работы художника Шандора Бадаксони (Венгрия), фото и рисунки из периодической печати и архива автора</p>
+</div>
+
+<div class="diagram">
+<p><b>Дамский Я. В.</b></p>
+<p>Д16 Король Борис Десятый.— М.: РИПОЛ классик, 2004.— 408 с.: ил.— (Великие шахматисты мира).</p>
+<p>ISBN 5-7905-3106-7</p>
+</div>
+
+<div class="message">
+<p>Книга «Король Борис Десятый» заполняет пустовавшую нишу в сериях ВШМ и рассказывает о чемпионе мира Б. Спасском. В ней впервые приводятся некоторые неизвестные страницы жизни великого шахматиста.</p>
+</div>
+
+<div class="message">
+<div style="float:right;">
+<p><b>УДК 794</b></p>
+<p><b>ББК 75.581</b></p>
+</div>
+<div style="clear:both;"></div>
+</div>
+
+<div class="message">
+<p style="float:left;">ISBN 5-7905-3106-7</p>
+<div style="float:right;">
+<p>© Дамский Я. В., 2004</p>
+<p>© ООО «ИД «РИПОЛ классик», оформление, 2004</p>
+</div>
+<div style="clear:both;"></div>
+</div>
+<hr />
+
+<div class="diagram">
+<!--img src="spasskiy_files/spasskiy-241.jpg" style="width:124pt;height:175pt;"/-->
+</div>
+
+<div class="diagram">
+<p>Универсализм игры Спасского стал эталонным, его развили преемники Бориса Спасского на шахматном троне, и сегодня это основное направление в творчестве сильнейших гроссмейстеров мира.</p>
+<p>Яков Дамский</p>
+</div>
+
+<div class="diagram">
+<p>ISBN 5-7905-3106-7</p>
+<p>РИПОЛ КЛАССИК</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+
+</div> <!-- iBook -->
+{% endblock content %}
+

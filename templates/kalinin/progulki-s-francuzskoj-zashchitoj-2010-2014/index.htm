@@ -1,0 +1,94 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Виктор Корчной, Александр Калинин. Прогулки с Французской защитой</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-0_tom_1.htm' %}">Том 1</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-1_predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-0_istoricheskij_obzor.htm' %}">Глава 1. Исторический обзор</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-0_razlichnye_modifikacii_razmennogo_varianta.htm' %}">Глава 2. Различные модификации разменного варианта</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-a_3_ed_ed.htm' %}">A) 1.e4 e6 2.d4 d5 3.ed ed</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-b_3_Nc3_Bb4_4_ed_ed.htm' %}">Б) 1.e4 e6 2.d4 d5 3.Кc3 Сb4 4.ed ed</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-0_variant_nimcovicha.htm' %}">Глава 3. Вариант Нимцовича</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-a__Qb6.htm' %}">...Фb6 (партии 41-43)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-b_6_Be7.htm' %}">6.Сe7 (партии 44-51)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-c_6_a3_a5_c4_.htm' %}">6.a3 a5(c4) (партии 51-58)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-d_6_a3_s_figurnoj_kontrigroj.htm' %}">План фигурной контригры на 6.a3 (партии 59-65)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-e_variant_r_vejda.htm' %}">Вариант Р. Вейда (партии 66-67)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-f_drugie_otkloneniia.htm' %}">Другие отклонения (партии 68-72)</a></li>
+</ul>
+</ul>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-0_tom_2.htm' %}">Том 2</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-1_predislovie.htm' %}">Предисловие ко второму тому</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-0_sistema_rubinshtejna.htm' %}">Глава 1. Система Рубинштейна</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1_6_Nxf6-_Nxf6_7_Bd3.htm' %}">6.К:f6+ К:f6 7.Сd3 (партии 1-8)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2_6_Bd3.htm' %}">6.Сd3 (партии 9-10)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-3_6_Nxf6-_Nxf6_7_c3.htm' %}">6.К:f6+ К:f6 7.c3 (партии 11-12)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-4_6_Nxf6-_Nxf6_7_bg5.htm' %}">6.К:f6+ К:f6 7.Сg5 (партии 13-18)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-5__Be7.htm' %}">...Сe7 (партия 19)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-0_variant_rubinshtejna.htm' %}">Глава 2. Вариант Рубинштейна</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-1_5_Nbd7.htm' %}">5...Кbd7</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-2_5_Be7_6_Bxf6_gf.htm' %}">5...Сe7 6.С:f6 gf</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3_5_Be7_6_Bxf6_Bxf6.htm' %}">5...Сe7 6.С:f6 С:f6</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-4_partiia_32.htm' %}">партия 32</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-0_klassicheskaia_sistema.htm' %}">Глава 3. Классическая система</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-a_klassicheskaia_zashchita.htm' %}">Классическая защита (партии 33-49)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-b_ataka_alehina-shatara.htm' %}">Атака Алехина-Шатара (партии 50-55)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-c_variant_mak-ketchona.htm' %}">Атака Алехина-Шатара (партии 56-61)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-d_variant_stejnica.htm' %}">Вариант Стейница (партии 62-90)</a></li>
+</ul>
+</ul>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-0_tom_3.htm' %}">Том 3</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-1_predislovie.htm' %}">Предисловие к третьему тому</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-0_variant_vinavera.htm' %}">Глава 4. Вариант Винавера</a></li>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-a_uklonenie_ot_razmena.htm' %}">a) Попытка черных уберечь от размена своего королевского слона</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-b_redkoe_prodolzhenie.htm' %}">b) Редкое продолжение 4...c5 5.Сd2</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-c_variant_botvinnika.htm' %}">c) Вариант Ботвинника - 4...c5 5.a3 Сa5</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-d_ostryj_variant.htm' %}">d) Острый вариант</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-e_sovremennyj_variant.htm' %}">e) "Современный" вариант</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-f_klassicheskoe_napravlenie.htm' %}">f) Классическое направление</a></li>
+	</ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-0_variant_tarrasha.htm' %}">Глава 5. Вариант Тарраша</a></li>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-a_ukreplenie_peshechnogo_centra.htm' %}">a) План белых, связанный с укреплением пешечного центра</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-b_figurnaia_igra_v_centre.htm' %}">b) План белых, связанный с фигурной игрой в центре</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-c_partii_150-159.htm' %}">Партии 150-159</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-c_partii_160-170.htm' %}">Партии 160-170</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-c_partii_171-180.htm' %}">Партии 171-180</a></li>
+	</ul>
+</ul>
+</ul>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

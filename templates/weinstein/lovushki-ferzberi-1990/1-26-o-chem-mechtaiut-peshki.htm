@@ -1,0 +1,94 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>О чем мечтают пешки? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2><a name="67">О чем мечтают пешки?</a></h2>
+<div class="score">
+<p>— Мне приснился сон, что я был пешкой, — сказал Сережа. — Только не смейтесь, а то не буду рассказывать! Нас там кроме меня было пятеро ребят и три девочки — Анна, Цецилия и Елена, и я среди них — девятый — никак не находил себе места. Они на меня искоса поглядывали, — впрочем, все пешки косят. Уроков как раз не было, все оживленно болтали: кто чего хочет сделать, кто кем будет, когда вырастет... Ну, ребята, те, конечно, хотят воевать, напасть на кого-нибудь, хорошо бы дать шах королю! Но ужасно боятся, прямо съеживаются, когда рассказывают о ладье, нападающей сбоку на целую роту пешек: одна, бывает, и убежит, а остальные — пиши пропало... Девчонки, те, чуть дойдут до четвертой линии, уже чувствуют себя принцессами, спят и видят, как бы добраться до заветной черты и стать королевами. И чем раньше, тем лучше. Например, прямо из школы, то есть, я хотел сказать, из дебюта...</p>
+
+<p>— А знаешь, Сережа, иногда их мечты сбываются. Посмотри:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e5</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq f3 0 1", this, "f2f4"); ' class="line0">2.f4</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/4Pp2/8/PPPP2PP/RNBQKBNR w KQkq - 0 1", this, "e5f4"); ' class="line0">ef</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/2B1Pp2/8/PPPP2PP/RNBQK1NR b KQkq - 0 1", this, "f1c4"); ' class="line0">3.Сc4</span>
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1Pp1q/8/PPPP2PP/RNBQK1NR w KQkq - 0 1", this, "d8h4"); ' class="line0">Фh4+</span>
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1Pp1q/6P1/PPPP3P/RNBQK1NR b KQkq - 0 1", this, "g2g3"); ' class="line0">4.g3</span>
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1P2q/6p1/PPPP3P/RNBQK1NR w KQkq - 0 1", this, "f4g3"); ' class="line0">fg</span>
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1P2q/5Np1/PPPP3P/RNBQK2R b KQkq - 0 1", this, "g1f3"); ' class="line0">5.Кf3</span>
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1P2q/5N2/PPPP2pP/RNBQK2R w KQkq - 0 1", this, "g3g2"); ' class="line0">g2+</span>
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1P2N/8/PPPP2pP/RNBQK2R b KQkq - 0 1", this, "f3h4"); ' class="line0">6.К:h4</span>
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1P2N/8/PPPP3P/RNBQK2q b Qkq - 0 1", this, "g2h1"); ' class="line0">ghФ+</span>
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1kbnr/pppp1ppp/8/8/2B1P2N/8/PPPP3P/RNBQK2q w Qkq - 0 1"></div>
+<p class="caption"><b>Диаграмма 63</b></p>
+<p>— За шесть ходов Елена стала королевой! Вот это — карьера! А как же это получилось?</p>
+<p>— Во-первых, несколько вычурный третий ход слоном, чтобы вызвать шах ферзем, а затем с темпом вывести коня на f3. Так играют иногда, но я предпочитаю сначала выводить коня, как советовал Капабланка. Но главная ошибка — Жора поторопился, он слишком эмоционально бросился вперед, чтобы прикрыть короля, а надо было Его Величеству самому скромно отойти в сторонку —
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/8/2B1Pp1q/8/PPPP2PP/RNBQ1KNR b kq - 0 1", this, "e1f1"); ' class="line1">4.Крf1</span>.</p>
+
+<p>Но это не самый замечательный подвиг пешки. Вот белой Елене удалось однажды смертельно испугать самого черного короля.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<p class="capTop"><span class=" opening">Центральный дебют</span><br />Роганов - Комаров<br />1949</p>
+<div class="chessBoard small" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e5</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">2.d4</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 1", this, "e5d4"); ' class="line0">ed</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/3pP3/5N2/PPP2PPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">3.Кf3</span>
+ <span onclick='loadMove("rnbqkbnr/pp1p1ppp/8/2p5/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq c6 0 1", this, "c7c5"); ' class="line0">c5</span>
+ <span onclick='loadMove("rnbqkbnr/pp1p1ppp/8/2p5/2BpP3/5N2/PPP2PPP/RNBQK2R b KQkq - 0 1", this, "f1c4"); ' class="line0">4.Сc4</span>
+ <span onclick='loadMove("rnbqkb1r/pp1p1ppp/5n2/2p5/2BpP3/5N2/PPP2PPP/RNBQK2R w KQkq - 0 1", this, "g8f6"); ' class="line0">Кf6</span>
+ <span onclick='loadMove("rnbqkb1r/pp1p1ppp/5n2/2p1P3/2Bp4/5N2/PPP2PPP/RNBQK2R b KQkq - 0 1", this, "e4e5"); ' class="line0">5.e5</span>
+ <span onclick='loadMove("rnbqkb1r/pp1p1ppp/8/2p1P3/2Bp2n1/5N2/PPP2PPP/RNBQK2R w KQkq - 0 1", this, "f6g4"); ' class="line0">Кg4</span>
+ <span onclick='loadMove("rnbqkb1r/pp1p1Bpp/8/2p1P3/3p2n1/5N2/PPP2PPP/RNBQK2R b KQkq - 0 1", this, "c4f7"); ' class="line0">6.С:f7+</span>
+ <span onclick='loadMove("rnbq1b1r/pp1p1kpp/8/2p1P3/3p2n1/5N2/PPP2PPP/RNBQK2R w KQ - 0 1", this, "e8f7"); ' class="line0">Кр:f7</span>
+ <span onclick='loadMove("rnbq1b1r/pp1p1kpp/8/2p1P1N1/3p2n1/8/PPP2PPP/RNBQK2R b KQ - 0 1", this, "f3g5"); ' class="line0">7.Кg5+</span>
+ <span onclick='loadMove("rnbq1bkr/pp1p2pp/8/2p1P1N1/3p2n1/8/PPP2PPP/RNBQK2R w KQ - 0 1", this, "f7g8"); ' class="line0">Крg8</span>
+ <span onclick='loadMove("rnbq1bkr/pp1p2pp/8/2p1P1N1/3p2Q1/8/PPP2PPP/RNB1K2R b KQ - 0 1", this, "d1g4"); ' class="line0">8.Ф:g4</span>
+ <span onclick='loadMove("rnbq1bkr/pp4pp/8/2ppP1N1/3p2Q1/8/PPP2PPP/RNB1K2R w KQ d6 0 1", this, "d7d5"); ' class="line0">d5</span>
+ <span onclick='loadMove("rnbq1bkr/pp4pp/8/2ppP1N1/3p4/5Q2/PPP2PPP/RNB1K2R b KQ - 0 1", this, "g4f3"); ' class="line0">9.Фf3</span>
+ <span onclick='loadMove("rnb2bkr/pp1q2pp/8/2ppP1N1/3p4/5Q2/PPP2PPP/RNB1K2R w KQ - 0 1", this, "d8d7"); ' class="line0">Фd7</span>
+ <span onclick='loadMove("rnb2bkr/pp1q2pp/4P3/2pp2N1/3p4/5Q2/PPP2PPP/RNB1K2R b KQ - 0 1", this, "e5e6"); ' class="line0">10.e6</span>
+ <span onclick='loadMove("rnb2bkr/pp2q1pp/4P3/2pp2N1/3p4/5Q2/PPP2PPP/RNB1K2R w KQ - 0 1", this, "d7e7"); ' class="line0">Фe7</span>
+ <span onclick='loadMove("rnb2bkr/pp2qQpp/4P3/2pp2N1/3p4/8/PPP2PPP/RNB1K2R b KQ - 0 1", this, "f3f7"); ' class="line0">11.Фf7+</span>
+ <span onclick='loadMove("rnb2bkr/pp3qpp/4P3/2pp2N1/3p4/8/PPP2PPP/RNB1K2R w KQ - 0 1", this, "e7f7"); ' class="line0">Ф:f7</span>
+ <span onclick='loadMove("rnb2bkr/pp3Ppp/8/2pp2N1/3p4/8/PPP2PPP/RNB1K2R b KQ - 0 1", this, "e6f7"); ' class="line0">12.efX</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb2bkr/pp3Ppp/8/2pp2N1/3p4/8/PPP2PPP/RNB1K2R b KQ - 0 1"></div>
+<p class="caption"><b>Диаграмма 64</b></p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p style="text-align:center"><b>* * *</b></p>
+
+<div class="section">
+<div class="score">
+<p>— Ребята охотно приписывают фигурам разные характеры, способность размышлять и действовать по своему разумению. И не только ребята. Эмануил Ласкер рассказывает о Слоне, который коварно посмеивался, а затем даже хохотал.</p>
+<p>Такое стремление одушевить фигуры, узнать их нравы и обычаи позволяет порой лучше разобраться в обстановке и найти мотивы для комбинации.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

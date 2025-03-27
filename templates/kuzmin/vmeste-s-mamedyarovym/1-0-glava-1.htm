@@ -1,0 +1,667 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава первая | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h2>Глава первая</h2>
+<div class="score">
+<p>В ней вашему вниманию будут представлены 80 расположенных в хронологическом порядке тестов. По своей сложности они примерно соответствуют рейтингу 1400-1900. Конечно, указанный диапазон весьма условен. Надо учитывать, что на начальных этапах совершенствования «цифровой эквивалент» является очень относительным показателем силы игры. Уж слишком во многом он зависит от количества рейтинговых турниров, в которых принимал участие шахматист, от стран, в которых эти турниры проходили, и даже от возраста игрока.</p>
+<p>Впрочем, я надеюсь, что и более сильным игрокам будет любопытно проверить себя, хотя бы в плане тренировки принятия решений в темпе блиц.</p>
+<p>Задания большинства тестов состоят из двух частей. Первая — вопрос об оценке позиции. Вторая — задание найти лучший ход, вариант, иногда план. Конечно, как и в практической партии, оценка и расчет неразрывно связаны между собой. Правильная оценка позиции часто является ключом к нахождению верного решения. С другой стороны, точный расчет вариантов может кардинально изменить первоначальную оценку.</p>
+<p>Формулируя вопросы заданий, я избегал конкретики («найдите выигрывающее продолжение» или «сделайте ничью»), стремясь по возможности приблизить задачу решения тестов к условиям реальной партии.</p>
+<p>Шкала оценки ваших решений — в этой главе от 1 до 6 — в определенной мере отражает степень сложности задания. Большинство читателей захочет подсчитать сумму набранных очков. Если она окажется более 300 очков, то вы уже достаточно опытный шахматист, и по уровню сложности вам больше подходят задания второй главы книги. Сумма в диапазоне 250-300 показывает, что вы определенно не новичок в шахматах, это примерно соответствует рейтингу 1600-1800. Если же сумма набранных вами очков оказалась меньше, не расстраивайтесь — перед вами простирается широкое поле для совершенствования своего мастерства!</p>
+<p>Итак, все предисловия закончены — пора приступать к работе!</p>
+<p>Для начала я предлагаю решить шесть простых позиций. Это будет своего рода шахматная разминка.</p>
+<!--p>8</p><p>А. Кузьмин «Вместе с Мамедьяровым»</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>РАЗМИНКА</h3>
+<div class="score">
+<p>Во всех позициях найдите кратчайший путь к победе.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="r5k1/1q3pp1/2n1b3/1pP1p2p/p7/1N3QP1/P2RPP1P/3R2K1 w - - 0 25"></div>
+<div class="score">
+<p class="diagram capTop"><b>1. Мамедьяров — П. X. Нильсен<br />Спортаккорд (блиц), Пекин, 2014</b></p>
+<!--img src="images/kuzmin_mamedyarov-4.png" style="width:140pt;height:141pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r5k1/1q3pp1/2n1b3/1pP1p2p/p7/1N3QP1/P2RPP1P/3R2K1 w - - 0 25"></div>
+<p class="caption">Ход белых</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="r1b1kb1r/pp1n1ppp/2pnp3/q7/3PP2B/2N5/PPPQ2PP/1K1R1BNR w kq - 0 11"></div>
+<div class="score">
+<p class="diagram capTop"><b>2. Мамедьяров — Ю. Полгар<br />Чемпионат мира по блицу, Дубай,2014</b></p>
+<!--img src="images/kuzmin_mamedyarov-5.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kb1r/pp1n1ppp/2pnp3/q7/3PP2B/2N5/PPPQ2PP/1K1R1BNR w kq - 0 11"></div>
+<p class="caption">Ход белых</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="4rR2/1p2r1k1/2p1p1pp/p2nP1N1/P2q2P1/1P5P/2P1Q3/5R1K w - - 0 29"></div>
+<div class="score">
+<p class="diagram capTop"><b>3. Мамедьяров — Леко<br />Спортаккорд (блиц), Пекин, 2014</b></p>
+<!--img src="images/kuzmin_mamedyarov-6.png" style="width:140pt;height:141pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="4rR2/1p2r1k1/2p1p1pp/p2nP1N1/P2q2P1/1P5P/2P1Q3/5R1K w - - 0 29"></div>
+<p class="caption">Ход белых</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="r1q1k3/4ppb1/p1pn1np1/6Br/Q2P2bP/2N2N2/PP2BP2/2KR2R1 w q - 0 20"></div>
+<div class="score">
+<p class="diagram capTop"><b>4. Мамедьяров — Топалов<br />Grand Chess Tour (блиц), Париж, 2017</b></p>
+<!--img src="images/kuzmin_mamedyarov-7.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1q1k3/4ppb1/p1pn1np1/6Br/Q2P2bP/2N2N2/PP2BP2/2KR2R1 w q - 0 20"></div>
+<p class="caption">Ход белых</p>
+<!--p>Глава первая</p><p>9</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="6k1/2p2pbp/p1b2q2/2P5/3p2pn/1P6/PNQB1PPP/4N1K1 b - - 0 27"></div>
+<div class="score">
+<p class="diagram capTop"><b>5. Э. Хансен — Мамедьяров<br />PRO League Stage chess.com INT, 2018</b></p>
+<!--img src="images/kuzmin_mamedyarov-8.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/2p2pbp/p1b2q2/2P5/3p2pn/1P6/PNQB1PPP/4N1K1 b - - 0 27"></div>
+<p class="caption">Ход черных</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="B3Q3/4n1kp/4Pq1r/2p5/Pp2p1p1/1P4r1/5R1P/4R2K b - - 0 48"></div>
+<div class="score">
+<p class="diagram capTop"><b>6. Каруана — Мамедьяров<br />Grand Chess Tour (рапид), Левен, 2018</b></p>
+<!--img src="images/kuzmin_mamedyarov-9.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="B3Q3/4n1kp/4Pq1r/2p5/Pp2p1p1/1P4r1/5R1P/4R2K b - - 0 48"></div>
+<p class="caption">Ход черных</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>РЕШЕНИЯ</h3>
+<div class="score">
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r5k1/1q3pp1/2n1b3/1pP1p2p/p7/1N3QP1/P2RPP1P/3R2K1 w - - 0 25"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r5k1/1q3pp1/2n1b3/1pP1p2p/p7/1N3QP1/P2RPP1P/3R2K1 w - - 0 25", this, ""); '>[...]</span> 
+<p class="diagram capTop">1. <b>Мамедьяров — П. X. Нильсен</b><br />Спортаккорд (блиц), Пекин, 2011</p>
+<p>
+ <span onclick='loadMove("r5k1/1q3pp1/2n1b3/NpP1p2p/p7/5QP1/P2RPP1P/3R2K1 b - - 0 25", this, "b3a5"); ' class="line0">25.Кa5!</span> 
+</p>
+<p>Классическая отвлекающая жертва. Черный конь контролирует поле d8 — его нужно отвлечь.</p>
+<p>
+ <span onclick='loadMove("r5k1/1q3pp1/4b3/npP1p2p/p7/5QP1/P2RPP1P/3R2K1 w - - 0 26", this, "c6a5"); ' class="line0">25...К:a5</span> 
+</p>
+<p>Конечно, Питер Хайне сразу понял, что его ждет в случае взятия коня. Он просто решил не лишать зрителей удовольствия: нечасто удается увидеть мат на доске.</p>
+<p>
+ <span onclick='loadMove("r2R2k1/1q3pp1/4b3/npP1p2p/p7/5QP1/P3PP1P/3R2K1 b - - 0 26", this, "d2d8"); ' class="line0">26.Лd8+</span> 
+ <span onclick='loadMove("r2R4/1q3ppk/4b3/npP1p2p/p7/5QP1/P3PP1P/3R2K1 w - - 0 27", this, "g8h7"); ' class="line0">Крh7</span> 
+ <span onclick='loadMove("r2R4/1q3ppk/4b3/npP1p2Q/p7/6P1/P3PP1P/3R2K1 b - - 0 27", this, "f3h5"); ' class="line0">27.Ф:h5X</span> 
+<b>1-0</b></p>
+<p>Спасибо, Питер!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1b1kb1r/pp1n1ppp/2pnp3/q7/3PP2B/2N5/PPPQ2PP/1K1R1BNR w kq - 0 11"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b1kb1r/pp1n1ppp/2pnp3/q7/3PP2B/2N5/PPPQ2PP/1K1R1BNR w kq - 0 11", this, ""); '>[...]</span> 
+<p class="diagram capTop">2. <b>Мамедьяров — Ю. Полгар</b><br />Чемпионат мира по блицу, Дубай,2014</p>
+<p>«<b>10...Сe7</b> она не пойдет — кому захочется лишать себя рокировки!? На d7 ни коня, ни слона ставить нельзя. Интересно, что же предпримет Юдит?» — успел подумать Шах, делая свой последний ход <b>10.Крb1</b>. Полгар сыграла <b>10...Кd7</b> — ответ последовал немедленно...</p>
+<p>
+ <span onclick='loadMove("r1b1kb1r/pp1n1ppp/2pnp3/q2N4/3PP2B/8/PPPQ2PP/1K1R1BNR b kq - 0 11", this, "c3d5"); ' class="line0">11.Кd5!!</span> 
+<b>1-0</b></p>
+<p>После отступления белого короля взятие
+ <span onclick='loadMove("r1b1kb1r/pp1n1ppp/2pnp3/3N4/3PP2B/8/PPPq2PP/1K1R1BNR w kq - 0 12", this, "a5d2"); ' class="line1">11...Ф:d2</span> 
+происходит без шаха, и черные просто получают мат —
+ <span onclick='loadMove("r1b1kb1r/ppNn1ppp/2pnp3/8/3PP2B/8/PPPq2PP/1K1R1BNR b kq - 0 12", this, "d5c7"); ' class="line1">12.Кc7X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4rR2/1p2r1k1/2p1p1pp/p2nP1N1/P2q2P1/1P5P/2P1Q3/5R1K w - - 0 29"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4rR2/1p2r1k1/2p1p1pp/p2nP1N1/P2q2P1/1P5P/2P1Q3/5R1K w - - 0 29", this, ""); '>[...]</span> 
+<p class="diagram capTop">3. <b>Мамедьяров — Леко</b><br />Спортаккорд (блиц), Пекин, 2014</p>
+<p>
+ <span onclick='loadMove("4rR2/1p2r1k1/2p1N1pp/p2nP3/P2q2P1/1P5P/2P1Q3/5R1K b - - 0 29", this, "g5e6"); ' class="line0">29.К:e6+!!</span> 
+<b>1-0</b></p>
+<p>На взятие коня
+ <span onclick='loadMove("4rR2/1p4k1/2p1r1pp/p2nP3/P2q2P1/1P5P/2P1Q3/5R1K w - - 0 30", this, "e7e6"); ' class="line1">29...Л:e6</span> 
+белые объявляют мат —
+ <span onclick='loadMove("4rR2/1p3Rk1/2p1r1pp/p2nP3/P2q2P1/1P5P/2P1Q3/7K b - - 0 30", this, "f1f7"); ' class="line1">30.Л1f7X</span> 
+. Конечно, черные могут отойти
+<!--p>10</p><p>А. Кузьмин «Вместе с Мамедьяровым»</p-->
+королем, но что это меняет? Под боем их ферзь...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1q1k3/4ppb1/p1pn1np1/6Br/Q2P2bP/2N2N2/PP2BP2/2KR2R1 w q - 0 20"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1q1k3/4ppb1/p1pn1np1/6Br/Q2P2bP/2N2N2/PP2BP2/2KR2R1 w q - 0 20", this, ""); '>[...]</span> 
+<p class="diagram capTop">4. <b>Мамедьяров — Топалов</b><br />Grand Chess Tour (блиц), Париж, 2017</p>
+<p>Как мы видели, матовые угрозы иногда успешно срабатывают даже на высшем уровне. Но если можно выиграть фигуру — это тоже приносит очко!</p>
+<p>
+ <span onclick='loadMove("r1q1k3/4ppb1/p1pn1Bp1/7r/Q2P2bP/2N2N2/PP2BP2/2KR2R1 b q - 0 20", this, "g5f6"); ' class="line0">20.С:f6</span> 
+ <span onclick='loadMove("r1q1k3/4pp2/p1pn1bp1/7r/Q2P2bP/2N2N2/PP2BP2/2KR2R1 w q - 0 21", this, "g7f6"); ' class="line0">С:f6</span> 
+ <span onclick='loadMove("r1q1k3/4pp2/p1pn1bp1/7r/Q2P2RP/2N2N2/PP2BP2/2KR4 b q - 0 21", this, "g1g4"); ' class="line0">21.Л:g4!</span> 
+</p>
+<p>Маленькая комбинация с отвлечением ферзя.</p>
+<p>
+ <span onclick='loadMove("r3k3/4pp2/p1pn1bp1/7r/Q2P2qP/2N2N2/PP2BP2/2KR4 w q - 0 22", this, "c8g4"); ' class="line0">21...Ф:g4</span> 
+ <span onclick='loadMove("r3k3/4pp2/p1Qn1bp1/7r/3P2qP/2N2N2/PP2BP2/2KR4 b q - 0 22", this, "a4c6"); ' class="line0">22.Ф:c6+</span> 
+<b>1-0</b></p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/2p2pbp/p1b2q2/2P5/3p2pn/1P6/PNQB1PPP/4N1K1 b - - 0 27"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/2p2pbp/p1b2q2/2P5/3p2pn/1P6/PNQB1PPP/4N1K1 b - - 0 27", this, ""); '>[...]</span> 
+<p class="diagram capTop">5. <b>Э. Хансен — Мамедьяров</b><br />PRO League Stage chess.com INT, 2018</p>
+<p>Эрик решил, что, поставив коня на e1, он защитился от матовых угроз. Но то была лишь иллюзия...</p>
+<p>
+ <span onclick='loadMove("6k1/2p2pbp/p1b2q2/2P5/3p2p1/1P6/PNQB1PnP/4N1K1 w - - 0 28", this, "h4g2"); ' class="line0">27...К:g2!</span> 
+<b>0-1</b></p>
+<p>После
+ <span onclick='loadMove("6k1/2p2pbp/p1b2q2/2P5/3p2p1/1P6/PNQB1PNP/6K1 b - - 0 28", this, "e1g2"); ' class="line1">28.К:g2</span> 
+черные сыграют
+ <span onclick='loadMove("6k1/2p2pbp/p1b5/2P5/3p2p1/1P3q2/PNQB1PNP/6K1 w - - 0 29", this, "f6f3"); ' class="line1">28...Фf3</span> 
+и в случае любого отступления коня — <b>29...Фh1X</b>.
+Попытка белого короля улизнуть тоже обречена:
+ <span onclick='loadMove("6k1/2p2pbp/p1b5/2P5/3p2p1/1P3q2/PNQB1PNP/5K2 b - - 0 29", this, "g1f1"); ' class="line2">29.Крf1</span> 
+ <span onclick='loadMove("6k1/2p2pbp/p1b5/2P5/3p2p1/1P6/PNQB1PqP/5K2 w - - 0 30", this, "f3g2"); ' class="line2">Ф:g2+</span> 
+ <span onclick='loadMove("6k1/2p2pbp/p1b5/2P5/3p2p1/1P6/PNQBKPqP/8 b - - 0 30", this, "f1e2"); ' class="line2">30.Крe2</span> 
+ <span onclick='loadMove("6k1/2p2pbp/p7/2P5/3p2p1/1P3b2/PNQBKPqP/8 w - - 0 31", this, "c6f3"); ' class="line2">Сf3+</span> 
+ <span onclick='loadMove("6k1/2p2pbp/p7/2P5/3p2p1/1P1K1b2/PNQB1PqP/8 b - - 0 31", this, "e2d3"); ' class="line2">31.Крd3</span> 
+ <span onclick='loadMove("6k1/2p2pbp/p7/2P5/3p2p1/1P1K1b2/PNQB1P1P/5q2 w - - 0 32", this, "g2f1"); ' class="line2">Фf1X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="B3Q3/4n1kp/4Pq1r/2p5/Pp2p1p1/1P4r1/5R1P/4R2K b - - 0 48"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("B3Q3/4n1kp/4Pq1r/2p5/Pp2p1p1/1P4r1/5R1P/4R2K b - - 0 48", this, ""); '>[...]</span> 
+<p class="diagram capTop">6. <b>Каруана — Мамедьяров</b><br />Grand Chess Tour (рапид), Левен, 2018</p>
+<p>
+ <span onclick='loadMove("B3Q3/4n1kp/4Pq2/2p5/Pp2p1p1/1P4r1/5R1r/4R2K w - - 0 49", this, "h6h2"); ' class="line0">48...Л:h2+!!</span> 
+<b>0-1</b></p>
+<p>К выигрышу ведет и прозаичное
+ <span onclick='loadMove("B3Q3/4n1kp/4Pq1r/2p5/Pp2p1p1/1P3r2/5R1P/4R2K w - - 0 49", this, "g3f3"); ' class="line1">48...Лf3</span> 
+ <span onclick='loadMove("B3Q3/4n1kp/4Pq1r/2p5/Pp2p1p1/1P3R2/7P/4R2K b - - 0 49", this, "f2f3"); ' class="line1">49.Л:f3</span> 
+ <span onclick='loadMove("B3Q3/4n1kp/4Pq1r/2p5/Pp4p1/1P3p2/7P/4R2K w - - 0 50", this, "e4f3"); ' class="line1">e:f3</span> 
+. Но задание было «найти кратчайший путь к победе», поэтому правильный ответ — жертва ладьи.
+После
+ <span onclick='loadMove("B3Q3/4n1kp/4Pq2/2p5/Pp2p1p1/1P4r1/7R/4R2K b - - 0 49", this, "f2h2"); ' class="line1">49.Л:h2</span> 
+ <span onclick='loadMove("B3Q3/4n1kp/4P3/2p5/Pp2p1p1/1P3qr1/7R/4R2K w - - 0 50", this, "f6f3"); ' class="line1">Фf3+</span> 
+или
+ <span onclick='loadMove("B3Q3/4n1kp/4Pq2/2p5/Pp2p1p1/1P4r1/5R1K/4R3 b - - 0 49", this, "h1h2"); ' class="line2">49.Кр:h2</span> 
+ <span onclick='loadMove("B3Q3/4n1kp/4P3/2p5/Pp2p1p1/1P4r1/5q1K/4R3 w - - 0 50", this, "f6f2"); ' class="line2">Ф:f2+</span> 
+белые получают мат.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<div class="diagram">
+<img src="{% static 'images/'|add:book.slug|add:'/kuzmin_mamedyarov-10.jpg' %}" style="width:378pt;height:239pt;"/>
+</div>
+<!--p>Глава первая</p><p>11</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p>А теперь, когда ваш мозг разогрелся, внимание сфокусировалось, а комбинационное зрение и позиционное чутье обострились, можно приступать к решению более сложных задач. Только помните: верное решение — отнюдь не всегда яркий тактический удар, порой это может быть тонкий позиционный маневр или даже четкий оборонительный ресурс...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>ТЕСТ 1</h4>
+<div class="chessBoard small floater" data-start-fen="r4rk1/1p2qpbp/2p2np1/p3p3/1nP1P3/BPN2BPP/P3QP2/R4RK1 b - - 0 15"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4rk1/1p2qpbp/2p2np1/p3p3/1nP1P3/BPN2BPP/P3QP2/R4RK1 b - - 0 15", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Абдулин — Мамедьяров</b><br />Чемпионат Азербайджана U-16, Баку, 2000</p>
+<!--img src="images/kuzmin_mamedyarov-11.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r4rk1/1p2qpbp/2p2np1/p3p3/1nP1P3/BPN2BPP/P3QP2/R4RK1 b - - 0 15"></div>
+<p class="caption">Ход черных</p>
+<p><b>A. Позиция черных: а) несколько лучше, b) несколько хуже, с) равная.</b></p>
+<p><b>B. Как им следует продолжать?</b></p>
+<p>Если вы искали лишь комбинацию или тактический удар, то зря потратили время. Трудно найти черную кошку в темной комнате, особенно если ее там нет! Правы оказались те, кто смогли хорошо разобраться в стратегических механизмах этой типично староиндийской позиции. </p>
+<p>Позиция черных несколько лучше (2 очка). Их перевес определяет возможность вторжения на ослабленное поле d4.</p>
+<p>
+ <span onclick='loadMove("r3nrk1/1p2qpbp/2p3p1/p3p3/1nP1P3/BPN2BPP/P3QP2/R4RK1 w - - 0 16", this, "f6e8"); ' class="line0">15...Кe8!</span> 
+</p>
+<p>Еще 3 очка — награда тем, кто смог найти правильную траекторию движения коня. Более типичный ход
+ <span onclick='loadMove("r4rk1/1p1nqpbp/2p3p1/p3p3/1nP1P3/BPN2BPP/P3QP2/R4RK1 w - - 0 16", this, "f6d7"); ' class="line1">15...Кd7</span> 
+слабее. После
+ <span onclick='loadMove("r4rk1/1p1nqpbp/2p3p1/p3p3/NnP1P3/BP3BPP/P3QP2/R4RK1 b - - 0 16", this, "c3a4"); ' class="line1">16.Кa4</span> 
+ <span onclick='loadMove("r2r2k1/1p1nqpbp/2p3p1/p3p3/NnP1P3/BP3BPP/P3QP2/R4RK1 w - - 0 17", this, "f8d8"); ' class="line1">Лfd8</span> 
+ <span onclick='loadMove("r2r2k1/1p1nqpbp/2p3p1/p3p3/NnP1P2P/BP3BP1/P3QP2/R4RK1 b - - 0 17", this, "h3h4"); ' class="line1">17.h4</span> 
+ <span onclick='loadMove("r2r1nk1/1p2qpbp/2p3p1/p3p3/NnP1P2P/BP3BP1/P3QP2/R4RK1 w - - 0 18", this, "d7f8"); ' class="line1">Кf8</span> 
+ <span onclick='loadMove("r2r1nk1/1p2qpbp/2p3p1/p3p3/NnP1P1BP/BP4P1/P3QP2/R4RK1 b - - 0 18", this, "f3g4"); ' class="line1">18.Сg4!</span> 
+черному коню не удается попасть на d4, так как он будет разменян на поле e6. Шансы сторон равны.</p>
+<p>
+ <span onclick='loadMove("r3nrk1/1p2qpbp/2p3p1/p3p3/NnP1P3/BP3BPP/P3QP2/R4RK1 b - - 0 16", this, "c3a4"); ' class="line0">16.Кa4?!</span> 
+</p>
+<p>В случае
+ <span onclick='loadMove("r3nrk1/1p2qpbp/2p3p1/p3p3/1nP1P3/BPN2BPP/P3QP2/3R1RK1 b - - 0 16", this, "a1d1"); ' class="line1">16.Лad1</span> 
+ <span onclick='loadMove("r4rk1/1pn1qpbp/2p3p1/p3p3/1nP1P3/BPN2BPP/P3QP2/3R1RK1 w - - 0 17", this, "e8c7"); ' class="line1">Кc7</span> 
+ <span onclick='loadMove("r4rk1/1pn1qpbp/2p3p1/p3p3/1nP1P3/1PN2BPP/P3QP2/2BR1RK1 b - - 0 17", this, "a3c1"); ' class="line1">17.Сc1</span> 
+(помешать маневру черных посредством
+ <span onclick='loadMove("r4rk1/1pn1qpbp/2p3p1/p3p3/1nP1P1B1/BPN3PP/P3QP2/3R1RK1 b - - 0 17", this, "f3g4"); ' class="line2">17.Сg4?!</span> 
+не удается ввиду
+ <span onclick='loadMove("r4rk1/1pn1q1bp/2p3p1/p3pp2/1nP1P1B1/BPN3PP/P3QP2/3R1RK1 w - f6 0 18", this, "f7f5"); ' class="line2">17...f5</span> 
+-/+)
+ <span onclick='loadMove("r4rk1/1p2qpbp/2p1n1p1/p3p3/1nP1P3/1PN2BPP/P3QP2/2BR1RK1 w - - 0 18", this, "c7e6"); ' class="line1">17...Кe6</span> 
+у черных был бы лишь небольшой перевес.</p>
+<p>
+ <span onclick='loadMove("r4rk1/1pn1qpbp/2p3p1/p3p3/NnP1P3/BP3BPP/P3QP2/R4RK1 w - - 0 17", this, "e8c7"); ' class="line0">16...Кc7!</span> 
+ <span onclick='loadMove("r4rk1/1pn1qpbp/2p3p1/p3p3/NnP1P3/BP4PP/P3QPB1/R4RK1 b - - 0 17", this, "f3g2"); ' class="line0">17.Сg2</span> 
+ <span onclick='loadMove("r4rk1/1p2qpbp/2p1n1p1/p3p3/NnP1P3/BP4PP/P3QPB1/R4RK1 w - - 0 18", this, "c7e6"); ' class="line0">Кe6</span> 
+ <span onclick='loadMove("r4rk1/1p2qpbp/2p1n1p1/p3p3/1nP1P3/BP4PP/PN2QPB1/R4RK1 b - - 0 18", this, "a4b2"); ' class="line0">18.Кb2</span> 
+ <span onclick='loadMove("3r1rk1/1p2qpbp/2p1n1p1/p3p3/1nP1P3/BP4PP/PN2QPB1/R4RK1 w - - 0 19", this, "a8d8"); ' class="line0">Лad8</span> 
+ <span onclick='loadMove("3r1rk1/1p2qpbp/2p1n1p1/p3p3/1nP1P3/BP1N2PP/P3QPB1/R4RK1 b - - 0 19", this, "b2d3"); ' class="line0">19.Кd3</span> 
+ <span onclick='loadMove("3r1rk1/1p2qpbp/2p3p1/p3p3/1nPnP3/BP1N2PP/P3QPB1/R4RK1 w - - 0 20", this, "e6d4"); ' class="line0">Кd4</span> 
+</p>
+<!--img src="images/kuzmin_mamedyarov-12.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3r1rk1/1p2qpbp/2p3p1/p3p3/1nPnP3/BP1N2PP/P3QPB1/R4RK1 w - - 0 20"></div>
+<!--p>12</p><p>А. Кузьмин «Вместе с Мамедьяровым»</p-->
+<p>Мамедьяров полностью реализовал свой стратегический план.</p>
+<p>
+ <span onclick='loadMove("3r1rk1/1p2qpbp/2p3p1/p3p3/1nPnP3/BP1N2PP/P2Q1PB1/R4RK1 b - - 0 20", this, "e2d2"); ' class="line0">20.Фd2</span> 
+ <span onclick='loadMove("3r1rk1/1p2qpbp/6p1/p1p1p3/1nPnP3/BP1N2PP/P2Q1PB1/R4RK1 w - - 0 21", this, "c6c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("3r1rk1/1p2qpbp/6p1/p1p1p3/1BPnP3/1P1N2PP/P2Q1PB1/R4RK1 b - - 0 21", this, "a3b4"); ' class="line0">21.С:b4</span> 
+ <span onclick='loadMove("3r1rk1/1p2qpbp/6p1/2p1p3/1pPnP3/1P1N2PP/P2Q1PB1/R4RK1 w - - 0 22", this, "a5b4"); ' class="line0">a:b4</span> 
+ <span onclick='loadMove("3r1rk1/1p2qpbp/6p1/2p1p3/1pPnP3/1P1N2PP/P2Q1PB1/3R1RK1 b - - 0 22", this, "a1d1"); ' class="line0">22.Лad1</span> 
+ <span onclick='loadMove("3r1rk1/1p2q1bp/6p1/2p1pp2/1pPnP3/1P1N2PP/P2Q1PB1/3R1RK1 w - f6 0 23", this, "f7f5"); ' class="line0">f5</span> 
+На стороне черных и позиционный перевес, и игровая инициатива. Через десять ходов они выиграли партию, правда, не без драматических приключений...</p>
+<p>Помните: улучшая позицию даже одной фигуры, вы усиливаете свою позицию в целом!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>TECT 2</h4>
+<div class="chessBoard small floater" data-start-fen="3r1rk1/2p3pp/p1n1bq2/1pbp4/8/1BPQ1N2/PP1N1PPP/R3R1K1 w - - 0 17"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3r1rk1/2p3pp/p1n1bq2/1pbp4/8/1BPQ1N2/PP1N1PPP/R3R1K1 w - - 0 17", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Гурбанов — Мамедьяров</b><br />Чемпионат Азербайджана U-16, Баку, 2000</p>
+<!--img src="images/kuzmin_mamedyarov-13.png" style="width:138pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3r1rk1/2p3pp/p1n1bq2/1pbp4/8/1BPQ1N2/PP1N1PPP/R3R1K1 w - - 0 17"></div>
+<p class="caption">Ход белых</p>
+<p><b>A. Позиция белых: а) лучше, b) хуже, с) примерно равная.</b></p>
+<p><b>B. Что вы думаете о ходе
+ <span onclick='loadMove("3r1rk1/2p3pp/p1n1Rq2/1pbp4/8/1BPQ1N2/PP1N1PPP/R5K1 b - - 0 17", this, "e1e6"); ' class="line1">17.Л:e6</span> 
+?</b></p>
+<p>Партия только что миновала дебютную стадию, и никаких эпохальных событий пока еще не произошло. 2 очка получают те, кто пришли к верному выводу: позиция примерно равна.</p>
+<p>
+ <span onclick='loadMove("3r1rk1/2p3pp/p1n1Rq2/1pbp4/8/1BPQ1N2/PP1N1PPP/R5K1 b - - 0 17", this, "e1e6"); ' class="line0">17.Л:e6?</span> 
+</p>
+<p>Увидев, что его соперник взял слона, Шах был удивлен. Еще два хода назад он видел эту возможность, рассчитал ее последствия и решил, что она некорректна. Логичным продолжением был подрыв
+ <span onclick='loadMove("3r1rk1/2p3pp/p1n1bq2/1pbp4/P7/1BPQ1N2/1P1N1PPP/R3R1K1 b - a3 0 17", this, "a2a4"); ' class="line1">17.a4</span> 
+со сложной и приблизительно равной игрой.</p>
+<p>
+ <span onclick='loadMove("3r1rk1/2p3pp/p1n1q3/1pbp4/8/1BPQ1N2/PP1N1PPP/R5K1 w - - 0 18", this, "f6e6"); ' class="line0">17...Ф:e6</span> 
+ <span onclick='loadMove("3r1rk1/2p3pQ/p1n1q3/1pbp4/8/1BP2N2/PP1N1PPP/R5K1 b - - 0 18", this, "d3h7"); ' class="line0">18.Ф:h7+</span> 
+ <span onclick='loadMove("3r1r2/2p3pk/p1n1q3/1pbp4/8/1BP2N2/PP1N1PPP/R5K1 w - - 0 19", this, "g8h7"); ' class="line0">Кр:h7</span> 
+ <span onclick='loadMove("3r1r2/2p3pk/p1n1q3/1pbp2N1/8/1BP5/PP1N1PPP/R5K1 b - - 0 19", this, "f3g5"); ' class="line0">19.Кg5+</span> 
+ <span onclick='loadMove("3r1r2/2p3p1/p1n1q1k1/1pbp2N1/8/1BP5/PP1N1PPP/R5K1 w - - 0 20", this, "h7g6"); ' class="line0">Крg6</span> 
+ <span onclick='loadMove("3r1r2/2p3p1/p1n1N1k1/1pbp4/8/1BP5/PP1N1PPP/R5K1 b - - 0 20", this, "g5e6"); ' class="line0">20.К:e6</span> 
+</p>
+<!--img src="images/kuzmin_mamedyarov-14.png" style="width:138pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3r1r2/2p3p1/p1n1N1k1/1pbp4/8/1BP5/PP1N1PPP/R5K1 b - - 0 20"></div>
+<p>
+ <span onclick='loadMove("3r4/2p3p1/p1n1N1k1/1pbp4/8/1BP5/PP1N1rPP/R5K1 w - - 0 21", this, "f8f2"); ' class="line0">20...Л:f2!</span> 
+</p>
+<p>Именно этот ход опровергает комбинацию белых. Если вы, как и Шахрияр, смогли заранее рассчитать весь вариант, то получаете в награду еще 3 очка. А после взятия слоном возникала равная позиция —
+ <span onclick='loadMove("3r1r2/2p3p1/p1n1N1k1/1p1p4/8/1BP5/PP1N1bPP/R5K1 w - - 0 21", this, "c5f2"); ' class="line1">20...С:f2+?</span> 
+ <span onclick='loadMove("3r1r2/2p3p1/p1n1N1k1/1p1p4/8/1BP5/PP1N1bPP/R4K2 b - - 0 21", this, "g1f1"); ' class="line1">21.Крf1</span> 
+ <span onclick='loadMove("3r1r2/2p3p1/pbn1N1k1/1p1p4/8/1BP5/PP1N2PP/R4K2 w - - 0 22", this, "f2b6"); ' class="line1">Сb6+</span> 
+ <span onclick='loadMove("3r1r2/2p3p1/pbn1N1k1/1p1p4/8/1BP2N2/PP4PP/R4K2 b - - 0 22", this, "d2f3"); ' class="line1">22.Кf3</span> 
+=</p>
+<p>
+ <span onclick='loadMove("3r4/2p3p1/p1n1N1k1/1pbp4/8/1BP5/PP3rPP/R4NK1 b - - 0 21", this, "d2f1"); ' class="line0">21.Кf1?!</span> 
+</p>
+<p>
+ <span onclick='loadMove("3r4/2p3p1/p1n3k1/1pNp4/8/1BP5/PP1N1rPP/R5K1 b - - 0 21", this, "e6c5"); ' class="line1">21.К:c5?!</span> 
+ <span onclick='loadMove("3r4/2p3p1/p1n3k1/1pNp4/8/1BP5/PP1r2PP/R5K1 w - - 0 22", this, "f2d2"); ' class="line1">Л:d2</span> 
+проигрывало, а относительно лучшее
+ <span onclick='loadMove("3r4/2p3p1/p1n1N1k1/1pbp4/8/1BP2N2/PP3rPP/R5K1 b - - 0 21", this, "d2f3"); ' class="line1">21.Кf3!</span> 
+вело после
+ <span onclick='loadMove("3r4/2p3p1/p1n1N1k1/1pbp4/8/1BP2r2/PP4PP/R5K1 w - - 0 22", this, "f2f3"); ' class="line1">21...Л:f3+</span> 
+ <span onclick='loadMove("3r4/2p3p1/p1n3k1/1pNp4/8/1BP2r2/PP4PP/R5K1 b - - 0 22", this, "e6c5"); ' class="line1">22.К:c5</span> 
+ <span onclick='loadMove("3r4/2p3p1/p1n2rk1/1pNp4/8/1BP5/PP4PP/R5K1 w - - 0 23", this, "f3f6"); ' class="line1">Лf6</span> 
+ <span onclick='loadMove("3r4/2p3p1/N1n2rk1/1p1p4/8/1BP5/PP4PP/R5K1 b - - 0 23", this, "c5a6"); ' class="line1">23.К:a6</span> 
+ <span onclick='loadMove("3r4/2p3p1/N4rk1/1p1p4/3n4/1BP5/PP4PP/R5K1 w - - 0 24", this, "c6d4"); ' class="line1">Кd4!</span> 
+к позиции с большим перевесом у черных.</p>
+<p>
+ <span onclick='loadMove("3r4/2p3p1/pbn1N1k1/1p1p4/8/1BP5/PP3rPP/R4NK1 w - - 0 22", this, "c5b6"); ' class="line0">21...Сb6</span> 
+ <span onclick='loadMove("3N4/2p3p1/pbn3k1/1p1p4/8/1BP5/PP3rPP/R4NK1 b - - 0 22", this, "e6d8"); ' class="line0">22.К:d8</span> 
+ <span onclick='loadMove("3n4/2p3p1/pb4k1/1p1p4/8/1BP5/PP3rPP/R4NK1 w - - 0 23", this, "c6d8"); ' class="line0">К:d8</span> 
+</p>
+<!--p>Глава первая</p><p>13</p-->
+<!--img src="images/kuzmin_mamedyarov-15.png" style="width:141pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3n4/2p3p1/pb4k1/1p1p4/8/1BP5/PP3rPP/R4NK1 w - - 0 23"></div>
+<p>
+ <span onclick='loadMove("3n4/2p3p1/pb4k1/1p1p4/8/1BP5/PP3rPP/R4N1K b - - 0 23", this, "g1h1"); ' class="line0">23.Крh1</span> 
+ <span onclick='loadMove("3n4/6p1/pbp3k1/1p1p4/8/1BP5/PP3rPP/R4N1K w - - 0 24", this, "c7c6"); ' class="line0">c6</span> 
+ <span onclick='loadMove("3n4/6p1/pbp3k1/1p1p4/8/1BP5/PP3rPP/1R3N1K b - - 0 24", this, "a1b1"); ' class="line0">24.Лb1</span> 
+ <span onclick='loadMove("8/6p1/pbp1n1k1/1p1p4/8/1BP5/PP3rPP/1R3N1K w - - 0 25", this, "d8e6"); ' class="line0">Кe6</span> 
+ <span onclick='loadMove("8/6p1/pbp1n1k1/1p1p4/8/1BP3N1/PP3rPP/1R5K b - - 0 25", this, "f1g3"); ' class="line0">25.Кg3</span> 
+ <span onclick='loadMove("8/6p1/pbp3k1/1pnp4/8/1BP3N1/PP3rPP/1R5K w - - 0 26", this, "e6c5"); ' class="line0">Кc5</span> 
+</p>
+<p>Фигуры черных заняли доминирующие позиции. Несмотря на материальное равенство, у них уже решающий перевес. То, что для выигрыша партии Мамедьярову потребовалось еще более тридцати (!) ходов, говорит лишь о том, что его техника реализации в те годы оставляла желать лучшего. Впрочем, Шаху было всего 14 лет...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>ТЕСТ 3</h4>
+<div class="chessBoard small floater" data-start-fen="2r2r2/pp1qppk1/4b1pp/3n4/2pP1PP1/2P1NB1P/PP6/RQ3RK1 w - - 0 24"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2r2r2/pp1qppk1/4b1pp/3n4/2pP1PP1/2P1NB1P/PP6/RQ3RK1 w - - 0 24", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Мамедьяров — Долматов</b><br />Дубай-опен,2000</p>
+<!--img src="images/kuzmin_mamedyarov-16.png" style="width:141pt;height:141pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="2r2r2/pp1qppk1/4b1pp/3n4/2pP1PP1/2P1NB1P/PP6/RQ3RK1 w - - 0 24"></div>
+<p class="caption">Ход белых</p>
+<p><b>A. Позиция белых: а) равная, b) хуже, с) лучше.</b></p>
+<p><b>B. Как им следует продолжать?</b></p>
+<p>В турнире Дубай-опен 2000 Мамедьяров набрал 50% — 4,5 из 9. Для дебютанта, которому только что исполнилось пятнадцать лет — вполне приличный результат. Впрочем, некоторые из его сегодняшних соперников в таком возрасте уже успевали стать гроссмейстерами, но Шахрияр не был шахматным вундеркиндом. Его рывок на вершину шахматного Олимпа произошел позже...</p>
+<p>Партия с Сергеем Долматовым была сыграна во втором туре. Если вы решили, что выдвинутые пешки королевского фланга белых скорее слабость, чем сила, то должен вас разочаровать: борьба за инициативу требует здорового оптимизма! Позиция белых лучше (2 очка).</p>
+<p>
+ <span onclick='loadMove("2r2r2/pp1qppk1/4b1pp/3n4/2pPQPP1/2P1NB1P/PP6/R4RK1 b - - 0 24", this, "b1e4"); ' class="line0">24.Фe4!</span> 
+</p>
+<p>Но только этот централизующий ферзя ход обеспечивает белым явный перевес и приносит вам дополнительные 3 очка.</p>
+<p>Попытки как можно скорее продолжить пешечное наступление на королевском фланге не опасны для черных:
+ <span onclick='loadMove("2r2r2/pp1qppk1/4b1pp/3N4/2pP1PP1/2P2B1P/PP6/RQ3RK1 b - - 0 24", this, "e3d5"); ' class="line1">24.К:d5</span> 
+ <span onclick='loadMove("2r2r2/pp1qppk1/6pp/3b4/2pP1PP1/2P2B1P/PP6/RQ3RK1 w - - 0 25", this, "e6d5"); ' class="line1">С:d5</span> 
+ <span onclick='loadMove("2r2r2/pp1qppk1/6pp/3b1P2/2pP2P1/2P2B1P/PP6/RQ3RK1 b - - 0 25", this, "f4f5"); ' class="line1">25.f5</span> 
+ <span onclick='loadMove("2r2r2/pp1q1pk1/4p1pp/3b1P2/2pP2P1/2P2B1P/PP6/RQ3RK1 w - - 0 26", this, "e7e6"); ' class="line1">e6</span> 
+ <span onclick='loadMove("2r2r2/pp1q1pk1/4pPpp/3b4/2pP2P1/2P2B1P/PP6/RQ3RK1 b - - 0 26", this, "f5f6"); ' class="line1">26.f6+</span> 
+ <span onclick='loadMove("2r2r2/pp1q1p1k/4pPpp/3b4/2pP2P1/2P2B1P/PP6/RQ3RK1 w - - 0 27", this, "g7h7"); ' class="line1">Крh7</span> 
+ведет к равенству,
+a
+ <span onclick='loadMove("2r2r2/pp1qppk1/4b1pp/3B4/2pP1PP1/2P1N2P/PP6/RQ3RK1 b - - 0 24", this, "f3d5"); ' class="line1">24.С:d5</span> 
+ <span onclick='loadMove("2r2r2/pp1qppk1/6pp/3b4/2pP1PP1/2P1N2P/PP6/RQ3RK1 w - - 0 25", this, "e6d5"); ' class="line1">С:d5</span> 
+ <span onclick='loadMove("2r2r2/pp1qppk1/6pp/3b1P2/2pP2P1/2P1N2P/PP6/RQ3RK1 b - - 0 25", this, "f4f5"); ' class="line1">25.f5</span> 
+ <span onclick='loadMove("2r2r2/pp1q1pk1/4p1pp/3b1P2/2pP2P1/2P1N2P/PP6/RQ3RK1 w - - 0 26", this, "e7e6"); ' class="line1">e6</span> 
+ <span onclick='loadMove("2r2r2/pp1q1pk1/4pPpp/3b4/2pP2P1/2P1N2P/PP6/RQ3RK1 b - - 0 26", this, "f5f6"); ' class="line1">26.f6+</span> 
+ <span onclick='loadMove("2r2r2/pp1q1p1k/4pPpp/3b4/2pP2P1/2P1N2P/PP6/RQ3RK1 w - - 0 27", this, "g7h7"); ' class="line1">Крh7</span> 
+ <span onclick='loadMove("2r2r2/pp1q1p1k/4pPpp/3b4/2pP2P1/2P1N2P/PP6/R3QRK1 b - - 0 27", this, "b1e1"); ' class="line1">27.Фe1</span> 
+ <span onclick='loadMove("2r2r2/p2q1p1k/4pPpp/1p1b4/2pP2P1/2P1N2P/PP6/R3QRK1 w - b6 0 28", this, "b7b5"); ' class="line1">b5</span> 
+- к более сложной игре, но тоже с обоюдными шансами.</p>
+<!--p>14</p><p>А. Кузьмин «Вместе с Мамедьяровым»</p-->
+<p>Сохранить некоторый перевес можно было, отступив конем —
+ <span onclick='loadMove("2r2r2/pp1qppk1/4b1pp/3n4/2pP1PP1/2P2B1P/PP4N1/RQ3RK1 b - - 0 24", this, "e3g2"); ' class="line1">24.Кg2</span> 
+. Однако ход, сделанный Мамедьяровым, намного энергичнее.</p>
+<p>
+ <span onclick='loadMove("2r2r2/pp1qppk1/4b1pp/8/2pPQPP1/2P1nB1P/PP6/R4RK1 w - - 0 25", this, "d5e3"); ' class="line0">24...К:e3</span> 
+</p>
+<p>Промедление с разменом позволяло белому ферзю остаться на более активной позиции:
+ <span onclick='loadMove("3r1r2/pp1qppk1/4b1pp/3n4/2pPQPP1/2P1NB1P/PP6/R4RK1 w - - 0 25", this, "c8d8"); ' class="line1">24...Лcd8</span> 
+ <span onclick='loadMove("3r1r2/pp1qppk1/4b1pp/3n4/2pPQPP1/2P1NB1P/PP6/4RRK1 b - - 0 25", this, "a1e1"); ' class="line1">25.Лae1</span> 
+ <span onclick='loadMove("3r1r2/pp1qppk1/4b1pp/8/2pPQPP1/2P1nB1P/PP6/4RRK1 w - - 0 26", this, "d5e3"); ' class="line1">К:e3</span> 
+ <span onclick='loadMove("3r1r2/pp1qppk1/4b1pp/8/2pPQPP1/2P1RB1P/PP6/5RK1 b - - 0 26", this, "e1e3"); ' class="line1">26.Л:e3</span> 
++/-.</p>
+<p>
+ <span onclick='loadMove("2r2r2/pp1qppk1/4b1pp/8/2pP1PP1/2P1QB1P/PP6/R4RK1 b - - 0 25", this, "e4e3"); ' class="line0">25.Ф:e3</span> 
+ <span onclick='loadMove("3r1r2/pp1qppk1/4b1pp/8/2pP1PP1/2P1QB1P/PP6/R4RK1 w - - 0 26", this, "c8d8"); ' class="line0">Лcd8</span> 
+ <span onclick='loadMove("3r1r2/pp1qppk1/4b1pp/8/2pP1PP1/2P1QB1P/PP6/4RRK1 b - - 0 26", this, "a1e1"); ' class="line0">26.Лae1</span> 
+ <span onclick='loadMove("3rr3/pp1qppk1/4b1pp/8/2pP1PP1/2P1QB1P/PP6/4RRK1 w - - 0 27", this, "f8e8"); ' class="line0">Лfe8</span> 
+ <span onclick='loadMove("3rr3/pp1qppk1/4b1pp/4Q3/2pP1PP1/2P2B1P/PP6/4RRK1 b - - 0 27", this, "e3e5"); ' class="line0">27.Фe5+</span> 
+ <span onclick='loadMove("3rr3/pp1qpp1k/4b1pp/4Q3/2pP1PP1/2P2B1P/PP6/4RRK1 w - - 0 28", this, "g7h7"); ' class="line0">Крh7?!</span> 
+</p>
+<p>Упорнее было
+ <span onclick='loadMove("3rr1k1/pp1qpp2/4b1pp/4Q3/2pP1PP1/2P2B1P/PP6/4RRK1 w - - 0 28", this, "g7g8"); ' class="line1">27...Крg8</span> 
+. После чего
+ <span onclick='loadMove("3rr1k1/pp1qpp2/4b1pp/4Q3/2pPBPP1/2P4P/PP6/4RRK1 b - - 0 28", this, "f3e4"); ' class="line1">28.Сe4?</span> 
+(аналогично случившемуся в партии) допускало оттеснение ферзя —
+ <span onclick='loadMove("3rr1k1/pp1qp3/4bppp/4Q3/2pPBPP1/2P4P/PP6/4RRK1 w - - 0 29", this, "f7f6"); ' class="line1">28...f6!</span> 
+ <span onclick='loadMove("3rr1k1/pp1qp3/4bppp/2Q5/2pPBPP1/2P4P/PP6/4RRK1 b - - 0 29", this, "e5c5"); ' class="line1">29.Фc5</span> 
+ <span onclick='loadMove("3rr1k1/p2qp3/1p2bppp/2Q5/2pPBPP1/2P4P/PP6/4RRK1 w - - 0 30", this, "b7b6"); ' class="line1">b6</span> 
+.
+К перевесу вело спокойное
+ <span onclick='loadMove("3rr1k1/pp1qpp2/4b1pp/4Q3/2pP1PP1/2P2B1P/PP2R3/5RK1 b - - 0 28", this, "e1e2"); ' class="line2">28.Лe2</span> 
+ <span onclick='loadMove("3rr1k1/pp1qpp2/6pp/3bQ3/2pP1PP1/2P2B1P/PP2R3/5RK1 w - - 0 29", this, "e6d5"); ' class="line2">Сd5</span> 
+ <span onclick='loadMove("3rr1k1/pp1qpp2/6pp/3bQP2/2pP2P1/2P2B1P/PP2R3/5RK1 b - - 0 29", this, "f4f5"); ' class="line2">29.f5</span> 
+.
+Но наиболее энергичным было
+ <span onclick='loadMove("3rr1k1/pp1qpp2/4b1pp/4QP2/2pP2P1/2P2B1P/PP6/4RRK1 b - - 0 28", this, "f4f5"); ' class="line2">28.f5!</span> 
+ <span onclick='loadMove("3rr1k1/pp1qpp2/4b2p/4Qp2/2pP2P1/2P2B1P/PP6/4RRK1 w - - 0 29", this, "g6f5"); ' class="line2">g:f5</span> 
+ <span onclick='loadMove("3rr1k1/pp1qpp2/4b2p/4Qp2/2pP2P1/2P2B1P/PP3R2/4R1K1 b - - 0 29", this, "f1f2"); ' class="line2">29.Лf2</span> 
+ <span onclick='loadMove("3rr1k1/pp1qpp2/7p/3bQp2/2pP2P1/2P2B1P/PP3R2/4R1K1 w - - 0 30", this, "e6d5"); ' class="line2">Сd5</span> 
+ <span onclick='loadMove("3rr1k1/pp1qpp2/7p/3BQp2/2pP2P1/2P4P/PP3R2/4R1K1 b - - 0 30", this, "f3d5"); ' class="line2">30.С:d5</span> 
+ <span onclick='loadMove("3rr1k1/pp2pp2/7p/3qQp2/2pP2P1/2P4P/PP3R2/4R1K1 w - - 0 31", this, "d7d5"); ' class="line2">Ф:d5</span> 
+ <span onclick='loadMove("3rr1k1/pp2pp2/7p/3q1p2/2pP1QP1/2P4P/PP3R2/4R1K1 b - - 0 31", this, "e5f4"); ' class="line2">31.Фf4</span> 
+с сильной атакой.</p>
+<!--img src="images/kuzmin_mamedyarov-17.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3rr3/pp1qpp1k/4b1pp/4Q3/2pP1PP1/2P2B1P/PP6/4RRK1 w - - 0 28"></div>
+<p>
+ <span onclick='loadMove("3rr3/pp1qpp1k/4b1pp/4Q3/2pPBPP1/2P4P/PP6/4RRK1 b - - 0 28", this, "f3e4"); ' class="line0">28.Сe4!</span> 
+ <span onclick='loadMove("3rr3/pp1qpp1k/6pp/3bQ3/2pPBPP1/2P4P/PP6/4RRK1 w - - 0 29", this, "e6d5"); ' class="line0">Сd5</span> 
+ <span onclick='loadMove("3rr3/pp1qpp1k/6pp/3bQP2/2pPB1P1/2P4P/PP6/4RRK1 b - - 0 29", this, "f4f5"); ' class="line0">29.f5!</span> 
+</p>
+<p>Черные не могут даже временно приостановить наступление белых ходом
+ <span onclick='loadMove("3rr3/pp1qpp1k/7p/3bQPp1/2pPB1P1/2P4P/PP6/4RRK1 w - - 0 30", this, "g6g5"); ' class="line1">29...g5</span> 
+из-за шаха
+ <span onclick='loadMove("3rr3/pp1qpp1k/5P1p/3bQ1p1/2pPB1P1/2P4P/PP6/4RRK1 b - - 0 30", this, "f5f6"); ' class="line1">30.f6+</span> 
+. Их положение становится безнадежным. А еще через три хода возникает позиция следующего теста.</p>
+<p>
+ <span onclick='loadMove("3rr3/pp1qpp1k/6pp/4QP2/2pPb1P1/2P4P/PP6/4RRK1 w - - 0 30", this, "d5e4"); ' class="line0">29...С:e4</span> 
+ <span onclick='loadMove("3rr3/pp1qpp1k/6pp/5P2/2pPQ1P1/2P4P/PP6/4RRK1 b - - 0 30", this, "e5e4"); ' class="line0">30.Ф:e4</span> 
+ <span onclick='loadMove("3rr3/pp1qpp1k/7p/5p2/2pPQ1P1/2P4P/PP6/4RRK1 w - - 0 31", this, "g6f5"); ' class="line0">g:f5?</span> 
+ <span onclick='loadMove("3rr3/pp1qpp1k/7p/5R2/2pPQ1P1/2P4P/PP6/4R1K1 b - - 0 31", this, "f1f5"); ' class="line0">31.Л:f5</span> 
+ <span onclick='loadMove("3rr3/pp1qppk1/7p/5R2/2pPQ1P1/2P4P/PP6/4R1K1 w - - 0 32", this, "h7g7"); ' class="line0">Крg7</span> 
+</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>ТЕСТ 4</h4>
+<div class="chessBoard small floater" data-start-fen="3rr3/pp1qppk1/7p/5R2/2pPQ1P1/2P4P/PP6/4R1K1 w - - 0 32"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3rr3/pp1qppk1/7p/5R2/2pPQ1P1/2P4P/PP6/4R1K1 w - - 0 32", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Мамедьяров — Долматов</b><br />Дубай-опен,2000</p>
+<!--img src="images/kuzmin_mamedyarov-18.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3rr3/pp1qppk1/7p/5R2/2pPQ1P1/2P4P/PP6/4R1K1 w - - 0 32"></div>
+<p class="caption">Ход белых</p>
+<p><b>Укажите сильнейшее продолжение.</b></p>
+<p>Надеюсь, решить этот тест для вас не составило большого труда!</p>
+<p>
+ <span onclick='loadMove("3rr3/pp1qpRk1/7p/8/2pPQ1P1/2P4P/PP6/4R1K1 b - - 0 32", this, "f5f7"); ' class="line0">32.Л:f7+!</span> 
+</p>
+<p>Несложная, но эффектная комбинация форсировано завершает энергично проведенную атаку.</p>
+<p>
+ <span onclick='loadMove("3rr3/pp1qpk2/7p/8/2pPQ1P1/2P4P/PP6/4R1K1 w - - 0 33", this, "g7f7"); ' class="line0">32...Кр:f7</span> 
+ <span onclick='loadMove("3rr3/pp1qpk1Q/7p/8/2pP2P1/2P4P/PP6/4R1K1 b - - 0 33", this, "e4h7"); ' class="line0">33.Фh7+</span> 
+ <span onclick='loadMove("3rr3/pp1qp2Q/5k1p/8/2pP2P1/2P4P/PP6/4R1K1 w - - 0 34", this, "f7f6"); ' class="line0">Крf6</span> 
+ <span onclick='loadMove("3rr3/pp1qp3/5k1Q/8/2pP2P1/2P4P/PP6/4R1K1 b - - 0 34", this, "h7h6"); ' class="line0">34.Ф:h6+</span> 
+ <span onclick='loadMove("3rr3/pp1qpk2/7Q/8/2pP2P1/2P4P/PP6/4R1K1 w - - 0 35", this, "f6f7"); ' class="line0">Крf7</span> 
+ <span onclick='loadMove("3rr3/pp1qpk2/7Q/8/2pP2P1/2P4P/PP6/5RK1 b - - 0 35", this, "e1f1"); ' class="line0">35.Лf1+</span> 
+ <span onclick='loadMove("3rr1k1/pp1qp3/7Q/8/2pP2P1/2P4P/PP6/5RK1 w - - 0 36", this, "f7g8"); ' class="line0">Крg8</span> 
+ <span onclick='loadMove("3rr1k1/pp1qp3/6Q1/8/2pP2P1/2P4P/PP6/5RK1 b - - 0 36", this, "h6g6"); ' class="line0">36.Фg6+</span> 
+</p>
+<p>На отступление короля —
+ <span onclick='loadMove("3rr2k/pp1qp3/6Q1/8/2pP2P1/2P4P/PP6/5RK1 w - - 0 37", this, "g8h8"); ' class="line1">36...Крh8</span> 
+следует
+ <span onclick='loadMove("3rr2k/pp1qpR2/6Q1/8/2pP2P1/2P4P/PP6/6K1 b - - 0 37", this, "f1f7"); ' class="line1">37.Лf7</span> 
+с неизбежным матом. Поэтому черные сдались.</p>
+<p>Провести подобную комбинацию даже в блице приятно. А
+<!--p>Глава первая</p><p>15</p-->
+представляете, что чувствовал пятнадцатилетний Шах, когда смог реализовать ее против известнейшего гроссмейстера?! Ведь это была его всего лишь вторая победа над носителем высшего шахматного звания (в начале того же 2000-го года в чемпионате Азербайджана Мамедьярову удалось обыграть Айдына Гусейнова).</p>
+<p>Добавлю, что кроме ярких позитивных эмоций Шах получил еще психологически важное очко на старте своего первого крупного международного турнира. А вы, если смогли точно и до конца рассчитать ведущий к мату вариант, на свой счет записываете 2 очка.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>ТЕСТ 5</h4>
+<div class="chessBoard small floater" data-start-fen="1r2r1kb/5R1p/1qpp2pB/2n1p3/p1PnP3/2N3PB/PP1Q3P/5R1K w - - 0 27"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1r2r1kb/5R1p/1qpp2pB/2n1p3/p1PnP3/2N3PB/PP1Q3P/5R1K w - - 0 27", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Мамедьяров — Бабаев</b><br />Чемпионат Азербайджана, Баку, 2001</p>
+<!--img src="images/kuzmin_mamedyarov-19.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1r2r1kb/5R1p/1qpp2pB/2n1p3/p1PnP3/2N3PB/PP1Q3P/5R1K w - - 0 27"></div>
+<p class="caption">Ход белых</p>
+<p><b>Укажите сильнейшее продолжение.</b></p>
+<p>— В позиции с таким огромным перевесом все дороги ведут в Рим, — скажете вы, и будете правы. Но вашей задачей было найти кратчайший путь. А для этого необходимо заметить, что шах с e6 окажется смертельным для черного короля. Впрочем, пока это поле контролируют три фигуры...</p>
+<p>
+ <span onclick='loadMove("1r2r1kb/5R1p/1qpp2pB/2n1p3/N1PnP3/6PB/PP1Q3P/5R1K b - - 0 27", this, "c3a4"); ' class="line0">27.К:a4!</span> 
+</p>
+<p>Парад жертв начался! Шахрияр отвлекает первого защитника — коня с c5.</p>
+<p>Хоть и не хочется нарушать ауру шахматной магии, все-таки отмечу, что прозаическое
+ <span onclick='loadMove("1r2r1kb/5R1p/1qpp2pB/2n1p3/p1PnP3/2N3PB/PP3Q1P/5R1K b - - 0 27", this, "d2f2"); ' class="line1">27.Фf2</span> 
+ <span onclick='loadMove("1r2r1kb/5R1p/1qppn1pB/4p3/p1PnP3/2N3PB/PP3Q1P/5R1K w - - 0 28", this, "c5e6"); ' class="line1">Кce6</span> 
+ <span onclick='loadMove("1r2r1kb/3R3p/1qppn1pB/4p3/p1PnP3/2N3PB/PP3Q1P/5R1K b - - 0 28", this, "f7d7"); ' class="line1">28.Лd7</span> 
+тоже вело к победе:
+ <span onclick='loadMove("1r3rkb/3R3p/1qppn1pB/4p3/p1PnP3/2N3PB/PP3Q1P/5R1K w - - 0 29", this, "e8f8"); ' class="line1">28...Лf8</span> 
+ <span onclick='loadMove("1r3Bkb/3R3p/1qppn1p1/4p3/p1PnP3/2N3PB/PP3Q1P/5R1K b - - 0 29", this, "h6f8"); ' class="line1">29.С:f8</span> 
+ <span onclick='loadMove("5rkb/3R3p/1qppn1p1/4p3/p1PnP3/2N3PB/PP3Q1P/5R1K w - - 0 30", this, "b8f8"); ' class="line1">Л:f8</span> 
+ <span onclick='loadMove("5rkb/3R3p/1qppB1p1/4p3/p1PnP3/2N3P1/PP3Q1P/5R1K b - - 0 30", this, "h3e6"); ' class="line1">30.С:e6+</span> 
+с выигрышем ферзя.</p>
+<p>
+ <span onclick='loadMove("1r2r1kb/5R1p/1qpp2pB/4p3/n1PnP3/6PB/PP1Q3P/5R1K w - - 0 28", this, "c5a4"); ' class="line0">27...К:a4</span> 
+</p>
+<!--img src="images/kuzmin_mamedyarov-20.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1r2r1kb/5R1p/1qpp2pB/4p3/n1PnP3/6PB/PP1Q3P/5R1K w - - 0 28"></div>
+<p>
+ <span onclick='loadMove("1r2r1kb/5R1p/1qpp2pB/4p3/n1PQP3/6PB/PP5P/5R1K b - - 0 28", this, "d2d4"); ' class="line0">28.Ф:d4!!</span> 
+</p>
+<p>За второго защитника жертвуется ферзь.</p>
+<p>
+ <span onclick='loadMove("1r2r1kb/5R1p/1qpp2pB/8/n1PpP3/6PB/PP5P/5R1K w - - 0 29", this, "e5d4"); ' class="line0">28...e:d4</span> 
+ <span onclick='loadMove("1r2rRkb/7p/1qpp2pB/8/n1PpP3/6PB/PP5P/5R1K b - - 0 29", this, "f7f8"); ' class="line0">29.Лf8+!!</span> 
+</p>
+<p>И третья отвлекающая жертва!</p>
+<!--p>16</p><p>А. Кузьмин «Вместе с Мамедьяровым»</p-->
+<!--img src="images/kuzmin_mamedyarov-21.png" style="width:140pt;height:141pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1r2rRkb/7p/1qpp2pB/8/n1PpP3/6PB/PP5P/5R1K b - - 0 29"></div>
+<p>Черные сдались. На
+ <span onclick='loadMove("1r3rkb/7p/1qpp2pB/8/n1PpP3/6PB/PP5P/5R1K w - - 0 30", this, "e8f8"); ' class="line1">29...Л:f8</span> 
+последует
+ <span onclick='loadMove("1r3rkb/7p/1qppB1pB/8/n1PpP3/6P1/PP5P/5R1K b - - 0 30", this, "h3e6"); ' class="line1">30.Сe6+</span> 
+ <span onclick='loadMove("1r4kb/5r1p/1qppB1pB/8/n1PpP3/6P1/PP5P/5R1K w - - 0 31", this, "f8f7"); ' class="line1">Лf7</span> 
+ <span onclick='loadMove("1r4kb/5B1p/1qpp2pB/8/n1PpP3/6P1/PP5P/5R1K b - - 0 31", this, "e6f7"); ' class="line1">31.С:f7</span> 
+мат!</p>
+<p>Согласитесь: такой мат стоит дополнительных очков! Те, кто вместе с Мамедьяровым нашли эффектный финал, получают 4 очка. Если же вы избрали
+ <span onclick='loadMove("1r2r1kb/5R1p/1qpp2pB/2n1p3/p1PnP3/2N3PB/PP3Q1P/5R1K b - - 0 27", this, "d2f2"); ' class="line1">27.Фf2</span> 
+, то ваша премия составит всего 2 очка.</p>
+<p>Когда ставка — мат, не бойтесь жертвовать фигуры!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>ТЕСТ 6</h4>
+<div class="chessBoard small floater" data-start-fen="r1b2rk1/p1q2pp1/1p1b1n1p/4p3/2P4Q/1P3N2/PBB2PPP/3R1RK1 w - - 0 17"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b2rk1/p1q2pp1/1p1b1n1p/4p3/2P4Q/1P3N2/PBB2PPP/3R1RK1 w - - 0 17", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Мамедьяров — Давидов</b><br />Чемпионат Азербайджана U-16, Баку, 2001</p>
+<!--img src="images/kuzmin_mamedyarov-22.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b2rk1/p1q2pp1/1p1b1n1p/4p3/2P4Q/1P3N2/PBB2PPP/3R1RK1 w - - 0 17"></div>
+<p class="caption">Ход белых</p>
+<p><b>A. Позиция белых: а) лучше, b) выигранная, с) равная.</b></p>
+<p><b>B. Подтвердите свою оценку вариантом.</b></p>
+<p>Если бы черные смогли развить своего слона на b7, у них была бы вполне нормальная позиция, но они опоздали. Перевес в развитии, два грозных слона, готовый создать матовые угрозы ферзь — все вместе создает предпосылки для решающей комбинации. Белые стоят на выигрыш (1 очко).</p>
+<p>
+ <span onclick='loadMove("r1b2rk1/p1q2pp1/1p1R1n1p/4p3/2P4Q/1P3N2/PBB2PPP/5RK1 b - - 0 17", this, "d1d6"); ' class="line0">17.Л:d6!</span> 
+</p>
+<p>После
+ <span onclick='loadMove("r1b2rk1/p1q2pp1/1p1b1n1p/4p3/2P4Q/1P3N2/PBB2PPP/3RR1K1 b - - 0 17", this, "f1e1"); ' class="line1">17.Лfe1</span> 
+ <span onclick='loadMove("r1b1r1k1/p1q2pp1/1p1b1n1p/4p3/2P4Q/1P3N2/PBB2PPP/3RR1K1 w - - 0 18", this, "f8e8"); ' class="line1">Лe8</span> 
+ <span onclick='loadMove("r1b1r1k1/p1q2pp1/1p1b1n1p/4N3/2P4Q/1P6/PBB2PPP/3RR1K1 b - - 0 18", this, "f3e5"); ' class="line1">18.К:e5</span> 
+у белых «всего лишь» перевес, но очков за такую рекомендацию не полагается.</p>
+<p>
+ <span onclick='loadMove("r1b2rk1/p4pp1/1p1q1n1p/4p3/2P4Q/1P3N2/PBB2PPP/5RK1 w - - 0 18", this, "c7d6"); ' class="line0">17...Ф:d6</span> 
+ <span onclick='loadMove("r1b2rk1/p4pp1/1p1q1n1p/4B3/2P4Q/1P3N2/P1B2PPP/5RK1 b - - 0 18", this, "b2e5"); ' class="line0">18.С:e5</span> 
+ <span onclick='loadMove("r1b2rk1/p4pp1/1p2qn1p/4B3/2P4Q/1P3N2/P1B2PPP/5RK1 w - - 0 19", this, "d6e6"); ' class="line0">Фe6</span> 
+ <span onclick='loadMove("r1b2rk1/p4pp1/1p2qB1p/8/2P4Q/1P3N2/P1B2PPP/5RK1 b - - 0 19", this, "e5f6"); ' class="line0">19.С:f6</span> 
+ <span onclick='loadMove("r1b2rk1/p4pp1/1p3q1p/8/2P4Q/1P3N2/P1B2PPP/5RK1 w - - 0 20", this, "e6f6"); ' class="line0">Ф:f6</span> 
+</p>
+<p>После
+ <span onclick='loadMove("r1b2rk1/p4p2/1p2qp1p/8/2P4Q/1P3N2/P1B2PPP/5RK1 w - - 0 20", this, "g7f6"); ' class="line1">19...g:f6</span> 
+проще всего выигрывает
+ <span onclick='loadMove("r1b2rk1/p4p2/1p2qp1p/8/2P1B2Q/1P3N2/P4PPP/5RK1 b - - 0 20", this, "c2e4"); ' class="line1">20.Сe4</span> 
+ <span onclick='loadMove("1rb2rk1/p4p2/1p2qp1p/8/2P1B2Q/1P3N2/P4PPP/5RK1 w - - 0 21", this, "a8b8"); ' class="line1">Лb8</span> 
+ <span onclick='loadMove("1rb2rk1/p4p2/1p2qp1p/8/2P1B3/1P3NQ1/P4PPP/5RK1 b - - 0 21", this, "h4g3"); ' class="line1">21.Фg3+</span> 
+ <span onclick='loadMove("1rb2rk1/p4p2/1p3p1p/8/2P1B1q1/1P3NQ1/P4PPP/5RK1 w - - 0 22", this, "e6g4"); ' class="line1">Фg4</span> 
+ <span onclick='loadMove("1Qb2rk1/p4p2/1p3p1p/8/2P1B1q1/1P3N2/P4PPP/5RK1 b - - 0 22", this, "g3b8"); ' class="line1">22.Ф:b8</span> 
+.</p>
+<p>
+ <span onclick='loadMove("r1b2rk1/p4pp1/1p3q1p/8/2P1Q3/1P3N2/P1B2PPP/5RK1 b - - 0 20", this, "h4e4"); ' class="line0">20.Фe4!</span> 
+</p>
+<p>«Ну вот и все!» — подумал Шах, делая ход ферзем. Те, кто смогли обнаружить этот геометрический мотив, получают еще 3 очка.</p>
+<p>
+ <span onclick='loadMove("r1b2rk1/p4pp1/1p4qp/8/2P1Q3/1P3N2/P1B2PPP/5RK1 w - - 0 21", this, "f6g6"); ' class="line0">20...Фg6</span> 
+ <span onclick='loadMove("Q1b2rk1/p4pp1/1p4qp/8/2P5/1P3N2/P1B2PPP/5RK1 b - - 0 21", this, "e4a8"); ' class="line0">21.Ф:a8</span> 
+ <span onclick='loadMove("Q1b2rk1/p4pp1/1p5p/8/2P5/1P3N2/P1q2PPP/5RK1 w - - 0 22", this, "g6c2"); ' class="line0">Ф:c2</span> 
+ <span onclick='loadMove("2b2rk1/Q4pp1/1p5p/8/2P5/1P3N2/P1q2PPP/5RK1 b - - 0 22", this, "a8a7"); ' class="line0">22.Ф:a7</span> 
+</p>
+<!--img src="images/kuzmin_mamedyarov-23.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="2b2rk1/Q4pp1/1p5p/8/2P5/1P3N2/P1q2PPP/5RK1 b - - 0 22"></div>
+<!--p>Глава первая</p><p>17</p-->
+<p>У белых две лишние пешки — исход партии предрешен. Если ваши фигуры заняли атакующие позиции, а соперник еще не завершил развитие — ищите тактическое решение!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>ТЕСТ 7</h4>
+<div class="chessBoard small floater" data-start-fen="3r2k1/6pp/4p3/4P3/3p1P2/2p2RP1/1qP1Q2P/7K b - - 0 31"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3r2k1/6pp/4p3/4P3/3p1P2/2p2RP1/1qP1Q2P/7K b - - 0 31", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Трент — Мамедьяров</b><br />Чемпионат мира U16, Оропеса-дель-Мар, 2001</p>
+<!--img src="images/kuzmin_mamedyarov-24.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3r2k1/6pp/4p3/4P3/3p1P2/2p2RP1/1qP1Q2P/7K b - - 0 31"></div>
+<p class="caption">Ход черных</p>
+<p><b>Как им следует продолжать?</b></p>
+<p>«Кажется, я успел заблокировать опасные проходные пешки», — подумал молодой англичанин. Но он был неправ. Последовал решающий прорыв
+ <span onclick='loadMove("3r2k1/6pp/4p3/4P3/5P2/2pp1RP1/1qP1Q2P/7K w - - 0 32", this, "d4d3"); ' class="line0">31...d3!</span> 
+, и Лоуренс вынужден был сдаться.
+После
+ <span onclick='loadMove("3r2k1/6pp/4p3/4P3/5P2/2pR2P1/1qP1Q2P/7K b - - 0 32", this, "f3d3"); ' class="line1">32.Л:d3</span> 
+ <span onclick='loadMove("6k1/6pp/4p3/4P3/5P2/2pr2P1/1qP1Q2P/7K w - - 0 33", this, "d8d3"); ' class="line1">Л:d3</span> 
+ <span onclick='loadMove("6k1/6pp/4p3/4P3/5P2/2pQ2P1/1qP4P/7K b - - 0 33", this, "e2d3"); ' class="line1">33.Ф:d3</span> 
+ <span onclick='loadMove("6k1/6pp/4p3/4P3/5P2/2pQ2P1/2P4P/2q4K w - - 0 34", this, "b2c1"); ' class="line1">Фc1+</span> 
+ <span onclick='loadMove("6k1/6pp/4p3/4P3/5P2/2pQ2P1/2P3KP/2q5 b - - 0 34", this, "h1g2"); ' class="line1">34.Крg2</span> 
+ <span onclick='loadMove("6k1/6pp/4p3/4P3/5P2/2pQ2P1/2Pq2KP/8 w - - 0 35", this, "c1d2"); ' class="line1">Фd2+</span> 
+черная пешка проходит в ферзи, а вы получаете 3 очка.</p>
+<p>Когда пешке осталось два шага до превращения — комбинационные мотивы так и порхают в воздухе!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h4>ТЕСТ 8</h4>
+<div class="chessBoard small floater" data-start-fen="6k1/1p2R1p1/7p/2pbBPP1/3b1K1P/r7/8/3R4 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/1p2R1p1/7p/2pbBPP1/3b1K1P/r7/8/3R4 b - - 0 1", this, ""); '>[...]</span> 
+<p class="diagram capTop"><b>Исаев — Мамедьяров</b><br />Аэрофлот, Москва, 2002</p>
+<!--img src="images/kuzmin_mamedyarov-25.png" style="width:140pt;height:140pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/1p2R1p1/7p/2pbBPP1/3b1K1P/r7/8/3R4 b - - 0 1"></div>
+<p class="caption">Ход черных</p>
+<p><b>A. Позиция черных: а) несколько лучше, b) хуже, с) выигранная.</b></p>
+<p><b>B. Подкрепите свой ответ анализом.</b></p>
+<p>У белых лишнее качество, а их пешки грозно нависли над позицией черного короля. «Осталось лишь уйти от этих надоедливых шахов, и партия будет закончена», — подумал таджикский мастер. Но уйти от шахов его королю не удалось.</p>
+<p>Самым сложным в этом тесте было правильно оценить возникающую в результате небольшой комбинации позицию. Правильный ответ: у черных несколько лучше — 4 очка. Оптимисты, полагавшие, что у черных выигранная позиция, получают 2 очка. Они тоже достойны награды, так как их оптимизм, не сомневаюсь, базировался на...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

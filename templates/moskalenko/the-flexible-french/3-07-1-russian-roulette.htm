@@ -1,0 +1,1215 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Chapter 7 - Russian Roulette (Games 50-51) | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Chapter 7 - Russian Roulette</h3>
+<h4>Classical System:
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Nc3</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 4", this, "g8f6"); ' class="line0">Nf6</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3pP3/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 4", this, "e4e5"); ' class="line0">4.e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/3P4/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 5", this, "f6d7"); ' class="line0">Nfd7</span> 
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 0 5", this, "g1f3"); ' class="line0">5.Nf3</span> 
+ <span onclick='loadMove("rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq c6 0 6", this, "c7c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("rnbqkb1r/pp1n1ppp/4p3/2PpP3/8/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 0 6", this, "d4c5"); ' class="line0">6.dxc5</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2n1p3/2PpP3/8/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 7", this, "b8c6"); ' class="line0">Nc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2n1p3/2PpP3/5B2/2N2N2/PPP2PPP/R2QKB1R b KQkq - 0 7", this, "c1f4"); ' class="line0">7.Bf4</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5B2/2N2N2/PPP2PPP/R2QKB1R w KQkq - 0 8", this, "f8c5"); ' class="line0">Bxc5</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5B2/2NB1N2/PPP2PPP/R2QK2R b KQkq - 0 8", this, "f1d3"); ' class="line0">8.Bd3</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n2pp/2n1pp2/2bpP3/5B2/2NB1N2/PPP2PPP/R2QK2R w KQkq - 0 9", this, "f7f6"); ' class="line0">f6</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n2pp/2n1pP2/2bp4/5B2/2NB1N2/PPP2PPP/R2QK2R b KQkq - 0 9", this, "e5f6"); ' class="line0">9.exf6</span> 
+ <span onclick='loadMove("r1bqk2r/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP2PPP/R2QK2R w KQkq - 0 10", this, "d7f6"); ' class="line0">Nxf6</span> 
+ <span onclick='loadMove("r1bqk2r/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/R3K2R b KQkq - 0 10", this, "d1e2"); ' class="line0">10.Qe2!?</span> 
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/R3K2R w KQ - 0 11", this, "e8g8"); ' class="line0">O-O</span> 
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11", this, "e1c1"); ' class="line0">11.O-O-O!</span> 
+</h4>
+<!--img src="images/FlexFren2008-435.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11" data-markers="X ANAd1d4 ANAe1e5 SNAd4 SNAe5"></div>
+<p>In this chapter we will investigate a sharp idea for White in the Classical Variation, which usually arises on the board by transposition from the Two Knights Variation:
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Nf3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq d6 0 3", this, "d7d5"); ' class="line1">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 3", this, "b1c3"); ' class="line1">3.Nc3</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3p4/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", this, "g8f6"); ' class="line1">Nf6</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3pP3/8/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 4", this, "e4e5"); ' class="line1">4.e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/8/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5", this, "f6d7"); ' class="line1">Nfd7</span> 
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq d3 0 5", this, "d2d4"); ' class="line1">5.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq c6 0 6", this, "c7c5"); ' class="line1">c5</span> 
+, etc. The first player surrenders his pawn centre in order to develop quickly and smoothly.</p>
+<img src="images/FlexFren2008-436.png" style="width:130pt;height:177pt;"/>
+<p>Sergey Volkov (born 1974) is one of the present-day champions of the Classical French.</p>
+<h4>Introduction: Zakharov's idea</h4>
+<p>Not long ago a young Russian player, Alexander Zakharov, devised an interesting idea in this complex variation. This new idea, in my opinion, will soon be very popular, and can be useful for players who are looking for a real fight.</p>
+<p>In the old days, great masters such as Steinitz, Nimzowitsch, Tarrasch and later Keres and others, discovered a powerful but now practically forgotten way of fighting with white against the French Defence: by sacrificing or, in our case, simply exchanging his central pawns.</p>
+<p>What concepts lie behind this idea?</p>
+<!--p>192</p-->
+<!--p>Chapter 7 - Russian Roulette: 4.e5 Nfd7 5.Nf3 c5 6.dxc5</p-->
+<!--img src="images/FlexFren2008-437.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/pp4pp/4p3/3pN3/3Q4/8/PPP2PPP/2KRR3 w - - 0 1" data-markers="X ANAd1d4 ANAe1e5"></div>
+<p>(1) By vacating the d4- and e5-squares, White secures control over them, gaining the possibility of establishing his minor pieces or queen on those squares.</p>
+<p>(2) The two half-open files allow White to quickly activate his rooks.</p>
+<p>(3) Black has many weaknesses in his pawn structure.</p>
+<p>(4) The above-mentioned factors, in addition to his space advantage, allow White to start an attack quickly on any side of the board, especially in the centre and on the kingside.</p>
+<p>(5) The play becomes much more dynamic than in other variations of the French with a closed or semi-open centre.</p>
+<p>(6) Also, the line which we analyse in this part is sharper, due to the fact that the kings castle on opposite sides ('Russian Roulette').</p>
+<p>(7) The middlegame starts very early, and lengthy theoretical variations are avoided!</p>
+<h4>Directions and Plans</h4>
+<p>After
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11", this, "e1c1"); ' class="line1">11.O-O-O</span> 
+Black has several plans to choose from:</p>
+<p><b>(A)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c8d7"); ' class="line1">11...Bd7</span> 
+</b></p>
+<p>Nowadays this natural move is the most popular response for Black, preparing the development of his heavy pieces.</p>
+<p>From the stem game of this variation, Game 50 (<b>Zakharov-Potkin</b>, also a model game), we can understand Zakharov's main idea.</p>
+<!--img src="images/FlexFren2008-438.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12" data-markers="X ANAg2g4 ANAg4g5 ANAg5f6"></div>
+<!--p>193</p--><!--p>Part Three - Classical System: 3.Nc3 Nf6</p-->
+<p>This is a very aggressive plan, but also a risky one, beginning with
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 12", this, "f3e5"); ' class="line1">12.Ne5!?</span> 
+and preparing the sharp g-pawn thrust <b>g2-g4-g5</b>. Black, for his part, can choose from several interesting defences.</p>
+<p>We will find other possibilities for White in the line with
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c8d7"); ' class="line1">11...Bd7</span> 
+in Game 51: <b>Nepomniachtchi-Volkov</b>.</p>
+<!--img src="images/FlexFren2008-439.png" style="width:112pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 12"></div>
+<p>Here we will analyse more solid plans:</p>
+<p>*
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1R3R b - - 0 12", this, "c1b1"); ' class="line2">12.Kb1!?</span> 
+, a normal move in this kind of position;</p>
+<p>*
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KRR3 b - - 0 12", this, "h1e1"); ' class="line2">12.Rhe1</span> 
+with pressure against the centre, and</p>
+<p>*
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B1P/2NB1N2/PPP1QPP1/2KR3R b - h3 0 12", this, "h2h4"); ' class="line2">12.h4!?</span> 
+, another possible attack on the kingside.</p>
+<p><b>(B)
+ <span onclick='loadMove("r1b2rk1/pp4pp/2n1pn2/q1bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "d8a5"); ' class="line1">11...Qa5</span> 
+and
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1p3/2bp3n/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "f6h5"); ' class="line1">11...Nh5?</span> 
+</b></p>
+<p>The move
+ <span onclick='loadMove("r1b2rk1/pp4pp/2n1pn2/q1bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "d8a5"); ' class="line1">11...Qa5!?</span> 
+is a direct counter-action on the queenside.</p>
+<p>
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1p3/2bp3n/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "f6h5"); ' class="line1">11...Nh5?</span> 
+looks dubious, since it allows the brutal blow
+ <span onclick='loadMove("r1bq1rk1/pp4pB/2n1p3/2bp3n/5B2/2N2N2/PPP1QPPP/2KR3R b - - 0 12", this, "d3h7"); ' class="line1">12.Bxh7+!</span> 
+.</p>
+<!--img src="images/FlexFren2008-440.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/pp4pB/2n1p3/2bp3n/5B2/2N2N2/PPP1QPPP/2KR3R b - - 0 12"></div>
+<p>Both moves are analysed in Game 52: <b>Kosteniuk-Giddins</b>.</p>
+<p><b>(C)
+ <span onclick='loadMove("r1bq1rk1/1p4pp/p1n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "a7a6"); ' class="line1">11...a6</span> 
+</b></p>
+<p>The analysis of the other popular response
+ <span onclick='loadMove("r1bq1rk1/1p4pp/p1n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "a7a6"); ' class="line1">11...a6</span> 
+demonstrates a typical plan for Black in the French Defence, preparing a set-up with <b>Bd6/Qc7</b> and fighting for control of the e5-square. After
+ <span onclick='loadMove("r1bq1rk1/1p4pp/p1n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 12", this, "f3e5"); ' class="line1">12.Ne5</span> 
+ <span onclick='loadMove("r1bq1rk1/1p4pp/p1nbpn2/3pN3/5B2/2NB4/PPP1QPPP/2KR3R w - - 0 13", this, "c5d6"); ' class="line1">Bd6</span> 
+ <span onclick='loadMove("r1bq1rk1/1p4pp/p1nbpn2/3pN3/8/2NB2B1/PPP1QPPP/2KR3R b - - 0 13", this, "f4g3"); ' class="line1">13.Bg3</span> 
+ <span onclick='loadMove("r1b2rk1/1pq3pp/p1nbpn2/3pN3/8/2NB2B1/PPP1QPPP/2KR3R w - - 0 14", this, "d8c7"); ' class="line1">Qc7!</span> 
+the knight can no longer stay on e5.</p>
+<!--p>194</p--><!--p>Chapter 7 - Russian Roulette: 4.c5 Nfd7 5.Nf3 c5 6.dxc5</p-->
+<!--img src="images/FlexFren2008-441.png" style="width:112pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b2rk1/1pq3pp/p1nbpn2/3pN3/8/2NB2B1/PPP1QPPP/2KR3R w - - 0 14" data-markers="X ANAe2e5 ANAg3e5 ANCc7d6 ANCd6e5"></div>
+<p>(Game 53: <b>Rodriguez Guerrero-Cuenca Jimenez</b>)</p>
+<p>Other possibilities for both sides after
+ <span onclick='loadMove("r1bq1rk1/1p4pp/p1n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "a7a6"); ' class="line1">11...a6</span> 
+(
+ <span onclick='loadMove("r1bq1rk1/1p4pp/p1n1pn2/2bp4/5BP1/2NB1N2/PPP1QP1P/2KR3R b - g3 0 12", this, "g2g4"); ' class="line1">12.g4</span> 
+) can be found in the notes to Game 54: <b>Esplana-Schneider</b>.</p>
+<p><b>(D) Novelties:
+ <span onclick='loadMove("r1bq1rk1/pp4pp/4pn2/2bp4/1n3B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c6b4"); ' class="line1">11...Nb4</span> 
+,
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2nbpn2/3p4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c5d6"); ' class="line1">11...Bd6</span> 
+,
+ <span onclick='loadMove("r1b2rk1/pp2q1pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "d8e7"); ' class="line1">11...Qe7</span> 
+</b></p>
+<p>Game 55: <b>Slovineanu-Warner</b>, concludes our study of the Zakharov Variation
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11", this, "e1c1"); ' class="line1">11.O-O-O</span> 
+. It provides an update with several novelties for Black on move 11. Recently, we have seen
+ <span onclick='loadMove("r1bq1rk1/pp4pp/4pn2/2bp4/1n3B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c6b4"); ' class="line1">11...Nb4!?</span> 
+, a fresh manoeuvre, with the idea of exchanging <b>Nxd3</b>. The move
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2nbpn2/3p4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c5d6"); ' class="line1">11...Bd6</span> 
+looks slightly hasty, while
+ <span onclick='loadMove("r1b2rk1/pp2q1pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "d8e7"); ' class="line1">11...Qe7</span> 
+prepares central action.</p>
+<h4>Strategy and Tactics!</h4>
+<p>After
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11", this, "e1c1"); ' class="line1">11.O-O-O</span> 
+the positions that arise are very flexible, so during the opening both players can change their strategic plans, play waiting moves or enter very specific tactical lines.</p>
+<!--p>195</p--><!--p>Part Three - Classical System: 3.Nc3 Nf6</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Russian Roulette - Games</h3>
+<p>The main ideas of a new system are usually investigated and developed by young players.</p>
+<h4>GAME 50<br>Alexander Zakharov - Vladimir Potkin<br>Moscow jr 1997</h4>
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Nf3</span> 
+</p>
+<p>Also possible is
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/2N5/PPPP1PPP/R1BQKBNR b KQkq - 0 2", this, "b1c3"); ' class="line1">2.Nc3</span> 
+, for Closed Sicilian adepts.</p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq d6 0 3", this, "d7d5"); ' class="line0">2...d5</span> 
+</p>
+<p>Black can still transpose into a Sicilian with
+ <span onclick='loadMove("rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq c6 0 3", this, "c7c5"); ' class="line1">2...c5</span> 
+.</p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Nc3</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3p4/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", this, "g8f6"); ' class="line0">Nf6</span> 
+</p>
+<p>The advance
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/8/3pP3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", this, "d5d4"); ' class="line1">3...d4</span> 
+is another option with which Black can aim for an Indian structure, for example:
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/8/3pP3/5N2/PPPPNPPP/R1BQKB1R b KQkq - 0 4", this, "c3e2"); ' class="line1">4.Ne2</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/4p3/2p5/3pP3/5N2/PPPPNPPP/R1BQKB1R w KQkq c6 0 5", this, "c7c5"); ' class="line1">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/4p3/2p5/3pP3/2P2N2/PP1PNPPP/R1BQKB1R b KQkq - 0 5", this, "c2c3"); ' class="line1">5.c3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/4p3/2p5/4P3/2p2N2/PP1PNPPP/R1BQKB1R w KQkq - 0 6", this, "d4c3"); ' class="line1">dxc3</span> 
+(
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n1p3/2p5/3pP3/2P2N2/PP1PNPPP/R1BQKB1R w KQkq - 0 6", this, "b8c6"); ' class="line2">5...Nc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n1p3/2p5/3PP3/5N2/PP1PNPPP/R1BQKB1R b KQkq - 0 6", this, "c3d4"); ' class="line2">6.cxd4</span> 
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n1p3/8/3pP3/5N2/PP1PNPPP/R1BQKB1R w KQkq - 0 7", this, "c5d4"); ' class="line2">cxd4</span> 
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n1p3/8/Q2pP3/5N2/PP1PNPPP/R1B1KB1R b KQkq - 0 7", this, "d1a4"); ' class="line2">7.Qa4!?</span> 
+ <span onclick='loadMove("r1bqk1nr/pp3ppp/2n1p3/2b5/Q2pP3/5N2/PP1PNPPP/R1B1KB1R w KQkq - 0 8", this, "f8c5"); ' class="line2">Bc5</span> 
+ <span onclick='loadMove("r1bqk1nr/pp3ppp/2n1p3/2b5/QP1pP3/5N2/P2PNPPP/R1B1KB1R b KQkq b3 0 8", this, "b2b4"); ' class="line2">8.b4!</span> 
+)
+ <span onclick='loadMove("rnbqkbnr/pp3ppp/4p3/2p5/4P3/2P2N2/P2PNPPP/R1BQKB1R b KQkq - 0 6", this, "b2c3"); ' class="line1">6.bxc3</span> 
+ <span onclick='loadMove("rnbqkb1r/pp3ppp/4pn2/2p5/4P3/2P2N2/P2PNPPP/R1BQKB1R w KQkq - 0 7", this, "g8f6"); ' class="line1">Nf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pp3ppp/4pn2/2p5/4P3/2P2NN1/P2P1PPP/R1BQKB1R b KQkq - 0 7", this, "e2g3"); ' class="line1">7.Ng3</span> 
+ <span onclick='loadMove("rnbqk2r/pp2bppp/4pn2/2p5/4P3/2P2NN1/P2P1PPP/R1BQKB1R w KQkq - 0 8", this, "f8e7"); ' class="line1">Be7</span> 
+(
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1pn2/2p5/4P3/2P2NN1/P2P1PPP/R1BQKB1R w KQkq - 0 8", this, "b8c6"); ' class="line2">7...Nc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1pn2/1Bp5/4P3/2P2NN1/P2P1PPP/R1BQK2R b KQkq - 0 8", this, "f1b5"); ' class="line2">8.Bb5!?</span> 
+)
+ <span onclick='loadMove("rnbqk2r/pp2bppp/4pn2/2p5/3PP3/2P2NN1/P4PPP/R1BQKB1R b KQkq d3 0 8", this, "d2d4"); ' class="line1">8.d4</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/2p5/3PP3/2P2NN1/P4PPP/R1BQKB1R w KQkq - 0 9", this, "b8c6"); ' class="line1">Nc6</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/2p5/3PP3/2PB1NN1/P4PPP/R1BQK2R b KQkq - 0 9", this, "f1d3"); ' class="line1">9.Bd3</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/8/3pP3/2PB1NN1/P4PPP/R1BQK2R w KQkq - 0 10", this, "c5d4"); ' class="line1">cxd4</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/8/3PP3/3B1NN1/P4PPP/R1BQK2R b KQkq - 0 10", this, "c3d4"); ' class="line1">10.cxd4</span> 
+ <span onclick='loadMove("r1b1k2r/pp2bppp/2n1pn2/q7/3PP3/3B1NN1/P4PPP/R1BQK2R w KQkq - 0 11", this, "d8a5"); ' class="line1">Qa5+</span> 
+(
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n1pn2/8/3PP3/3B1NN1/P4PPP/R1BQK2R w KQ - 0 11", this, "e8g8"); ' class="line2">10...O-O</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n1pn2/8/3PP3/3B1NN1/P4PPP/R1BQ1RK1 b - - 0 11", this, "e1g1"); ' class="line2">11.O-O!?</span> 
+&#8710;
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/4pn2/8/3nP3/3B1NN1/P4PPP/R1BQ1RK1 w - - 0 12", this, "c6d4"); ' class="line2">11...Nxd4?!</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/4pn2/4P3/3n4/3B1NN1/P4PPP/R1BQ1RK1 b - - 0 12", this, "e4e5"); ' class="line2">12.e5!</span> 
+&#8593;)
+ <span onclick='loadMove("r1b1k2r/pp2bppp/2n1pn2/q7/3PP3/3B1NN1/P2B1PPP/R2QK2R b KQkq - 0 11", this, "c1d2"); ' class="line1">11.Bd2</span> 
+ <span onclick='loadMove("r1b1k2r/pp2bppp/2n1pn2/8/3PP3/q2B1NN1/P2B1PPP/R2QK2R w KQkq - 0 12", this, "a5a3"); ' class="line1">Qa3</span> 
+ <span onclick='loadMove("r1b1k2r/pp2bppp/2n1pn2/8/3PP3/q2B1NN1/P2BQPPP/R3K2R b KQkq - 0 12", this, "d1e2"); ' class="line1">12.Qe2</span> 
+ <span onclick='loadMove("r1b1k2r/pp2bppp/4pn2/8/1n1PP3/q2B1NN1/P2BQPPP/R3K2R w KQkq - 0 13", this, "c6b4"); ' class="line1">Nb4</span> 
+ <span onclick='loadMove("r1b1k2r/pp2bppp/4pn2/1B6/1n1PP3/q4NN1/P2BQPPP/R3K2R b KQkq - 0 13", this, "d3b5"); ' class="line1">13.Bb5+</span> 
+ <span onclick='loadMove("r1b1k2r/pp1nbppp/4p3/1B6/1n1PP3/q4NN1/P2BQPPP/R3K2R w KQkq - 0 14", this, "f6d7"); ' class="line1">Nd7</span> 
+ <span onclick='loadMove("r1b1k2r/pp1nbppp/4p3/1B6/1n1PP3/q4NN1/P2BQPPP/R4RK1 b kq - 0 14", this, "e1g1"); ' class="line1">14.O-O</span> 
+ <span onclick='loadMove("r1b1k2r/1p1nbppp/p3p3/1B6/1n1PP3/q4NN1/P2BQPPP/R4RK1 w kq - 0 15", this, "a7a6"); ' class="line1">a6</span> 
+ <span onclick='loadMove("r1b1k2r/1p1nbppp/p3p3/8/1nBPP3/q4NN1/P2BQPPP/R4RK1 b kq - 0 15", this, "b5c4"); ' class="line1">15.Bc4</span> 
+ <span onclick='loadMove("r1b1k2r/1p2bppp/pn2p3/8/1nBPP3/q4NN1/P2BQPPP/R4RK1 w kq - 0 16", this, "d7b6"); ' class="line1">Nb6</span> 
+ <span onclick='loadMove("r1b1k2r/1p2bppp/pn2p3/8/1nBPP3/q4NN1/P2BQPPP/1R3RK1 b kq - 0 16", this, "a1b1"); ' class="line1">16.Rab1</span> 
+ <span onclick='loadMove("r3k2r/1p1bbppp/pn2p3/8/1nBPP3/q4NN1/P2BQPPP/1R3RK1 w kq - 0 17", this, "c8d7"); ' class="line1">Bd7</span> 
+ <span onclick='loadMove("r3k2r/1p1bbppp/pn2p3/4N3/1nBPP3/q5N1/P2BQPPP/1R3RK1 b kq - 0 17", this, "f3e5"); ' class="line1">17.Ne5!</span> 
+ <span onclick='loadMove("2r1k2r/1p1bbppp/pn2p3/4N3/1nBPP3/q5N1/P2BQPPP/1R3RK1 w k - 0 18", this, "a8c8"); ' class="line1">Rc8</span> 
+ <span onclick='loadMove("2r1k2r/1p1bbppp/pn2p3/4N2N/1nBPP3/q7/P2BQPPP/1R3RK1 b k - 0 18", this, "g3h5"); ' class="line1">18.Nh5</span> 
+&#8594; <b>Ljubojevic-Garcia Martinez, Palma de Mallorca 1971</b>.</p>
+<!--img src="images/FlexFren2008-442.png" style="width:112pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/ppp2ppp/4pn2/3p4/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4"></div>
+<p>
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3pP3/8/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 4", this, "e4e5"); ' class="line0">4.e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/8/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5", this, "f6d7"); ' class="line0">Nfd7</span> 
+</p>
+<p>If
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4p3/3pP3/4n3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5", this, "f6e4"); ' class="line1">4...Ne4</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4p3/3pP3/4n3/5N2/PPPPNPPP/R1BQKB1R b KQkq - 0 5", this, "c3e2"); ' class="line1">5.Ne2!?</span> 
+.</p>
+<p>
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq d3 0 5", this, "d2d4"); ' class="line0">5.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq c6 0 6", this, "c7c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("rnbqkb1r/pp1n1ppp/4p3/2PpP3/8/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 0 6", this, "d4c5"); ' class="line0">6.dxc5</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2n1p3/2PpP3/8/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 7", this, "b8c6"); ' class="line0">Nc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2n1p3/2PpP3/5B2/2N2N2/PPP2PPP/R2QKB1R b KQkq - 0 7", this, "c1f4"); ' class="line0">7.Bf4</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5B2/2N2N2/PPP2PPP/R2QKB1R w KQkq - 0 8", this, "f8c5"); ' class="line0">Bxc5</span> 
+</p>
+<p>The most popular continuation. Black develops his bishop and prepares <b>...f7-f6</b>. The main alternative is
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1p3/2npP3/5B2/2N2N2/PPP2PPP/R2QKB1R w KQkq - 0 8", this, "d7c5"); ' class="line1">7...Nxc5</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1p3/2npP3/5B2/2N2N2/PPPQ1PPP/R3KB1R b KQkq - 0 8", this, "d1d2"); ' class="line1">8.Qd2!?</span> 
+(
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1p3/2npP3/5B1P/2N2N2/PPP2PP1/R2QKB1R b KQkq h3 0 8", this, "h2h4"); ' class="line2">8.h4</span> 
+;
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1p3/2npP3/5B2/P1N2N2/1PP2PPP/R2QKB1R b KQkq - 0 8", this, "a2a3"); ' class="line2">8.a3</span> 
+)
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1n1p3/2npP3/5B2/2N2N2/PPPQ1PPP/R3KB1R w KQkq - 0 9", this, "a7a6"); ' class="line1">8...a6</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1n1p3/2npP3/5B2/2N2N2/PPPQ1PPP/2KR1B1R b kq - 0 9", this, "e1c1"); ' class="line1">9.O-O-O</span> 
+ <span onclick='loadMove("r1bqkb1r/5ppp/p1n1p3/1pnpP3/5B2/2N2N2/PPPQ1PPP/2KR1B1R w kq b6 0 10", this, "b7b5"); ' class="line1">b5</span> 
+ <span onclick='loadMove("r1bqkb1r/5ppp/p1n1p3/1pnpP3/5B2/2N1QN2/PPP2PPP/2KR1B1R b kq - 0 10", this, "d2e3"); ' class="line1">10.Qe3</span> 
+ <span onclick='loadMove("r2qkb1r/1b3ppp/p1n1p3/1pnpP3/5B2/2N1QN2/PPP2PPP/2KR1B1R w kq - 0 11", this, "c8b7"); ' class="line1">Bb7</span> 
+</p>
+<!--img src="images/FlexFren2008-443.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2qkb1r/1b3ppp/p1n1p3/1pnpP3/5B2/2N1QN2/PPP2PPP/2KR1B1R w kq - 0 11"></div>
+<p class="caption">analysis diagram</p>
+<p>
+ <span onclick='loadMove("r2qkb1r/1b3ppp/p1n1p3/1pnpP3/5B1P/2N1QN2/PPP2PP1/2KR1B1R b kq h3 0 11", this, "h2h4"); ' class="line1">11.h4</span> 
+ <span onclick='loadMove("r3kb1r/1b3ppp/p1n1p3/qpnpP3/5B1P/2N1QN2/PPP2PP1/2KR1B1R w kq - 0 12", this, "d8a5"); ' class="line1">Qa5</span> 
+ <span onclick='loadMove("r3kb1r/1b3ppp/p1n1p3/qpnpP3/5B1P/2N1QN2/PPP2PP1/1K1R1B1R b kq - 0 12", this, "c1b1"); ' class="line1">12.Kb1</span> 
+ <span onclick='loadMove("r3kb1r/1b3pp1/p1n1p2p/qpnpP3/5B1P/2N1QN2/PPP2PP1/1K1R1B1R w kq - 0 13", this, "h7h6"); ' class="line1">h6</span> 
+ <span onclick='loadMove("r3kb1r/1b3pp1/p1n1p2p/qpnpP3/5B1P/2N1QN1R/PPP2PP1/1K1R1B2 b kq - 0 13", this, "h1h3"); ' class="line1">13.Rh3</span> 
+ <span onclick='loadMove("2kr1b1r/1b3pp1/p1n1p2p/qpnpP3/5B1P/2N1QN1R/PPP2PP1/1K1R1B2 w - - 0 14", this, "e8c8"); ' class="line1">O-O-O</span> 
+(
+ <span onclick='loadMove("2r1kb1r/1b3pp1/p1n1p2p/qpnpP3/5B1P/2N1QN1R/PPP2PP1/1K1R1B2 w k - 0 14", this, "a8c8"); ' class="line2">13...Rc8!?</span> 
+&#8734;)
+ <span onclick='loadMove("2kr1b1r/1b3pp1/p1n1p2p/qpnpP3/5B1P/4QN1R/PPP1NPP1/1K1R1B2 b - - 0 14", this, "c3e2"); ' class="line1">14.Ne2</span> 
+ <span onclick='loadMove("2kr1b1r/1b3pp1/p1n1p2p/qp1pP3/4nB1P/4QN1R/PPP1NPP1/1K1R1B2 w - - 0 15", this, "c5e4"); ' class="line1">Ne4</span> 
+ <span onclick='loadMove("2kr1b1r/1b3pp1/p1n1p2p/qp1pP3/3NnB1P/4Q2R/PPP1NPP1/1K1R1B2 b - - 0 15", this, "f3d4"); ' class="line1">15.Nfd4</span> 
+ <span onclick='loadMove("2kr3r/1b3pp1/p1n1p2p/qpbpP3/3NnB1P/4Q2R/PPP1NPP1/1K1R1B2 w - - 0 16", this, "f8c5"); ' class="line1">Bc5?</span> 
+ <span onclick='loadMove("2kr3r/1b3pp1/p1n1p2p/qpbpP3/3NnB1P/4QP1R/PPP1N1P1/1K1R1B2 b - - 0 16", this, "f2f3"); ' class="line1">16.f3</span> 
++/- <b>G.Guseinov-Noori, Tehran 2005</b>.</p>
+<p>
+ <span onclick='loadMove("r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5B2/2NB1N2/PPP2PPP/R2QK2R b KQkq - 0 8", this, "f1d3"); ' class="line0">8.Bd3</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n2pp/2n1pp2/2bpP3/5B2/2NB1N2/PPP2PPP/R2QK2R w KQkq - 0 9", this, "f7f6"); ' class="line0">f6!?</span> 
+</p>
+<p>Theoretically the best recipe.</p>
+<p class="warning message">WEAPON:
+ <span onclick='loadMove("r1bq1rk1/pp1n1ppp/2n1p3/2bpP3/5B2/2NB1N2/PPP2PPP/R2QK2R w KQ - 0 9", this, "e8g8"); ' class="line1">8...O-O?</span> 
+would be a fatal mistake because of
+ <span onclick='loadMove("r1bq1rk1/pp1n1ppB/2n1p3/2bpP3/5B2/2N2N2/PPP2PPP/R2QK2R b KQ - 0 9", this, "d3h7"); ' class="line1">9.Bxh7+!</span> 
+ <span onclick='loadMove("r1bq1r2/pp1n1ppk/2n1p3/2bpP3/5B2/2N2N2/PPP2PPP/R2QK2R w KQ - 0 10", this, "g8h7"); ' class="line1">Kxh7</span> 
+ <span onclick='loadMove("r1bq1r2/pp1n1ppk/2n1p3/2bpP1N1/5B2/2N5/PPP2PPP/R2QK2R b KQ - 0 10", this, "f3g5"); ' class="line1">10.Ng5+</span> 
+ <span onclick='loadMove("r1bq1r2/pp1n1pp1/2n1p1k1/2bpP1N1/5B2/2N5/PPP2PPP/R2QK2R w KQ - 0 11", this, "h7g6"); ' class="line1">Kg6</span> 
+(
+ <span onclick='loadMove("r1bq1rk1/pp1n1pp1/2n1p3/2bpP1N1/5B2/2N5/PPP2PPP/R2QK2R w KQ - 0 11", this, "h7g8"); ' class="line2">10...Kg8</span> 
+ <span onclick='loadMove("r1bq1rk1/pp1n1pp1/2n1p3/2bpP1NQ/5B2/2N5/PPP2PPP/R3K2R b KQ - 0 11", this, "d1h5"); ' class="line2">11.Qh5</span> 
+)
+ <span onclick='loadMove("r1bq1r2/pp1n1pp1/2n1p1k1/2bpP1N1/5B2/2NQ4/PPP2PPP/R3K2R b KQ - 0 11", this, "d1d3"); ' class="line1">11.Qd3+</span> 
+ <span onclick='loadMove("r1bq1r2/pp1n2p1/2n1p1k1/2bpPpN1/5B2/2NQ4/PPP2PPP/R3K2R w KQ f6 0 12", this, "f7f5"); ' class="line1">f5</span> 
+</p>
+<!--img src="images/FlexFren2008-444.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1r2/pp1n2p1/2n1p1k1/2bpPpN1/5B2/2NQ4/PPP2PPP/R3K2R w KQ f6 0 12"></div>
+<p class="caption">analysis diagram</p>
+<p>
+ <span onclick='loadMove("r1bq1r2/pp1n2p1/2n1N1k1/2bpPp2/5B2/2NQ4/PPP2PPP/R3K2R b KQ - 0 12", this, "g5e6"); ' class="line1">12.Nxe6!</span> 
+(
+ <span onclick='loadMove("r1bq1r2/pp1n2p1/2n1pPk1/2bp2N1/5B2/2NQ4/PPP2PPP/R3K2R b KQ - 0 12", this, "e5f6"); ' class="line2">12.exf6+</span> 
+ <span onclick='loadMove("r1bq1r2/pp1n2p1/2n1pk2/2bp2N1/5B2/2NQ4/PPP2PPP/R3K2R w KQ - 0 13", this, "g6f6"); ' class="line2">Kxf6</span> 
+ <span onclick='loadMove("r1bq1r2/pp1n2p1/2n1pk2/2bp2N1/5B2/2NQ4/PPP2PPP/2KR3R b - - 0 13", this, "e1c1"); ' class="line2">13.O-O-O</span> 
+ <span onclick='loadMove("r1b2r2/pp1n2p1/2n1pk2/q1bp2N1/5B2/2NQ4/PPP2PPP/2KR3R w - - 0 14", this, "d8a5"); ' class="line2">Qa5</span> 
+&#8734;)
+ <span onclick='loadMove("r1bq1r2/pp4p1/2n1N1k1/2bpnp2/5B2/2NQ4/PPP2PPP/R3K2R w KQ - 0 13", this, "d7e5"); ' class="line1">12...Ndxe5</span> 
+ <span onclick='loadMove("r1bq1r2/pp4p1/2n1N1k1/2bpnp2/5B2/2N3Q1/PPP2PPP/R3K2R b KQ - 0 13", this, "d3g3"); ' class="line1">13.Qg3+</span> 
+(
+ <span onclick='loadMove("r1bq1N2/pp4p1/2n3k1/2bpnp2/5B2/2NQ4/PPP2PPP/R3K2R b KQ - 0 13", this, "e6f8"); ' class="line2">13.Nxf8+!?</span> 
+&#8593;)
+ <span onclick='loadMove("r1bq1r2/pp4p1/2n1N1k1/2bp1p2/5Bn1/2N3Q1/PPP2PPP/R3K2R w KQ - 0 14", this, "e5g4"); ' class="line1">13...Ng4</span> 
+&#9633;
+ <span onclick='loadMove("r1bN1r2/pp4p1/2n3k1/2bp1p2/5Bn1/2N3Q1/PPP2PPP/R3K2R b KQ - 0 14", this, "e6d8"); ' class="line1">14.Nxd8</span> 
+ <span onclick='loadMove("r1bN1r2/pp4p1/2n3k1/3p1p2/5Bn1/2N3Q1/PPP2bPP/R3K2R w KQ - 0 15", this, "c5f2"); ' class="line1">Bxf2+</span> 
+ <span onclick='loadMove("r1bN1r2/pp4p1/2n3k1/3p1p2/5Bn1/2N5/PPP2QPP/R3K2R b KQ - 0 15", this, "g3f2"); ' class="line1">15.Qxf2</span> 
+ <span onclick='loadMove("r1bN1r2/pp4p1/2n3k1/3p1p2/5B2/2N5/PPP2nPP/R3K2R w KQ - 0 16", this, "g4f2"); ' class="line1">Nxf2</span> 
+ <span onclick='loadMove("r1b2r2/pp4p1/2N3k1/3p1p2/5B2/2N5/PPP2nPP/R3K2R b KQ - 0 16", this, "d8c6"); ' class="line1">16.Nxc6</span> 
+ <span onclick='loadMove("r1b2r2/pp4p1/2N3k1/3p1p2/5B2/2N5/PPP3PP/R3K2n w Q - 0 17", this, "f2h1"); ' class="line1">Nxh1</span> 
+ <span onclick='loadMove("r1b2r2/pp4p1/6k1/3pNp2/5B2/2N5/PPP3PP/R3K2n b Q - 0 17", this, "c6e5"); ' class="line1">17.Ne5+</span> 
+ <span onclick='loadMove("r1b2r2/pp4p1/8/3pNp1k/5B2/2N5/PPP3PP/R3K2n w Q - 0 18", this, "g6h5"); ' class="line1">Kh5</span> 
+ <span onclick='loadMove("r1b2r2/pp4p1/8/3pNp1k/8/2N1B3/PPP3PP/R3K2n b Q - 0 18", this, "f4e3"); ' class="line1">18.Be3!</span> 
+ <span onclick='loadMove("r1b1r3/pp4p1/8/3pNp1k/8/2N1B3/PPP3PP/R3K2n w Q - 0 19", this, "f8e8"); ' class="line1">Re8</span> 
+ <span onclick='loadMove("r1b1r3/pp4p1/8/3pNp1k/3B4/2N5/PPP3PP/R3K2n b Q - 0 19", this, "e3d4"); ' class="line1">19.Bd4</span> 
+and soon Kf1-g1, winning the knight on h1.</p>
+<!--p>196</p--><!--p>Chapter 7 - Russian Roulette: 4.c5 Nfd7 5.Nf3 c5 6.dxc5</p-->
+<p>
+ <span onclick='loadMove("r1bqk2r/pp1n2pp/2n1pP2/2bp4/5B2/2NB1N2/PPP2PPP/R2QK2R b KQkq - 0 9", this, "e5f6"); ' class="line0">9.exf6</span> 
+ <span onclick='loadMove("r1bqk2r/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP2PPP/R2QK2R w KQkq - 0 10", this, "d7f6"); ' class="line0">Nxf6</span> 
+</p>
+<p>Nowadays in the French Defence it is usual to steer towards positions with a closed or semi-open centre, giving the game a strategic character. This line, however, requires very dynamic play in view of the open centre.</p>
+<p>
+ <span onclick='loadMove("r1bqk2r/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/R3K2R b KQkq - 0 10", this, "d1e2"); ' class="line0">10.Qe2!?</span> 
+</p>
+<p>In most of the games White continued automatically with
+ <span onclick='loadMove("r1bqk2r/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP2PPP/R2Q1RK1 b kq - 0 10", this, "e1g1"); ' class="line1">10.O-O</span> 
+, but here Zakharov initiates a new line that has come to be used recently by players who are looking for a direct attack.</p>
+<p>
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/R3K2R w KQ - 0 11", this, "e8g8"); ' class="line0">10...O-O</span> 
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11", this, "e1c1"); ' class="line0">11.O-O-O!</span> 
+</p>
+<p>The key: queenside castling is a common idea in the Sicilian, but it is completely new in this variation of the French, although the plans in the positions that now arise are quite similar. This is the critical position of the variation, and Black must quickly take some serious decisions.</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c8d7"); ' class="line0">11...Bd7</span> 
+</p>
+<p>This looks like the logical response. However, Black has also other options, which will be studied in Games 52-55.</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 12", this, "f3e5"); ' class="line0">12.Ne5!?</span> 
+</p>
+<p>This move is perhaps slightly premature, but still it is very energetic. The idea is to follow up with <b>g2-g4-g5</b>. Other important possibilities are
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1R3R b - - 0 12", this, "c1b1"); ' class="line1">12.Kb1</span> 
+,
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KRR3 b - - 0 12", this, "h1e1"); ' class="line1">12.Rhe1</span> 
+, and
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B1P/2NB1N2/PPP1QPP1/2KR3R b - h3 0 12", this, "h2h4"); ' class="line1">12.h4</span> 
+. We will analyse them in Game 51.</p>
+<!--img src="images/FlexFren2008-445.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 12"></div>
+<p>
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/4pn2/2bpn3/5B2/2NB4/PPP1QPPP/2KR3R w - - 0 13", this, "c6e5"); ' class="line0">12...Nxe5</span> 
+</p>
+<p>Black simplifies and prepares a counterattack on the queenside. There are other interesting tries here for both sides:</p>
+<p>(A)
+ <span onclick='loadMove("r4rk1/pp1bq1pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R w - - 0 13", this, "d8e7"); ' class="line1">12...Qe7</span> 
+ <span onclick='loadMove("r4rk1/pp1bq1pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KRR3 b - - 0 13", this, "h1e1"); ' class="line1">13.Rhe1!?</span> 
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KRR3 w - - 0 14", this, "a8e8"); ' class="line1">Rae8</span> 
+(
+ <span onclick='loadMove("r4rk1/pp1bq1pp/4pn2/2bpn3/5B2/2NB4/PPP1QPPP/2KRR3 w - - 0 14", this, "c6e5"); ' class="line2">13...Nxe5?!</span> 
+ <span onclick='loadMove("r4rk1/pp1bq1pp/4pn2/2bpB3/8/2NB4/PPP1QPPP/2KRR3 b - - 0 14", this, "f4e5"); ' class="line2">14.Bxe5</span> 
+ <span onclick='loadMove("r4rk1/pp2q1pp/2b1pn2/2bpB3/8/2NB4/PPP1QPPP/2KRR3 w - - 0 15", this, "d7c6"); ' class="line2">Bc6</span> 
+ <span onclick='loadMove("r4rk1/pp2q1pp/2b1pn2/2bpB3/6P1/2NB4/PPP1QP1P/2KRR3 b - g3 0 15", this, "g2g4"); ' class="line2">15.g4?</span> 
+(
+ <span onclick='loadMove("r4rk1/pp2q1pp/2b1pn2/2bpB3/5P2/2NB4/PPP1Q1PP/2KRR3 b - f3 0 15", this, "f2f4"); ' class="line3">15.f4!</span> 
+&#8593;)
+ <span onclick='loadMove("r4rk1/pp1nq1pp/2b1p3/2bpB3/6P1/2NB4/PPP1QP1P/2KRR3 w - - 0 16", this, "f6d7"); ' class="line2">15...Nd7!</span> 
+ <span onclick='loadMove("r4rk1/pp1nq1pp/2b1p3/2bp4/6P1/2NB2B1/PPP1QP1P/2KRR3 b - - 0 16", this, "e5g3"); ' class="line2">16.Bg3</span> 
+ <span onclick='loadMove("4rrk1/pp1nq1pp/2b1p3/2bp4/6P1/2NB2B1/PPP1QP1P/2KRR3 w - - 0 17", this, "a8e8"); ' class="line2">Rae8</span> 
+and Black is OK, <b>Romero Holmes-Zlotnik, Salamanca 2005</b>)
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2n1pn2/2bpN3/5BP1/2NB4/PPP1QP1P/2KRR3 b - g3 0 14", this, "g2g4"); ' class="line1">14.g4!?</span> 
+</p>
+<!--img src="images/FlexFren2008-446.png" style="width:113pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="4rrk1/pp1bq1pp/2n1pn2/2bpN3/5BP1/2NB4/PPP1QP1P/2KRR3 b - g3 0 14"></div>
+<p class="caption">analysis diagram</p>
+<p>
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2nbpn2/3pN3/5BP1/2NB4/PPP1QP1P/2KRR3 w - - 0 15", this, "c5d6"); ' class="line1">14...Bd6</span> 
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2nbpn2/3pN3/5BP1/2NB3P/PPP1QP2/2KRR3 b - - 0 15", this, "h2h3"); ' class="line1">15.h3</span> 
+(
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2nbpn2/3pN1P1/5B2/2NB4/PPP1QP1P/2KRR3 b - - 0 15", this, "g4g5"); ' class="line2">15.g5!?</span> 
+)
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2nbp3/3pN3/4nBP1/2NB3P/PPP1QP2/2KRR3 w - - 0 16", this, "f6e4"); ' class="line1">15...Ne4</span> 
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2nbp3/3pN3/4BBP1/2N4P/PPP1QP2/2KRR3 b - - 0 16", this, "d3e4"); ' class="line1">16.Bxe4</span> 
+ <span onclick='loadMove("4r1k1/pp1bq1pp/2nbp3/3pN3/4BrP1/2N4P/PPP1QP2/2KRR3 w - - 0 17", this, "f8f4"); ' class="line1">Rxf4</span> 
+ <span onclick='loadMove("4r1k1/pp1Nq1pp/2nbp3/3p4/4BrP1/2N4P/PPP1QP2/2KRR3 b - - 0 17", this, "e5d7"); ' class="line1">17.Nxd7</span> 
+ <span onclick='loadMove("4r1k1/pp1Nq1pp/2nbp3/8/4prP1/2N4P/PPP1QP2/2KRR3 w - - 0 18", this, "d5e4"); ' class="line1">dxe4</span> 
+ <span onclick='loadMove("4r1k1/pp1Nq1pp/2nbp3/8/4prP1/2N4P/PPPQ1P2/2KRR3 b - - 0 18", this, "e2d2"); ' class="line1">18.Qd2</span> 
+ <span onclick='loadMove("4r1k1/pp1q2pp/2nbp3/8/4prP1/2N4P/PPPQ1P2/2KRR3 w - - 0 19", this, "e7d7"); ' class="line1">Qxd7</span> 
+ <span onclick='loadMove("4r1k1/pp1q2pp/2nQp3/8/4prP1/2N4P/PPP2P2/2KRR3 b - - 0 19", this, "d2d6"); ' class="line1">19.Qxd6</span> 
+ <span onclick='loadMove("4r1k1/pp4pp/2nqp3/8/4prP1/2N4P/PPP2P2/2KRR3 w - - 0 20", this, "d7d6"); ' class="line1">Qxd6</span> 
+ <span onclick='loadMove("4r1k1/pp4pp/2nRp3/8/4prP1/2N4P/PPP2P2/2K1R3 b - - 0 20", this, "d1d6"); ' class="line1">20.Rxd6</span> 
+ <span onclick='loadMove("4r1k1/pp4pp/2nRp3/8/4p1P1/2N4P/PPP2r2/2K1R3 w - - 0 21", this, "f4f2"); ' class="line1">Rxf2</span> 
+ <span onclick='loadMove("4r1k1/pp4pp/2nRp3/8/4N1P1/7P/PPP2r2/2K1R3 b - - 0 21", this, "c3e4"); ' class="line1">21.Nxe4</span> 
+with a slight edge for White, <b>G.Guseinov-Farakhov, St Petersburg 2000</b>;</p>
+<p>(B)
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R w - - 0 13", this, "a8c8"); ' class="line1">12...Rc8!?</span> 
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/2N1pn2/2bp4/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 13", this, "e5c6"); ' class="line1">13.Nxc6</span> 
+(
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KRR3 b - - 0 13", this, "h1e1"); ' class="line2">13.Rhe1!?</span> 
+)
+ <span onclick='loadMove("3q1rk1/pp1b2pp/2r1pn2/2bp4/5B2/2NB4/PPP1QPPP/2KR3R w - - 0 14", this, "c8c6"); ' class="line1">13...Rxc6</span> 
+ <span onclick='loadMove("3q1rk1/pp1b2pp/2r1pn2/2bp4/5BP1/2NB4/PPP1QP1P/2KR3R b - g3 0 14", this, "g2g4"); ' class="line1">14.g4?</span> 
+(
+ <span onclick='loadMove("3q1rk1/pp1b2pp/2r1pn2/2bp4/5B2/2NB4/PPP1QPPP/1K1R3R b - - 0 14", this, "c1b1"); ' class="line2">14.Kb1</span> 
+&#8734;)
+ <span onclick='loadMove("3q1rk1/pp1b2pp/2r1p3/2bp3n/5BP1/2NB4/PPP1QP1P/2KR3R w - - 0 15", this, "f6h5"); ' class="line1">14...Nh5!</span> 
+ <span onclick='loadMove("3q1rk1/pp1b2pp/2r1p3/2bp3P/5B2/2NB4/PPP1QP1P/2KR3R b - - 0 15", this, "g4h5"); ' class="line1">15.gxh5</span> 
+ <span onclick='loadMove("3q2k1/pp1b2pp/2r1p3/2bp3P/5r2/2NB4/PPP1QP1P/2KR3R w - - 0 16", this, "f8f4"); ' class="line1">Rxf4</span> 
+with a great advantage for Black, <b>Bachin-Chuprikov, Sochi tt 2005</b>;</p>
+<p>(C)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/4pn2/2bpN3/3n1B2/2NB4/PPP1QPPP/2KR3R w - - 0 13", this, "c6d4"); ' class="line1">12...Nd4</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/4pn2/2bpN3/3n1B2/2NB4/PPPQ1PPP/2KR3R b - - 0 13", this, "e2d2"); ' class="line1">13.Qd2</span> 
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/4pn2/2bpN3/3n1B2/2NB4/PPPQ1PPP/2KR3R w - - 0 14", this, "a8c8"); ' class="line1">Rc8?</span> 
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/4pn2/2bpN3/3n4/2NBB3/PPPQ1PPP/2KR3R b - - 0 14", this, "f4e3"); ' class="line1">14.Be3!</span> 
+ <span onclick='loadMove("2rqbrk1/pp4pp/4pn2/2bpN3/3n4/2NBB3/PPPQ1PPP/2KR3R w - - 0 15", this, "d7e8"); ' class="line1">Be8</span> 
+ <span onclick='loadMove("2rqbrk1/pp4pp/4pn2/2bpN3/3B4/2NB4/PPPQ1PPP/2KR3R b - - 0 15", this, "e3d4"); ' class="line1">15.Bxd4</span> 
+ <span onclick='loadMove("2rqbrk1/pp4pp/4pn2/3pN3/3b4/2NB4/PPPQ1PPP/2KR3R w - - 0 16", this, "c5d4"); ' class="line1">Bxd4</span> 
+ <span onclick='loadMove("2rqbrk1/pp4pB/4pn2/3pN3/3b4/2N5/PPPQ1PPP/2KR3R b - - 0 16", this, "d3h7"); ' class="line1">16.Bxh7+!</span> 
+ <span onclick='loadMove("2rqbrk1/pp4pn/4p3/3pN3/3b4/2N5/PPPQ1PPP/2KR3R w - - 0 17", this, "f6h7"); ' class="line1">Nxh7</span> 
+ <span onclick='loadMove("2rqbrk1/pp4pn/4p3/3pN3/3Q4/2N5/PPP2PPP/2KR3R b - - 0 17", this, "d2d4"); ' class="line1">17.Qxd4</span> 
++/- <b>Rendle-Curien, Davos 2005</b>;</p>
+<p>(D)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2nbpn2/3pN3/5B2/2NB4/PPP1QPPP/2KR3R w - - 0 13", this, "c5d6"); ' class="line1">12...Bd6</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2nbpnN1/3p4/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 13", this, "e5g6"); ' class="line1">13.Ng6</span> 
+(maybe
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2nbpn2/3pN3/5B2/2NB4/PPP1QPPP/1K1R3R b - - 0 13", this, "c1b1"); ' class="line2">13.Kb1!?</span> 
+)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pnN1/3p4/5b2/2NB4/PPP1QPPP/2KR3R w - - 0 14", this, "d6f4"); ' class="line1">13...Bxf4+</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/3p4/5N2/2NB4/PPP1QPPP/2KR3R b - - 0 14", this, "g6f4"); ' class="line1">14.Nxf4</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/q2p4/5N2/2NB4/PPP1QPPP/2KR3R w - - 0 15", this, "d8a5"); ' class="line1">Qa5</span> 
+&#8596;
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/q2p4/5N2/P1NB4/1PP1QPPP/2KR3R b - - 0 15", this, "a2a3"); ' class="line1">15.a3</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/p1n1pn2/q2p4/5N2/P1NB4/1PP1QPPP/2KR3R w - - 0 16", this, "a7a6"); ' class="line1">a6</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/p1n1pn2/q2p4/5N1P/P1NB4/1PP1QPP1/2KR3R b - h3 0 16", this, "h2h4"); ' class="line1">16.h4</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1pn2/qp1p4/5N1P/P1NB4/1PP1QPP1/2KR3R w - b6 0 17", this, "b7b5"); ' class="line1">b5</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1pn2/qp1p4/5NPP/P1NB4/1PP1QP2/2KR3R b - g3 0 17", this, "g2g4"); ' class="line1">17.g4</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1pn2/q2p4/1p3NPP/P1NB4/1PP1QP2/2KR3R w - - 0 18", this, "b5b4"); ' class="line1">b4!</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1pn2/q2p4/1P3NPP/2NB4/1PP1QP2/2KR3R b - - 0 18", this, "a3b4"); ' class="line1">18.axb4</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1pn2/3p4/1q3NPP/2NB4/1PP1QP2/2KR3R w - - 0 19", this, "a5b4"); ' class="line1">Qxb4</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1pn2/3p3N/1q4PP/2NB4/1PP1QP2/2KR3R b - - 0 19", this, "f4h5"); ' class="line1">19.Nh5</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1p3/3p3n/1q4PP/2NB4/1PP1QP2/2KR3R w - - 0 20", this, "f6h5"); ' class="line1">Nxh5</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p1n1p3/3p3P/1q5P/2NB4/1PP1QP2/2KR3R b - - 0 20", this, "g4h5"); ' class="line1">20.gxh5</span> 
+ <span onclick='loadMove("1r3rk1/3b2pp/p1n1p3/3p3P/1q5P/2NB4/1PP1QP2/2KR3R w - - 0 21", this, "a8b8"); ' class="line1">Rab8</span> 
+&#8594; <b>Sengupta-Rodshtein, Erevan Wch-jr 2006</b>.</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/4pn2/2bpB3/8/2NB4/PPP1QPPP/2KR3R b - - 0 13", this, "f4e5"); ' class="line0">13.Bxe5</span> 
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/1pbpB3/8/2NB4/PPP1QPPP/2KR3R w - b6 0 14", this, "b7b5"); ' class="line0">b5!?</span> 
+</p>
+<!--p>197</p--><!--p>Part Three - Classical System: 3.Nc3 Nf6</p-->
+<p>
+ <span onclick='loadMove("r4rk1/pp1b2pp/1q2pn2/2bpB3/8/2NB4/PPP1QPPP/2KR3R w - - 0 14", this, "d8b6"); ' class="line1">13...Qb6</span> 
+has also been played:
+ <span onclick='loadMove("r4rk1/pp1b2pp/1q2pn2/2bpB3/8/2NB4/PPP1QPPP/2KR1R2 b - - 0 14", this, "h1f1"); ' class="line1">14.Rhf1</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/pq2pn2/2bpB3/8/2NB4/PPP1QPPP/2KR1R2 w - - 0 15", this, "a7a6"); ' class="line1">a6</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/pq2pn2/2bpB3/6P1/2NB4/PPP1QP1P/2KR1R2 b - g3 0 15", this, "g2g4"); ' class="line1">15.g4</span> 
+ <span onclick='loadMove("r4rk1/1p4pp/pq2pn2/1bbpB3/6P1/2NB4/PPP1QP1P/2KR1R2 w - - 0 16", this, "d7b5"); ' class="line1">Bb5?!</span> 
+ <span onclick='loadMove("r4rk1/1p4pp/pq2pn2/1NbpB3/6P1/3B4/PPP1QP1P/2KR1R2 b - - 0 16", this, "c3b5"); ' class="line1">16.Nxb5</span> 
+ <span onclick='loadMove("r4rk1/1p4pp/1q2pn2/1pbpB3/6P1/3B4/PPP1QP1P/2KR1R2 w - - 0 17", this, "a6b5"); ' class="line1">axb5</span> 
+ <span onclick='loadMove("r4rk1/1p4pp/1q2pn2/1pbpB1P1/8/3B4/PPP1QP1P/2KR1R2 b - - 0 17", this, "g4g5"); ' class="line1">17.g5!</span> 
+&#8593;
+ <span onclick='loadMove("r4rk1/1p1n2pp/1q2p3/1pbpB1P1/8/3B4/PPP1QP1P/2KR1R2 w - - 0 18", this, "f6d7"); ' class="line1">17...Nd7</span> 
+ <span onclick='loadMove("r4rk1/1p1n2pp/1q2p3/1pbpB1PQ/8/3B4/PPP2P1P/2KR1R2 b - - 0 18", this, "e2h5"); ' class="line1">18.Qh5</span> 
++- and White won quickly after
+ <span onclick='loadMove("r5k1/1p1n2pp/1q2p3/1pbpBrPQ/8/3B4/PPP2P1P/2KR1R2 w - - 0 19", this, "f8f5"); ' class="line1">18...Rf5</span> 
+ <span onclick='loadMove("r5k1/1p1n2pp/1q2p3/1pbpBBPQ/8/8/PPP2P1P/2KR1R2 b - - 0 19", this, "d3f5"); ' class="line1">19.Bxf5</span> 
+ <span onclick='loadMove("r5k1/1p1n2pp/1q6/1pbpBpPQ/8/8/PPP2P1P/2KR1R2 w - - 0 20", this, "e6f5"); ' class="line1">exf5</span> 
+ <span onclick='loadMove("r5k1/1p1n2pp/1q6/1pbRBpPQ/8/8/PPP2P1P/2K2R2 b - - 0 20", this, "d1d5"); ' class="line1">20.Rxd5</span> 
+ <span onclick='loadMove("r5k1/1p4pp/1q6/1pbRnpPQ/8/8/PPP2P1P/2K2R2 w - - 0 21", this, "d7e5"); ' class="line1">Nxe5</span> 
+ <span onclick='loadMove("r5k1/1p4pp/1q6/1pb1RpPQ/8/8/PPP2P1P/2K2R2 b - - 0 21", this, "d5e5"); ' class="line1">21.Rxe5</span> 
+ <span onclick='loadMove("6k1/1p4pp/1q6/1pb1RpPQ/8/8/rPP2P1P/2K2R2 w - - 0 22", this, "a8a2"); ' class="line1">Rxa2</span> 
+ <span onclick='loadMove("6k1/1p4pp/1q6/1pb1RpPQ/8/8/rPP2P1P/1K3R2 b - - 0 22", this, "c1b1"); ' class="line1">22.Kb1</span> 
+ <span onclick='loadMove("6k1/1p4pp/q7/1pb1RpPQ/8/8/rPP2P1P/1K3R2 w - - 0 23", this, "b6a6"); ' class="line1">Qa6</span> 
+ <span onclick='loadMove("4Q1k1/1p4pp/q7/1pb1RpP1/8/8/rPP2P1P/1K3R2 b - - 0 23", this, "h5e8"); ' class="line1">23.Qe8+</span> 
+ <span onclick='loadMove("4Qbk1/1p4pp/q7/1p2RpP1/8/8/rPP2P1P/1K3R2 w - - 0 24", this, "c5f8"); ' class="line1">Bf8</span> 
+ <span onclick='loadMove("5bk1/1p4pp/q3Q3/1p2RpP1/8/8/rPP2P1P/1K3R2 b - - 0 24", this, "e8e6"); ' class="line1">24.Qe6+</span> 
+ <span onclick='loadMove("5bk1/1p4pp/4q3/1p2RpP1/8/8/rPP2P1P/1K3R2 w - - 0 25", this, "a6e6"); ' class="line1">Qxe6</span> 
+ <span onclick='loadMove("5bk1/1p4pp/4R3/1p3pP1/8/8/rPP2P1P/1K3R2 b - - 0 25", this, "e5e6"); ' class="line1">25.Rxe6</span> 
+ <span onclick='loadMove("5bk1/1p4pp/4R3/rp3pP1/8/8/1PP2P1P/1K3R2 w - - 0 26", this, "a2a5"); ' class="line1">Ra5</span> 
+ <span onclick='loadMove("5bk1/1p4pp/8/rp2RpP1/8/8/1PP2P1P/1K3R2 b - - 0 26", this, "e6e5"); ' class="line1">26.Re5</span> 
+ <span onclick='loadMove("5bk1/1p5p/6p1/rp2RpP1/8/8/1PP2P1P/1K3R2 w - - 0 27", this, "g7g6"); ' class="line1">g6</span> 
+ <span onclick='loadMove("5bk1/1p5p/6p1/rp2RpP1/8/8/1PP2P1P/1K1R4 b - - 0 27", this, "f1d1"); ' class="line1">27.Rd1</span> 
+1-0 <b>G.Guseinov-Rojas, Calvia Olympiad 2004</b>.</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/1pbpB3/6P1/2NB4/PPP1QP1P/2KR3R b - g3 0 14", this, "g2g4"); ' class="line0">14.g4!?</span> 
+</p>
+<p>Who will get there first?! An instructive attacking game ensues, with castling on opposite sides of the board. A possibility that should be studied is
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/1NbpB3/8/3B4/PPP1QPPP/2KR3R b - - 0 14", this, "c3b5"); ' class="line1">14.Nxb5!?</span> 
+.</p>
+<!--img src="images/FlexFren2008-447.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/p2b2pp/4pn2/1pbpB3/6P1/2NB4/PPP1QP1P/2KR3R b - g3 0 14"></div>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/2bpB3/1p4P1/2NB4/PPP1QP1P/2KR3R w - - 0 15", this, "b5b4"); ' class="line0">14...b4</span> 
+</p>
+<p>The time for direct contact has arrived.</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/2bpB1P1/1p6/2NB4/PPP1QP1P/2KR3R b - - 0 15", this, "g4g5"); ' class="line0">15.g5!?</span> 
+</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/1NbpB3/1p4P1/3B4/PPP1QP1P/2KR3R b - - 0 15", this, "c3b5"); ' class="line1">15.Nb5</span> 
+ <span onclick='loadMove("r2q1rk1/p5pp/4pn2/1bbpB3/1p4P1/3B4/PPP1QP1P/2KR3R w - - 0 16", this, "d7b5"); ' class="line1">Bxb5</span> 
+ <span onclick='loadMove("r2q1rk1/p5pp/4pn2/1BbpB3/1p4P1/8/PPP1QP1P/2KR3R b - - 0 16", this, "d3b5"); ' class="line1">16.Bxb5</span> 
+ <span onclick='loadMove("r2q1rk1/p5pp/4p3/1BbpB3/1p2n1P1/8/PPP1QP1P/2KR3R w - - 0 17", this, "f6e4"); ' class="line1">Ne4</span> 
+&#8596;.</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/2bpB1P1/8/2pB4/PPP1QP1P/2KR3R w - - 0 16", this, "b4c3"); ' class="line0">15...bxc3</span> 
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pP2/2bpB3/8/2pB4/PPP1QP1P/2KR3R b - - 0 16", this, "g5f6"); ' class="line0">16.gxf6</span> 
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2bpB3/8/2pB4/PPP1QP1P/2KR3R w - - 0 17", this, "g7g6"); ' class="line0">g6?!</span> 
+</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pP2/2bpB3/8/3B4/PpP1QP1P/2KR3R w - - 0 17", this, "c3b2"); ' class="line1">16...cxb2+!</span> 
+was obligatory, for example:
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pP2/2bpB3/8/3B4/PpP1QP1P/1K1R3R b - - 0 17", this, "c1b1"); ' class="line1">17.Kb1!?</span> 
+ <span onclick='loadMove("r2q2k1/p2b2pp/4pr2/2bpB3/8/3B4/PpP1QP1P/1K1R3R w - - 0 18", this, "f8f6"); ' class="line1">Rxf6!</span> 
+with a very complicated position.</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2bpB3/6Q1/2pB4/PPP2P1P/2KR3R b - - 0 17", this, "e2g4"); ' class="line0">17.Qg4!?</span> 
+</p>
+<p>Continuing the attack without hesitation. If
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2bp4/8/2BB4/PPP1QP1P/2KR3R b - - 0 17", this, "e5c3"); ' class="line1">17.Bxc3</span> 
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2b5/3p4/2BB4/PPP1QP1P/2KR3R w - - 0 18", this, "d5d4"); ' class="line1">d4</span> 
+&#8596;, but
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2bpB3/7P/2pB4/PPP1QP2/2KR3R b - h3 0 17", this, "h2h4"); ' class="line1">17.h4!?</span> 
+was another interesting possibility, for instance:
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2bpB3/7P/3B4/PpP1QP2/2KR3R w - - 0 18", this, "c3b2"); ' class="line1">17...cxb2+</span> 
+(
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2b1B3/3p3P/2pB4/PPP1QP2/2KR3R w - - 0 18", this, "d5d4"); ' class="line2">17...d4!?</span> 
+)
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2bpB3/7P/3B4/PpP1QP2/1K1R3R b - - 0 18", this, "c1b1"); ' class="line1">18.Kb1</span> 
+ <span onclick='loadMove("r2q2k1/p2b3p/4prp1/2bpB3/7P/3B4/PpP1QP2/1K1R3R w - - 0 19", this, "f8f6"); ' class="line1">Rxf6</span> 
+ <span onclick='loadMove("r2q2k1/p2b3p/4prp1/2bpB3/5P1P/3B4/PpP1Q3/1K1R3R b - f3 0 19", this, "f2f4"); ' class="line1">19.f4!</span> 
+and White threatens <b>h4-h5</b> with a dangerous initiative.</p>
+<p>
+ <span onclick='loadMove("r2q2k1/p2b3p/4prp1/2bpB3/6Q1/2pB4/PPP2P1P/2KR3R w - - 0 18", this, "f8f6"); ' class="line0">17...Rxf6</span> 
+</p>
+<p>
+ <span onclick='loadMove("r2q1rk1/p2b3p/4pPp1/2bpB3/6Q1/3B4/PpP2P1P/2KR3R w - - 0 18", this, "c3b2"); ' class="line1">17...cxb2+</span> 
+.</p>
+<p>
+ <span onclick='loadMove("r2q2k1/p2b3p/4prp1/2bp4/6Q1/2BB4/PPP2P1P/2KR3R b - - 0 18", this, "e5c3"); ' class="line0">18.Bxc3</span> 
+ <span onclick='loadMove("r2q2k1/p2b3p/4prp1/2b5/3p2Q1/2BB4/PPP2P1P/2KR3R w - - 0 19", this, "d5d4"); ' class="line0">d4</span> 
+ <span onclick='loadMove("r2q2k1/p2b3p/4prp1/2b5/3B2Q1/3B4/PPP2P1P/2KR3R b - - 0 19", this, "c3d4"); ' class="line0">19.Bxd4!</span> 
+ <span onclick='loadMove("r2q2k1/p2b3p/5rp1/2b1p3/3B2Q1/3B4/PPP2P1P/2KR3R w - - 0 20", this, "e6e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("r2q2k1/p2b3p/5rp1/2b1p3/2BB2Q1/8/PPP2P1P/2KR3R b - - 0 20", this, "d3c4"); ' class="line0">20.Bc4+</span> 
+ <span onclick='loadMove("r2q4/p2b2kp/5rp1/2b1p3/2BB2Q1/8/PPP2P1P/2KR3R w - - 0 21", this, "g8g7"); ' class="line0">Kg7</span> 
+ <span onclick='loadMove("r2q4/p2b2kp/5rp1/2B1p3/2B3Q1/8/PPP2P1P/2KR3R b - - 0 21", this, "d4c5"); ' class="line0">21.Bxc5!</span> 
+ <span onclick='loadMove("r2q4/p5kp/5rp1/2B1p3/2B3b1/8/PPP2P1P/2KR3R w - - 0 22", this, "d7g4"); ' class="line0">Bxg4</span> 
+ <span onclick='loadMove("r2R4/p5kp/5rp1/2B1p3/2B3b1/8/PPP2P1P/2K4R b - - 0 22", this, "d1d8"); ' class="line0">22.Rxd8</span> 
+ <span onclick='loadMove("3r4/p5kp/5rp1/2B1p3/2B3b1/8/PPP2P1P/2K4R w - - 0 23", this, "a8d8"); ' class="line0">Rxd8</span> 
+ <span onclick='loadMove("3r4/p3B1kp/5rp1/4p3/2B3b1/8/PPP2P1P/2K4R b - - 0 23", this, "c5e7"); ' class="line0">23.Be7</span> 
+ <span onclick='loadMove("3r4/p3B1kp/6p1/4p3/2B2rb1/8/PPP2P1P/2K4R w - - 0 24", this, "f6f4"); ' class="line0">Rf4?!</span> 
+</p>
+<p>
+ <span onclick='loadMove("8/p3B1kp/5rp1/4p3/2Br2b1/8/PPP2P1P/2K4R w - - 0 24", this, "d8d4"); ' class="line1">23...Rd4!</span> 
+was a better resource, for example
+ <span onclick='loadMove("8/p5kp/5Bp1/4p3/2Br2b1/8/PPP2P1P/2K4R b - - 0 24", this, "e7f6"); ' class="line1">24.Bxf6+</span> 
+ <span onclick='loadMove("8/p6p/5kp1/4p3/2Br2b1/8/PPP2P1P/2K4R w - - 0 25", this, "g7f6"); ' class="line1">Kxf6</span> 
+ <span onclick='loadMove("8/p6p/5kp1/4p3/2Br2b1/1P6/P1P2P1P/2K4R b - - 0 25", this, "b2b3"); ' class="line1">25.b3</span> 
+ <span onclick='loadMove("8/p6p/5kp1/4p3/2B2rb1/1P6/P1P2P1P/2K4R w - - 0 26", this, "d4f4"); ' class="line1">Rf4</span> 
+with counterchances.</p>
+<p>
+ <span onclick='loadMove("3B4/p5kp/6p1/4p3/2B2rb1/8/PPP2P1P/2K4R b - - 0 24", this, "e7d8"); ' class="line0">24.Bxd8</span> 
+ <span onclick='loadMove("3B4/p5kp/6p1/4p3/2r3b1/8/PPP2P1P/2K4R w - - 0 25", this, "f4c4"); ' class="line0">Rxc4</span> 
++/=</p>
+<!--img src="images/FlexFren2008-448.png" style="width:112pt;height:113pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3B4/p5kp/6p1/4p3/2r3b1/8/PPP2P1P/2K4R w - - 0 25"></div>
+<p>White has every chance of winning this ending.</p>
+<p>
+ <span onclick='loadMove("8/p5kp/6p1/4p1B1/2r3b1/8/PPP2P1P/2K4R b - - 0 25", this, "d8g5"); ' class="line0">25.Bg5</span> 
+ <span onclick='loadMove("8/p5kp/6p1/4pbB1/2r5/8/PPP2P1P/2K4R w - - 0 26", this, "g4f5"); ' class="line0">Bf5</span> 
+ <span onclick='loadMove("8/p5kp/6p1/4pbB1/2r5/2P5/PP3P1P/2K4R b - - 0 26", this, "c2c3"); ' class="line0">26.c3</span> 
+ <span onclick='loadMove("8/6kp/p5p1/4pbB1/2r5/2P5/PP3P1P/2K4R w - - 0 27", this, "a7a6"); ' class="line0">a6</span> 
+ <span onclick='loadMove("8/6kp/p5p1/4pbB1/2r5/2P5/PP3P1P/2K1R3 b - - 0 27", this, "h1e1"); ' class="line0">27.Re1</span> 
+ <span onclick='loadMove("8/6kp/p5p1/4pbB1/6r1/2P5/PP3P1P/2K1R3 w - - 0 28", this, "c4g4"); ' class="line0">Rg4</span> 
+ <span onclick='loadMove("8/6kp/p5p1/4pbB1/6rP/2P5/PP3P2/2K1R3 b - h3 0 28", this, "h2h4"); ' class="line0">28.h4</span> 
+ <span onclick='loadMove("8/6k1/p5pp/4pbB1/6rP/2P5/PP3P2/2K1R3 w - - 0 29", this, "h7h6"); ' class="line0">h6</span> 
+ <span onclick='loadMove("3B4/6k1/p5pp/4pb2/6rP/2P5/PP3P2/2K1R3 b - - 0 29", this, "g5d8"); ' class="line0">29.Bd8</span> 
+ <span onclick='loadMove("3B4/6k1/p5pp/4pb2/7P/2P5/PP3Pr1/2K1R3 w - - 0 30", this, "g4g2"); ' class="line0">Rg2</span> 
+ <span onclick='loadMove("8/6k1/pB4pp/4pb2/7P/2P5/PP3Pr1/2K1R3 b - - 0 30", this, "d8b6"); ' class="line0">30.Bb6</span> 
+ <span onclick='loadMove("8/8/pB3kpp/4pb2/7P/2P5/PP3Pr1/2K1R3 w - - 0 31", this, "g7f6"); ' class="line0">Kf6</span> 
+ <span onclick='loadMove("8/8/pB3kpp/4pb2/2P4P/8/PP3Pr1/2K1R3 b - - 0 31", this, "c3c4"); ' class="line0">31.c4</span> 
+ <span onclick='loadMove("8/8/pB2k1pp/4pb2/2P4P/8/PP3Pr1/2K1R3 w - - 0 32", this, "f6e6"); ' class="line0">Ke6</span> 
+ <span onclick='loadMove("8/8/p3k1pp/4pb2/2PB3P/8/PP3Pr1/2K1R3 b - - 0 32", this, "b6d4"); ' class="line0">32.Bd4</span> 
+ <span onclick='loadMove("8/8/p2k2pp/4pb2/2PB3P/8/PP3Pr1/2K1R3 w - - 0 33", this, "e6d6"); ' class="line0">Kd6</span> 
+ <span onclick='loadMove("8/8/p2k2pp/4Bb2/2P4P/8/PP3Pr1/2K1R3 b - - 0 33", this, "d4e5"); ' class="line0">33.Bxe5+</span> 
+ <span onclick='loadMove("8/8/p5pp/2k1Bb2/2P4P/8/PP3Pr1/2K1R3 w - - 0 34", this, "d6c5"); ' class="line0">Kc5</span> 
+ <span onclick='loadMove("8/8/p5pp/2k2b2/2P4P/6B1/PP3Pr1/2K1R3 b - - 0 34", this, "e5g3"); ' class="line0">34.Bg3</span> 
+ <span onclick='loadMove("8/8/p5pp/5b2/2k4P/6B1/PP3Pr1/2K1R3 w - - 0 35", this, "c5c4"); ' class="line0">Kxc4</span> 
+ <span onclick='loadMove("8/8/p5pp/5b2/2k4P/6B1/PP1K1Pr1/4R3 b - - 0 35", this, "c1d2"); ' class="line0">35.Kd2</span> 
+ <span onclick='loadMove("8/8/p5pp/5b2/3k3P/6B1/PP1K1Pr1/4R3 w - - 0 36", this, "c4d4"); ' class="line0">Kd4</span> 
+ <span onclick='loadMove("8/8/p5pp/5b2/3k3P/1P4B1/P2K1Pr1/4R3 b - - 0 36", this, "b2b3"); ' class="line0">36.b3</span> 
+ <span onclick='loadMove("8/8/p5pp/8/3kb2P/1P4B1/P2K1Pr1/4R3 w - - 0 37", this, "f5e4"); ' class="line0">Be4</span> 
+ <span onclick='loadMove("8/8/p5pp/8/3kb2P/1P4B1/P2K1Pr1/2R5 b - - 0 37", this, "e1c1"); ' class="line0">37.Rc1</span> 
+ <span onclick='loadMove("8/8/p6p/6p1/3kb2P/1P4B1/P2K1Pr1/2R5 w - - 0 38", this, "g6g5"); ' class="line0">g5</span> 
+ <span onclick='loadMove("8/8/p6p/6P1/3kb3/1P4B1/P2K1Pr1/2R5 b - - 0 38", this, "h4g5"); ' class="line0">38.hxg5</span> 
+ <span onclick='loadMove("8/8/p7/6p1/3kb3/1P4B1/P2K1Pr1/2R5 w - - 0 39", this, "h6g5"); ' class="line0">hxg5</span> 
+ <span onclick='loadMove("8/8/p7/6p1/3kb3/1P4B1/P3KPr1/2R5 b - - 0 39", this, "d2e2"); ' class="line0">39.Ke2+-</span> 
+ <span onclick='loadMove("8/8/p7/8/3kb1p1/1P4B1/P3KPr1/2R5 w - - 0 40", this, "g5g4"); ' class="line0">g4</span> 
+ <span onclick='loadMove("8/8/p7/8/3kb1p1/1P4B1/P4Pr1/2R2K2 b - - 0 40", this, "e2f1"); ' class="line0">40.Kf1</span> 
+ <span onclick='loadMove("8/8/p7/8/3k2p1/1P3bB1/P4Pr1/2R2K2 w - - 0 41", this, "e4f3"); ' class="line0">Bf3</span> 
+ <span onclick='loadMove("8/2R5/p7/8/3k2p1/1P3bB1/P4Pr1/5K2 b - - 0 41", this, "c1c7"); ' class="line0">41.Rc7</span> 
+ <span onclick='loadMove("8/2R5/p7/8/6p1/1P1k1bB1/P4Pr1/5K2 w - - 0 42", this, "d4d3"); ' class="line0">Kd3</span> 
+ <span onclick='loadMove("8/2R5/p7/8/1P4p1/3k1bB1/P4Pr1/5K2 b - - 0 42", this, "b3b4"); ' class="line0">42.b4</span> 
+ <span onclick='loadMove("8/2R5/p7/8/1P4p1/5bB1/P2k1Pr1/5K2 w - - 0 43", this, "d3d2"); ' class="line0">Kd2</span> 
+ <span onclick='loadMove("8/2R5/p7/8/PP4p1/5bB1/3k1Pr1/5K2 b - a3 0 43", this, "a2a4"); ' class="line0">43.a4</span> 
+ <span onclick='loadMove("8/2R5/p7/8/PP4p1/5bB1/5Pr1/3k1K2 w - - 0 44", this, "d2d1"); ' class="line0">Kd1</span> 
+ <span onclick='loadMove("8/3R4/p7/8/PP4p1/5bB1/5Pr1/3k1K2 b - - 0 44", this, "c7d7"); ' class="line0">44.Rd7+</span> 
+<b>1-0</b></p>
+<p class="notification message">This was an important battle, where a new aggressive weapon against the Classical French was born. White plays in 'Russian roulette' style. The key moves of Zakharov's plan are
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11", this, "e1c1"); ' class="line1">11.O-O-O</span> 
+,
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 12", this, "f3e5"); ' class="line1">12.Ne5</span> 
+,
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/1pbpB3/6P1/2NB4/PPP1QP1P/2KR3R b - g3 0 14", this, "g2g4"); ' class="line1">14.g4</span> 
+and
+ <span onclick='loadMove("r2q1rk1/p2b2pp/4pn2/2bpB1P1/1p6/2NB4/PPP1QP1P/2KR3R b - - 0 15", this, "g4g5"); ' class="line1">15.g5</span> 
+.</p>
+<p>In the next game a strong Russian expert on the French, grandmaster Sergey Volkov, is beaten by another young pioneer of the Zakharov Variation.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h4>GAME 51<br>Ian Nepomniachtchi - Sergey Volkov<br>Tomsk 2006 (1)</h4>
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Nf3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq d6 0 3", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Nc3</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3p4/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", this, "g8f6"); ' class="line0">Nf6</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3pP3/8/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 4", this, "e4e5"); ' class="line0">4.e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/8/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 5", this, "f6d7"); ' class="line0">Nfd7</span> 
+ <span onclick='loadMove("rnbqkb1r/pppn1ppp/4p3/3pP3/3P4/2N2N2/PPP2PPP/R1BQKB1R b KQkq d3 0 5", this, "d2d4"); ' class="line0">5.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp1n1ppp/4p3/2ppP3/3P4/2N2N2/PPP2PPP/R1BQKB1R w KQkq c6 0 6", this, "c7c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("rnbqkb1r/pp1n1ppp/4p3/2PpP3/8/2N2N2/PPP2PPP/R1BQKB1R b KQkq - 0 6", this, "d4c5"); ' class="line0">6.dxc5</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2n1p3/2PpP3/8/2N2N2/PPP2PPP/R1BQKB1R w KQkq - 0 7", this, "b8c6"); ' class="line0">Nc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2n1p3/2PpP3/5B2/2N2N2/PPP2PPP/R2QKB1R b KQkq - 0 7", this, "c1f4"); ' class="line0">7.Bf4</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5B2/2N2N2/PPP2PPP/R2QKB1R w KQkq - 0 8", this, "f8c5"); ' class="line0">Bxc5</span> 
+<!--p>198</p--><!--p>Chapter 7 - Russian Roulette: 4.e5 Nfd7 5.Nf3 c5 6.dxc5</p-->
+ <span onclick='loadMove("r1bqk2r/pp1n1ppp/2n1p3/2bpP3/5B2/2NB1N2/PPP2PPP/R2QK2R b KQkq - 0 8", this, "f1d3"); ' class="line0">8.Bd3</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n2pp/2n1pp2/2bpP3/5B2/2NB1N2/PPP2PPP/R2QK2R w KQkq - 0 9", this, "f7f6"); ' class="line0">f6</span> 
+ <span onclick='loadMove("r1bqk2r/pp1n2pp/2n1pP2/2bp4/5B2/2NB1N2/PPP2PPP/R2QK2R b KQkq - 0 9", this, "e5f6"); ' class="line0">9.exf6</span> 
+ <span onclick='loadMove("r1bqk2r/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP2PPP/R2QK2R w KQkq - 0 10", this, "d7f6"); ' class="line0">Nxf6</span> 
+ <span onclick='loadMove("r1bqk2r/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/R3K2R b KQkq - 0 10", this, "d1e2"); ' class="line0">10.Qe2</span> 
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/R3K2R w KQ - 0 11", this, "e8g8"); ' class="line0">O-O</span> 
+ <span onclick='loadMove("r1bq1rk1/pp4pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R b - - 0 11", this, "e1c1"); ' class="line0">11.O-O-O</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KR3R w - - 0 12", this, "c8d7"); ' class="line0">Bd7</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1R3R b - - 0 12", this, "c1b1"); ' class="line0">12.Kb1</span> 
+</p>
+<p>A prophylactic move which is very common in the Sicilian Defence. Other important options (besides
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KR3R b - - 0 12", this, "f3e5"); ' class="line1">12.Ne5</span> 
+from Game 50) are:</p>
+<p>(A)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KRR3 b - - 0 12", this, "h1e1"); ' class="line1">12.Rhe1!?</span> 
+(a solid move; White is well prepared for central action)
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p1n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/2KRR3 w - - 0 13", this, "a7a6"); ' class="line1">12...a6</span> 
+(with the idea of playing <b>...b7-b5</b> at his leisure.
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/3p4/1b3B2/2NB1N2/PPP1QPPP/2KRR3 w - - 0 13", this, "c5b4"); ' class="line2">12...Bb4!?</span> 
+is an interesting move:
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/3pN3/1b3B2/2NB4/PPP1QPPP/2KRR3 b - - 0 13", this, "f3e5"); ' class="line2">13.Ne5?</span> 
+(
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/3p4/1b6/2NB1N2/PPPBQPPP/2KRR3 b - - 0 13", this, "f4d2"); ' class="line3">13.Bd2!?</span> 
+)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/4N3/1b1p1B2/2NB4/PPP1QPPP/2KRR3 w - - 0 14", this, "d5d4"); ' class="line2">13...d4?!</span> 
+(
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/3pN3/5B2/2bB4/PPP1QPPP/2KRR3 w - - 0 14", this, "b4c3"); ' class="line3">13...Bxc3!</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/3pN3/5B2/2PB4/P1P1QPPP/2KRR3 b - - 0 14", this, "b2c3"); ' class="line3">14.bxc3</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1p3/3pN3/4nB2/2PB4/P1P1QPPP/2KRR3 w - - 0 15", this, "f6e4"); ' class="line3">Ne4</span> 
+&#8596; is preferable)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/4N3/1b1pNB2/3B4/PPP1QPPP/2KRR3 b - - 0 14", this, "c3e4"); ' class="line2">14.Ne4</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/4N3/3pNB2/3B4/PPP1QPPP/2KRb3 w - - 0 15", this, "b4e1"); ' class="line2">Bxe1</span> 
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/4N3/3pNB2/3B4/PPP1QPPP/2K1R3 b - - 0 15", this, "d1e1"); ' class="line2">15.Rxe1</span> 
+&#8734; <b>Nepomniachtchi-Zorko, Herceg Novi jr 2005</b>)
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p1n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/2KRR3 b - - 0 13", this, "f3e5"); ' class="line1">13.Ne5!</span> 
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p3pn2/2bpn3/5B2/2NB4/PPP1QPPP/2KRR3 w - - 0 14", this, "c6e5"); ' class="line1">Nxe5</span> 
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p3pn2/2bpB3/8/2NB4/PPP1QPPP/2KRR3 b - - 0 14", this, "f4e5"); ' class="line1">14.Bxe5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpB3/8/2NB4/PPP1QPPP/2KRR3 w - b6 0 15", this, "b7b5"); ' class="line1">b5</span> 
+.</p>
+<!--img src="images/FlexFren2008-449.png" style="width:112pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/3b2pp/p3pn2/1pbpB3/8/2NB4/PPP1QPPP/2KRR3 w - b6 0 15"></div>
+<p class="caption">analysis diagram</p>
+<p>Here White pursued a path similar to Zakharov's main plan:
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpB3/6P1/2NB4/PPP1QP1P/2KRR3 b - g3 0 15", this, "g2g4"); ' class="line1">15.g4</span> 
+(
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpB3/8/2NB1Q2/PPP2PPP/2KRR3 b - - 0 15", this, "e2f3"); ' class="line2">15.Qf3!?</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/2bpB3/1p6/2NB1Q2/PPP2PPP/2KRR3 w - - 0 16", this, "b5b4"); ' class="line2">b4</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/2bpB3/1p6/3B1Q2/PPP1NPPP/2KRR3 b - - 0 16", this, "c3e2"); ' class="line2">16.Ne2</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/pq2pn2/2bpB3/1p6/3B1Q2/PPP1NPPP/2KRR3 w - - 0 17", this, "d8b6"); ' class="line2">Qb6</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/pq2pn2/2bpB3/1p3N2/3B1Q2/PPP2PPP/2KRR3 b - - 0 17", this, "e2f4"); ' class="line2">17.Nf4</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq2pn2/2bpB3/1p3N2/3B1Q2/PPP2PPP/2KRR3 w - - 0 18", this, "f8f7"); ' class="line2">Rf7</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq2pn2/2bpB3/1p3N2/3B1Q2/PPP1RPPP/2KR4 b - - 0 18", this, "e1e2"); ' class="line2">18.Re2</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq2p3/2bpB3/1p2nN2/3B1Q2/PPP1RPPP/2KR4 w - - 0 19", this, "f6e4"); ' class="line2">Ne4??</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq2p3/2bpB3/1p2RN2/3B1Q2/PPP2PPP/2KR4 b - - 0 19", this, "e2e4"); ' class="line2">19.Rxe4!</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq1bp3/3pB3/1p2RN2/3B1Q2/PPP2PPP/2KR4 w - - 0 20", this, "c5d6"); ' class="line2">Bd6</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq1bp3/3pB3/1p3N2/3B1Q2/PPP1RPPP/2KR4 b - - 0 20", this, "e4e2"); ' class="line2">20.Re2</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq2p3/3pb3/1p3N2/3B1Q2/PPP1RPPP/2KR4 w - - 0 21", this, "d6e5"); ' class="line2">Bxe5</span> 
+ <span onclick='loadMove("r5k1/3b1rpp/pq2p3/3pR3/1p3N2/3B1Q2/PPP2PPP/2KR4 b - - 0 21", this, "e2e5"); ' class="line2">21.Rxe5</span> 
+1-0 <b>Zakharov-Alavkin, Novgorod 1997 (5)</b>)
+and now:</p>
+<p>(A1) The intermediate
+ <span onclick='loadMove("r2qbrk1/6pp/p3pn2/1pbpB3/6P1/2NB4/PPP1QP1P/2KRR3 w - - 0 16", this, "d7e8"); ' class="line2">15...Be8!?</span> 
+is a defensive idea, for example:
+ <span onclick='loadMove("r2qbrk1/6pp/p3pn2/1pbpB3/5PP1/2NB4/PPP1Q2P/2KRR3 b - f3 0 16", this, "f2f4"); ' class="line2">16.f4</span> 
+ <span onclick='loadMove("r2qbrk1/6pp/p3pn2/2bpB3/1p3PP1/2NB4/PPP1Q2P/2KRR3 w - - 0 17", this, "b5b4"); ' class="line2">b4</span> 
+ <span onclick='loadMove("r2qbrk1/6pp/p3pn2/2bpB3/1p3PP1/3B4/PPP1Q2P/1NKRR3 b - - 0 17", this, "c3b1"); ' class="line2">17.Nb1</span> 
+(
+ <span onclick='loadMove("r2qbrk1/6pp/p3pn2/2bpB1P1/1p3P2/2NB4/PPP1Q2P/2KRR3 b - - 0 17", this, "g4g5"); ' class="line3">17.g5?</span> 
+ <span onclick='loadMove("r2q1rk1/6pp/p3pn2/2bpB1Pb/1p3P2/2NB4/PPP1Q2P/2KRR3 w - - 0 18", this, "e8h5"); ' class="line3">Bh5!</span> 
+)
+ <span onclick='loadMove("r2qbrk1/3n2pp/p3p3/2bpB3/1p3PP1/3B4/PPP1Q2P/1NKRR3 w - - 0 18", this, "f6d7"); ' class="line2">17...Nd7</span> 
+.</p>
+<p class="warning message">WEAPON: Now
+ <span onclick='loadMove("r2qbrk1/3n2pp/p2Bp3/2bp4/1p3PP1/3B4/PPP1Q2P/1NKRR3 b - - 0 18", this, "e5d6"); ' class="line2">18.Bd6?</span> 
+looks strong, but Black has good resources for holding the position
+(
+ <span onclick='loadMove("r2qbrk1/3n2pp/p3p3/2bpB3/1p3PP1/3B4/PPPNQ2P/2KRR3 b - - 0 18", this, "b1d2"); ' class="line3">18.Nd2!?</span> 
+is a better move, with a whole game ahead):
+ <span onclick='loadMove("r2qb1k1/3n2pp/p2Bpr2/2bp4/1p3PP1/3B4/PPP1Q2P/1NKRR3 w - - 0 19", this, "f8f6"); ' class="line2">18...Rf6!</span> 
+ <span onclick='loadMove("r2qb1k1/3n2pp/p2Bpr2/2bp2P1/1p3P2/3B4/PPP1Q2P/1NKRR3 b - - 0 19", this, "g4g5"); ' class="line2">19.g5</span> 
+ <span onclick='loadMove("r2qb1k1/3n2pp/p2bpr2/3p2P1/1p3P2/3B4/PPP1Q2P/1NKRR3 w - - 0 20", this, "c5d6"); ' class="line2">Bxd6</span> 
+ <span onclick='loadMove("r2qb1k1/3n2pp/p2bpP2/3p4/1p3P2/3B4/PPP1Q2P/1NKRR3 b - - 0 20", this, "g5f6"); ' class="line2">20.gxf6</span> 
+ <span onclick='loadMove("r2qb1k1/3n2pp/p3pP2/3p4/1p3b2/3B4/PPP1Q2P/1NKRR3 w - - 0 21", this, "d6f4"); ' class="line2">Bxf4+</span> 
+ <span onclick='loadMove("r2qb1k1/3n2pp/p3pP2/3p4/1p3b2/3B4/PPPNQ2P/2KRR3 b - - 0 21", this, "b1d2"); ' class="line2">21.Nd2</span> 
+ <span onclick='loadMove("r3b1k1/3n2pp/p3pq2/3p4/1p3b2/3B4/PPPNQ2P/2KRR3 w - - 0 22", this, "d8f6"); ' class="line2">Qxf6</span> 
+ <span onclick='loadMove("r3b1k1/3n2pp/p3pq2/3p4/1p3b2/3B4/PPPNQ2P/1K1RR3 b - - 0 22", this, "c1b1"); ' class="line2">22.Kb1</span> 
+(
+ <span onclick='loadMove("r3b1k1/3n2pp/p3Qq2/3p4/1p3b2/3B4/PPPN3P/2KRR3 b - - 0 22", this, "e2e6"); ' class="line3">22.Qxe6+?</span> 
+ <span onclick='loadMove("r3b1k1/3n2pp/p3q3/3p4/1p3b2/3B4/PPPN3P/2KRR3 w - - 0 23", this, "f6e6"); ' class="line3">Qxe6</span> 
+ <span onclick='loadMove("r3b1k1/3n2pp/p3R3/3p4/1p3b2/3B4/PPPN3P/2KR4 b - - 0 23", this, "e1e6"); ' class="line3">23.Rxe6</span> 
+ <span onclick='loadMove("r3b1k1/6pp/p3R3/2np4/1p3b2/3B4/PPPN3P/2KR4 w - - 0 24", this, "d7c5"); ' class="line3">Nc5</span> 
+-+)
+ <span onclick='loadMove("r3b1k1/6pp/p3pq2/2np4/1p3b2/3B4/PPPNQ2P/1K1RR3 w - - 0 23", this, "d7c5"); ' class="line2">22...Nc5</span> 
+-/+ <b>Zakharov-Dolmatov, Novgorod 1997 (1)</b>.</p>
+<p>(A2)
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/2bpB3/1p4P1/2NB4/PPP1QP1P/2KRR3 w - - 0 16", this, "b5b4"); ' class="line2">15...b4!</span> 
+(this should perhaps be considered the main line)
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/2bpB1P1/1p6/2NB4/PPP1QP1P/2KRR3 b - - 0 16", this, "g4g5"); ' class="line2">16.g5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/2bpB1P1/8/2pB4/PPP1QP1P/2KRR3 w - - 0 17", this, "b4c3"); ' class="line2">bxc3</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pP2/2bpB3/8/2pB4/PPP1QP1P/2KRR3 b - - 0 17", this, "g5f6"); ' class="line2">17.gxf6</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pP2/2bpB3/8/3B4/PpP1QP1P/2KRR3 w - - 0 18", this, "c3b2"); ' class="line2">cxb2+</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pP2/2bpB3/8/3B4/PpP1QP1P/1K1RR3 b - - 0 18", this, "c1b1"); ' class="line2">18.Kb1</span> 
+ <span onclick='loadMove("r2q2k1/3b2pp/p3pr2/2bpB3/8/3B4/PpP1QP1P/1K1RR3 w - - 0 19", this, "f8f6"); ' class="line2">Rxf6!</span> 
+ <span onclick='loadMove("r2q2k1/3b2pp/p3pr2/2bpB3/8/3B4/PpP1QP1P/1K1R2R1 b - - 0 19", this, "e1g1"); ' class="line2">19.Rg1</span> 
+ <span onclick='loadMove("r2qb1k1/6pp/p3pr2/2bpB3/8/3B4/PpP1QP1P/1K1R2R1 w - - 0 20", this, "d7e8"); ' class="line2">Be8</span> 
+(
+ <span onclick='loadMove("r2q2k1/3b3p/p3prp1/2bpB3/8/3B4/PpP1QP1P/1K1R2R1 w - - 0 20", this, "g7g6"); ' class="line3">19...g6!?</span> 
+was interesting)
+ <span onclick='loadMove("r2qb1k1/6pp/p3pr2/2bpB3/6Q1/3B4/PpP2P1P/1K1R2R1 b - - 0 20", this, "e2g4"); ' class="line2">20.Qg4</span> 
+ <span onclick='loadMove("r2qbbk1/6pp/p3pr2/3pB3/6Q1/3B4/PpP2P1P/1K1R2R1 w - - 0 21", this, "c5f8"); ' class="line2">Bf8</span> 
+ <span onclick='loadMove("r2qbbk1/6pp/p3pr2/3pB3/7Q/3B4/PpP2P1P/1K1R2R1 b - - 0 21", this, "g4h4"); ' class="line2">21.Qh4</span> 
+ <span onclick='loadMove("r2qbbk1/6pp/p3p1r1/3pB3/7Q/3B4/PpP2P1P/1K1R2R1 w - - 0 22", this, "f6g6"); ' class="line2">Rg6</span> 
+ <span onclick='loadMove("r2qbbk1/6pp/p3p1r1/3pB3/8/3B3Q/PpP2P1P/1K1R2R1 b - - 0 22", this, "h4h3"); ' class="line2">22.Qh3</span> 
+ <span onclick='loadMove("r3bbk1/6pp/pq2p1r1/3pB3/8/3B3Q/PpP2P1P/1K1R2R1 w - - 0 23", this, "d8b6"); ' class="line2">Qb6</span> 
+ <span onclick='loadMove("r3bbk1/6pp/pq2p1r1/3pB3/8/3B3Q/PpP2PRP/1K1R4 b - - 0 23", this, "g1g2"); ' class="line2">23.Rg2</span> 
+ <span onclick='loadMove("2r1bbk1/6pp/pq2p1r1/3pB3/8/3B3Q/PpP2PRP/1K1R4 w - - 0 24", this, "a8c8"); ' class="line2">Rc8</span> 
+ <span onclick='loadMove("2r1bbk1/6pp/pq2p1r1/3pB3/8/3B3Q/PpP2PRP/1K4R1 b - - 0 24", this, "d1g1"); ' class="line2">24.Rdg1</span> 
+ <span onclick='loadMove("2r2bk1/5bpp/pq2p1r1/3pB3/8/3B3Q/PpP2PRP/1K4R1 w - - 0 25", this, "e8f7"); ' class="line2">Bf7</span> 
+ <span onclick='loadMove("2r2bk1/5bpp/pq2p1R1/3pB3/8/3B3Q/PpP2P1P/1K4R1 b - - 0 25", this, "g2g6"); ' class="line2">25.Rxg6</span> 
+ <span onclick='loadMove("2r2bk1/5bp1/pq2p1p1/3pB3/8/3B3Q/PpP2P1P/1K4R1 w - - 0 26", this, "h7g6"); ' class="line2">hxg6</span> 
+ <span onclick='loadMove("2r2bk1/5bp1/pq2p1R1/3pB3/8/3B3Q/PpP2P1P/1K6 b - - 0 26", this, "g1g6"); ' class="line2">26.Rxg6</span> 
+ <span onclick='loadMove("2r2bk1/5bp1/p3p1R1/3pB3/8/3B3Q/PpP2q1P/1K6 w - - 0 27", this, "b6f2"); ' class="line2">Qxf2</span> 
+.</p>
+<!--img src="images/FlexFren2008-450.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="2r2bk1/5bp1/p3p1R1/3pB3/8/3B3Q/PpP2q1P/1K6 w - - 0 27"></div>
+<p class="caption">analysis diagram</p>
+<p>From this sharp position the game ended with an amusing perpetual check:
+ <span onclick='loadMove("2r2bkQ/5bp1/p3p1R1/3pB3/8/3B4/PpP2q1P/1K6 b - - 0 27", this, "h3h8"); ' class="line2">27.Qh8+!?</span> 
+ <span onclick='loadMove("2r2b1k/5bp1/p3p1R1/3pB3/8/3B4/PpP2q1P/1K6 w - - 0 28", this, "g8h8"); ' class="line2">Kxh8</span> 
+ <span onclick='loadMove("2r2b1k/5bp1/p3p2R/3pB3/8/3B4/PpP2q1P/1K6 b - - 0 28", this, "g6h6"); ' class="line2">28.Rh6+</span> 
+ <span onclick='loadMove("2r2bk1/5bp1/p3p2R/3pB3/8/3B4/PpP2q1P/1K6 w - - 0 29", this, "h8g8"); ' class="line2">Kg8</span> 
+ <span onclick='loadMove("2r2bk1/5bpB/p3p2R/3pB3/8/8/PpP2q1P/1K6 b - - 0 29", this, "d3h7"); ' class="line2">29.Bh7+</span> 
+ <span onclick='loadMove("2r2b1k/5bpB/p3p2R/3pB3/8/8/PpP2q1P/1K6 w - - 0 30", this, "g8h8"); ' class="line2">Kh8</span> 
+ <span onclick='loadMove("2r2b1k/5bp1/p3p1BR/3pB3/8/8/PpP2q1P/1K6 b - - 0 30", this, "h7g6"); ' class="line2">30.Bg6+</span> 
+ <span onclick='loadMove("2r2bk1/5bp1/p3p1BR/3pB3/8/8/PpP2q1P/1K6 w - - 0 31", this, "h8g8"); ' class="line2">Kg8</span> 
+1/2-1/2 <b>I. Smirnov-Erdos, Denizli 2003</b>.</p>
+<p>(B)
+ <span onclick='loadMove("r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B1P/2NB1N2/PPP1QPP1/2KR3R b - h3 0 12", this, "h2h4"); ' class="line1">12.h4!?</span> 
+</p>
+<!--img src="images/FlexFren2008-451.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B1P/2NB1N2/PPP1QPP1/2KR3R b - h3 0 12"></div>
+<p class="caption">analysis diagram</p>
+<p>Strategically I like this advance, as it does not weaken the white position and it prepares action on the kingside. In two games Black now tried out different queen moves:</p>
+<!--p>199</p--><!--p>Part Three - Classical System: 3.Nc3 Nf6</p-->
+<p>(B1)
+ <span onclick='loadMove("r4rk1/pp1b2pp/1qn1pn2/2bp4/5B1P/2NB1N2/PPP1QPP1/2KR3R w - - 0 13", this, "d8b6"); ' class="line2">12...Qb6</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/1qn1pn2/2bp4/N4B1P/3B1N2/PPP1QPP1/2KR3R b - - 0 13", this, "c3a4"); ' class="line2">13.Na4</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/2bp4/Nq3B1P/3B1N2/PPP1QPP1/2KR3R w - - 0 14", this, "b6b4"); ' class="line2">Qb4</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/2Np4/1q3B1P/3B1N2/PPP1QPP1/2KR3R b - - 0 14", this, "a4c5"); ' class="line2">14.Nxc5</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/2Np4/5q1P/3B1N2/PPP1QPP1/2KR3R w - - 0 15", this, "b4f4"); ' class="line2">Qxf4+</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/2Np4/5q1P/3B1N2/PPP1QPP1/1K1R3R b - - 0 15", this, "c1b1"); ' class="line2">15.Kb1</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/2nqpn2/2Np4/7P/3B1N2/PPP1QPP1/1K1R3R w - - 0 16", this, "f4d6"); ' class="line2">Qd6</span> 
+ <span onclick='loadMove("r4rk1/pp1N2pp/2nqpn2/3p4/7P/3B1N2/PPP1QPP1/1K1R3R b - - 0 16", this, "c5d7"); ' class="line2">16.Nxd7</span> 
+ <span onclick='loadMove("r4rk1/pp1q2pp/2n1pn2/3p4/7P/3B1N2/PPP1QPP1/1K1R3R w - - 0 17", this, "d6d7"); ' class="line2">Qxd7</span> 
+ <span onclick='loadMove("r4rk1/pp1q2pp/2n1pn2/3p4/7P/3B1N2/PPP1QPP1/1K1RR3 b - - 0 17", this, "h1e1"); ' class="line2">17.Rhe1</span> 
+ <span onclick='loadMove("4rrk1/pp1q2pp/2n1pn2/3p4/7P/3B1N2/PPP1QPP1/1K1RR3 w - - 0 18", this, "a8e8"); ' class="line2">Rae8</span> 
+ <span onclick='loadMove("4rrk1/pp1q2pp/2n1pn2/3pN3/7P/3B4/PPP1QPP1/1K1RR3 b - - 0 18", this, "f3e5"); ' class="line2">18.Ne5</span> 
++/= <b>Van de Oudeweetering-Holzke, Amsterdam 2006</b>;</p>
+<p>(B2)
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/q1bp4/5B1P/2NB1N2/PPP1QPP1/2KR3R w - - 0 13", this, "d8a5"); ' class="line2">12...Qa5</span> 
+ <span onclick='loadMove("r4rk1/pp1b2pp/2n1pn2/q1bp4/5B1P/2NB1N2/PPP1QPP1/1K1R3R b - - 0 13", this, "c1b1"); ' class="line2">13.Kb1</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/p1n1pn2/q1bp4/5B1P/2NB1N2/PPP1QPP1/1K1R3R w - - 0 14", this, "a7a6"); ' class="line2">a6</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/p1n1pn2/q1bpN3/5B1P/2NB4/PPP1QPP1/1K1R3R b - - 0 14", this, "f3e5"); ' class="line2">14.Ne5</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/p3pn2/q1bpn3/5B1P/2NB4/PPP1QPP1/1K1R3R w - - 0 15", this, "c6e5"); ' class="line2">Nxe5</span> 
+ <span onclick='loadMove("r4rk1/1p1b2pp/p3pn2/q1bpB3/7P/2NB4/PPP1QPP1/1K1R3R b - - 0 15", this, "f4e5"); ' class="line2">15.Bxe5</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p3pn2/qpbpB3/7P/2NB4/PPP1QPP1/1K1R3R w - b6 0 16", this, "b7b5"); ' class="line2">b5</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/p3pn2/qpbpB3/6PP/2NB4/PPP1QP2/1K1R3R b - g3 0 16", this, "g2g4"); ' class="line2">16.g4!</span> 
+ <span onclick='loadMove("r3brk1/6pp/p3pn2/qpbpB3/6PP/2NB4/PPP1QP2/1K1R3R w - - 0 17", this, "d7e8"); ' class="line2">Be8</span> 
+ <span onclick='loadMove("r3brk1/6pp/p3pB2/qpbp4/6PP/2NB4/PPP1QP2/1K1R3R b - - 0 17", this, "e5f6"); ' class="line2">17.Bxf6</span> 
+ <span onclick='loadMove("r3b1k1/6pp/p3pr2/qpbp4/6PP/2NB4/PPP1QP2/1K1R3R w - - 0 18", this, "f8f6"); ' class="line2">Rxf6</span> 
+ <span onclick='loadMove("r3b1k1/6pp/p3pr2/qpbp4/4N1PP/3B4/PPP1QP2/1K1R3R b - - 0 18", this, "c3e4"); ' class="line2">18.Ne4!</span> 
+ <span onclick='loadMove("r3b1k1/6pp/p3pr2/qpb5/4p1PP/3B4/PPP1QP2/1K1R3R w - - 0 19", this, "d5e4"); ' class="line2">dxe4</span> 
+ <span onclick='loadMove("r3b1k1/6pp/p3pr2/qpb5/4Q1PP/3B4/PPP2P2/1K1R3R b - - 0 19", this, "e2e4"); ' class="line2">19.Qxe4</span> 
+ <span onclick='loadMove("3rb1k1/6pp/p3pr2/qpb5/4Q1PP/3B4/PPP2P2/1K1R3R w - - 0 20", this, "a8d8"); ' class="line2">Rd8</span> 
+ <span onclick='loadMove("3rb1k1/6pQ/p3pr2/qpb5/6PP/3B4/PPP2P2/1K1R3R b - - 0 20", this, "e4h7"); ' class="line2">20.Qxh7+</span> 
+ <span onclick='loadMove("3rbk2/6pQ/p3pr2/qpb5/6PP/3B4/PPP2P2/1K1R3R w - - 0 21", this, "g8f8"); ' class="line2">Kf8</span> 
+ <span onclick='loadMove("3rbk1Q/6p1/p3pr2/qpb5/6PP/3B4/PPP2P2/1K1R3R b - - 0 21", this, "h7h8"); ' class="line2">21.Qh8+</span> 
+ <span onclick='loadMove("3rb2Q/5kp1/p3pr2/qpb5/6PP/3B4/PPP2P2/1K1R3R w - - 0 22", this, "f8f7"); ' class="line2">Kf7</span> 
+ <span onclick='loadMove("3rb3/5kp1/p3pr2/qpb4Q/6PP/3B4/PPP2P2/1K1R3R b - - 0 22", this, "h8h5"); ' class="line2">22.Qh5+</span> 
+1-0 <b>Fernandez Romero-Linan Baena, Leon 2006</b>;</p>
+<p>(B3) A third possibility is
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p1n1pn2/2bp4/5B1P/2NB1N2/PPP1QPP1/2KR3R w - - 0 13", this, "a7a6"); ' class="line2">12...a6</span> 
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p1n1pn2/2bp3P/5B2/2NB1N2/PPP1QPP1/2KR3R b - - 0 13", this, "h4h5"); ' class="line2">13.h5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p1n1pn2/1pbp3P/5B2/2NB1N2/PPP1QPP1/2KR3R w - b6 0 14", this, "b7b5"); ' class="line2">b5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p1n1pn2/1pbpN2P/5B2/2NB4/PPP1QPP1/2KR3R b - - 0 14", this, "f3e5"); ' class="line2">14.Ne5</span> 
+(
+ <span onclick='loadMove("r2q1rk1/3b2pp/p1n1pn1P/1pbp4/5B2/2NB1N2/PPP1QPP1/2KR3R b - - 0 14", this, "h5h6"); ' class="line3">14.h6!?</span> 
+)
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpn2P/5B2/2NB4/PPP1QPP1/2KR3R w - - 0 15", this, "c6e5"); ' class="line2">14...Nxe5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpB2P/8/2NB4/PPP1QPP1/2KR3R b - - 0 15", this, "f4e5"); ' class="line2">15.Bxe5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/2bpB2P/1p6/2NB4/PPP1QPP1/2KR3R w - - 0 16", this, "b5b4"); ' class="line2">b4</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/2bpB2P/1p6/3B4/PPP1QPP1/1NKR3R b - - 0 16", this, "c3b1"); ' class="line2">16.Nb1</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/pq2pn2/2bpB2P/1p6/3B4/PPP1QPP1/1NKR3R w - - 0 17", this, "d8b6"); ' class="line2">Qb6</span> 
+ <span onclick='loadMove("r4rk1/3b2pp/pq2pn1P/2bpB3/1p6/3B4/PPP1QPP1/1NKR3R b - - 0 17", this, "h5h6"); ' class="line2">17.h6!</span> 
+&#8594;.</p>
+<!--img src="images/FlexFren2008-452.png" style="width:113pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r4rk1/3b2pp/pq2pn1P/2bpB3/1p6/3B4/PPP1QPP1/1NKR3R b - - 0 17"></div>
+<p class="caption">analysis diagram</p>
+<p>White's threats look much more serious than Black's:
+ <span onclick='loadMove("r4rk1/3b3p/pq2pnpP/2bpB3/1p6/3B4/PPP1QPP1/1NKR3R w - - 0 18", this, "g7g6"); ' class="line2">17...g6</span> 
+ <span onclick='loadMove("r4rk1/3b3p/pq2pnBP/2bpB3/1p6/8/PPP1QPP1/1NKR3R b - - 0 18", this, "d3g6"); ' class="line2">18.Bxg6!</span> 
+ <span onclick='loadMove("r4rk1/3b4/pq2pnpP/2bpB3/1p6/8/PPP1QPP1/1NKR3R w - - 0 19", this, "h7g6"); ' class="line2">hxg6</span> 
+ <span onclick='loadMove("r4rk1/3b3P/pq2pnp1/2bpB3/1p6/8/PPP1QPP1/1NKR3R b - - 0 19", this, "h6h7"); ' class="line2">19.h7+</span> 
+ <span onclick='loadMove("r4r1k/3b3P/pq2pnp1/2bpB3/1p6/8/PPP1QPP1/1NKR3R w - - 0 20", this, "g8h8"); ' class="line2">Kh8</span> 
+ <span onclick='loadMove("r4r1k/3b3P/pq2pnp1/2bpB3/1p6/5Q2/PPP2PP1/1NKR3R b - - 0 20", this, "e2f3"); ' class="line2">20.Qf3</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/pq2pnp1/3pB3/1p6/5Q2/PPP2PP1/1NKR3R w - - 0 21", this, "c5e7"); ' class="line2">Be7</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/pq2pnp1/3pB3/1p4P1/5Q2/PPP2P2/1NKR3R b - g3 0 21", this, "g2g4"); ' class="line2">21.g4!</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/pq2pnp1/4B3/1p1p2P1/5Q2/PPP2P2/1NKR3R w - - 0 22", this, "d5d4"); ' class="line2">d4</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/pq2pnp1/4B1P1/1p1p4/5Q2/PPP2P2/1NKR3R b - - 0 22", this, "g4g5"); ' class="line2">22.g5</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/p1q1pnp1/4B1P1/1p1p4/5Q2/PPP2P2/1NKR3R w - - 0 23", this, "b6c6"); ' class="line2">Qc6</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/p1q1pnp1/4B1P1/1p1p4/3Q4/PPP2P2/1NKR3R b - - 0 23", this, "f3d3"); ' class="line2">23.Qd3</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/p3pnp1/3qB1P1/1p1p4/3Q4/PPP2P2/1NKR3R w - - 0 24", this, "c6d5"); ' class="line2">Qd5</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/p3pnp1/3qB1P1/1p1Q4/8/PPP2P2/1NKR3R b - - 0 24", this, "d3d4"); ' class="line2">24.Qxd4</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/p3pnp1/4B1P1/1p1q4/8/PPP2P2/1NKR3R w - - 0 25", this, "d5d4"); ' class="line2">Qxd4</span> 
+ <span onclick='loadMove("r4r1k/3bb2P/p3pnp1/4B1P1/1p1R4/8/PPP2P2/1NK4R b - - 0 25", this, "d1d4"); ' class="line2">25.Rxd4</span> 
+ <span onclick='loadMove("r4r1k/4b2P/p1b1pnp1/4B1P1/1p1R4/8/PPP2P2/1NK4R w - - 0 26", this, "d7c6"); ' class="line2">Bc6</span> 
+ <span onclick='loadMove("r4r1k/4b2P/p1b1pnp1/4B1P1/1p1R3R/8/PPP2P2/1NK5 b - - 0 26", this, "h1h4"); ' class="line2">26.Rhh4</span> 
+with a decisive advantage for White, <b>Sambuev-Potkin, St Petersburg 2001</b>.</p>
+<p>Back to the game.</p>
+<!--img src="images/FlexFren2008-453.png" style="width:112pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r2q1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1R3R b - - 0 12"></div>
+<p>
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1R3R w - - 0 13", this, "a8c8"); ' class="line0">12...Rc8!?</span> 
+</p>
+<p>Other typical examples are:</p>
+<p>(A)
+ <span onclick='loadMove("r4rk1/pp1bq1pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1R3R w - - 0 13", this, "d8e7"); ' class="line1">12...Qe7</span> 
+ <span onclick='loadMove("r4rk1/pp1bq1pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/1K1R3R b - - 0 13", this, "f3e5"); ' class="line1">13.Ne5</span> 
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/1K1R3R w - - 0 14", this, "a8e8"); ' class="line1">Rae8</span> 
+(
+ <span onclick='loadMove("r4rk1/pp1bq1pp/4pn2/2bpn3/5B2/2NB4/PPP1QPPP/1K1R3R w - - 0 14", this, "c6e5"); ' class="line2">13...Nxe5</span> 
+ <span onclick='loadMove("r4rk1/pp1bq1pp/4pn2/2bpB3/8/2NB4/PPP1QPPP/1K1R3R b - - 0 14", this, "f4e5"); ' class="line2">14.Bxe5</span> 
+ <span onclick='loadMove("r4rk1/p2bq1pp/4pn2/1pbpB3/8/2NB4/PPP1QPPP/1K1R3R w - b6 0 15", this, "b7b5"); ' class="line2">b5</span> 
+ <span onclick='loadMove("r4rk1/p2bq1pp/4pn2/1pbpB3/5P2/2NB4/PPP1Q1PP/1K1R3R b - f3 0 15", this, "f2f4"); ' class="line2">15.f4</span> 
+ <span onclick='loadMove("r4rk1/3bq1pp/p3pn2/1pbpB3/5P2/2NB4/PPP1Q1PP/1K1R3R w - - 0 16", this, "a7a6"); ' class="line2">a6</span> 
+ <span onclick='loadMove("r4rk1/3bq1pp/p3pn2/1pbpB3/5P2/2NB1Q2/PPP3PP/1K1R3R b - - 0 16", this, "e2f3"); ' class="line2">16.Qf3</span> 
+ <span onclick='loadMove("r4rk1/3bq1pp/p3pn2/2bpB3/1p3P2/2NB1Q2/PPP3PP/1K1R3R w - - 0 17", this, "b5b4"); ' class="line2">b4</span> 
+ <span onclick='loadMove("r4rk1/3bq1pp/p3pn2/2bpB3/1p3P2/3B1Q2/PPP1N1PP/1K1R3R b - - 0 17", this, "c3e2"); ' class="line2">17.Ne2</span> 
+ <span onclick='loadMove("r4rk1/4q1pp/p3pn2/1bbpB3/1p3P2/3B1Q2/PPP1N1PP/1K1R3R w - - 0 18", this, "d7b5"); ' class="line2">Bb5</span> 
+ <span onclick='loadMove("r4rk1/4q1pp/p3pn2/1bbpB3/1p1N1P2/3B1Q2/PPP3PP/1K1R3R b - - 0 18", this, "e2d4"); ' class="line2">18.Nd4</span> 
+ <span onclick='loadMove("r4rk1/3nq1pp/p3p3/1bbpB3/1p1N1P2/3B1Q2/PPP3PP/1K1R3R w - - 0 19", this, "f6d7"); ' class="line2">Nd7</span> 
+&#8596; <b>Grabarczyk-Bobula, Opole ch-POL 2007</b>,
+ <span onclick='loadMove("r4rk1/3nq1Bp/p3p3/1bbp4/1p1N1P2/3B1Q2/PPP3PP/1K1R3R b - - 0 19", this, "e5g7"); ' class="line2">19.Bxg7!?</span> 
+)
+ <span onclick='loadMove("4rrk1/pp1bq1pp/2n1pn2/2bpN3/5BP1/2NB4/PPP1QP1P/1K1R3R b - g3 0 14", this, "g2g4"); ' class="line1">14.g4</span> 
+ <span onclick='loadMove("4rrk1/pp1bq1pp/4pn2/2bpn3/5BP1/2NB4/PPP1QP1P/1K1R3R w - - 0 15", this, "c6e5"); ' class="line1">Nxe5</span> 
+ <span onclick='loadMove("4rrk1/pp1bq1pp/4pn2/2bpB3/6P1/2NB4/PPP1QP1P/1K1R3R b - - 0 15", this, "f4e5"); ' class="line1">15.Bxe5</span> 
+ <span onclick='loadMove("4rrk1/pp2q1pp/2b1pn2/2bpB3/6P1/2NB4/PPP1QP1P/1K1R3R w - - 0 16", this, "d7c6"); ' class="line1">Bc6</span> 
+ <span onclick='loadMove("4rrk1/pp2q1pp/2b1pn2/2bpB1P1/8/2NB4/PPP1QP1P/1K1R3R b - - 0 16", this, "g4g5"); ' class="line1">16.g5</span> 
+</p>
+<p class="warning message">WEAPON:
+ <span onclick='loadMove("4rrk1/pp1nq1pp/2b1p3/2bpB1P1/8/2NB4/PPP1QP1P/1K1R3R w - - 0 17", this, "f6d7"); ' class="line2">16...Nd7?</span> 
+ <span onclick='loadMove("4rrk1/pp1nq1pB/2b1p3/2bpB1P1/8/2N5/PPP1QP1P/1K1R3R b - - 0 17", this, "d3h7"); ' class="line2">17.Bxh7+!</span> 
+.</p>
+<p>
+ <span onclick='loadMove("4rrk1/pp2q1pp/2b1p3/2bpB1P1/4n3/2NB4/PPP1QP1P/1K1R3R w - - 0 17", this, "f6e4"); ' class="line1">16...Ne4</span> 
+ <span onclick='loadMove("4rrk1/pp2q1pp/2b1p3/2bpB1P1/4nP2/2NB4/PPP1Q2P/1K1R3R b - f3 0 17", this, "f2f4"); ' class="line1">17.f4!?</span> 
+ <span onclick='loadMove("4rrk1/pp2q1pp/2b1p3/2bpB1P1/5P2/2nB4/PPP1Q2P/1K1R3R w - - 0 18", this, "e4c3"); ' class="line1">Nxc3+</span> 
+ <span onclick='loadMove("4rrk1/pp2q1pp/2b1p3/2bpB1P1/5P2/2PB4/P1P1Q2P/1K1R3R b - - 0 18", this, "b2c3"); ' class="line1">18.bxc3</span> 
+ <span onclick='loadMove("4r1k1/pp2q1pp/2b1p3/2bpBrP1/5P2/2PB4/P1P1Q2P/1K1R3R w - - 0 19", this, "f8f5"); ' class="line1">Rf5</span> 
+ <span onclick='loadMove("4r1k1/pp2q1pp/2b1p3/2bpBBP1/5P2/2P5/P1P1Q2P/1K1R3R b - - 0 19", this, "d3f5"); ' class="line1">19.Bxf5</span> 
+ <span onclick='loadMove("4r1k1/pp2q1pp/2b5/2bpBpP1/5P2/2P5/P1P1Q2P/1K1R3R w - - 0 20", this, "e6f5"); ' class="line1">exf5</span> 
+ <span onclick='loadMove("4r1k1/pp2q1pp/2b5/2bpBpP1/5P2/2P5/P1P1Q2P/1K1RR3 b - - 0 20", this, "h1e1"); ' class="line1">20.Rhe1</span> 
++/- <b>Rodrigues-Foisor, Grenoble 2006</b>.</p>
+<p>(B)
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p1n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1R3R w - - 0 13", this, "a7a6"); ' class="line1">12...a6</span> 
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p1n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/1K1R3R b - - 0 13", this, "f3e5"); ' class="line1">13.Ne5</span> 
+(
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p1n1pn2/2bpB3/8/2NB1N2/PPP1QPPP/1K1R3R b - - 0 13", this, "f4e5"); ' class="line2">13.Be5?!</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p1n1pn2/1pbpB3/8/2NB1N2/PPP1QPPP/1K1R3R w - b6 0 14", this, "b7b5"); ' class="line2">b5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p1n1pn2/1pbpB3/7P/2NB1N2/PPP1QPP1/1K1R3R b - h3 0 14", this, "h2h4"); ' class="line2">14.h4</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpn3/7P/2NB1N2/PPP1QPP1/1K1R3R w - - 0 15", this, "c6e5"); ' class="line2">Nxe5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpQ3/7P/2NB1N2/PPP2PP1/1K1R3R b - - 0 15", this, "e2e5"); ' class="line2">15.Qxe5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2p1/p3pn1p/1pbpQ3/7P/2NB1N2/PPP2PP1/1K1R3R w - - 0 16", this, "h7h6"); ' class="line2">h6</span> 
+ <span onclick='loadMove("r2q1rk1/3b2p1/p3pn1p/1pbp4/7P/2NB1NQ1/PPP2PP1/1K1R3R b - - 0 16", this, "e5g3"); ' class="line2">16.Qg3</span> 
+ <span onclick='loadMove("rq3rk1/3b2p1/p3pn1p/1pbp4/7P/2NB1NQ1/PPP2PP1/1K1R3R w - - 0 17", this, "d8b8"); ' class="line2">Qb8</span> 
+ <span onclick='loadMove("rQ3rk1/3b2p1/p3pn1p/1pbp4/7P/2NB1N2/PPP2PP1/1K1R3R b - - 0 17", this, "g3b8"); ' class="line2">17.Qxb8</span> 
+ <span onclick='loadMove("1r3rk1/3b2p1/p3pn1p/1pbp4/7P/2NB1N2/PPP2PP1/1K1R3R w - - 0 18", this, "a8b8"); ' class="line2">Raxb8</span> 
+-/+ <b>Bellon Lopez-Gleizerov, Stockholm 2006/07</b>)
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p3pn2/2bpn3/5B2/2NB4/PPP1QPPP/1K1R3R w - - 0 14", this, "c6e5"); ' class="line1">13...Nxe5</span> 
+ <span onclick='loadMove("r2q1rk1/1p1b2pp/p3pn2/2bpB3/8/2NB4/PPP1QPPP/1K1R3R b - - 0 14", this, "f4e5"); ' class="line1">14.Bxe5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpB3/8/2NB4/PPP1QPPP/1K1R3R w - b6 0 15", this, "b7b5"); ' class="line1">b5</span> 
+ <span onclick='loadMove("r2q1rk1/3b2pp/p3pn2/1pbpB3/6P1/2NB4/PPP1QP1P/1K1R3R b - g3 0 15", this, "g2g4"); ' class="line1">15.g4</span> 
+ <span onclick='loadMove("r3qrk1/3b2pp/p3pn2/1pbpB3/6P1/2NB4/PPP1QP1P/1K1R3R w - - 0 16", this, "d8e8"); ' class="line1">Qe8</span> 
+ <span onclick='loadMove("r3qrk1/3b2pp/p3pn2/1pbpB3/6P1/2NB4/PPP1QP1P/1K4RR b - - 0 16", this, "d1g1"); ' class="line1">16.Rdg1!?</span> 
+ <span onclick='loadMove("r3qrk1/6pp/p1b1pn2/1pbpB3/6P1/2NB4/PPP1QP1P/1K4RR w - - 0 17", this, "d7c6"); ' class="line1">Bc6</span> 
+ <span onclick='loadMove("r3qrk1/6pp/p1b1pn2/1pbpB1P1/8/2NB4/PPP1QP1P/1K4RR b - - 0 17", this, "g4g5"); ' class="line1">17.g5</span> 
+ <span onclick='loadMove("r3qrk1/6pp/p1b1p3/1pbpB1P1/4n3/2NB4/PPP1QP1P/1K4RR w - - 0 18", this, "f6e4"); ' class="line1">Ne4</span> 
+(
+ <span onclick='loadMove("r3qrk1/3n2pp/p1b1p3/1pbpB1P1/8/2NB4/PPP1QP1P/1K4RR w - - 0 18", this, "f6d7"); ' class="line2">17...Nd7</span> 
+ <span onclick='loadMove("r3qrk1/3n2pB/p1b1p3/1pbpB1P1/8/2N5/PPP1QP1P/1K4RR b - - 0 18", this, "d3h7"); ' class="line2">18.Bxh7+!?</span> 
+)
+ <span onclick='loadMove("r3qrk1/6pp/p1b1p3/1pbpB1P1/4N3/3B4/PPP1QP1P/1K4RR b - - 0 18", this, "c3e4"); ' class="line1">18.Nxe4</span> 
+ <span onclick='loadMove("r3qrk1/6pp/p1b1p3/1pb1B1P1/4p3/3B4/PPP1QP1P/1K4RR w - - 0 19", this, "d5e4"); ' class="line1">dxe4</span> 
+ <span onclick='loadMove("r3qrk1/6pp/p1b1p3/1pb1B1P1/4B3/8/PPP1QP1P/1K4RR b - - 0 19", this, "d3e4"); ' class="line1">19.Bxe4</span> 
+ <span onclick='loadMove("r3q1k1/6pp/p1b1p3/1pb1B1P1/4B3/8/PPP1Qr1P/1K4RR w - - 0 20", this, "f8f2"); ' class="line1">Rxf2</span> 
+ <span onclick='loadMove("r3q1k1/6pp/p1b1p3/1pb1B1P1/4B3/3Q4/PPP2r1P/1K4RR b - - 0 20", this, "e2d3"); ' class="line1">20.Qd3</span> 
+ <span onclick='loadMove("r3q1k1/6pp/p3p3/1pb1B1P1/4b3/3Q4/PPP2r1P/1K4RR w - - 0 21", this, "c6e4"); ' class="line1">Bxe4</span> 
+ <span onclick='loadMove("r3q1k1/6pp/p3p3/1pb1B1P1/4Q3/8/PPP2r1P/1K4RR b - - 0 21", this, "d3e4"); ' class="line1">21.Qxe4</span> 
+ <span onclick='loadMove("3rq1k1/6pp/p3p3/1pb1B1P1/4Q3/8/PPP2r1P/1K4RR w - - 0 22", this, "a8d8"); ' class="line1">Rd8</span> 
+ <span onclick='loadMove("3rq1k1/6pp/p3p1P1/1pb1B3/4Q3/8/PPP2r1P/1K4RR b - - 0 22", this, "g5g6"); ' class="line1">22.g6!</span> 
++/-</p>
+<!--img src="images/FlexFren2008-454.png" style="width:113pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3rq1k1/6pp/p3p1P1/1pb1B3/4Q3/8/PPP2r1P/1K4RR b - - 0 22"></div>
+<p class="caption">analysis diagram</p>
+<p>With the initiative for White. The game concluded:
+ <span onclick='loadMove("3rq1k1/6p1/p3p1Pp/1pb1B3/4Q3/8/PPP2r1P/1K4RR w - - 0 23", this, "h7h6"); ' class="line1">22...h6</span> 
+ <span onclick='loadMove("3rq1k1/6B1/p3p1Pp/1pb5/4Q3/8/PPP2r1P/1K4RR b - - 0 23", this, "e5g7"); ' class="line1">23.Bxg7!</span> 
+ <span onclick='loadMove("3rq1k1/6B1/p3p1Pp/1pb2r2/4Q3/8/PPP4P/1K4RR w - - 0 24", this, "f2f5"); ' class="line1">Rf5</span> 
+ <span onclick='loadMove("3rq1k1/8/p3p1PB/1pb2r2/4Q3/8/PPP4P/1K4RR b - - 0 24", this, "g7h6"); ' class="line1">24.Bxh6</span> 
+ <span onclick='loadMove("3rq1k1/8/p3p1PB/1p3r2/4Q3/8/PPP4P/1K4bR w - - 0 25", this, "c5g1"); ' class="line1">Bxg1</span> 
+ <span onclick='loadMove("3rq1k1/8/p3p1PB/1p3r2/4Q3/8/PPP4P/1K4R1 b - - 0 25", this, "h1g1"); ' class="line1">25.Rxg1</span> 
+ <span onclick='loadMove("3rq1k1/8/p3p1PB/1p5r/4Q3/8/PPP4P/1K4R1 w - - 0 26", this, "f5h5"); ' class="line1">Rh5</span> 
+ <span onclick='loadMove("3rq1k1/8/p3p1P1/1p5r/4QB2/8/PPP4P/1K4R1 b - - 0 26", this, "h6f4"); ' class="line1">26.Bf4</span> 
+ <span onclick='loadMove("3rq1k1/8/p5P1/1p2p2r/4QB2/8/PPP4P/1K4R1 w - - 0 27", this, "e6e5"); ' class="line1">e5</span> 
+ <span onclick='loadMove("3rq1k1/8/p5P1/1p2p2r/5B2/5Q2/PPP4P/1K4R1 b - - 0 27", this, "e4f3"); ' class="line1">27.Qf3!</span> 
+ <span onclick='loadMove("3rq1k1/8/p5P1/1p2pr2/5B2/5Q2/PPP4P/1K4R1 w - - 0 28", this, "h5f5"); ' class="line1">Rf5</span> 
+ <span onclick='loadMove("3rq1k1/8/p5P1/1p2pr2/5B2/7Q/PPP4P/1K4R1 b - - 0 28", this, "f3h3"); ' class="line1">28.Qh3!</span> 
+ <span onclick='loadMove("3r2k1/3q4/p5P1/1p2pr2/5B2/7Q/PPP4P/1K4R1 w - - 0 29", this, "e8d7"); ' class="line1">Qd7</span> 
+ <span onclick='loadMove("3r2k1/3q2P1/p7/1p2pr2/5B2/7Q/PPP4P/1K4R1 b - - 0 29", this, "g6g7"); ' class="line1">29.g7!</span> 
+and White won, <b>Maximov-Drozdovsky, Kiev jr 1999</b>.</p>
+<p>
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/1K1R3R b - - 0 13", this, "f3e5"); ' class="line0">13.Ne5</span> 
+</p>
+<p>Of course, this is not the only possible move.
+ <span onclick='loadMove("2rq1rk1/pp1b2pp/2n1pn2/2bp4/5B2/2NB1N2/PPP1QPPP/1K1RR3 b - - 0 13", this, "h1e1"); ' class="line1">13.Rhe1!?</span> 
+is an interesting option.</p>
+<p>
+ <span onclick='loadMove("2rqbrk1/pp4pp/2n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/1K1R3R w - - 0 14", this, "d7e8"); ' class="line0">13...Be8</span> 
+</p>
+<!--p>200</p--><!--p>Chapter 7 - Russian Roulette: 4.e5 Nfd7 5.Nf3 c5 6.dxc5</p-->
+<p>
+ <span onclick='loadMove("2rq1rk1/1p1b2pp/p1n1pn2/2bpN3/5B2/2NB4/PPP1QPPP/1K1R3R w - - 0 14", this, "a7a6"); ' class="line1">13...a6</span> 
+ <span onclick='loadMove("2rq1rk1/1p1b2pp/p1N1pn2/2bp4/5B2/2NB4/PPP1QPPP/1K1R3R b - - 0 14", this, "e5c6"); ' class="line1">14.Nxc6</span> 
+ <span onclick='loadMove("3q1rk1/1p1b2pp/p1r1pn2/2bp4/5B2/2NB4/PPP1QPPP/1K1R3R w - - 0 15", this, "c8c6"); ' class="line1">Rxc6</span> 
+ <span onclick='loadMove("3q1rk1/1p1b2pp/p1r1pn2/2bpB3/8/2NB4/PPP1QPPP/1K1R3R b - - 0 15", this, "f4e5"); ' class="line1">15.Be5</span> 
+ <span onclick='loadMove("3qbrk1/1p4pp/p1r1pn2/2bpB3/8/2NB4/PPP1QPPP/1K1R3R w - - 0 16", this, "d7e8"); ' class="line1">Be8</span> 
+ <span onclick='loadMove("3qbrk1/1p4pp/p1r1pn2/2bpB3/8/2NB1P2/PPP1Q1PP/1K1R3R b - - 0 16", this, "f2f3"); ' class="line1">16.f3</span> 
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1p3/2bpB3/8/2NB1P2/PPP1Q1PP/1K1R3R w - - 0 17", this, "f6d7"); ' class="line1">Nd7</span> 
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1p3/2bp4/8/2NB1PB1/PPP1Q1PP/1K1R3R b - - 0 17", this, "e5g3"); ' class="line1">17.Bg3</span> 
+ <span onclick='loadMove("3qbrk1/1p1nb1pp/p1r1p3/3p4/8/2NB1PB1/PPP1Q1PP/1K1R3R w - - 0 18", this, "c5e7"); ' class="line1">Be7</span> 
+(
+ <span onclick='loadMove("4brk1/1p1n2pp/p1r1pq2/2bp4/8/2NB1PB1/PPP1Q1PP/1K1R3R w - - 0 18", this, "d8f6"); ' class="line2">17...Qf6!?</span> 
+ <span onclick='loadMove("4brk1/1p1n2pp/p1r1pq2/2bp4/8/2NB1P2/PPP1QBPP/1K1R3R b - - 0 18", this, "g3f2"); ' class="line2">18.Bf2</span> 
+ <span onclick='loadMove("4brk1/1p1n2pp/p1r1pq2/3p4/8/2NB1P2/PPP1QbPP/1K1R3R w - - 0 19", this, "c5f2"); ' class="line2">Bxf2</span> 
+ <span onclick='loadMove("4brk1/1p1n2pp/p1r1pq2/3p4/8/2NB1P2/PPP2QPP/1K1R3R b - - 0 19", this, "e2f2"); ' class="line2">19.Qxf2</span> 
+ <span onclick='loadMove("4brk1/1p4pp/p1r1pq2/2np4/8/2NB1P2/PPP2QPP/1K1R3R w - - 0 20", this, "d7c5"); ' class="line2">Nc5</span> 
+ <span onclick='loadMove("4brk1/1p4pp/p1r1pq2/2np4/8/2NB1P2/PPP2QPP/K2R3R b - - 0 20", this, "b1a1"); ' class="line2">20.Ka1?!</span> 
+ <span onclick='loadMove("4brk1/6pp/p1r1pq2/1pnp4/8/2NB1P2/PPP2QPP/K2R3R w - b6 0 21", this, "b7b5"); ' class="line2">b5!</span> 
+with advantage to Black, <b>Zubarev-Chuprikov, Alushta 2001</b>)
+ <span onclick='loadMove("3qbrk1/1p1nb1pp/p1r1p3/3p4/8/2NB1PB1/PPPQ2PP/1K1R3R b - - 0 18", this, "e2d2"); ' class="line1">18.Qd2</span> 
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1p3/3p2b1/8/2NB1PB1/PPPQ2PP/1K1R3R w - - 0 19", this, "e7g5"); ' class="line1">Bg5</span> 
+(
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1p3/3p4/1b6/2NB1PB1/PPPQ2PP/1K1R3R w - - 0 19", this, "e7b4"); ' class="line2">18...Bb4!?</span> 
+)
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1p3/3p2b1/8/2NB1PB1/PPP3PP/1K1RQ2R b - - 0 19", this, "d2e1"); ' class="line1">19.Qe1</span> 
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1pb2/3p4/8/2NB1PB1/PPP3PP/1K1RQ2R w - - 0 20", this, "g5f6"); ' class="line1">Bf6</span> 
+&#8596;.</p>
+<!--img src="images/FlexFren2008-455.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3qbrk1/1p1n2pp/p1r1pb2/3p4/8/2NB1PB1/PPP3PP/1K1RQ2R w - - 0 20"></div>
+<p class="caption">analysis diagram</p>
+<p>With good counterplay for Black, even though in the end White won after a great fight:
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1pb2/3p4/8/2NB1P2/PPP2BPP/1K1RQ2R b - - 0 20", this, "g3f2"); ' class="line1">20.Bf2</span> 
+ <span onclick='loadMove("3q1rk1/1p1n1bpp/p1r1pb2/3p4/8/2NB1P2/PPP2BPP/1K1RQ2R w - - 0 21", this, "e8f7"); ' class="line1">Bf7</span> 
+(
+ <span onclick='loadMove("3qbrk1/1p1n2pp/p1r1p3/3p4/8/2bB1P2/PPP2BPP/1K1RQ2R w - - 0 21", this, "f6c3"); ' class="line2">20...Bxc3!?</span> 
+)
+ <span onclick='loadMove("3q1rk1/1p1n1bpp/p1r1pb2/3p4/8/3B1P2/PPP1NBPP/1K1RQ2R b - - 0 21", this, "c3e2"); ' class="line1">21.Ne2</span> 
+ <span onclick='loadMove("3q1rk1/1p3bpp/p1r1pb2/2np4/8/3B1P2/PPP1NBPP/1K1RQ2R w - - 0 22", this, "d7c5"); ' class="line1">Nc5</span> 
+ <span onclick='loadMove("3q1rk1/1p3bpp/p1r1pb2/2Bp4/8/3B1P2/PPP1N1PP/1K1RQ2R b - - 0 22", this, "f2c5"); ' class="line1">22.Bxc5</span> 
+ <span onclick='loadMove("3q1rk1/1p3bpp/p3pb2/2rp4/8/3B1P2/PPP1N1PP/1K1RQ2R w - - 0 23", this, "c6c5"); ' class="line1">Rxc5</span> 
+ <span onclick='loadMove("3q1rk1/1p3bpp/p3pb2/2rp4/8/3B1P2/PPP3PP/1KNRQ2R b - - 0 23", this, "e2c1"); ' class="line1">23.Nc1</span> 
+ <span onclick='loadMove("5rk1/1p3bpp/pq2pb2/2rp4/8/3B1P2/PPP3PP/1KNRQ2R w - - 0 24", this, "d8b6"); ' class="line1">Qb6</span> 
+ <span onclick='loadMove("5rk1/1p3bpp/pq2pb2/2rp4/8/1N1B1P2/PPP3PP/1K1RQ2R b - - 0 24", this, "c1b3"); ' class="line1">24.Nb3</span> 
+ <span onclick='loadMove("2r3k1/1p3bpp/pq2pb2/2rp4/8/1N1B1P2/PPP3PP/1K1RQ2R w - - 0 25", this, "f8c8"); ' class="line1">Rfc8?!</span> 
+ <span onclick='loadMove("2r3k1/1p3bpp/pq2pb2/2rp4/6P1/1N1B1P2/PPP4P/1K1RQ2R b - g3 0 25", this, "g2g4"); ' class="line1">25.g4</span> 
+ <span onclick='loadMove("2r3k1/1p3b1p/pq2pbp1/2rp4/6P1/1N1B1P2/PPP4P/1K1RQ2R w - - 0 26", this, "g7g6"); ' class="line1">g6</span> 
+ <span onclick='loadMove("2r3k1/1p3b1p/pq2pbp1/2rp4/5PP1/1N1B4/PPP4P/1K1RQ2R b - - 0 26", this, "f3f4"); ' class="line1">26.f4</span> 
+ <span onclick='loadMove("2r3k1/1p3b1p/1q2pbp1/p1rp4/5PP1/1N1B4/PPP4P/1K1RQ2R w - - 0 27", this, "a6a5"); ' class="line1">a5</span> 
+ <span onclick='loadMove("2r3k1/1p3b1p/1q2pbp1/p1rp4/P4PP1/1N1B4/1PP4P/1K1RQ2R b - a3 0 27", this, "a2a4"); ' class="line1">27.a4</span> 
+ <span onclick='loadMove("2r1b1k1/1p5p/1q2pbp1/p1rp4/P4PP1/1N1B4/1PP4P/1K1RQ2R w - - 0 28", this, "f7e8"); ' class="line1">Be8</span> 
+ <span onclick='loadMove("2r1b1k1/1p5p/1q2pbp1/p1rp1P2/P5P1/1N1B4/1PP4P/1K1RQ2R b - - 0 28", this, "f4f5"); ' class="line1">28.f5</span> 
+ <span onclick='loadMove("2r1b1k1/1p5p/1q3bp1/p1rp1p2/P5P1/1N1B4/1PP4P/1K1RQ2R w - - 0 29", this, "e6f5"); ' class="line1">exf5</span> 
+ <span onclick='loadMove("2r1b1k1/1p5p/1q3bp1/p1rp1P2/P7/1N1B4/1PP4P/1K1RQ2R b - - 0 29", this, "g4f5"); ' class="line1">29.gxf5</span> 
+ <span onclick='loadMove("2r3k1/1p5p/1q3bp1/p1rp1P2/b7/1N1B4/1PP4P/1K1RQ2R w - - 0 30", this, "e8a4"); ' class="line1">Bxa4</span> 
+ <span onclick='loadMove("2r3k1/1p5p/1q3bp1/p1rp1P2/b7/1N1B4/1PP1Q2P/1K1R3R b - - 0 30", this, "e1e2"); ' class="line1">30.Qe2</span> 
+ <span onclick='loadMove("4r1k1/1p5p/1q3bp1/p1rp1P2/b7/1N1B4/1PP1Q2P/1K1R3R w - - 0 31", this, "c8e8"); ' class="line1">Re8</span> 
+(
+ <span onclick='loadMove("2r3k1/1p5p/1q3bp1/p1rp1P2/8/1b1B4/1PP1Q2P/1K1R3R w - - 0 31", this, "a4b3"); ' class="line2">30...Bxb3!?</span> 
+)
+ <span onclick='loadMove("4r1k1/1p5p/1q3bp1/p1rp1P2/b7/1N1B4/1PP3QP/1K1R3R b - - 0 31", this, "e2g2"); ' class="line1">31.Qg2</span> 
+ <span onclick='loadMove("4r1k1/1p5p/1q3bp1/p1rp1P2/8/1b1B4/1PP3QP/1K1R3R w - - 0 32", this, "a4b3"); ' class="line1">Bxb3</span> 
+ <span onclick='loadMove("4r1k1/1p5p/1q3bp1/p1rp1P2/8/1P1B4/1P4QP/1K1R3R b - - 0 32", this, "c2b3"); ' class="line1">32.cxb3</span> 
+ <span onclick='loadMove("4r1k1/1p5p/5bp1/p1rp1P2/8/1q1B4/1P4QP/1K1R3R w - - 0 33", this, "b6b3"); ' class="line1">Qxb3</span> 
+ <span onclick='loadMove("4r1k1/1p5p/5bP1/p1rp4/8/1q1B4/1P4QP/1K1R3R b - - 0 33", this, "f5g6"); ' class="line1">33.fxg6</span> 
+ <span onclick='loadMove("4r1k1/1p6/5bPp/p1rp4/8/1q1B4/1P4QP/1K1R3R w - - 0 34", this, "h7h6"); ' class="line1">h6</span> 
+ <span onclick='loadMove("4r1k1/1p4P1/5b1p/p1rp4/8/1q1B4/1P4QP/1K1R3R b - - 0 34", this, "g6g7"); ' class="line1">34.g7</span> 
+ <span onclick='loadMove("4r1k1/1pr3P1/5b1p/p2p4/8/1q1B4/1P4QP/1K1R3R w - - 0 35", this, "c5c7"); ' class="line1">Rc7</span> 
+ <span onclick='loadMove("4r1k1/1pr3P1/5b1p/p2p4/8/1q1B4/1P4QP/1K1RR3 b - - 0 35", this, "h1e1"); ' class="line1">35.Rhe1</span> 
+ <span onclick='loadMove("3r2k1/1pr3P1/5b1p/p2p4/8/1q1B4/1P4QP/1K1RR3 w - - 0 36", this, "e8d8"); ' class="line1">Rd8</span> 
+ <span onclick='loadMove("3r2k1/1pr3P1/5b1p/p2p4/8/1q1B4/1P1R2QP/1K2R3 b - - 0 36", this, "d1d2"); ' class="line1">36.Rd2</span> 
+ <span onclick='loadMove("3r2k1/1p4r1/5b1p/p2p4/8/1q1B4/1P1R2QP/1K2R3 w - - 0 37", this, "c7g7"); ' class="line1">Rxg7?</span> 
+(
+ <span onclick='loadMove("3r2k1/1pr3P1/7p/p2p4/8/1q1B4/1b1R2QP/1K2R3 w - - 0 37", this, "f6b2"); ' class="line2">36...Bxb2!</span> 
+-+)
+ <span onclick='loadMove("3r2k1/1p4r1/5b1p/p2p4/8/1q1B3Q/1P1R3P/1K2R3 b - - 0 37", this, "g2h3"); ' class="line1">37.Qh3</span> 
+ <span onclick='loadMove("3r2k1/1p4r1/7p/p2p2b1/8/1q1B3Q/1P1R3P/1K2R3 w - - 0 38", this, "f6g5"); ' class="line1">Bg5?</span> 
+ <span onclick='loadMove("3r2k1/1p4r1/7p/p2p2b1/8/1q1B3Q/1P2R2P/1K2R3 b - - 0 38", this, "d2e2"); ' class="line1">38.Rde2</span> 
+ <span onclick='loadMove("3r2k1/1p4r1/7p/p2p2b1/1q6/3B3Q/1P2R2P/1K2R3 w - - 0 39", this, "b3b4"); ' class="line1">Qb4??</span> 
+(
+ <span onclick='loadMove("3r2k1/1p4r1/7p/p2p2b1/q7/3B3Q/1P2R2P/1K2R3 w - - 0 39", this, "b3a4"); ' class="line2">38...Qa4</span> 
+&#9633;)
+ <span onclick='loadMove("3rR1k1/1p4r1/7p/p2p2b1/1q6/3B3Q/1P5P/1K2R3 b - - 0 39", this, "e2e8"); ' class="line1">39.Re8+</span> 
+ <span onclick='loadMove("4r1k1/1p4r1/7p/p2p2b1/1q6/3B3Q/1P5P/1K2R3 w - - 0 40", this, "d8e8"); ' class="line1">Rxe8</span> 
+ <span onclick='loadMove("4R1k1/1p4r1/7p/p2p2b1/1q6/3B3Q/1P5P/1K6 b - - 0 40", this, "e1e8"); ' class="line1">40.Rxe8+</span> 
+ <span onclick='loadMove("4R3/1p3kr1/7p/p2p2b1/1q6/3B3Q/1P5P/1K6 w - - 0 41", this, "g8f7"); ' class="line1">Kf7</span> 
+ <span onclick='loadMove("4R3/1p3kr1/4Q2p/p2p2b1/1q6/3B4/1P5P/1K6 b - - 0 41", this, "h3e6"); ' class="line1">41.Qe6</span> 
+mate, <b>Lastin-Volkov, Tomsk tt 2001</b>.</p>
+<p>
+ <span onclick='loadMove("2rqbrk1/pp4pp/2N1pn2/2bp4/5B2/2NB4/PPP1QPPP/1K1R3R b - - 0 14", this, "e5c6"); ' class="line0">14.Nxc6</span> 
+ <span onclick='loadMove("3qbrk1/pp4pp/2r1pn2/2bp4/5B2/2NB4/PPP1QPPP/1K1R3R w - - 0 15", this, "c8c6"); ' class="line0">Rxc6</span> 
+ <span onclick='loadMove("3qbrk1/pp4pp/2r1pn2/2bp4/N4B2/3B4/PPP1QPPP/1K1R3R b - - 0 15", this, "c3a4"); ' class="line0">15.Na4</span> 
+ <span onclick='loadMove("3qbrk1/pp2b1pp/2r1pn2/3p4/N4B2/3B4/PPP1QPPP/1K1R3R w - - 0 16", this, "c5e7"); ' class="line0">Be7</span> 
+ <span onclick='loadMove("3qbrk1/pp2b1pp/2r1pn2/1B1p4/N4B2/8/PPP1QPPP/1K1R3R b - - 0 16", this, "d3b5"); ' class="line0">16.Bb5</span> 
+ <span onclick='loadMove("3qbrk1/pp2b1pp/2r1p3/1B1p4/N3nB2/8/PPP1QPPP/1K1R3R w - - 0 17", this, "f6e4"); ' class="line0">Ne4</span> 
+ <span onclick='loadMove("3qbrk1/pp2b1pp/2r1p3/1B1p4/N3nB2/5P2/PPP1Q1PP/1K1R3R b - - 0 17", this, "f2f3"); ' class="line0">17.f3</span> 
+ <span onclick='loadMove("3qb1k1/pp2b1pp/2r1p3/1B1p4/N3nr2/5P2/PPP1Q1PP/1K1R3R w - - 0 18", this, "f8f4"); ' class="line0">Rxf4</span> 
+ <span onclick='loadMove("3qb1k1/pp2b1pp/2r1p3/1B1p4/N3Pr2/8/PPP1Q1PP/1K1R3R b - - 0 18", this, "f3e4"); ' class="line0">18.fxe4</span> 
+</p>
+<!--img src="images/FlexFren2008-456.png" style="width:112pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3qb1k1/pp2b1pp/2r1p3/1B1p4/N3Pr2/8/PPP1Q1PP/1K1R3R b - - 0 18"></div>
+<p>In this game we can observe a very sharp fight right to the end. At the key moments, pressure forced Volkov to stray from the correct path.</p>
+<p>
+ <span onclick='loadMove("3qb1k1/pp2b1pp/3rp3/1B1p4/N3Pr2/8/PPP1Q1PP/1K1R3R w - - 0 19", this, "c6d6"); ' class="line0">18...Rd6</span> 
+</p>
+<p>
+ <span onclick='loadMove("3q2k1/pp2b1pp/2r1p1b1/1B1p4/N3Pr2/8/PPP1Q1PP/1K1R3R w - - 0 19", this, "e8g6"); ' class="line1">18...Bg6!?</span> 
+ <span onclick='loadMove("3q2k1/pp2b1pp/2B1p1b1/3p4/N3Pr2/8/PPP1Q1PP/1K1R3R b - - 0 19", this, "b5c6"); ' class="line1">19.Bxc6</span> 
+ <span onclick='loadMove("3q2k1/pp2b1pp/2B1p1b1/3p4/N3r3/8/PPP1Q1PP/1K1R3R w - - 0 20", this, "f4e4"); ' class="line1">Rxe4</span> 
+&#8596; with a good position for Black.</p>
+<p>
+ <span onclick='loadMove("3qB1k1/pp2b1pp/3rp3/3p4/N3Pr2/8/PPP1Q1PP/1K1R3R b - - 0 19", this, "b5e8"); ' class="line0">19.Bxe8</span> 
+ <span onclick='loadMove("4q1k1/pp2b1pp/3rp3/3p4/N3Pr2/8/PPP1Q1PP/1K1R3R w - - 0 20", this, "d8e8"); ' class="line0">Qxe8</span> 
+ <span onclick='loadMove("4q1k1/pp2b1pp/3rp3/3p4/4Pr2/2N5/PPP1Q1PP/1K1R3R b - - 0 20", this, "a4c3"); ' class="line0">20.Nc3</span> 
+ <span onclick='loadMove("4q1k1/pp2b1pp/3rp3/8/3pPr2/2N5/PPP1Q1PP/1K1R3R w - - 0 21", this, "d5d4"); ' class="line0">d4</span> 
+ <span onclick='loadMove("4q1k1/pp2b1pp/3rp3/8/3pPr2/2N3P1/PPP1Q2P/1K1R3R b - - 0 21", this, "g2g3"); ' class="line0">21.g3</span> 
+ <span onclick='loadMove("4qrk1/pp2b1pp/3rp3/8/3pP3/2N3P1/PPP1Q2P/1K1R3R w - - 0 22", this, "f4f8"); ' class="line0">Rf8</span> 
+ <span onclick='loadMove("4qrk1/pp2b1pp/3rp3/4P3/3p4/2N3P1/PPP1Q2P/1K1R3R b - - 0 22", this, "e4e5"); ' class="line0">22.e5</span> 
+&#9633;
+ <span onclick='loadMove("3rqrk1/pp2b1pp/4p3/4P3/3p4/2N3P1/PPP1Q2P/1K1R3R w - - 0 23", this, "d6d8"); ' class="line0">22...Rd8</span> 
+ <span onclick='loadMove("3rqrk1/pp2b1pp/4p3/4P3/3pN3/6P1/PPP1Q2P/1K1R3R b - - 0 23", this, "c3e4"); ' class="line0">23.Ne4</span> 
+ <span onclick='loadMove("3r1rk1/pp2b1pp/2q1p3/4P3/3pN3/6P1/PPP1Q2P/1K1R3R w - - 0 24", this, "e8c6"); ' class="line0">Qc6</span> 
+ <span onclick='loadMove("3r1rk1/pp2b1pp/2q1p3/4P3/3pN3/6P1/PPP1Q2P/1K1RR3 b - - 0 24", this, "h1e1"); ' class="line0">24.Rhe1</span> 
+ <span onclick='loadMove("5rk1/pp2b1pp/2q1p3/3rP3/3pN3/6P1/PPP1Q2P/1K1RR3 w - - 0 25", this, "d8d5"); ' class="line0">Rd5</span> 
+ <span onclick='loadMove("5rk1/pp2b1pp/2q1p3/3rP3/3p4/6P1/PPP1QN1P/1K1RR3 b - - 0 25", this, "e4f2"); ' class="line0">25.Nf2</span> 
+ <span onclick='loadMove("5rk1/pp2b1pp/2q1p3/r3P3/3p4/6P1/PPP1QN1P/1K1RR3 w - - 0 26", this, "d5a5"); ' class="line0">Ra5</span> 
+ <span onclick='loadMove("5rk1/pp2b1pp/2q1p3/r3P3/3p4/3N2P1/PPP1Q2P/1K1RR3 b - - 0 26", this, "f2d3"); ' class="line0">26.Nd3</span> 
+ <span onclick='loadMove("5rk1/pp2b1pp/4p3/r3P3/q2p4/3N2P1/PPP1Q2P/1K1RR3 w - - 0 27", this, "c6a4"); ' class="line0">Qa4</span> 
+ <span onclick='loadMove("5rk1/pp2b1pp/4p3/r3P3/q2p4/6P1/PPP1Q2P/1KNRR3 b - - 0 27", this, "d3c1"); ' class="line0">27.Nc1</span> 
+&#9633;
+ <span onclick='loadMove("6k1/pp2b1pp/4p3/r3Pr2/q2p4/6P1/PPP1Q2P/1KNRR3 w - - 0 28", this, "f8f5"); ' class="line0">27...Rf5</span> 
+ <span onclick='loadMove("6k1/pp2b1pp/4p3/r3Pr2/q2pQ3/6P1/PPP4P/1KNRR3 b - - 0 28", this, "e2e4"); ' class="line0">28.Qe4</span> 
+ <span onclick='loadMove("6k1/pp2b1pp/4p3/3rPr2/q2pQ3/6P1/PPP4P/1KNRR3 w - - 0 29", this, "a5d5"); ' class="line0">Rd5</span> 
+ <span onclick='loadMove("6k1/pp2b1pp/4p3/3rPr2/q2pQ3/1N4P1/PPP4P/1K1RR3 b - - 0 29", this, "c1b3"); ' class="line0">29.Nb3</span> 
+ <span onclick='loadMove("6k1/pp2b1pp/4p3/3rP3/q2pQ3/1N4P1/PPP2r1P/1K1RR3 w - - 0 30", this, "f5f2"); ' class="line0">Rf2</span> 
+ <span onclick='loadMove("6k1/pp2b1pp/4p3/3rP3/q2p2Q1/1N4P1/PPP2r1P/1K1RR3 b - - 0 30", this, "e4g4"); ' class="line0">30.Qg4!</span> 
+&#8593;</p>
+<!--img src="images/FlexFren2008-457.png" style="width:113pt;height:114pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/pp2b1pp/4p3/3rP3/q2p2Q1/1N4P1/PPP2r1P/1K1RR3 b - - 0 30"></div>
+<p>
+ <span onclick='loadMove("6k1/pp1qb1pp/4p3/3rP3/3p2Q1/1N4P1/PPP2r1P/1K1RR3 w - - 0 31", this, "a4d7"); ' class="line0">30...Qd7</span> 
+ <span onclick='loadMove("6k1/pp1qb1pp/4p3/3rP3/3p2QP/1N4P1/PPP2r2/1K1RR3 b - h3 0 31", this, "h2h4"); ' class="line0">31.h4</span> 
+ <span onclick='loadMove("6k1/pp1qb1pp/4p3/3rP3/6QP/1N1p2P1/PPP2r2/1K1RR3 w - - 0 32", this, "d4d3"); ' class="line0">d3</span> 
+ <span onclick='loadMove("6k1/pp1qb1pp/4p3/3rP3/2P3QP/1N1p2P1/PP3r2/1K1RR3 b - c3 0 32", this, "c2c4"); ' class="line0">32.c4</span> 
+ <span onclick='loadMove("6k1/pp2b1pp/2q1p3/3rP3/2P3QP/1N1p2P1/PP3r2/1K1RR3 w - - 0 33", this, "d7c6"); ' class="line0">Qc6</span> 
+ <span onclick='loadMove("6k1/pp2b1pp/2q1p3/3rP3/2P1Q2P/1N1p2P1/PP3r2/1K1RR3 b - - 0 33", this, "g4e4"); ' class="line0">33.Qe4</span> 
+ <span onclick='loadMove("6k1/pp1rb1pp/2q1p3/4P3/2P1Q2P/1N1p2P1/PP3r2/1K1RR3 w - - 0 34", this, "d5d7"); ' class="line0">Rd7</span> 
+ <span onclick='loadMove("6k1/pp1rb1pp/2Q1p3/4P3/2P4P/1N1p2P1/PP3r2/1K1RR3 b - - 0 34", this, "e4c6"); ' class="line0">34.Qxc6</span> 
+ <span onclick='loadMove("6k1/p2rb1pp/2p1p3/4P3/2P4P/1N1p2P1/PP3r2/1K1RR3 w - - 0 35", this, "b7c6"); ' class="line0">bxc6</span> 
+ <span onclick='loadMove("6k1/p2rb1pp/2p1p3/4P3/2P4P/1N1pR1P1/PP3r2/1K1R4 b - - 0 35", this, "e1e3"); ' class="line0">35.Re3</span> 
+ <span onclick='loadMove("6k1/p2rb2p/2p1p3/4P1p1/2P4P/1N1pR1P1/PP3r2/1K1R4 w - g6 0 36", this, "g7g5"); ' class="line0">g5?</span> 
+ <span onclick='loadMove("6k1/p2rb2p/2p1p3/4P1P1/2P5/1N1pR1P1/PP3r2/1K1R4 b - - 0 36", this, "h4g5"); ' class="line0">36.hxg5</span> 
+ <span onclick='loadMove("6k1/p2rb2p/2p1p3/4P1P1/2P5/1N2R1P1/PP1p1r2/1K1R4 w - - 0 37", this, "d3d2"); ' class="line0">d2</span> 
+ <span onclick='loadMove("6k1/p2rb2p/2p1p3/4P1P1/2P5/1N2R1P1/PPKp1r2/3R4 b - - 0 37", this, "b1c2"); ' class="line0">37.Kc2</span> 
+ <span onclick='loadMove("6k1/p2r3p/2p1p3/4P1b1/2P5/1N2R1P1/PPKp1r2/3R4 w - - 0 38", this, "e7g5"); ' class="line0">Bxg5</span> 
+ <span onclick='loadMove("6k1/p2r3p/2p1p3/4P1b1/2P1R3/1N4P1/PPKp1r2/3R4 b - - 0 38", this, "e3e4"); ' class="line0">38.Re4</span> 
+ <span onclick='loadMove("8/p2r1k1p/2p1p3/4P1b1/2P1R3/1N4P1/PPKp1r2/3R4 w - - 0 39", this, "g8f7"); ' class="line0">Kf7</span> 
+ <span onclick='loadMove("8/p2r1k1p/2p1p3/2N1P1b1/2P1R3/6P1/PPKp1r2/3R4 b - - 0 39", this, "b3c5"); ' class="line0">39.Nc5</span> 
+ <span onclick='loadMove("3r4/p4k1p/2p1p3/2N1P1b1/2P1R3/6P1/PPKp1r2/3R4 w - - 0 40", this, "d7d8"); ' class="line0">Rd8</span> 
+ <span onclick='loadMove("3r4/p4k1p/2p1p3/2N1P1b1/2P3R1/6P1/PPKp1r2/3R4 b - - 0 40", this, "e4g4"); ' class="line0">40.Rg4</span> 
+ <span onclick='loadMove("3r4/p3bk1p/2p1p3/2N1P3/2P3R1/6P1/PPKp1r2/3R4 w - - 0 41", this, "g5e7"); ' class="line0">Be7</span> 
+ <span onclick='loadMove("3r4/p3bk1p/2p1p3/4P3/2P3R1/3N2P1/PPKp1r2/3R4 b - - 0 41", this, "c5d3"); ' class="line0">41.Nd3</span> 
+ <span onclick='loadMove("3r4/p3bk1p/2p1p3/4Pr2/2P3R1/3N2P1/PPKp4/3R4 w - - 0 42", this, "f2f5"); ' class="line0">Rf5</span> 
+ <span onclick='loadMove("3r4/p3bk1p/2p1p3/4Pr2/2P3R1/3N2P1/PPKR4/8 b - - 0 42", this, "d1d2"); ' class="line0">42.Rxd2</span> 
++/-</p>
+<!--img src="images/FlexFren2008-458.png" style="width:113pt;height:115pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3r4/p3bk1p/2p1p3/4Pr2/2P3R1/3N2P1/PPKR4/8 b - - 0 42"></div>
+<p>Now White obtains good winning chances.</p>
+<p>
+ <span onclick='loadMove("3r4/p3bk2/2p1p3/4Pr1p/2P3R1/3N2P1/PPKR4/8 w - h6 0 43", this, "h7h5"); ' class="line0">42...h5</span> 
+ <span onclick='loadMove("3r4/p3bk2/2p1p3/4Pr1p/2P2R2/3N2P1/PPKR4/8 b - - 0 43", this, "g4f4"); ' class="line0">43.Rf4</span> 
+ <span onclick='loadMove("6r1/p3bk2/2p1p3/4Pr1p/2P2R2/3N2P1/PPKR4/8 w - - 0 44", this, "d8g8"); ' class="line0">Rg8</span> 
+ <span onclick='loadMove("6r1/p3bk2/2p1p3/4Pr1p/2P2R2/3N2P1/PPK4R/8 b - - 0 44", this, "d2h2"); ' class="line0">44.Rh2</span> 
+ <span onclick='loadMove("6r1/p3bk2/2p1p3/4P2p/2P2r2/3N2P1/PPK4R/8 w - - 0 45", this, "f5f4"); ' class="line0">Rxf4</span> 
+ <span onclick='loadMove("6r1/p3bk2/2p1p3/4P2p/2P2N2/6P1/PPK4R/8 b - - 0 45", this, "d3f4"); ' class="line0">45.Nxf4</span> 
+ <span onclick='loadMove("6r1/p3bk2/2p1p3/4P3/2P2N1p/6P1/PPK4R/8 w - - 0 46", this, "h5h4"); ' class="line0">h4</span> 
+ <span onclick='loadMove("6r1/p3bk2/2p1p3/4P3/2P2N1P/8/PPK4R/8 b - - 0 46", this, "g3h4"); ' class="line0">46.gxh4</span> 
+ <span onclick='loadMove("8/p3bk2/2p1p3/4P3/2P2NrP/8/PPK4R/8 w - - 0 47", this, "g8g4"); ' class="line0">Rg4</span> 
+ <span onclick='loadMove("8/p3bk2/2p1p3/4P3/2P2NrP/8/PPK2R2/8 b - - 0 47", this, "h2f2"); ' class="line0">47.Rf2</span> 
+ <span onclick='loadMove("8/p4k2/2p1p3/4P3/2P2Nrb/8/PPK2R2/8 w - - 0 48", this, "e7h4"); ' class="line0">Bxh4</span> 
+ <span onclick='loadMove("8/p4k2/2p1p3/4P3/2P2Nrb/5R2/PPK5/8 b - - 0 48", this, "f2f3"); ' class="line0">48.Rf3</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/4P3/2P2Nrb/5R2/PPK5/8 w - - 0 49", this, "f7e7"); ' class="line0">Ke7</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/4P3/2P2Nrb/2K2R2/PP6/8 b - - 0 49", this, "c2c3"); ' class="line0">49.Kc3</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/4P3/2P2Nr1/2K2R2/PP6/4b3 w - - 0 50", this, "h4e1"); ' class="line0">Be1+</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/4P3/2P2Nr1/1K3R2/PP6/4b3 b - - 0 50", this, "c3b3"); ' class="line0">50.Kb3</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/b3P3/2P2Nr1/1K3R2/PP6/8 w - - 0 51", this, "e1a5"); ' class="line0">Ba5</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/b3P3/2P3r1/1K1N1R2/PP6/8 b - - 0 51", this, "f4d3"); ' class="line0">51.Nd3</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/b3P3/2P4r/1K1N1R2/PP6/8 w - - 0 52", this, "g4h4"); ' class="line0">Rh4</span> 
+ <span onclick='loadMove("8/p3k3/2p1p3/b3P3/2P4r/1K1N2R1/PP6/8 b - - 0 52", this, "f3g3"); ' class="line0">52.Rg3</span> 
+ <span onclick='loadMove("8/p4k2/2p1p3/b3P3/2P4r/1K1N2R1/PP6/8 w - - 0 53", this, "e7f7"); ' class="line0">Kf7</span> 
+<!--p>201</p--><!--p>Part Three - Classical System: 3.Nc3 Nf6</p-->
+ <span onclick='loadMove("8/p4k2/2p1p3/b3P3/1NP4r/1K4R1/PP6/8 b - - 0 53", this, "d3b4"); ' class="line0">53.Nb4</span> 
+ <span onclick='loadMove("8/p4k2/4p3/b1p1P3/1NP4r/1K4R1/PP6/8 w - - 0 54", this, "c6c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("8/p4k2/4p3/b1p1P3/2P4r/1K1N2R1/PP6/8 b - - 0 54", this, "b4d3"); ' class="line0">54.Nd3</span> 
+ <span onclick='loadMove("8/p4k2/1b2p3/2p1P3/2P4r/1K1N2R1/PP6/8 w - - 0 55", this, "a5b6"); ' class="line0">Bb6</span> 
+ <span onclick='loadMove("8/p4k2/1b2p3/2p1P3/2P4r/PK1N2R1/1P6/8 b - - 0 55", this, "a2a3"); ' class="line0">55.a3</span> 
+ <span onclick='loadMove("8/p4k2/1b2p3/2p1P3/2P1r3/PK1N2R1/1P6/8 w - - 0 56", this, "h4e4"); ' class="line0">Re4</span> 
+ <span onclick='loadMove("8/p4k2/1b2p3/2p1P3/2P1r3/PK1N1R2/1P6/8 b - - 0 56", this, "g3f3"); ' class="line0">56.Rf3+</span> 
+ <span onclick='loadMove("8/p5k1/1b2p3/2p1P3/2P1r3/PK1N1R2/1P6/8 w - - 0 57", this, "f7g7"); ' class="line0">Kg7</span> 
+ <span onclick='loadMove("8/p5k1/1b2p3/2p1P3/2P1r3/P1KN1R2/1P6/8 b - - 0 57", this, "b3c3"); ' class="line0">57.Kc3</span> 
+ <span onclick='loadMove("8/p5k1/4p3/b1p1P3/2P1r3/P1KN1R2/1P6/8 w - - 0 58", this, "b6a5"); ' class="line0">Ba5+</span> 
+ <span onclick='loadMove("8/p5k1/4p3/b1p1P3/1PP1r3/P1KN1R2/8/8 b - b3 0 58", this, "b2b4"); ' class="line0">58.b4</span> 
+ <span onclick='loadMove("8/p5k1/4p3/b3P3/1pP1r3/P1KN1R2/8/8 w - - 0 59", this, "c5b4"); ' class="line0">cxb4+</span> 
+ <span onclick='loadMove("8/p5k1/4p3/b3P3/1PP1r3/2KN1R2/8/8 b - - 0 59", this, "a3b4"); ' class="line0">59.axb4</span> 
+ <span onclick='loadMove("8/p1b3k1/4p3/4P3/1PP1r3/2KN1R2/8/8 w - - 0 60", this, "a5c7"); ' class="line0">Bc7</span> 
+ <span onclick='loadMove("8/p1b3k1/4p3/2P1P3/1P2r3/2KN1R2/8/8 b - - 0 60", this, "c4c5"); ' class="line0">60.c5</span> 
+ <span onclick='loadMove("8/p1b3k1/4p3/2P1P3/1P4r1/2KN1R2/8/8 w - - 0 61", this, "e4g4"); ' class="line0">Rg4</span> 
+ <span onclick='loadMove("8/p1b3k1/4p3/2P1P3/1P4r1/2KN4/5R2/8 b - - 0 61", this, "f3f2"); ' class="line0">61.Rf2</span> 
+ <span onclick='loadMove("1b6/p5k1/4p3/2P1P3/1P4r1/2KN4/5R2/8 w - - 0 62", this, "c7b8"); ' class="line0">Bb8</span> 
+ <span onclick='loadMove("1b6/p5k1/2P1p3/4P3/1P4r1/2KN4/5R2/8 b - - 0 62", this, "c5c6"); ' class="line0">62.c6</span> 
+ <span onclick='loadMove("1b6/p5k1/2P1p3/4P3/1P5r/2KN4/5R2/8 w - - 0 63", this, "g4h4"); ' class="line0">Rh4</span> 
+ <span onclick='loadMove("1b6/p5k1/2P1p3/4P3/1P5r/1K1N4/5R2/8 b - - 0 63", this, "c3b3"); ' class="line0">63.Kb3</span> 
+ <span onclick='loadMove("1b6/p5k1/2P1p3/4P3/1P2r3/1K1N4/5R2/8 w - - 0 64", this, "h4e4"); ' class="line0">Re4</span> 
+ <span onclick='loadMove("1b6/p5k1/2P1p3/4P3/1P2r3/1K1N4/R7/8 b - - 0 64", this, "f2a2"); ' class="line0">64.Ra2</span> 
+ <span onclick='loadMove("1b6/p5k1/2P1p3/4P3/1P1r4/1K1N4/R7/8 w - - 0 65", this, "e4d4"); ' class="line0">Rd4</span> 
+ <span onclick='loadMove("1b6/p5k1/2P1p3/2N1P3/1P1r4/1K6/R7/8 b - - 0 65", this, "d3c5"); ' class="line0">65.Nc5</span> 
+ <span onclick='loadMove("1b6/p4k2/2P1p3/2N1P3/1P1r4/1K6/R7/8 w - - 0 66", this, "g7f7"); ' class="line0">Kf7</span> 
+ <span onclick='loadMove("1b6/p1P2k2/4p3/2N1P3/1P1r4/1K6/R7/8 b - - 0 66", this, "c6c7"); ' class="line0">66.c7</span> 
+<b>1-0</b></p>
+<p class="notification message"><b>Summary of 12.Kb1/12.Rhe1/12.h4</b>: With these alternative moves White looks for different plans. But many lines simply lead to very similar positions.</p>
+<p>In 1999, young analysts incorporated the system into their repertoire.</p>
+<img src="images/FlexFren2008-459.png" style="width:129pt;height:177pt;"/>
+<p>Former Women's European Champion Alexandra Kosteniuk incorporated the Zakharov system into her repertoire at an early age.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

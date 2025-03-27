@@ -1,0 +1,64 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>Содержание</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-0-title.htm' %}">А. Кобленц. Волшебный мир комбинаций (1980)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-1-ot-avtora.htm' %}">От автора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-v-kladovoj-shahmatnyh-chudes.htm' %}">В кладовой шахматных чудес</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-laboratoriia-shahmatista.htm' %}">Лаборатория шахматиста</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-za-dvumia-zajcami.htm' %}">За двумя зайцами</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-konevye-i-peshechnye-vilki.htm' %}">Коневые и пешечные вилки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-v-zasade.htm' %}">В засаде</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-sviazka.htm' %}">Связка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-ulovki-svetskoj-krasavicy.htm' %}">Уловки светской красавицы</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-ulovki-svetskoj-krasavicy.htm' %}#u1">Тема комбинации — отвлечение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-ulovki-svetskoj-krasavicy.htm' %}#u2">Завлечь любой ценой!</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-peregruzki-opasny-ne-tolko-v-kosmose.htm' %}">Перегрузки опасны не только в космосе...</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-borba-za-sfery-vliianiia.htm' %}">Борьба за «сферы влияния»</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-borba-za-sfery-vliianiia.htm' %}#b1">Блокировка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-borba-za-sfery-vliianiia.htm' %}#b2">Освобождение поля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-borba-za-sfery-vliianiia.htm' %}#b3">Перекрытие</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-geometricheskie-motivy.htm' %}">Геометрические мотивы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-o-chem-mechtaiut-peshki.htm' %}">О чем мечтают пешки?</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-priemy-samooborony.htm' %}">Приемы самообороны</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-priemy-samooborony.htm' %}#p1">Патовые комбинации</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-priemy-samooborony.htm' %}#p2">Промежуточный ход</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-priemy-samooborony.htm' %}#p3">«Вечный шах»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-priemy-samooborony.htm' %}#p4">Ловушки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-priemy-samooborony.htm' %}#p5">Контрудар!</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-ohota-ta-korolia.htm' %}">Охота на короля</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-ohota-ta-korolia.htm' %}#o1">Катастрофы на диагоналях</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-ohota-ta-korolia.htm' %}#o2">Видоизменяющая жертва</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-ohota-ta-korolia.htm' %}#o3">Когда слаба 8-я</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-ohota-ta-korolia.htm' %}#o4">«Магнитные» комбинации</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/14-intuitivnye-zhertvy.htm' %}">Интуитивные жертвы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-do-novyh-vstrech.htm' %}">До новых встреч!</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/16-proverte-vashi-resheniia.htm' %}">Проверьте ваши решения!</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/17-literatura.htm' %}">Литература</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

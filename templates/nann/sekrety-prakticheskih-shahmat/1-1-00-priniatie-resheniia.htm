@@ -1,0 +1,27 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ПРИНЯТИЕ РЕШЕНИЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ПРИНЯТИЕ РЕШЕНИЯ</h3>
+
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-01-novoe-obrashchenie-k-derevu-variantov.htm' %}">Новое обращение к дереву вариантов</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-02-ocenochnye-funkcii.htm' %}">Оценочные функции</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-03-kogda-analizirovat.htm' %}">Когда анализировать</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-04-nant.htm' %}">НАНТ</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-05-predohranitelnaia-setka.htm' %}">Предохранительная сетка</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-06-kogda-taktika-dolzhna-srabatyvat.htm' %}">Когда тактика должна срабатывать</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-07-skrytye-obiazatelstva.htm' %}">Скрытые обязательства</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-08-pozicionnoe-myshlenie.htm' %}">Позиционное мышление</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-09-metod-sravneniia.htm' %}">Метод сравнения</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-10-zastavte-dumat-vashego-sopernika.htm' %}">Заставьте думать вашего соперника</a></li>
+    </ul>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,90 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ДУША ШАХМАТ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ДУША ШАХМАТ</h3>
+
+<div class="message">
+<p>Особенно возрастает роль пешек в окончаниях (эндшпиле). Если в середине игры (миттельшпиле) и в начале (дебюте) стремятся к достижению материального перевеса, к матовой атаке, то в эндшпиле главной задачей становится проведение пешек в ферзи. В эндшпиле трудно объявить мат, это случается редко; естественный путь к победе — получить
+<!--p>92</p-->
+материальный перевес, превратив слабую единицу в сильнейшую — ферзя. Превращение пешки в ферзя — лейтмотив эндшпиля.</p>
+<p>Из сказанного ясно, что незаметные на первый взгляд особенности пешечного расположения могут оказать огромное влияние на ход борьбы. А ведь когда идет игра, пешки не стоят на месте: какие-то движутся вперед, какие-то остаются позади, некоторые гибнут, исчезают с доски. Возникают самые различные пешечные конфигурации. Хотя все пешки выглядят одинаково, ценность их различна.</p>
+<p>Разберем особенности пешечного расположения на примерах из пешечных окончаний (то есть таких, где на доске присутствуют только короли и пешки).</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/6p1/3kp2p/7P/2PK2P1/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/6p1/3kp2p/7P/2PK2P1/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">207</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/6p1/3kp2p/7P/2PK2P1/8/8 w - - 0 1"></div>
+<p>Пешки на правом фланге расположены симметрично. У обеих сторон по проходной пешке. Так их называют потому, что впереди них нет пешек противника, которые могли бы задержать их движение.</p>
+<p>Хорошо иметь проходную пешку, особенно в эндшпиле. Однако и проходные пешки неодинаковы по ценности. В позиции на диаграмме пешка c3 — <i>отдаленная проходная</i>. Так обычно называют пешку, наиболее отдаленную от основной пешечной массы. Отдаленная проходная белых значительно опаснее, чем черная пешка e5. Почему? Потому что черный король, когда возьмет пешку «с», окажется далеко от остальных пешек, а белый, когда возьмет пешку «е»,— близко. Значит, план ясен: черного короля заставить идти к пешке «с», своего отправить к пешке «е».</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/6p1/3kp2p/2P4P/3K2P1/8/8 b - - 0 1", this, "c3c4"); ' class="line0">1.c3-c4+</span> 
+ <span onclick='loadMove("8/8/6p1/2k1p2p/2P4P/3K2P1/8/8 w - - 0 2", this, "d5c5"); ' class="line0">Крd5-c5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/6p1/2k1p2p/2P1K2P/6P1/8/8 b - - 0 2", this, "d3e4"); ' class="line0">2.Крd3-e4</span> 
+ <span onclick='loadMove("8/8/6p1/4p2p/2k1K2P/6P1/8/8 w - - 0 3", this, "c5c4"); ' class="line0">Крc5:c4</span> 
+</p>
+<p>Избежать размена пешек черные не могут. Если
+ <span onclick='loadMove("8/8/3k2p1/4p2p/2P1K2P/6P1/8/8 w - - 0 3", this, "c5d6"); ' class="line1">2...Крd6</span>, то
+ <span onclick='loadMove("8/8/3k2p1/2P1p2p/4K2P/6P1/8/8 b - - 0 3", this, "c4c5"); ' class="line1">3.c5+</span> 
+ <span onclick='loadMove("8/8/4k1p1/2P1p2p/4K2P/6P1/8/8 w - - 0 4", this, "d6e6"); ' class="line1">Крe6</span> 
+ <span onclick='loadMove("8/8/2P1k1p1/4p2p/4K2P/6P1/8/8 b - - 0 4", this, "c5c6"); ' class="line1">4.c6</span>, и король все равно вынужден вернуться к белой пешке.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/6p1/4K2p/2k4P/6P1/8/8 b - - 0 3", this, "e4e5"); ' class="line0">3.Крe4:e5</span> 
+ <span onclick='loadMove("8/8/6p1/4K2p/7P/3k2P1/8/8 w - - 0 4", this, "c4d3"); ' class="line0">Крc4-d3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/5Kp1/7p/7P/3k2P1/8/8 b - - 0 4", this, "e5f6"); ' class="line0">4.Крe5-f6</span> 
+ <span onclick='loadMove("8/8/5Kp1/7p/7P/4k1P1/8/8 w - - 0 5", this, "d3e3"); ' class="line0">Крd3-e3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/6K1/7p/7P/4k1P1/8/8 b - - 0 5", this, "f6g6"); ' class="line0">5.Крf6:g6</span> 
+ <span onclick='loadMove("8/8/6K1/7p/7P/5kP1/8/8 w - - 0 6", this, "e3f3"); ' class="line0">Крe3-f3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/7K/7P/5kP1/8/8 b - - 0 6", this, "g6h5"); ' class="line0">6.Крg6:h5</span> 
+ <span onclick='loadMove("8/8/8/7K/7P/6k1/8/8 w - - 0 7", this, "f3g3"); ' class="line0">Крf3:g3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/6K1/7P/6k1/8/8 b - - 0 7", this, "h5g5"); ' class="line0">7.Крh5-g5</span>
+,</p>
+<p>и пешка белых проходит в ферзи.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/3k4/p4Pp1/3K2P1/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/3k4/p4Pp1/3K2P1/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">208</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/3k4/p4Pp1/3K2P1/8/8/8 w - - 0 1"></div>
+<p>Проходная пешка f5 защищена пешкой g4. Такую пешку называют <i>защищенной проходной</i>. Защищенная проходная — большая сила. Белый король не должен беспокоиться о ее защите. Он может спокойно отправиться к пешке a5 и уничтожить ее. А черный король должен караулить пешку f5, не давая ей возможности пройти в ферзи.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/p5p1/p2pp2p/P6P/8/2P2P2/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/p5p1/p2pp2p/P6P/8/2P2P2/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">209</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/p5p1/p2pp2p/P6P/8/2P2P2/8/8 w - - 0 1"></div>
+<p>Познакомьтесь с особенностями пешечного расположения. Пешки a7 и a6 сдвоенные. Так называют пешки одного цвета, расположенные на одной вертикали. Их сдерживает пешка белых a5. Сдвоение пешек, как правило, дефект позиции. На правом фланге одна пешка h5 также сдерживает две пешки черных. Это ей удается потому, что пешка g7 отсталая (термин в расшифровке не нуждается). Черные пешки e6 и d6 — связанные. Они могут помогать друг другу. Каждая из четырех белых пешек — <i>изолированная</i>. Изолированными их называют потому, что у них нет пешек-соседей.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="notification message">
+<p><i>Посылая пехотинцев в наступление, помните о достоинствах и недостатках пешечного расположения. Стремитесь получить проходную пешку, но не давайте такой возможности противнику. Избегайте ослабления своей пешечной цепи, образования в ней изолированных, отсталых пешек. Разумеется, все зависит от обстановки. В разгар сражения приходится мириться с образованием пешечных слабостей. Часто пешки становятся слабыми не сами по себе, а потому, что они не препятствуют проникновению в свой лагерь неприятельских фигур. Но об этом — в следующем разделе.</i></p>
+</div>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

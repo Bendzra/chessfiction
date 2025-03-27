@@ -1,0 +1,41 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<p><b>БИБЛИОТЕЧКА ШАХМАТИСТА</b></p>
+<h2>Б.А. Злотник</h2>
+<h1>Типовые позиции миттельшпиля</h1>
+<br>
+<p>ФиС</p>
+<p>Москва</p>
+<p>«Физкультура и спорт»</p>
+<!--p>1966</p-->
+<hr/>
+<p>ББК 75.581 368</p>
+<p><b>Злотник Б. А.</b></p>
+<p>З 68 Типовые позиции миттельшпиля.—М.: Физкультура и спорт, 1986.— 128 с.—(Б-чка шахматиста).</p>
+<div class="notification message">
+<p>Работа заведующего кафедрой шахмат Государственного центрального ордена Ленина института физической культуры мастера Б. А. Злотника посвящена одному из важнейших вопросов совершенствования шахматиста — изучению типовых позиций и приемов игры в миттельшпиле.</p>
+<p>Данная проблема впервые подвергнута столь обстоятельному и глубокому исследованию как в отечественной, так и в зарубежной литературе.</p>
+<p>Для шахматистов-разрядников.</p>
+</div>
+<p>3</p>
+<p>4202000000 009(01)—86</p>
+<p>КБ4—7—1986</p>
+<p>ББК 75.581 7A9.1</p>
+<p>© Издательство «Физкультура и спорт», 1986 г.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

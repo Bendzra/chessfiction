@@ -1,0 +1,61 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Как Виктор стал шахматным мастером</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie-avtora.htm' %}">Предисловие автора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-glava_I.htm' %}">Глава I. Четыре подростка знакомятся с происхождением шахматной игры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-glava_II.htm' %}">Глава II. Мои юные знакомые размышляют о смысле и значении правил игры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-glava_III.htm' %}">Глава III. Турнир четырех подростков</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-glava_IV.htm' %}">Глава IV. Что происходит с Витей?</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-glava_V.htm' %}">Глава V. Посещение турнира мастеров в Москве</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-glava_VI.htm' %}">Глава VI. Сеанс Одновременной Игры. Витя Решает Стать Мастером</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-glava_VII.htm' %}">Глава VII. Консультационная партия между мастерами. По окончании партии витя вызывает Федю на матч</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-glava_VIII.htm' %}">Глава VIII. Вокруг вызова Вити разгорается борьба мнений. Как случилось, что вызов был принят</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-glava_IX.htm' %}">Глава IX. Матч между Витей и Федей. Уверенность Вити в своих силах заметно возрастает</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-glava_X.htm' %}">Глава Х. Витя вступает в период медленного развития. Я даю ему совет, после которого он, сам того не замечая, начинает быстро двигаться вперед</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-glava_XI.htm' %}">Глава XI. Виктор становится шахматистом первого разряда, а затем завоевывает звание мастера. Он кончает университет и получает научную командировку за границу</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-glava_XII.htm' %}">Глава XII. Виктор в Париже. Удивительное знакомство</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-13-glava_XIII.htm' %}">Глава XIII. Виктор посещает некоторые шахматные клубы. Он поражен незначительностью интереса к игре мастеров</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-14-glava_XIV.htm' %}">Глава XIV. Виктор развивает перед молодежью новые взгляды на шахматы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-glava_XV.htm' %}">Глава XV. Виктор в Лондоне. Воспоминания очевидцев о «Симпсонс диван»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-16-glava_XVI.htm' %}">Глава XVI. Впечатления Виктора от современной английской шахматной жизни</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-17-glava_XVII.htm' %}">Глава XVII. Пребывание в Сан-Франциско</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-18-glava_XVIII.htm' %}">Глава XVIII. Виктор едет в Нью-Йорк и встречает там Сардэна</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-19-glava_XIX.htm' %}">Глава XIX. Матч с чемпионом Питсбурга. Мистер Квик в роли организатора и репортера</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-20-glava_XX.htm' %}">Глава XX. Матч с гроссмейстером. Возвращение Виктора на родину</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-majzelis_emmanuil-lasker-i-ego-kniga.htm' %}">И. Майзелис. Эммануил Ласкер и его книга</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/index.htm' %}">Оглавление</a></li>
+</ul>
+</div> <!-- score -->
+
+<hr />
+
+<p align=center style='text-align:center'>Для старшего возраста</p>
+<p align=center style='text-align:center'><i>Эммануил Ласкер</i></p>
+<p align=center style='text-align:center'>КАК ВИКТОР СТАЛ ШАХМАТНЫМ МАСТЕРОМ</p>
+
+<!--
+<p>Ответственный редактор Э. П. Микоян. Художественный редактор Б. А. Дехтерев. Технический редактор С. Г. Маркович. Корректоры Л. М. Агафонова и Л. А. Рогова. Сдано в набор 29/VI 1973 т. Подписано к печати 26/Х 1973 г. Формат 84X1081/32. Бум. типогр. № 2. Печ. л. 4.5. Усл. печ. л. 7,56. Уч.-изд. л. 7,8 6. Тираж 75 000 экз. А02208. Заказ № 1239 Цена 33 коп. Ордена Трудового Красного Знамени издательство «Детская литература». Москва. Центр, М. Черкасский пер., 1.</p>
+<p>Отпечатано с матриц 1—й Образцовой типографии Ордена Трудового Красного Знамени фабрикой «Детская книга» № 1 Росглавполиграфпрома Государственного комитета Совета Министров РСФСР по делам издательств, полиграфии и книжной торговли. Москва, Сущевский вал, 49.</p>
+-->
+
+<hr />
+
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,62 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="message">
+<h2>Я. И. НЕЙШТАДТ</h2>
+<h1>ШАХМАТНЫЙ ПРАКТИКУМ</h1>
+</div>
+
+<div class="message">
+<p>ФиС</p>
+<p>Москва</p>
+<p>«Физкультура и спорт»</p>
+<p>1980</p>
+</div>
+<hr />
+
+<div class="message">
+<p>ББК 75.531</p>
+<p>Н 46</p>
+</div>
+
+<div class="message">
+<p>Нейштадт Я. И.</p>
+<p>Н46 Шахматный практикум.—М.: Физкультура и спорт, 1980.—239 с.</p>
+</div>
+
+<div class="message">
+<p>Новая работа известного шахматного литератора, теоретика и историка шахмат мастера Я. И. Нейштадта представляет собой самоучитель по тактике. После каждого урока, раскрывающего определенную комбинационную тему, приводятся задания для самостоятельного решения. Подробные ответы позволят проверить зоркость вашего тактического зрения. В особый раздел выделены комбинации, составляющие классическое шахматное наследие.</p>
+<p>Книга рассчитана на широкий круг любителей шахмат.</p>
+</div>
+
+<div class="message">
+<table style="float:left;">
+<tr><td rowspan="2">Н</td><td>60904-047</td><td rowspan="2">145—80</td><td rowspan="2">4202000000</td></tr>
+<tr><td>009(01)—80</td></tr>
+</table>
+<div style="float:right;">
+<p>ББК 75.581</p>
+<p>7А9.1</p>
+</div>
+<div style="clear:both;"></div>
+</div>
+
+<p class="message" style="text-align:right;">© Издательство «Физкультура и спорт», 1980 г.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

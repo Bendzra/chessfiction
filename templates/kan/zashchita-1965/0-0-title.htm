@@ -1,0 +1,42 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h5>Библиотечка начинающего шахматиста</h5>
+<h2>И. КАН</h2>
+<h1>Защита</h1>
+<div class="diagram">
+<p>Издание 2-е,</p>
+<p>исправленное и дополненное</p>
+</div>
+<div class="diagram">
+<p>ИЗДАТЕЛЬСТВО «ФИЗКУЛЬТУРА И СПОРТ»</p>
+<p>МОСКВА 1965</p>
+</div>
+<hr />
+<div class="message">
+<p>7А9.1</p>
+<p>К 19</p>
+</div>
+<div class="message notification">
+<p>Во второе издание брошюры «Защита» по сравнению с первым, вышедшим в свет в 1960 г., внесены существенные исправления и добавления. В частности, расширен раздел «Различные примеры защиты». Он пополнен примерами из партий последних лет.</p>
+<p>Брошюра может служить не только пособием для самостоятельных занятий, но и как справочный материал и небольшой свод примеров для тренеров и инструкторов.</p>
+</div>
+<div class="message page">
+<p>Брошюра международного мастера И. Кана входит в «Библиотечку начинающего шахматиста». В текущем году в этой серии переиздаются также брошюры Б. Вайнштейна «Комбинации и ловушки в дебюте», И. Бондаревского «Комбинации в миттельшпиле», Б. Персица «Центр», А. Суэтина «Как играть дебют», Ю. Авербаха «Что надо знать об эндшпиле».</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

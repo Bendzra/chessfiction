@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Реализация небольшого материального преимущества | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Реализация небольшого материального преимущества</h2>
+<p>Цель шахматной партии — дать мат королю противника. Прошу прощения, уважаемый читатель, за эту прописную истину. А что же происходит на шахматной доске в тот момент, когда победой одной из сторон заканчивается партия между достаточно квалифицированными шахматистами? В общем случае позиционное преимущество одного из партнеров носит решающий характер. Следовательно, наиболее универсальным способом реализации небольшого материального преимущества является трансформация его в решающее позиционное преимущество. Этого вполне достаточно для победы.</p>
+<p>Здесь мы рассмотрим примеры из игровой практики, в
+<!--p>33</p-->
+которых перевес (материальный) одной из сторон столь незначителен (например, активность фигур противника почти компенсирует нехватку пешки), что многие шахматисты смирились бы с ничейным исходом. Многие, но только не истинные мастера! Есть хоть малейший шанс, пусть и связанный с колоссальными трудностями,— борись! Важно только не цепляться за незначительный материальный перевес, а проявлять активность, сражаться до конца на каждом поле шахматной доски. И эта жажда борьбы и победы будет вознаграждена!</p>
+<p>Сначала рассмотрим несколько окончаний из партий, которые демонстрируют... могущество короля.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-vse-mogut-koroli.htm' %}">«Все могут короли...»<!--34--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-etiudnyj-hod.htm' %}">Этюдный ход<!--36--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-dorogu-ee-velichestvu-peshke.htm' %}">Дорогу Ее Величеству Пешке!<!--38--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-iz-shahmatnoj-klassiki.htm' %}">Из шахматной классики<!--42--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-iskusstvo-vyezdki.htm' %}">Искусство выездки<!--45--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-slon-protiv-konia.htm' %}">Слон против коня<!--48--></a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

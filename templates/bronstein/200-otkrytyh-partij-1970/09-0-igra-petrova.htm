@@ -1,0 +1,52 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ИГРА ПЕТРОВА | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+
+<h2>ИГРА ПЕТРОВА</h2>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3"></div>
+<p>После
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "g8f6"); ' class="line0">2...Кg8-f6</span> 
+</p>
+<p>Игра Петрова, или русская партия,— дебют исключительно миролюбивый.</p>
+<p>Избирая симметричный ход конем, черные как бы говорят: куда вы, туда и мы, люди мы кроткие, незлобивые.</p>
+<p>Если белые откликаются на мирную инициативу черных, тогда ходы катятся как санки с горы — дюжина разменов, и часы остановлены. Ничья.</p>
+<p>Но стоит белым проявить гонор, заупрямиться, пойти в открытую драку, черные тотчас отвечают ударом на удар, и тогда долгое время трудно бывает разобрать, кто атакует, а кто обороняется.</p>
+<p>Но так бывает редко.</p>
+<p>Чаще всего белые бывают сговорчивы; размен, другой — и к столику спешит судья...</p>
+<p>Теория игры Петрова разработана довольно хорошо. Однако указать одну лучшую систему атаки для белых и наиболее верную схему защиты для черных не то что трудно, а невозможно: все зависит от малейших тонкостей.</p>
+<p>Чаще других применяется ход
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/5n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq - 0 3", this, "f3e5"); ' class="line0">3.К:e5</span> 
+. В ответ на
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/3p1n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R w KQkq - 0 4", this, "d7d6"); ' class="line0">3...d6</span> 
+отступают конем на f3, хотя ничуть не слабее, на взгляд автора, азартное
+ <span onclick='loadMove("rnbqkb1r/ppp2Npp/3p1n2/8/4P3/8/PPPP1PPP/RNBQKB1R b KQkq - 0 4", this, "e5f7"); ' class="line0">4.К:f7!</span> 
+В случае
+ <span onclick='loadMove("rnbq1b1r/ppp2kpp/3p1n2/8/4P3/8/PPPP1PPP/RNBQKB1R w KQ - 0 5", this, "e8f7"); ' class="line0">4...Кр:f7</span> 
+ <span onclick='loadMove("rnbq1b1r/ppp2kpp/3p1n2/8/3PP3/8/PPP2PPP/RNBQKB1R b KQ d3 0 5", this, "d2d4"); ' class="line0">5.d4</span> 
+у белых две подвижные пешки в центре, что обещает длительную инициативу. Однажды в сеансе одновременной игры я испробовал этот ход. Партнер — дело было во время гастрольной поездки по городам Голландии — коня на f7 взял, а в дополнение к коню взял и пешку e4 —
+ <span onclick='loadMove("rnbqkb1r/ppp2Npp/3p1n2/8/4P3/8/PPPP1PPP/RNBQKB1R b KQkq - 0 4", this, "e5f7"); ' class="line0">4.К:f7</span> 
+ <span onclick='loadMove("rnbq1b1r/ppp2kpp/3p1n2/8/4P3/8/PPPP1PPP/RNBQKB1R w KQ - 0 5", this, "e8f7"); ' class="line0">Кр:f7</span> 
+ <span onclick='loadMove("rnbq1b1r/ppp2kpp/3p1n2/8/3PP3/8/PPP2PPP/RNBQKB1R b KQ d3 0 5", this, "d2d4"); ' class="line0">5.d4</span> 
+ <span onclick='loadMove("rnbq1b1r/ppp2kpp/3p4/8/3Pn3/8/PPP2PPP/RNBQKB1R w KQ - 0 6", this, "f6e4"); ' class="line0">К:e4</span> 
+. Тогда я объявил шах с поля h5 — опять это поле h5! — и после
+ <span onclick='loadMove("rnbq1b1r/ppp2kpp/3p4/7Q/3Pn3/8/PPP2PPP/RNB1KB1R b KQ - 0 6", this, "d1h5"); ' class="line0">6.Фh5+</span> 
+ <span onclick='loadMove("rnbq1b1r/ppp1k1pp/3p4/7Q/3Pn3/8/PPP2PPP/RNB1KB1R w KQ - 0 7", this, "f7e7"); ' class="line0">Крe7</span> 
+отступил ферзем на e2 —
+ <span onclick='loadMove("rnbq1b1r/ppp1k1pp/3p4/8/3Pn3/8/PPP1QPPP/RNB1KB1R b KQ - 0 7", this, "h5e2"); ' class="line0">7.Фe2</span> 
+. Черные оказались перед неразрешимыми проблемами, так как под боем и конь e4 и ферзь d8 ввиду угрозы Сc1-g5+!</p>
+<p>Непременно испытайте жертву коня на поле f7!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

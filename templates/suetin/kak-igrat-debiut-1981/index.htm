@@ -1,0 +1,119 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h1>ОГЛАВЛЕНИЕ</h1>
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">А.С.Суэтин. Как играть дебют</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vvedenie.htm' %}">Введение</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-elementarnye-principy-igry-v-debiute.htm' %}">Глава I. Элементарные принципы игры в дебюте</a>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-0-pravila-debiutnoj-borby.htm' %}">Правила дебютной борьбы</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-1-uroki-odnoj-partii.htm' %}">Уроки одной партии</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-2-nebolshoj-ekskurs-v-istoriiu.htm' %}">Небольшой экскурс в историю</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-0-razvitie-i-cena-shahmatnogo-vremeni.htm' %}">Развитие и цена шахматного времени</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-1-ekonomte-tempy.htm' %}">Экономьте темпы!</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-2-o-specifike-dejstvij-figur-a-peshek-v-debiute.htm' %}">О специфике действий фигур а пешек в дебюте</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-3-o-prave-pervogo-hoda-i-ego-malenkoj-vygode.htm' %}">О праве первого хода и его маленькой выгоде</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-0-mobilizaciia-i-faktory-prostranstva.htm' %}">Мобилизация и факторы пространства</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-1-znachenie-centra.htm' %}">Значение центра</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-2-pereves-v-razvitii-i-vskrytie-centra.htm' %}">Перевес в развитии и вскрытие центра</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-3-perehod-demarkacionnoj-linii.htm' %}">Переход демаркационной линии</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-4-razlichie-flangov.htm' %}">Различие флангов</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-5-rannee-nastuplenie-na-ferzevom-flange.htm' %}">Раннее наступление на ферзевом фланге</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-0-harakternye-narusheniia-osnovnyh-principov.htm' %}">Характерные нарушения основных принципов</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-1-neobosnovannye-flangovye-operacii.htm' %}">Необоснованные фланговые операции</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-2-kontrudar-v-centre-protiv-flangovyh-operacij.htm' %}">Контрудар в центре против фланговых операций</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-3-snachala-neobhodimoe-zatem-proizvolnoe.htm' %}">Сначала — необходимое, затем — произвольное</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-4-o-pravilnom-poriadke-hodov-v-debiute.htm' %}">О правильном порядке ходов в дебюте</a></li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-aktivnost-i-vzaimodejstvie-boevyh-sil-v-debiute.htm' %}">Глава II. Активность и взаимодействие боевых сил в дебюте</a>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-mobilizaciia-i-shablon.htm' %}">Мобилизация и шаблон</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-kombinacionnye-situacii-v-debiute.htm' %}">Комбинационные ситуации в дебюте</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-debiutnye-ataki.htm' %}">Дебютные атаки</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-kontrataka-v-rannej-stadii-partii.htm' %}">Контратака в ранней стадии партии</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-0-znachenie-vzaimodejstviia-boevyh-sil-v-debiute.htm' %}">Значение взаимодействия боевых сил в дебюте</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-1-izoliaciia-chasti-sil.htm' %}">Изоляция части сил</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-2-razobshchenie-flangov.htm' %}">Разобщение флангов</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-0-vzaimosviaz-mezhdu-figurami-i-peshkami-v-debiute.htm' %}">Взаимосвязь между фигурами и пешками в дебюте</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-1-podvizhnost-peshechnyh-cepej.htm' %}">Подвижность пешечных цепей</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-2-ogranichenie-podvizhnosti-peshechnyh-cepej.htm' %}">Ограничение подвижности пешечных цепей</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-3-o-strategicheskoj-garmonii-figur-i-peshechnyh-cepej.htm' %}">О стратегической гармонии фигур и пешечных цепей</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-vzaimodejstvie-boevyh-sil-i-principy-debiuta.htm' %}">Взаимодействие боевых сил и принципы дебюта</a></li>
+	</ul>
+	</li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-evoliuciia-debiutnyh-principov-i-ih-sovremennaia-traktovka.htm' %}">Глава III. Эволюция дебютных принципов и их современная трактовка</a>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-poiski-iskliuchenij-i-konkretnyj-podhod.htm' %}">Поиски исключений и конкретный подход</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-0-sviaz-shahmatnogo-vremeni-s-konkretnoj-ideej.htm' %}">Связь шахматного «времени» с конкретной идеей</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-1-novaia-rol-debiutnogo-tempa.htm' %}">Новая роль дебютного темпа</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-2-aktivnost-tiazhelyh-figur.htm' %}">Активность тяжелых фигур</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-3-kogda-delat-rokirovku.htm' %}">Когда делать рокировку?</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-4-novye-predstavleniia-o-centre-i-prostranstve.htm' %}">Новые представления о центре и пространстве</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-rasshirenie-predstavlenij-o-peshechnyh-slabostiah.htm' %}">Расширение представлений о пешечных слабостях</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-0-razlichnye-metody-borby-za-iniciativu.htm' %}">Различные методы борьбы за инициативу</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-1-metod-kontrigry.htm' %}">Метод контригры</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-2-ob-ostroj-dinamicheskoj-borbe-za-iniciativu-v-sovremennyh-debiutah.htm' %}">Об острой динамической борьбе за инициативу в современных дебютах</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-0-narushenie-materialnogo-ravnovesiia.htm' %}">Нарушение материального равновесия</a>
+		<ul>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-1-zhertva-v-debiute.htm' %}">Жертва в дебюте</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-2-borba-pri-raznoharakternom-materiale-v-debiute.htm' %}">Борьба при разнохарактерном материале в дебюте</a></li>
+			<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-3-o-dinamicheskih-kontratakah.htm' %}">О динамических контратаках</a></li>
+		</ul>
+		</li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-6-sviaz-debiuta-s-mittelshpilem.htm' %}">Связь дебюта с миттельшпилем</a></li>
+	</ul>
+	</li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0-kak-rabotat-nad-debiutnoj-teoriej.htm' %}">Глава IV. Как работать над дебютной теорией</a>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-o-soznatelnom-ovladenii-debiutnymi-principami.htm' %}">О сознательном овладении дебютными принципами</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-debiutnyj-repertuar-shahmatista.htm' %}">Дебютный репертуар шахматиста</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-o-racionalnom-pretvorenii-idej-proshlogo.htm' %}">О рациональном претворении идей прошлого</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-o-podbore-materiala-i-organizacii-truda.htm' %}">О подборе материала и организации труда</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-5-o-kriticheskom-izuchenii-debiutnyh-rukovodstv.htm' %}">О критическом изучении дебютных руководств</a></li>
+	</ul>
+	</li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-0-literatura.htm' %}">Литература</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+</div> <!-- iBook -->
+
+{% endblock content %}
+

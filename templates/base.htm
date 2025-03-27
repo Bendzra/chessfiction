@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="RU-ru">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="msvalidate.01" content="CCBFDD080EE86BD14D7543F2D3579BF2" />
+
+{% block description %}
+{% if book.description %}
+<meta name="description" content="{{ book.description }}" />
+{% elif book.annotation %}
+<meta name="description" content="{{ book.annotation }}" />
+{% else %}
+<meta name="description" content="Более ста онлайн книг по шахматам. О шахматах и вокург. Неувядающая классика и компьютерные новинки. Ожившие книги, интерактивная доска. Читайте и разыгрывайте позиции. Новичкам и разрядникам. Всем желающим." />
+{% endif %}
+{% endblock description %}
+
+{% block title %}<title>{{ title }}</title>{% endblock title %}
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'icons/favicon.ico' %}" />
+{% block chessplanet_mod %}
+ <link href="{% static 'spoiler/spoiler.css' %}" rel="stylesheet" type="text/css" />
+ <link href="{% static 'Content/Site.css' %}" rel="stylesheet" type="text/css" />
+ <link href="{% static 'Content/IBook.css' %}" rel="stylesheet" type="text/css" />
+ <script src="{% static 'Scripts/jquery-1.11.0.min.js' %}" type="text/javascript"></script>
+ {% block boardscripts %}
+  <link href="{% static 'Scripts/BoardScripts/css/Board.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'Scripts/BoardScripts/css/pieces/merida/theme.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'Scripts/BoardScripts/css/themes/walnut/theme.css' %}" rel="stylesheet" type="text/css" />
+  <script src="{% static 'Scripts/raphael-min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/board.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/gui.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/MouseHandler.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/chessPlayRules.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/PlayController.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/BoardTransformer.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/BoardMarkers.js' %}" type="text/javascript"></script>
+  <script src="{% static 'Scripts/BoardScripts/Language.js' %}" type="text/javascript"></script>
+ {% endblock boardscripts %}
+ <script src="{% static 'spoiler/re_mark.js' %}" type="text/javascript"></script>
+{% endblock chessplanet_mod %}
+<!-- Yandex.Metrika counter -->
+<!--script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(66489673, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script-->
+<!--noscript><div><img src="https://mc.yandex.ru/watch/66489673" style="position:absolute; left:-9999px;" alt="" /></div></noscript-->
+<!-- /Yandex.Metrika counter -->
+{% block head_extras %}
+{% endblock head_extras %}
+</head>
+<body>
+
+  {% if messages %}
+  {% for message in messages %}
+  <div class="warning message">
+  {{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
+
+  {% if base != 'books-root' and base != 'donate' %}
+  <div class="corner_nav top_left">
+    <ul>
+      <li id="toggle_board" title="скрыть/показать доску">&#9917;</li>
+    </ul>
+  </div>
+  {% endif %}
+  
+  {% if base != 'donate' %}
+  <div class="corner_nav top_right">
+    <ul>
+      <li id="donate"><a href="{% url 'books-donate' %}" title="расщедриться">&#127877;</a></li>
+    </ul>
+  </div>
+  {% endif %}
+  
+  {% if base != 'books-root' and base != 'donate' %}
+  <div class="modal_overlay">
+    <div id="stationary_board">
+	  <span class="btn_close">&times;</span>
+      <div class="chessBoard"
+        data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+        data-type="regular"
+        data-enabled="true"
+        data-board-inverted="False">
+      </div>
+      <div class="task_notation"></div>
+    </div>
+  </div>
+  {% endif %}
+
+  <br />
+  {% block content %}
+  <h2>{{ base }}</h2>
+  {% endblock content %}
+
+  {% block pagination %}
+  {% if base != 'books-root' %}
+  <div class="corner_nav bottom_right">
+    <ul>
+    <li><a href="{% url 'books-home' %}" title="в библиотеку">&#128218;</a></li>
+    {% if home %}{% if base == 'page' %}<li><a href="{% url 'page-view' home %}" title="к оглавлению книги">&#128214;</a></li>{% else %}<li><a href="{% url home %}" title="к оглавлению книги">&#128214;</a></li>{% endif %}{% endif %}
+    {% if prev %}{% if base == 'page' %}<li><a href="{% url 'page-view' prev %}" title="на предыдущую страницу">&#8678;</a></li>{% else %}<li><a href="{% url prev %}" title="на предыдущую страницу">&#8678;</a></li>{% endif %}{% endif %}
+    {% if next %}{% if base == 'page' %}<li><a href="{% url 'page-view' next %}" title="на следующую страницу">&#8680;</a></li>{% else %}<li><a href="{% url next %}" title="на следующую страницу">&#8680;</a></li>{% endif %}{% endif %}
+    </ul>
+  </div>
+  {% endif %}
+  {% endblock pagination %}
+  
+  <!-- Footer -->
+  <footer>
+    <div class="message advertising page">
+      &copy; 2020-2021, www.chessfiction.ml
+    </div>
+  </footer>
+
+{% block body_extras %}
+{% endblock body_extras %}
+
+</body>
+</html>

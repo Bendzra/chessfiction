@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>ОГЛАВЛЕНИЕ</h2>
+<u>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">С. Гулиев, Л. Гулиев. Тесты для квалифицированных шахматистов. Повысьте свой рейтинг!</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие аторов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadaniia.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-resheniia.htm' %}">Решения</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

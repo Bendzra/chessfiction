@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>П. РОМАНОВСКИЙ</h2>
+<h1>МИТТЕЛЬШПИЛЬ<br /><br />ПЛАН</h1>
+<div class="diagram">
+<p>Государственное издательство</p>
+<p>«ФИЗКУЛЬТУРА И СПОРТ»</p>
+<p>Москва 1960</p>
+</div>
+<div class="message notification">
+<p>Книга заслуженного мастера спорта и заслуженного тренера СССР П. А. Романовского „Миттельшпиль. План“ всесторонне освещает вопросы теории середины игры — важнейшей стадии шахматной партии. Книга поможет шахматисту овладеть мастерством составления и осуществления плана в шахматной партии.</p>
+<p>Книга рассчитана на шахматистов-разрядников.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

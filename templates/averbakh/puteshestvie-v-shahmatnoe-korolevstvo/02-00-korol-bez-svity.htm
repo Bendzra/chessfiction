@@ -1,0 +1,29 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ГЛАВА ВТОРАЯ. КОРОЛЬ БЕЗ СВИТЫ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>ГЛАВА ВТОРАЯ. КОРОЛЬ БЕЗ СВИТЫ</h2>
+
+<div class="section">
+<div class="score">
+<div class="notification message" style="float:right;">
+<p>Шах оглянулся вокруг, на все четыре стороны, и увидел своих воинов поверженными...</p>
+<p style="float:right;"><i>А. Фирдоуси. «Шах-Наме» (X век)</i></p>
+</div>
+
+<img src="{% static 'images/'|add:book.slug|add:'/chap-02.jpg' %}" style="width:95%" />
+
+<div class="message">
+<p>Вашего партнера преследуют неудачи, он растерял всю свою армию и уберег одного короля. Но подождите, торжествовать рано. Одинокого короля надо еще поставить в такое положение, чтобы ему некуда было бежать от разящего удара ваших фигур,— одним словом, ему надо объявить мат.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

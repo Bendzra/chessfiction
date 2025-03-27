@@ -1,0 +1,506 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>МАШИНА УЧИТСЯ ИГРАТЬ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>МАШИНА УЧИТСЯ ИГРАТЬ</h3>
+<div class="message">
+<p>Нас уже не удивляет, что машина может играть в шахматы, хотя «думающие машины», пожалуй, одно из самых ярких чудес XX века. Нас скорее удивляет то, что робот еще не играет так сильно, как нам хотелось бы,— на уровне гроссмейстера или, на худой конец, мастера. А ведь когда создавались первые шахматные программы для машин, было немало скептиков, сомневающихся в их «творческих» способностях.</p>
+<p>Когда, например, в 1963 году гроссмейстеру Давиду Бронштейну предложили сразиться с машиной, то, по его словам, он решил сразу же поставить робота на место и предложил огромную фору — целого ферзя. Началась партия, и машина стала беззастенчиво менять одну фигуру за другой, истребляя боевые силы соперника. Гроссмейстер понял, что дело плохо и что искать победу придется не в этой партии. Не ожидая позорного конца, гроссмейстер смешал фигуры и немедленно потребовал реванша, на этот раз на равных.</p>
+<p>Вот эту партию на равных нам и хочется показать читателю, тем более что это была, по-видимому, одна из первых встреч машины с гроссмейстером.</p>
+<p>Итак, расставьте шахматы и приготовьтесь разыграть партию. Белыми играет прославленный гроссмейстер Давид Бронштейн, черными — пока еще неизвестный шахматист, именуемый в дальнейшем ЭВМ.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p><b>Королевский гамбит</b></p>
+<p><b>Д. Бронштейн — ЭВМ</b></p>
+<p><i>Играна в 1963 году в Москве</i></p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4PP2/8/PPPP2PP/RNBQKBNR b KQkq f3 0 2", this, "f2f4"); ' class="line0">2.f2-f4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Дебют прошлого века — королевский гамбит! Не скрывая своих агрессивных намерений, белые ходом <b>f2-f4</b> как бы говорят: «Иду на Вы!». Дебют этот ведет к острой игре уже в самом начале партии, но его многие разветвления разработаны настолько детально, что игра может быстро закончиться взаимным истреблением. Королевский гамбит вряд ли хуже многих современных начал, однако в наши дни он вышел из моды и применяется сравнительно редко. Может быть, из-за того, что опытные защитники научились переводить игру из бурного русла кавалерийских атак в канал спокойного позиционного маневрирования. И все же некоторые шахматисты изредка применяют это старое оружие. К их числу относятся Спасский, Керес, Бронштейн. Не удивительно, что, впервые встретившись с ЭВМ, Бронштейн обратился к королевскому гамбиту. Ведь в шахматах защита более трудное дело, чем атака. Защита требует не только расчета вариантов, но и понимания позиции, ее точной оценки, а эти факторы, как известно, пока еще являются ахиллесовой пятой машины.</p>
+<p class="longNotation">
+ <span class="ellipsis0">2. ...</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/4Pp2/8/PPPP2PP/RNBQKBNR w KQkq - 0 3", this, "e5f4"); ' class="line0">e5:f4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/4Pp2/5N2/PPPP2PP/RNBQKB1R b KQkq - 0 3", this, "g1f3"); ' class="line0">3.Кg1-f3</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/5n2/8/4Pp2/5N2/PPPP2PP/RNBQKB1R w KQkq - 0 4", this, "g8f6"); ' class="line0">Кg8-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/5n2/4P3/5p2/5N2/PPPP2PP/RNBQKB1R b KQkq - 0 4", this, "e4e5"); ' class="line0">4.e4-e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/5pn1/5N2/PPPP2PP/RNBQKB1R w KQkq - 0 5", this, "f6g4"); ' class="line0">Кf6-g4</span> 
+</p>
+<p>ЭВМ идет собственными путями! Даже в капитальном курсе дебютов прошлого века, «Хандбухе» Бильгера, не найти этого хода. Теоретическим продолжением считается
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P2n/5p2/5N2/PPPP2PP/RNBQKB1R w KQkq - 0 5", this, "f6h5"); ' class="line1">4...Кh5</span>.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/3P1pn1/5N2/PPP3PP/RNBQKB1R b KQkq d3 0 5", this, "d2d4"); ' class="line0">5.d2-d4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>У белых несколько хороших продолжений, и выбор хода — дело вкуса. Возможно
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/5pn1/5N1P/PPPP2P1/RNBQKB1R b KQkq - 0 5", this, "h2h3"); ' class="line1">5.h3</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/7n/4P3/5p2/5N1P/PPPP2P1/RNBQKB1R w KQkq - 0 6", this, "g4h6"); ' class="line1">Кh6</span> 
+(<span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4n3/5p2/5N1P/PPPP2P1/RNBQKB1R w KQkq - 0 6", this, "g4e5"); ' class="line2">5...К:e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4n3/5p2/5N1P/PPPPQ1P1/RNB1KB1R b KQkq - 0 6", this, "d1e2"); ' class="line2">6.Фe2</span> 
+с выигрышем фигуры)
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/7n/4P3/3P1p2/5N1P/PPP3P1/RNBQKB1R b KQkq d3 0 6", this, "d2d4"); ' class="line1">6.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/7n/4P1p1/3P1p2/5N1P/PPP3P1/RNBQKB1R w KQkq g6 0 7", this, "g7g5"); ' class="line1">g5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/7n/4P1p1/3P1p1P/5N2/PPP3P1/RNBQKB1R b KQkq - 0 7", this, "h3h4"); ' class="line1">7.h4</span>. Бронштейн в первую очередь стремится быстро развить фигуры.</p>
+<p class="longNotation">
+ <span class="ellipsis0">5. ...</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3P1pn1/5N2/PPP3PP/RNBQKB1R w KQkq g6 0 6", this, "g7g5"); ' class="line0">g7-g5</span> 
+</p>
+<p>ЭВМ демонстрирует одно из своих характерных качеств — она не любит расставаться с завоеванным. А опытный защитник, конечно, ответил бы
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/3P1p2/4nN2/PPP3PP/RNBQKB1R w KQkq - 0 6", this, "g4e3"); ' class="line1">5...Кe3</span>, возвращая пешку. После
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/3P1p2/4BN2/PPP3PP/RN1QKB1R b KQkq - 0 6", this, "c1e3"); ' class="line1">6.С:e3</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/3P4/4pN2/PPP3PP/RN1QKB1R w KQkq - 0 7", this, "f4e3"); ' class="line1">fe</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/2BP4/4pN2/PPP3PP/RN1QK2R b KQkq - 0 7", this, "f1c4"); ' class="line1">7.Сc4</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/8/3pP3/2BP4/4pN2/PPP3PP/RN1QK2R w KQkq d6 0 8", this, "d7d5"); ' class="line1">d5</span> 
+у черных неплохая игра. Ход <b>d5</b> возможен и в ответ на
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/8/4P3/3P1p2/4nN2/PPP1Q1PP/RNB1KB1R b KQkq - 0 6", this, "d1e2"); ' class="line2">6.Фe2</span>.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3P1pn1/2N2N2/PPP3PP/R1BQKB1R b KQkq - 0 6", this, "b1c3"); ' class="line0">6.Кb1-c3</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3P1p2/2N1nN2/PPP3PP/R1BQKB1R w KQkq - 0 7", this, "g4e3"); ' class="line0">Кg4-e3</span> 
+</p>
+<p>Здесь это менее сильно, так как ходом <b>g7-g5</b> черные ослабили свою позицию.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3P1p2/2N1nN2/PPP1Q1PP/R1B1KB1R b KQkq - 0 7", this, "d1e2"); ' class="line0">7.Фd1-e2</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Типичный Бронштейн! Хорошую позицию белые могли получить, сыграв
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3P1p2/2N1BN2/PPP3PP/R2QKB1R b KQkq - 0 7", this, "c1e3"); ' class="line1">7.С:e3</span> 
+и на
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3P4/2N1pN2/PPP3PP/R2QKB1R w KQkq - 0 8", this, "f4e3"); ' class="line1">7...fe</span> 
+ответив
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/3NP1p1/3P4/4pN2/PPP3PP/R2QKB1R b KQkq - 0 8", this, "c3d5"); ' class="line1">8.Кd5</span>. Однако обычно Бронштейн стремится осложнить игру.</p>
+<p class="longNotation">
+ <span class="ellipsis0">7. ...</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3P1p2/2N2N2/PPP1Q1PP/R1B1Kn1R w KQkq - 0 8", this, "e3f1"); ' class="line0">Кe3:f1</span> 
+</p>
+<p class="capTop diagram">356</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1p1p/8/4P1p1/3P1p2/2N2N2/PPP1Q1PP/R1B1Kn1R w KQkq - 0 8"></div>
+<p>Последовательно! Зачем же отдавать пешку?</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3PNp2/5N2/PPP1Q1PP/R1B1Kn1R b KQkq - 0 8", this, "c3e4"); ' class="line0">8.Кc3-e4!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Гроссмейстерский ход! Белые, не считаясь с потерями, осуществляют план использования слабых полей в лагере соперника.</p>
+<p class="longNotation">
+ <span class="ellipsis0">8. ...</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/4P1p1/3PNp2/4nN2/PPP1Q1PP/R1B1K2R w KQkq - 0 9", this, "f1e3"); ' class="line0">Кf1-e3</span> 
+</p>
+<p>ЭВМ, держась за материал, снова демонстрирует последовательность, хотя заслуживал внимания ответ
+ <span onclick='loadMove("rnbqk2r/ppppbp1p/8/4P1p1/3PNp2/5N2/PPP1Q1PP/R1B1Kn1R w KQkq - 0 9", this, "f8e7"); ' class="line1">8...Сe7</span>, чтобы защититься от шаха конем.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/5N2/4P1p1/3P1p2/4nN2/PPP1Q1PP/R1B1K2R b KQkq - 0 9", this, "e4f6"); ' class="line0">9.Кe4-f6+</span> 
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/5N2/4P1p1/3P1p2/4nN2/PPP1Q1PP/R1B1K2R w KQ - 0 10", this, "e8e7"); ' class="line0">Крe8-e7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/5N2/4P1p1/3P1p2/4nN2/PPPBQ1PP/R3K2R b KQ - 0 10", this, "c1d2"); ' class="line0">10.Сc1-d2</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Продолжая
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/5N2/4P1p1/3P1p2/4BN2/PPP1Q1PP/R3K2R b KQ - 0 10", this, "c1e3"); ' class="line1">10.С:e3</span> 
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/5N2/4P1p1/3P4/4pN2/PPP1Q1PP/R3K2R w KQ - 0 11", this, "f4e3"); ' class="line1">fe</span> 
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/8/3NP1p1/3P4/4pN2/PPP1Q1PP/R3K2R b KQ - 0 11", this, "f6d5"); ' class="line1">11.Кd5+</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/3NP1p1/3P4/4pN2/PPP1Q1PP/R3K2R w KQkq - 0 12", this, "e7e8"); ' class="line1">Крe8</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/3NP1p1/2QP4/4pN2/PPP3PP/R3K2R b KQkq - 0 12", this, "e2c4"); ' class="line1">12.Фc4</span>, белые всего лишь за одну пожертвованную фигуру получали сильнейшую атаку. Но Бронштейн уже уловил, что машина «любит есть» чужие фигуры, и предлагает ей полакомиться еще и ладьей.</p>
+<p class="longNotation">
+ <span class="ellipsis0">10. ...</span> 
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/5N2/4P1p1/3P1p2/5N2/PPnBQ1PP/R3K2R w KQ - 0 11", this, "e3c2"); ' class="line0">Кe3:c2+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/5N2/4P1p1/3P1p2/5N2/PPnBQKPP/R6R b - - 0 11", this, "e1f2"); ' class="line0">11.Крe1-f2</span> 
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/5N2/4P1p1/3P1p2/5N2/PP1BQKPP/n6R w - - 0 12", this, "c2a1"); ' class="line0">Кc2:a1</span> 
+</p>
+<p>У белых должна быть сильная атака, так как у них большой перевес в развитии. Однако немедленного выигрыша не видно, поэтому ЭВМ и рискнула принять жертву. И все же более осторожный игрок никогда бы добровольно не пошел на такую позицию.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbq1b1r/ppppkp1p/8/3NP1p1/3P1p2/5N2/PP1BQKPP/n6R b - - 0 12", this, "f6d5"); ' class="line0">12.Кf6-d5+</span> 
+ <span onclick='loadMove("rnbq1b1r/pppp1p1p/4k3/3NP1p1/3P1p2/5N2/PP1BQKPP/n6R w - - 0 13", this, "e7e6"); ' class="line0">Крe7-e6?</span> 
+</p>
+<p>Пожалуй, это первый ход машины, который является грубой ошибкой и к которому можно смело поставить вопросительный знак. Белые решили проверить: «Куда пойдешь»? — и машина покорно вошла в расставленные сети. А между тем после
+ <span onclick='loadMove("rnbqkb1r/pppp1p1p/8/3NP1p1/3P1p2/5N2/PP1BQKPP/n6R w kq - 0 13", this, "e7e8"); ' class="line1">12...Крe8</span> 
+белым пришлось бы еще доказывать, что их атака стоит пожертвованного материала, хотя, конечно, при желании они могут форсировать ничью.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbq1b1r/pppp1p1p/4k3/3NP1p1/2QP1p2/5N2/PP1B1KPP/n6R b - - 0 13", this, "e2c4"); ' class="line0">13.Фe2-c4!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p class="capTop diagram">357</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbq1b1r/pppp1p1p/4k3/3NP1p1/2QP1p2/5N2/PP1B1KPP/n6R b - - 0 13"></div>
+<p>Этот ход ставит короля черных в безвыходное положение, так как он попадает теперь под удары всех белых фигур. Как рассказывает Бронштейн, черным этот ход очень не понравился. Они настолько долго обдумывали свой ответ, что исчерпали не только свое время, но и время партнера. В конце концов они сделали ход
+ <span onclick='loadMove("rnbq1b1r/p1pp1p1p/4k3/1p1NP1p1/2QP1p2/5N2/PP1B1KPP/n6R w - b6 0 14", this, "b7b5"); ' class="line0">13...b7-b5</span>, но затем выяснилось, что время для игры истекло, и встреча была отложена. Как и полагается при откладывании, белые здесь записали ход.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbq1b1r/p1pp1p1p/4k3/1p1NP1N1/2QP1p2/8/PP1B1KPP/n6R b - - 0 14", this, "f3g5"); ' class="line0">14.Кf3:g5+</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Белые дают форсированный мат в десять ходов:
+ <span onclick='loadMove("rnb2b1r/p1pp1p1p/4k3/1p1NP1q1/2QP1p2/8/PP1B1KPP/n6R w - - 0 15", this, "d8g5"); ' class="line1">14...Ф:g5</span> 
+ <span onclick='loadMove("rnb2b1r/p1Np1p1p/4k3/1p2P1q1/2QP1p2/8/PP1B1KPP/n6R b - - 0 15", this, "d5c7"); ' class="line1">15.К:c7++</span> 
+ <span onclick='loadMove("rnb2b1r/p1Npkp1p/8/1p2P1q1/2QP1p2/8/PP1B1KPP/n6R w - - 0 16", this, "e6e7"); ' class="line1">Крe7</span> 
+ <span onclick='loadMove("rnb2b1r/p2pkp1p/8/1p1NP1q1/2QP1p2/8/PP1B1KPP/n6R b - - 0 16", this, "c7d5"); ' class="line1">16.Кd5+</span> 
+ <span onclick='loadMove("rnb2b1r/p2p1p1p/4k3/1p1NP1q1/2QP1p2/8/PP1B1KPP/n6R w - - 0 17", this, "e7e6"); ' class="line1">Крe6</span> 
+ <span onclick='loadMove("rnb2b1r/p2p1p1p/4k3/1p2P1q1/2QP1N2/8/PP1B1KPP/n6R b - - 0 17", this, "d5f4"); ' class="line1">17.К:f4++</span> 
+ <span onclick='loadMove("rnb2b1r/p2pkp1p/8/1p2P1q1/2QP1N2/8/PP1B1KPP/n6R w - - 0 18", this, "e6e7"); ' class="line1">Крe7</span> 
+ <span onclick='loadMove("rnb2b1r/p2pkp1p/8/1p1NP1q1/2QP4/8/PP1B1KPP/n6R b - - 0 18", this, "f4d5"); ' class="line1">18.Кd5+</span> 
+ <span onclick='loadMove("rnb1kb1r/p2p1p1p/8/1p1NP1q1/2QP4/8/PP1B1KPP/n6R w kq - 0 19", this, "e7e8"); ' class="line1">Крe8</span> 
+ <span onclick='loadMove("rnQ1kb1r/p2p1p1p/8/1p1NP1q1/3P4/8/PP1B1KPP/n6R b kq - 0 19", this, "c4c8"); ' class="line1">19.Ф:c8+</span> 
+ <span onclick='loadMove("rnQqkb1r/p2p1p1p/8/1p1NP3/3P4/8/PP1B1KPP/n6R w kq - 0 20", this, "g5d8"); ' class="line1">Фd8</span> 
+ <span onclick='loadMove("rnQqkb1r/p1Np1p1p/8/1p2P3/3P4/8/PP1B1KPP/n6R b kq - 0 20", this, "d5c7"); ' class="line1">20.Кc7+</span> 
+ <span onclick='loadMove("rnQq1b1r/p1Npkp1p/8/1p2P3/3P4/8/PP1B1KPP/n6R w - - 0 21", this, "e8e7"); ' class="line1">Крe7</span> 
+ <span onclick='loadMove("rnQq1b1r/p1Npkp1p/8/1p2P3/1B1P4/8/PP3KPP/n6R b - - 0 21", this, "d2b4"); ' class="line1">21.Сb4+</span> 
+ <span onclick='loadMove("rnQq1b1r/p1N1kp1p/3p4/1p2P3/1B1P4/8/PP3KPP/n6R w - - 0 22", this, "d7d6"); ' class="line1">d6</span> 
+ <span onclick='loadMove("rnQq1b1r/p1N1kp1p/3B4/1p2P3/3P4/8/PP3KPP/n6R b - - 0 22", this, "b4d6"); ' class="line1">22.С:d6+</span> 
+ <span onclick='loadMove("rnQ2b1r/p1N1kp1p/3q4/1p2P3/3P4/8/PP3KPP/n6R w - - 0 23", this, "d8d6"); ' class="line1">Ф:d6</span> 
+ <span onclick='loadMove("rn2Qb1r/p1N1kp1p/3q4/1p2P3/3P4/8/PP3KPP/n6R b - - 0 23", this, "c8e8"); ' class="line1">23.Фe8X</span>.</p>
+<p>Конечно, белые могли закончить партию и более прозаическим путем, но они, несомненно, выбрали бы самый эффектный.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p>Работа над шахматной программой почти одновременно шла во многих странах. Вскоре в печати стали появляться первые партии, игранные машинами.</p>
+<p>И если первые сообщения о роботах, играющих в шахматы, вызвали сенсацию, то разбор партий разочаровывал — уровень игры машин не превосходил уровня игры начинающих. Все будто забыли, что даже самый талантливый шахматист должен сначала научиться играть, прежде чем он сможет полностью проявить свой талант, должен сначала приобрести практические навыки, необходимый опыт. Ведь до сих пор еще никому не удавалось без практики, только по шахматным учебникам, стать сильным шахматистом. А доктор Б. из «Шахматной новеллы» Стефана Цвейга всего лишь литературный персонаж.</p>
+<p>Эту истину, хотя и не очень быстро, поняли программисты. И вот в американском шахматном журнале в 1966 году появилась следующая заметка.</p>
+
+<div class="message">
+<p><b>Турнир, делающий историю</b></p>
+<p><i>Бостон, штат Массачузетс, США, планета Земля</i></p>
+<p>Впервые в истории в шахматном турнире (чемпионате штата Массачузетс среди любителей) принял участие электронный компьютер, который играл в шахматы с людьми на обычных турнирных условиях — ограниченный контроль времени, правило &quot;тронул—ходи&quot; и т. д.</p>
+<p>В прошлом, как известно, компьютеры программировались для игры в шахматы, но только с научной целью. Партнерами машин были обычно либо сами программисты, либо их коллеги. На этот раз компьютер играл с квалифицированными шахматистами, заинтересованными только в победе, а отнюдь не в демонстрации научных достижений. И тем не менее игра машины в турнире была частью серьезного научного исследования. Как показывают партии, машина Мак-Хак VI еще только начинающий шахматист. Однако опыт участия в турнире даст возможность усовершенствовать его программу. Пока же Мак-Хак VI сыграл в турнире все пять туров и набрал всего полочка. Он смог провести пару любопытных комбинаций, но оказался очень слаб в эндшпиле Мак-Хак VI &quot;намерен&quot; регулярно играть в турнирах, чтобы точно установить сравнительную силу своей игры.</p>
+<p>Вскоре стало известно о дальнейших выступлениях Мак-Хака VI. Он принял участие еще в одном турнире любителей, где 28 участников играли по швейцарской системе пять туров. Победитель этого состязания набрал 4? очка. На этот раз Мак-Хак VI сыграл удачнее — у него 3 очка: две партии выиграл, две свел вничью, и одна, первая, партия была ему засчитана как поражение. Технические неполадки в машине заставили эту встречу прервать! Как шутили участники турнира, «у робота от непривычной умственной работы разболелась голова»!</p>
+<p>Мак-Хак VI стал первой машиной, играющей в турнирах «плечом к плечу» с людьми. Затем его примеру последовали другие. Известна машина «Далантайн» в Канаде, которая также приняла участие в турнире и набрала полтора очка в шести партиях. Один из участников турнира, которому, кстати, удалось обыграть машину, рассказывает, что играть с машиной трудно — смущает непривычная обстановка. К тому же зрители активно болеют за машину и шумно приветствуют каждый ее ход. Вот партия, которую выиграл «мистер» Мак-Хак VI.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p><b>Сицилианская защита</b></p>
+<p><b>Мак-Хак — VI Ленди</b></p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", this, "c7c5"); ' class="line0">c7-c5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d2-d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3", this, "c5d4"); ' class="line0">c5:d4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/8/3QP3/8/PPP2PPP/RNB1KBNR b KQkq - 0 3", this, "d1d4"); ' class="line0">3.Фd1:d4</span> 
+ <span onclick='loadMove("r1bqkbnr/pp1ppppp/2n5/8/3QP3/8/PPP2PPP/RNB1KBNR w KQkq - 0 4", this, "b8c6"); ' class="line0">Кb8-c6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkbnr/pp1ppppp/2n5/8/4P3/3Q4/PPP2PPP/RNB1KBNR b KQkq - 0 4", this, "d4d3"); ' class="line0">4.Фd4-d3</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Машина выбрала свой путь развития в сицилианской защите. Это показывает, что программисты не сообщили ей достаточно теоретических знаний.</p>
+<p class="longNotation">
+ <span class="ellipsis0">4. ...</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1ppppp/2n2n2/8/4P3/3Q4/PPP2PPP/RNB1KBNR w KQkq - 0 5", this, "g8f6"); ' class="line0">Кg8-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/pp1ppppp/2n2n2/8/4P3/2NQ4/PPP2PPP/R1B1KBNR b KQkq - 0 5", this, "b1c3"); ' class="line0">5.Кb1-c3</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1ppp1p/2n2np1/8/4P3/2NQ4/PPP2PPP/R1B1KBNR w KQkq - 0 6", this, "g7g6"); ' class="line0">g7-g6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/pp1ppp1p/2n2np1/8/4P3/2NQ1N2/PPP2PPP/R1B1KB1R b KQkq - 0 6", this, "g1f3"); ' class="line0">6.Кg1-f3</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pp1p/2np1np1/8/4P3/2NQ1N2/PPP2PPP/R1B1KB1R w KQkq - 0 7", this, "d7d6"); ' class="line0">d7-d6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/pp2pp1p/2np1np1/8/4PB2/2NQ1N2/PPP2PPP/R3KB1R b KQkq - 0 7", this, "c1f4"); ' class="line0">7.Сc1-f4</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3p1p/2np1np1/4p3/4PB2/2NQ1N2/PPP2PPP/R3KB1R w KQkq e6 0 8", this, "e7e5"); ' class="line0">e7-e5</span> 
+</p>
+<p>Этот ход партнера ЭВМ заслуживает самого решительного осуждения, так как серьезно ослабляет позицию черных.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/pp3p1p/2np1np1/4p3/4P3/2NQ1NB1/PPP2PPP/R3KB1R b KQkq - 0 8", this, "f4g3"); ' class="line0">8.Сf4-g3</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3p1p/p1np1np1/4p3/4P3/2NQ1NB1/PPP2PPP/R3KB1R w KQkq - 0 9", this, "a7a6"); ' class="line0">a7-a6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/1p3p1p/p1np1np1/4p3/4P3/2NQ1NB1/PPP2PPP/2KR1B1R b kq - 0 9", this, "e1c1"); ' class="line0">9.0-0-0</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p class="capTop diagram">358</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/1p3p1p/p1np1np1/4p3/4P3/2NQ1NB1/PPP2PPP/2KR1B1R b kq - 0 9"></div>
+<p>Мак-Хак VI настроен весьма решительно. Он начинает нажим на пешку d6.</p>
+<p class="longNotation">
+ <span class="ellipsis0">9. ...</span> 
+ <span onclick='loadMove("r1bqkb1r/5p1p/p1np1np1/1p2p3/4P3/2NQ1NB1/PPP2PPP/2KR1B1R w kq b6 0 10", this, "b7b5"); ' class="line0">b7-b5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/5p1p/p1np1np1/1p2p3/P3P3/2NQ1NB1/1PP2PPP/2KR1B1R b kq a3 0 10", this, "a2a4"); ' class="line0">10.a2-a4?</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Неожиданный ход, целесообразность которого весьма сомнительна. Но именно этот сомнительный ход внес панику в ряды черных, и партнер машины сразу сделал ошибку.</p>
+<p class="longNotation">
+ <span class="ellipsis0">10. ...</span> 
+ <span onclick='loadMove("r1bqk2r/5p1p/p1np1npb/1p2p3/P3P3/2NQ1NB1/1PP2PPP/2KR1B1R w kq - 0 11", this, "f8h6"); ' class="line0">Сf8-h6+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/5p1p/p1np1npb/1p2p3/P3P3/2NQ1NB1/1PP2PPP/1K1R1B1R b kq - 0 11", this, "c1b1"); ' class="line0">11.Крc1-b1</span> 
+ <span onclick='loadMove("r1bqk2r/5p1p/p1np1npb/4p3/Pp2P3/2NQ1NB1/1PP2PPP/1K1R1B1R w kq - 0 12", this, "b5b4"); ' class="line0">b5-b4</span> 
+</p>
+<p class="capTop diagram">359</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk2r/5p1p/p1np1npb/4p3/Pp2P3/2NQ1NB1/1PP2PPP/1K1R1B1R w kq - 0 12"></div>
+<p>С этого момента белые начинают играть очень неплохо.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/p4p1p/2nQ1npb/4p3/Pp2P3/2N2NB1/1PP2PPP/1K1R1B1R b kq - 0 12", this, "d3d6"); ' class="line0">12.Фd3:d6</span> 
+ <span onclick='loadMove("r2qk2r/p2b1p1p/2nQ1npb/4p3/Pp2P3/2N2NB1/1PP2PPP/1K1R1B1R w kq - 0 13", this, "c8d7"); ' class="line0">Сc8-d7</span> 
+</p>
+<p>Наименьшим злом было
+ <span onclick='loadMove("r1b1k2r/p4p1p/2nq1npb/4p3/Pp2P3/2N2NB1/1PP2PPP/1K1R1B1R w kq - 0 13", this, "d8d6"); ' class="line1">12...Ф:d6</span> 
+ <span onclick='loadMove("r1b1k2r/p4p1p/2nR1npb/4p3/Pp2P3/2N2NB1/1PP2PPP/1K3B1R b kq - 0 13", this, "d1d6"); ' class="line1">13.Л:d6</span> 
+ <span onclick='loadMove("r1b1k2r/p4p1p/2nR1npb/4p3/P3P3/2p2NB1/1PP2PPP/1K3B1R w kq - 0 14", this, "b4c3"); ' class="line1">bc</span> 
+ <span onclick='loadMove("r1b1k2r/p4p1p/2R2npb/4p3/P3P3/2p2NB1/1PP2PPP/1K3B1R b kq - 0 14", this, "d6c6"); ' class="line1">14.Л:c6</span> 
+ <span onclick='loadMove("r1b1k2r/p4p1p/2R3pb/4p3/P3n3/2p2NB1/1PP2PPP/1K3B1R w kq - 0 15", this, "f6e4"); ' class="line1">К:e4</span>. Теперь же черные немедленно проигрывают.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/p2b1p1p/2nQ1npb/4p3/Pp2P2B/2N2N2/1PP2PPP/1K1R1B1R b kq - 0 13", this, "g3h4"); ' class="line0">13.Сg3-h4!</span> 
+ <span onclick='loadMove("r2qk2r/p2b1pbp/2nQ1np1/4p3/Pp2P2B/2N2N2/1PP2PPP/1K1R1B1R w kq - 0 14", this, "h6g7"); ' class="line0">Сh6-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/p2b1pbp/2nQ1np1/3Np3/Pp2P2B/5N2/1PP2PPP/1K1R1B1R b kq - 0 14", this, "c3d5"); ' class="line0">14.Кc3-d5!</span> 
+ <span onclick='loadMove("r2qk2r/p2b1pbp/2nQ2p1/3Np3/Pp2n2B/5N2/1PP2PPP/1K1R1B1R w kq - 0 15", this, "f6e4"); ' class="line0">Кf6:e4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/p1Nb1pbp/2nQ2p1/4p3/Pp2n2B/5N2/1PP2PPP/1K1R1B1R b kq - 0 15", this, "d5c7"); ' class="line0">15.Кd5-c7+</span> 
+ <span onclick='loadMove("r3k2r/p1qb1pbp/2nQ2p1/4p3/Pp2n2B/5N2/1PP2PPP/1K1R1B1R w kq - 0 16", this, "d8c7"); ' class="line0">Фd8:c7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r3k2r/p1Qb1pbp/2n3p1/4p3/Pp2n2B/5N2/1PP2PPP/1K1R1B1R b kq - 0 16", this, "d6c7"); ' class="line0">16.Фd6:c7</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Пора опустить занавес, но мистер Ленди, видно, никак не хочет примириться с мыслью, что его может обыграть машина, и продолжает сопротивляться.</p>
+<p class="longNotation">
+ <span class="ellipsis0">16. ...</span> 
+ <span onclick='loadMove("r3k2r/p1Qb1pbp/2n3p1/2n1p3/Pp5B/5N2/1PP2PPP/1K1R1B1R w kq - 0 17", this, "e4c5"); ' class="line0">Кe4-c5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r3k2r/p2b1pbp/2nQ2p1/2n1p3/Pp5B/5N2/1PP2PPP/1K1R1B1R b kq - 0 17", this, "c7d6"); ' class="line0">17.Фc7-d6</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Здесь возможен был прозаический удар
+ <span onclick='loadMove("r3k2r/p1QR1pbp/2n3p1/2n1p3/Pp5B/5N2/1PP2PPP/1K3B1R b kq - 0 17", this, "d1d7"); ' class="line1">17.Л:d7</span>, чтобы на
+ <span onclick='loadMove("r3k2r/p1Qn1pbp/2n3p1/4p3/Pp5B/5N2/1PP2PPP/1K3B1R w kq - 0 18", this, "c5d7"); ' class="line1">17...К:d7</span> 
+ответить
+ <span onclick='loadMove("r3k2r/p2n1pbp/2Q3p1/4p3/Pp5B/5N2/1PP2PPP/1K3B1R b kq - 0 18", this, "c7c6"); ' class="line1">18.Ф:c6</span>. ЭВМ, видимо, считала, что ее материальный перевес уже достаточен для победы, не старалась его увеличить, а стремилась эффектно закончить сражение. Поэтому в первую очередь она воспрепятствовала короткой рокировке черных.</p>
+<p class="longNotation">
+ <span class="ellipsis0">17. ...</span> 
+ <span onclick='loadMove("r3kb1r/p2b1p1p/2nQ2p1/2n1p3/Pp5B/5N2/1PP2PPP/1K1R1B1R w kq - 0 18", this, "g7f8"); ' class="line0">Сg7-f8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r3kb1r/p2b1p1p/2n3p1/2nQp3/Pp5B/5N2/1PP2PPP/1K1R1B1R b kq - 0 18", this, "d6d5"); ' class="line0">18.Фd6-d5</span> 
+ <span onclick='loadMove("2r1kb1r/p2b1p1p/2n3p1/2nQp3/Pp5B/5N2/1PP2PPP/1K1R1B1R w k - 0 19", this, "a8c8"); ' class="line0">Лa8-c8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1kb1r/p2b1p1p/2n3p1/2nQN3/Pp5B/8/1PP2PPP/1K1R1B1R b k - 0 19", this, "f3e5"); ' class="line0">19.Кf3:e5</span> 
+ <span onclick='loadMove("2r1kb1r/p4p1p/2n1b1p1/2nQN3/Pp5B/8/1PP2PPP/1K1R1B1R w k - 0 20", this, "d7e6"); ' class="line0">Сd7-e6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1kb1r/p4p1p/2Q1b1p1/2n1N3/Pp5B/8/1PP2PPP/1K1R1B1R b k - 0 20", this, "d5c6"); ' class="line0">20.Фd5:c6+!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Мак-Хаку VI удается эффектно закончить эту встречу.</p>
+<p class="longNotation">
+ <span class="ellipsis0">20. ...</span> 
+ <span onclick='loadMove("4kb1r/p4p1p/2r1b1p1/2n1N3/Pp5B/8/1PP2PPP/1K1R1B1R w k - 0 21", this, "c8c6"); ' class="line0">Лc8:c6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("3Rkb1r/p4p1p/2r1b1p1/2n1N3/Pp5B/8/1PP2PPP/1K3B1R b k - 0 21", this, "d1d8"); ' class="line0">21.Лd1-d8X</span> 
+.</p>
+<p>Как видите, машина может с успехом проводить комбинации даже с жертвой ферзя! Еще более любопытна комбинация, осуществленная ЭВМ в следующей позиции.</p>
+<p class="capTop diagram">360</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3Rkb1r/p4p1p/2r1b1p1/2n1N3/Pp5B/8/1PP2PPP/1K3B1R b k - 0 21"></div>
+<p>Игравший черными Мак-Хак VI нанес красивый удар, который может сделать честь любому квалифицированному шахматисту.</p>
+<p class="longNotation">
+ <span class="ellipsis0">34. ...</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p2n1/3P2P1/P3RrP1/4RK2 w - - 0 35", this, "f8f2"); ' class="line0">Лf8:f2+!</span> 
+</p>
+<p>Как указывают, машина рассчитала следующие варианты:
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p2n1/3P2P1/P4RP1/4RK2 b - - 0 35", this, "e2f2"); ' class="line1">35.Л:f2</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p4/3P2P1/P4RPn/4RK2 w - - 0 36", this, "g4h2"); ' class="line1">Кh2+</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p4/3P2P1/P3KRPn/4R3 b - - 0 36", this, "f1e2"); ' class="line1">36.Крe2</span> 
+(если
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p4/3P2P1/P4RPn/4R1K1 b - - 0 36", this, "f1g1"); ' class="line2">36.Крg1</span>, то
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p4/3P2P1/P4RPn/4q1K1 w - - 0 37", this, "b4e1"); ' class="line2">36...Ф:e1+</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p4/3P2P1/P4RPK/4q3 b - - 0 37", this, "g1h2"); ' class="line2">37.Кр:h2</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p4/3P2P1/P4qPK/8 w - - 0 38", this, "e1f2"); ' class="line2">Ф:f2</span>, и черные выигрывают)
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p4/3P2P1/Pq2KRPn/4R3 w - - 0 37", this, "b4b2"); ' class="line1">36...Фb2+</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p4/3P2P1/Pq3RPn/3KR3 b - - 0 37", this, "e2d1"); ' class="line1">37.Крd1</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p4/3P2P1/P4RPn/1q1KR3 w - - 0 38", this, "b2b1"); ' class="line1">Фb1+</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p4/3P2P1/P2K1RPn/1q2R3 b - - 0 38", this, "d1d2"); ' class="line1">38.Крd2</span> 
+ <span onclick='loadMove("3k4/p5Q1/2p3p1/8/3p4/3P2P1/Pr1K1RPn/1q2R3 w - - 0 39", this, "b8b2"); ' class="line1">Лb2X</span>.</p>
+<p>К сожалению, все эти эффектные варианты не осуществились: ошеломленный партнер ЭВМ ответил</p>
+<p class="longNotation">
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p2n1/3P2P1/P3RrP1/4R1K1 b - - 0 35", this, "f1g1"); ' class="line0">35.Крf1-g1</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Развязка наступила сразу.</p>
+<p class="longNotation">
+ <span class="ellipsis0">35. ...</span> 
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p2n1/3P2P1/P3r1P1/4R1K1 w - - 0 36", this, "f2e2"); ' class="line0">Лf2:e2</span> 
+</p>
+<p>Белые потеряли еще и ладью, так как на
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/1q1p2n1/3P2P1/P3R1P1/6K1 b - - 0 36", this, "e1e2"); ' class="line1">36.Л:e2</span> 
+следует
+ <span onclick='loadMove("1r1k4/p5Q1/2p3p1/8/3p2n1/3P2P1/P3R1P1/1q4K1 w - - 0 37", this, "b4b1"); ' class="line1">36...Фb1+</span>. Важным этапом на пути обучения машины игре в шахматы был сыгранный в период 1966—1968 годов матч из четырех партий между советскими и американскими машинами. Как известно, он закончился со счетом 3 : 1 в пользу наших ЭВМ. Дело, конечно, не в счете, а в том, что партии, игранные ЭВМ, ярко показали достоинства и недостатки наших и американских программ и послужили хорошим материалом для дальнейшей работы.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Вот одна из партий этого матча.</p>
+<p><b>Дебют трех коней</b></p>
+<p><b>ЭВМ (СССР) – ЭВМ (США)</b></p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кg1-f3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кb8-c6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кb1-c3</span> 
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/2b1p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", this, "f8c5"); ' class="line0">Сf8-c5</span> 
+</p>
+<p>Любопытно, что дебют машины разыграли вполне по теории, хотя несколько старомодно. Правда, последний ход не считается особенно сильным из-за следующей реплики белых. Менее обязывающим был ответ
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", this, "g8f6"); ' class="line1">3...Кf6</span>.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/2b1N3/4P3/2N5/PPPP1PPP/R1BQKB1R b KQkq - 0 4", this, "f3e5"); ' class="line0">4.Кf3:e5!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Сыграно грамотно. Белые временно жертвуют фигуру, чтобы затем ее отыграть, получая при этом позиционное преимущество.</p>
+<p class="longNotation">
+ <span class="ellipsis0">4. ...</span> 
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/2b1n3/4P3/2N5/PPPP1PPP/R1BQKB1R w KQkq - 0 5", this, "c6e5"); ' class="line0">Кc6:e5</span> 
+</p>
+<p>Хуже
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/4N3/4P3/2N5/PPPP1bPP/R1BQKB1R w KQkq - 0 5", this, "c5f2"); ' class="line1">4...С:f2+</span> 
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/4N3/4P3/2N5/PPPP1KPP/R1BQ1B1R b kq - 0 5", this, "e1f2"); ' class="line1">5.Кр:f2</span> 
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/4n3/4P3/2N5/PPPP1KPP/R1BQ1B1R w kq - 0 6", this, "c6e5"); ' class="line1">К:e5</span> 
+из-за
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/4n3/3PP3/2N5/PPP2KPP/R1BQ1B1R b kq d3 0 6", this, "d2d4"); ' class="line1">6.d4</span>, и сильный центр белых более чем компенсирует им временное неудобство — потерю рокировки.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/2b1n3/3PP3/2N5/PPP2PPP/R1BQKB1R b KQkq d3 0 5", this, "d2d4"); ' class="line0">5.d2-d4</span> 
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/3b4/4n3/3PP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "c5d6"); ' class="line0">Сc5-d6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/3b4/4P3/4P3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 6", this, "d4e5"); ' class="line0">6.d4:e5</span> 
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/4b3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 7", this, "d6e5"); ' class="line0">Сd6:e5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/4b3/4PP2/2N5/PPP3PP/R1BQKB1R b KQkq f3 0 7", this, "f2f4"); ' class="line0">7.f2-f4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Белые настроены очень агрессивно. Не считаясь с ослаблением пешечной позиции, они последовательно проводят план захвата центра.</p>
+<p class="longNotation">
+ <span class="ellipsis0">7. ...</span> 
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/8/4PP2/2b5/PPP3PP/R1BQKB1R w KQkq - 0 8", this, "e5c3"); ' class="line0">Сe5:c3+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk1nr/pppp1ppp/8/8/4PP2/2P5/P1P3PP/R1BQKB1R b KQkq - 0 8", this, "b2c3"); ' class="line0">8.b2:c3</span> 
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/5n2/8/4PP2/2P5/P1P3PP/R1BQKB1R w KQkq - 0 9", this, "g8f6"); ' class="line0">Кg8-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/5n2/4P3/5P2/2P5/P1P3PP/R1BQKB1R b KQkq - 0 9", this, "e4e5"); ' class="line0">9.e4-e5</span> 
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/4P3/4nP2/2P5/P1P3PP/R1BQKB1R w KQkq - 0 10", this, "f6e4"); ' class="line0">Кf6-e4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/4P3/4nP2/2PQ4/P1P3PP/R1B1KB1R b KQkq - 0 10", this, "d1d3"); ' class="line0">10.Фd1-d3</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Снова разумный ход. Белые сочетают атаку с защитой от шаха ферзем на h4. И все же мастер здесь сыграл бы еще сильнее —
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/3QP3/4nP2/2P5/P1P3PP/R1B1KB1R b KQkq - 0 10", this, "d1d5"); ' class="line1">10.Фd5!</span> 
+Тогда не опасно ни
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/3QP3/5P2/2n5/P1P3PP/R1B1KB1R w KQkq - 0 11", this, "e4c3"); ' class="line1">10...К:c3</span> 
+из-за
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/4P3/2Q2P2/2n5/P1P3PP/R1B1KB1R b KQkq - 0 11", this, "d5c4"); ' class="line1">11.Фc4</span>, ни
+ <span onclick='loadMove("r1b1k2r/pppp1ppp/8/3QP3/4nP1q/2P5/P1P3PP/R1B1KB1R w KQkq - 0 11", this, "d8h4"); ' class="line2">10...Фh4+</span> 
+из-за
+ <span onclick='loadMove("r1b1k2r/pppp1ppp/8/3QP3/4nP1q/2P3P1/P1P4P/R1B1KB1R b KQkq - 0 11", this, "g2g3"); ' class="line2">11.g3</span> 
+ <span onclick='loadMove("r1b1k2r/pppp1ppp/8/3QP3/5P1q/2P3n1/P1P4P/R1B1KB1R w KQkq - 0 12", this, "e4g3"); ' class="line2">К:g3</span> 
+ <span onclick='loadMove("r1b1k2r/pppp1ppp/8/3QP3/5P1q/2P3P1/P1P5/R1B1KB1R b KQkq - 0 12", this, "h2g3"); ' class="line2">12.hg</span>, и ладья h1 защищена ферзем. Черным пришлось бы защищаться путем
+ <span onclick='loadMove("r1bqk2r/pppp2pp/8/3QPp2/4nP2/2P5/P1P3PP/R1B1KB1R w KQkq f6 0 11", this, "f7f5"); ' class="line2">10...f5</span>.</p>
+<p class="longNotation">
+ <span class="ellipsis0">10. ...</span> 
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/2n1P3/5P2/2PQ4/P1P3PP/R1B1KB1R w KQkq - 0 11", this, "e4c5"); ' class="line0">Кe4-c5</span> 
+</p>
+<p>Это блуждание конем до добра не доводит. Продолжая
+ <span onclick='loadMove("r1bqk2r/ppp2ppp/8/3pP3/4nP2/2PQ4/P1P3PP/R1B1KB1R w KQkq d6 0 11", this, "d7d5"); ' class="line1">10...d5</span>, черные еще могли сохранить примерное равновесие.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/2nQP3/5P2/2P5/P1P3PP/R1B1KB1R b KQkq - 0 11", this, "d3d5"); ' class="line0">11.Фd3-d5</span> 
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/4n3/3QP3/5P2/2P5/P1P3PP/R1B1KB1R w KQkq - 0 12", this, "c5e6"); ' class="line0">Кc5-e6?</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/4n3/3QPP2/8/2P5/P1P3PP/R1B1KB1R b KQkq - 0 12", this, "f4f5"); ' class="line0">12.f4-f5</span> 
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/3QPPn1/8/2P5/P1P3PP/R1B1KB1R w KQkq - 0 13", this, "e6g5"); ' class="line0">Кe6-g5??</span> 
+</p>
+<p>Сыграно по-человечески. Говорят, что людям свойственно ошибаться. Часто у шахматистов один неудачный ход влечет за собой другой. Гнев, досада на самого себя за ошибки — не лучшие помощники в игре. Казалось бы, машины не должны быть подвластны эмоциям. Однако в этой встрече американская ЭВМ, попав в трудную ситуацию, явно «расстроилась». За одной оплошностью последовали другие. Так, вместо
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/4n3/3QP3/5P2/2P5/P1P3PP/R1B1KB1R w KQkq - 0 12", this, "c5e6"); ' class="line1">11...Кe6</span> 
+следовало играть
+ <span onclick='loadMove("r1bqk2r/ppp2ppp/3p4/2nQP3/5P2/2P5/P1P3PP/R1B1KB1R w KQkq - 0 12", this, "d7d6"); ' class="line1">11...d6</span>.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/8/3QPPn1/7P/2P5/P1P3P1/R1B1KB1R b KQkq h3 0 13", this, "h2h4"); ' class="line0">13.h2-h4!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Именно так! Теперь черные теряют фигуру, что в партиях мастеров обычно равнозначно проигрышу. Но может быть, у машин, как у начинающих шахматистов, иначе?</p>
+<p class="longNotation">
+ <span class="ellipsis0">13. ...</span> 
+ <span onclick='loadMove("r1bqk2r/pppp2pp/5p2/3QPPn1/7P/2P5/P1P3P1/R1B1KB1R w KQkq - 0 14", this, "f7f6"); ' class="line0">f7-f6</span> 
+</p>
+<p>Позволяет белым красиво завершить борьбу.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/pppp2pp/5p2/3QPPP1/8/2P5/P1P3P1/R1B1KB1R b KQkq - 0 14", this, "h4g5"); ' class="line0">14.h4:g5</span> 
+ <span onclick='loadMove("r1bqk2r/pppp2pp/8/3QPPp1/8/2P5/P1P3P1/R1B1KB1R w KQkq - 0 15", this, "f6g5"); ' class="line0">f6:g5</span> 
+</p>
+<p class="capTop diagram">361</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk2r/pppp2pp/8/3QPPp1/8/2P5/P1P3P1/R1B1KB1R w KQkq - 0 15"></div>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk2r/pppp2pR/8/3QPPp1/8/2P5/P1P3P1/R1B1KB2 b Qkq - 0 15", this, "h1h7"); ' class="line0">15.Лh1:h7!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Эффектно, хотя и несложно. Белые жертвуют ладью, но взять ее нельзя из-за мата в два хода.</p>
+<p class="longNotation">
+ <span class="ellipsis0">15. ...</span> 
+ <span onclick='loadMove("r1bqkr2/pppp2pR/8/3QPPp1/8/2P5/P1P3P1/R1B1KB2 w Qq - 0 16", this, "h8f8"); ' class="line0">Лh8-f8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkr2/pppp2R1/8/3QPPp1/8/2P5/P1P3P1/R1B1KB2 b Qq - 0 16", this, "h7g7"); ' class="line0">16.Лh7:g7</span> 
+ <span onclick='loadMove("r1bqkr2/pp1p2R1/2p5/3QPPp1/8/2P5/P1P3P1/R1B1KB2 w Qq - 0 17", this, "c7c6"); ' class="line0">c7-c6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkr2/pp1p2R1/2pQ4/4PPp1/8/2P5/P1P3P1/R1B1KB2 b Qq - 0 17", this, "d5d6"); ' class="line0">17.Фd5-d6</span> 
+ <span onclick='loadMove("r1bqk3/pp1p2R1/2pQ4/4Prp1/8/2P5/P1P3P1/R1B1KB2 w Qq - 0 18", this, "f8f5"); ' class="line0">Лf8:f5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqk1R1/pp1p4/2pQ4/4Prp1/8/2P5/P1P3P1/R1B1KB2 b Qq - 0 18", this, "g7g8"); ' class="line0">18.Лg7-g8+</span> 
+ <span onclick='loadMove("r1bqkrR1/pp1p4/2pQ4/4P1p1/8/2P5/P1P3P1/R1B1KB2 w Qq - 0 19", this, "f5f8"); ' class="line0">Лf5-f8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkQR1/pp1p4/2p5/4P1p1/8/2P5/P1P3P1/R1B1KB2 b Qq - 0 19", this, "d6f8"); ' class="line0">19.Фd6:f8X</span> 
+.</p>
+<p>Финальную атаку наша машина провела безукоризненно. Что можно сказать о примерной силе соперников? Черные защищались откровенно слабо. Очевидно, это недостаток программы. Наша машина провела партию логично и точно. Тем не менее не следует переоценивать ее силу — в этой партии она не встретила должного сопротивления.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="message">
+<p>Время от времени в печати разных стран появляются партии, игранные ЭВМ, но, как правило, уровень игры машин продолжает оставаться довольно низким. Правда, сравнительно недавно стали поступать сообщения о способном американце Мак-Хаке VII. Этот младший брат Мак-Хака VI, по отзывам очевидцев, играет значительно сильнее всех своих родственников и якобы уже достиг уровня первого разряда. Однако в печати его партии еще не публиковались.</p>
+<p>В течение последних лет проблемой создания электронного гроссмейстера занят экс-чемпион мира, доктор технических наук М. Ботвинник. Он разработал свои оригинальные пути и утверждает, что с помощью его программы машина достигнет мастерского уровня. Правда, пока еще нет этому практических доказательств. Любопытно отметить, что другой экс-чемпион мира, профессор математики М. Эйве, не согласен с М. Ботвинником. Он считает, что электронным вычислительным машинам еще очень далеко до овладения шахматным искусством.</p>
+<p>Итак, идет довольно медленный, но неуклонный процесс обучения ЭВМ шахматному искусству. Надо полагать, что рано или поздно машина достигнет высот в шахматах, так же, как она их достигла во многих других областях. И тогда ЭВМ сможет оспаривать пальму первенства у гроссмейстеров и чемпионов. Однако, что произошло бы, если бы уже сегодня электронная вычислительная машина смогла победить любого гроссмейстера? Умерли бы шахматы?</p>
+<p>Конечно, нет. Машина не помешала бы состязаться людям, так же как не мешают бегунам состязаться в скорости современные самолеты и ракеты. Вероятно, изменились бы несколько правила. Пришлось бы исключить откладывание неоконченных партий, чтобы не было машинного анализа. Это не столь важно. Соревнование людей за шахматной доской будет продолжаться!</p>
+</div>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

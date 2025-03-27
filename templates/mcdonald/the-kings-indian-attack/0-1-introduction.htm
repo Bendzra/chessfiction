@@ -1,0 +1,95 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Introduction | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Introduction</h2>
+<p>The King's Indian Attack (or KIA) is a flexible opening system that can be employed by White after
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+or against the French, Sicilian, and Caro-Kann if he chooses to begin with
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+. A typical opening sequence is
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2", this, "d7d5"); ' class="line1">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2", this, "g2g3"); ' class="line1">2.g3</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pppp/5n2/3p4/8/5NP1/PPPPPP1P/RNBQKB1R w KQkq - 0 3", this, "g8f6"); ' class="line1">Nf6</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp1pppp/5n2/3p4/8/5NP1/PPPPPPBP/RNBQK2R b KQkq - 0 3", this, "f1g2"); ' class="line1">3.Bg2</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3p4/8/5NP1/PPPPPPBP/RNBQK2R w KQkq - 0 4", this, "e7e6"); ' class="line1">e6</span> 
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/3p4/8/5NP1/PPPPPPBP/RNBQ1RK1 b kq - 0 4", this, "e1g1"); ' class="line1">4.O-O</span> 
+ <span onclick='loadMove("rnbqkb1r/pp3ppp/4pn2/2pp4/8/5NP1/PPPPPPBP/RNBQ1RK1 w kq c6 0 5", this, "c7c5"); ' class="line1">c5</span> 
+ <span onclick='loadMove("rnbqkb1r/pp3ppp/4pn2/2pp4/8/3P1NP1/PPP1PPBP/RNBQ1RK1 b kq - 0 5", this, "d2d3"); ' class="line1">5.d3</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1pn2/2pp4/8/3P1NP1/PPP1PPBP/RNBQ1RK1 w kq - 0 6", this, "b8c6"); ' class="line1">Nc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1pn2/2pp4/8/3P1NP1/PPPNPPBP/R1BQ1RK1 b kq - 0 6", this, "b1d2"); ' class="line1">6.Nbd2</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/2pp4/8/3P1NP1/PPPNPPBP/R1BQ1RK1 w kq - 0 7", this, "f8e7"); ' class="line1">Be7</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQ1RK1 b kq e3 0 7", this, "e2e4"); ' class="line1">7.e4</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQ1RK1 w - - 0 8", this, "e8g8"); ' class="line1">O-O</span> 
+,
+while the same position could be reached via a Sicilian or French move order after for example
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", this, "c7c5"); ' class="line1">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Nf3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "e7e6"); ' class="line1">e6</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/3P1N2/PPP2PPP/RNBQKB1R b KQkq - 0 3", this, "d2d3"); ' class="line1">3.d3</span> 
+ <span onclick='loadMove("r1bqkbnr/pp1p1ppp/2n1p3/2p5/4P3/3P1N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", this, "b8c6"); ' class="line1">Nc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pp1p1ppp/2n1p3/2p5/4P3/3P1NP1/PPP2P1P/RNBQKB1R b KQkq - 0 4", this, "g2g3"); ' class="line1">4.g3</span> 
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n1p3/2pp4/4P3/3P1NP1/PPP2P1P/RNBQKB1R w KQkq d6 0 5", this, "d7d5"); ' class="line1">d5</span> 
+ <span onclick='loadMove("r1bqkbnr/pp3ppp/2n1p3/2pp4/4P3/3P1NP1/PPPN1P1P/R1BQKB1R b KQkq - 0 5", this, "b1d2"); ' class="line1">5.Nbd2</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1P1P/R1BQKB1R w KQkq - 0 6", this, "g8f6"); ' class="line1">Nf6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQK2R b KQkq - 0 6", this, "f1g2"); ' class="line1">6.Bg2</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQK2R w KQkq - 0 7", this, "f8e7"); ' class="line1">Be7</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQ1RK1 b kq - 0 7", this, "e1g1"); ' class="line1">7.O-O</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQ1RK1 w - - 0 8", this, "e8g8"); ' class="line1">O-O</span> 
+.</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/pp2bppp/2n1pn2/2pp4/4P3/3P1NP1/PPPN1PBP/R1BQ1RK1 w - - 0 8"></div>
+<p>The characteristic features of the King's Indian Attack are the fianchetto of the bishop on g2 and the setting up of a d3 and e4 pawn chain. White will develop his pieces in support of the strongpoint on e4.</p>
+<p>In the King's Indian Attack there is no immediate clash between the two armies. Both sides are on the whole left undisturbed during the opening phase: only when White threatens to encroach on space in the centre does the game begin to develop its individual character. For this reason it is possible to describe the typical piece and pawn deployments by White and Black without becoming bogged down in detail or having to point out too many exceptions.</p>
+<p>As we see in the example above, the two sequences that begin with
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+or
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+could well transpose into each other. However, this isn't always the case. Whether to start
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+or
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+is the eternal dilemma of the King's Indian Attack player. If you play
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+you aren't guaranteed to get a KIA opening system: for example, after
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2", this, "d7d5"); ' class="line1">d5</span> 
+there's no good way to maintain a pawn on e4. This lack of universality might make you veer towards
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+. Here a possible drawback compared to
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+is that you have to face the solid Slav line after
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2", this, "d7d5"); ' class="line1">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2", this, "g2g3"); ' class="line1">2.g3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/3p4/8/5NP1/PPPPPP1P/RNBQKB1R w KQkq - 0 3", this, "c7c6"); ' class="line1">c6</span> 
+in which Black puts his bishop on f5 or g4 in the near future. Facing the Dutch after
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppppp1pp/8/5p2/8/5N2/PPPPPPPP/RNBQKB1R w KQkq f6 0 2", this, "f7f5"); ' class="line1">f5</span> 
+might also not appeal to some players.</p>
+<p>I have standardized the move order in the games for the sake of clarity. However, I should mention that there are other ways besides
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+and
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Nf3</span> 
+to reach the familiar KIA set-up. For example, Nakamura played
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/6P1/PPPPPP1P/RNBQKBNR b KQkq - 0 1", this, "g2g3"); ' class="line1">1.g3!?</span> 
+in his game with Navara in this book. That's probably the ultimate in flexibility, though of course if he chooses Black can avoid the KIA with
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/8/6P1/PPPPPP1P/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line1">1...e5</span> 
+.</p>
+<p>The power to force the opponent into an opening scheme that you have carefully worked out is an advantageous use of the white pieces, even if objectively speaking it is about equal. I hope this book helps you understand the King's Indian Attack and that you win many games with it.</p>
+<p style="text-align:right">Neil McDonald,<br>Gravesend,<br>May 2014</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

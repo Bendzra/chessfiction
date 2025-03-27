@@ -1,0 +1,108 @@
+{% extends 'base.htm' %}
+{% load static %}
+
+{% block boardscripts %}{% endblock boardscripts %}
+
+{% block head_extras %}
+<link href="{% static 'spoiler/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'spoiler/hamburger_menu.css' %}" rel="stylesheet" type="text/css" />
+{% endblock head_extras %}
+
+{% block content %}
+{% include "snippet_hamburger_menu.htm" %}
+
+<!--div class="iBook"-->
+<div class="flex-row">
+  {% for book in page_obj %}
+  <div class="card {% if book.litres_url %}border-litres{% else %}border-no-litres{% endif %}">
+	<div class="card-body">
+		<div class="card-img">
+	<!-- <div class="{% if book.litres_url %}border-litres{% else %}border-no-litres{% endif %}"></div> -->
+		{% if not book.page_view %}
+		<a href="{% url book.slug|add:'_index' %}">
+		{% else %}
+		<a href="{% url book.page_view book.root_dir|add:'/index.htm' %}">
+		{% endif %}
+		<img src="{%static 'images/'|add:book.slug|add:'/thumb.jpg'%}" alt="{%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}}. {%else%} {{author.last_name}}, {%endif%} {%endfor%} {{book.title}} ({{book.year}})" />
+		</a>
+		{% if book.litres_url %}
+		<a href="{{ book.litres_url }}?lfrom=777059770" target="_blank">
+		<img src="{%static 'icons/litres_favicon_48x48.ico'%}" style="width:2em; position:absolute; top: 1em; right: 1em; opacity: 0.85;" alt="litres"/>
+		</a>
+		{% endif %}
+		</div>
+		
+		<div class="card-ref">
+		{% for author in book.authors.all %}
+		<a class="text-primary" href="?author={{author.id}}">
+		{% if author.first_name %} {{author.first_name}} {% endif %} {% if author.second_name %} {{author.second_name}} {% endif %} 
+		{% if forloop.counter == book.authors.all.count %} {{ author.last_name }}. {% else %} {{ author.last_name }}, {% endif %}
+		</a>
+		{% endfor %}
+		<br />
+		<strong>
+		<a class="text-success" href={% if not book.page_view %}"{% url book.slug|add:'_index' %}"{% else %}"{% url book.page_view book.root_dir|add:'/index.htm' %}"{% endif %}>
+		{{book.title}} ({{book.year}})
+		</a>
+		</strong>
+		</div>
+
+		<div class="card-description">
+		{{ book.annotation|truncatewords:20 }}
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div class="card-footer">
+		{% if book.series %}
+		<div class="card-series">
+		<a class="" href="/?series={{ book.series.id }}">{{ book.series }}</a>
+		</div>
+		{% endif %}
+		<div class="card-series">
+		{% for cat in book.categories.all %}
+		<a class="btn btn-xs btn-default {% if cat.id in categories_checked %}active{% endif %}" href="/?category={{ cat.id }}">{% if book.language == 'ru' %}{{ cat.name }}{% elif book.language == 'en' %}{{ cat.eng }}{% endif %}</a>
+		{% endfor %}
+		</div>
+	</div>
+  </div> <!-- card -->
+  {% endfor %}
+</div> <!-- row -->
+<!--/div--> <!-- iBook -->
+{% endblock content %}
+
+{% block pagination %}
+<nav class="navbar">
+<ul class="pagination nav navbar-nav navbar-right">
+  {% if page_obj.has_previous %}
+  <li><a aria-label="first" href="?page=1{{ categories_get }}{{ q_get }}{{ author_get }}{{ series_get }}">&laquo; первая</a></li>
+  <li><a aria-label="Previous" href="?page={{ page_obj.previous_page_number }}{{ categories_get }}{{ q_get }}{{ author_get }}{{ series_get }}">предыдущая</a></li>
+  {% endif %}
+
+  <li class="active">
+    <a aria-label="Current" href="/" onclick="return false;">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</a>
+  </li>
+
+  {% if page_obj.has_next %}
+  <li><a aria-label="Next" href="?page={{ page_obj.next_page_number }}{{ categories_get }}{{ q_get }}{{ author_get }}{{ series_get }}">следующая</a></li>
+  <li><a aria-label="Last" href="?page={{ page_obj.paginator.num_pages }}{{ categories_get }}{{ q_get }}{{ author_get }}{{ series_get }}">последняя &raquo;</a></li>
+  {% endif %}
+</ul>
+</nav>
+{% endblock pagination %}
+
+{% block body_extras %}
+<script src="{% static 'spoiler/bootstrap.min.js' %}"></script>
+
+<script>
+	// hamburger form reset
+	function resetForm(btnReset) {
+		var oForm = btnReset.parentElement.parentElement;
+		for (var i = 0; i < oForm.length; i++) {
+			switch(oForm[i].type) {
+				case "checkbox": oForm[i].checked = false; break;
+				case "text": oForm[i].value = null; break;
+			}
+		}
+	}
+</script>
+{% endblock body_extras %}

@@ -1,0 +1,65 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЛЕНОСТЬ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h4>ЛЕНОСТЬ</h4>
+
+<div class="message">
+<p>Леность за доской заявляет о себе двумя путями. Первый: в вашем распоряжении есть сложное продолжение, но вы решаете не анализировать его потому, что это потребует слишком больших усилий. Обратите внимание, что это совсем не тот случай, когда применим принцип НАНТ, описанный на стр. 31. Здесь сознательно взвешивается баланс между временем, которое будет потрачено на обдумывание, и возможностью найти лучший ход. Такое чаще всего случается, когда есть практически адекватная альтернатива, требующая небольшого расчета. С другой стороны, леность сознательно уводит вас от хода, который на самом деле может оказаться очень сильным. Проиграть партию из-за того, что вы просмотрели ход - это одно дело, но если вы видели правильный ход и не потрудились проанализировать его - это совсем другое!</p>
+<p>Вторая, более понятная форма лености проявляется в том случае, когда у соперника есть раздражающая вас возможность. Вы должны рассматривать ее на каждом ходу до тех пор, пока не станете сыты ей по горло и не решите потратить темп, чтобы полностью ее предотвратить. Наиболее частое проявление этой формы лености - предотвращение возможного шаха соперника. Вы должны считаться с этим шахом в каждом варианте, и, в конце концов, решаете просто предотвратить его, уведя короля. Конечно, во многих случаях такой ход совершенно оправдан, но во многих других потеря времени играет важную роль. Ход <b>Крh1</b> после <b>0-0</b> (или <b>Крb1</b> после <b>0-0-0</b>) может оказаться такой тратой времени. Когда такой ход оправдан, зависит обычно от конкретной позиции, а не оттого, что вас раздражает необходимость каждый раз считать немного больше.</p>
+<p>А вот необычный пример лености:</p>
+<!--p>За доской</p><p>79</p-->
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1b2rk1/2q1bpp1/3p1n1p/2nPp3/p3PP2/1pP3NP/1P4PN/RBBQR1K1 w - - 0 21"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nPp3/p3PP2/1pP3NP/1P4PN/RBBQR1K1 w - - 0 21", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Дж. Нанн - Се Цзюнь</strong><br />Гастингс 1996/97</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b2rk1/2q1bpp1/3p1n1p/2nPp3/p3PP2/1pP3NP/1P4PN/RBBQR1K1 w - - 0 21"></div>
+<p>В этой позиции я вдруг осознал, что черные могут в какой-то момент пожертвовать пешку путем <b>...a3</b>. Я начал считать варианты типа
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nPp3/p3PP2/1pP2NNP/1P4P1/RBBQR1K1 b - - 0 21", this, "h2f3"); ' class="line1">21.Кf3</span> 
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nP4/p3Pp2/1pP2NNP/1P4P1/RBBQR1K1 w - - 0 22", this, "e5f4"); ' class="line1">ef</span> 
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nP4/p3PB2/1pP2NNP/1P4P1/RB1QR1K1 b - - 0 22", this, "c1f4"); ' class="line1">22.С:f4</span> 
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nP4/4PB2/ppP2NNP/1P4P1/RB1QR1K1 w - - 0 23", this, "a4a3"); ' class="line1">a3</span> 
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nP4/4PB2/RpP2NNP/1P4P1/1B1QR1K1 b - - 0 23", this, "a1a3"); ' class="line1">23.Л:a3</span> 
+ <span onclick='loadMove("2b2rk1/2q1bpp1/3p1n1p/2nP4/4PB2/rpP2NNP/1P4P1/1B1QR1K1 w - - 0 24", this, "a8a3"); ' class="line1">Л:a3</span> 
+ <span onclick='loadMove("2b2rk1/2q1bpp1/3p1n1p/2nP4/4PB2/PpP2NNP/6P1/1B1QR1K1 b - - 0 24", this, "b2a3"); ' class="line1">24.ba</span> 
+и задумался, есть ли у черных достаточная компенсация за пешку. Пришел к выводу, что нет, поскольку для черных будет неприятен ход <b>Кd4</b>; с этого поля конь прицеливается и к c6, и к f5. Я начал считать варианты еще и еще, и каждый раз мне приходилось учитывать возможность <b>...a3</b>. В конце концов, я подумал, что с меня довольно, и решил избавиться от нее.</p>
+<p>
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nPp3/p3PP2/RpP3NP/1P4PN/1BBQR1K1 b - - 0 21", this, "a1a3"); ' class="line0">21.Лa3?</span> 
+</p>
+<p>Я рассуждал так: раз ладья заблокирована двумя слонами и не может двигаться вдоль первой линии, то она может выполнить полезную работу (предотвратить <b>...a3</b>). Глубоко в душе я понимал, что этот ход выглядит крайне искусственно; моя «логика» была на самом деле всего лишь попыткой найти рациональное объяснение приступу лености.</p>
+<p>Гораздо разумнее было рассуждать иначе. Пешечное большинство черных на ферзевом фланге очень ценно в эндшпиле, поэтому белые должны стремиться решить игру в миттельшпиле. В данный момент им не стоит беспокоиться по поводу <b>...a3</b>, поскольку слон b1 какое-то время будет мешать пешке b превратиться в ферзя.</p>
+<p>Правильным был ход
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nPpP2/p3P3/1pP3NP/1P4PN/RBBQR1K1 b - - 0 21", this, "f4f5"); ' class="line1">21.f5</span> 
+, намечая <b>Кg4</b> или <b>Кh5</b>, чтобы разменять коня-защитника. Позиция на диаграмме не особенно хороша для белых, и они, наверное, будут рады пожертвовать фигуру на h6 и объявить вечный шах.</p>
+<p>
+ <span onclick='loadMove("r4rk1/2qbbpp1/3p1n1p/2nPp3/p3PP2/RpP3NP/1P4PN/1BBQR1K1 w - - 0 22", this, "c8d7"); ' class="line0">21...Сd7</span> 
+ <span onclick='loadMove("r4rk1/2qbbpp1/3p1n1p/2nPp3/p3PP2/RpPB2NP/1P4PN/2BQR1K1 b - - 0 22", this, "b1d3"); ' class="line0">22.Сd3</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/1q1p1n1p/2nPp3/p3PP2/RpPB2NP/1P4PN/2BQR1K1 w - - 0 23", this, "c7b6"); ' class="line0">Фb6</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/1q1p1n1p/2nPp3/p3PP2/RpPB2NP/1P4PN/2BQR2K b - - 0 23", this, "g1h1"); ' class="line0">23.Крh1</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/1q1p1n1p/2nP4/p3Pp2/RpPB2NP/1P4PN/2BQR2K w - - 0 24", this, "e5f4"); ' class="line0">ef</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/1q1p1n1p/2nP4/p3PB2/RpPB2NP/1P4PN/3QR2K b - - 0 24", this, "c1f4"); ' class="line0">24.С:f4</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/1q1p1n1p/3P4/p3PB2/RpPn2NP/1P4PN/3QR2K w - - 0 25", this, "c5d3"); ' class="line0">К:d3</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/1q1p1n1p/3P4/p3PB2/RpPQ2NP/1P4PN/4R2K b - - 0 25", this, "d1d3"); ' class="line0">25.Ф:d3</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/3p1n1p/3P4/p3PB2/RpPQ2NP/1P3qPN/4R2K w - - 0 26", this, "b6f2"); ' class="line0">Фf2</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/3p1n1p/3P4/p3PB2/RpP3NP/1P1Q1qPN/4R2K b - - 0 26", this, "d3d2"); ' class="line0">26.Фd2</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/3p1n1p/3P4/p3PB2/RpP3NP/1P1q2PN/4R2K w - - 0 27", this, "f2d2"); ' class="line0">Ф:d2</span> 
+ <span onclick='loadMove("r4rk1/3bbpp1/3p1n1p/3P4/p3P3/RpP3NP/1P1B2PN/4R2K b - - 0 27", this, "f4d2"); ' class="line0">27.С:d2</span> 
+ <span onclick='loadMove("r3r1k1/3bbpp1/3p1n1p/3P4/p3P3/RpP3NP/1P1B2PN/4R2K w - - 0 28", this, "f8e8"); ' class="line0">Лfe8</span> 
+.</p>
+<p>Ситуация по-прежнему не слишком хороша для белых. Их ладья все еще в смешном положении на а3, у черных два слона, а белая пешка е слаба. Все это - очевидные плюсы черных, а появились они во многом из-за «ленивого» хода
+ <span onclick='loadMove("r1b2rk1/2q1bpp1/3p1n1p/2nPp3/p3PP2/RpP3NP/1P4PN/1BBQR1K1 b - - 0 21", this, "a1a3"); ' class="line1">21.Лa3</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

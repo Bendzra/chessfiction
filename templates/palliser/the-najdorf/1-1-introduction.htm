@@ -1,0 +1,106 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Introduction | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Introduction</h3>
+<!--p>(View in Game Format)</p-->
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", this, "c7c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Nf3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d7d6"); ' class="line0">d6</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", this, "d2d4"); ' class="line0">3.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", this, "c5d4"); ' class="line0">cxd4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", this, "f3d4"); ' class="line0">4.Nxd4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5", this, "g8f6"); ' class="line0">Nf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 5", this, "b1c3"); ' class="line0">5.Nc3</span> 
+ <span onclick='loadMove("rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "a7a6"); ' class="line0">a6</span> 
+ <span onclick='loadMove("rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 0 6", this, "f1e2"); ' class="line0">6.Be2</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p2p1n2/4p3/3NP3/2N5/PPP1BPPP/R1BQK2R w KQkq e6 0 7", this, "e7e5"); ' class="line0">e5</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/1p3ppp/p2p1n2/4p3/3NP3/2N5/PPP1BPPP/R1BQK2R w KQkq e6 0 7"></div>
+<p class="caption"><b><i>Black counters in the centre</i></b></p>
+<p>White can still play aggressively after
+ <span onclick='loadMove("rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 0 6", this, "f1e2"); ' class="line1">6.Be2</span> 
+, but this move usually heralds a positional, manoeuvring approach. His aim is often to gain control of d5 and that square must always be at the forefront of Black's mind. In general Black wishes to force White to recapture after any exchange of knights on d5 with his e-pawn. Then d5 is no longer a weakness and Black will mobilize his newly created kingside majority with <b>...f5</b>, while aiming to hold up White on the queenside. Initially players like Geller scored well by exploiting the extra queenside pawn, but Black has grown wise to the situation as we will see in this chapter. There are a few exceptions in which Black can play around a knight on d5, but in general allowing White an unopposed knight on d5 must be avoided. The game <b>J.Polgar-V.Anand, Wijk aan Zee 1998</b> should serve as a reminder of what to avoid:</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3b4/5pkp/2rpq1p1/p2Np3/1pP1P3/1P4P1/1P2QPKP/3R4 b - - 0 30"></div>
+<p class="caption"><b><i>The d5-knight dominates</i></b></p>
+<p>With so few pieces left Black lacked any counterplay, while the knight completely dominated the bishop. Polgar maintained control and went on to score a crushing victory.</p>
+<p class="warning message">WARNING: Always beware the move <b>Bg5</b>, angling to exchange on f6. After that exchange Black still needs to be covering d5 and so ideally wants to recapture on f6 with his remaining knight. Placing the light-squared bishop on e6 or b7 also importantly contributes to the struggle for the key d5-square.</p>
+<p>
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p2p1n2/4p3/4P3/1NN5/PPP1BPPP/R1BQK2R b KQkq - 0 7", this, "d4b3"); ' class="line0">7.Nb3</span> 
+</p>
+<p>By far the most popular retreat, although this knight will take some time to find a good role. From b3 it does, however, support White's queenside play, and especially the advance of White's a and c-pawns, while White also hopes to deter any ideas of <b>...Nd7-c5</b>, undermining the e4-pawn. The two alternatives promise Black an easy game, although one remains a tricky surprise weapon:</p>
+<p>(a)
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p2p1n2/4p3/4P3/2N2N2/PPP1BPPP/R1BQK2R b KQkq - 0 7", this, "d4f3"); ' class="line1">7.Nf3</span> 
+is well met by
+ <span onclick='loadMove("rnbqkb1r/1p3pp1/p2p1n1p/4p3/4P3/2N2N2/PPP1BPPP/R1BQK2R w KQkq - 0 8", this, "h7h6"); ' class="line1">7...h6!</span> 
+, preventing <b>Bg5</b> and also enabling the c8-bishop to be developed to e6, without being hassled by <b>Ng5</b>.
+White's play is reminiscent of the Boleslavsky system (
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "b8c6"); ' class="line2">5...Nc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP1BPPP/R1BQK2R b KQkq - 0 6", this, "f1e2"); ' class="line2">6.Be2</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2np1n2/4p3/3NP3/2N5/PPP1BPPP/R1BQK2R w KQkq e6 0 7", this, "e7e5"); ' class="line2">e5</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2np1n2/4p3/4P3/2N2N2/PPP1BPPP/R1BQK2R b KQkq - 0 7", this, "d4f3"); ' class="line2">7.Nf3</span> 
+), but there Black often spends two tempi improving his knight from c6 to d7.
+Here the knight can proceed straight to d7 and
+ <span onclick='loadMove("rnbqkb1r/1p3pp1/p2p1n1p/4p3/4P3/2N2N2/PPP1BPPP/R1BQ1RK1 b kq - 0 8", this, "e1g1"); ' class="line1">8.O-O</span> 
+ <span onclick='loadMove("rn1qkb1r/1p3pp1/p2pbn1p/4p3/4P3/2N2N2/PPP1BPPP/R1BQ1RK1 w kq - 0 9", this, "c8e6"); ' class="line1">Be6</span> 
+ <span onclick='loadMove("rn1qkb1r/1p3pp1/p2pbn1p/4p3/4P3/2N2N2/PPP1BPPP/R1BQR1K1 b kq - 0 9", this, "f1e1"); ' class="line1">9.Re1</span> 
+ <span onclick='loadMove("rn1qk2r/1p2bpp1/p2pbn1p/4p3/4P3/2N2N2/PPP1BPPP/R1BQR1K1 w kq - 0 10", this, "f8e7"); ' class="line1">Be7</span> 
+ <span onclick='loadMove("rn1qk2r/1p2bpp1/p2pbn1p/4p3/4P3/2N2N1P/PPP1BPP1/R1BQR1K1 b kq - 0 10", this, "h2h3"); ' class="line1">10.h3</span> 
+ <span onclick='loadMove("rn1q1rk1/1p2bpp1/p2pbn1p/4p3/4P3/2N2N1P/PPP1BPP1/R1BQR1K1 w - - 0 11", this, "e8g8"); ' class="line1">O-O</span> 
+ <span onclick='loadMove("rn1q1rk1/1p2bpp1/p2pbn1p/4p3/4P3/2N2N1P/PPP2PP1/R1BQRBK1 b - - 0 11", this, "e2f1"); ' class="line1">11.Bf1</span> 
+ <span onclick='loadMove("r2q1rk1/1p1nbpp1/p2pbn1p/4p3/4P3/2N2N1P/PPP2PP1/R1BQRBK1 w - - 0 12", this, "b8d7"); ' class="line1">Nbd7</span> 
+ <span onclick='loadMove("r2q1rk1/1p1nbpp1/p2pbn1p/4p3/4P3/1PN2N1P/P1P2PP1/R1BQRBK1 b - - 0 12", this, "b2b3"); ' class="line1">12.b3</span> 
+ <span onclick='loadMove("r2q1rk1/3nbpp1/p2pbn1p/1p2p3/4P3/1PN2N1P/P1P2PP1/R1BQRBK1 w - b6 0 13", this, "b7b5"); ' class="line1">b5</span> 
+ <span onclick='loadMove("r2q1rk1/3nbpp1/p2pbn1p/1p2p3/4P3/1PN2N1P/PBP2PP1/R2QRBK1 b - - 0 13", this, "c1b2"); ' class="line1">13.Bb2</span> 
+ <span onclick='loadMove("r4rk1/2qnbpp1/p2pbn1p/1p2p3/4P3/1PN2N1P/PBP2PP1/R2QRBK1 w - - 0 14", this, "d8c7"); ' class="line1">Qc7</span> 
+ <span onclick='loadMove("r4rk1/2qnbpp1/p2pbn1p/1p2p3/4P3/PPN2N1P/1BP2PP1/R2QRBK1 b - - 0 14", this, "a2a3"); ' class="line1">14.a3</span> 
+ <span onclick='loadMove("r1r3k1/2qnbpp1/p2pbn1p/1p2p3/4P3/PPN2N1P/1BP2PP1/R2QRBK1 w - - 0 15", this, "f8c8"); ' class="line1">Rfc8</span> 
+ <span onclick='loadMove("r1r3k1/2qnbpp1/p2pbn1p/1p2p3/4P3/PPN2N1P/1BPQ1PP1/R3RBK1 b - - 0 15", this, "d1d2"); ' class="line1">15.Qd2</span> 
+ <span onclick='loadMove("r1r3k1/3nbpp1/p1qpbn1p/1p2p3/4P3/PPN2N1P/1BPQ1PP1/R3RBK1 w - - 0 16", this, "c7c6"); ' class="line1">Qc6!</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1r3k1/3nbpp1/p1qpbn1p/1p2p3/4P3/PPN2N1P/1BPQ1PP1/R3RBK1 w - - 0 16"></div>
+<p class="caption"><b><i>Model development from Black</i></b></p>
+<p>saw Black develop thematically in <b>V.Gashimov-V.Bologan, Minsk Zonal 2000</b>. Bologan had maintained control over d5 and his queenside play already gave him the superior prospects with White unable for his part to find a good plan.</p>
+<p>(b)
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p2p1n2/4pN2/4P3/2N5/PPP1BPPP/R1BQK2R b KQkq - 0 7", this, "d4f5"); ' class="line1">7.Nf5!?</span> 
+fails to maintain control over d5 which Black should immediately exploit with
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p4n2/3ppN2/4P3/2N5/PPP1BPPP/R1BQK2R w KQkq - 0 8", this, "d6d5"); ' class="line1">7...d5!</span> 
+. White's idea is that after
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p4n2/3ppNB1/4P3/2N5/PPP1BPPP/R2QK2R b KQkq - 0 8", this, "c1g5"); ' class="line1">8.Bg5</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p4n2/4pNB1/3pP3/2N5/PPP1BPPP/R2QK2R w KQkq - 0 9", this, "d5d4"); ' class="line1">d4</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p4B2/4pN2/3pP3/2N5/PPP1BPPP/R2QK2R b KQkq - 0 9", this, "g5f6"); ' class="line1">9.Bxf6</span> 
+ <span onclick='loadMove("rnb1kb1r/1p3ppp/p4q2/4pN2/3pP3/2N5/PPP1BPPP/R2QK2R w KQkq - 0 10", this, "d8f6"); ' class="line1">Qxf6</span> 
+ <span onclick='loadMove("rnb1kb1r/1p3ppp/p4q2/3NpN2/3pP3/8/PPP1BPPP/R2QK2R b KQkq - 0 10", this, "c3d5"); ' class="line1">10.Nd5</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p7/3NpN2/3pP3/8/PPP1BPPP/R2QK2R w KQkq - 0 11", this, "f6d8"); ' class="line1">Qd8</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p7/3NpN2/2PpP3/8/PP2BPPP/R2QK2R b KQkq c3 0 11", this, "c2c4"); ' class="line1">11.c4</span> 
+his knights appear rather impressive and one could believe that Black has gone wrong. He hasn't, however, because
+ <span onclick='loadMove("rnbqkb1r/1p3p1p/p5p1/3NpN2/2PpP3/8/PP2BPPP/R2QK2R w KQkq - 0 12", this, "g7g6"); ' class="line1">11...g6</span> 
+ <span onclick='loadMove("rnbqkb1r/1p3p1p/p5p1/3Np3/2PpP3/6N1/PP2BPPP/R2QK2R b KQkq - 0 12", this, "f5g3"); ' class="line1">12.Ng3</span> 
+ <span onclick='loadMove("rnbqk2r/1p3pbp/p5p1/3Np3/2PpP3/6N1/PP2BPPP/R2QK2R w KQkq - 0 13", this, "f8g7"); ' class="line1">Bg7</span> 
+ <span onclick='loadMove("rnbqk2r/1p3pbp/p5p1/3Np3/2PpP3/6N1/PP2BPPP/R2Q1RK1 b kq - 0 13", this, "e1g1"); ' class="line1">13.O-O</span> 
+ <span onclick='loadMove("rnbq1rk1/1p3pbp/p5p1/3Np3/2PpP3/6N1/PP2BPPP/R2Q1RK1 w - - 0 14", this, "e8g8"); ' class="line1">O-O</span> 
+is actually quite comfortable for him. The d5-knight is well-placed, but it is White's only good piece. Black should thus complete his development with <b>...Be6</b> and <b>...Nd7</b> after which the <b>...f5</b> and <b>...b5</b> breaks promise him good chances to quickly seize a strong initiative.</p>
+<p>
+ <span onclick='loadMove("rnbqk2r/1p2bppp/p2p1n2/4p3/4P3/1NN5/PPP1BPPP/R1BQK2R w KQkq - 0 8", this, "f8e7"); ' class="line0">7...Be7</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/1p2bppp/p2p1n2/4p3/4P3/1NN5/PPP1BPPP/R1BQK2R w KQkq - 0 8"></div>
+<p class="caption"><b><i>Facilitating castling</i></b></p>
+<p>After
+ <span onclick='loadMove("rnbqk2r/1p2bppp/p2p1n2/4p3/4P3/1NN5/PPP1BPPP/R1BQK2R w KQkq - 0 8", this, "f8e7"); ' class="line1">7...Be7</span> 
+White must formulate a plan and we will explore his four main set-ups.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

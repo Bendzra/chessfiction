@@ -1,0 +1,60 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>СОДЕРЖАНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">А. Дреев. Приемы игры в эндшпиле</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-nestandartnye-okonchaniia.htm' %}">Глава 1. НЕСТАНДАРТНЫЕ ОКОНЧАНИЯ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. ЗАЩИТА</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. СКРЫТЫЕ РЕСУРСЫ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. ПРОФИЛАКТИКА</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 5. ПЕШЕЧНЫЕ ОКОНЧАНИЯ И ПЕРЕХОД В ПЕШЕЧНЫЙ ЭНДШПИЛЬ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6. РЕАЛИЗАЦИЯ ПРЕИМУЩЕСТВА</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель имен</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

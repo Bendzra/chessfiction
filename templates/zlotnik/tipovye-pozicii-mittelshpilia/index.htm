@@ -1,0 +1,97 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Оглавление</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Типовые позиции миттельшпиля. Злотник Б.А. (1986)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vvedenie.htm' %}">Введение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-tipovye-pozicii-mittelshpilia.htm' %}">Глава первая. Типовые позиции миттельшпиля</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-0-izolirovannaia-ferzevaia-peshka.htm' %}">I. Типовая позиция с изолированной ферзевой пешкой</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-1-ataka-na-korolevskom-flange.htm' %}">1. Атака на королевском фланге</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-2-vskrytie-igry-v-centre-putem-prodvizheniia-izolirovannoj-peshki.htm' %}">2. Вскрытие игры в центре путем продвижения изолированной пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-3-fiksacia-peshki-protivnika-na-sosednej-vertikali.htm' %}">3. Продвижение изолированной пешки с целью фиксации пешки противника на соседней вертикали</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-4-razvitie-aktivnosti-na-ferzevom-flange.htm' %}">4. Развитие активности на ферзевом фланге</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-5-partiia-zadanie-i.htm' %}">Партия-задание I</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-0-karlsbadskaia-peshechnaia-struktura.htm' %}">II. Типовая позиция с карлсбадской пешечной структурой</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-1-ataka-peshechnogo-menshinstva.htm' %}">1. Атака пешечного меньшинства</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-2-ataka-v-centre-putem-e3-e4.htm' %}">2. Атака в центре путем e3-e4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-3-ataka-na-korolevskom-flange-pri-odnostoronnih-rokirovkah.htm' %}">3. Атака на королевском фланге при односторонних рокировках</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-4-ataka-na-korolevskom-flange-pri-raznostoronnih-rokirovkah.htm' %}">4. Атака на королевском фланге при разносторонних рокировках</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-5-partiia-zadanie-ii.htm' %}">Партия-задание II</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-0-prostranstvennyj-pereves-sopernika.htm' %}">III. Типовая позиция с пространственным перевесом соперника</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-1-peshka-d6-protiv-peshki-e4.htm' %}">1. Пешка d6 против пешки e4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-2-peshki-c6-i-e6-protiv-peshki-d4.htm' %}">2. Пешки c6 и e6 против пешки d4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-3-partiia-zadanie-iii.htm' %}">Партия-задание III</a></li>
+</ul>
+
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-tipovye-priemy-igry-v-debiute.htm' %}">Глава вторая. Типовые приемы игры, характерные для некоторых дебютных построений</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-0-staroindijskaia-zashchita.htm' %}">I. Ограничение подвижности в староиндийской защите</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1-manevr-Nf3-h4.htm' %}">1. Маневр Кf3-h4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2-sviazka-konia-f6-putem-Bc1-g5.htm' %}">2. Связка коня f6 путем Сc1-g5</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-3-peshechnyj-razmen-e4xf5-g6xf5-s-posleduiushchim-f2-f4.htm' %}">3. Пешечный размен e4:f5 g6:f5 с последующим f2-f4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-4-prodvizhenie-g2-g4.htm' %}">4. Продвижение g2-g4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-5-ogranichenie-podvizhnosti-belyh-putem-razmena-slona-g7-na-konia-c3.htm' %}">Ограничение подвижности белых путем размена слона g7 на коня c3</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-6-partiia-zadanie-iv.htm' %}">Партия-задание IV</a></li>
+</ul>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-0-fiankettirovannyj-slon-v-sicilianskoj-zashchite.htm' %}">II. Проблемы размена фианкеттированного слона в сицилианской защите</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-1-partiia-zadanie-v.htm' %}">Партия-задание V</a></li>
+</ul>
+
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-zadaniia.htm' %}">Задания</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1a-zadaniia-i.htm' %}">I. Типовая позиция с изолированной ферзевой пешкой</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1b-otvety-na-partiiu-zadanie-i.htm' %}">Ответы на партию-задание I</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2a-zadaniia-ii.htm' %}">II. Типовая позиция с карлсбадской пешечной структурой</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2b-otvety-na-partiiu-zadanie-ii.htm' %}">Ответы на партию-задание II</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3a-zadaniia-iii.htm' %}">III. Типовая позиция с пространственным перевесом соперника</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3b-otvety-na-partiiu-zadanie-iii.htm' %}">Ответы на партию-задание III</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4a-zadaniia-iv.htm' %}">IV. Ограничение подвижности в староиндийской защите</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4b-otvety-na-partiiu-zadanie-iv.htm' %}">Ответы на партию-задание IV</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5a-zadaniia-v.htm' %}">V. Проблема размена фианкеттированного слона в сицилианской защите</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5b-otvety-na-partiiu-zadanie-v.htm' %}">Ответы на партию-задание V</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0-zakliuchenie.htm' %}">Заключение</a></li>
+</ul>
+
+<hr/>
+
+<p><b>Библиотечка шахматиста</b></p>
+<h2>Борис Анатольевич Злотник.</h2>
+<h1>Типовые позиции миттельшпиля</h1>
+<p>Заведующий редакцией В. И. Чепижный</p>
+<p>Редактор Н. М. Калиниченко.</p>
+<p>Художник В. Ю. Лукин.</p>
+<p>Художественный редактор В А Жигарев.</p>
+<p>Технический редактор Н. А. Суровцова.</p>
+<p>Корректор В А. Шишкова.</p>
+<p>ЦБ № 2194. Сдано в набор 13.01.86. Подписано к печати 29.04.86. Формат 84X108/32. Бумага тип. № 2. Гарнитура литературная. Высокая печать. Усл. п. л 6.72. Усл кр-отт. 7,04. Уч.-изд л. 6,76 Тираж 50 ООО экз.</p>
+<p>Издат. № 7505. Зак. 2079. Цена 45 коп. Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по делам издательств, полиграфии и книжной торговли. 101421. Москва, Каляевская ул , 27. Ордена Октябрьской Революции и ордена Трудового Красного Знамени МПО «Первая Образцовая типография» им А А. Жданова Союзполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли.</p>
+<p>1 13054, Москва, Валовая, 28. Зак. 1385, Отпечатано в ордена «Знак почета» типографии «Красная звезда, 128</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

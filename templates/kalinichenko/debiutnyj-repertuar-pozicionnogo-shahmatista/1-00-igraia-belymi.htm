@@ -1,0 +1,27 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЧАСТЬ ПЕРВАЯ. ИГРАЯ БЕЛЫМИ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ЧАСТЬ ПЕРВАЯ. ИГРАЯ БЕЛЫМИ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-sicilianskaia-zashchita.htm' %}">Глава 1. Сицилианская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-shotlandskaia-partiia.htm' %}">Глава 2. Шотландская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-francuzskaia-zashchita.htm' %}">Глава 3. Французская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-zashchita-karo-kann.htm' %}">Глава 4. Защита Каро-Канн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-zashchita-pirca-ufimceva.htm' %}">Глава 5. Защита Пирца-Уфимцева</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-zashchita-alehina.htm' %}">Глава 6. Защита Алехина</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

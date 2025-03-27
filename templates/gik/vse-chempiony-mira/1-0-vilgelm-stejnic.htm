@@ -1,0 +1,39 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Вильгельм СТЕЙНИЦ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/gik-1.jpg' %}" />
+</div>
+<div class="score">
+<h1>Вильгельм СТЕЙНИЦ</h1>
+<p><strong>Вильгельм СТЕЙНИЦ</strong> (1836—1900), Австрия — первый чемпион мира (1886-1894).</p>
+<p>Сильнейшим игроком на планете Стейниц был признан еще в 1866 году после победы над неофициальным шахматным королем Адольфом Андерсеном. Спустя двадцать лет, выиграв у Иоганнеса Цукерторта, он был провозглашен первым чемпионом мира. В дальнейшем Стейниц сыграл пять матчей за корону — дважды взял верх над Михаилом Чигориным, победил Исидора Гунсберга, а затем уступил трон Эмануилу Ласкеру, проиграл ему и матч-реванш.</p>
+
+<ol start="1">
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-gampe-stejnic-1859.htm' %}">К. Гампе — В. Стейниц, Вена, 1859</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-stejnic-mongredien-1862.htm' %}">В. Стейниц — Монгредиен, Лондон, 1862</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-andersen-stejnic-1866.htm' %}">А. Андерсен — В. Стейниц, Лондон, 1866</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-stejnic-nejman-1867.htm' %}">В. Стейниц — Г. Нейман, Данди, 1867</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-stejnic-cukertort-1886.htm' %}">В. Стейниц — И. Цукерторт, Сент-Луис, 1886</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-cukertort-stejnic-1886.htm' %}">И. Цукерторт — В. Стейниц, Сент-Луис, 1886</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-7-cukertort-stejnic-1886.htm' %}">И. Цукерторт — В. Стейниц, Сент-Луис, 1886</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-8-stejnic-gunsberg-1890-1891.htm' %}">В. Стейниц — И. Гунсберг, Нью-Йорк, 1890/1891</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-9-chigorin-stejnic-1892.htm' %}">М. Чигорин — В. Стейниц, Гавана, 1892</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Стейниц — К. Барделебен, Гастингс, 1895</a></li>
+</ol>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

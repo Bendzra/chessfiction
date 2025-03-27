@@ -1,0 +1,97 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<a name="index"></a>
+
+<h2>ОГЛАВЛЕНИЕ</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Ганс Кмох. Шахматная школа Акибы Рубинштейна (2018)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-ladeinye-okonchania.htm' %}">ЛАДЕЙНЫЕ ОКОНЧАНИЯ</a></li>
+<ol start="1">
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-spielmann-rubinstein.htm' %}">Шпильман — Рубинштейн, Санкт-Петербург 1909</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-rubinstein-alekhin.htm' %}">Рубинштейн — Алехин, Карлсбад 1911</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Матисон — Рубинштейн, Карлсбад 1929</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЭНДШПИЛЬ</a></li>
+<ol start="4">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Кон — Рубинштейн, Санкт-Петербург 1909</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Мизес, Санкт-Петербург 1909</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Шлехтер, Сан-Себастьян 1912</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рети — Рубинштейн, Гётеборг 1920</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">МАЛЕНЬКИЕ КОМБИНАЦИИ</a></li>
+<ol start="8">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Дурас, Вена 1908</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Ласкер, Санкт-Петербург 1909</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Капабланка, Сан-Себастьян 1911</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">АТАКА НА КОРОЛЯ</a></li>
+<ol start="11">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ротлеви — Рубинштейн, Лодзь 1907</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Тейхман, Вена 1908 (матч)</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Эйве — Рубинштейн, Гаага 1921</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Громадка, Моравска-Острава 1923</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ИСКУССТВО РАЗМЕНА</a></li>
+<ol start="15">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Дурас, Карлсбад 1911</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Нимцович, Берлин 1928</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">КРАСОТА МАНЕВРА</a></li>
+<ol start="17">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Яновский — Рубинштейн, Карлсбад 1907</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Фактор — Рубинштейн, Лодзь, 1916</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">СТРАТЕГИЯ ЦЕНТРА</a></li>
+<ol start="19">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Дурас — Рубинштейн, Санкт-Петербург 1909</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Левенфиш, Карлсбад 1911</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Каналь — Рубинштейн, Карлсбад 1929</a></li>
+</ol>
+<!--p>85</p-->
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ИГРА НА ДВУХ ФЛАНГАХ</a></li>
+<ol start="22">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Вольф — Рубинштейн, Теплиц-Шёнау 1922</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Такач, Будапешт 1926</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ИСПОЛЬЗОВАНИЕ ОТКРЫТОЙ ЛИНИИ</a></li>
+<ol start="24">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Мароци, Гётеборг 1920</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Боголюбов, Вена 1922</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">«СИСТЕМА ШЛЕХТЕРА-РУБИНШТЕЙНА»</a></li>
+<ol start="26">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Сальве, Лодзь 1908</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Маршалл, Бреслау 1912</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Тарраш, Карлсбад 1923</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">«ПРОТИВОЯДИЕ РУБИНШТЕЙНА»</a></li>
+<ol start="29">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Шпильман, Прага 1908</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рубинштейн — Земиш, Мариенбад 1925</a></li>
+</ol>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

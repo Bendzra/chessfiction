@@ -1,0 +1,60 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>КОРОЛИ ОСТАЮТСЯ ЖИВЫ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>КОРОЛИ ОСТАЮТСЯ ЖИВЫ</h3>
+<div class="message">
+<p>Не всегда шахматная партия кончается победой одного из противников. Иногда возникают позиции, в которых, как ни старайся, мата не дашь. Самый простой пример — на доске остались только короли. Мата не выйдет. В этом случае партия считается закончившейся вничью, и партнерам остается только пожать Друг другу руки.</p>
+<p>А вот другой вид ничьей.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/k7/pp3p2/8/5Qp1/5pPq/5P1P/6K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/k7/pp3p2/8/5Qp1/5pPq/5P1P/6K1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">43</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/k7/pp3p2/8/5Qp1/5pPq/5P1P/6K1 w - - 0 1"></div>
+<p>Ход белых. Положение их трудное. Грозит мат
+ <!--span onclick='loadMove("8/k7/pp3p2/8/5Qp1/5pPq/5P1P/6K1 b - - 0 1", this, "b7h1"); ' class="line1">1.z0</span--> 
+ <span onclick='loadMove("8/k7/pp3p2/8/5Qp1/5pP1/5PqP/6K1 w - - 0 2", this, "h3g2"); ' class="line1">1...Фh3-g2X</span>, и не видно, как от него защититься. Но защита есть. Белые непрерывно нападают на короля черных.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/k1Q5/pp3p2/8/6p1/5pPq/5P1P/6K1 b - - 0 1", this, "f4c7"); ' class="line0">1.Фf4-c7+</span> 
+ <span onclick='loadMove("k7/2Q5/pp3p2/8/6p1/5pPq/5P1P/6K1 w - - 0 2", this, "a7a8"); ' class="line0">Крa7-a8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("k1Q5/8/pp3p2/8/6p1/5pPq/5P1P/6K1 b - - 0 2", this, "c7c8"); ' class="line0">2.Фc7-c8+</span> 
+ <span onclick='loadMove("2Q5/k7/pp3p2/8/6p1/5pPq/5P1P/6K1 w - - 0 3", this, "a8a7"); ' class="line0">Крa8-a7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/k1Q5/pp3p2/8/6p1/5pPq/5P1P/6K1 b - - 0 3", this, "c8c7"); ' class="line0">3.Фc8-c7+</span> 
+ <span onclick='loadMove("k7/2Q5/pp3p2/8/6p1/5pPq/5P1P/6K1 w - - 0 4", this, "a7a8"); ' class="line0">Крa7-a8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("k1Q5/8/pp3p2/8/6p1/5pPq/5P1P/6K1 b - - 0 4", this, "c7c8"); ' class="line0">4.Фc7-c8+</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>И т. д.</p>
+<p>Такое, можно сказать, вечное нападение на короля называется <i>вечный шах</i>. Партия признается ничьей.</p> <p>Удивительный случай ничьей — пат представлен на следующей диаграмме.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="k6n/3Q1p2/2p2Pp1/1R4P1/8/8/6B1/4K3 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("k6n/3Q1p2/2p2Pp1/1R4P1/8/8/6B1/4K3 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">44</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="k6n/3Q1p2/2p2Pp1/1R4P1/8/8/6B1/4K3 b - - 0 1"></div>
+<p>У белых огромное материальное превосходство. До мата остался один шаг. Но, увы, этот шаг сделать так и не удается. Ход черных, а ходить им некуда и нечем. Короля ставить под удар нельзя, коню закрывают дорогу собственные пешки, они, в свою очередь, застопорены белыми пешками, а пешка c6 могла бы двинуться вперед или даже взять ладью, но она связана слоном. И вот в таком безнадежном положении из-за того, что у черных нет ни одного хода, партия считается закончившейся вничью.</p>
+<p>На первый взгляд разница между матом и патом невелика. В том и в другом случае королю ходить некуда. Однако мата без шаха не бывает.</p>
+<p>Стремитесь дать мат, но опасайтесь пата. Мат — это победа, а пат — только ничья. Пат — последний шанс терпящего бедствие.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,47 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЧАСТЬ 1. Редкие продолжения | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>ЧАСТЬ 1</h2>
+<h1>Редкие продолжения<br /><br />
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3", this, "g7g6"); ' class="line0">g6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+ <span onclick='loadMove("rnbqk2r/ppppppbp/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4", this, "f8g7"); ' class="line0">Сg7</span> 
+</h1>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/ppppppbp/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4"></div>
+<p>Знакомство co староиндийской защиты мы начнем с так называемых «боковых» схем. Само название как будто свидетельствуют о том, что схемы эти находятся в стороне от магистральной теории, редко встречаются в современной практике и потому не слишком опасны для черных. Но это поспешный и принципиально неправильный вывод! Например, рассмотренную в 4-й главе расстановку постоянно и весьма успешно применяет такой агрессивный «белоцветник», как голландский гроссмейстер Иван Соколов, а план, который изучается в главе 6, многие годы верой и правдой служит 12-му чемпиону мира Анатолию Карпову. Мода, в том числе и шахматная, штука переменчивая: узкие тропинки порой превращаются в настоящие автобаны, а наезженные шоссе зарастают травой...</p>
+<p>Основные системы староиндийской защиты, такие как классическая, Земиша, Авербаха, вариант 4-х пешек, получили признание (а с ним - и название!) еще в середине прошлого века. «Боковые» же схемы были разработаны позднее либо долгое время оставались в тени. Автор далек от того, чтобы придумывать вариантам имена и навешивать ярлыки типа «атака Соколова», «система и Карпова» и т.п., - оставим эту работу профессиональным теоретикам. Свою задачу я вижу в другом: предложить за черных надежные пути к получению контригры как в гипер-популярных, так и в подзабытых линиях, которые - кто знает! - в один прекрасный день могут стать ареной напряженных теоретических дискуссий на самом высоком уровне.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1_d4-Nf6-c4-g6-Nc3-Bg7-Bg5.htm' %}">1 4.Сg5</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2_d4-Nf6-c4-g6-Nc3-Bg7-Nf3-0-0-Bg5.htm' %}">2 4.Кf3 0-0 5.Сg5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3 4.Кf3 0-0 5.Сf4</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4 4.e4 d6 5.Сg5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5 4.e4 d6 5.h3 0-0 6.Сd3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6 4.e4 d6 5.h3 0-0 6.Сe3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7 4.e4 d6 5.h3 0-0 6.Сg5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8 4.e4 d6 5.h3 0-0 6.Кf3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9 4.e4 d6 5.Кge2</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10 4.e4d6 5.Сd3</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

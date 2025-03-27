@@ -1,0 +1,37 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Anti-Sicilians: Move by Move</h1>
+<p><b>by Cyrus Lakdawala</b></p>
+<h2>Contents</h2>
+<ul>
+<li><a href="00-0-title.htm">About this Publication</a></li>
+<li><a href="00-1-about-the-author.htm">About the Author</a></li>
+<li><a href="00-2-bibliography.htm">Bibliography</a></li>
+<li><a href="00-3-introduction.htm">Introduction</a></li>
+<li><a href="01-chapter-1.htm">1. The c3 Sicilian</a></li>
+<li><a href="02-chapter-2.htm">2. Rossolimo/Moscow Variations</a></li>
+<li><a href="03-chapter-3.htm">3. 2.Nf3 Move Orders</a></li>
+<li><a href="04-chapter-4.htm">4. The Closed Sicilian</a></li>
+<li><a href="05-chapter-5.htm">5. The King's Indian Attack</a></li>
+<li><a href="06-chapter-6.htm">6. The Grand Prix Attack</a></li>
+<li><a href="07-chapter-7.htm">7. Tiviakov's Variation</a></li>
+<li><a href="08-chapter-8.htm">8. The b3 Sicilian</a></li>
+<li><a href="09-chapter-9.htm">9. The Smith-Morra and Wing Gambit</a></li>
+<li><a href="10-chapter-10.htm">10. Odds and Ends</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

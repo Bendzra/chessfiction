@@ -1,0 +1,101 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/flyleaf.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Мои великие предшественники</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-chempiony-kak-simvoly-vremeni.htm' %}">Чемпионы как символы времени</a></li>
+<br />
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-shahmaty-do-stejnica.htm' %}">ШАХМАТЫ ДО СТЕЙНИЦА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-ot-greko-do-filidora.htm' %}">От Греко до Филидора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-pervye-matchi-za-koronu.htm' %}">Первые матчи за корону: Лабурдоннэ — Мак-Доннель, Стаунтон — Сент-Аман</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-genij-kombinacii.htm' %}">Гений комбинации: Андерсен</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Американская легенда: Морфи</a></li>
+</ul>
+<br />
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ВИЛЬГЕЛЬМ ПЕРВЫЙ. Первооткрыватель</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">«Современный калабриец»</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Бойня номер четыре: матч Стейниц — Андерсен</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Рождение новой школы</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Исторический матч: Стейниц — Цукерторт</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Чигорин — первый претендент</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Под солнцем Гаваны: два матча с Чигориным</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Страсти вокруг Олимпа: матч Чигорин — Тарраш</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Стареющий лев</a></li>
+</ul>
+<br />
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЭМАНУИЛ ВТОРОЙ. Великий психолог</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шахматы или математика?</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Непризнанный король: матч Ласкер — Стейниц</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Американская трагедия: Пильсбери</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Защита Ласкера</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Неугомонный Маршалл</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Кто вы, доктор Тарраш?</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Испытание принципов: матч с Таррашем</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Крепкий орешек: матч со Шлехтером</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Великий Акиба: Рубинштейн</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Петербургский счет</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шахматный долгожитель</a></li>
+</ul>
+<br />
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ХОСЕ РАУЛЬ ТРЕТИЙ «Шахматная машина»</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Кубинский Морфи: матч с Маршаллом</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Драма в Сан-Себастьяне</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Вместо матча — гастроли</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Без пяти минут первый: Петербург-1914</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Контратака Маршалла</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Коронация в родных стенах: матч Капабланка — Ласкер</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Нимцович и гипермодернизм</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Феномен Рети</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">От Лондона до Нью-Йорка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Буэнос-Айрес глазами Капабланки: матч с Алехиным</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Цветы запоздалые</a></li>
+</ul>
+<br />
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">АЛЕКСАНДР ЧЕТВЕРТЫЙ Высший пилотаж</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Наследник Чигорина</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В вихре войн и революций</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В поход за короной</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">От Карлсбада до Баден-Бадена</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Буэнос-Айрес глазами Алехина: матч с Капабланкой</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Удобный соперник: два матча с Боголюбовым</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Золотая пора чемпиона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Голландские высоты: два матча с Эйве</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Непобежденный</a></li>
+</ul>
+<br />
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ПРИЛОЖЕНИЯ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Библиография</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель партнеров</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель дебютов</a></li>
+</ul>
+<br />
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

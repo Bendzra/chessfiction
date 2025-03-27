@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>The Classical French: Move by Move</h1>
+<p><b>by Cyrus Lakdawala</b></p>
+<h2>Contents</h2>
+<ul>
+<li><a href="0-0-title.htm">About this Publication</a></li>
+<li><a href="0-1-bibliography.htm">Bibliography</a></li>
+<li><a href="0-2-foreword.htm">Foreword</a></li>
+<li><a href="0-3-introduction.htm">Introduction</a></li>
+<li><a href="1-chapter-1.htm">1. Classical Steinitz Main Line</a></li>
+<li><a href="2-chapter-2.htm">2. The Shirov-Anand Line</a></li>
+<li><a href="3-chapter-3.htm">3. Poisoned Pawn Line</a></li>
+<li><a href="4-chapter-4.htm">4. Old School Classical Line</a></li>
+<li><a href="5-chapter-5.htm">5. Burn Variation</a></li>
+<li><a href="6-chapter-6.htm">6. McCutcheon Main Line</a></li>
+<li><a href="7-chapter-7.htm">7. McCutcheon 6.Be3 and 6.Bc1</a></li>
+<li><a href="8-chapter-8.htm">8. McCutcheon Deviations and Delayed Exchange Variation</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

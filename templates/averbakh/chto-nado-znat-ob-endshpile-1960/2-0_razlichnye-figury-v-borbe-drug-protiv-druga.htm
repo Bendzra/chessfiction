@@ -1,0 +1,24 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава вторая. Различные фигуры в борьбе друг против друга | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block description %}
+<meta name="description" content="Глава вторая РАЗЛИЧНЫЕ ФИГУРЫ В БОРЬБЕ ДРУГ ПРОТИВ ДРУГА, Ферзь против ладьи, Ферзь против легкой фигуры, Ладья против коня, Ладья против слона">
+{% endblock description %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>Глава вторая<br />РАЗЛИЧНЫЕ ФИГУРЫ В БОРЬБЕ ДРУГ ПРОТИВ ДРУГА</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1_ferz-protiv-ladi.htm' %}">Ферзь против ладьи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2_ferz-protiv-legkoj-figury.htm' %}">Ферзь против легкой фигуры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3_ladia-protiv-konia.htm' %}">Ладья против коня</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4_ladia-protiv-slona.htm' %}">Ладья против слона</a></li>
+</ul>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,60 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>«Пешкоедство» — опасная болезнь | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>«Пешкоедство» — опасная болезнь</h3>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Ты не слыхал о такой болезни? Возможно. Она не числится в медицинских справочниках. Заболевшему «пе-шкоедством» врачи не выписывают бюллетень, но зато спортивные судьи обычно вписывают нули в таблицы результатов турниров и матчей.</p>
+<p>Каковы ее симптомы? Представь себе, что один из играющих, забыв о развитии своих фигур, увлекся в начале партии забиранием пешек противника. Конечно, пешка — это серьезная величина в шахматном хозяйстве. Но ты уже видел, как карается отсталость в развитии, а потому «пешкоедством» прельщаться не следует.</p>
+<img style="width:100%;" src="{% static 'images/'|add:book.slug|add:'/067.jpg' %}"/>
+<p>Давай рассмотрим такой пример:</p>
+<!--p>— 44 —</p-->
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кg1-f3</span> 
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/5q2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d8f6"); ' class="line0">Фd8-f6</span> 
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/5q2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1c4"); ' class="line0">3.Сf1-c4</span> 
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/6q1/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "f6g6"); ' class="line0">Фf6-g6</span> 
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/6q1/4p3/2B1P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 0 4", this, "e1g1"); ' class="line0">4.0-0</span> 
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/8/4p3/2B1q3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5", this, "g6e4"); ' class="line0">Фg6:e4</span> 
+ <span onclick='loadMove("rnb1kbnr/pppp1Bpp/8/4p3/4q3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 0 5", this, "c4f7"); ' class="line0">5.Сc4:f7+</span> 
+ <span onclick='loadMove("rnbk1bnr/pppp1Bpp/8/4p3/4q3/5N2/PPPP1PPP/RNBQ1RK1 w - - 0 6", this, "e8d8"); ' class="line0">Крe8-d8</span> 
+ <span onclick='loadMove("rnbk1bnr/pppp1Bpp/8/4N3/4q3/8/PPPP1PPP/RNBQ1RK1 b - - 0 6", this, "f3e5"); ' class="line0">6.Кf3:e5</span> 
+ <span onclick='loadMove("rnbk1bnr/pppp1Bpp/8/4q3/8/8/PPPP1PPP/RNBQ1RK1 w - - 0 7", this, "e4e5"); ' class="line0">Фe4:e5</span> 
+ <span onclick='loadMove("rnbk1bnr/pppp1Bpp/8/4q3/8/8/PPPP1PPP/RNBQR1K1 b - - 0 7", this, "f1e1"); ' class="line0">7.Лf1-e1</span> 
+ <span onclick='loadMove("rnbk1bnr/pppp1Bpp/5q2/8/8/8/PPPP1PPP/RNBQR1K1 w - - 0 8", this, "e5f6"); ' class="line0">Фe5-f6</span> 
+ <span onclick='loadMove("rnbkRbnr/pppp1Bpp/5q2/8/8/8/PPPP1PPP/RNBQ2K1 b - - 0 8", this, "e1e8"); ' class="line0">8.Лe1-e8X</span> 
+.</p>
+<p>Второй ход черных, как мы уже знаем,— серьезная ошибка. Ни к чему так рано вводить в игру ферзя. Кстати, несколько слов о других возможных защитах пешки e5. О ходе
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d7d6"); ' class="line1">2...d6</span> 
+мы уже говорили. Неудачен ход
+ <span onclick='loadMove("rnbqk1nr/pppp1ppp/3b4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "f8d6"); ' class="line1">2...Сd6</span> 
+. Играя так, черные сами тормозят движение своей центральной пешки d7 и стесняют действия слона c8. На
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/5p2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "f7f6"); ' class="line1">2...f6</span> 
+возможно
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/5p2/4N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq - 0 3", this, "f3e5"); ' class="line1">3.К:e5!</span> 
+</p>
+<p>Особенно слаб продиктованный стремлением к «пешкоедству» третий ход черных (
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/6q1/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "f6g6"); ' class="line1">3...Фg6</span> 
+). Нападая на две пешки, черные вновь делают ход ферзем и отстают с мобилизацией сил.</p>
+<p>Взятие пешки e4 приводит черных к быстрому разгрому. Если
+ <span onclick='loadMove("rnb2bnr/pppp1kpp/8/4p3/4q3/5N2/PPPP1PPP/RNBQ1RK1 w - - 0 6", this, "e8f7"); ' class="line1">5...Кр:f7</span> 
+, то
+ <span onclick='loadMove("rnb2bnr/pppp1kpp/8/4p1N1/4q3/8/PPPP1PPP/RNBQ1RK1 b - - 0 6", this, "f3g5"); ' class="line1">6.Кg5+</span> 
+выигрывает ферзя.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,50 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Связка по диагонали | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Связка по диагонали</h3>
+<div class="chessBoard small floater" data-start-fen="2q2R2/pp4rk/2b4r/8/1Q5P/1P2PB2/P4P2/3R3K w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2q2R2/pp4rk/2b4r/8/1Q5P/1P2PB2/P4P2/3R3K w - - 0 1", this, ""); '>[...]</span> 
+<p>Очень интересна следующая позиция из партии <b>В. Силич — Я. Рохлин</b> (первенство СССР, 1929 г.), в которой черные осуществили остроумную связку по диагонали.</p>
+<p class="capTop diagram">139</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2q2R2/pp4rk/2b4r/8/1Q5P/1P2PB2/P4P2/3R3K w - - 0 1"></div>
+<p>Найди, как выигрывают черные в этом положении после
+ <span onclick='loadMove("2q2R2/pp4rk/2b4r/8/1Q2B2P/1P2P3/P4P2/3R3K b - - 0 1", this, "f3e4"); ' class="line0">1.Сe4+?</span> 
+Как следовало продолжать белым?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Связка по диагонали:
+	 <span class="line0" onclick='loadMove("2q2R2/pp4rk/2b4r/8/1Q5P/1P2PB2/P4P2/3R3K w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("2q2R2/pp4rk/2b4r/8/1Q2B2P/1P2P3/P4P2/3R3K b - - 0 1", this, "f3e4"); ' class="line0">1.Сe4+?</span> 
+	 <span onclick='loadMove("5R2/pp4rk/2b4r/5q2/1Q2B2P/1P2P3/P4P2/3R3K w - - 0 2", this, "c8f5"); ' class="line0">Фf5!</span> 
+	 <span onclick='loadMove("5R2/pp4rk/2b4r/5q2/1Q5P/1P2P3/P4PB1/3R3K b - - 0 2", this, "e4g2"); ' class="line0">2.Сg2</span> 
+	 <span onclick='loadMove("5R2/pp4rk/2b4r/8/1Q5P/1P2P2q/P4PB1/3R3K w - - 0 3", this, "f5h3"); ' class="line0">Фh3+</span> 
+	. Белым следовало продолжать
+	 <span onclick='loadMove("2q2R2/pp4rk/2b4r/8/4Q2P/1P2PB2/P4P2/3R3K b - - 0 1", this, "b4e4"); ' class="line1">1.Фe4+</span> 
+	 <span onclick='loadMove("2q2R2/pp4rk/7r/8/4b2P/1P2PB2/P4P2/3R3K w - - 0 2", this, "c6e4"); ' class="line1">С:e4</span> 
+	 <span onclick='loadMove("2q2R2/pp4rk/7r/8/4B2P/1P2P3/P4P2/3R3K b - - 0 2", this, "f3e4"); ' class="line1">2.С:e4+</span> 
+	 <span onclick='loadMove("2q2R2/pp5k/6rr/8/4B2P/1P2P3/P4P2/3R3K w - - 0 3", this, "g7g6"); ' class="line1">Лgg6</span> 
+	 <span onclick='loadMove("2q2R2/pp5k/6Br/8/7P/1P2P3/P4P2/3R3K b - - 0 3", this, "e4g6"); ' class="line1">3.С:g6+</span> 
+	 <!--span onclick='loadMove("2q2R2/pp5k/6Br/8/7P/1P2P3/P4P2/3R3K w - - 0 4", this, "e4g6"); ' class="line1">z0</span--> 
+	и
+	 <span onclick='loadMove("2R5/pp5k/6Br/8/7P/1P2P3/P4P2/3R3K b - - 0 4", this, "f8c8"); ' class="line1">4.Л:c8</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

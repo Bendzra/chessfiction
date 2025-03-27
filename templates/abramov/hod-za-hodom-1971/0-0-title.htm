@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h1>ХОД ЗА ХОДОМ</h1>
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="diagram">
+<h2>Л. Я. АБРАМОВ,</h2>
+<h6>МАСТЕР СПОРТА СССР ПО ШАХМАТАМ</h6>
+</div>
+
+<div class="diagram">
+<div>Издательство «ФИЗКУЛЬТУРА И СПОРТ»</div>
+<div>Москва 1971</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

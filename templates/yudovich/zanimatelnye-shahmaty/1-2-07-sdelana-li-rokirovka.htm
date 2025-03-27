@@ -1,0 +1,135 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Сделана ли рокировка? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Сделана ли рокировка?</h3>
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/8/1R6/R1K4k w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/8/1R6/R1K4k w - - 0 1", this, ""); '>[...]</span> 
+<p>Многие позиции, и особенно шуточные, связаны с возможностью сделать рокировку. На эту тему есть различные задачи, даже в так называемые «полхода». Вот, например, одна из таких задач. Белые: Крc1, Лa1, Лb2 (3). Черные: Крh1 (1).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/8/1R6/R1K4k w - - 0 1"></div>
+<p>Мат в «полхода». Белые уже сделали половину рокировки, переставив короля с поля e1 на c1. Теперь они ставят ладью a1 на d1 и дают мат черному королю.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/8/R6r/r1k1K2R w K - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/8/R6r/r1k1K2R w K - 0 1", this, ""); '>[...]</span> 
+<p>Или вот задача: мат в один ход. Белые: Крe1, Лa2, Лh1(3). Черные: Крc1, Лa1, Лh2(3).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/8/R6r/r1k1K2R w K - 0 1"></div>
+<p>Решает рокировка в короткую сторону.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/8/pppP1PPP/bk2KBNR w K - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/8/pppP1PPP/bk2KBNR w K - 0 1", this, ""); '>[...]</span> 
+<p>В позиции следующей диаграммы белые еще не рокировали! А раз так, то они могут не только удержать проходные пешки черных, но дать мат в три хода.</p>
+<p class="capTop diagram">24</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/8/pppP1PPP/bk2KBNR w K - 0 1"></div>
+<p>
+ <span onclick='loadMove("8/8/8/8/8/3B4/pppP1PPP/bk2K1NR b K - 0 1", this, "f1d3"); ' class="line0">1.Сd3!</span> 
+ <span onclick='loadMove("8/8/8/8/8/3B4/pppP1PPP/b1k1K1NR w K - 0 2", this, "b1c1"); ' class="line0">Крc1</span> 
+ <span onclick='loadMove("8/8/8/8/8/3B4/pppPNPPP/b1k1K2R b K - 0 2", this, "g1e2"); ' class="line0">2.Кe2+</span> 
+ <span onclick='loadMove("8/8/8/8/8/3B4/pppPNPPP/bk2K2R w K - 0 3", this, "c1b1"); ' class="line0">Крb1</span> 
+ <span onclick='loadMove("8/8/8/8/8/3B4/pppPNPPP/bk3RK1 b - - 0 3", this, "e1g1"); ' class="line0">3.0-0X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/7r/3R4/4k3/8/R3K3 w Q - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/7r/3R4/4k3/8/R3K3 w Q - 0 1", this, ""); '>[...]</span> 
+<p>Удастся ли белым выиграть в таком положении? Белые: Крe1, Лa1, Лd4 (3). Черные: Крe3, Лh5 (2).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/7r/3R4/4k3/8/R3K3 w Q - 0 1"></div>
+<p>И здесь ответ на вопрос связан с тем, могут ли белые рокировать в длинную сторону. Только ход
+ <span onclick='loadMove("8/8/8/7r/3R4/4k3/8/2KR4 b - - 0 1", this, "e1c1"); ' class="line0">1.0-0-0</span> 
+спасает их от мата или потери ладьи.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r3k3/pB1pp1K1/N3r1p1/3Qp3/8/8/8/8 w q - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3k3/pB1pp1K1/N3r1p1/3Qp3/8/8/8/8 w q - 0 1", this, ""); '>[...]</span> 
+<p>Неожиданным маневром достигается мат в два хода в следующем положении, в котором черный король и ладья a8 еще не двигались с исходных рубежей. Белые: Крg7, Фd5, Сb7, Кa6 (4). Черные: Крe8, Лa8, Лe6, п. a7, d7, e7, e5, g6 (8).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r3k3/pB1pp1K1/N3r1p1/3Qp3/8/8/8/8 w q - 0 1"></div>
+<p>К цели ведет
+ <span onclick='loadMove("r3k3/p2pp1K1/N1B1r1p1/3Qp3/8/8/8/8 b q - 0 1", this, "b7c6"); ' class="line0">1.Сc6!</span> 
+, и если
+ <span onclick='loadMove("2kr4/p2pp1K1/N1B1r1p1/3Qp3/8/8/8/8 w - - 0 2", this, "e8c8"); ' class="line0">1...0-0-0</span> 
+, то
+ <span onclick='loadMove("2kr4/pB1pp1K1/N3r1p1/3Qp3/8/8/8/8 b - - 0 2", this, "c6b7"); ' class="line0">2.Сb7X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r3k3/2Qp3R/1p6/1b2K3/4p3/8/5p2/8 w q - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3k3/2Qp3R/1p6/1b2K3/4p3/8/5p2/8 w q - 0 1", this, ""); '>[...]</span> 
+<p>А теперь попробуй решить задачу, в которой белые дают мат в четыре хода черному королю. Учти только, что черные еще не рокировали.</p>
+<p class="capTop diagram">25</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r3k3/2Qp3R/1p6/1b2K3/4p3/8/5p2/8 w q - 0 1"></div>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Сделана ли рокировка?
+	 <span onclick='loadMove("r3k3/2Qp3R/1p6/1b6/3Kp3/8/5p2/8 b q - 0 1", this, "e5d4"); ' class="line0">1.Крd4!</span> 
+	(
+	 <span onclick='loadMove("r3k3/3p3R/1p1Q4/1b2K3/4p3/8/5p2/8 b q - 0 1", this, "c7d6"); ' class="line1">1.Фd6?</span> 
+	 <span onclick='loadMove("2kr4/3p3R/1p1Q4/1b2K3/4p3/8/5p2/8 w - - 0 2", this, "e8c8"); ' class="line1">0-0-0</span> 
+	)
+	 <span onclick='loadMove("4k3/2Qp3R/1p6/1b6/r2Kp3/8/5p2/8 w - - 0 2", this, "a8a4"); ' class="line0">1...Лa4+</span> 
+	 <span onclick='loadMove("4k3/2Qp3R/1p6/1b2K3/r3p3/8/5p2/8 b - - 0 2", this, "d4e5"); ' class="line0">2.Крe5</span> 
+	 <span onclick='loadMove("r3k3/2Qp3R/1p6/1b2K3/4p3/8/5p2/8 w q - 0 3", this, "a4a8"); ' class="line0">Лa8</span> 
+	 <span onclick='loadMove("r3k3/3p3R/1p1Q4/1b2K3/4p3/8/5p2/8 b q - 0 3", this, "c7d6"); ' class="line0">3.Фd6!</span> 
+	, и мат следующим ходом.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="k7/P7/P7/P7/P7/P7/P7/R3K3 w Q - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("k7/P7/P7/P7/P7/P7/P7/R3K3 w Q - 0 1", this, ""); '>[...]</span> 
+<p>Расставь такую позицию: Белые: Крe1, Лa1, п. a2, a3, a4, a5, a6, a7 (8). Черные: Крa8 (1).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="k7/P7/P7/P7/P7/P7/P7/R3K3 w Q - 0 1"></div>
+<p>Как здесь дать мат в восемь ходов? К цели ведет лишь рокировка:
+ <span onclick='loadMove("k7/P7/P7/P7/P7/P7/P7/2KR4 b - - 0 1", this, "e1c1"); ' class="line0">1.0-0-0</span> 
+ <span onclick='loadMove("8/k7/P7/P7/P7/P7/P7/2KR4 w - - 0 2", this, "a8a7"); ' class="line0">Кр:a7</span> 
+ <span onclick='loadMove("3R4/k7/P7/P7/P7/P7/P7/2K5 b - - 0 2", this, "d1d8"); ' class="line0">2.Лd8</span> 
+ <span onclick='loadMove("3R4/8/k7/P7/P7/P7/P7/2K5 w - - 0 3", this, "a7a6"); ' class="line0">Кр:a6</span> 
+ <span onclick='loadMove("8/3R4/k7/P7/P7/P7/P7/2K5 b - - 0 3", this, "d8d7"); ' class="line0">3.Лd7</span> 
+ <span onclick='loadMove("8/3R4/8/k7/P7/P7/P7/2K5 w - - 0 4", this, "a6a5"); ' class="line0">Кр:a5</span> 
+ <span onclick='loadMove("8/8/3R4/k7/P7/P7/P7/2K5 b - - 0 4", this, "d7d6"); ' class="line0">4.Лd6</span> 
+ <span onclick='loadMove("8/8/3R4/8/k7/P7/P7/2K5 w - - 0 5", this, "a5a4"); ' class="line0">Кр:a4</span> 
+<!--p>- 21 -</p-->
+ <span onclick='loadMove("8/8/8/3R4/k7/P7/P7/2K5 b - - 0 5", this, "d6d5"); ' class="line0">5.Лd5</span> 
+ <span onclick='loadMove("8/8/8/3R4/8/k7/P7/2K5 w - - 0 6", this, "a4a3"); ' class="line0">Кр:a3</span> 
+ <span onclick='loadMove("8/8/8/8/3R4/k7/P7/2K5 b - - 0 6", this, "d5d4"); ' class="line0">6.Лd4</span> 
+ <span onclick='loadMove("8/8/8/8/3R4/8/k7/2K5 w - - 0 7", this, "a3a2"); ' class="line0">Кр:a2</span> 
+ <span onclick='loadMove("8/8/8/8/8/3R4/k7/2K5 b - - 0 7", this, "d4d3"); ' class="line0">7.Лd3</span> 
+ <!--span onclick='loadMove("8/8/8/8/8/3R4/k7/2K5 w - - 0 8", this, "d4d3"); ' class="line0">z0</span--> 
+, черный король попадает на a1 и получает мат —
+ <span onclick='loadMove("8/8/8/8/8/R7/k7/2K5 b - - 0 8", this, "d3a3"); ' class="line0">8.Лa3X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

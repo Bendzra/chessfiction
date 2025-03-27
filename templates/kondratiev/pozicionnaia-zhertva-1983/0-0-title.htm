@@ -1,0 +1,47 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<p><b>БИБЛИОТЕЧКА ШАХМАТИСТА</b></p>
+<h2>П.Е.Кондратьев</h2>
+<h1>Позиционная жертва</h1>
+<br>
+<p>Москва</p>
+<p>«Физкультура и спорт»</p>
+<p>1983</p>
+<hr/>
+
+<!--
+<p>ББК 75.581</p>
+<p>К 64</p>
+<p>Кондратьев П. Е.</p>
+<p>К 64 Позиционная жертва.—М.: Физкультура и спорт, 1983.—96 с.— (Б-чка шахматиста).</p>
+-->
+
+<div class="notification message">
+<p>В книге мастера П. Кондратьева делается попытка раскрыть одну из интереснейших шахматных тем, которая до сих пор не получила достаточно глубокого освещения. На многочисленных примерах творчества современных гроссмейстеров и мастеров, а также из классического наследия автор показывает роль позиционной жертвы в шахматной партии.</p>
+<p>Предназначена широкому кругу читателей.</p>
+</div>
+
+<!--
+<p>4202000000-215 ББК 75.581</p>
+<p>К 009 (01)-83 1 52-83 7 А 9.1</p>
+<p>© Издательство «Физкультура и спорт», 1983 г.</p>
+-->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,41 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<table>
+<tr><td><img src="{% static 'images/'|add:book.slug|add:'/237.jpg' %}" /></td><td><img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" /></td></tr>
+</table>
+<p>Издательство «физкультура и спорт»</p>
+<p>1966</p>
+<hr />
+<p>Второе издание, исправленное и дополненное</p>
+<table>
+<tr><td style="vertical-align:bottom;"><img src="{% static 'images/'|add:book.slug|add:'/002.jpg' %}" style="width:150px;"/></td><td><img src="{% static 'images/'|add:book.slug|add:'/003.jpg' %}" style="width:300px;"/></td></tr>
+</table>
+<hr />
+<h2>М. Юдович</h2>
+<h1>Занимательные ШАХМАТЫ</h1>
+
+<h5>ДОРОГОЙ ЮНЫЙ ЧИТАТЕЛЬ!</h5>
+<div class="message">
+<p>В этой небольшой книге опытный международный мастер дает тебе практические советы, делится с тобой своим опытом.</p>
+<p>У начинающих часто возникают вопросы о том, «что такое хорошо и что такое плохо» в шахматах. На страницах этой книги ты найдешь ответы на многие из этих вопросов.</p>
+<p>В книге собраны занятные позиции, веселые шахматные приключения, необычайные происшествия на шахматной доске. Во второе издание внесены некоторые исправления и дополнения.</p>
+<p>Издательство надеется, что эта книга поможет тебе лучше узнать и больше полюбить чудесную страну шахмат.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

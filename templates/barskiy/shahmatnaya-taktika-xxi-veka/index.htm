@@ -1,0 +1,50 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Барский В.Л. Шахматная тактика XXI века</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-ladia.htm' %}">Глава 1. Ладья</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-uprazhneniia.htm' %}">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. Ферзь</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. Легкие фигуры и пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. Две ладьи</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 5. Ладья и слон</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6. Ладья и конь</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 7. Ферзь и слон</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 8. Ферзь и конь</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 9. Ферзь и ладья</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 10. Три фигуры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Упражнения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Проверьте ваши решения</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

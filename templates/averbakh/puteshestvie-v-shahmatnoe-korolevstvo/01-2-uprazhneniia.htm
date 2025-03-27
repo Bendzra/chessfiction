@@ -1,0 +1,84 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Упражнения | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h4>Упражнения</h4>
+<div class="message">
+<p>Теперь у вас достаточно сведений, чтобы разыграть партию. Однако чтобы не читать «по складам», следует попрактиковаться.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>1. Разберите две следующие маленькие партии.</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "c7c6"); ' class="line0">c7-c6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d2-d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3", this, "d7d5"); ' class="line0">d7-d5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кb1-c3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/8/3Pp3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 4", this, "d5e4"); ' class="line0">d5:e4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/8/3PN3/8/PPP2PPP/R1BQKBNR b KQkq - 0 4", this, "c3e4"); ' class="line0">4.Кc3:e4</span> 
+ <span onclick='loadMove("r1bqkbnr/pp1npppp/2p5/8/3PN3/8/PPP2PPP/R1BQKBNR w KQkq - 0 5", this, "b8d7"); ' class="line0">Кb8-d7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkbnr/pp1npppp/2p5/8/3PN3/8/PPP1QPPP/R1B1KBNR b KQkq - 0 5", this, "d1e2"); ' class="line0">5.Фd1-e2</span> 
+ <span onclick='loadMove("r1bqkb1r/pp1npppp/2p2n2/8/3PN3/8/PPP1QPPP/R1B1KBNR w KQkq - 0 6", this, "g8f6"); ' class="line0">Кg8-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkb1r/pp1npppp/2pN1n2/8/3P4/8/PPP1QPPP/R1B1KBNR b KQkq - 0 6", this, "e4d6"); ' class="line0">6.Кe4-d6</span>
+.</p>
+<p class="capTop diagram">* * *</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кg1-f3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кb8-c6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1c4"); ' class="line0">3.Сf1-c4</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "c6d4"); ' class="line0">Кc6-d4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4N3/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 4", this, "f3e5"); ' class="line0">4.Кf3:e5</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 5", this, "d8g5"); ' class="line0">Фd8-g5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/6q1/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5", this, "e5f7"); ' class="line0">5.Кe5:f7</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQK2R w KQkq - 0 6", this, "g5g2"); ' class="line0">Фg5:g2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQKR2 b Qkq - 0 6", this, "h1f1"); ' class="line0">6.Лh1-f1</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2Bnq3/8/PPPP1P1P/RNBQKR2 w Qkq - 0 7", this, "g2e4"); ' class="line0">Фg2:e4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/3nq3/8/PPPPBP1P/RNBQKR2 b Qkq - 0 7", this, "c4e2"); ' class="line0">7.Сc4-e2</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 8", this, "d4f3"); ' class="line0">Кd4-f3</span>
+</p>
+<p>2. Пройдите королем с поля e1 на поле h8 через поле f5 и запишите путь короля.</p>
+<p>3. Пройдите ферзем с поля d1 через поле b7 на g8 и запишите путь ферзя.</p>
+<p>4. Пройдите ладьей a1 через все поля доски и вернитесь на то же поле. Выполняя это задание, стремитесь к тому, чтобы ладья дважды не проходила через одно поле. Запишите путь ладьи.</p>
+<p>5. Пройдите слоном с c1 через поле g7 на поле b8. Запишите путь слона.</p>
+<p>6. Попробуйте конем b1 обскакать все поля доски. Запишите путь коня.</p>
+<p>7. Попробуйте конем с поля g1 стать на f1. За сколько ходов это вам удалось? Запишите путь коня.</p>
+<p>8. Взгляните на диаграмму №9 и запишите все возможные движения белых пешек.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

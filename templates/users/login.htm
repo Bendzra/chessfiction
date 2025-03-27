@@ -1,0 +1,38 @@
+{% extends '../base.htm' %}
+
+{% block title %}
+<title>Аутентификация пользователя</title>
+{% endblock title %}
+
+{% block head_extras %}
+<style>
+li {list-style-type: none ; text-align:left;}
+.form-group {
+  margin-bottom: 15px;
+}
+</style>
+{% endblock head_extras %}
+
+{% block content %}
+<div class="notification message capTop" style="margin-left: auto; margin-right: auto;">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Вход</legend>
+      {{ form.as_ul }}
+    </fieldset>
+    <div class="form-group">
+      <button class="col80" type="submit">Войти</button>
+      <!--small class="text-muted ml-2">
+        <a href="{#{% url 'user-password-reset' %}#}">Forgot Password?</a>
+      </small-->
+    </div>
+  </form>
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Не зарегестрированы? <a class="ml-2" href="{% url 'user-register' %}">Зарегестрироваться</a>
+    </small>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,99 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>Оглавление</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Король Борис Десятый (Дамский Я.В., 2004)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-zasedanie-prodolzhaetsia_.htm' %}">Глава I. «Заседание продолжается»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00-shahmaty-dlinoiu-v-zhizn.htm' %}">Глава II. Шахматы длиною в жизнь</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-minimum-maksimum-ili-prosto-mezhzonalnyj_.htm' %}">Минимум? Максимум? Или просто межзональный</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-vverh-po-lestnice-vedushchej-vniz.htm' %}">Вверх по лестнице, ведущей вниз</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-staraia-novaia-vysota.htm' %}">Старая новая высота</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-0-pretendent-i.htm' %}">Претендент I</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-1-match-s-keresom.htm' %}">Матч с Кересом</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-2-_s-gellerom.htm' %}">...с Геллером</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-3-_s-talem.htm' %}">... с Талем</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05-pervyj-promezhutochnyj.htm' %}">Первый промежуточный</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-0-pretendent-ii.htm' %}">Претендент II</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-1-match-s-gellerom.htm' %}">Матч с Геллером</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-2-_s-larsenom.htm' %}">...с Ларсеном</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-3-_s-korchnym.htm' %}">...с Корчным</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-opravdanie-zhizni.htm' %}">Оправдание жизни</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-schastlivoe-vremia-utrachennyh-pobed.htm' %}">Счастливое время утраченных побед</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-09-vse-poteriano-krome-chesti_.htm' %}">Все потеряно? Кроме чести?</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-10-pretendent-iii-iv-v_.htm' %}">Претендент — III, IV, V</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-osnovnye-sportivnye-rezultaty.htm' %}">Основные спортивные результаты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-ukazatel-debiutov.htm' %}">Указатель дебютов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-ukazatel-partnerov.htm' %}">Указатель партнеров</a></li>
+</ul>
+
+<hr />
+
+<div class="diagram">
+<h3>Научно-популярное издание</h3>
+<p>Серия «Великие шахматисты мира»</p>
+</div>
+
+<div class="diagram">
+<h2>Дамский Яков Владимирович</h2>
+<h1>КОРОЛЬ БОРИС ДЕСЯТЫЙ</h1>
+</div>
+
+<div class="diagram">
+<p>Генеральный директор издательства С. М. Макаренков</p>
+</div>
+
+<div class="diagram">
+<p>Ведущий редактор серии Я. В. Дамский</p>
+<p>Художественное оформление серии: Я. Ю. Дмитриева</p>
+<p>Компьютерная верстка: О. К. Скляр</p>
+<p>Технический редактор Е. А. Крылова</p>
+<p>Корректор Т. Е. Антонова</p>
+</div>
+
+<div class="diagram">
+<p>Подписано в печать с готовых диапозитивов 26.08.2004 г.</p>
+<p>Формат 60x90/16. Печать офсетная. Гарнитура «Таймс»</p>
+<p>Печ. л. 25,5. Тираж 3 000 экз.</p>
+<p>Заказ № 4728</p>
+</div>
+
+<div class="diagram">
+<p>Адрес электронной почты: info@ripol.ru</p>
+<p>Сайт в Интернете: www.ripol.ru</p>
+</div>
+
+<div class="diagram">
+<p>ООО «ИД «РИПОЛ классик»</p>
+<p>107140, Москва, Краснопрудная ул., д. 22а, стр. 1</p>
+<p>Изд. лиц. № 04620 от 24.04.2001 г.</p>
+</div>
+
+<div class="diagram">
+<p>Отпечатано с готовых диапозитивов во ФГУП ИПК «Ульяновский Дом печати». 432980, г. Ульяновск, ул. Гончарова, 14</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

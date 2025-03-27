@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<a name="index"></a>
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Алексей СЕЛЕЗНЕВ. 100 ШАХМАТНЫХ ЭТЮДОВ практикум по эндшпилю</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie-k-pervomu-izdaniyu.htm' %}">Предисловие к первому изданию</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-predislovie-ko-vtoromu-izdaniyu.htm' %}">Предисловие ко второму изданию</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-3-ot-avtora.htm' %}">От автора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-etiudy.htm' %}">Этюды</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-reshenia.htm' %}">Решения</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,47 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Р. Г. НЕЖМЕТДИНОВ</h2>
+<h1>ИЗБРАННЫЕ ПАРТИИ</h1>
+<div class="message">
+<p>КАЗАНЬ</p>
+<p>ТАТАРСКОЕ КНИЖНОЕ ИЗДАТЕЛЬСТВО</p>
+<p>1978</p>
+</div>
+<div class="message">
+<p>7А9.1 Н43</p>
+<p>Обложка художника И. Субаева</p>
+<p>Нежметдинов Р. Г.</p>
+<p>Н43 Избранные партии. Под ред. В. Волошина. Предисл. М. Таля. Казань, Татарское кн. изд-во, 1978.</p>
+<p>200 с.; 2л. ил.</p>
+</div>
+<div class="message">
+<p>В книге известного советского шахматиста, заслуженного тренера СССР по шахматам Р. Г. Нежметдинова представлены лучшие партии автора, сыгранные как с советскими, так и зарубежными мастерами и гроссмейстерами, Многие из них являются подлинными произведениями шахматного искусства.</p>
+<p>Книга рассчитана на широкий круг читателей, любителей шахмат, шахматистов-разрядников, преподавателей, тренеров и учащихся детских и юношеских спортивных школ по шахматам.</p>
+</div>
+<div class="message">
+<p>7А9.1</p>
+<p>60904—170</p>
+<p><sup>Н</sup> M132(03)—78</p>
+<p>291—79</p>
+</div>
+<div class="message">
+<p>© Татарское книжное издательство, 1978</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

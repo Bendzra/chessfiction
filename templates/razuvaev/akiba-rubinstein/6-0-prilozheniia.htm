@@ -1,0 +1,28 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Приложения | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Приложения</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-1-bez-kommentariev-1905-12.htm' %}">Без комментариев 1905-1912</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-2-bez-kommentariev-1922-31.htm' %}">Без комментариев 1922-1931</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-3-turnirnye-i-matchevye-rezultaty.htm' %}">Турнирные и матчевые результаты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-4-ukazatel-debiutov.htm' %}">Указатель дебютов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-5-ukazatel-partnerov.htm' %}">Указатель партнеров</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

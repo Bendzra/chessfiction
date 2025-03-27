@@ -1,0 +1,48 @@
+{% load static %}
+
+<nav role="navigation" id="sideNavParent">
+  <div id="menuToggle">
+    <!--
+    A fake / hidden checkbox is used as click reciever,
+    so you can use the :checked selector on it.
+    -->
+    <input id="toggle_button" type="checkbox" />
+    <span class="slice"></span>
+    <span class="slice"></span>
+    <span class="slice"></span>
+    <ul id="menu">
+      <!-- dropdown sidebar-->  
+      <li>
+        <a href="/" onclick="return false;" data-toggle="collapse" data-target="#divGenres">Поиск&nbsp;<b class="caret"></b></a>
+        <div id="divGenres" class="collapse" data-parent="#sideNavParent">
+          <form method="GET">
+            <input class="form-control" type="text" placeholder="Ищет и складывает всё в кучу" aria-label="поиск по автору, названию и описанию" name="q" value="{{ q_query }}" title="Ищет всё подряд, складывая в одну кучу">
+            
+            <fieldset class="form-group">
+              <legend class="small white" style="padding-top:12px;">Фильтры</legend>
+              {% for cat in category_list %}
+			  <div class="checkbox">
+			  <label><input type="checkbox" name="category" value="{{cat.id}}" {% if cat.id in categories_checked %} checked {% endif %}/><span>&nbsp;{{cat.name}}</span></label>
+			  </div>
+              {% endfor %}
+            </fieldset>
+            
+            <div class="form-group" style="text-align:right;">
+			<button class="btn btn-primary btn-sm" type="button" onclick="resetForm(this)">Очистить</button>
+            <button class="btn btn-info btn-sm" type="submit">Выбрать</button>
+            </div>
+
+          </form>
+        </div>
+      </li>
+      <li><hr /></li>
+      {% if user.is_authenticated %}
+      <li><i class="glyphicon glyphicon-log-out"></i> <a href="{% url 'user-logout' %}">Выйти</a></li>
+      {% else %}
+      <li><i class="glyphicon glyphicon-log-in"></i><a href="{% url 'user-login' %}">Войти</a></li>
+      {% endif %}
+      <li><hr /></li>
+      <li class="btn btn-success btn-block"><i class="glyphicon glyphicon-ruble"></i> <a href="{% url 'books-donate' %}">Поддержать сайт</a></li>
+    </ul>
+  </div>
+</nav>

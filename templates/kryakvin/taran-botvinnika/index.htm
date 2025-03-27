@@ -1,0 +1,72 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>СОДЕРЖАНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">КРЯКВИН Д.В. «Таран Ботвинника. Вечнозеленая классика шахмат»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-nasledie-botvinnika.htm' %}">ЧАСТЬ ПЕРВАЯ. Наследие Ботвинника</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-kulturnaia-proverka.htm' %}">Глава первая. Культурная проверка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава вторая. Тяжелая артиллерия</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава третья. Любимая позиция Исаака Липницкого</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ ВТОРАЯ. Голландская защита</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава четвертая. 1.d4 f5 2.g4!? Гамбит Крейчика</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава пятая. Атака с железным алиби</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава шестая. Пушечный выстрел по каменной стене</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ ТРЕТЬЯ. Ферзевый гамбит</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава седьмая. Прогулки с ферзевым гамбитом</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ ЧЕТВЕРТАЯ. Защита Нимцовича</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава восьмая. Даже если вам помогает дьявол</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава девятая. По следам великого противостояния</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ ПЯТАЯ. Анти-Нимцович</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава десятая. Гронингенская атака, или вариант Звягинцева-Красенкова</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ ШЕСТАЯ. Славянская защита</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава одиннадцатая. Гамбит Шабалова-Широва</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава двенадцатая. Перевернутые шахматы</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ СЕДЬМАЯ. Староиндийская защита</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава тринадцатая. Вариант Портиша-Гипслиса</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава четырнадцатая. Вариант Рязанцева</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава пятнадцатая. Тайные закоулки варианта Макогонова</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ ВОСЬМАЯ. Защита Грюнфельда и редкие варианты</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава шестнадцатая. Атака Мурея</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава семнадцатая. Творец XXI века</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Заключение</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

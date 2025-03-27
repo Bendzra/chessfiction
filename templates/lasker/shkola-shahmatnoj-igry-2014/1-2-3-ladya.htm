@@ -1,0 +1,26 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ладья | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<a name="1-2-3-ladya"></a>
+
+<div class="section">
+<h3>Ладья</h3>
+<div class="chessBoard small nobuttons" data-start-fen="8/8/8/8/2r1RK2/8/k1r3R1/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/2r1RK2/8/k1r3R1/8 w - - 0 1", this, ""); '>[...]</span> 
+<p>Ладья, стоящая на c2, имеет в своем распоряжении следующие ходы: на b2, d2, e2, f2 и побить на
+g2; она не может пойти на c1 или c3, так как вынуждена защищать своего короля от вражеской ладьи g2. Ладья c4 может пойти на a4, b4, d4 и побить на e4, но не может пойти на f4, так как белая ладья e4 преграждает ей путь и защищает этим белого короля. Ладья e4 имеет только два хода: на d4 и побить на c4; ладья же g2 имеет в своем распоряжении 12 полей, а именно: h2, f2, e2, d2, g1, g3, g4, g5, g6, g7, g8 и побить на c2.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

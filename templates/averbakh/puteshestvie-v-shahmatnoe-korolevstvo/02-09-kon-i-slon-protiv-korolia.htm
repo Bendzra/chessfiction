@@ -1,0 +1,66 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>КОНЬ И СЛОН ПРОТИВ КОРОЛЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>КОНЬ И СЛОН ПРОТИВ КОРОЛЯ</h3>
+<div class="message">
+<p>Мат конем и слоном — непростая задача, а двумя конями — неразрешимая. Когда у вас остались только конь и слон, впереди большие трудности. Хотя конь по силе примерно равен слону, управлять двумя слонами куда удобнее, чем слоном и конем. Сейчас посмотрим, как матуют короля. Представим себе, что он уже оттеснен на край доски.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/1k2K3/8/1B1N4/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/1k2K3/8/1B1N4/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">83</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/1k2K3/8/1B1N4/8/8/8/8 w - - 0 1"></div>
+<p class="longNotation">
+ <span onclick='loadMove("8/1k1K4/8/1B1N4/8/8/8/8 b - - 0 1", this, "e7d7"); ' class="line0">1.Крe7-d7</span> 
+ <span onclick='loadMove("1k6/3K4/8/1B1N4/8/8/8/8 w - - 0 2", this, "b7b8"); ' class="line0">Крb7-b8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("1k6/3K4/B7/3N4/8/8/8/8 b - - 0 2", this, "b5a6"); ' class="line0">2.Сb5-a6</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Управлять слоном мы уже умеем. Вместе с королем он ограничивает поле деятельности короля противника.</p>
+<p class="longNotation">
+ <span class="ellipsis0">2. ...</span> 
+ <span onclick='loadMove("8/k2K4/B7/3N4/8/8/8/8 w - - 0 3", this, "b8a7"); ' class="line0">Крb8-a7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2B5/k2K4/8/3N4/8/8/8/8 b - - 0 3", this, "a6c8"); ' class="line0">3.Сa6-c8</span> 
+ <span onclick='loadMove("1kB5/3K4/8/3N4/8/8/8/8 w - - 0 4", this, "a7b8"); ' class="line0">Крa7-b8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("1kB5/3KN3/8/8/8/8/8/8 b - - 0 4", this, "d5e7"); ' class="line0">4.Кd5-e7</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Конь подготовился к решающему прыжку. С этой же целью возможно было
+ <span onclick='loadMove("1kB5/3K4/8/8/1N6/8/8/8 b - - 0 4", this, "d5b4"); ' class="line1">4.Кb4</span>.</p>
+<p class="longNotation">
+ <span class="ellipsis0">4. ...</span> 
+ <span onclick='loadMove("2B5/k2KN3/8/8/8/8/8/8 w - - 0 5", this, "b8a7"); ' class="line0">Крb8-a7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2B5/k1K1N3/8/8/8/8/8/8 b - - 0 5", this, "d7c7"); ' class="line0">5.Крd7-c7</span> 
+ <span onclick='loadMove("k1B5/2K1N3/8/8/8/8/8/8 w - - 0 6", this, "a7a8"); ' class="line0">Крa7-a8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("k7/1BK1N3/8/8/8/8/8/8 b - - 0 6", this, "c8b7"); ' class="line0">6.Сc8-b7+</span> 
+ <span onclick='loadMove("8/kBK1N3/8/8/8/8/8/8 w - - 0 7", this, "a8a7"); ' class="line0">Крa8-a7</span> 
+</p>
+<p>и на выбор
+ <span onclick='loadMove("8/kBK5/2N5/8/8/8/8/8 b - - 0 7", this, "e7c6"); ' class="line1">7.Кe7-c6</span> 
+или
+ <span onclick='loadMove("2N5/kBK5/8/8/8/8/8/8 b - - 0 7", this, "e7c8"); ' class="line1">7.Кe7-c8X</span>. Как видите, мат в углу дается почти так же, как двумя слонами. Кстати, запомните: мат возможен только в том углу, какой доступен слону. Туда и следует теснить короля.</p>
+<p>Надо сказать, что окончание, в котором против короля действуют конь и слон, на практике встречается довольно редко. Можно не спешить с овладением техникой матова-ния в этом окончании, чтобы позднее, приобретя опыт, самостоятельно вернуться к этой теме.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

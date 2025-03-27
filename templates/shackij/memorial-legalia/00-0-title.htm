@@ -1,0 +1,52 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="message">
+<h2>Р. Шацкий</h2>
+<h1>МЕМОРИАЛ ЛЕГАЛЯ</h1>
+<p>Майкоп, 1988</p>
+</div>
+
+<div class="message">
+<p>75.581</p>
+<p>Ш 32</p>
+</div>
+
+<div class="message page">
+<p><b>Р. Шацкий</b></p>
+<p>Ш32 Мемориал Легаля.— Майкоп: Адыгейское отделение Краснодарского кн. изд. 1988. 68 с.</p>
+</div>
+
+<div class="message notification">
+<p>В предлагаемой вниманию читателей работе собраны сто партий и фрагментов, где встретились различные вариации старинной комбинации, именуемой в шахматных анналах «темой Легаля», характеризуемые типовыми жертвами ферзя в дебюте.</p>
+</div>
+
+<div class="message">
+<p>Ш</p>
+<p>4204000000 - 33</p>
+<p>М 146 (03) - 88</p>
+<p>без объявлен.</p>
+</div>
+
+<div class="message warning">
+<b>ISBN 5-7561-0085-7</b>
+<div style="float:right;">Книга издана на средства автора<br />© Адыгейское отделение Краснодарского книжного издательства, 1988.</div>
+<div class="clear"></div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

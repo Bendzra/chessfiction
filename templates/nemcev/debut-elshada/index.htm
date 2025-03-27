@@ -1,0 +1,51 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Игорь Немцев. Дебют Эльшада или универсальный репертуар для быстрых шахмат и блица</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-shahmaty-zerkalo-zhizni.htm' %}">Шахматы — зеркало жизни!</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-poiasneniia-k-tekstu.htm' %}">Пояснения к тексту</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-3-ot-avtora.htm' %}">От автора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-4-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-5-vstuplenie.htm' %}">Вступление</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-na-glavnom-napravlenii.htm' %}">Глава 1. На главном направлении (белые играют <b>f2-f4</b>)</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-partii-01-07.htm' %}">Партии   1-7</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-partii-08-14.htm' %}">Партии  8-14</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-partii-15-22.htm' %}">Партии 15-22</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-partii-23-30.htm' %}">Партии 23-30</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-belye-stroiat-krepost.htm' %}">Глава 2. Белые строят крепость (белые играют <b>g2-g3</b> и <b>Сg2</b>)</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-partii-31-37.htm' %}">Партии 31-37</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-partii-38-44.htm' %}">Партии 38-44</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-partii-45-50.htm' %}">Партии 45-50</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-klassicheskij-variant.htm' %}">Глава 3. Классический вариант (белые играют <b>Кf3</b>, <b>Сe2</b>, <b>0-0</b>)</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-partii-51-57.htm' %}">Партии 51-57</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-partii-58-65.htm' %}">Партии 58-65</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-ten-drakona.htm' %}">Глава 4. Тень «Дракона» (белые рокируют в длинную сторону)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-vse-vse-vse.htm' %}">Глава 5. Всё-всё-всё (отклонения в разные стороны)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-zakliuchenie.htm' %}">Заключение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-ob-avtore.htm' %}">Об авторе</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

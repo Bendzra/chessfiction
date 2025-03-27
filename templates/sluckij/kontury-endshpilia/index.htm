@@ -1,0 +1,69 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Контуры эндшпиля. Л.М. Слуцкий, М.И. Шерешевский (1989)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-ot-avtorov.htm' %}">От авторов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-sicilianskaia-zashchita.htm' %}">Сицилианская защита</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-variant-drakona.htm' %}">Вариант дракона</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-sistema-paulsena.htm' %}">Система Паульсена</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-sistema-boleslavskogo.htm' %}">Система Болеславского</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-cheliabinskij-variant.htm' %}">Челябинский вариант</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-ataka-rauzera.htm' %}">Атака Раузера</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-sheveningenskij-variant.htm' %}">Схевенингенский вариант</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-7-zhertva-kachestva-na-c3.htm' %}">Жертва качества на c3</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-ispanskaia-partiia.htm' %}">Испанская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-razmennyj-variant.htm' %}">Разменный вариант</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-otkrytyj-variant.htm' %}">Открытый вариант</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-zakrytyj-variant.htm' %}">Закрытый вариант</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-prochie-sistemy.htm' %}">Прочие системы</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-francuzskaia-zashchita.htm' %}">Французская защита</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-struktura-razmennogo-varianta.htm' %}">Структура разменного варианта</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-sistema-nimcovicha.htm' %}">Система Нимцовича</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-variant-vinavera-nimcovicha.htm' %}">Вариант Винавера-Нимцовича</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-klassicheskaia-sistema.htm' %}">Классическая система</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5-variant-mak-ketchona.htm' %}">Вариант Мак-Кэтчона</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-6-variant-tarrasha.htm' %}">Вариант Тарраша</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-7-struktura-rubinshtejna.htm' %}">Система с пешечной разгрузкой в центре (структура Рубинштейна)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-zashchita-karo-kann.htm' %}">Защита Каро-Канн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-zashchita-pirca-ufimceva.htm' %}">Защита Пирца-Уфимцева</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-00-otkrytye-debiuty.htm' %}">Открытые дебюты</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-01-korolevskij-gambit.htm' %}">Королевский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-02-gambit-evansa.htm' %}">Гамбит Эванса</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-03-zashchita-filidora.htm' %}">Защита Филидора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-04-russkaia-partiia.htm' %}">Русская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-05-debiut-chetyreh-konej.htm' %}">Дебют четырех коней</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-06-debiut-treh-konej.htm' %}">Дебют трех коней</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-07-zashchita-dvuh-konej.htm' %}">Защита двух коней</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-08-venskaia-partiia.htm' %}">Венская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-09-shotlandskaia-partiia.htm' %}">Шотландская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-10-vengerskaia-partiia.htm' %}">Венгерская партия</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-zashchita-alehina-i-skandinavskaia-zashchita.htm' %}">Защита Алехина и Скандинавская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-ukazatel-partij.htm' %}">Указатель партий</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

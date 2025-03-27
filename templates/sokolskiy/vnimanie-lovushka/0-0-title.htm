@@ -1,0 +1,76 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>С59</p>
+</div-->
+
+<div class="message page">
+<p>С59 <b>Сокольский А.П.</b></p>
+<p>Внимание ловушка! — М.: «RUSSIAN CHESS HOUSE / Русский Шахматный Дом», 2017 — 72 с.</p>
+<p>(Библиотечка шахматиста)</p>
+<p>ISBN 978-5-94693-604-0</p>
+</div>
+
+<div class="message notification">
+<p>Книга заслуженного тренера СССР и знаменитого шахматного литератора А.П.Сокольского имеет цель научить шахматиста не попадаться в хитро расставленные сети, а наоборот, самому заманить соперника в ловушку.</p>
+<p>Разбираются типовые ловушки в дебюте, миттельшпиле и эндшпиле.</p>
+<p>Приводятся поучительные короткие партии.</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+
+<div class="message">
+<h3>Учебное издание</h3>
+<h2>Алексей Павлович Сокольский</h2>
+<h1>ВНИМАНИЕ ЛОВУШКА!</h1>
+</div>
+
+<!--div>
+<p>Технический редактор Лариса Соколова</p>
+<p>Верстка Оксана Скляр</p>
+<p>Художник Наталья Кустова</p>
+<p>Подписано в печать 20.04.2017. Формат 60 х 90/16.</p>
+<p>Издательство «RUSSIAN CHESS HOUSE»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел.: +7(495) 963-8017 (пн-пт с 11.00 до 18.00)</p>
+<p>email: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+
+<div class="message">
+<b>ISBN 978-5-94693-604-0</b>
+<div style="float:right;">
+<p>© Сокольский А.П., наследники, 2017</p>
+<p>© Издательство «RUSSIAN CHESS HOUSE», 2017</p>
+</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

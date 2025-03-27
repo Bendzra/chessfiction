@@ -1,0 +1,26 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 1. ОТКАЗАННЫЙ КОРОЛЕВСКИЙ ГАМБИТ. РЕДКИЕ ПРОДОЛЖЕНИЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Глава 1. ОТКАЗАННЫЙ КОРОЛЕВСКИЙ ГАМБИТ. РЕДКИЕ ПРОДОЛЖЕНИЯ</h2>
+<p>Варианты, которые рассматриваются в первой главе, действительно применяются довольно-таки редко, однако это не значит, что они плохи. Сразу отметим, что уже в первой партии главы «левое» продолжение избирает известный гроссмейстер. Преимущество такого подхода состоит хотя бы в том, что не надо изучать многочисленные варианты гамбита коня.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-0-partii-1-10.htm' %}">Партии 1-10</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

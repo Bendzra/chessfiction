@@ -1,0 +1,73 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>title | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<div class="message">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>Г46</p>
+</div>
+
+<div class="message page">
+<p>Гик Е.</p>
+<p>Г46 Все чемпионы мира по шахматам. Лучшие партии. — М.: RUSSIBN CHESS HOUSE / Русский Шахматный Дом», 2020. — 352 с. (Секреты шахмат)</p>
+<p>ISBN 978-5-94693-932-4</p>
+</div>
+
+<div class="message notification">
+<p>Евгений Гик — знаменитый шахматный литератор и мастер, написавший около 180 книг.</p>
+<p>В данной работе представлены 266 прокомментированных лучших партий всех чемпионов мира, включая действующего — Магнуса Карлсена.</p>
+<p>Читатель найдет здесь также удивительные истории про шахматных королей, а также редкие фотографии.</p>
+<p>Изучая лучшие партии сильнейших гроссмейстеров в истории шахмат вы бесспорно сможете повысить свой уровень игры, улучшить понимание дебюта, миттельшпиля и эндшпиля.</p>
+<p>Увеличенный формат (170x235 мм).</p>
+<p>Для широкого круга любителей и знатоков шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="message">
+<p>Уважаемые читатели! Если Вы обнаружите опечатки в книгах нашего издательства - просим сообщить нам на e-mail chessm.com@gmail.com с темой «опечатки».</p>
+<p>Самые активные получат в подарок наши книги.</p>
+</div>
+
+<div class="message">
+<h2>Евгений ГИК</h2>
+<h1>ВСЕ ЧЕМПИОНЫ МИРА ПО ШАХМАТАМ. ЛУЧШИЕ ПАРТИИ.</h1>
+</div>
+
+<div class="message">
+<p>Художник Петр Голощапов</p>
+<p>Фото Борис Долматовский, Евгений Гик, Дагоберт Кольмайер и из архива автора.</p>
+</div>
+
+<div class="message">
+<p>Издательство «RUSSIAN CHESS HOUSE»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел.: + 7(495) 963-8017 (пн-пт c 11.00 до 18.00)</p>
+<p>www.chessm.ru — Интернет-магазин</p>
+<p>Более 9000 наименований!</p>
+</div>
+
+<div class="message warning">
+<b>ISBN 978-5-94693-932-4</b>
+<div style="float:right;">© Е. Гик, наследники, 2020<br />© Изд. «Русский шахматный дом», 2020</div>
+<div class="clear"></div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

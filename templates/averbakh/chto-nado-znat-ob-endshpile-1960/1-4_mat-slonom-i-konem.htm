@@ -1,0 +1,319 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Мат слоном и конем | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>МАТ СЛОНОМ И КОНЕМ</h3>
+<div class='score'>
+<p>Матование слоном и конем гораздо сложнее предыдущих. Для того чтобы осуществить мат, требуется около 35 ходов. Поскольку предельно допускаемое для мата число ходов равно по существующим правилам 50, такие окончания требуют точной игры.</p>
+<p>Здесь путь к победе состоит из трех этапов. Сперва одинокий король оттесняется на край доски, затем — в угол того цвета, которым владеет слон, и там уже дается мат.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="floater">
+<p class="capTop">4</p>
+<div class="chessBoard small" data-start-fen="1k6/4K3/8/1B1N4/8/8/8/8 b - - 0 1"></div>
+</div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("1k6/4K3/8/1B1N4/8/8/8/8 b - - 0 1", this, ""); '>[...]</span>
+<p>Сначала рассмотрим, как происходит матование в углу.</p>
+<p>Король черных загнан в нужный угол и не может выйти из него. Обратите внимание на то, как взаимодействуют фигуры между собой, дополняя друг друга. Конь отнимает черные поля c7 и b6, слон — белые поля a6 и c6, король — d8. Мат здесь дается не позднее 9-го хода.</p>
+<p>Например: при ходе черных</p>
+<p class="longNotation">
+<span class="ellipsis0">1. ...</span>
+<span onclick='loadMove("8/k3K3/8/1B1N4/8/8/8/8 w - - 0 2", this, "b8a7"); ' class="line0">Крb8-a7</span>
+</p>
+<p class="longNotation">
+<span onclick='loadMove("8/k2K4/8/1B1N4/8/8/8/8 b - - 0 2", this, "e7d7"); ' class="line0">2.Крe7-d7</span>
+<span onclick='loadMove("8/1k1K4/8/1B1N4/8/8/8/8 w - - 0 3", this, "a7b7"); ' class="line0">Крa7-b7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("3K4/1k6/8/1B1N4/8/8/8/8 b - - 0 3", this, "d7d8"); ' class="line0">3.Крd7-d8</span>
+<span onclick='loadMove("1k1K4/8/8/1B1N4/8/8/8/8 w - - 0 4", this, "b7b8"); ' class="line0">Крb7-b8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("1k1K4/8/B7/3N4/8/8/8/8 b - - 0 4", this, "b5a6"); ' class="line0">4.Сb5-a6!</span></p>
+<p>Теперь сфера движения короля еще более ограничена.</p>
+<p class="longNotation">
+<span class="ellipsis0">4. ...</span>
+<span onclick='loadMove("3K4/k7/B7/3N4/8/8/8/8 w - - 0 5", this, "b8a7"); ' class="line0">Крb8-a7</span>
+</p>
+<p class="longNotation">
+<span onclick='loadMove("2BK4/k7/8/3N4/8/8/8/8 b - - 0 5", this, "a6c8"); ' class="line0">5.Сa6-c8</span>
+<span onclick='loadMove("1kBK4/8/8/3N4/8/8/8/8 w - - 0 6", this, "a7b8"); ' class="line0">Крa7-b8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("1kBK4/8/8/8/1N6/8/8/8 b - - 0 6", this, "d5b4"); ' class="line0">6.Кd5-b4</span>
+<span onclick='loadMove("2BK4/k7/8/8/1N6/8/8/8 w - - 0 7", this, "b8a7"); ' class="line0">Крb8-a7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("2B5/k1K5/8/8/1N6/8/8/8 b - - 0 7", this, "d8c7"); ' class="line0">7.Крd8-c7</span>
+<span onclick='loadMove("k1B5/2K5/8/8/1N6/8/8/8 w - - 0 8", this, "a7a8"); ' class="line0">Крa7-a8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("k7/1BK5/8/8/1N6/8/8/8 b - - 0 8", this, "c8b7"); ' class="line0">8.Сc8-b7+</span>
+<span onclick='loadMove("8/kBK5/8/8/1N6/8/8/8 w - - 0 9", this, "a8a7"); ' class="line0">Крa8-a7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/kBK5/2N5/8/8/8/8/8 b - - 0 9", this, "b4c6"); ' class="line0">9.Кb4-c6X</span>.</p>
+<p class="notification message">Мат одинокому королю можно дать только в углу того цвета, которым владеет слон. Конечно, слабейшая сторона, отступая, стремится попасть в другой, безопасный, угол.</p>
+<p>Поэтому очень важно знать, как «перегонять» короля из угла в угол.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="section score">Вот характерная позиция.</p>
+
+<div class="section">
+<div class="floater">
+<p class="capTop">5</p>
+<div class="chessBoard small" data-start-fen="7k/8/5K2/4N3/4B3/8/8/8 w - - 0 1"></div>
+</div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("7k/8/5K2/4N3/4B3/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p class="longNotation">
+<span onclick='loadMove("7k/5N2/5K2/8/4B3/8/8/8 b - - 0 1", this, "e5f7"); ' class="line0">1.Кe5-f7+</span>
+<span onclick='loadMove("6k1/5N2/5K2/8/4B3/8/8/8 w - - 0 2", this, "h8g8"); ' class="line0">Крh8-g8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("6k1/5N2/5K2/5B2/8/8/8/8 b - - 0 2", this, "e4f5"); ' class="line0">2.Сe4-f5</span>
+<span onclick='loadMove("5k2/5N2/5K2/5B2/8/8/8/8 w - - 0 3", this, "g8f8"); ' class="line0">Крg8-f8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("5k2/5N1B/5K2/8/8/8/8/8 b - - 0 3", this, "f5h7"); ' class="line0">3.Сf5-h7</span>
+<span onclick='loadMove("4k3/5N1B/5K2/8/8/8/8/8 w - - 0 4", this, "f8e8"); ' class="line0">Крf8-e8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4k3/7B/5K2/4N3/8/8/8/8 b - - 0 4", this, "f7e5"); ' class="line0">4.Кf7-e5</span>
+<span onclick='loadMove("3k4/7B/5K2/4N3/8/8/8/8 w - - 0 5", this, "e8d8"); ' class="line0">Крe8-d8!</span></p>
+<p>Наиболее активный способ защиты. Черные мечтают прорваться королем в угол a1.</p>
+<p>После
+ <span onclick='loadMove("5k2/7B/5K2/4N3/8/8/8/8 w - - 0 5", this, "e8f8"); ' class="line1">4...Крe8-f8</span> 
+ <span onclick='loadMove("5k2/3N3B/5K2/8/8/8/8/8 b - - 0 5", this, "e5d7"); ' class="line1">5.Кe5-d7+</span> 
+ <span onclick='loadMove("4k3/3N3B/5K2/8/8/8/8/8 w - - 0 6", this, "f8e8"); ' class="line1">Крf8-e8</span> 
+ <span onclick='loadMove("4k3/3N3B/4K3/8/8/8/8/8 b - - 0 6", this, "f6e6"); ' class="line1">6.Крf6-e6</span> 
+ <span onclick='loadMove("3k4/3N3B/4K3/8/8/8/8/8 w - - 0 7", this, "e8d8"); ' class="line1">Крe8-d8</span> 
+ <span onclick='loadMove("3k4/3N4/4K3/8/8/3B4/8/8 b - - 0 7", this, "h7d3"); ' class="line1">7.Сh7-d3</span> 
+ <span onclick='loadMove("8/2kN4/4K3/8/8/3B4/8/8 w - - 0 8", this, "d8c7"); ' class="line1">Крd8-c7</span> 
+(К тому же приводит
+ <span onclick='loadMove("4k3/3N4/4K3/8/8/3B4/8/8 w - - 0 8", this, "d8e8"); ' class="line2">7...Крe8</span> 
+ <span onclick='loadMove("4k3/3N4/4K3/1B6/8/8/8/8 b - - 0 8", this, "d3b5"); ' class="line2">8.Сb5</span> 
+ <span onclick='loadMove("3k4/3N4/4K3/1B6/8/8/8/8 w - - 0 9", this, "e8d8"); ' class="line2">Крd8</span> 
+ <span onclick='loadMove("3k4/8/1N2K3/1B6/8/8/8/8 b - - 0 9", this, "d7b6"); ' class="line2">9.Кb6</span> 
+ <span onclick='loadMove("8/2k5/1N2K3/1B6/8/8/8/8 w - - 0 10", this, "d8c7"); ' class="line2">Крc7</span> 
+ <span onclick='loadMove("8/2k5/4K3/1B1N4/8/8/8/8 b - - 0 10", this, "b6d5"); ' class="line2">10.Кd5+</span>)
+ <span onclick='loadMove("8/2kN4/4K3/1B6/8/8/8/8 b - - 0 8", this, "d3b5"); ' class="line1">8.Сd3-b5</span> 
+ <span onclick='loadMove("3k4/3N4/4K3/1B6/8/8/8/8 w - - 0 9", this, "c7d8"); ' class="line1">Крc7-d8</span> 
+ <span onclick='loadMove("3k4/8/1N2K3/1B6/8/8/8/8 b - - 0 9", this, "d7b6"); ' class="line1">9.Кd7-b6</span> 
+ <span onclick='loadMove("8/2k5/1N2K3/1B6/8/8/8/8 w - - 0 10", this, "d8c7"); ' class="line1">Крd8-c7</span> 
+ <span onclick='loadMove("8/2k5/4K3/1B1N4/8/8/8/8 b - - 0 10", this, "b6d5"); ' class="line1">10.Кb6-d5+</span> 
+ <span onclick='loadMove("3k4/8/4K3/1B1N4/8/8/8/8 w - - 0 11", this, "c7d8"); ' class="line1">Крc7-d8</span> 
+ <span onclick='loadMove("3k4/5K2/8/1B1N4/8/8/8/8 b - - 0 11", this, "e6f7"); ' class="line1">11.Крe6-f7</span> 
+ <span onclick='loadMove("2k5/5K2/8/1B1N4/8/8/8/8 w - - 0 12", this, "d8c8"); ' class="line1">Крd8-c8</span> 
+ <span onclick='loadMove("2k5/4K3/8/1B1N4/8/8/8/8 b - - 0 12", this, "f7e7"); ' class="line1">12.Крf7-e7</span> 
+ <span onclick='loadMove("1k6/4K3/8/1B1N4/8/8/8/8 w - - 0 13", this, "c8b8"); ' class="line1">Крc8-b8</span> 
+ <span onclick='loadMove("1k6/3K4/8/1B1N4/8/8/8/8 b - - 0 13", this, "e7d7"); ' class="line1">13.Крe7-d7</span> 
+белые дают мат так, как уже рассмотрено.</p>
+<p>
+<p class="longNotation">
+<span onclick='loadMove("3k4/7B/4K3/4N3/8/8/8/8 b - - 0 5", this, "f6e6"); ' class="line0">5.Крf6-e6</span>
+<span onclick='loadMove("8/2k4B/4K3/4N3/8/8/8/8 w - - 0 6", this, "d8c7"); ' class="line0">Крd8-c7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/2kN3B/4K3/8/8/8/8/8 b - - 0 6", this, "e5d7"); ' class="line0">6.Кe5-d7!</span>
+<span onclick='loadMove("8/1k1N3B/4K3/8/8/8/8/8 w - - 0 7", this, "c7b7"); ' class="line0">Крc7-b7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/1k1N4/4K3/8/8/3B4/8/8 b - - 0 7", this, "h7d3"); ' class="line0">7.Сh7-d3!</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>(Тот же ответ последовал и на
+ <span onclick='loadMove("8/3N3B/2k1K3/8/8/8/8/8 w - - 0 7", this, "c7c6"); ' class="line1">6...Крc7-c6</span>)</p>
+<p class="longNotation">
+<span class="ellipsis0">7. ...</span>
+<span onclick='loadMove("8/3N4/2k1K3/8/8/3B4/8/8 w - - 0 8", this, "b7c6"); ' class="line0">Крb7-c6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/3N4/B1k1K3/8/8/8/8/8 b - - 0 8", this, "d3a6"); ' class="line0">8.Сd3-a6</span>
+<span onclick='loadMove("8/2kN4/B3K3/8/8/8/8/8 w - - 0 9", this, "c6c7"); ' class="line0">Крc6-c7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/2kN4/4K3/1B6/8/8/8/8 b - - 0 9", this, "a6b5"); ' class="line0">9.Сa6-b5</span>
+<span onclick='loadMove("3k4/3N4/4K3/1B6/8/8/8/8 w - - 0 10", this, "c7d8"); ' class="line0">Крc7-d8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("3k4/8/1N2K3/1B6/8/8/8/8 b - - 0 10", this, "d7b6"); ' class="line0">10.Кd7-b6</span>
+<span onclick='loadMove("8/2k5/1N2K3/1B6/8/8/8/8 w - - 0 11", this, "d8c7"); ' class="line0">Крd8-c7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/2k5/4K3/1B1N4/8/8/8/8 b - - 0 11", this, "b6d5"); ' class="line0">11.Кb6-d5+</span>.</p>
+<p>Точными ходами белым удалось отрезать черного короля и получить позицию, где мат достигается не позднее 9-го хода.</p>
+<p>Этот способ оттеснения черного короля был указан знаменитым французским шахматистом А. Филидором в 1777 г.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="section score">Полезно познакомиться еще с одной позицией, где король расположен на краю доски.</p>
+<!--p>(см. диагр. 6).</p-->
+
+<div class="section">
+<div class="floater">
+<p class="capTop">6</p>
+<div class="chessBoard small" data-start-fen="3k4/8/4BK2/3N4/8/8/8/8 b - - 0 1"></div>
+</div>
+<div class='score'>
+<p><b>Ход черных</b></p>
+ <span class="line0" onclick='loadMove("3k4/8/4BK2/3N4/8/8/8/8 b - - 0 1", this, ""); '>[...]</span>
+<p>Здесь черный король пытается «упираться».</p>
+<p class="longNotation">
+<span class="ellipsis0">1. ...</span>
+<span onclick='loadMove("4k3/8/4BK2/3N4/8/8/8/8 w - - 0 2", this, "d8e8"); ' class="line0">Крd8-e8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4k3/8/4BK2/8/5N2/8/8/8 b - - 0 2", this, "d5f4"); ' class="line0">2.Кd5-f4</span>
+<span onclick='loadMove("3k4/8/4BK2/8/5N2/8/8/8 w - - 0 3", this, "e8d8"); ' class="line0">Крe8-d8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("3k4/8/4B3/4K3/5N2/8/8/8 b - - 0 3", this, "f6e5"); ' class="line0">3.Крf6-e5!</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>Белые не должны пугаться выпустить короля черных на свободу. Эта свобода лишь временная, и в угол a1 он не попадет.</p>
+<p class="longNotation">
+ <span class="ellipsis0">3. ...</span> 
+ <span onclick='loadMove("8/2k5/4B3/4K3/5N2/8/8/8 w - - 0 4", this, "d8c7"); ' class="line0">Крd8-c7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/2k5/4B3/3K4/5N2/8/8/8 b - - 0 4", this, "e5d5"); ' class="line0">4.Крe5-d5</span>
+<span onclick='loadMove("8/8/1k2B3/3K4/5N2/8/8/8 w - - 0 5", this, "c7b6"); ' class="line0">Крc7-b6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/3B4/1k6/3K4/5N2/8/8/8 b - - 0 5", this, "e6d7"); ' class="line0">5.Сe6-d7!</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>В этом ходе все дело. Король отрезан.</p>
+<p class="longNotation">
+ <span class="ellipsis0">5. ...</span> 
+ <span onclick='loadMove("8/3B4/8/k2K4/5N2/8/8/8 w - - 0 6", this, "b6a5"); ' class="line0">Крb6-a5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/3B4/8/k1K5/5N2/8/8/8 b - - 0 6", this, "d5c5"); ' class="line0">6.Крd5-c5</span>
+<span onclick='loadMove("8/3B4/k7/2K5/5N2/8/8/8 w - - 0 7", this, "a5a6"); ' class="line0">Крa5-a6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/3B4/k7/8/1K3N2/8/8/8 b - - 0 7", this, "c5b4"); ' class="line0">7.Крc5-b4</span>
+<span onclick='loadMove("8/3B4/1k6/8/1K3N2/8/8/8 w - - 0 8", this, "a6b6"); ' class="line0">Крa6-b6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/3B4/1k6/3N4/1K6/8/8/8 b - - 0 8", this, "f4d5"); ' class="line0">8.Кf4-d5+</span>
+<span onclick='loadMove("8/3B4/k7/3N4/1K6/8/8/8 w - - 0 9", this, "b6a6"); ' class="line0">Крb6-a6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("2B5/8/k7/3N4/1K6/8/8/8 b - - 0 9", this, "d7c8"); ' class="line0">9.Сd7-c8+</span>
+<span onclick='loadMove("2B5/k7/8/3N4/1K6/8/8/8 w - - 0 10", this, "a6a7"); ' class="line0">Крa6-a7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("2B5/k7/8/1K1N4/8/8/8/8 b - - 0 10", this, "b4b5"); ' class="line0">10.Крb4-b5</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>Остальное уже просто, и читатель в качестве упражнения может заматовать короля сам.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="warning message score">Попробуйте осуществить оттеснение короля черных в позиции Крf6, Сd5, Кe5 — Крf8. Во сколько ходов здесь дается мат?</p>
+
+<p class="section score">Теперь рассмотрим, как осуществляется оттеснение короля на край доски.</p>
+
+<div class="section">
+<div class='floater'>
+<p class="capTop">7</p>
+<div class="chessBoard small" data-start-fen="8/8/4k3/8/2NKB3/8/8/8 w - - 0 1"></div>
+</div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/8/4k3/8/2NKB3/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p>Силы белых мобилизованы, пора начинать оттеснение.</p>
+<p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/4k3/8/2NK4/3B4/8/8 b - - 0 1", this, "e4d3"); ' class="line0">1.Сe4-d3</span>
+<span onclick='loadMove("8/8/5k2/8/2NK4/3B4/8/8 w - - 0 2", this, "e6f6"); ' class="line0">Крe6-f6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/5k2/3K4/2N5/3B4/8/8 b - - 0 2", this, "d4d5"); ' class="line0">2.Крd4-d5</span>
+<span onclick='loadMove("8/5k2/8/3K4/2N5/3B4/8/8 w - - 0 3", this, "f6f7"); ' class="line0">Крf6-f7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/5k2/8/4K3/2N5/3B4/8/8 b - - 0 3", this, "d5e5"); ' class="line0">3.Крd5-e5</span>
+<span onclick='loadMove("8/6k1/8/4K3/2N5/3B4/8/8 w - - 0 4", this, "f7g7"); ' class="line0">Крf7-g7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/6k1/4K3/8/2N5/3B4/8/8 b - - 0 4", this, "e5e6"); ' class="line0">4.Крe5-e6</span>
+<span onclick='loadMove("5k2/8/4K3/8/2N5/3B4/8/8 w - - 0 5", this, "g7f8"); ' class="line0">Крg7-f8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("5k2/8/5K2/8/2N5/3B4/8/8 b - - 0 5", this, "e6f6"); ' class="line0">5.Крe6-f6</span>
+<span onclick='loadMove("4k3/8/5K2/8/2N5/3B4/8/8 w - - 0 6", this, "f8e8"); ' class="line0">Крf8-e8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4k3/8/5K2/4N3/8/3B4/8/8 b - - 0 6", this, "c4e5"); ' class="line0">6.Кc4-e5</span>
+<span onclick='loadMove("5k2/8/5K2/4N3/8/3B4/8/8 w - - 0 7", this, "e8f8"); ' class="line0">Крe8-f8</span></p>
+<p>(После
+ <span onclick='loadMove("3k4/8/5K2/4N3/8/3B4/8/8 w - - 0 7", this, "e8d8"); ' class="line1">6...Крe8-d8</span> 
+ <span onclick='loadMove("3k4/8/5K2/1B2N3/8/8/8/8 b - - 0 7", this, "d3b5"); ' class="line1">7.Сd3-b5!</span> 
+ <span onclick='loadMove("8/2k5/5K2/1B2N3/8/8/8/8 w - - 0 8", this, "d8c7"); ' class="line1">Крd8-c7</span> 
+ <span onclick='loadMove("8/2k5/5K2/1B6/2N5/8/8/8 b - - 0 8", this, "e5c4"); ' class="line1">8.Кe5-c4!</span> 
+король черных оказывается отрезанным и запертым в углу a8)</p>
+<p class="longNotation">
+<span onclick='loadMove("5k2/8/5K2/4N3/2B5/8/8/8 b - - 0 7", this, "d3c4"); ' class="line0">7.Сd3-c4</span>
+<span onclick='loadMove("4k3/8/5K2/4N3/2B5/8/8/8 w - - 0 8", this, "f8e8"); ' class="line0">Крf8-e8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4k3/5B2/5K2/4N3/8/8/8/8 b - - 0 8", this, "c4f7"); ' class="line0">8.Сc4-f7+</span>
+<span onclick='loadMove("3k4/5B2/5K2/4N3/8/8/8/8 w - - 0 9", this, "e8d8"); ' class="line0">Крe8-d8</span></p>
+<p>
+(<span onclick='loadMove("5k2/5B2/5K2/4N3/8/8/8/8 w - - 0 9", this, "e8f8"); ' class="line1">8...Крe8-f8</span> 
+ <span onclick='loadMove("5k2/5B2/5KN1/8/8/8/8/8 b - - 0 9", this, "e5g6"); ' class="line1">9.Кe5-g6X</span>).</p>
+<p class="longNotation">
+<span onclick='loadMove("3k4/5B2/4K3/4N3/8/8/8/8 b - - 0 9", this, "f6e6"); ' class="line0">9.Крf6-e6!</span>
+<span onclick='loadMove("8/2k2B2/4K3/4N3/8/8/8/8 w - - 0 10", this, "d8c7"); ' class="line0">Крd8-c7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4B3/2k5/4K3/4N3/8/8/8/8 b - - 0 10", this, "f7e8"); ' class="line0">10.Сf7-e8!</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>(Последними двумя ходами белые дают некоторый простор королю черных, так как он уже не может вырваться из угла a8).</p>
+<p class="longNotation">
+ <span class="ellipsis0">10. ...</span> 
+ <span onclick='loadMove("4B3/8/1k2K3/4N3/8/8/8/8 w - - 0 11", this, "c7b6"); ' class="line0">Крc7-b6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4B3/8/1k1K4/4N3/8/8/8/8 b - - 0 11", this, "e6d6"); ' class="line0">11.Крe6-d6</span>
+<span onclick='loadMove("4B3/8/3K4/k3N3/8/8/8/8 w - - 0 12", this, "b6a5"); ' class="line0">Крb6-a5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4B3/8/8/k1K1N3/8/8/8/8 b - - 0 12", this, "d6c5"); ' class="line0">12.Крd6-c5</span>,</p>
+<p>и остальное уже несложно, в чем мы предоставляем возможность читателю убедиться самому.</p>
+<p>Если бы черные двинулись к углу h1, то белые заперли бы короля черных в этом углу. Например:
+ <span onclick='loadMove("8/8/8/3K2k1/2N5/3B4/8/8 w - - 0 3", this, "f6g5"); ' class="line1">2...Крf6-g5</span> 
+ <span onclick='loadMove("8/8/8/4K1k1/2N5/3B4/8/8 b - - 0 3", this, "d5e5"); ' class="line1">3.Крd5-e5</span> 
+ <span onclick='loadMove("8/8/8/4K3/2N3k1/3B4/8/8 w - - 0 4", this, "g5g4"); ' class="line1">Крg5-g4</span> 
+ <span onclick='loadMove("8/8/8/4K3/2N3k1/8/2B5/8 b - - 0 4", this, "d3c2"); ' class="line1">4.Сd3-c2</span> 
+ <span onclick='loadMove("8/8/8/4K3/2N4k/8/2B5/8 w - - 0 5", this, "g4h4"); ' class="line1">Крg4-h4</span> 
+(На
+ <span onclick='loadMove("8/8/8/4K3/2N5/5k2/2B5/8 w - - 0 5", this, "g4f3"); ' class="line2">4...Крf3</span> 
+последовало бы
+ <span onclick='loadMove("8/8/8/4K3/2N5/5k2/8/3B4 b - - 0 5", this, "c2d1"); ' class="line2">5.Сd1+</span>, отрезая путь королю, а на
+ <span onclick='loadMove("8/8/8/4K1k1/2N5/8/2B5/8 w - - 0 5", this, "g4g5"); ' class="line2">4...Крg5</span> 
+—
+ <span onclick='loadMove("8/8/8/4K1k1/8/4N3/2B5/8 b - - 0 5", this, "c4e3"); ' class="line2">5.Кe3</span> 
+ <span onclick='loadMove("8/8/7k/4K3/8/4N3/2B5/8 w - - 0 6", this, "g5h6"); ' class="line2">Крh6</span> 
+ <span onclick='loadMove("8/8/5K1k/8/8/4N3/2B5/8 b - - 0 6", this, "e5f6"); ' class="line2">6.Крf6</span> 
+ <span onclick='loadMove("8/8/5K2/7k/8/4N3/2B5/8 w - - 0 7", this, "h6h5"); ' class="line2">Крh5</span> 
+ <span onclick='loadMove("8/8/5KB1/7k/8/4N3/8/8 b - - 0 7", this, "c2g6"); ' class="line2">7.Сg6+</span> 
+ <span onclick='loadMove("8/8/5KB1/8/7k/4N3/8/8 w - - 0 8", this, "h5h4"); ' class="line2">Крh4</span> 
+ <span onclick='loadMove("8/8/6B1/5K2/7k/4N3/8/8 b - - 0 8", this, "f6f5"); ' class="line2">8.Крf5</span> 
+ <span onclick='loadMove("8/8/6B1/5K2/8/4N1k1/8/8 w - - 0 9", this, "h4g3"); ' class="line2">Крg3</span> 
+ <span onclick='loadMove("8/8/8/5K1B/8/4N1k1/8/8 b - - 0 9", this, "g6h5"); ' class="line2">9.Сh5</span> 
+ <span onclick='loadMove("8/8/8/5K1B/8/4N3/5k2/8 w - - 0 10", this, "g3f2"); ' class="line2">Крf2</span> 
+ <span onclick='loadMove("8/8/8/7B/5K2/4N3/5k2/8 b - - 0 10", this, "f5f4"); ' class="line2">10.Крf4</span> 
+ <span onclick='loadMove("8/8/8/7B/5K2/4N3/8/4k3 w - - 0 11", this, "f2e1"); ' class="line2">Крe1</span> 
+ <span onclick='loadMove("8/8/8/7B/2N2K2/8/8/4k3 b - - 0 11", this, "e3c4"); ' class="line2">11.Кc4</span>, и королю также не удается прорваться в безопасный угол a1).</p>
+<p>
+ <span onclick='loadMove("8/8/8/5K2/2N4k/8/2B5/8 b - - 0 5", this, "e5f5"); ' class="line1">5.Крe5-f5</span> 
+ <span onclick='loadMove("8/8/8/5K1k/2N5/8/2B5/8 w - - 0 6", this, "h4h5"); ' class="line1">Крh4-h5</span> 
+(Или
+ <span onclick='loadMove("8/8/8/5K2/2N5/6k1/2B5/8 w - - 0 6", this, "h4g3"); ' class="line2">5...Крg3</span> 
+ <span onclick='loadMove("8/8/8/5K2/2N5/6k1/8/3B4 b - - 0 6", this, "c2d1"); ' class="line2">6.Сd1</span> 
+ <span onclick='loadMove("8/8/8/5K2/2N5/8/5k2/3B4 w - - 0 7", this, "g3f2"); ' class="line2">Крf2</span> 
+ <span onclick='loadMove("8/8/8/8/2N2K2/8/5k2/3B4 b - - 0 7", this, "f5f4"); ' class="line2">7.Крf4</span>)
+ <span onclick='loadMove("8/8/8/4NK1k/8/8/2B5/8 b - - 0 6", this, "c4e5"); ' class="line1">6.Кc4-e5</span> 
+ <span onclick='loadMove("8/8/7k/4NK2/8/8/2B5/8 w - - 0 7", this, "h5h6"); ' class="line1">Крh5-h6</span> 
+ <span onclick='loadMove("8/8/5K1k/4N3/8/8/2B5/8 b - - 0 7", this, "f5f6"); ' class="line1">7.Крf5-f6</span> 
+ <span onclick='loadMove("8/8/5K2/4N2k/8/8/2B5/8 w - - 0 8", this, "h6h5"); ' class="line1">Крh6-h5</span> 
+ <span onclick='loadMove("8/8/5KB1/4N2k/8/8/8/8 b - - 0 8", this, "c2g6"); ' class="line1">8.Сc2-g6+</span> 
+ <span onclick='loadMove("8/8/5KB1/4N3/7k/8/8/8 w - - 0 9", this, "h5h4"); ' class="line1">Крh5-h4</span> 
+ <span onclick='loadMove("8/8/6B1/4NK2/7k/8/8/8 b - - 0 9", this, "f6f5"); ' class="line1">9.Крf6-f5</span> 
+ <span onclick='loadMove("8/8/6B1/4NK2/8/6k1/8/8 w - - 0 10", this, "h4g3"); ' class="line1">Крh4-g3</span> 
+ <span onclick='loadMove("8/8/8/4NK1B/8/6k1/8/8 b - - 0 10", this, "g6h5"); ' class="line1">10.Сg6-h5</span> 
+ <span onclick='loadMove("8/8/8/4NK1B/8/8/5k2/8 w - - 0 11", this, "g3f2"); ' class="line1">Крg3-f2</span> 
+ <span onclick='loadMove("8/8/8/4N2B/5K2/8/5k2/8 b - - 0 11", this, "f5f4"); ' class="line1">11.Крf5-f4</span> 
+ <span onclick='loadMove("8/8/8/4N2B/5K2/8/8/4k3 w - - 0 12", this, "f2e1"); ' class="line1">Крf2-e1</span> 
+ <span onclick='loadMove("8/8/8/7B/2N2K2/8/8/4k3 b - - 0 12", this, "e5c4"); ' class="line1">12.Кe5-c4</span>, и путь отрезан.</p>
+
+<p class="notification message">Полезно заметить, что оттеснение, в основном, производилось королем и слоном. Конь лишь временами включался в игру, отнимая у короля противника важные поля.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

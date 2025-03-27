@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава IV. Как работать над дебютной теорией | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h1>Глава IV. Как работать над дебютной теорией</h1>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-o-soznatelnom-ovladenii-debiutnymi-principami.htm' %}">О сознательном овладении дебютными принципами</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-debiutnyj-repertuar-shahmatista.htm' %}">Дебютный репертуар шахматиста</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-o-racionalnom-pretvorenii-idej-proshlogo.htm' %}">О рациональном претворении идей прошлого</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-o-podbore-materiala-i-organizacii-truda.htm' %}">О подборе материала и организации труда</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-5-o-kriticheskom-izuchenii-debiutnyh-rukovodstv.htm' %}">О критическом изучении дебютных руководств</a></li>
+</ul>
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

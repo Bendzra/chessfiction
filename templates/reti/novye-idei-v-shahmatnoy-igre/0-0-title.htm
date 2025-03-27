@@ -1,0 +1,76 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="message">
+<h2>Рихард Рети</h2>
+<h1>НОВЫЕ ИДЕИ В ШАХМАТНОЙ ИГРЕ</h1>
+</div>
+
+<!--div>  
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>Р45</p>
+</div-->
+
+<div class="message page">
+<p><b>Рети Р.</b></p>
+<p>Р45 Новые идеи в шахматной игре — М.: «Russian CHESS House / Русский Шахматный Дом», 2018 — 72 с.</p>
+<h3>(Библиотечка шахматиста)</h3>
+<p><b>ISBN 978-5-94693-607-1</b></p>
+</div>
+
+<div class="message notification">
+<p>Эта книга, написанная выдающимся гроссмейстером и замечательным шахматным мыслителем Рихардом Рети, одновременно и поучительна, и увлекательна. Сам автор не считал ее учебником. Но по ее прочтении, от которого вы получите безусловное удовольствие, вам станут понятны идеи, вокруг которых велись ожесточенные споры в начале 20-го века. Эти идеи в основном сохранили свое значение и по сей день.</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="message diagram">
+<h3>Учебное издание</h3>
+<h2>Рети Рихард</h2>
+<h1>НОВЫЕ ИДЕИ В ШАХМАТНОЙ ИГРЕ</h1>
+</div>
+
+<!--div>
+<p>Художник Наталья Кустова</p>
+<p>Компьютерная верстка Андрей Ельков.</p>
+<p>Подписано в печать 22.07.2017. Формат 60x90/16.</p>
+<p>Гарнитура «Ньютон». Усл. п. л. 5,00.</p>
+<p>Издательство «RUSSIANCHESS HOUSE»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел.: +7(495) 963-80-17</p>
+<p>e-mail: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет магазин</p>
+</div-->
+
+<div class="message">
+<b>ISBN 978-5-94693-607-1</b>
+<p style="float:right;">© Издательство «RUSSIAN CHESS HOUSE», 2018</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,52 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Связка по горизонтали | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Связка по горизонтали</h3>
+<div class="chessBoard small floater" data-start-fen="8/pQ1q2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/2R3K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/pQ1q2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/2R3K1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">138</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/pQ1q2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/2R3K1 w - - 0 1"></div>
+<p>В следующем примере белые сделали «естественный» ход
+ <span onclick='loadMove("8/pQRq2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/6K1 b - - 0 1", this, "c1c7"); ' class="line0">1.Лc7?</span> 
+Им казалось, что это вторжение сразу решает партию. Вместо хода
+ <span onclick='loadMove("8/pQRq2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/6K1 b - - 0 1", this, "c1c7"); ' class="line0">1.Лc7?</span> 
+выигрывал простой размен ферзей с дальнейшей переброской белого короля в центр.</p>
+<p>Найди, как опровергли черные ход
+ <span onclick='loadMove("8/pQRq2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/6K1 b - - 0 1", this, "c1c7"); ' class="line0">1.Лc7?</span> 
+</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Связка по горизонтали:
+	 <span class="line0" onclick='loadMove("8/pQ1q2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/2R3K1 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("8/pQRq2pk/4p2p/3r1p2/3P4/4P3/PP3PPP/6K1 b - - 0 1", this, "c1c7"); ' class="line0">1.Лc7?</span> 
+	 <span onclick='loadMove("8/pQRq2pk/4p2p/2r2p2/3P4/4P3/PP3PPP/6K1 w - - 0 2", this, "d5c5"); ' class="line0">Лc5!</span> 
+	, и черные выигрывают. Если
+	 <span onclick='loadMove("8/pQRq2pk/4p2p/2P2p2/8/4P3/PP3PPP/6K1 b - - 0 2", this, "d4c5"); ' class="line0">2.dc</span> 
+	, то
+	 <span onclick='loadMove("8/pQR3pk/4p2p/2P2p2/8/4P3/PP3PPP/3q2K1 w - - 0 3", this, "d7d1"); ' class="line0">2...Фd1X</span> 
+	,
+	а на
+	 <span onclick='loadMove("8/pQ1q2pk/4p2p/2R2p2/3P4/4P3/PP3PPP/6K1 b - - 0 2", this, "c7c5"); ' class="line1">2.Л:c5</span> 
+	решает
+	 <span onclick='loadMove("8/pq4pk/4p2p/2R2p2/3P4/4P3/PP3PPP/6K1 w - - 0 3", this, "d7b7"); ' class="line1">2...Ф:b7</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

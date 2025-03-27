@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Реализация небольшого позиционного преимущества | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Реализация небольшого позиционного преимущества</h2>
+<p>Как часто мы встречаемся с такими ситуациями, когда одна из сторон владеет небольшим позиционным преимуществом! В комментариях к партиям то и дело читаем: «...незначительного перевеса (чаще всего позиционного) вряд ли хватит для победы» или «...черные энергичными ходами нейтрализуют небольшой позиционный перевес белых».</p>
+<p>Бывает и иначе: незначительный позиционный перевес серией энергичных ходов доведен до победы, но при этом сторона, ведущая защиту, не использовала в должной мере оборонительные ресурсы. Словом, очень емкое это понятие — позиционное преимущество.</p>
+<p>В нашу задачу не входит, конечно же, освещение всех аспектов затронутой проблемы. Нас будут интересовать скорее не правила, а исключения, игра на грани ничьей в позициях, где все решает подчас один ход.</p>
+<p>Для большей наглядности примеры расположены по принципу соответствия материала, что может иметь определенную методологическою ценность.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-borba-pri-ferziah.htm' %}">Борьба при ферзях<!--5--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-borba-v-mnogofigurnyh-okonchaniiah.htm' %}">Борьба в многофигурных окончаниях<!--10--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-borba-v-ladejnyh-okonchaniiah.htm' %}">Борьба в ладейных окончаниях<!--20--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-borba-v-legkofigurnyh-okonchaniiah.htm' %}">Борьба в легкофигурных окончаниях<!--25--></a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

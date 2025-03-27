@@ -1,0 +1,61 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+ <div class="message">
+<h4>БИБЛИОТЕЧКА ШАХМАТИСТА</h4>
+<h2>М.М.Юдович</h2>
+<h1>План в шахматной партии</h1>
+</div>
+
+<div class="diagram">
+<p>Москва</p>
+<p>«Физкультура и спорт»</p>
+<p>1982</p>
+</div>
+
+<!--div class="message">
+<p>ББК 75.581</p>
+<p>Ю16</p>
+</div-->
+
+<div class="message page">
+<p>Ю16</p>
+<p>Рецензент Г. С. ФРИДШТЕЙН</p>
+<p><b>Юдович М. М.</b></p>
+<p><b>План в шахматной партии</b>.— М.: Физкультура и спорт, 1982.—80 с.— (Б-чка шахматиста).</p>
+</div>
+
+<div class="message notification">
+<p>Автором книги является известный шахматный педагог и литератор международный мастер М. Юдович. В своей книге он рассказывает о значении последовательной игры, о том, как шахматисты создают и проводят в жизнь обоснованные планы. Автор поднимает такие вопросы, как порядок действий для достижения цели, реальные предпосылки плана, как создается план и др. Книга иллюстрируется примерами плановой игры.</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+
+<!--div class="message">
+<p>ББК 75.581</p>
+<p>7А9.1</p>
+</div-->
+
+<!--div class="message">
+<p>60904-165</p>
+<p>Ю 009(01)-82 140-82 4202000000</p>
+</div-->
+
+<p class="message warning">© Издательство «Физкультура и спорт», 1982 г.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

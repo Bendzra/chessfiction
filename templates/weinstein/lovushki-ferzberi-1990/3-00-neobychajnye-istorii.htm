@@ -1,0 +1,40 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Необычайные истории | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<a name="81"></a>
+<h1>НЕОБЫЧАЙНЫЕ ИСТОРИИ</h1>
+
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/3-neobychajnye-istorii.png' %}" />
+</div>
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-01-luchshij-shahmatist-sredi-barabanshchikov.htm' %}">Лучший шахматист среди барабанщиков</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-privet-iz-za-okeana.htm' %}">Привет из-за океана</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-03-pismo-iz-parizha.htm' %}">Письмо из Парижа</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-04-hladnokrovie-maestro-fon-frejmana.htm' %}">Хладнокровие маэстро фон-Фреймана</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-05-kak-master-sam-s-soboj-igral-v-shahmaty.htm' %}">Как мастер сам с собой играл в шахматы</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-06-pod-maskoj-prostaka.htm' %}">Под маской простака</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-07-butylka-vina-i-nol-v-tablice.htm' %}">Бутылка вина и ноль в таблице</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-08-priz-za-krasotu.htm' %}">Приз за красоту</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-09-slishkom-silen-dlia-kotikova.htm' %}">Слишком силен для Котикова</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-10-istoricheskaia-partiia.htm' %}">«Историческая» партия</a></li>
+	</ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

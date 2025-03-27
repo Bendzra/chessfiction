@@ -1,0 +1,76 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Взаимодействие короля и пешки | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Взаимодействие короля и пешки</h3>
+<div class="score">
+<img style="width:100%;" src="{% static 'images/'|add:book.slug|add:'/159.jpg' %}"/>
+<p>Очень часто встречаются позиции, в которых король помогает своей пешке
+<!--p>— 106 —</p-->
+прорываться вперед, в то время как другой король всячески препятствует ее продвижению. В таком эндшпиле решающее значение имеет использование пата как средства защиты.</p>
+<p>Рассмотрим несколько типичных позиций.</p>
+<p>Представь себе, что твоя пешка уже достигла шестой горизонтали, а король расположен рядом с ней. В такой позиции выигрыш зависит от того, какое положение занимает неприятельский король.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k3/8/3KP3/8/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k3/8/3KP3/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">144</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4k3/8/3KP3/8/8/8/8/8 w - - 0 1"></div>
+<p>Если сейчас ход белых, то им удается оттеснить черного короля. После
+ <span onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 b - - 0 1", this, "e6e7"); ' class="line1">1.e6-e7</span> 
+ <span onclick='loadMove("8/4Pk2/3K4/8/8/8/8/8 w - - 0 2", this, "e8f7"); ' class="line1">Крe8-f7</span> 
+ <span onclick='loadMove("8/3KPk2/8/8/8/8/8/8 b - - 0 2", this, "d6d7"); ' class="line1">2.Крd6-d7</span> 
+черным остается только сдаться. А что будет, если здесь ход черных? Тогда, оказывается, ничья неизбежна.
+ <!--span onclick='loadMove("4k3/8/3KP3/8/8/8/8/8 b - - 0 1", this, "d6d7"); ' class="line1">1.z0</span--> 
+Черные играют
+ <span onclick='loadMove("3k4/8/3KP3/8/8/8/8/8 w - - 0 2", this, "e8d8"); ' class="line1">1...Крe8-d8</span> 
+, и после
+ <span onclick='loadMove("3k4/4P3/3K4/8/8/8/8/8 b - - 0 2", this, "e6e7"); ' class="line1">2.e6-e7+</span> 
+ <span onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 w - - 0 3", this, "d8e8"); ' class="line1">Крd8-e8</span> 
+ <span onclick='loadMove("4k3/4P3/4K3/8/8/8/8/8 b - - 0 3", this, "d6e6"); ' class="line1">3.Крd6-e6</span> 
+возникает пат.</p>
+<p>«Зачем торопиться с движением пешки?» — скажешь ты. Ну что же, давай попробуем маневрировать королем.</p>
+<p>
+ <span onclick='loadMove("3k4/8/3KP3/8/8/8/8/8 w - - 0 2", this, "e8d8"); ' class="line1">1...Крe8-d8</span> 
+ <span onclick='loadMove("3k4/8/4P3/3K4/8/8/8/8 b - - 0 2", this, "d6d5"); ' class="line1">2.Крd6-d5</span> 
+ <span onclick='loadMove("8/4k3/4P3/3K4/8/8/8/8 w - - 0 3", this, "d8e7"); ' class="line1">Крd8-e7</span> 
+ <span onclick='loadMove("8/4k3/4P3/4K3/8/8/8/8 b - - 0 3", this, "d5e5"); ' class="line1">3.Крd5-e5</span> 
+.</p>
+<p>Наступает критический момент борьбы. У черного короля три поля для отступления, спасительным является только одно. В таких позициях королем надо всегда отступать прямо против пешки, чтобы в ответ на маневр короля противника поставить своего короля на удачное поле, занять, как говорят шахматисты, оппозицию.</p>
+<p>Итак,
+ <span onclick='loadMove("4k3/8/4P3/4K3/8/8/8/8 w - - 0 4", this, "e7e8"); ' class="line1">3...Крe7-e8!</span> 
+(Плохо
+ <span onclick='loadMove("3k4/8/4P3/4K3/8/8/8/8 w - - 0 4", this, "e7d8"); ' class="line2">3...Крd8</span> 
+ <span onclick='loadMove("3k4/8/3KP3/8/8/8/8/8 b - - 0 4", this, "e5d6"); ' class="line2">4.Крd6</span> 
+ <span onclick='loadMove("4k3/8/3KP3/8/8/8/8/8 w - - 0 5", this, "d8e8"); ' class="line2">Крe8</span> 
+ <span onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 b - - 0 5", this, "e6e7"); ' class="line2">5.e7</span> 
+и
+ <span onclick='loadMove("5k2/8/4P3/4K3/8/8/8/8 w - - 0 4", this, "e7f8"); ' class="line2">3...Крf8</span> 
+<!--p>— 107 —</p-->
+ <span onclick='loadMove("5k2/8/4PK2/8/8/8/8/8 b - - 0 4", this, "e5f6"); ' class="line2">4.Крf6</span> 
+ <span onclick='loadMove("4k3/8/4PK2/8/8/8/8/8 w - - 0 5", this, "f8e8"); ' class="line2">Крe8</span> 
+ <span onclick='loadMove("4k3/4P3/5K2/8/8/8/8/8 b - - 0 5", this, "e6e7"); ' class="line2">5.e7</span> 
+)
+ <span onclick='loadMove("4k3/8/4PK2/8/8/8/8/8 b - - 0 4", this, "e5f6"); ' class="line1">4.Крe5-f6</span> 
+ <span onclick='loadMove("5k2/8/4PK2/8/8/8/8/8 w - - 0 5", this, "e8f8"); ' class="line1">Крe8-f8</span> 
+ <span onclick='loadMove("5k2/4P3/5K2/8/8/8/8/8 b - - 0 5", this, "e6e7"); ' class="line1">5.e6-e7+</span> 
+ <span onclick='loadMove("4k3/4P3/5K2/8/8/8/8/8 w - - 0 6", this, "f8e8"); ' class="line1">Крf8-e8</span> 
+ <span onclick='loadMove("4k3/4P3/4K3/8/8/8/8/8 b - - 0 6", this, "f6e6"); ' class="line1">6.Крf6-e6</span> 
+. Пат.</p>
+<p>Верная примета для таких положений заключается и в том, что если пешка приходит на седьмую (вторую) горизонталь с шахом, то при правильном ответе слабейшей стороны ничья неизбежна.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,20 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Acknowledgments | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Acknowledgments</h2>
+<p>I would like to thank the many people who have helped me in the writing of this book. I’d like to thank my mother, Tanya Jones, for proofreading and my father, Martin Jones, for helping me with the computer side, in particular helping out when my computer’s hard disk failed just before the book’s completion. My thanks go to Thomas Rendle for double checking my variations and giving me useful advice; Richard Palliser and John Emms for sending me useful sources and helping out with the technical side of the book and a special thanks to John for being lenient about the deadline! A final thanks goes to Angus Dunnington, my former coach, who first taught me the Grand Prix Attack.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

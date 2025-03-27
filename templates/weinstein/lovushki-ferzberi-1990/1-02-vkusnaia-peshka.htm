@@ -1,0 +1,64 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>«Вкусная пешка» | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2><a name="10a">«Вкусная пешка»</a></h2>
+<div class="score">
+<p>— Среди всех дебютных ловушек первое место принадлежит, без сомнения, «вкусной пешке», — начал я свой рассказ. — Каждый шахматист в нее хоть раз да попадался, но зато впоследствии сам ловил других. Когда мне было лет двенадцать, к нам в гости пришел один литератор, который слыл сильным шахматистом. Он согласился сыграть со мной одну партию, великодушно дав мне белые. Дрожащей рукой я передвигал фигуры, думая по десять минут над каждым ходом, начиная с первого. Гость мгновенно отвечал, не прерывая беседы с моими родителями и, казалось, не обращая никакого внимания на доску. Он даже свои стихи читал в это время, я до сих пор помню:</p>
+<div class="message">
+<p>Пришла пора товарообмена,</p>
+<p>Свободы, булок и конфет.</p>
+<p>Сказавши Мейерхольду «нет!»,</p>
+<p>Открыла лавку Мельпомена,</p>
+<p>А Терпсихора, наша мать,</p>
+<p>Пошла на рынок торговать.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Итак,
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e5</span>
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">2.Кf3</span>
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 1", this, "b8c6"); ' class="line0">Кc6</span>
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1", this, "f1c4"); ' class="line0">3.Сc4</span>
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1", this, "c6d4"); ' class="line0">Кd4</span>.</p>
+<p>Что это? Можно взять пешку, да еще какую! Сейчас я ее съем, а потом нападу на другую конем и слоном. Ее вроде и защищать нечем... Вот к чему приводит чтение стихов во время игры!</p>
+<p><span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4N3/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 1", this, "f3e5"); ' class="line0">4.К:e5</span>
+ <span onclick='loadMove("r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 1", this, "d8g5"); ' class="line0">Фg5</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 1"></div>
+<p class="caption"><b>Диаграмма 3</b></p>
+
+<p>Он напал на коня и на пешку, но я первый возьму пешку f7, сделав вилку ферзю и ладье, — этого он, конечно, не заметил. Ферзь, допустим, уйдет, а ладья-то останется. Он за это время, правда, возьмет пешку, ну и бог с ней. У меня будет лишняя ладья!</p>
+<p><span onclick='loadMove("r1b1kbnr/pppp1Npp/8/6q1/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 1", this, "e5f7"); ' class="line0">5.К:f7</span>
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQK2R w KQkq - 0 1", this, "g5g2"); ' class="line0">Ф:g2</span>.</p>
+<p>Оказывается, пока ладью брать нельзя, иначе он возьмет мою ладью с шахом, а вдобавок поймает коня и останется с лишней фигурой. Но это не беда — его ладья все равно никуда не денется, а моя-то уйдет.</p>
+<p><span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQKR2 b Qkq - 0 1", this, "h1f1"); ' class="line0">6.Лf1</span>
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2Bnq3/8/PPPP1P1P/RNBQKR2 w Qkq - 0 1", this, "g2e4"); ' class="line0">Ф:e4+</span>.</p>
+<p>Неприятно. Ферзем закрываться нельзя, уйти королем некуда. Закроюсь слоном:</p>
+<p><span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/3nq3/8/PPPPBP1P/RNBQKR2 b Qkq - 0 1", this, "c4e2"); ' class="line0">7.Сe2</span>
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 1", this, "d4f3"); ' class="line0">Кf3X</span>.
+</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 1"></div>
+<p class="caption"><b>Диаграмма 4</b></p>
+
+<p>Я сидел, покраснев до слез, не в силах произнести ни слова. Как же это получилось? Все было так хорошо: вилка, две пешки... и вдруг. Может быть, лучше было не конем, а слоном брать пешку f7? Если еще раз попробовать, я наверняка выиграю. Я робко предложил — нельзя ли еще сыграть, но нет, литератор был очень утомлен... Он читал родителям стихи «Душа и сердце женщин жестки, а память женщин коротка...», а мне, уже прощаясь, сказал прозой, не стал на меня тратить вдохновение:</p>
+<p>— Ты, Боря, сам эту партию разбери. Посмотри, где ошибся, где мог лучше сыграть. Капабланка говорил, что из одной проигранной партии можно больше пользы извлечь, чем из сотни выигранных...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

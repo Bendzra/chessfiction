@@ -1,0 +1,38 @@
+{% extends '../base.htm' %}
+{% block title %}
+<title>Регистрация пользователя</title>
+{% endblock title %}
+
+{% block head_extras %}
+<style>
+li {list-style-type: none ; text-align:left;}
+.form-group {
+  margin-bottom: 15px;
+}
+.helptext {display:block;}
+label[for="id_email"] {margin-right:1.5em;}
+label[for="id_password1"] {margin-right:0.6em;}
+p {margin-top: 10px;}
+button {margin-left: 10%; width:80%;}
+</style>
+{% endblock head_extras %}
+
+{% block content %}
+<div class="notification message">
+	<form method="POST">
+		{% csrf_token %}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-4">Join Today</legend>
+			{{ form.as_p }}
+		</fieldset>
+		<div class="form-group">
+			<button type="submit">Sign Up</button>
+		</div>
+	</form>
+	<div class="border-top pt-3">
+		<small class="text-muted">
+			Уже зарегестрированы? <a class="ml-2" href="{% url 'user-login' %}">Войти</a>
+		</small>
+	</div>
+</div>
+{% endblock content %}

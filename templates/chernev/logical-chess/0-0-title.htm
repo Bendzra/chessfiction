@@ -1,0 +1,65 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="diagram">
+<h1>Logical Chess:<br />Move By Move:<br />Every Move Explained</h1>
+<h2>Irving Chernev</h2>
+</div>
+
+<hr />
+
+<div class="diagram">
+<p>© Irving Chernev 1957</p>
+<p>First published by Faber &amp; Faber</p>
+<p>First algebraic edition © B.T Batsford 1998</p>
+<p>Reprinted 2000</p>
+</div>
+
+<div class="diagram">
+<p>"The novice who plays through Logical Chess can learn an ocean of basic chess wisdom."—Leonard Barden, Engilsh chess master and broadcaster</p>
+<br />
+<p>“Entertains ... as it reinforces strategic lessons gleaned from chess titans. Illustrates effective middle-game plans.”—Library Journal</p>
+<br />
+<p>Having learned the basic moves, how exactly should a player improve? In this popular classic, the author explains 33 complete games, in detail, move by move, including the reason for each one. Playing through these games and explanations gives real insight into the power of the pieces and how to post them most effectively.</p>
+</div>
+
+<div class="diagram">
+<p>ISBN 0 7134 8464 0</p>
+<p>British Library Cataloguing-in-Publication Data. A catalogue record for this book is available from the British Library.</p>
+</div>
+
+<div class="diagram">
+<p>All rights reserved. No part of this book may be reproduced, by any means, without prior permission of the publisher.</p>
+<p>Printed and bound in Great Britain by Creative Print ad Design Wales for the publishers.</p>
+</div>
+
+<div class="diagram">
+<p>B. T. Batsford Ltd.</p>
+<p>9 Blenheim Court</p>
+<p>Brewery Road</p>
+<p>London N7 9NT</p>
+</div>
+
+<div class="diagram">
+<p>A member of the Chrysalis Group plc</p>
+<p>A BATSFORD CHESS BOOK</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

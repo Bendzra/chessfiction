@@ -1,0 +1,119 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Роковая горизонталь | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Роковая горизонталь</h3>
+<div class="score">
+<p>После рокировки короли обычно располагаются за плотным заслоном своих пешек и находятся под бдительной охраной фигур. Но не следует забывать и того, что при удобном случае королю надо предоставить возможность убежища на седьмой (второй) горизонтали. Ведь
+иначе вторжение тяжелых неприятельских фигур (ферзь, ладьи) может привести к мату на последней горизонтали. «Форточку» королю обычно открывают продвижением на одно поле ладейной или коневой пешки, в зависимости от того, какие фигуры противника действуют в направлении короля. Ясно, что целесообразно ставить заслоны на их пути, а не облегчать возможности нападения.</p>
+<p>Рассмотрим несколько примеров комбинаций, связанных со слабостью роковой горизонтали.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/5ppp/q3n1b1/8/p6Q/Bn1r4/5PPP/3RR1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/5ppp/q3n1b1/8/p6Q/Bn1r4/5PPP/3RR1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">130</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/5ppp/q3n1b1/8/p6Q/Bn1r4/5PPP/3RR1K1 w - - 0 1"></div>
+<p>Первое впечатление такое, что все поля вторжения белых фигур на восьмую горизонталь надежно прикрыты. И все же у белых есть возможность неотразимой атаки. </p>
+<p>
+ <span onclick='loadMove("3Q2k1/5ppp/q3n1b1/8/p7/Bn1r4/5PPP/3RR1K1 b - - 0 1", this, "h4d8"); ' class="line0">1.Фd8+!</span> 
+ <span onclick='loadMove("3r2k1/5ppp/q3n1b1/8/p7/Bn6/5PPP/3RR1K1 w - - 0 2", this, "d3d8"); ' class="line0">Л:d8</span> 
+ <span onclick='loadMove("3R2k1/5ppp/q3n1b1/8/p7/Bn6/5PPP/4R1K1 b - - 0 2", this, "d1d8"); ' class="line0">2.Л:d8+</span> 
+ <span onclick='loadMove("3n2k1/5ppp/q5b1/8/p7/Bn6/5PPP/4R1K1 w - - 0 3", this, "e6d8"); ' class="line0">К:d8</span> 
+ <span onclick='loadMove("3nR1k1/5ppp/q5b1/8/p7/Bn6/5PPP/6K1 b - - 0 3", this, "e1e8"); ' class="line0">3.Лe8X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3r2k1/p4ppp/1q6/8/8/2R1P3/P3QPPP/6K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3r2k1/p4ppp/1q6/8/8/2R1P3/P3QPPP/6K1 b - - 0 1", this, ""); '>[...]</span> 
+<p>Часто возникают комбинации, рассчитанные на отвлечение фигур от защиты роковой горизонтали. Вот пример из партии <b>О. Бернштейн — Х.-Р. Капабланка</b>,
+<!--p>- 97 -</p-->
+игранной в Москве в 1914 году.</p>
+<p class="capTop diagram">131</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3r2k1/p4ppp/1q6/8/8/2R1P3/P3QPPP/6K1 b - - 0 1"></div>
+<p>Заманчиво сейчас
+ <span onclick='loadMove("3r2k1/p4ppp/8/8/8/2R1P3/P3QPPP/1q4K1 w - - 0 2", this, "b6b1"); ' class="line1">1...Фb1+</span> 
+ <span onclick='loadMove("3r2k1/p4ppp/8/8/8/2R1P3/P4PPP/1q3QK1 b - - 0 2", this, "e2f1"); ' class="line1">2.Фf1</span> 
+ <span onclick='loadMove("6k1/p4ppp/8/8/8/2R1P3/P4PPP/1q1r1QK1 w - - 0 3", this, "d8d1"); ' class="line1">Лd1</span> 
+, выигрывая ферзя. Но тогда черные оставляют без присмотра восьмую горизонталь, и белые матуют после
+ <span onclick='loadMove("2R3k1/p4ppp/8/8/8/4P3/P4PPP/1q1r1QK1 b - - 0 3", this, "c3c8"); ' class="line1">3.Лc8+</span> 
+.
+К победе черных ведет коварный ход
+ <span onclick='loadMove("3r2k1/p4ppp/8/8/8/2R1P3/Pq2QPPP/6K1 w - - 0 2", this, "b6b2"); ' class="line0">1...Фb2!</span> 
+, отвлекая белого ферзя. Теперь у белых нет удовлетворительной защиты. Ведь черные одновременно напали и на ладью.</p>
+<p>Найди, как выигрывают белые при
+ <span onclick='loadMove("3r2k1/p4ppp/8/8/8/4P3/PqR1QPPP/6K1 b - - 0 2", this, "c3c2"); ' class="line1">2.Лc2</span> 
+или
+ <span onclick='loadMove("3r2k1/p4ppp/8/8/8/3RP3/Pq2QPPP/6K1 b - - 0 2", this, "c3d3"); ' class="line1">2.Лd3</span> 
+? Что последует на
+ <span onclick='loadMove("3r2k1/p4ppp/8/8/8/2R1P3/Pq3PPP/4Q1K1 b - - 0 2", this, "e2e1"); ' class="line1">2.Фe1</span> 
+? </p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Бернштейн — Капабланка.
+	 <span class="line0" onclick='loadMove("3r2k1/p4ppp/1q6/8/8/2R1P3/P3QPPP/6K1 b - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("3r2k1/p4ppp/8/8/8/2R1P3/Pq2QPPP/6K1 w - - 0 2", this, "b6b2"); ' class="line0">1...Фb2</span> 
+	 <span onclick='loadMove("3r2k1/p4ppp/8/8/8/4P3/PqR1QPPP/6K1 b - - 0 2", this, "c3c2"); ' class="line0">2.Лc2</span> 
+	 <span onclick='loadMove("3r2k1/p4ppp/8/8/8/4P3/P1R1QPPP/1q4K1 w - - 0 3", this, "b2b1"); ' class="line0">Фb1+</span> 
+	,
+	 <span onclick='loadMove("3r2k1/p4ppp/8/8/8/3RP3/Pq2QPPP/6K1 b - - 0 2", this, "c3d3"); ' class="line1">2.Лd3</span> 
+	 <span onclick='loadMove("3r2k1/p4ppp/8/8/8/3RP3/P3QPPP/1q4K1 w - - 0 3", this, "b2b1"); ' class="line1">Фb1+</span> 
+	.
+	Если
+	 <span onclick='loadMove("3r2k1/p4ppp/8/8/8/2R1P3/Pq3PPP/4Q1K1 b - - 0 2", this, "e2e1"); ' class="line1">2.Фe1</span> 
+	, то
+	 <span onclick='loadMove("3r2k1/p4ppp/8/8/8/2q1P3/P4PPP/4Q1K1 w - - 0 3", this, "b2c3"); ' class="line1">2...Ф:c3</span> 
+	. Вот почему белые сдались.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1r1r2k1/2q2ppp/p3b3/4p3/1p2P3/5B2/PPPR1QPP/3R3K w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1r1r2k1/2q2ppp/p3b3/4p3/1p2P3/5B2/PPPR1QPP/3R3K w - - 0 1", this, ""); '>[...]</span> 
+<p>Разобрав эти примеры, ты наверняка сможешь найти путь к победе в позиции из партии <b>Д. Ровнер — М. Камышов</b> (Москва, 1947 г.).</p>
+<p class="capTop diagram">132</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1r1r2k1/2q2ppp/p3b3/4p3/1p2P3/5B2/PPPR1QPP/3R3K w - - 0 1"></div>
+<p>Используя неудачное положение черного короля и давление по линии «d», белые смелой комбинацией решили исход сражения в свою пользу.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Ровнер — Камышов.
+	 <span class="line0" onclick='loadMove("1r1r2k1/2q2ppp/p3b3/4p3/1p2P3/5B2/PPPR1QPP/3R3K w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("1r1r2k1/Q1q2ppp/p3b3/4p3/1p2P3/5B2/PPPR2PP/3R3K b - - 0 1", this, "f2a7"); ' class="line0">1.Фa7!</span> 
+	 <span onclick='loadMove("1r1r2k1/Q4ppp/p3b3/q3p3/1p2P3/5B2/PPPR2PP/3R3K w - - 0 2", this, "c7a5"); ' class="line0">Фa5</span> 
+	(
+	 <span onclick='loadMove("1r1r2k1/q4ppp/p3b3/4p3/1p2P3/5B2/PPPR2PP/3R3K w - - 0 2", this, "c7a7"); ' class="line1">1...Ф:a7</span> 
+	 <span onclick='loadMove("1r1R2k1/q4ppp/p3b3/4p3/1p2P3/5B2/PPP3PP/3R3K b - - 0 2", this, "d2d8"); ' class="line1">2.Л:d8+</span> 
+	)
+	 <span onclick='loadMove("1r1r2k1/5ppp/Q3b3/q3p3/1p2P3/5B2/PPPR2PP/3R3K b - - 0 2", this, "a7a6"); ' class="line0">2.Ф:a6!</span> 
+	 <span onclick='loadMove("1r1r2k1/2q2ppp/Q3b3/4p3/1p2P3/5B2/PPPR2PP/3R3K w - - 0 3", this, "a5c7"); ' class="line0">Фc7</span> 
+	 <span onclick='loadMove("1r1r2k1/Q1q2ppp/4b3/4p3/1p2P3/5B2/PPPR2PP/3R3K b - - 0 3", this, "a6a7"); ' class="line0">3.Фa7!</span> 
+	, и белые выигрывают.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

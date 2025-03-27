@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Foreword | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Foreword</h2>
+<p>Move by Move is a series of opening books which uses a question-and-answer format. One of our main aims of the series is to replicate - as much as possible - lessons between chess teachers and students.</p>
+<p>All the way through, readers will be challenged to answer searching questions and to complete exercises, to test their skills in chess openings and indeed in other key aspects of the game. It's our firm belief that practising your skills like this is an excellent way to study chess openings, and to study chess in general.</p>
+<p>Many thanks go to all those who have been kind enough to offer inspiration, advice and assistance in the creation of Move by Move. We're really excited by this series and hope that readers will share our enthusiasm.</p>
+<p style="text-align:right;">John Emms<br>Everyman Chess</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

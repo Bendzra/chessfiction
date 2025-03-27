@@ -1,0 +1,82 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<div class="message">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>Ч49</p>
+</div>
+
+<div class="message page">
+<p><b>Чернышов К.В.</b></p>
+<p>Ч49 Тайны видения шахматной доски и расчета вариантов. — М.: «Russian CHESS House / Русский шахматный дом», 2017 - 296 с. (Шахматный университет)</p>
+<p>ISBN 978-5-94693-628-6</p>
+</div>
+
+<div class="message notification">
+<p>Книга известного гроссмейстера и опытного тренера Константина Чернышова представляет собой новую, эффективную методику развития расчета вариантов, видения доски и концентрации внимания. Три уровня сложности ориентированы на широкий круг читателей: как любителей шахмат, так и профессиональных спортсменов.</p>
+<p>Советы и рекомендации будут также полезны родителям, дети которых занимаются шахматами.</p>
+<p>Если Вы ищете пути расширения Ваших способностей, эта книга для Вас!</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="message">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div>
+
+<hr />
+
+<div class="message">
+<h4>Учебное издание</h4>
+<h2>Константин Валерьевич Чернышов</h2>
+<h1>ТАЙНЫ ВИДЕНИЯ ШАХМАТНОЙ ДОСКИ И РАСЧЕТА ВАРИАНТОВ</h1>
+</div>
+
+<div class="message">
+<p>Редактор Андрей Панеях</p>
+<p>Художник Евгений Пермяков</p>
+<p>Верстка Оксана Скляр</p>
+</div>
+
+<div class="message">
+<p>Подписано в печать 02.05.2017. Формат 60x90/16.</p>
+<p>Гарнитура «Таймс». Усл. п. л. 18,50.</p>
+</div>
+
+<div class="message">
+<p>Издательство «Russian CHESS House»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел.: (495) 963-80-17</p>
+<p>e-mail: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div>
+
+<hr />
+
+<div class="message warning">
+<b>ISBN 978-5-94693-628-6</b>
+<div style="float:right;">© Чернышов К.В., 2017<br />© Издательство «Russian CHESS House», 2017</div>
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

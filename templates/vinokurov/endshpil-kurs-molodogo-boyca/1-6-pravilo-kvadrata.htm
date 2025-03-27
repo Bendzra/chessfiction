@@ -1,0 +1,78 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>1.6. Правило квадрата | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="score">
+<h2>1.6. Правило квадрата</h2>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/1P5k/8/7K w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/1P5k/8/7K w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">№ 28</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/1P5k/8/7K w - - 0 1"></div>
+<p class="caption">Ход белых — выигрыш, ход черных — ничья</p>
+<!--p>14</p><p>РАЗДЕЛ 1</p-->
+<p><strong>Если король находится в квадрате с диагональю b3—g8 или при своем ходе вступает в этот квадрат, то он догоняет пешку. В противном случае пешка проходит в ферзи.</strong> Не следует забывать о двойном ходе пешки из начальной позиции. То есть если пешка стоит на b2, то квадрат надо строить от поля b3.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<h3>Важная тонкость: барьер на пути короля</h3>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5p2/4p3/8/3P4/5k2/P7/5K2 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5p2/4p3/8/3P4/5k2/P7/5K2 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">№ 29<br />Бианкетти (1925)</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5p2/4p3/8/3P4/5k2/P7/5K2 w - - 0 1"></div>
+<p class="caption">Выигрыш</p>
+<p>Черный король в квадрате пешки «а», но белые <strong>создают помехи</strong> на его пути:
+ <span onclick='loadMove("8/5p2/4p3/3P4/8/5k2/P7/5K2 b - - 0 1", this, "d4d5"); ' class="line0">1.d5!</span> 
+ <span onclick='loadMove("8/5p2/8/3p4/8/5k2/P7/5K2 w - - 0 2", this, "e6d5"); ' class="line0">e:d5</span> 
+ <span onclick='loadMove("8/5p2/8/3p4/P7/5k2/8/5K2 b - a3 0 2", this, "a2a4"); ' class="line0">2.a4</span> 
+ <span onclick='loadMove("8/5p2/8/3p4/P3k3/8/8/5K2 w - - 0 3", this, "f3e4"); ' class="line0">Крe4</span> 
+ <span onclick='loadMove("8/5p2/8/P2p4/4k3/8/8/5K2 b - - 0 3", this, "a4a5"); ' class="line0">3.a5</span> 
++-.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/2p5/2p5/4p3/1kP1P3/3P4/1K6/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/2p5/2p5/4p3/1kP1P3/3P4/1K6/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">№ 30</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/2p5/2p5/4p3/1kP1P3/3P4/1K6/8 w - - 0 1"></div>
+<p class="caption">Выигрыш</p>
+<p>
+ <span onclick='loadMove("8/2p5/2p5/4p3/1kPPP3/8/1K6/8 b - - 0 1", this, "d3d4"); ' class="line0">1.d4!</span> 
+ <span onclick='loadMove("8/2p5/2p5/4p3/2kPP3/8/1K6/8 w - - 0 2", this, "b4c4"); ' class="line0">Кр:c4</span> 
+(
+ <span onclick='loadMove("8/2p5/2p5/8/1kPpP3/8/1K6/8 w - - 0 2", this, "e5d4"); ' class="line1">1...e:d4</span> 
+ <span onclick='loadMove("8/2p5/2p5/4P3/1kPp4/8/1K6/8 b - - 0 2", this, "e4e5"); ' class="line1">2.e5</span> 
+ <span onclick='loadMove("8/2p5/2p5/2k1P3/2Pp4/8/1K6/8 w - - 0 3", this, "b4c5"); ' class="line1">Крc5</span> 
+ <span onclick='loadMove("8/2p5/2p5/2k1P3/2Pp4/8/2K5/8 b - - 0 3", this, "b2c2"); ' class="line1">3.Крc2!</span> 
++-)
+ <span onclick='loadMove("8/2p5/2p5/4P3/2k1P3/8/1K6/8 b - - 0 2", this, "d4e5"); ' class="line0">2.d:e5</span> 
+ <span onclick='loadMove("8/2p5/2p5/2k1P3/4P3/8/1K6/8 w - - 0 3", this, "c4c5"); ' class="line0">Крc5</span> 
+ <span onclick='loadMove("8/2p5/2p5/2k1P3/4P3/2K5/8/8 b - - 0 3", this, "b2c3"); ' class="line0">3.Крc3</span> 
++-.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

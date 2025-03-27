@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>3. Шах и мат | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="score">
+<h3>3. Шах и мат</h3>
+<p>Когда король атакован какой-либо фигурой, говорят, что он «стоит под шахом». По правилам игры король непременно должен быть защищен от шаха. Для этого существуют три способа: увести короля с линии действия атакующей фигуры, взять атакующую фигуру или поставить одну из своих фигур между королем и атакующей фигурой.</p>
+<p>Когда король атакован таким образом, что его нельзя защитить ни одним из этих трех способов, говорят, что король «получил мат».</p>
+<p>Цель игры состоит в том, чтобы дать противнику мат, то есть так объявить королю шах, чтобы он не смог от этого шаха защититься.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="Q3k3/7R/8/8/1n4p1/1b6/1Pp2q1P/2K5 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("Q3k3/7R/8/8/1n4p1/1b6/1Pp2q1P/2K5 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">9</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="Q3k3/7R/8/8/1n4p1/1b6/1Pp2q1P/2K5 b - - 0 1"></div>
+<p>В этой позиции (на диаграмме 9) белые выиграли партию, так как черный король получил мат. Налицо все условия мата. Королю объявлен шах белым ферзем. Этого ферзя не может взять ни одна из черных фигур. Далее, нет такой черной фигуры, которая могла бы стать между дающим шах ферзем и черным королем. Наконец, все пять полей, на которые мог бы пойти черный король, находятся под ударом либо белого ферзя, либо белой ладьи, стоящей на h7.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

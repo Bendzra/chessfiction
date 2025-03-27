@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>FOUR GAMBITS TO BEAT THE FRENCH</h1>
+<h2>By Tim Harding</h2>
+<p>©Tim Harding, 1998</p>
+<p>First publication rights: Chess Digest</p>
+<p>Inc.</p>
+<p>FOUR GAMBITS TO BEAT THE FRENCH</p>
+<div class="diagram">
+<p>Copyright© 1998</p>
+<p>Tim Harding</p>
+</div>
+<p>All rights reserved under Pan American and International Copyright conventions.</p>
+<p>ISBN 0-87568-295-2</p>
+<p>No part of this publication may be reproduced, stored in a retrieval system, or transmitted in any form, or by any means: electronic, electrostatic, magnetic tapes, mechanical photocopying, recording or otherwise, without prior and current permission from the publisher.</p>
+<div class="diagram">
+<p>Author: Tim Harding</p>
+<p>Editor: Roy DeVault</p>
+<p>Computer Typesetting: Tim Harding and Margaret DeVault</p>
+<p>Cover Design: Lance Klenk (email: lklenk@ruff.com)</p>
+<p>Final Proof and Diagrams: Roy DeVault</p>
+<p>Publisher: Chess Digest, Inc.®, 1317 W. Oakdale Rd., Grand Prairie, TX 75050 (P.O. Box 535699, Grand Prairie, TX 75033)</p>
+</div>
+<p>Send the publisher $3.00 for the new Chess Guide that catalogs every chess book for general sale in the United States. You are given publishers, page counts, notation and critical reviews. Also included in the catalog is a free Chess Improvement course for beginners up through Master level players.</p>
+<!--p>3</p-->
+
+<div class="diagram">
+<p>The French Defense is one of the most resilient and solid defenses Black can play and it is effective at all levels of chess skill. So White is constantly looking for ways to meet it. This book will fulfill that search. Covered are: 1) The Devious Alapin-Diemer Gambit 1.e4 e6 2.d4 d5 3.Be3 then on 3..fxe4 4.f3; 2) The Tricky French Wing Gambit; 3) The Murderous Milner-Barry in the Advance Variation(6.Bd3); 4) Winckelmann-Reimer, The IM-Killer(in the Winawer Variation) and an extra chapter on extra gambits.</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

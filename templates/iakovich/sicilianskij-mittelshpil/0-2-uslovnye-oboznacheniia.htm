@@ -1,0 +1,36 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Условные обозначения | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>УСЛОВНЫЕ ОБОЗНАЧЕНИЯ</h2>
+<p>! хороший ход</p>
+<p>!! блестящий или трудно-находимый ход</p>
+<p>? слабый ход, ошибка</p>
+<p>?? грубая ошибка</p>
+<p>!? заслуживающий внимания ход</p>
+<p>?! сомнительный ход</p>
+<p>&#9633; единственный ход</p>
+<p>= равная позиция</p>
+<p>+/= положение белых несколько лучше</p>
+<p>+/- у белых преимущество</p>
+<p>+- у белых выигранная позиция</p>
+<p>=/+ положение черных несколько лучше</p>
+<p>-/+ у черных преимущество</p>
+<p>-+ у черных выигранная позиция</p>
+<p>oo неясная позиция</p>
+<p>=/oo компенсация за материал</p>
+<p># мат</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

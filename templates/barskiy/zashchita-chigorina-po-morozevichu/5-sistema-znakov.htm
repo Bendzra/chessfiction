@@ -1,0 +1,47 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Система знаков | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+
+ <h2>Система знаков</h2>
+<p>В книге используются общепринятые шахматные знаки и сокращения. На всякий случай, еще раз напомним, что они обозначают.</p>
+<table>
+<tr><td>=</td><td>игра равна</td></tr>
+<tr><td><b class="CAChess">&#155;</b></td><td>неясная позиция</td></tr>
+<tr><td><b class="CAChess">&#178;</b></td><td>у белых несколько лучше</td></tr>
+<tr><td><b class="CAChess">&#179;</b></td><td>у черных несколько лучше</td></tr>
+<tr><td><b class="CAChess">&#177;</b></td><td>у белых лучше</td></tr>
+<tr><td><b class="CAChess">&#181;</b></td><td>у черных лучше</td></tr>
+<tr><td><b class="CAChess">&#157;</b></td><td>у белых решающее преимущество</td></tr>
+<tr><td><b class="CAChess">&#176;</b></td><td>у черных решающее преимущество</td></tr>
+<tr><td><b class="CAChess">&#0169;</b></td><td>с компенсацией</td></tr>
+<tr><td><b class="CAChess">&#130;</b></td><td>с атакой</td></tr>
+<tr><td><b class="CAChess">&#24;</b></td><td>с инициативой</td></tr>
+<tr><td><b class="CAChess">&#132;</b></td><td>с контригрой</td></tr>
+<tr><td>!</td><td>очень хороший ход</td></tr>
+<tr><td>!!</td><td>отличный ход</td></tr>
+<tr><td>?</td><td>плохой ход</td></tr>
+<tr><td>??</td><td>грубая ошибка</td></tr>
+<tr><td>!?</td><td>ход, заслуживающий внимания</td></tr>
+<tr><td>?!</td><td>сомнительный ход</td></tr>
+<tr><td><b class="CAChess">&#153;</b></td><td>единственный ход</td></tr>
+<tr><td>ICC</td><td>Шахматный клуб в Интернете</td></tr>
+<tr><td>АСР</td><td>Ассоциация шахматистов-профессионалов</td></tr>
+<tr><td>РСА</td><td>Профессиональная шахматная ассоциация</td></tr>
+</table>
+<!--p>238</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

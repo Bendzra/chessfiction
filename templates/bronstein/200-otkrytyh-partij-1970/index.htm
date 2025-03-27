@@ -1,0 +1,320 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb2.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>Содержание</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-0-title.htm' %}">Д.И. Бронштейн. 200 открытых партий</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-1-ot-avtora.htm' %}">От автора</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-2-pered-pervym-hodom.htm' %}">Перед первым ходом</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-3-dlia-vseh-pozicij-otkrytogo-tipa-harakterny-takie-celi.htm' %}">Для всех позиций открытого типа характерны такие цели</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-0-ataka-ferzia.htm' %}">Атака ферзя</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-0-ataka-slona.htm' %}">Атака слона</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-1-edinica-na-dvoih.htm' %}">Единица на двоих</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-2-mudrost-vostoka.htm' %}">Мудрость востока</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-0-ataka-ferzevoj-peshki.htm' %}">Атака ферзевой пешки</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-1-strenozhennye-koni.htm' %}">Стреноженные кони</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-00-korolevskij-gambit.htm' %}">Королевский гамбит</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-01-groza-chempionov.htm' %}">Гроза чемпионов</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-02-katastrofa-na-poliah-f7-i-f4.htm' %}">Катастрофа на полях f7 и f4</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-03-estafeta-pokolenij.htm' %}">Эстафета поколений</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-04-mir-prikliuchenij.htm' %}">Мир приключений</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-05-chudo-xx-veka.htm' %}">Чудо XX века</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-06-zhivye-shahmaty.htm' %}">Живые шахматы</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-07-pustye-hlopoty.htm' %}">Пустые хлопоты</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-08-zhertva-ferzia.htm' %}">Жертва ферзя</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-09-pat-pat-a-v-chiu-polzu.htm' %}">Пат! Пат! А в чью пользу?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-10-gambit-saveliia-tartakovera.htm' %}">Гамбит Савелия Тартаковера</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-11-slezy-rycaria-ataki.htm' %}">Слезы рыцаря атаки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-12-analiz-ili-improvizaciia.htm' %}">Анализ или импровизация?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-13-shchedroe-serdce-lilientalia.htm' %}">Щедрое сердце Лилиенталя</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-14-muchas-grasias-senor-kapablanka.htm' %}">Мучас грасиас, сеньор Капабланка!</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-15-siniaia-ptica.htm' %}">Синяя птица</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-16-zhazhda-prikliuchenij.htm' %}">Жажда приключений</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-17-shahmatisty-sportivnogo-napravleniia.htm' %}">Шахматисты спортивного направления</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-18-zamorskij-gost.htm' %}">Заморский гость</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-19-voiazh-ferzevoj-peshki.htm' %}">Вояж ферзевой пешки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-20-zakulisnye-volneniia.htm' %}">Закулисные волнения</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-21-ferz-v-ofsajte.htm' %}">Ферзь в офсайте</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-22-ultrasovremennaia-shahmatnaia-partiia.htm' %}">Ультрасовременная шахматная партия</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-23-bezrassudnye-belye-peshki.htm' %}">Безрассудные белые пешки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-24-odnokashnik-aleksandra-alehina.htm' %}">Однокашник Александра Алехина</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-0-venskaia-partiia.htm' %}">Венская партия</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-1-slabaia-peshka-e4.htm' %}">Слабая пешка e4</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-2-tihaia-zavod.htm' %}">Тихая заводь</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-3-son-i-iav.htm' %}">Сон и явь</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-4-opticheskij-obman.htm' %}">Оптический обман</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-5-korol-v-igre.htm' %}">Король в игре</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-6-bezumnaia-rokirovka.htm' %}">Безумная рокировка</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-0-latyshskij-gambit.htm' %}">Латышский гамбит</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-1-rozhdenie-novinki.htm' %}">Рождение новинки</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-0-gambit-chernoj-ferzevoj-peshki.htm' %}">Гамбит черной ферзевой пешки</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-1-znak-vosklicaniia.htm' %}">Знак восклицания</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-zashchita-filidora.htm' %}">Защита Филидора</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-1-odna-edinstvennaia.htm' %}">Одна-единственная</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-2-spiashchaia-krasavica-ladia.htm' %}">Спящая красавица ладья</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-0-igra-petrova.htm' %}">Игра Петрова</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-1-teoriia-mikrooshibok.htm' %}">Теория микроошибок</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-2-a-kon-ozhil.htm' %}">А конь ожил!</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-3-odnocvetnye-slony.htm' %}">Одноцветные слоны</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-4-chrezmernaia-derzost.htm' %}">Чрезмерная дерзость</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-5-kon-belyj-ili-chernyj.htm' %}">Конь белый или черный?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-6-spurt-belogo-korolia.htm' %}">Спурт белого короля</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-7-knizhnyj-hod.htm' %}">Книжный ход</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-0-vstrechnaia-ataka-chigorina.htm' %}">Встречная атака Чигорина</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-1-kudesnik-morfi.htm' %}">Кудесник Морфи</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-2-olimpijskij-debiut-v-helsinki.htm' %}">Олимпийский дебют в Хельсинки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-3-pobeda-v-kabinetnoj-tishi.htm' %}">Победа в кабинетной тиши</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-4-stranichka-iz-zhurnala.htm' %}">Страничка из журнала</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-5-lozhnaia-ataka-peshki-f7.htm' %}">Ложная атака пешки f7</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-0-vengerskaia-zashchita.htm' %}">Венгерская защита</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-1-kogda-ferz-otdyhaet.htm' %}">Когда ферзь отдыхает</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-0-italianskaia-partiia.htm' %}">Итальянская партия</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-1-peredacha-opyta.htm' %}">Передача опыта</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-2-lovushka-hameleon.htm' %}">Ловушка-хамелеон</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-3-teoretik-endshpilia.htm' %}">Теоретик эндшпиля</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-4-tehnicheskij-brak.htm' %}">Технический брак</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/14-0-gambit-kapitana-evansa.htm' %}">Гамбит капитана Эванса</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/14-1-uzelok-na-pamiat.htm' %}">Узелок на память</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/14-2-korol-bez-eskorta.htm' %}">Король без эскорта</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-0-shotlandskaia-partiia.htm' %}">Шотландская партия</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-1-knigi-nado-sobirat-i-chitat.htm' %}">Книги надо собирать и читать</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-2-razmeny-razmeny.htm' %}">Размены, размены...</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-3-grossmejster-gesta-shtolc.htm' %}">Гроссмейстер Геста Штольц</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-4-endshpil-ponevole.htm' %}">Эндшпиль поневоле</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/16-0-anglijskaia-partiia.htm' %}">Английская партия</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/16-1-gordye-shahmatnye-koni.htm' %}">Гордые шахматные кони</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/17-0-debiut-konstantinopolskogo.htm' %}">Дебют константинопольского</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/17-1-indijskoe-fianketto.htm' %}">Индийское фианкетто</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/18-0-debiut-treh-konej.htm' %}">Дебют трех коней</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/18-1-slon-ili-peshka.htm' %}">Слон или пешка</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/18-2-lavina-chernyh-peshek.htm' %}">Лавина черных пешек</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/18-3-znaet-kazhdyj-star-i-mlad.htm' %}">Знает каждый, стар и млад</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/18-4-prosto-ispugalsia.htm' %}">Просто испугался</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/19-0-debiut-chetyreh-konej.htm' %}">Дебют четырех коней</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/19-1-grossmejsterskaia-nichia.htm' %}">Гроссмейстерская ничья</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/19-2-ostryj-endshpil.htm' %}">Острый эндшпиль</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/19-3-zapatovannaia-ladia.htm' %}">Запатованная ладья</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/19-4-perekrytie-i-otvlechenie.htm' %}">Перекрытие и отвлечение</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-000-drevniaia-ispanskaia-partiia-debiut-riui-lopesa.htm' %}">Древняя испанская партия - дебют Рюи лопеса</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-001-obratnyj-ispanskij-hod.htm' %}">Обратный испанский ход</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-002-kovarnyj-chernyj-kon.htm' %}">Коварный черный конь</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-003-ispanskij-chempion.htm' %}">Испанский чемпион</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-004-sovsem-po-tarrashu.htm' %}">Совсем по таррашу</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-005-vzryv-temperamenta.htm' %}">Взрыв темперамента</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-006-riskovat-ili-ne-riskovat.htm' %}">Рисковать или не рисковать</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-007-gambit-ponevole.htm' %}">Гамбит поневоле</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-008-skuchnyj-variant.htm' %}">Скучный вариант</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-009-migel-zdes-najdorf-tam.htm' %}">Мигель? — здесь! Найдорф? — там</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-010-azovskoe-sinee-more.htm' %}">Азовское синее море</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-011-zabytyj-variant.htm' %}">Забытый вариант</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-012-slon-ili-kon.htm' %}">Слон или конь</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-013-forsirovannyj-manevr-ili-kombinaciia.htm' %}">Форсированный маневр или комбинация?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-014-izdanie-nado-povtorit.htm' %}">Издание надо повторить</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-015-hitraia-vilka-konia.htm' %}">Хитрая вилка коня</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-016-hod-na-vse-vkusy.htm' %}">Ход на все вкусы</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-017-lovushka-dlia-nachinaiushchih.htm' %}">Ловушка для начинающих</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-018-trehhodovka-semiuelia-lojda.htm' %}">Трехходовка Сэмюэля Лойда</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-019-stoletie-so-dnia-rozhdeniia.htm' %}">Столетие со дня рождения</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-020-prikaz-ferzia.htm' %}">Приказ ферзя</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-021-stroptivaia-belaia-peshka.htm' %}">Строптивая белая пешка</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-022-ovchinka-ne-stoit-vydelki.htm' %}">Овчинка не стоит выделки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-023-rtutnaia-peshka.htm' %}">Ртутная пешка</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-024-teoriia-i-praktika.htm' %}">Теория и практика</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-025-piat-protiv-dvuh.htm' %}">Пять против двух</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-026-virtuoz-shahmatnoj-kombinacii.htm' %}">Виртуоз шахматной комбинации</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-027-skuchnye-budni.htm' %}">Скучные будни</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-028-preimushchestvo-dvuh-konej.htm' %}">Преимущество двух коней!</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-029-ohrana-polej-vtorzheniia.htm' %}">Охрана полей вторжения</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-030-borba-za-nichiu.htm' %}">Борьба за ничью</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-031-vyzov-na-duel.htm' %}">Вызов на дуэль</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-032-opasnyj-voiazh-ferzia.htm' %}">Опасный вояж ферзя</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-033-etiudnaia-tema.htm' %}">Этюдная тема</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-034-iskusnaia-zashchita.htm' %}">Искусная защита</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-035-voshozhdenie-na-bolshoe-sedlo.htm' %}">Восхождение на большое седло</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-036-redkaia-nichia.htm' %}">Редкая ничья</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-037-grossmejster-aspirant.htm' %}">Гроссмейстер-аспирант</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-038-cep-chernyh-peshek.htm' %}">Цепь черных пешек</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-039-revansh-cherez-18-let.htm' %}">Реванш через 18 лет</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-040-triumf-ispanskogo-slona.htm' %}">Триумф испанского слона</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-041-vzaimnyj-cugcvang.htm' %}">Взаимный цугцванг</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-042-grossmejster-tonkogo-etiuda.htm' %}">Гроссмейстер тонкого этюда</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-043-nichejnyj-tupik-rauzera.htm' %}">Ничейный тупик Раузера</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-044-strogie-zriteli.htm' %}">Строгие зрители</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-045-i-vse-taki-fh5.htm' %}">И все-таки Фh5!</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-046-ferz-s-iziuminkoj.htm' %}">Ферзь с изюминкой</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-047-otdalennaia-prohodnaia-peshka.htm' %}">Отдаленная проходная пешка</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-048-beg-naperegonki.htm' %}">Бег наперегонки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-049-noch-i-den.htm' %}">Ночь и день</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-050-tal-v-svoej-stihii.htm' %}">Таль в своей стихии</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-051-zevok-v-cejtnote.htm' %}">Зевок в цейтноте</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-052-razgadannaia-kombinaciia.htm' %}">Разгаданная комбинация</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-053-hody-po-shablonu.htm' %}">Ходы по шаблону</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-054-tvorchestvo-ili-plagiat.htm' %}">Творчество или плагиат?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-055-dva-ekzamena.htm' %}">Два экзамена</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-056-prozrachnaia-ugroza.htm' %}">Прозрачная угроза</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-057-matchi-gde-vy.htm' %}">Матчи, где вы?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-058-lopes-ili-keres.htm' %}">Лопес или Керес?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-059-novinka.htm' %}">Новинка?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-060-eksperimentalnoe-ochko.htm' %}">Экспериментальное очко</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-061-gorkaia-sudba-improvizatora.htm' %}">Горькая судьба импровизатора</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-062-duel-konia-s-peshkoj.htm' %}">Дуэль коня с пешкой</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-063-sol-gde-ona.htm' %}">Соль, где она?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-064-hrabryj-chernyj-korol.htm' %}">Храбрый черный король</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-065-sfera-tochnyh-ocenok.htm' %}">Сфера точных оценок</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-066-poliarnye-emocii.htm' %}">Полярные эмоции</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-067-nichia-v-kredit.htm' %}">Ничья в кредит</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-068-bolshie-manevry.htm' %}">Большие маневры</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-069-gibel-korolevskoj-peshki.htm' %}">Гибель королевской пешки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-070-zamknutoe-prostranstvo.htm' %}">Замкнутое пространство</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-071-zaprogrammirovannaia-peshka.htm' %}">Запрограммированная пешка</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-072-hod-s-chuzhogo-plecha.htm' %}">Ход «с чужого плеча»</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-073-vse-hody-na-podbor.htm' %}">Все ходы на подбор</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-074-pobeditel-kardoso.htm' %}">Победитель Кардосо</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-075-prikrytie-ferzia-kon.htm' %}">Прикрытие ферзя — конь</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-076-hod-v-konverte.htm' %}">Ход в конверте</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-077-vtoroe-ochko.htm' %}">Второе очко</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-078-iskry-kombinacij.htm' %}">Искры комбинаций</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-079-ochko-na-chetyre-chasti.htm' %}">Очко на четыре части</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-080-hod-brejera.htm' %}">Ход Брейера</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-081-professor-psihologii.htm' %}">Профессор психологии</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-082-i-v-zhizni-tak-byvaet.htm' %}">И в жизни так бывает</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-083-chej-hod.htm' %}">Чей ход?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-084-korni-cejtnota.htm' %}">Корни цейтнота</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-085-kapelka-turnirnogo-schastia.htm' %}">Капелька турнирного счастья</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-086-koleso-v-koleso.htm' %}">«Колесо в колесо»</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-087-peshka-ili-ataka.htm' %}">Пешка или атака?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-088-na-grani-nichej.htm' %}">На грани ничьей</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-089-ladi-rvutsia-na-sedmuiu.htm' %}">Ладьи рвутся на седьмую</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-090-slon-v-ofsajte.htm' %}">Слон в офсайте</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-091-smelyj-hod-konia.htm' %}">Смелый ход коня</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-092-lenivaia-ladia.htm' %}">Ленивая ладья</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-093-chempion-moskvy.htm' %}">Чемпион Москвы</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-094-poleznyj-urok.htm' %}">Полезный урок</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-095-fundament-peshechnoj-cepi.htm' %}">Фундамент пешечной цепи</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-096-vosem-polovina-ot-shestnadcati.htm' %}">Восемь — половина от шестнадцати</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-097-meksikanec-nikitin.htm' %}">Мексиканец Никитин</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-098-shahmatnoe-iskusstvo-indii.htm' %}">Шахматное искусство Индии</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-099-repeticiia-v-antrakte.htm' %}">Репетиция в Антракте</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-100-varianty-v-tumane.htm' %}">Варианты в тумане</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-101-hitryj-shah.htm' %}">Хитрый шах</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-102-tanec-s-sabliami.htm' %}">Танец с саблями</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-103-ferz-ili-kon-s-shahom.htm' %}">Ферзь? Или конь с шахом?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-104-prohodnaia-peshka.htm' %}">Проходная пешка</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-105-liubiteliam-endshpilia.htm' %}">Любителям эндшпиля</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-106-lovushka-bumerang.htm' %}">Ловушка-бумеранг</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-107-ryzhij-hanan.htm' %}">Рыжий Ханан</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-108-poedinok-veteranov.htm' %}">Поединок ветеранов</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-109-groznyj-sopernik.htm' %}">Грозный соперник</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-110-povtorenie-projdennogo.htm' %}">Повторение пройденного</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-111-gorkaia-uchast-slona.htm' %}">Горькая участь слона</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-112-domik-iz-peshechnyh-kirpichikov.htm' %}">Домик из пешечных кирпичиков</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-113-vertikal-dlia-slona.htm' %}">Вертикаль для слона</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-114-drevnie-tradicii-gostepriimstva.htm' %}">Древние традиции гостеприимства</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-115-peshki-tesniat-slona.htm' %}">Пешки теснят слона</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-116-peshka-fantazerka.htm' %}">Пешка-фантазерка</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-117-ne-v-svoi-sani.htm' %}">Не в свои сани</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-118-novye-vremena.htm' %}">Новые времена</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-119-sem-kilometrov-v-glub-zemli.htm' %}">Семь километров в глубь земли</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-120-sdvoennye-chernye-peshki.htm' %}">Сдвоенные черные пешки</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-121-znaet-li-chitatel.htm' %}">Знает ли читатель?</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-122-rekordnyj-cejtnot.htm' %}">Рекордный цейтнот</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-123-korchnoj-na-vysote.htm' %}">Корчной на высоте</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-124-ispugalsia-zhiuri.htm' %}">Испугался жюри</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-125-u-menia-zazvonil-telefon.htm' %}">У меня зазвонил телефон</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-126-zhertvennyj-vodopad.htm' %}">Жертвенный водопад</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-127-slon-puteshestvennik.htm' %}">Слон-путешественник</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-128-gore-glavu-bora.htm' %}">«Горе главу, Бора!»</a>,
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-129-iskusstvo-improvizacii.htm' %}">Искусство импровизации</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/21-0-debiut-alapina.htm' %}">Дебют Алапина</a></li>
+	<ul>
+	<a class="line0" href="{% url 'page-view' book.root_dir|add:'/21-1-vstrecha-s-ferzberi.htm' %}">Встреча с Фэрзьбери</a>.
+	</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/22-ukazatel-partnerov.htm' %}">Указатель партнеров</a></li>
+</ul>
+
+<hr />
+
+<div class="message">
+<p>7А9.1<br/>Б 88</p>
+<p>6-9-4</p>
+<p>Темплан 1969 г,<br/>№139</p>
+</div>
+
+<h2>Давид Ионович Бронштейн</h2>
+<h1>200 открытых партий</h1>
+
+<div class="message">
+<p>Редактор Ю. А. Бразильский</p>
+<p>Художник Е. А. Сумнительный</p>
+<p>Худож. редактор В. К. Сафронов</p>
+<p>Техн. редактор М. А. Полуян</p>
+<p>Корректор З. Г. Самылкина</p>
+</div>
+
+<div class="message">
+<p>А09225. Сдано в производство 13/VI 1969 г.</p>
+<p>Подписано к печати 29/Х 1969 г. Бума...</p>
+<p>60x90 1/16 типогр. № 2. Печ. л. 15,5. Уч.-изд. л. 12,5. Бум. л. 7,75. Тираж 30000 экз.</p>
+<p>Цена 53 коп. Зак. 37.</p>
+</div>
+
+<p class="message">Издательство «Физкультура и спорт» Комитета по печати<br/>
+при Совете Министров СССР Москва, К-6. Каляевская ул., 27.</p>
+
+<p class="message">Ордена Трудового Красного Знамени Первая Образцовая типография имени<br/>
+А. А. Жданова Главполиграфпрома Комитета по печати при Совете Министров СССР<br/>
+Москва, М-54, Валовая, 28.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

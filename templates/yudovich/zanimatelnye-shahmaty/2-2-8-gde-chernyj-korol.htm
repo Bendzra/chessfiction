@@ -1,0 +1,45 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Где черный король? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Где черный король?</h3>
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">86</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/8/PPPPPPPP/RNBQKBNR w KQ - 0 1"></div>
+<p>А здесь на доске только белые фигуры. Найди, куда
+надо поставить черного короля, чтобы белые могли дать ему мат в три хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+ <span class="line0" onclick='loadMove("8/8/8/8/7k/8/PPPPPPPP/RNBQKBNR w KQ - 0 1", this, ""); '>[...]</span> 
+<p>Где черный король? Черного короля надо поставить на h4.
+ <span onclick='loadMove("8/8/8/8/3P3k/8/PPP1PPPP/RNBQKBNR b KQ d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("8/8/8/8/3P2k1/8/PPP1PPPP/RNBQKBNR w KQ - 0 2", this, "h4g4"); ' class="line0">Крg4</span> 
+ <span onclick='loadMove("8/8/8/8/3PP1k1/8/PPP2PPP/RNBQKBNR b KQ e3 0 2", this, "e2e4"); ' class="line0">2.e4+</span> 
+ <span onclick='loadMove("8/8/8/8/3PP2k/8/PPP2PPP/RNBQKBNR w KQ - 0 3", this, "g4h4"); ' class="line0">Крh4</span> 
+ <span onclick='loadMove("8/8/8/8/3PP2k/6P1/PPP2P1P/RNBQKBNR b KQ - 0 3", this, "g2g3"); ' class="line0">3.g3X</span> 
+или
+ <span onclick='loadMove("8/8/8/7k/3P4/8/PPP1PPPP/RNBQKBNR w KQ - 0 2", this, "h4h5"); ' class="line1">1...Крh5</span> 
+ <span onclick='loadMove("8/8/8/7k/3P4/3Q4/PPP1PPPP/RNB1KBNR b KQ - 0 2", this, "d1d3"); ' class="line1">2.Фd3</span> 
+ <span onclick='loadMove("8/8/8/8/3P2k1/3Q4/PPP1PPPP/RNB1KBNR w KQ - 0 3", this, "h5g4"); ' class="line1">Крg4</span> 
+ <span onclick='loadMove("8/8/8/8/3P2k1/7Q/PPP1PPPP/RNB1KBNR b KQ - 0 3", this, "d3h3"); ' class="line1">3.Фh3X</span> 
+.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

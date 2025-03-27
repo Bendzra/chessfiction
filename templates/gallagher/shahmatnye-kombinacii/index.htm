@@ -1,0 +1,37 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Галлахер Д. Шахматные комбинации. Решебник</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Введение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-uroven-1.htm' %}">УРОВЕНЬ 1</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">УРОВЕНЬ 2</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">УРОВЕНЬ 3</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">УРОВЕНЬ 4</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">УРОВЕНЬ 5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Тесты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Подсказки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения к тестам</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Словарь / Тематический индекс</a></li>
+</ul>
+{% include '../../snippet_litres_banner2.htm' %}
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

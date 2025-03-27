@@ -1,0 +1,373 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>1. Простые маты | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="score">
+<h3>1. Простые маты</h3>
+<p>Прежде всего изучающий должен ознакомиться со сравнительной силой фигур. Это легче всего сделать, научившись быстро давать некоторые простейшие маты.</p>
+<p>Рассмотрим окончание, в котором участвуют с одной стороны король и ладья, с другой — король.</p>
+<p>Основной принцип состоит здесь в том, чтобы отогнать неприятельского короля на последнюю линию, то есть к одному из краев доски. </p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7k/8/8/8/8/8/8/R6K w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7k/8/8/8/8/8/8/R6K w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">20</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7k/8/8/8/8/8/8/R6K w - - 0 1"></div>
+<p>В этом положении сила ладьи проявляется на первом же ходу <b>Лa1-a7</b>, сразу ограничивающем свободу передвижений черного короля последним горизонтальным рядом, после чего мат достигается легко.</p>
+<p class="longNotation">
+ <span onclick='loadMove("7k/R7/8/8/8/8/8/7K b - - 0 1", this, "a1a7"); ' class="line0">1.Лa1-a7</span> 
+ <span onclick='loadMove("6k1/R7/8/8/8/8/8/7K w - - 0 2", this, "h8g8"); ' class="line0">Крh8-g8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6k1/R7/8/8/8/8/6K1/8 b - - 0 2", this, "h1g2"); ' class="line0">2.Крh1-g2</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Чтобы создать положение, в котором может быть вынужден мат, необходимы соединенные действия короля и ладьи. Начинающий должен пользоваться при этом следующим общим правилом: <strong>необходимо держать своего короля возможно ближе к неприятельскому, в одном вертикальном или горизонтальном ряду с ним. Когда король сильнейшей стороны достигнет 6-го ряда, лучше ставить его не в один ряд с неприятельским, а в смежный по направлению к центру доски</strong>.</p>
+<p class="longNotation">
+ <span class="ellipsis0">2. ...</span> 
+ <span onclick='loadMove("5k2/R7/8/8/8/8/6K1/8 w - - 0 3", this, "g8f8"); ' class="line0">Крg8-f8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("5k2/R7/8/8/8/5K2/8/8 b - - 0 3", this, "g2f3"); ' class="line0">3.Крg2-f3</span> 
+ <span onclick='loadMove("4k3/R7/8/8/8/5K2/8/8 w - - 0 4", this, "f8e8"); ' class="line0">Крf8-e8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("4k3/R7/8/8/4K3/8/8/8 b - - 0 4", this, "f3e4"); ' class="line0">4.Крf3-e4</span> 
+ <span onclick='loadMove("3k4/R7/8/8/4K3/8/8/8 w - - 0 5", this, "e8d8"); ' class="line0">Крe8-d8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("3k4/R7/8/3K4/8/8/8/8 b - - 0 5", this, "e4d5"); ' class="line0">5.Крe4-d5</span> 
+ <span onclick='loadMove("2k5/R7/8/3K4/8/8/8/8 w - - 0 6", this, "d8c8"); ' class="line0">Крd8-c8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2k5/R7/3K4/8/8/8/8/8 b - - 0 6", this, "d5d6"); ' class="line0">6.Крd5-d6</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Не
+ <span onclick='loadMove("2k5/R7/2K5/8/8/8/8/8 b - - 0 6", this, "d5c6"); ' class="line1">6.Крd5-c6</span> 
+, так как черный король пошел бы обратно на d8 и это затянуло бы игру. Если же теперь король черных пойдет на d8,
+ <!--span onclick='loadMove("2k5/R7/2K5/8/8/8/8/8 w - - 0 7", this, "d5c6"); ' class="line1">6...z0</span--> 
+белые сразу дадут мат ходом
+ <span onclick='loadMove("R1k5/8/2K5/8/8/8/8/8 b - - 0 7", this, "a7a8"); ' class="line1">7.Лa7-a8</span> 
+.</p>
+<p class="longNotation">
+ <span class="ellipsis0">6. ...</span> 
+ <span onclick='loadMove("1k6/R7/3K4/8/8/8/8/8 w - - 0 7", this, "c8b8"); ' class="line0">Крc8-b8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("1k6/2R5/3K4/8/8/8/8/8 b - - 0 7", this, "a7c7"); ' class="line0">7.Лa7-c7</span> 
+ <span onclick='loadMove("k7/2R5/3K4/8/8/8/8/8 w - - 0 8", this, "b8a8"); ' class="line0">Крb8-a8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("k7/2R5/2K5/8/8/8/8/8 b - - 0 8", this, "d6c6"); ' class="line0">8.Крd6-c6</span> 
+ <span onclick='loadMove("1k6/2R5/2K5/8/8/8/8/8 w - - 0 9", this, "a8b8"); ' class="line0">Крa8-b8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("1k6/2R5/1K6/8/8/8/8/8 b - - 0 9", this, "c6b6"); ' class="line0">9.Крc6-b6</span> 
+ <span onclick='loadMove("k7/2R5/1K6/8/8/8/8/8 w - - 0 10", this, "b8a8"); ' class="line0">Крb8-a8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("k1R5/8/1K6/8/8/8/8/8 b - - 0 10", this, "c7c8"); ' class="line0">10.Лc7-c8X</span> 
+.</p>
+<p>Чтобы дать мат, потребовалось, считая от начального положения, ровно десять ходов. На 5-м ходу черные могли бы сыграть
+ <span onclick='loadMove("4k3/R7/8/3K4/8/8/8/8 w - - 0 6", this, "d8e8"); ' class="line1">5...Крd8-e8</span> 
+, и, руководствуясь общим правилом, белые продолжали бы
+ <span onclick='loadMove("4k3/R7/3K4/8/8/8/8/8 b - - 0 6", this, "d5d6"); ' class="line1">6.Крd5-d6</span> 
+ <span onclick='loadMove("5k2/R7/3K4/8/8/8/8/8 w - - 0 7", this, "e8f8"); ' class="line1">Крe8-f8</span> 
+(черный король рано или поздно вынужден будет стать против белого короля и получить мат ходом <b>Лa7-a8</b>)
+ <span onclick='loadMove("5k2/R7/4K3/8/8/8/8/8 b - - 0 7", this, "d6e6"); ' class="line1">7.Крd6-e6</span> 
+ <span onclick='loadMove("6k1/R7/4K3/8/8/8/8/8 w - - 0 8", this, "f8g8"); ' class="line1">Крf8-g8</span> 
+ <span onclick='loadMove("6k1/R7/5K2/8/8/8/8/8 b - - 0 8", this, "e6f6"); ' class="line1">8.Крe6-f6</span> 
+ <span onclick='loadMove("7k/R7/5K2/8/8/8/8/8 w - - 0 9", this, "g8h8"); ' class="line1">Крg8-h8</span> 
+ <span onclick='loadMove("7k/R7/6K1/8/8/8/8/8 b - - 0 9", this, "f6g6"); ' class="line1">9.Крf6-g6</span> 
+ <span onclick='loadMove("6k1/R7/6K1/8/8/8/8/8 w - - 0 10", this, "h8g8"); ' class="line1">Крh8-g8</span> 
+ <span onclick='loadMove("R5k1/8/6K1/8/8/8/8/8 b - - 0 10", this, "a7a8"); ' class="line1">10.Лa7-a8X</span> 
+.</p>
+<!--p>16</p><p>Часть I. Общие сведения о шахматной игре</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/4k3/8/8/8/4K2R w K - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/4k3/8/8/8/4K2R w K - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">21</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/4k3/8/8/8/4K2R w K - 0 1"></div>
+<p>Поскольку черный король находится в центре доски, лучше всего приблизить своего короля, действуя следующим образом:</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/4k3/8/8/4K3/7R b - - 0 1", this, "e1e2"); ' class="line0">1.Крe1-e2</span> 
+ <span onclick='loadMove("8/8/8/3k4/8/8/4K3/7R w - - 0 2", this, "e5d5"); ' class="line0">Крe5-d5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/3k4/8/4K3/8/7R b - - 0 2", this, "e2e3"); ' class="line0">2.Крe2-e3</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Ввиду того, что ладья еще не вошла в игру, лучше всего провести своего короля прямо в центр доски, но ставя его не напротив, а сбоку от неприятельского короля. Если бы черные теперь сыграли
+ <span onclick='loadMove("8/8/8/4k3/8/4K3/8/7R w - - 0 3", this, "d5e5"); ' class="line1">2...Крd5-e5</span> 
+, ладья отогнала бы его на один ряд ходом
+ <span onclick='loadMove("8/8/8/4k2R/8/4K3/8/8 b - - 0 3", this, "h1h5"); ' class="line1">3.Лh1-h5+</span> 
+.
+Если же черные пойдут
+ <span onclick='loadMove("8/8/8/8/2k5/4K3/8/7R w - - 0 3", this, "d5c4"); ' class="line1">2...Крd5-c4</span> 
+, то все равно
+ <span onclick='loadMove("8/8/8/7R/2k5/4K3/8/8 b - - 0 3", this, "h1h5"); ' class="line1">3.Лh1-h5</span> 
+. И если теперь
+ <span onclick='loadMove("8/8/8/7R/1k6/4K3/8/8 w - - 0 4", this, "c4b4"); ' class="line1">3...Крc4-b4</span> 
+, то последует
+ <span onclick='loadMove("8/8/8/7R/1k6/3K4/8/8 b - - 0 4", this, "e3d3"); ' class="line1">4.Крe3-d3</span> 
+,
+если же
+ <span onclick='loadMove("8/8/8/7R/8/2k1K3/8/8 w - - 0 4", this, "c4c3"); ' class="line2">3...Крc4-c3</span> 
+, то
+ <span onclick='loadMove("8/8/8/8/7R/2k1K3/8/8 b - - 0 4", this, "h5h4"); ' class="line2">4.Лh5-h4</span> 
+, ограничивая неприятельского короля, возможно меньшим числом полей.</p>
+<p>Итак, основная игра может продолжаться следующим образом.</p>
+<p class="longNotation">
+ <span class="ellipsis0">2. ...</span> 
+ <span onclick='loadMove("8/8/8/8/2k5/4K3/8/7R w - - 0 3", this, "d5c4"); ' class="line0">Крd5-c4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/7R/2k5/4K3/8/8 b - - 0 3", this, "h1h5"); ' class="line0">3.Лh1-h5</span> 
+ <span onclick='loadMove("8/8/8/7R/8/2k1K3/8/8 w - - 0 4", this, "c4c3"); ' class="line0">Крc4-c3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/7R/2k1K3/8/8 b - - 0 4", this, "h5h4"); ' class="line0">4.Лh5-h4</span> 
+ <span onclick='loadMove("8/8/8/8/7R/4K3/2k5/8 w - - 0 5", this, "c3c2"); ' class="line0">Крc3-c2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/2R5/4K3/2k5/8 b - - 0 5", this, "h4c4"); ' class="line0">5.Лh4-c4+</span> 
+ <span onclick='loadMove("8/8/8/8/2R5/1k2K3/8/8 w - - 0 6", this, "c2b3"); ' class="line0">Крc2-b3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/2R5/1k1K4/8/8 b - - 0 6", this, "e3d3"); ' class="line0">6.Крe3-d3</span> 
+ <span onclick='loadMove("8/8/8/8/2R5/3K4/1k6/8 w - - 0 7", this, "b3b2"); ' class="line0">Крb3-b2</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/1R6/3K4/1k6/8 b - - 0 7", this, "c4b4"); ' class="line0">7.Лc4-b4+</span> 
+ <span onclick='loadMove("8/8/8/8/1R6/k2K4/8/8 w - - 0 8", this, "b2a3"); ' class="line0">Крb2-a3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/1R6/k1K5/8/8 b - - 0 8", this, "d3c3"); ' class="line0">8.Крd3-c3</span> 
+ <span onclick='loadMove("8/8/8/8/1R6/2K5/k7/8 w - - 0 9", this, "a3a2"); ' class="line0">Крa3-a2</span> 
+</p>
+<p>Учащемуся следует обратить внимание на то, что белый король приближается к ладье не только для того, чтобы защитить ее, но также и для того, чтобы ограничить подвижность неприятельского короля. Теперь белые дают мат в три хода:</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/R7/2K5/k7/8 b - - 0 9", this, "b4a4"); ' class="line0">9.Лb4-a4+</span> 
+ <span onclick='loadMove("8/8/8/8/R7/2K5/8/1k6 w - - 0 10", this, "a2b1"); ' class="line0">Крa2-b1</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/R7/8/2K5/8/1k6 b - - 0 10", this, "a4a5"); ' class="line0">10.Лa4-a5</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Ладья может пойти и на другое поле вертикального ряда (кроме полей a1 и a2), вынуждая черного короля стать напротив белого.</p>
+<p class="longNotation">
+ <span class="ellipsis0">10. ...</span> 
+ <span onclick='loadMove("8/8/8/R7/8/2K5/8/2k5 w - - 0 11", this, "b1c1"); ' class="line0">Крb1-c1</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/8/2K5/8/R1k5 b - - 0 11", this, "a5a1"); ' class="line0">11.Лa5-a1X</span> 
+.</p>
+<p>В данном случае на достижение мата ушло одиннадцать ходов. Вообще эта задача в любом положении может быть разрешена менее чем в двадцать ходов.</p>
+<p>Несмотря на однообразие подобных упражнений, начинающему следует посвятить им некоторое время и хорошо поупражняться, так как это поможет ему быстрее привыкнуть к свойствам фигур.</p>
+<p>Попробуем теперь дать мат королем и двумя слонами (диагр. 22).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7k/8/8/8/8/8/8/2B1KB2 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7k/8/8/8/8/8/8/2B1KB2 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">22</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7k/8/8/8/8/8/8/2B1KB2 w - - 0 1"></div>
+<p>Поскольку черный король стоит в углу, белые могут сыграть:</p>
+<p class="longNotation">
+ <span onclick='loadMove("7k/8/8/8/8/3B4/8/2B1K3 b - - 0 1", this, "f1d3"); ' class="line0">1.Сf1-d3</span> 
+ <span onclick='loadMove("8/6k1/8/8/8/3B4/8/2B1K3 w - - 0 2", this, "h8g7"); ' class="line0">Крh8-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/6k1/8/6B1/8/3B4/8/4K3 b - - 0 2", this, "c1g5"); ' class="line0">2.Сc1-g5</span> 
+ <span onclick='loadMove("8/5k2/8/6B1/8/3B4/8/4K3 w - - 0 3", this, "g7f7"); ' class="line0">Крg7-f7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5k2/8/5BB1/8/8/8/4K3 b - - 0 3", this, "d3f5"); ' class="line0">3.Сd3-f5</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>и черный король уже оказывается отрезанным на небольшом
+<!--p>Глава 2. Как научиться игре и совершенствоваться в ней</p><p>17</p-->
+участке доски. Если бы черный король в начальном положении стоял в центре или хотя бы не на краю доски, белые приблизились бы своим королем, а затем с помощью слонов по возможности стеснили бы его.</p>
+<p>Игра может продолжаться следующим образом:</p>
+<p class="longNotation">
+ <span class="ellipsis0">3. ...</span> 
+ <span onclick='loadMove("8/6k1/8/5BB1/8/8/8/4K3 w - - 0 4", this, "f7g7"); ' class="line0">Крf7-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/6k1/8/5BB1/8/8/5K2/8 b - - 0 4", this, "e1f2"); ' class="line0">4.Крe1-f2</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>В концах этого типа черного короля нужно оттеснить не только на край доски, но и в один из углов, так как мат можно дать ему только в углу. Для этой цели белый король должен достигнуть шестого ряда одной из двух крайних вертикалей или горизонталей, то есть в данном случае одного из полей h6, g6, f7 или f8. Атак как h6 и g6 являются ближайшими из этих полей, то на одно из них белый король и должен стать.</p>
+<p class="longNotation">
+ <span class="ellipsis0">4. ...</span> 
+ <span onclick='loadMove("8/5k2/8/5BB1/8/8/5K2/8 w - - 0 5", this, "g7f7"); ' class="line0">Крg7-f7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5k2/8/5BB1/8/6K1/8/8 b - - 0 5", this, "f2g3"); ' class="line0">5.Крf2-g3</span> 
+ <span onclick='loadMove("8/6k1/8/5BB1/8/6K1/8/8 w - - 0 6", this, "f7g7"); ' class="line0">Крf7-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/6k1/8/5BB1/7K/8/8/8 b - - 0 6", this, "g3h4"); ' class="line0">6.Крg3-h4</span> 
+ <span onclick='loadMove("8/5k2/8/5BB1/7K/8/8/8 w - - 0 7", this, "g7f7"); ' class="line0">Крg7-f7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5k2/8/5BBK/8/8/8/8 b - - 0 7", this, "h4h5"); ' class="line0">7.Крh4-h5</span> 
+ <span onclick='loadMove("8/6k1/8/5BBK/8/8/8/8 w - - 0 8", this, "f7g7"); ' class="line0">Крf7-g7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/6k1/6B1/6BK/8/8/8/8 b - - 0 8", this, "f5g6"); ' class="line0">8.Сf5-g6</span> 
+ <span onclick='loadMove("6k1/8/6B1/6BK/8/8/8/8 w - - 0 9", this, "g7g8"); ' class="line0">Крg7-g8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6k1/8/6BK/6B1/8/8/8/8 b - - 0 9", this, "h5h6"); ' class="line0">9.Крh5-h6</span> 
+ <span onclick='loadMove("5k2/8/6BK/6B1/8/8/8/8 w - - 0 10", this, "g8f8"); ' class="line0">Крg8-f8</span> 
+</p>
+<p>Теперь белым нужно выгадать время и пойти одним из слонов так, чтобы заставить черного короля отступить.</p>
+<p class="longNotation">
+ <span onclick='loadMove("5k2/8/7K/6BB/8/8/8/8 b - - 0 10", this, "g6h5"); ' class="line0">10.Сg6-h5</span> 
+ <span onclick='loadMove("6k1/8/7K/6BB/8/8/8/8 w - - 0 11", this, "f8g8"); ' class="line0">Крf8-g8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6k1/4B3/7K/7B/8/8/8/8 b - - 0 11", this, "g5e7"); ' class="line0">11.Сg5-e7</span> 
+ <span onclick='loadMove("7k/4B3/7K/7B/8/8/8/8 w - - 0 12", this, "g8h8"); ' class="line0">Крg8-h8</span> 
+</p>
+<p>Теперь слон белых должен занять такую позицию, откуда он мог бы на следующем ходу, когда король черных вернется на g8, дать шах по диагонали.</p>
+<p class="longNotation">
+ <span onclick='loadMove("7k/4B3/7K/8/6B1/8/8/8 b - - 0 12", this, "h5g4"); ' class="line0">12.Сh5-g4</span> 
+ <span onclick='loadMove("6k1/4B3/7K/8/6B1/8/8/8 w - - 0 13", this, "h8g8"); ' class="line0">Крh8-g8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6k1/4B3/4B2K/8/8/8/8/8 b - - 0 13", this, "g4e6"); ' class="line0">13.Сg4-e6+</span> 
+ <span onclick='loadMove("7k/4B3/4B2K/8/8/8/8/8 w - - 0 14", this, "g8h8"); ' class="line0">Крg8-h8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("7k/8/4BB1K/8/8/8/8/8 b - - 0 14", this, "e7f6"); ' class="line0">14.Сe7-f6X</span> 
+.</p>
+<p>Чтобы дать мат, белые затратили четырнадцать ходов; вообще из любого положения для этого нужно менее тридцати ходов.</p>
+<p>Во всех окончаниях этого рода необходимо остерегаться, чтобы не запатовать противника.</p>
+<p>В окончаниях рассмотренного типа следует помнить о том, что короля необходимо отогнать не только на край доски, но и в угол. Однако при этом совершенно безразлично, будет ли король оттеснен на последний горизонтальный ряд или на один из крайних вертикальных рядов.</p>
+<p>Теперь мы рассмотрим окончание с королем и ферзем против короля. Поскольку ферзь сочетает в себе ходы ладьи и слона, дать мат с его помощью легче всего, и эта задача всегда может быть решена менее чем в десять ходов. Разберем следующее положение:</p>
+<!--p>18</p><p>Часть I. Общие сведения о шахматной игре</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/4k3/8/8/8/4K2Q w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/4k3/8/8/8/4K2Q w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">23</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/4k3/8/8/8/4K2Q w - - 0 1"></div>
+<p>Первый ход лучше всего сделать ферзем, стараясь возможно больше ограничить подвижность черного короля. Итак:</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/2Q5/4k3/8/8/8/4K3 b - - 0 1", this, "h1c6"); ' class="line0">1.Фh1-c6</span> 
+ <span onclick='loadMove("8/8/2Q5/8/3k4/8/8/4K3 w - - 0 2", this, "e5d4"); ' class="line0">Крe5-d4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/2Q5/8/3k4/8/3K4/8 b - - 0 2", this, "e1d2"); ' class="line0">2.Крe1-d2</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>В распоряжении короля черных всего одно поле.</p>
+<p class="longNotation">
+ <span class="ellipsis0">2. ...</span> 
+ <span onclick='loadMove("8/8/2Q5/4k3/8/8/3K4/8 w - - 0 3", this, "d4e5"); ' class="line0">Крd4-e5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/2Q5/4k3/8/4K3/8/8 b - - 0 3", this, "d2e3"); ' class="line0">3.Крd2-e3</span> 
+ <span onclick='loadMove("8/8/2Q5/5k2/8/4K3/8/8 w - - 0 4", this, "e5f5"); ' class="line0">Крe5-f5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/3Q4/5k2/8/4K3/8/8 b - - 0 4", this, "c6d6"); ' class="line0">4.Фc6-d6</span> 
+ <span onclick='loadMove("8/8/3Q4/6k1/8/4K3/8/8 w - - 0 5", this, "f5g5"); ' class="line0">Крf5-g5</span> 
+</p>
+<p>Если бы черные сыграли
+ <span onclick='loadMove("8/8/3Q4/8/6k1/4K3/8/8 w - - 0 5", this, "f5g4"); ' class="line1">4...Крf5-g4</span> 
+, белые продолжали бы
+ <span onclick='loadMove("8/8/6Q1/8/6k1/4K3/8/8 b - - 0 5", this, "d6g6"); ' class="line1">5.Фd6-g6+</span> 
+.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/4Q3/6k1/8/4K3/8/8 b - - 0 5", this, "d6e6"); ' class="line0">5.Фd6-e6</span> 
+ <span onclick='loadMove("8/8/4Q3/8/7k/4K3/8/8 w - - 0 6", this, "g5h4"); ' class="line0">Крg5-h4</span> 
+</p>
+<p>Если бы черные сыграли
+ <span onclick='loadMove("8/8/4Q3/7k/8/4K3/8/8 w - - 0 6", this, "g5h5"); ' class="line1">5...Крh5</span> 
+, то
+ <span onclick='loadMove("8/8/4Q3/7k/5K2/8/8/8 b - - 0 6", this, "e3f4"); ' class="line1">6.Крe3-f4</span> 
+, и мат следующим ходом.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/6Q1/8/7k/4K3/8/8 b - - 0 6", this, "e6g6"); ' class="line0">6.Фe6-g6</span> 
+ <span onclick='loadMove("8/8/6Q1/8/8/4K2k/8/8 w - - 0 7", this, "h4h3"); ' class="line0">Крh4-h3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/6Q1/8/8/5K1k/8/8 b - - 0 7", this, "e3f3"); ' class="line0">7.Крe3-f3</span> 
+ <span onclick='loadMove("8/8/6Q1/8/7k/5K2/8/8 w - - 0 8", this, "h3h4"); ' class="line0">Крh3-h4</span> 
+(<b>h2</b>)
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/6Qk/5K2/8/8 b - - 0 8", this, "g6g4"); ' class="line0">8.Фg6-g4</span> 
+(<b>g2</b>)<b>X</b>.</p>
+<p>В этих окончаниях, так же как и в окончаниях с ладьей, черный король должен быть оттеснен на край доски. Но только ввиду несравненно большей силы ферзя по сравнению с ладьей это может быть сделано гораздо легче и быстрее.</p>
+<p>Мы рассмотрели три типа элементарных окончаний, и во всех принцип игры для сильнейшей стороны был один и тот же. Во всех трех случаях необходимо было участие в игре короля белых. Чтобы дать мат без помощи короля, необходимы, по крайней мере, две ладьи.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/4k3/8/8/8/R3K2R w KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/4k3/8/8/8/R3K2R w KQ - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">24</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/4k3/8/8/8/R3K2R w KQ - 0 1"></div>
+<p>При двух ладьях мат достигается весьма просто. По обыкновению король должен быть оттеснен на край доски.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/4k3/7R/8/8/R3K3 b Q - 0 1", this, "h1h4"); ' class="line0">1.Лh1-h4</span> 
+ <span onclick='loadMove("8/8/8/5k2/7R/8/8/R3K3 w Q - 0 2", this, "e5f5"); ' class="line0">Крe5-f5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/R4k2/7R/8/8/4K3 b - - 0 2", this, "a1a5"); ' class="line0">2.Лa1-a5+</span> 
+ <span onclick='loadMove("8/8/6k1/R7/7R/8/8/4K3 w - - 0 3", this, "f5g6"); ' class="line0">Крf5-g6</span> 
+</p>
+<p>Теперь белые не могут сыграть
+ <span onclick='loadMove("8/8/6kR/R7/8/8/8/4K3 b - - 0 3", this, "h4h6"); ' class="line1">3.Лh4-h6+</span> 
+, так как король черных взял бы ладью. Поэтому необходимо увести ее по тому же горизонтальному ряду, в котором она стоит, возможно дальше от неприятельского короля, не ставя ее, однако, в один вертикальный ряд с другой ладьей.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/6k1/R7/1R6/8/8/4K3 b - - 0 3", this, "h4b4"); ' class="line0">3.Лh4-b4</span> 
+ <span onclick='loadMove("8/8/5k2/R7/1R6/8/8/4K3 w - - 0 4", this, "g6f6"); ' class="line0">Крg6-f6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/1R3k2/R7/8/8/8/4K3 b - - 0 4", this, "b4b6"); ' class="line0">4.Лb4-b6+</span> 
+ <span onclick='loadMove("8/4k3/1R6/R7/8/8/8/4K3 w - - 0 5", this, "f6e7"); ' class="line0">Крf6-e7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/R3k3/1R6/8/8/8/8/4K3 b - - 0 5", this, "a5a7"); ' class="line0">5.Лa5-a7+</span> 
+ <span onclick='loadMove("3k4/R7/1R6/8/8/8/8/4K3 w - - 0 6", this, "e7d8"); ' class="line0">Крe7-d8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("1R1k4/R7/8/8/8/8/8/4K3 b - - 0 6", this, "b6b8"); ' class="line0">6.Лb6-b8X</span> 
+.</p>
+<!--p>Глава 2. Как научиться игре и совершенствоваться в ней</p><p>19</p-->
+
+<p class="capTop diagram">25</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1R1k4/R7/8/8/8/8/8/4K3 w - - 0 1"></div>
+<p>Метод, которому следуют в окончаниях этого рода, весьма прост.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,66 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<!--div>
+<p>УДК 794 ББК 75.581</p>
+<p>Л26</p>
+</div-->
+
+<div class="message page">
+<p>Л26 <b>Ласкер Эмануил</b></p>
+<p>Учебник шахматной игры - М.: «Russian CHESS House / Русский Шахматный Дом», 2018 — 408 с.</p>
+<p>(Шахматный Университет)</p>
+<p><b>ISBN 978-5-94693-659-0</b></p>
+</div>
+
+<div class="notification message">
+<p>По этому универсальному учебнику, выдержавшему уже не одно издание, постигали основы игры многие выдающиеся шахматисты. И неудивительно: ведь он принадлежит перу Эмануила Ласкера, одного из самых великих чемпионов мира в истории шахмат!</p>
+<p>Книга на редкость многоплановая. Здесь и первоначальные сведения о шахматной игре, и учение о дебютах, и специальные главы, посвященные комбинации, позиционной борьбе, проблемам шахматной эстетики. Практическую ценность придает книге заключительный отдел партий, специально отобранных и прокомментированных автором.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<p>Спецредактирование осуществил Я. Нейштадт. УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+
+<h2>Эмануил Ласкер</h2>
+<h1>УЧЕБНИК ШАХМАТНОЙ ИГРЫ</h1>
+
+<!--div class="message page">
+<p>Редактор Сергей Воронков</p>
+<p>Художник Наталья Кустова</p>
+<p>Компьютерная верстка Андрей Ельков</p>
+<p>Подписано в печать 18.07.2017. Формат 60x90/16.</p>
+<p>Издательство «RUSSIAN CHESS HOUSE»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел.:+7 (495) 963-80-17</p>
+<p>e-mail: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+
+<div class="message">
+<p><b>ISBN 978-5-94693-659-0</b></p>
+<p>© Издательство «Russian CHESS House», 2018</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

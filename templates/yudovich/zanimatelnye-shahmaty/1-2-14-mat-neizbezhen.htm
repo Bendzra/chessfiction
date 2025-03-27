@@ -1,0 +1,43 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Мат неизбежен | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Мат неизбежен</h3>
+<div class="chessBoard small floater" data-start-fen="6BN/2p2R1P/2Ppk1NR/p2p2PP/p2P2P1/P1KP4/rr6/b7 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6BN/2p2R1P/2Ppk1NR/p2p2PP/p2P2P1/P1KP4/rr6/b7 w - - 0 1", this, ""); '>[...]</span> 
+<p>Не кажутся ли тебе трудными задачи, которые мы разбираем? Наверное, нет. Найти решения этих позиций вовсе не так уж сложно. Но знаешь ли ты, что есть такие смешные положения, в которых просто нельзя не дать мат. Вот одно из них.</p>
+<p>Расставь на доске такую позицию. Белые: Крc3, Лf7, Лh6, Сg8, Кg6, Кh8, п. a3, c6, d3, d4, g4, g5, h5, h7 (14). Черные: Крe6, Лa2, Лb2, Сa1, п.a4, a5, c7, d6, d5 (9).</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="6BN/2p2R1P/2Ppk1NR/p2p2PP/p2P2P1/P1KP4/rr6/b7 w - - 0 1"></div>
+<p>Кто бы здесь ни начинал игру, белые или черные, любое продолжение ведет к мату в один ход. Вот уж действительно неизбежный мат! </p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3N2R1/pp3p2/3K2p1/8/2pk4/3pp2p/3P1pB1/1Q4BR w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3N2R1/pp3p2/3K2p1/8/2pk4/3pp2p/3P1pB1/1Q4BR w - - 0 1", this, ""); '>[...]</span> 
+<p>А в позиции следующей диаграммы допущена одна весьма серьезная ошибка. По существу, эта позиция невозможна. Ошибку можно исправить многими различными способами, и как только она будет исправлена, станет неизбежным для черных мат в один ход.</p>
+<p class="capTop diagram">37</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3N2R1/pp3p2/3K2p1/8/2pk4/3pp2p/3P1pB1/1Q4BR w - - 0 1"></div>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Мат неизбежен</b>. У черных на диаграмме № 37 девять пешек. Надо снять любую из них, и тогда белые дают мат в один ход.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

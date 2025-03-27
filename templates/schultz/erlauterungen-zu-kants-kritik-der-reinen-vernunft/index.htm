@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>ОГЛАВЛЕНИЕ</h1>
+<!--p>Стр.</p-->
+<ul>
+<li><a href="0-0-title.htm">Разъясняющее изложение «Критики чистого разума»: Руководство для чтения (И. Шульц)</a></li>
+<li><a href="0-1-predislovie-k-russkomu-perevodu.htm">Предисловие к русскому переводу</a></li>
+<li><a href="0-2-predislovie-avtora.htm">Предисловие автора</a></li>
+<li><a href="1-0-opit-yasnogo-ukazaniya-eyo-soderjzaniya.htm">О Критике Чистого Разума. <strong>Первый отдел</strong>. Опыт ясного указания её содержания</a></li>
+<ul>
+<li><a href="1-1-transzendentalnaya-estetika.htm">Трансцендентальная эстетика</a></li>
+<li><a href="1-2-0-transzendentalnaya-analitika.htm">Трансцендентальная логика. <strong>Первый отдел</strong>. Трансцендентальная аналитика</a></li>
+<ul>
+<li><a href="1-2-1-analitika-ponyatiy.htm">1. Аналитика понятий</a></li>
+<li><a href="1-2-2-analitika-osnovopolojzeniy.htm">2. Аналитика основоположений</a></li>
+</ul>
+<li><a href="1-3-0-transzendentalnaya-dialektika.htm">Трансцендентальной логики <strong>второй отдел</strong>. Трансцендентальная диалектика</a></li>
+<ul>
+<li><a href="1-3-1-o-paralogizmah-chistogo-razuma.htm">1. О паралогизмах чистого разума</a></li>
+<li><a href="1-3-2-ob-antimoniyah-chistogo-razuma.htm">2. Об антиномиях чистого разума</a></li>
+<li><a href="1-3-3-ob-ideale-chistogo-razuma.htm">3. Об идеале чистого разума</a></li>
+</ul>
+<li><a href="1-4-0-transzendentalnoe-uchenee-o-metode.htm">Трансцендентальное учение о методе</a></li>
+<ul>
+<li><a href="1-4-1-o-diszipline-chistogo-razuma.htm">1. О дисциплине чистого разума</a></li>
+<li><a href="1-4-2-o-kanone-chistogo-razuma.htm">2. О каноне чисто разума</a></li>
+<li><a href="1-4-3-ob-arhitektonike-chistogo-razuma.htm">3. Об архитектонике чистого разума</a></li>
+</ul>
+</ul><li><a href="2-opit-nekotorih-rukovodyashzih-ukazaniy-dlya-eyo-blijzayshego-issledovaniya.htm">О Критике Чистого Разума. <strong>Второй отдел</strong>. Опыт некоторых руководящих указаний для её ближайшего исследования</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

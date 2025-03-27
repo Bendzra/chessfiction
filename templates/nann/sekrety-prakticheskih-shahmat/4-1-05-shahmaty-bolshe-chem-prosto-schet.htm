@@ -1,0 +1,113 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Шахматы - больше, чем просто счет | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h4>Шахматы - больше, чем просто счет</h4>
+
+<div class="message">
+<p>Одна из применимых для пешечного эндшпиля техник, часто рекомендуемая в учебниках, - т.н. «счет». Это название относится к методу, в основе которого лежит подсчет того, сколько ходов должна потратить каждая сторона для проведения пешек в ферзи. Конечно, эта техника пригодна только в случае «гонок», когда марш-броски королей к пешечной массе противника для создания своей проходной должен быть максимально быстрым.</p>
+<p>Я убедительно рекомендую <i>отказаться </i>от использования техники «счета».</p>
+<p>У этого метода есть несколько изъянов, и его бесконтрольное применение может привести к ужасным зевкам. Главная его проблема в том, что он не позволяет выявить никакие тонкости, которыми так интересны пешечные эндшпили и которые
+<!--p>Эндшпиль</p><p>149</p-->
+довольно часто случаются на практике.</p>
+<p>Первой причиной конфуза может стать то обстоятельство, что вы должны учитывать, чья очередь хода. Если белым требуется семь ходов для превращения, а черным восемь, то, когда белые поставят ферзя, черные сделают то же самое или только доведут пешку до второй горизонтали? Ответ: все зависит от того, кто ходил первым. В пылу борьбы довольно легко ошибиться и оказаться без одного темпа.</p>
+<p>Вторая причина заключается в том, что метод счета не дает вам представления о том, где будут находиться фигуры в конце гонки. Белые могут провести пешку с шахом или получить ферзя на h8 и помешать сопернику провести пешку на al. Эти детали очевидны, если вы прокручиваете варианты в уме, и неочевидны, если вы просто считаете. Чтобы убедиться в том, что в конце варианта не возникнет ни одна из таких специфических ситуаций, надо просто разыграть его в уме, и незачем тратить время на пустой счет.</p>
+<p>Приведу позицию из книги Эдуарда Ласкера «Шахматы: полный самоучитель», популярного учебника для начинающих, ратующего за метод счета.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/p1k2p2/P4p1p/1PK2PpP/6P1/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/p1k2p2/P4p1p/1PK2PpP/6P1/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/p1k2p2/P4p1p/1PK2PpP/6P1/8 w - - 0 1"></div>
+<p>Ласкер пишет: «В этой позиции продолжение
+ <span onclick='loadMove("8/8/8/p1k2p2/PP3p1p/2K2PpP/6P1/8 b - - 0 1", this, "b3b4"); ' class="line0">1.b4+</span> 
+ <span onclick='loadMove("8/8/8/2k2p2/Pp3p1p/2K2PpP/6P1/8 w - - 0 2", this, "a5b4"); ' class="line0">ab+</span> 
+ <span onclick='loadMove("8/8/8/2k2p2/Pp3p1p/1K3PpP/6P1/8 b - - 0 2", this, "c3b3"); ' class="line0">2.Крb3</span> 
+вынуждает черных оставить пешку незащищенной, давая белым проходную. После
+ <span onclick='loadMove("8/8/2k5/5p2/Pp3p1p/1K3PpP/6P1/8 w - - 0 3", this, "c5c6"); ' class="line0">2...Крc6</span> 
+ <span onclick='loadMove("8/8/2k5/5p2/PK3p1p/5PpP/6P1/8 b - - 0 3", this, "b3b4"); ' class="line0">3.Кр:b4</span> 
+ <span onclick='loadMove("8/8/1k6/5p2/PK3p1p/5PpP/6P1/8 w - - 0 4", this, "c6b6"); ' class="line0">Крb6</span> 
+ <span onclick='loadMove("8/8/1k6/5p2/P1K2p1p/5PpP/6P1/8 b - - 0 4", this, "b4c4"); ' class="line0">4.Крc4</span> 
+все заканчивается. Белые забирают пешки f4, h4 и g3, пока черные съедают пешку a4 и возвращаются на королевский фланг».</p>
+<p>Ласкер не рассматривает, что произойдет, если черные сыграют
+ <span onclick='loadMove("8/8/8/5p2/Pp1k1p1p/1K3PpP/6P1/8 w - - 0 3", this, "c5d4"); ' class="line1">2...Крd4</span> 
+. С помощью счета (аккуратного!) быстро устанавливаем, что черная пешка g будет все еще на третьей горизонтали, когда белые проведут ферзя, и, более того, очередь хода будет за белыми - достаточно причин для того, чтобы оценить положение как проигранное, если не взять на себя труд мысленно представить итоговую ситуацию.</p>
+<p>Если мы действительно сделаем ходы
+ <span onclick='loadMove("8/8/8/P4p2/1p1k1p1p/1K3PpP/6P1/8 b - - 0 3", this, "a4a5"); ' class="line1">3.a5</span> 
+ <span onclick='loadMove("8/8/8/P4p2/1p3p1p/1K2kPpP/6P1/8 w - - 0 4", this, "d4e3"); ' class="line1">Крe3</span> 
+ <span onclick='loadMove("8/8/P7/5p2/1p3p1p/1K2kPpP/6P1/8 b - - 0 4", this, "a5a6"); ' class="line1">4.a6</span> 
+ <span onclick='loadMove("8/8/P7/5p2/1p3p1p/1K3PpP/5kP1/8 w - - 0 5", this, "e3f2"); ' class="line1">Крf2</span> 
+ <span onclick='loadMove("8/P7/8/5p2/1p3p1p/1K3PpP/5kP1/8 b - - 0 5", this, "a6a7"); ' class="line1">5.a7</span> 
+ <span onclick='loadMove("8/P7/8/5p2/1p3p1p/1K3PpP/6k1/8 w - - 0 6", this, "f2g2"); ' class="line1">Кр:g2</span> 
+ <span onclick='loadMove("Q7/8/8/5p2/1p3p1p/1K3PpP/6k1/8 b - - 0 6", this, "a7a8"); ' class="line1">6.a8Ф</span> 
+ <span onclick='loadMove("Q7/8/8/5p2/1p3p1p/1K3PpP/7k/8 w - - 0 7", this, "g2h2"); ' class="line1">Крh2</span> 
+, то получим такую позицию:</p>
+<!--p>Часть 4</p><p>150</p-->
+<!--Q7/8/8/5p2/1p3p1p/1K3PpP/7k/8 w - - 0 1-->
+<div class="chessBoard analysis nobuttons" data-start-fen="Q7/8/8/5p2/1p3p1p/1K3PpP/7k/8 w - - 0 7"></div>
+<p>Потребуется совсем немного времени, чтобы понять: перед нами особый случай. Сгрудившиеся пешки королевского фланга мешают белым связать пешку g по диагонали и объявить шах по линии «h». На самом деле, пешку g не остановить, и лучшее, что могут предпринять белые, - забрать на королевском фланге как можно больше пешек в надежде на выгодный ферзевый эндшпиль. Однако даже эта надежда оказывается напрасной: после
+ <span onclick='loadMove("1Q6/8/8/5p2/1p3p1p/1K3PpP/7k/8 b - - 0 7", this, "a8b8"); ' class="line1">7.Фb8</span> 
+(
+ <span onclick='loadMove("7Q/8/8/5p2/1p3p1p/1K3PpP/7k/8 b - - 0 7", this, "a8h8"); ' class="line2">7.Фh8</span> 
+ <span onclick='loadMove("7Q/8/8/5p2/1p3p1p/1K3P1P/6pk/8 w - - 0 8", this, "g3g2"); ' class="line2">g2</span> 
+ <span onclick='loadMove("8/8/8/5p2/1p3p1Q/1K3P1P/6pk/8 b - - 0 8", this, "h8h4"); ' class="line2">8.Ф:h4</span> 
+ <span onclick='loadMove("8/8/8/5p2/1p3p1Q/1K3P1P/7k/6q1 w - - 0 9", this, "g2g1"); ' class="line2">g1Ф</span> 
+ <span onclick='loadMove("8/8/8/5p2/1p3Q2/1K3P1P/7k/6q1 b - - 0 9", this, "h4f4"); ' class="line2">9.Ф:f4+</span> 
+ <span onclick='loadMove("8/8/8/5p2/1p3Q2/1K3PqP/7k/8 w - - 0 10", this, "g1g3"); ' class="line2">Фg3</span> 
+ <span onclick='loadMove("8/8/8/5Q2/1p6/1K3PqP/7k/8 b - - 0 10", this, "f4f5"); ' class="line2">10.Ф:f5</span> 
+ <span onclick='loadMove("8/8/8/5Q2/1p6/1K3P1q/7k/8 w - - 0 11", this, "g3h3"); ' class="line2">Ф:h3</span> 
+ <span onclick='loadMove("8/8/8/8/1p4Q1/1K3P1q/7k/8 b - - 0 11", this, "f5g4"); ' class="line2">11.Фg4!?</span> 
+ <span onclick='loadMove("8/8/8/8/1p4Q1/1K3Pq1/7k/8 w - - 0 12", this, "h3g3"); ' class="line2">Фg3</span> 
+и
+ <!--span onclick='loadMove("8/8/8/8/1p4Q1/1K3Pq1/7k/8 b - - 0 12", this, "h3g3"); ' class="line2">12.z0</span--> 
+
+ <span onclick='loadMove("8/8/8/8/1p4Q1/1K3Pq1/6k1/8 w - - 0 13", this, "h2g2"); ' class="line2">12...Крg2</span> 
+также приводит к ничьей)
+ <span onclick='loadMove("1Q6/8/8/5p2/1p3p1p/1K3P1P/6pk/8 w - - 0 8", this, "g3g2"); ' class="line1">7...g2</span> 
+ <span onclick='loadMove("8/8/8/5p2/1p3Q1p/1K3P1P/6pk/8 b - - 0 8", this, "b8f4"); ' class="line1">8.Ф:f4+</span> 
+ <span onclick='loadMove("8/8/8/5p2/1p3Q1p/1K3P1P/6p1/7k w - - 0 9", this, "h2h1"); ' class="line1">Крh1</span> 
+ <span onclick='loadMove("8/8/8/5Q2/1p5p/1K3P1P/6p1/7k b - - 0 9", this, "f4f5"); ' class="line1">9.Ф:f5</span> 
+ <span onclick='loadMove("8/8/8/5Q2/1p5p/1K3P1P/8/6qk w - - 0 10", this, "g2g1"); ' class="line1">g1Ф</span> 
+эндшпиль очевидно ничейный.</p>
+<p>Наконец, если вы не рассчитываете целый вариант, то как вы можете быть уверены, что ходы, которые вы намечаете, действительно возможны? Вот простой пример:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/p4K2/P7/8/8/8/1k6/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/p4K2/P7/8/8/8/1k6/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>В. Шлаг - К. Ауэс</strong><br />Берлин 1921</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/p4K2/P7/8/8/8/1k6/8 w - - 0 1"></div>
+<p>Белым требуется пять темпов, чтобы забрать пешку a7, а черным - пять темпов, чтобы достичь поля c7 и в ответ на <b>Кр:a7</b> сыграть <b>...Крc7</b>, после чего позиция станет ничейной. Все это и случилось в партии:
+ <span onclick='loadMove("8/p7/P3K3/8/8/8/1k6/8 b - - 0 1", this, "f7e6"); ' class="line0">1.Крe6</span> 
+ <span onclick='loadMove("8/p7/P3K3/8/8/2k5/8/8 w - - 0 2", this, "b2c3"); ' class="line0">Крc3</span> 
+ <span onclick='loadMove("8/p7/P2K4/8/8/2k5/8/8 b - - 0 2", this, "e6d6"); ' class="line0">2.Крd6</span> 
+ <span onclick='loadMove("8/p7/P2K4/8/3k4/8/8/8 w - - 0 3", this, "c3d4"); ' class="line0">Крd4</span> 
+ <span onclick='loadMove("8/p7/P1K5/8/3k4/8/8/8 b - - 0 3", this, "d6c6"); ' class="line0">3.Крc6</span> 
+ <span onclick='loadMove("8/p7/P1K5/4k3/8/8/8/8 w - - 0 4", this, "d4e5"); ' class="line0">Крe5</span> 
+ <span onclick='loadMove("8/pK6/P7/4k3/8/8/8/8 b - - 0 4", this, "c6b7"); ' class="line0">4.Крb7</span> 
+ <span onclick='loadMove("8/pK6/P2k4/8/8/8/8/8 w - - 0 5", this, "e5d6"); ' class="line0">Крd6</span> 
+ <span onclick='loadMove("8/K7/P2k4/8/8/8/8/8 b - - 0 5", this, "b7a7"); ' class="line0">5.Кр:a7</span> 
+ <span onclick='loadMove("8/K1k5/P7/8/8/8/8/8 w - - 0 6", this, "d6c7"); ' class="line0">Крc7</span> 
+, ничья. Правильно? Нет! Если бы белые сыграли
+ <span onclick='loadMove("8/p7/P7/3K4/8/2k5/8/8 b - - 0 2", this, "e6d5"); ' class="line1">2.Крd5!</span> 
+, они по-прежнему достигали поля a7 за пять ходов, а черным потребовалось бы больше времени, поскольку ходы, которые они хотели бы сделать, становились невозможными. Например, после
+ <span onclick='loadMove("8/p7/P7/3K4/1k6/8/8/8 w - - 0 3", this, "c3b4"); ' class="line1">2...Крb4</span> 
+ <span onclick='loadMove("8/p7/P1K5/8/1k6/8/8/8 b - - 0 3", this, "d5c6"); ' class="line1">3.Крc6</span> 
+ <span onclick='loadMove("8/p7/P1K5/k7/8/8/8/8 w - - 0 4", this, "b4a5"); ' class="line1">Крa5</span> 
+ <span onclick='loadMove("8/pK6/P7/k7/8/8/8/8 b - - 0 4", this, "c6b7"); ' class="line1">4.Крb7</span> 
+они не могут пойти королем на b6.</p>
+<p>Пешечные окончания - много больше, чем просто счет, и если вы используете этот метод, то найдете приключения на свою голову.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

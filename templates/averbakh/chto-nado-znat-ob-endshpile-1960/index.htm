@@ -1,0 +1,73 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Что нужно знать об эндшпиле</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1_vvedenie.htm' %}">Введение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2_svojstva-figur.htm' %}">Свойства фигур</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0_matovanie-odinokogo-korolia.htm' %}">Глава первая. Матование одинокого короля</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1_mat-ferzem.htm' %}">Мат ферзем</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2_mat-ladej.htm' %}">Мат ладьей</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3_mat-dvumia-slonami.htm' %}">Мат двумя слонами</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4_mat-slonom-i-konem.htm' %}">Мат слоном и конем</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5_mat-dvumia-koniami.htm' %}">Мат двумя конями</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0_razlichnye-figury-v-borbe-drug-protiv-druga.htm' %}">Глава вторая. Различные фигуры в борьбе друг против друга</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1_ferz-protiv-ladi.htm' %}">Ферзь против ладьи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2_ferz-protiv-legkoj-figury.htm' %}">Ферзь против легкой фигуры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3_ladia-protiv-konia.htm' %}">Ладья против коня</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4_ladia-protiv-slona.htm' %}">Ладья против слона</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0_razlichnye-figury-v-borbe-protiv-peshki.htm' %}">Глава третья. Различные фигуры в борьбе против пешки</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1_ferz-protiv-peshki.htm' %}">Ферзь против пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2_ladia-protiv-peshki.htm' %}">Ладья против пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3_legkaia-figura-protiv-peshki.htm' %}">Легкая фигура против пешки</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0_provedenie-peshki-v-ferzi.htm' %}">Глава четвертая. Проведение пешки в ферзи</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1_korol-i-peshka-protiv-korolia.htm' %}">Король и пешка против короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2_korol_legkaia-figura-i-peshka-protiv-korolia.htm' %}">Король, легкая фигура и пешка против короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3_kon-i-peshka-protiv-konia.htm' %}">Конь и пешка против коня</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4_slon-i-peshka-protiv-slona.htm' %}">Слон и пешка против слона</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-5_slon-i-peshka-protiv-konia.htm' %}">Слон и пешка против коня</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-6_kon-i-peshka-protiv-slona.htm' %}">Конь и пешка против слона</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-7_ladia-i-peshka-protiv-ladi.htm' %}">Ладья и пешка против ладьи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-8_ferz-i-peshka-protiv-ferzia.htm' %}">Ферзь и пешка против ферзя</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-0_prakticheskie-okonchaniia.htm' %}">Глава пятая. Практические окончания</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-1_peshechnye-okonchaniia.htm' %}">Пешечные окончания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-2_konevye-okonchaniia.htm' %}">Коневые окончания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-3-0_slonovye-okonchaniia.htm' %}">Слоновые окончания</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-3-1_slony-odnocvetnye.htm' %}">Слоны одноцветные</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-3-2_slony-raznocvetnye.htm' %}">Слоны разноцветные</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-4_okonchaniia-so-slonom-protiv-konia.htm' %}">Окончания со слоном против коня</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-5_ladejnye-okonchaniia.htm' %}">Ладейные окончания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-6_ferzevye-okonchaniia.htm' %}">Ферзевые окончания</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-0_osnovnaia-literatura.htm' %}">Основная литература</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

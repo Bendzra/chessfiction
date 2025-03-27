@@ -1,0 +1,65 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ТОМ II | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb-2.jpg' %}" />
+</div>
+<div class="score">
+
+ <div class="diagram">
+<h2>З.ТАРРАШ</h2>
+<h1>УЧЕБНИК ШАХМАТНОЙ СТРАТЕГИИ</h1>
+<h3>TOM II</h3>
+</div>
+
+<div class="diagram">
+<p>асТ</p>
+<p>издательство ФОЛИО</p>
+<p>МОСКВА 2001</p>
+</div>
+
+<hr />
+<blockquote style="text-align:right;">«У кого слоны,<br />тому принадлежит будущее»</blockquote>
+<hr />
+
+<div class="diagram">
+<p>ББК 75.581</p>
+<p>Т21</p>
+</div>
+
+<div class="diagram">
+<p>Перевод с немецкого В. И. Мурахвери</p>
+<p>Составление и редакция В. В. Ульянова</p>
+</div>
+
+<div class="diagram">
+<p>Подписано в печать 08.06.01. Формат 84x108 <sup>1</sup>/<sub>32</sub>.</p>
+<p>Усл. печ. л. 16,8. Тираж 10 000 экз. Заказ №3915.</p>
+</div>
+
+<div class="diagram">
+<p>ISBN 5-17-006626-0 (ООО «Издательство ACT»). Т. II</p>
+<p>ISBN 5-17-008890-6 (общ.)</p>
+<p>ISBN 966-03-1214-8 («Фолио»)</p>
+</div>
+
+<div style="float:right;">
+<p>© В.И. Мурахвери, перевод на русский язык, 2001</p>
+<p>© В.В. Эльянов, составление и редакция, 2001</p>
+<p>© Художественное оформление. ООО «Издательство АСТ», 2001</p>
+</div>
+<div class="clear"></div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

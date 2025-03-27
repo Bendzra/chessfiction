@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Наедине с позицией | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<a name="181"></a>
+<h1>НАЕДИНЕ С ПОЗИЦИЕЙ</h1>
+
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/8-naedine-s-poziciej.png' %}" />
+</div>
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-1-voprosy-bez-otvetov.htm' %}">Вопросы без ответов</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-2-zagadochnyj-variant-rustema-reziapova.htm' %}">Загадочный вариант Рустема Резяпова</a></li>
+	</ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,542 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>C1 | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r2qk2r/3bbppp/p1nppn2/1p4B1/4PP2/2N2N2/PPPQ2PP/2KR1B1R w kq b6 0 11"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2qk2r/3bbppp/p1nppn2/1p4B1/4PP2/2N2N2/PPPQ2PP/2KR1B1R w kq b6 0 11", this, ""); '>[...]</span> 
+<h4>C1</h4>
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nppn2/1p2P1B1/5P2/2N2N2/PPPQ2PP/2KR1B1R b kq - 0 11", this, "e4e5"); ' class="line0">11.e4-e5</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nppn2/4P1B1/1p3P2/2N2N2/PPPQ2PP/2KR1B1R w kq - 0 12", this, "b5b4"); ' class="line0">b5-b4</span> 
+</p>
+<p>После
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n1pn2/1p2p1B1/5P2/2N2N2/PPPQ2PP/2KR1B1R w kq - 0 12", this, "d6e5"); ' class="line1">11...de</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n1pn2/1p2P1B1/8/2N2N2/PPPQ2PP/2KR1B1R b kq - 0 12", this, "f4e5"); ' class="line1">12.fe</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n1p3/1p1nP1B1/8/2N2N2/PPPQ2PP/2KR1B1R w kq - 0 13", this, "f6d5"); ' class="line1">Кd5</span> 
+[при
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n1pn2/4P1B1/1p6/2N2N2/PPPQ2PP/2KR1B1R w kq - 0 13", this, "b5b4"); ' class="line2">12...b4?</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n1pP2/6B1/1p6/2N2N2/PPPQ2PP/2KR1B1R b kq - 0 13", this, "e5f6"); ' class="line2">13.ef</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pp2/6B1/1p6/2N2N2/PPPQ2PP/2KR1B1R w kq - 0 14", this, "g7f6"); ' class="line2">gf</span> 
+(в случае
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n1pP2/6B1/8/2p2N2/PPPQ2PP/2KR1B1R w kq - 0 14", this, "b4c3"); ' class="line3">13...bc</span> 
+ <span onclick='loadMove("r2qk2r/3Qbppp/p1n1pP2/6B1/8/2p2N2/PPP3PP/2KR1B1R b kq - 0 14", this, "d2d7"); ' class="line3">14.Ф:d7+</span> 
+ <span onclick='loadMove("r3k2r/3qbppp/p1n1pP2/6B1/8/2p2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "d8d7"); ' class="line3">Ф:d7</span> 
+ <span onclick='loadMove("r3k2r/3Rbppp/p1n1pP2/6B1/8/2p2N2/PPP3PP/2K2B1R b kq - 0 15", this, "d1d7"); ' class="line3">15.Л:d7</span> 
+черным плохо)
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pB2/8/1p6/2N2N2/PPPQ2PP/2KR1B1R b kq - 0 14", this, "g5f6"); ' class="line2">14.С:f6</span> 
+ <span onclick='loadMove("r2qk2r/3b1p1p/p1n1pb2/8/1p6/2N2N2/PPPQ2PP/2KR1B1R w kq - 0 15", this, "e7f6"); ' class="line2">С:f6</span> 
+ <span onclick='loadMove("r2qk2r/3b1p1p/p1n1pb2/8/1p2N3/5N2/PPPQ2PP/2KR1B1R b kq - 0 15", this, "c3e4"); ' class="line2">15.Кe4</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1p3/8/1p2N3/5N2/PPPQ2PP/2KR1B1R w kq - 0 16", this, "f6e7"); ' class="line2">Сe7</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1p2Q/8/1p2N3/5N2/PPP3PP/2KR1B1R b kq - 0 16", this, "d2h6"); ' class="line2">16.Фh6</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1p2Q/q7/1p2N3/5N2/PPP3PP/2KR1B1R w kq - 0 17", this, "d8a5"); ' class="line2">Фa5</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1pN1Q/q7/1p6/5N2/PPP3PP/2KR1B1R b kq - 0 17", this, "e4f6"); ' class="line2">17.Кf6+</span> 
+ <span onclick='loadMove("r3k2r/3b1p1p/p1n1pb1Q/q7/1p6/5N2/PPP3PP/2KR1B1R w kq - 0 18", this, "e7f6"); ' class="line2">С:f6</span> 
+ <span onclick='loadMove("r3k2r/3b1p1p/p1n1pQ2/q7/1p6/5N2/PPP3PP/2KR1B1R b kq - 0 18", this, "h6f6"); ' class="line2">18.Ф:f6</span> 
+ <span onclick='loadMove("r3k1r1/3b1p1p/p1n1pQ2/q7/1p6/5N2/PPP3PP/2KR1B1R w q - 0 19", this, "h8g8"); ' class="line2">Лg8</span> 
+ <span onclick='loadMove("r3k1r1/3b1p1p/p1n1pQ2/q7/1pB5/5N2/PPP3PP/2KR3R b q - 0 19", this, "f1c4"); ' class="line2">19.Сc4</span> 
+ <span onclick='loadMove("4k1r1/r2b1p1p/p1n1pQ2/q7/1pB5/5N2/PPP3PP/2KR3R w - - 0 20", this, "a8a7"); ' class="line2">Лa7</span> 
+ <span onclick='loadMove("4k1r1/r2b1p1p/p1n1pQ2/q7/1pB5/5N2/PPP3PP/2KRR3 b - - 0 20", this, "h1e1"); ' class="line2">20.Лhe1</span> 
+угрозы белых нарастают, Эрнст — Фюллинген, Гаусдаль 1994]
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n1p3/1p1NP1B1/8/5N2/PPPQ2PP/2KR1B1R b kq - 0 13", this, "c3d5"); ' class="line1">13.К:d5</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1n5/1p1pP1B1/8/5N2/PPPQ2PP/2KR1B1R w kq - 0 14", this, "e6d5"); ' class="line1">ed</span> 
+ <span onclick='loadMove("r2qk2r/3bBppp/p1n5/1p1pP3/8/5N2/PPPQ2PP/2KR1B1R b kq - 0 14", this, "g5e7"); ' class="line1">14.С:e7</span> 
+ <span onclick='loadMove("r2qk2r/3bnppp/p7/1p1pP3/8/5N2/PPPQ2PP/2KR1B1R w kq - 0 15", this, "c6e7"); ' class="line1">К:e7</span> 
+ <span onclick='loadMove("r2qk2r/3bnppp/p7/1p1pP3/8/3B1N2/PPPQ2PP/2KR3R b kq - 0 15", this, "f1d3"); ' class="line1">15.Сd3</span> 
+ <span onclick='loadMove("r2qk2r/3b1ppp/p1n5/1p1pP3/8/3B1N2/PPPQ2PP/2KR3R w kq - 0 16", this, "e7c6"); ' class="line1">Кc6</span> 
+ <span onclick='loadMove("r2qk2r/3b1ppp/p1n5/1p1pP3/8/3B1N2/PPPQ2PP/1K1R3R b kq - 0 16", this, "c1b1"); ' class="line1">16.Крb1</span> 
+ <span onclick='loadMove("r2qk2r/5ppp/p1n1b3/1p1pP3/8/3B1N2/PPPQ2PP/1K1R3R w kq - 0 17", this, "d7e6"); ' class="line1">Сe6</span> 
+ <span onclick='loadMove("r2qk2r/5ppp/p1n1b3/1p1pP3/5Q2/3B1N2/PPP3PP/1K1R3R b kq - 0 17", this, "d2f4"); ' class="line1">17.Фf4</span> 
+ <span onclick='loadMove("r2qk2r/5pp1/p1n1b2p/1p1pP3/5Q2/3B1N2/PPP3PP/1K1R3R w kq - 0 18", this, "h7h6"); ' class="line1">h6</span> 
+ <span onclick='loadMove("r2qk2r/5pp1/p1n1b2p/1p1pP3/5Q1P/3B1N2/PPP3P1/1K1R3R b kq h3 0 18", this, "h2h4"); ' class="line1">18.h4</span> 
+возникает хорошо известная структура - у белых солидный перевес.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nppP2/6B1/1p3P2/2N2N2/PPPQ2PP/2KR1B1R b kq - 0 12", this, "e5f6"); ' class="line0">12.e5:f6</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Считавшаяся некогда опасной жертва фигуры путем
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nPpn2/6B1/1p3P2/2N2N2/PPPQ2PP/2KR1B1R b kq - 0 12", this, "e5d6"); ' class="line1">12.ed</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nPpn2/6B1/5P2/2p2N2/PPPQ2PP/2KR1B1R w kq - 0 13", this, "b4c3"); ' class="line1">bc</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nPpn2/6B1/5P2/2Q2N2/PPP3PP/2KR1B1R b kq - 0 13", this, "d2c3"); ' class="line1">13.Ф:c3</span> 
+ <span onclick='loadMove("r2qkb1r/3b1ppp/p1nPpn2/6B1/5P2/2Q2N2/PPP3PP/2KR1B1R w kq - 0 14", this, "e7f8"); ' class="line1">Сf8</span> 
+ <span onclick='loadMove("r2qkb1r/3b1ppp/p1nPpn2/5PB1/8/2Q2N2/PPP3PP/2KR1B1R b kq - 0 14", this, "f4f5"); ' class="line1">14.f5</span> 
+наталкивается на
+ <span onclick='loadMove("r3kb1r/3b1ppp/p1nPpn2/q4PB1/8/2Q2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "d8a5"); ' class="line1">14...Фa5!</span> 
+(ошибочно
+ <span onclick='loadMove("r2qkb1r/3b1ppp/p1nPp3/5PB1/4n3/2Q2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "f6e4"); ' class="line2">14...Кe4?</span> 
+из-за
+ <span onclick='loadMove("r2qkb1r/3b1ppp/p1nPp3/5PB1/4n3/4QN2/PPP3PP/2KR1B1R b kq - 0 15", this, "c3e3"); ' class="line2">15.Фe3</span> 
+ <span onclick='loadMove("r2qkb1r/3b1ppp/p1nPp3/5Pn1/8/4QN2/PPP3PP/2KR1B1R w kq - 0 16", this, "e4g5"); ' class="line2">К:g5</span> 
+ <span onclick='loadMove("r2qkb1r/3b1ppp/p1nPp3/5PN1/8/4Q3/PPP3PP/2KR1B1R b kq - 0 16", this, "f3g5"); ' class="line2">16.К:g5</span> 
+ <span onclick='loadMove("r2qkb1r/3b1pp1/p1nPp2p/5PN1/8/4Q3/PPP3PP/2KR1B1R w kq - 0 17", this, "h7h6"); ' class="line2">h6</span> 
+ <span onclick='loadMove("r2qkb1r/3b1Np1/p1nPp2p/5P2/8/4Q3/PPP3PP/2KR1B1R b kq - 0 17", this, "g5f7"); ' class="line2">17.К:f7</span> 
+ <span onclick='loadMove("r2q1b1r/3b1kp1/p1nPp2p/5P2/8/4Q3/PPP3PP/2KR1B1R w - - 0 18", this, "e8f7"); ' class="line2">Кр:f7</span> 
+ <span onclick='loadMove("r2q1b1r/3b1kp1/p1nPp2p/5P2/2B5/4Q3/PPP3PP/2KR3R b - - 0 18", this, "f1c4"); ' class="line2">18.Сc4</span> 
+ <span onclick='loadMove("r4b1r/3b1kp1/p1nPp2p/5Pq1/2B5/4Q3/PPP3PP/2KR3R w - - 0 19", this, "d8g5"); ' class="line2">Фg5</span> 
+ <span onclick='loadMove("r4b1r/3b1kp1/p1nPP2p/6q1/2B5/4Q3/PPP3PP/2KR3R b - - 0 19", this, "f5e6"); ' class="line2">19.fe+</span> 
+)
+ <span onclick='loadMove("r3kb1r/3b1ppp/p1nPpB2/q4P2/8/2Q2N2/PPP3PP/2KR1B1R b kq - 0 15", this, "g5f6"); ' class="line1">15.С:f6</span> 
+ <span onclick='loadMove("r3kb1r/3b1p1p/p1nPpp2/q4P2/8/2Q2N2/PPP3PP/2KR1B1R w kq - 0 16", this, "g7f6"); ' class="line1">gf</span> 
+ <span onclick='loadMove("r3kb1r/3b1p1p/p1nPpQ2/q4P2/8/5N2/PPP3PP/2KR1B1R b kq - 0 16", this, "c3f6"); ' class="line1">16.Ф:f6</span> 
+ <span onclick='loadMove("r3kbr1/3b1p1p/p1nPpQ2/q4P2/8/5N2/PPP3PP/2KR1B1R w q - 0 17", this, "h8g8"); ' class="line1">Лg8</span> 
+ <span onclick='loadMove("r3kbr1/3b1p1p/p1nPpQ2/q4P2/2B5/5N2/PPP3PP/2KR3R b q - 0 17", this, "f1c4"); ' class="line1">17.Сc4</span> 
+ <span onclick='loadMove("r3k1r1/3b1pbp/p1nPpQ2/q4P2/2B5/5N2/PPP3PP/2KR3R w q - 0 18", this, "f8g7"); ' class="line1">Сg7</span> 
+ <span onclick='loadMove("r3k1r1/3b1pbp/p1nPPQ2/q7/2B5/5N2/PPP3PP/2KR3R b q - 0 18", this, "f5e6"); ' class="line1">18.fe</span> 
+ <span onclick='loadMove("r3k1r1/3b2bp/p1nPpQ2/q7/2B5/5N2/PPP3PP/2KR3R w q - 0 19", this, "f7e6"); ' class="line1">fe</span> 
+ <span onclick='loadMove("r3k1r1/3b2bp/p1nPp3/q7/2B4Q/5N2/PPP3PP/2KR3R b q - 0 19", this, "f6h4"); ' class="line1">19.Фh4</span> 
+ <span onclick='loadMove("1r2k1r1/3b2bp/p1nPp3/q7/2B4Q/5N2/PPP3PP/2KR3R w - - 0 20", this, "a8b8"); ' class="line1">Лb8</span> 
+ <span onclick='loadMove("1r2k1r1/3b2bp/p1nPp3/q7/7Q/1B3N2/PPP3PP/2KR3R b - - 0 20", this, "c4b3"); ' class="line1">20.Сb3</span> 
+ <span onclick='loadMove("1r2k1r1/3b2bp/p1nPp3/5q2/7Q/1B3N2/PPP3PP/2KR3R w - - 0 21", this, "a5f5"); ' class="line1">Фf5</span> 
+(
+заманчиво
+ <span onclick='loadMove("4k1r1/3b2bp/p1nPp3/q7/7Q/1r3N2/PPP3PP/2KR3R w - - 0 21", this, "b8b3"); ' class="line2">20...Л:b3</span> 
+ <span onclick='loadMove("4k1r1/3b2bp/p1nPp3/q7/7Q/1P3N2/1PP3PP/2KR3R b - - 0 21", this, "a2b3"); ' class="line2">21.ab</span> 
+ <span onclick='loadMove("4k1r1/3b2bp/p1nPp3/8/7Q/1P3N2/1PP3PP/q1KR3R w - - 0 22", this, "a5a1"); ' class="line2">Фa1+</span> 
+ <span onclick='loadMove("4k1r1/3b2bp/p1nPp3/8/7Q/1P3N2/1PPK2PP/q2R3R b - - 0 22", this, "c1d2"); ' class="line2">22.Крd2</span> 
+ <span onclick='loadMove("4k1r1/3b2bp/p1nPp3/8/7Q/1P3N2/1qPK2PP/3R3R w - - 0 23", this, "a1b2"); ' class="line2">Ф:b2</span> 
+ <span onclick='loadMove("4k1r1/3b2bQ/p1nPp3/8/8/1P3N2/1qPK2PP/3R3R b - - 0 23", this, "h4h7"); ' class="line2">23.Ф:h7</span> 
+ <span onclick='loadMove("4kr2/3b2bQ/p1nPp3/8/8/1P3N2/1qPK2PP/3R3R w - - 0 24", this, "g8f8"); ' class="line2">Лf8</span> 
+с инициативой у черных, но
+ <span onclick='loadMove("1r2k1r1/3b2bp/p1nPp3/5q2/7Q/1B3N2/PPP3PP/2KR3R w - - 0 21", this, "a5f5"); ' class="line2">20...Фf5</span> 
+перспективнее, так как сохраняет больше фигур для атаки
+)
+ <span onclick='loadMove("1r2k1r1/3b2bp/p1nPp3/5q2/7Q/1B3N2/PPP3PP/2KRR3 b - - 0 21", this, "h1e1"); ' class="line1">21.Лhe1</span> 
+ <span onclick='loadMove("1r2k1r1/3b3p/p1nPpb2/5q2/7Q/1B3N2/PPP3PP/2KRR3 w - - 0 22", this, "g7f6"); ' class="line1">Сf6</span> 
+ <span onclick='loadMove("1r2k1r1/3b3p/p1nPpb2/5q2/8/1B3N2/PPP2QPP/2KRR3 b - - 0 22", this, "h4f2"); ' class="line1">22.Фf2</span> 
+ <span onclick='loadMove("1r1k2r1/3b3p/p1nPpb2/5q2/8/1B3N2/PPP2QPP/2KRR3 w - - 0 23", this, "e8d8"); ' class="line1">Крd8!?</span> 
+ <span onclick='loadMove("1r1k2r1/3b3p/p1nPpb2/5q2/8/1B3N2/PPP2QPP/1K1RR3 b - - 0 23", this, "c1b1"); ' class="line1">23.Крb1</span> 
+ <span onclick='loadMove("1r1k2r1/3b3p/2nPpb2/p4q2/8/1B3N2/PPP2QPP/1K1RR3 w - - 0 24", this, "a6a5"); ' class="line1">a5</span> 
+, и белым не отразить наступление соперника (Бургер — Меднис, США (ч) 1969).</p>
+<p class="longNotation">
+ <span class="ellipsis0">12. ...</span> 
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nppP2/6B1/5P2/2p2N2/PPPQ2PP/2KR1B1R w kq - 0 13", this, "b4c3"); ' class="line0">b4:c3</span> 
+</p>
+<!--p>237 Часть третья. 1.e4 c5 2.Кf3 d6 3.d4 cd 4.К:d4 Кf6 5.Кc3 Кc6 6.Сg5 e6 7.Фd2</p-->
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/3bbppp/p1nppP2/6B1/5P2/2Q2N2/PPP3PP/2KR1B1R b kq - 0 13", this, "d2c3"); ' class="line0">13.Фd2:c3</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1nppp2/6B1/5P2/2Q2N2/PPP3PP/2KR1B1R w kq - 0 14", this, "g7f6"); ' class="line0">g7:f6</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r2qk2r/3bbp1p/p1nppp2/6B1/5P2/2Q2N2/PPP3PP/2KR1B1R w kq - 0 14"></div>
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1nppp2/8/5P1B/2Q2N2/PPP3PP/2KR1B1R b kq - 0 14", this, "g5h4"); ' class="line0">14.Сg5-h4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>(<b>a</b>) Проигрывает
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1nRpp2/6B1/5P2/2Q2N2/PPP3PP/2K2B1R b kq - 0 14", this, "d1d6"); ' class="line1">14.Л:d6?</span> 
+ <span onclick='loadMove("r2qk2r/3b1p1p/p1nbpp2/6B1/5P2/2Q2N2/PPP3PP/2K2B1R w kq - 0 15", this, "e7d6"); ' class="line1">С:d6</span> 
+ <span onclick='loadMove("r2qk2r/3b1p1p/p1nbpB2/8/5P2/2Q2N2/PPP3PP/2K2B1R b kq - 0 15", this, "g5f6"); ' class="line1">15.С:f6</span> 
+ввиду
+ <span onclick='loadMove("r2qk2r/3b1p1p/p1n1pB2/8/1b3P2/2Q2N2/PPP3PP/2K2B1R w kq - 0 16", this, "d6b4"); ' class="line1">15...Сb4!</span> 
+</p>
+<p>(<b>b</b>) В случае
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1nppp2/5PB1/8/2Q2N2/PPP3PP/2KR1B1R b kq - 0 14", this, "f4f5"); ' class="line1">14.f5?!</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pp2/3p1PB1/8/2Q2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "d6d5"); ' class="line1">d5</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1Pp2/3p2B1/8/2Q2N2/PPP3PP/2KR1B1R b kq - 0 15", this, "f5e6"); ' class="line1">15.fe</span> 
+ <span onclick='loadMove("r2qk2r/3bb2p/p1n1pp2/3p2B1/8/2Q2N2/PPP3PP/2KR1B1R w kq - 0 16", this, "f7e6"); ' class="line1">fe</span> 
+ <span onclick='loadMove("r2qk2r/3bb2p/p1n1pp2/3p2B1/3N4/2Q5/PPP3PP/2KR1B1R b kq - 0 16", this, "f3d4"); ' class="line1">16.Кd4</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p1n1pp2/q2p2B1/3N4/2Q5/PPP3PP/2KR1B1R w kq - 0 17", this, "d8a5"); ' class="line1">Фa5</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p1n1pp2/Q2p2B1/3N4/8/PPP3PP/2KR1B1R b kq - 0 17", this, "c3a5"); ' class="line1">17.Ф:a5</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p3pp2/n2p2B1/3N4/8/PPP3PP/2KR1B1R w kq - 0 18", this, "c6a5"); ' class="line1">К:a5</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p3pp2/n2p4/3N3B/8/PPP3PP/2KR1B1R b kq - 0 18", this, "g5h4"); ' class="line1">18.Сh4</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p4p2/n2pp3/3N3B/8/PPP3PP/2KR1B1R w kq - 0 19", this, "e6e5"); ' class="line1">e5</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p4p2/n2pp3/7B/1N6/PPP3PP/2KR1B1R b kq - 0 19", this, "d4b3"); ' class="line1">19.Кb3</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p4p2/3pp3/7B/1n6/PPP3PP/2KR1B1R w kq - 0 20", this, "a5b3"); ' class="line1">К:b3+</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/p4p2/3pp3/7B/1P6/1PP3PP/2KR1B1R b kq - 0 20", this, "a2b3"); ' class="line1">20.ab</span> 
+ <span onclick='loadMove("r3k2r/4b2p/p3bp2/3pp3/7B/1P6/1PP3PP/2KR1B1R w kq - 0 21", this, "d7e6"); ' class="line1">Сe6</span> 
+ <span onclick='loadMove("r3k2r/4b2p/p3bp2/3pp3/7B/1P6/1PP1B1PP/2KR3R b kq - 0 21", this, "f1e2"); ' class="line1">21.Сe2</span> 
+ <span onclick='loadMove("r4rk1/4b2p/p3bp2/3pp3/7B/1P6/1PP1B1PP/2KR3R w - - 0 22", this, "e8g8"); ' class="line1">0-0</span> 
+инициатива переходит к черным (Белявский — Спасский, СССР (ч) 1973).</p>
+<p>(<b>c</b>) Представляет интерес
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1nppp1B/8/5P2/2Q2N2/PPP3PP/2KR1B1R b kq - 0 14", this, "g5h6"); ' class="line1">14.Сh6</span> 
+ <span onclick='loadMove("r2qk1r1/3bbp1p/p1nppp1B/8/5P2/2Q2N2/PPP3PP/2KR1B1R w q - 0 15", this, "h8g8"); ' class="line1">Лg8</span> 
+(возможно
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pp1B/3p4/5P2/2Q2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "d6d5"); ' class="line2">14...d5</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pp1B/3p4/5P2/P1Q2N2/1PP3PP/2KR1B1R b kq - 0 15", this, "a2a3"); ' class="line2">15.a3</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p3pp1B/n2p4/5P2/P1Q2N2/1PP3PP/2KR1B1R w kq - 0 16", this, "c6a5"); ' class="line2">Кa5</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p3pp1B/n2p4/3N1P2/P1Q5/1PP3PP/2KR1B1R b kq - 0 16", this, "f3d4"); ' class="line2">16.Кd4</span> 
+ <span onclick='loadMove("r2qk1r1/3bbp1p/p3pp1B/n2p4/3N1P2/P1Q5/1PP3PP/2KR1B1R w q - 0 17", this, "h8g8"); ' class="line2">Лg8</span> 
+ <span onclick='loadMove("r2qk1r1/3bbp1p/p3pp1B/n2p1P2/3N4/P1Q5/1PP3PP/2KR1B1R b q - 0 17", this, "f4f5"); ' class="line2">17.f5</span> 
+ <span onclick='loadMove("r2qk1r1/3bbp1p/p4p1B/n2ppP2/3N4/P1Q5/1PP3PP/2KR1B1R w q - 0 18", this, "e6e5"); ' class="line2">e5</span> 
+c обоюдными шансами)
+ <span onclick='loadMove("r2qk1r1/3bbp1p/p1nppp1B/5P2/8/2Q2N2/PPP3PP/2KR1B1R b q - 0 15", this, "f4f5"); ' class="line1">15.f5</span> 
+ <span onclick='loadMove("r2qk1r1/3bbp1p/p1n1pp1B/3p1P2/8/2Q2N2/PPP3PP/2KR1B1R w q - 0 16", this, "d6d5"); ' class="line1">d5</span> 
+ <span onclick='loadMove("r2qk1r1/3bbp1p/p1n1Pp1B/3p4/8/2Q2N2/PPP3PP/2KR1B1R b q - 0 16", this, "f5e6"); ' class="line1">16.fe</span> 
+ <span onclick='loadMove("r2qk1r1/3bb2p/p1n1pp1B/3p4/8/2Q2N2/PPP3PP/2KR1B1R w q - 0 17", this, "f7e6"); ' class="line1">fe</span> 
+ <span onclick='loadMove("r2qk1r1/3bb2p/p1n1pp1B/3p4/8/3Q1N2/PPP3PP/2KR1B1R b q - 0 17", this, "c3d3"); ' class="line1">17.Фd3</span> 
+ <span onclick='loadMove("r2qk3/3bb2p/p1n1pprB/3p4/8/3Q1N2/PPP3PP/2KR1B1R w q - 0 18", this, "g8g6"); ' class="line1">Лg6</span> 
+ <span onclick='loadMove("r2qk3/3bb2p/p1n1pprB/3p4/8/5N2/PPPQ2PP/2KR1B1R b q - 0 18", this, "d3d2"); ' class="line1">18.Фd2</span> 
+с неясной игрой (Крежов — Грегоров, Болгария 1976).</p>
+<p class="longNotation">
+ <span class="ellipsis0">14. ...</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pp2/3p4/5P1B/2Q2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "d6d5"); ' class="line0">d6-d5</span> 
+</p>
+<p>(<b>a</b>) Если
+ <span onclick='loadMove("r3k2r/3bbp1p/p1nppp2/q7/5P1B/2Q2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "d8a5"); ' class="line1">14...Фa5</span> 
+, то
+ <span onclick='loadMove("r3k2r/3bbp1p/p1nppB2/q7/5P2/2Q2N2/PPP3PP/2KR1B1R b kq - 0 15", this, "h4f6"); ' class="line1">15.С:f6</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p2ppB2/q7/1n3P2/2Q2N2/PPP3PP/2KR1B1R w kq - 0 16", this, "c6b4"); ' class="line1">Кb4</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p2ppB2/q7/1nB2P2/2Q2N2/PPP3PP/2KR3R b kq - 0 16", this, "f1c4"); ' class="line1">16.Сc4</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p2ppB2/q7/1nB2P2/2Q2N2/PPP3PP/2KR3R w k - 0 17", this, "a8c8"); ' class="line1">Лc8</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p2ppB2/q7/1nB2P2/P1Q2N2/1PP3PP/2KR3R b k - 0 17", this, "a2a3"); ' class="line1">17.a3!</span> 
+с перевесом у белых.</p>
+<p>(<b>b</b>) После
+ <span onclick='loadMove("r2qk2r/3bbp1p/2nppp2/p7/5P1B/2Q2N2/PPP3PP/2KR1B1R w kq - 0 15", this, "a6a5"); ' class="line1">14...a5</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/2nppp2/p7/5P1B/2Q2N2/PPP3PP/1K1R1B1R b kq - 0 15", this, "c1b1"); ' class="line1">15.Крb1</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/3ppp2/p7/1n3P1B/2Q2N2/PPP3PP/1K1R1B1R w kq - 0 16", this, "c6b4"); ' class="line1">Кb4</span> 
+(при
+ <span onclick='loadMove("1r1qk2r/3bbp1p/2nppp2/p7/5P1B/2Q2N2/PPP3PP/1K1R1B1R w k - 0 16", this, "a8b8"); ' class="line2">15...Лb8</span> 
+ <span onclick='loadMove("1r1qk2r/3bbp1p/2nppp2/p7/5PPB/2Q2N2/PPP4P/1K1R1B1R b k g3 0 16", this, "g2g4"); ' class="line2">16.g4</span> 
+ <span onclick='loadMove("1r1qk2r/3bbp1p/3ppp2/p7/1n3PPB/2Q2N2/PPP4P/1K1R1B1R w k - 0 17", this, "c6b4"); ' class="line2">Кb4</span> 
+ <span onclick='loadMove("1r1qk2r/3bbp1p/3ppp2/p7/1n3PPB/P1Q2N2/1PP4P/1K1R1B1R b k - 0 17", this, "a2a3"); ' class="line2">17.a3</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p7/1n3PPB/P1Q2N2/1PP4P/1K1R1B1R w k - 0 18", this, "b8c8"); ' class="line2">Лc8</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p7/1n3PPB/PQ3N2/1PP4P/1K1R1B1R b k - 0 18", this, "c3b3"); ' class="line2">18.Фb3</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p2n4/5PPB/PQ3N2/1PP4P/1K1R1B1R w k - 0 19", this, "b4d5"); ' class="line2">Кd5</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p2R4/5PPB/PQ3N2/1PP4P/1K3B1R b k - 0 19", this, "d1d5"); ' class="line2">19.Л:d5</span> 
+у белых преимущество)
+ <span onclick='loadMove("r2qk2r/3bbp1p/3ppp2/p7/1n3P1B/P1Q2N2/1PP3PP/1K1R1B1R b kq - 0 16", this, "a2a3"); ' class="line1">16.a3</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p7/1n3P1B/P1Q2N2/1PP3PP/1K1R1B1R w k - 0 17", this, "a8c8"); ' class="line1">Лc8</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p7/1n3P1B/P4N2/1PPQ2PP/1K1R1B1R b k - 0 17", this, "c3d2"); ' class="line1">17.Фd2</span> 
+(
+хорошо
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p7/1n3P1B/PQ3N2/1PP3PP/1K1R1B1R b k - 0 17", this, "c3b3"); ' class="line2">17.Фb3!?</span> 
+)
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p2n4/5P1B/P4N2/1PPQ2PP/1K1R1B1R w k - 0 18", this, "b4d5"); ' class="line1">17...Кd5</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/p2n4/2P2P1B/P4N2/1P1Q2PP/1K1R1B1R b k c3 0 18", this, "c2c4"); ' class="line1">18.c4</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/1n1ppp2/p7/2P2P1B/P4N2/1P1Q2PP/1K1R1B1R w k - 0 19", this, "d5b6"); ' class="line1">Кb6</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/1n1ppp2/Q7/2P2P1B/P4N2/1P4PP/1K1R1B1R b k - 0 19", this, "d2a5"); ' class="line1">19.Ф:a5</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/3ppp2/Q7/2n2P1B/P4N2/1P4PP/1K1R1B1R w k - 0 20", this, "b6c4"); ' class="line1">К:c4</span> 
+ <span onclick='loadMove("2rQk2r/3bbp1p/3ppp2/8/2n2P1B/P4N2/1P4PP/1K1R1B1R b k - 0 20", this, "a5d8"); ' class="line1">20.Ф:d8+</span> 
+ <span onclick='loadMove("2rk3r/3bbp1p/3ppp2/8/2n2P1B/P4N2/1P4PP/1K1R1B1R w - - 0 21", this, "e8d8"); ' class="line1">Кр:d8</span> 
+ <span onclick='loadMove("2rk3r/3bbp1p/3ppp2/8/2B2P1B/P4N2/1P4PP/1K1R3R b - - 0 21", this, "f1c4"); ' class="line1">21.С:c4</span> 
+ <span onclick='loadMove("3k3r/3bbp1p/3ppp2/8/2r2P1B/P4N2/1P4PP/1K1R3R w - - 0 22", this, "c8c4"); ' class="line1">Л:c4</span> 
+ <span onclick='loadMove("3k3r/3bbp1p/3Rpp2/8/2r2P1B/P4N2/1P4PP/1K5R b - - 0 22", this, "d1d6"); ' class="line1">22.Л:d6</span> 
+ <span onclick='loadMove("3k3r/3bbp1p/3Rpp2/8/5r1B/P4N2/1P4PP/1K5R w - - 0 23", this, "c4f4"); ' class="line1">Л:f4</span> 
+ <span onclick='loadMove("3k3r/3bbp1p/4pp2/8/5r1B/P4N2/1P1R2PP/1K5R b - - 0 23", this, "d6d2"); ' class="line1">23.Лd2</span> 
+ <span onclick='loadMove("4k2r/3bbp1p/4pp2/8/5r1B/P4N2/1P1R2PP/1K5R w k - 0 24", this, "d8e8"); ' class="line1">Крe8</span> 
+ <span onclick='loadMove("4k2r/3bbp1p/4pp2/8/5r1B/P4N2/1P1R2PP/1KR5 b k - 0 24", this, "h1c1"); ' class="line1">24.Лc1!</span> 
+(указано П. Уэллсом) положение черных близко к проигранному.</p>
+<p class="longNotation">
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pp2/3p4/5P1B/2Q2N2/PPP3PP/1K1R1B1R b kq - 0 15", this, "c1b1"); ' class="line0">15.Крc1-b1</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>В случае
+ <span onclick='loadMove("r2qk2r/3bbp1p/p1n1pp2/3p4/3N1P1B/2Q5/PPP3PP/2KR1B1R b kq - 0 15", this, "f3d4"); ' class="line1">15.Кd4</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1pp2/q2p4/3N1P1B/2Q5/PPP3PP/2KR1B1R w kq - 0 16", this, "d8a5"); ' class="line1">Фa5</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1pp2/Q2p4/3N1P1B/8/PPP3PP/2KR1B1R b kq - 0 16", this, "c3a5"); ' class="line1">16.Ф:a5</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p3pp2/n2p4/3N1P1B/8/PPP3PP/2KR1B1R w kq - 0 17", this, "c6a5"); ' class="line1">К:a5</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p3pp2/n2p4/3N1P1B/8/PPP1B1PP/2KR3R b kq - 0 17", this, "f1e2"); ' class="line1">17.Сe2</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p3p3/n2p1p2/3N1P1B/8/PPP1B1PP/2KR3R w kq - 0 18", this, "f6f5"); ' class="line1">f5</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p3p3/n2p1p2/3N1P2/8/PPP1B1PP/2KRB2R b kq - 0 18", this, "h4e1"); ' class="line1">18.Сe1</span> 
+ <span onclick='loadMove("r3k2r/1n1bbp1p/p3p3/3p1p2/3N1P2/8/PPP1B1PP/2KRB2R w kq - 0 19", this, "a5b7"); ' class="line1">Кb7</span> 
+ <span onclick='loadMove("r3k2r/1n1bbp1p/p3p3/3p1p2/2PN1P2/8/PP2B1PP/2KRB2R b kq c3 0 19", this, "c2c4"); ' class="line1">19.c4</span> 
+ <span onclick='loadMove("r3k2r/1n1bbp1p/p3p3/5p2/2pN1P2/8/PP2B1PP/2KRB2R w kq - 0 20", this, "d5c4"); ' class="line1">dc</span> 
+ <span onclick='loadMove("r3k2r/1n1bbp1p/p3p3/5p2/2pN1P2/5B2/PP4PP/2KRB2R b kq - 0 20", this, "e2f3"); ' class="line1">20.Сf3</span> 
+ <span onclick='loadMove("2kr3r/1n1bbp1p/p3p3/5p2/2pN1P2/5B2/PP4PP/2KRB2R w - - 0 21", this, "e8c8"); ' class="line1">0-0-0</span> 
+ <span onclick='loadMove("2kr3r/1n1bbp1p/p3p3/5p2/2pN1P2/5B2/PP4PP/1K1RB2R b - - 0 21", this, "c1b1"); ' class="line1">21.Крb1</span> 
+ <span onclick='loadMove("2kr3r/1n2bp1p/p3p3/1b3p2/2pN1P2/5B2/PP4PP/1K1RB2R w - - 0 22", this, "d7b5"); ' class="line1">Сb5</span> 
+ <span onclick='loadMove("2kr3r/1n2bp1p/p3p3/1b3p2/2pN1P2/2B2B2/PP4PP/1K1R3R b - - 0 22", this, "e1c3"); ' class="line1">22.Сc3</span> 
+ <span onclick='loadMove("2kr2r1/1n2bp1p/p3p3/1b3p2/2pN1P2/2B2B2/PP4PP/1K1R3R w - - 0 23", this, "h8g8"); ' class="line1">Лhg8</span> 
+ <span onclick='loadMove("2kr2r1/1n2bp1p/p1N1p3/1b3p2/2p2P2/2B2B2/PP4PP/1K1R3R b - - 0 23", this, "d4c6"); ' class="line1">23.Кc6</span> 
+ <span onclick='loadMove("2kr2r1/1n2bp1p/p1b1p3/5p2/2p2P2/2B2B2/PP4PP/1K1R3R w - - 0 24", this, "b5c6"); ' class="line1">С:c6</span> 
+ <span onclick='loadMove("2kr2r1/1n2bp1p/p1B1p3/5p2/2p2P2/2B5/PP4PP/1K1R3R b - - 0 24", this, "f3c6"); ' class="line1">24.С:c6</span> 
+ <span onclick='loadMove("3r2r1/1nk1bp1p/p1B1p3/5p2/2p2P2/2B5/PP4PP/1K1R3R w - - 0 25", this, "c8c7"); ' class="line1">Крc7</span> 
+шансы сторон примерно равны (Фехер — Ионов, Будапешт 1991).</p>
+<p class="longNotation">
+ <span class="ellipsis0">15. ...</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p1n1pp2/3p4/5P1B/2Q2N2/PPP3PP/1K1R1B1R w k - 0 16", this, "a8c8"); ' class="line0">Лa8-c8</span> 
+</p>
+<p>(<b>a</b>) При
+ <span onclick='loadMove("r2qk2r/3bbp1p/2n1pp2/p2p4/5P1B/2Q2N2/PPP3PP/1K1R1B1R w kq - 0 16", this, "a6a5"); ' class="line1">15...a5</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/2n1pp2/pB1p4/5P1B/2Q2N2/PPP3PP/1K1R3R b kq - 0 16", this, "f1b5"); ' class="line1">16.Сb5</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/2n1pp2/pB1p4/5P1B/2Q2N2/PPP3PP/1K1R3R w k - 0 17", this, "a8c8"); ' class="line1">Лc8</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/2n1pp2/pB1p4/3N1P1B/2Q5/PPP3PP/1K1R3R b k - 0 17", this, "f3d4"); ' class="line1">17.Кd4</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/4pp2/pB1p4/3n1P1B/2Q5/PPP3PP/1K1R3R w k - 0 18", this, "c6d4"); ' class="line1">К:d4</span> 
+(заслуживало внимания
+ <span onclick='loadMove("2rqk2r/3bbp1p/4pp2/pB1p4/1n1N1P1B/2Q5/PPP3PP/1K1R3R w k - 0 18", this, "c6b4"); ' class="line2">17...Кb4</span> 
+)
+ <span onclick='loadMove("2rqk2r/3Bbp1p/4pp2/p2p4/3n1P1B/2Q5/PPP3PP/1K1R3R b k - 0 18", this, "b5d7"); ' class="line1">18.С:d7+</span> 
+ <span onclick='loadMove("2r1k2r/3qbp1p/4pp2/p2p4/3n1P1B/2Q5/PPP3PP/1K1R3R w k - 0 19", this, "d8d7"); ' class="line1">Ф:d7</span> 
+ <span onclick='loadMove("2r1k2r/3qbp1p/4pp2/p2p4/3Q1P1B/8/PPP3PP/1K1R3R b k - 0 19", this, "c3d4"); ' class="line1">19.Ф:d4</span> 
+ <span onclick='loadMove("2r1k1r1/3qbp1p/4pp2/p2p4/3Q1P1B/8/PPP3PP/1K1R3R w - - 0 20", this, "h8g8"); ' class="line1">Лg8</span> 
+ <span onclick='loadMove("2r1k1r1/3qbp1p/4pp2/p2p4/3Q1P1B/6P1/PPP4P/1K1R3R b - - 0 20", this, "g2g3"); ' class="line1">20.g3</span> 
+ <span onclick='loadMove("2r1k1r1/4bp1p/4pp2/pq1p4/3Q1P1B/6P1/PPP4P/1K1R3R w - - 0 21", this, "d7b5"); ' class="line1">Фb5</span> 
+ <span onclick='loadMove("2r1k1r1/4bp1p/4pp2/pq1p4/3Q1P1B/6P1/PPP4P/1K1RR3 b - - 0 21", this, "h1e1"); ' class="line1">21.Лhe1</span> 
+положение белых лучше (Шмид — Кунштович, ФРГ 1973).</p>
+<p>(<b>b</b>) После
+ <span onclick='loadMove("r2qk2r/3bbp1p/p3pp2/n2p4/5P1B/2Q2N2/PPP3PP/1K1R1B1R w kq - 0 16", this, "c6a5"); ' class="line1">15...Кa5</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p3pp2/n2p1P2/7B/2Q2N2/PPP3PP/1K1R1B1R b kq - 0 16", this, "f4f5"); ' class="line1">16.f5</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/n2p1P2/7B/2Q2N2/PPP3PP/1K1R1B1R w k - 0 17", this, "a8c8"); ' class="line1">Лc8</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/n2p1P2/7B/5N2/PPPQ2PP/1K1R1B1R b k - 0 17", this, "c3d2"); ' class="line1">17.Фd2</span> 
+ <span onclick='loadMove("2r1k2r/2qbbp1p/p3pp2/n2p1P2/7B/5N2/PPPQ2PP/1K1R1B1R w k - 0 18", this, "d8c7"); ' class="line1">Фc7</span> 
+(ошибочно
+ <span onclick='loadMove("2rq1rk1/3bbp1p/p3pp2/n2p1P2/7B/5N2/PPPQ2PP/1K1R1B1R w - - 0 18", this, "e8g8"); ' class="line2">17...0-0?</span> 
+из-за
+ <span onclick='loadMove("2rq1rk1/3bbp1p/p3pp1Q/n2p1P2/7B/5N2/PPP3PP/1K1R1B1R b - - 0 18", this, "d2h6"); ' class="line2">18.Фh6</span> 
+ <span onclick='loadMove("2rq1rk1/3bbp1p/p3pp1Q/3p1P2/2n4B/5N2/PPP3PP/1K1R1B1R w - - 0 19", this, "a5c4"); ' class="line2">Кc4</span> 
+ <span onclick='loadMove("2rq1rk1/3bbp1p/p3pp1Q/3p1P2/2n4B/3B1N2/PPP3PP/1K1R3R b - - 0 19", this, "f1d3"); ' class="line2">19.Сd3</span> 
+с грозной атакой, Планинц — Спасов, Поляница-Здруй 1979)
+ <span onclick='loadMove("2r1k2r/2qbbp1p/p3Pp2/n2p4/7B/5N2/PPPQ2PP/1K1R1B1R b k - 0 18", this, "f5e6"); ' class="line1">18.fe</span> 
+ <span onclick='loadMove("2r1k2r/2qbb2p/p3pp2/n2p4/7B/5N2/PPPQ2PP/1K1R1B1R w k - 0 19", this, "f7e6"); ' class="line1">fe</span> 
+ <span onclick='loadMove("2r1k2r/2qbb2p/p3pp2/n2p4/7B/3B1N2/PPPQ2PP/1K1R3R b k - 0 19", this, "f1d3"); ' class="line1">19.Сd3</span> 
+(
+погоня за пешкой —
+ <span onclick='loadMove("2r1k2r/2qbb2p/B3pp2/n2p4/7B/5N2/PPPQ2PP/1K1R3R b k - 0 19", this, "f1a6"); ' class="line2">19.С:a6?!</span> 
+— после
+ <span onclick='loadMove("r3k2r/2qbb2p/B3pp2/n2p4/7B/5N2/PPPQ2PP/1K1R3R w kq - 0 20", this, "c8a8"); ' class="line2">19...Лa8</span> 
+ <span onclick='loadMove("r3k2r/2qbb2p/4pp2/n2p4/7B/5N2/PPPQB1PP/1K1R3R b kq - 0 20", this, "a6e2"); ' class="line2">20.Сe2</span> 
+ <span onclick='loadMove("r3k2r/2qbb2p/4pp2/3p4/2n4B/5N2/PPPQB1PP/1K1R3R w kq - 0 21", this, "a5c4"); ' class="line2">Кc4</span> 
+ <span onclick='loadMove("r3k2r/2qbb2p/4pp2/3p4/2B4B/5N2/PPPQ2PP/1K1R3R b kq - 0 21", this, "e2c4"); ' class="line2">21.С:c4</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/4pp2/3p4/2q4B/5N2/PPPQ2PP/1K1R3R w kq - 0 22", this, "c7c4"); ' class="line2">Ф:c4</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/4pp2/3p4/2q4B/1P3N2/P1PQ2PP/1K1R3R b kq - 0 22", this, "b2b3"); ' class="line2">22.b3</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/q3pp2/3p4/7B/1P3N2/P1PQ2PP/1K1R3R w kq - 0 23", this, "c4a6"); ' class="line2">Фa6</span> 
+ <span onclick='loadMove("r3k2r/3bb2p/q3pp2/3p4/7B/1PP2N2/P2Q2PP/1K1R3R b kq - 0 23", this, "c2c3"); ' class="line2">23.c3</span> 
+ <span onclick='loadMove("r4rk1/3bb2p/q3pp2/3p4/7B/1PP2N2/P2Q2PP/1K1R3R w - - 0 24", this, "e8g8"); ' class="line2">0-0</span> 
+ведет к опасной для белых позиции, Кестлер — Спасский, Дортмунд 1979
+)
+ <span onclick='loadMove("2r1k2r/2qbb2p/p3pp2/3p4/2n4B/3B1N2/PPPQ2PP/1K1R3R w k - 0 20", this, "a5c4"); ' class="line1">19...Кc4</span> 
+ <span onclick='loadMove("2r1k2r/2qbb2p/p3pp2/3p4/2B4B/5N2/PPPQ2PP/1K1R3R b k - 0 20", this, "d3c4"); ' class="line1">20.С:c4</span> 
+ <span onclick='loadMove("2r1k2r/3bb2p/p3pp2/3p4/2q4B/5N2/PPPQ2PP/1K1R3R w k - 0 21", this, "c7c4"); ' class="line1">Ф:c4</span> 
+ <span onclick='loadMove("2r1k2r/3bb2p/p3pp2/3p4/2q4B/5N2/PPPQ2PP/1K1RR3 b k - 0 21", this, "h1e1"); ' class="line1">21.Лhe1</span> 
+ <span onclick='loadMove("2r2rk1/3bb2p/p3pp2/3p4/2q4B/5N2/PPPQ2PP/1K1RR3 w - - 0 22", this, "e8g8"); ' class="line1">0-0</span> 
+(при
+ <span onclick='loadMove("2r1k1r1/3bb2p/p3pp2/3p4/2q4B/5N2/PPPQ2PP/1K1RR3 w - - 0 22", this, "h8g8"); ' class="line2">21...Лg8</span> 
+ <span onclick='loadMove("2r1k1r1/3bb2p/p3pp2/3p4/2q4B/5N1P/PPPQ2P1/1K1RR3 b - - 0 22", this, "h2h3"); ' class="line2">22.h3</span> 
+ <span onclick='loadMove("1r2k1r1/3bb2p/p3pp2/3p4/2q4B/5N1P/PPPQ2P1/1K1RR3 w - - 0 23", this, "c8b8"); ' class="line2">Лb8</span> 
+ <span onclick='loadMove("1r2k1r1/3bb2p/p3pp2/3p4/2q4B/5N1P/PPPQ2P1/K2RR3 b - - 0 23", this, "b1a1"); ' class="line2">23.Крa1</span> 
+перспективы белых явно лучше ввиду возможной атаки на застрявшего в центре неприятельского короля, Цешковский — Лукин, Телави 1982)
+ <span onclick='loadMove("2r2rk1/3bb2p/p3pp2/3p4/2q3PB/5N2/PPPQ3P/1K1RR3 b - g3 0 22", this, "g2g4"); ' class="line1">22.g4</span> 
+ <span onclick='loadMove("2r3k1/3bbr1p/p3pp2/3p4/2q3PB/5N2/PPPQ3P/1K1RR3 w - - 0 23", this, "f8f7"); ' class="line1">Лf7</span> 
+шансы сторон обоюдны (Свенссон — Шнейдер, Гетеборг 1990).</p>
+<p>(<b>c</b>) В случае
+ <span onclick='loadMove("r2qk2r/3bbp1p/p3pp2/3p4/1n3P1B/2Q2N2/PPP3PP/1K1R1B1R w kq - 0 16", this, "c6b4"); ' class="line1">15...Кb4</span> 
+ <span onclick='loadMove("r2qk2r/3bbp1p/p3pp2/3p4/1n1N1P1B/2Q5/PPP3PP/1K1R1B1R b kq - 0 16", this, "f3d4"); ' class="line1">16.Кd4</span> 
+(к неясному положению ведет
+ <span onclick='loadMove("r2qk2r/3bbp1p/p3pp2/3p4/1n3P1B/2QB1N2/PPP3PP/1K1R3R b kq - 0 16", this, "f1d3"); ' class="line2">16.Сd3</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3p4/1n3P1B/2QB1N2/PPP3PP/1K1R3R w k - 0 17", this, "a8c8"); ' class="line2">Лc8</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3p4/1n3P1B/3B1N2/PPPQ2PP/1K1R3R b k - 0 17", this, "c3d2"); ' class="line2">17.Фd2</span> 
+ <span onclick='loadMove("2rqk2r/4bp1p/p3pp2/3p4/bn3P1B/3B1N2/PPPQ2PP/1K1R3R w k - 0 18", this, "d7a4"); ' class="line2">Сa4</span> 
+ <span onclick='loadMove("2rqk2r/4bp1p/p3pp2/3p4/bn3P1B/1P1B1N2/P1PQ2PP/1K1R3R b k - 0 18", this, "b2b3"); ' class="line2">18.b3</span> 
+ <span onclick='loadMove("2rqk2r/4bp1p/p3pp2/3p4/b4P1B/1P1n1N2/P1PQ2PP/1K1R3R w k - 0 19", this, "b4d3"); ' class="line2">К:d3</span> 
+ <span onclick='loadMove("2rqk2r/4bp1p/p3pp2/3p4/b4P1B/1P1Q1N2/P1P3PP/1K1R3R b k - 0 19", this, "d2d3"); ' class="line2">19.Ф:d3</span> 
+ <span onclick='loadMove("2rqk2r/4bp1p/p3pp2/1b1p4/5P1B/1P1Q1N2/P1P3PP/1K1R3R w k - 0 20", this, "a4b5"); ' class="line2">Сb5</span> 
+ <span onclick='loadMove("2rqk2r/4bp1p/p3pp2/1b1p4/5P1B/1P3N2/P1PQ2PP/1K1R3R b k - 0 20", this, "d3d2"); ' class="line2">20.Фd2</span> 
+ <span onclick='loadMove("2rqk2r/4bp1p/4pp2/pb1p4/5P1B/1P3N2/P1PQ2PP/1K1R3R w k - 0 21", this, "a6a5"); ' class="line2">a5</span> 
+)
+<!--p>238 Глава двенадцатая. 7...a6 8.0-0-0 Сd7</p-->
+ <span onclick='loadMove("r3k2r/3bbp1p/p3pp2/q2p4/1n1N1P1B/2Q5/PPP3PP/1K1R1B1R w kq - 0 17", this, "d8a5"); ' class="line1">16...Фa5</span> 
+[после
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3p4/1n1N1P1B/2Q5/PPP3PP/1K1R1B1R w k - 0 17", this, "a8c8"); ' class="line2">16...Лc8</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3p4/1n1N1P1B/1Q6/PPP3PP/1K1R1B1R b k - 0 17", this, "c3b3"); ' class="line2">17.Фb3</span> 
+(при
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3p4/1n1N1P1B/4Q3/PPP3PP/1K1R1B1R b k - 0 17", this, "c3e3"); ' class="line3">17.Фe3</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/pq2pp2/3p4/1n1N1P1B/4Q3/PPP3PP/1K1R1B1R w k - 0 18", this, "d8b6"); ' class="line3">Фb6</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/pq2pp2/3p4/1n1N1P1B/P3Q3/1PP3PP/1K1R1B1R b k - 0 18", this, "a2a3"); ' class="line3">18.a3</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/pqn1pp2/3p4/3N1P1B/P3Q3/1PP3PP/1K1R1B1R w k - 0 19", this, "b4c6"); ' class="line3">Кc6</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/pqn1pp2/3p4/3N1P1B/P2RQ3/1PP3PP/1K3B1R b k - 0 19", this, "d1d3"); ' class="line3">19.Лd3</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/pq2pp2/3p4/3n1P1B/P2RQ3/1PP3PP/1K3B1R w k - 0 20", this, "c6d4"); ' class="line3">К:d4</span> 
+шансы сторон равны)
+ <span onclick='loadMove("2r1k2r/3bbp1p/p3pp2/q2p4/1n1N1P1B/1Q6/PPP3PP/1K1R1B1R w k - 0 18", this, "d8a5"); ' class="line2">17...Фa5</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p3pp2/q2p4/1n1N1P2/1Q6/PPP3PP/1K1RBB1R b k - 0 18", this, "h4e1"); ' class="line2">18.Сe1</span> 
+(
+ <span onclick='loadMove("2r1k2r/3bbp1p/p3pp2/q2p4/1n1N1P1B/PQ6/1PP3PP/1K1R1B1R b k - 0 18", this, "a2a3"); ' class="line3">18.a3?</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p3pp2/q2p4/3N1P1B/PQ6/1Pn3PP/1K1R1B1R w k - 0 19", this, "b4c2"); ' class="line3">К:c2</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p3pp2/q2p4/5P1B/PQ6/1PN3PP/1K1R1B1R b k - 0 19", this, "d4c2"); ' class="line3">19.К:c2</span> 
+ <span onclick='loadMove("2r1k2r/4bp1p/p3pp2/q2p4/b4P1B/PQ6/1PN3PP/1K1R1B1R w k - 0 20", this, "d7a4"); ' class="line3">Сa4</span> 
+)
+ <span onclick='loadMove("2r1k2r/4bp1p/p3pp2/q2p4/bn1N1P2/1Q6/PPP3PP/1K1RBB1R w k - 0 19", this, "d7a4"); ' class="line2">18...Сa4</span> 
+ <span onclick='loadMove("2r1k2r/4bp1p/p3pp2/q2p4/bn1N1P2/Q7/PPP3PP/1K1RBB1R b k - 0 19", this, "b3a3"); ' class="line2">19.Фa3!</span> 
+белые добиваются перевеса, Maтанович — Янса, Лугано (ол) 1968, поскольку не проходит
+ <span onclick='loadMove("4k2r/4bp1p/p3pp2/q2p4/bn1N1P2/Q7/PPr3PP/1K1RBB1R w k - 0 20", this, "c8c2"); ' class="line2">19...Л:c2</span> 
+из-за
+ <span onclick='loadMove("4k2r/4bp1p/p3pp2/q2p4/bn3P2/QN6/PPr3PP/1K1RBB1R b k - 0 20", this, "d4b3"); ' class="line2">20.Кb3!</span> 
+]
+ <span onclick='loadMove("r3k2r/3bbp1p/p3pp2/q2p4/1n1N1P1B/P1Q5/1PP3PP/1K1R1B1R b kq - 0 17", this, "a2a3"); ' class="line1">17.a3</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1pp2/q2p4/3N1P1B/P1Q5/1PP3PP/1K1R1B1R w kq - 0 18", this, "b4c6"); ' class="line1">Кc6</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1pp2/q2p4/3N1P1B/P5Q1/1PP3PP/1K1R1B1R b kq - 0 18", this, "c3g3"); ' class="line1">18.Фg3</span> 
+(в партии Холмов — Лукин, СССР 1983, было
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1pp2/q2p4/1P1N1P1B/P1Q5/2P3PP/1K1R1B1R b kq b3 0 18", this, "b2b4"); ' class="line2">18.b4</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1n1pp2/3p4/qP1N1P1B/P1Q5/2P3PP/1K1R1B1R w kq - 0 19", this, "a5a4"); ' class="line2">Фa4</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p1N1pp2/3p4/qP3P1B/P1Q5/2P3PP/1K1R1B1R b kq - 0 19", this, "d4c6"); ' class="line2">19.К:c6</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p1N1pp2/3p4/qP3P1B/P1Q5/2P3PP/1K1R1B1R w k - 0 20", this, "a8c8"); ' class="line2">Лc8</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p1N1pp2/3p4/qP3P1B/P1QB4/2P3PP/1K1R3R b k - 0 20", this, "f1d3"); ' class="line2">20.Сd3</span> 
+ <span onclick='loadMove("4k2r/3bbp1p/p1r1pp2/3p4/qP3P1B/P1QB4/2P3PP/1K1R3R w k - 0 21", this, "c8c6"); ' class="line2">Л:c6</span> 
+ <span onclick='loadMove("4k2r/3bbp1p/p1r1pp2/3p4/qP3P1B/P2B4/1QP3PP/1K1R3R b k - 0 21", this, "c3b2"); ' class="line2">21.Фb2</span> 
+ <span onclick='loadMove("4k1r1/3bbp1p/p1r1pp2/3p4/qP3P1B/P2B4/1QP3PP/1K1R3R w - - 0 22", this, "h8g8"); ' class="line2">Лg8</span> 
+ <span onclick='loadMove("4k1r1/3bbp1p/p1r1pp2/3p4/qP3P1B/P2B2P1/1QP4P/1K1R3R b - - 0 22", this, "g2g3"); ' class="line2">22.g3</span> 
+ <span onclick='loadMove("4k1r1/3bbp1p/pr2pp2/3p4/qP3P1B/P2B2P1/1QP4P/1K1R3R w - - 0 23", this, "c6b6"); ' class="line2">Лb6</span> 
+с обоюдоострой позицией)
+ <span onclick='loadMove("r3k2r/3bbp1p/p3pp2/q2p4/3n1P1B/P5Q1/1PP3PP/1K1R1B1R w kq - 0 19", this, "c6d4"); ' class="line1">18...К:d4</span> 
+ <span onclick='loadMove("r3k2r/3bbp1p/p3pp2/q2p4/3R1P1B/P5Q1/1PP3PP/1K3B1R b kq - 0 19", this, "d1d4"); ' class="line1">19.Л:d4</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p3pp2/q2p4/3R1P1B/P5Q1/1PP3PP/1K3B1R w k - 0 20", this, "a8b8"); ' class="line1">Лb8</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p3pp2/q2p4/5P1B/P2R2Q1/1PP3PP/1K3B1R b k - 0 20", this, "d4d3"); ' class="line1">20.Лd3</span> 
+ <span onclick='loadMove("1r3k1r/3bbp1p/p3pp2/q2p4/5P1B/P2R2Q1/1PP3PP/1K3B1R w - - 0 21", this, "e8f8"); ' class="line1">Крf8</span> 
+ <span onclick='loadMove("1r3k1r/3bbp1p/p3pp2/q2p4/5P1B/P2R2Q1/1PP1B1PP/1K5R b - - 0 21", this, "f1e2"); ' class="line1">21.Сe2</span> 
+ <span onclick='loadMove("2r2k1r/3bbp1p/p3pp2/q2p4/5P1B/P2R2Q1/1PP1B1PP/1K5R w - - 0 22", this, "b8c8"); ' class="line1">Лc8</span> 
+ <span onclick='loadMove("2r2k1r/3bbp1p/p3pp2/q2p4/5P1B/P2R2Q1/1PP1B1PP/1KR5 b - - 0 22", this, "h1c1"); ' class="line1">22.Лc1</span> 
+ <span onclick='loadMove("2r2k1r/4bp1p/p3pp2/qb1p4/5P1B/P2R2Q1/1PP1B1PP/1KR5 w - - 0 23", this, "d7b5"); ' class="line1">Сb5</span> 
+ <span onclick='loadMove("2r2k1r/4bp1p/p3pp2/qb1p4/5P1B/P3R1Q1/1PP1B1PP/1KR5 b - - 0 23", this, "d3e3"); ' class="line1">23.Лe3</span> 
+ <span onclick='loadMove("2r2k1r/4bp1p/p3pp2/qb6/3p1P1B/P3R1Q1/1PP1B1PP/1KR5 w - - 0 24", this, "d5d4"); ' class="line1">d4</span> 
+ <span onclick='loadMove("2r2k1r/4bp1p/p3pp2/qb6/3pRP1B/P5Q1/1PP1B1PP/1KR5 b - - 0 24", this, "e3e4"); ' class="line1">24.Лe4</span> 
+ <span onclick='loadMove("2r2k1r/4bp1p/p3pp2/q7/3pRP1B/P5Q1/1PP1b1PP/1KR5 w - - 0 25", this, "b5e2"); ' class="line1">С:e2</span> 
+ <span onclick='loadMove("2r2k1r/4bp1p/p3pp2/q7/3p1P1B/P5Q1/1PP1R1PP/1KR5 b - - 0 25", this, "e4e2"); ' class="line1">25.Л:e2</span> 
+ <span onclick='loadMove("1r3k1r/4bp1p/p3pp2/q7/3p1P1B/P5Q1/1PP1R1PP/1KR5 w - - 0 26", this, "c8b8"); ' class="line1">Лb8</span> 
+ <span onclick='loadMove("1r3k1r/4bp1p/p3pp2/q7/2Pp1P1B/P5Q1/1P2R1PP/1KR5 b - c3 0 26", this, "c2c4"); ' class="line1">26.c4</span> 
+у белых лучшие перспективы (Эбелинг — Пулккинен, Эспоо 1992).</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rqk2r/3bbp1p/p1n1pp2/3p4/3N1P1B/2Q5/PPP3PP/1K1R1B1R b k - 0 16", this, "f3d4"); ' class="line0">16.Кf3-d4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>В партии Марк Цейтлин — Гринфельд (Израиль (ч) 1992) белые избрали
+ <span onclick='loadMove("2rqk2r/3bbp1p/B1n1pp2/3p4/5P1B/2Q2N2/PPP3PP/1K1R3R b k - 0 16", this, "f1a6"); ' class="line1">16.С:a6?!</span> 
+, однако после
+ <span onclick='loadMove("3qk2r/2rbbp1p/B1n1pp2/3p4/5P1B/2Q2N2/PPP3PP/1K1R3R w k - 0 17", this, "c8c7"); ' class="line1">16...Лc7</span> 
+ <span onclick='loadMove("3qk2r/2rbbp1p/2n1pp2/1B1p4/5P1B/2Q2N2/PPP3PP/1K1R3R b k - 0 17", this, "a6b5"); ' class="line1">17.Сb5</span> 
+ <span onclick='loadMove("3qk2r/2rbbp1p/4pp2/1B1p4/1n3P1B/2Q2N2/PPP3PP/1K1R3R w k - 0 18", this, "c6b4"); ' class="line1">Кb4</span> 
+ <span onclick='loadMove("3qk2r/2rBbp1p/4pp2/3p4/1n3P1B/2Q2N2/PPP3PP/1K1R3R b k - 0 18", this, "b5d7"); ' class="line1">18.С:d7+</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/1n3P1B/2Q2N2/PPP3PP/1K1R3R w k - 0 19", this, "d8d7"); ' class="line1">Ф:d7</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/1n3P1B/1Q3N2/PPP3PP/1K1R3R b k - 0 19", this, "c3b3"); ' class="line1">19.Фb3</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/5P1B/1Q3N2/PPn3PP/1K1R3R w k - 0 20", this, "b4c2"); ' class="line1">К:c2</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/5P1B/1Q3N2/PPn3PP/1KR4R b k - 0 20", this, "d1c1"); ' class="line1">20.Лc1</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/5P1B/nQ3N2/PP4PP/1KR4R w k - 0 21", this, "c2a3"); ' class="line1">Кa3+</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/5P1B/nQ3N2/PP4PP/K1R4R b k - 0 21", this, "b1a1"); ' class="line1">21.Крa1</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/2n2P1B/1Q3N2/PP4PP/K1R4R w k - 0 22", this, "a3c4"); ' class="line1">Кc4</span> 
+ <span onclick='loadMove("4k2r/2rqbp1p/4pp2/3p4/2n2P1B/2Q2N2/PP4PP/K1R4R b k - 0 22", this, "b3c3"); ' class="line1">22.Фc3</span> 
+ <span onclick='loadMove("4k2r/r2qbp1p/4pp2/3p4/2n2P1B/2Q2N2/PP4PP/K1R4R w k - 0 23", this, "c7a7"); ' class="line1">Лa7</span> 
+черные получили достаточную компенсацию.</p>
+<p class="longNotation">
+ <span class="ellipsis0">16. ...</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3pn3/3N1P1B/2Q5/PPP3PP/1K1R1B1R w k - 0 17", this, "c6e5"); ' class="line0">Кc6-e5</span> 
+</p>
+<p>Встречалось
+ <span onclick='loadMove("2r1k2r/3bbp1p/pqn1pp2/3p4/3N1P1B/2Q5/PPP3PP/1K1R1B1R w k - 0 17", this, "d8b6"); ' class="line1">16...Фb6</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/pqN1pp2/3p4/5P1B/2Q5/PPP3PP/1K1R1B1R b k - 0 17", this, "d4c6"); ' class="line1">17.К:c6</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p1q1pp2/3p4/5P1B/2Q5/PPP3PP/1K1R1B1R w k - 0 18", this, "b6c6"); ' class="line1">Ф:c6</span> 
+ <span onclick='loadMove("2r1k2r/3bbp1p/p1q1pp2/3p4/5P1B/8/PPPQ2PP/1K1R1B1R b k - 0 18", this, "c3d2"); ' class="line1">18.Фd2</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p1q1pp2/3p4/5P1B/8/PPPQ2PP/1K1R1B1R w k - 0 19", this, "c8b8"); ' class="line1">Лb8</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p1q1pp2/3p4/5P1B/8/PPPQ2PP/K2R1B1R b k - 0 19", this, "b1a1"); ' class="line1">19.Крa1</span> 
+(и при
+ <span onclick='loadMove("1r2k2r/3bbp1p/p1q1pp2/3p4/2P2P1B/8/PP1Q2PP/1K1R1B1R b k c3 0 19", this, "c2c4"); ' class="line2">19.c4!?</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p1q1pp2/8/2p2P1B/8/PP1Q2PP/1K1R1B1R w k - 0 20", this, "d5c4"); ' class="line2">dc</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p1q1pp2/8/2B2P1B/8/PP1Q2PP/1K1R3R b k - 0 20", this, "f1c4"); ' class="line2">20.С:c4</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p3pp2/8/2q2P1B/8/PP1Q2PP/1K1R3R w k - 0 21", this, "c6c4"); ' class="line2">Ф:c4</span> 
+ <span onclick='loadMove("1r2k2r/3Qbp1p/p3pp2/8/2q2P1B/8/PP4PP/1K1R3R b k - 0 21", this, "d2d7"); ' class="line2">21.Ф:d7+</span> 
+ <span onclick='loadMove("1r3k1r/3Qbp1p/p3pp2/8/2q2P1B/8/PP4PP/1K1R3R w - - 0 22", this, "e8f8"); ' class="line2">Крf8</span> 
+ <span onclick='loadMove("1r3k1r/4bp1p/p3pp2/8/2qQ1P1B/8/PP4PP/1K1R3R b - - 0 22", this, "d7d4"); ' class="line2">22.Фd4</span> 
+ <span onclick='loadMove("1r3k1r/4bp1p/p3pp2/8/3q1P1B/8/PP4PP/1K1R3R w - - 0 23", this, "c4d4"); ' class="line2">Ф:d4</span> 
+ <span onclick='loadMove("1r3k1r/4bp1p/p3pp2/8/3R1P1B/8/PP4PP/1K5R b - - 0 23", this, "d1d4"); ' class="line2">23.Л:d4</span> 
+ <span onclick='loadMove("1r3kr1/4bp1p/p3pp2/8/3R1P1B/8/PP4PP/1K5R w - - 0 24", this, "h8g8"); ' class="line2">Лg8</span> 
+ <span onclick='loadMove("1r3kr1/4bp1p/p3pp2/8/3R1P1B/6P1/PP5P/1K5R b - - 0 24", this, "g2g3"); ' class="line2">24.g3</span> 
+ <span onclick='loadMove("1r4r1/4bpkp/p3pp2/8/3R1P1B/6P1/PP5P/1K5R w - - 0 25", this, "f8g7"); ' class="line2">Крg7</span> 
+ <span onclick='loadMove("1r4r1/4bpkp/p3pp2/8/3R1P1B/6P1/PP5P/1K1R4 b - - 0 25", this, "h1d1"); ' class="line2">25.Лhd1</span> 
+ <span onclick='loadMove("1r1r4/4bpkp/p3pp2/8/3R1P1B/6P1/PP5P/1K1R4 w - - 0 26", this, "g8d8"); ' class="line2">Лgd8</span> 
+ <span onclick='loadMove("1r1R4/4bpkp/p3pp2/8/5P1B/6P1/PP5P/1K1R4 b - - 0 26", this, "d4d8"); ' class="line2">26.Л:d8</span> 
+ <span onclick='loadMove("1r1b4/5pkp/p3pp2/8/5P1B/6P1/PP5P/1K1R4 w - - 0 27", this, "e7d8"); ' class="line2">С:d8</span> 
+ <span onclick='loadMove("1r1b4/5pkp/p2Rpp2/8/5P1B/6P1/PP5P/1K6 b - - 0 27", this, "d1d6"); ' class="line2">27.Лd6</span> 
+ <span onclick='loadMove("1r1b4/5pkp/3Rpp2/p7/5P1B/6P1/PP5P/1K6 w - - 0 28", this, "a6a5"); ' class="line2">a5</span> 
+ <span onclick='loadMove("1r1b4/5pkp/3Rpp2/p7/5P1B/6P1/PPK4P/8 b - - 0 28", this, "b1c2"); ' class="line2">28.Крc2</span> 
+ <span onclick='loadMove("1r1b4/5p1p/3Rppk1/p7/5P1B/6P1/PPK4P/8 w - - 0 29", this, "g7g6"); ' class="line2">Крg6</span> 
+черные удерживают равновесие)
+ <span onclick='loadMove("1r2k2r/3bbp1p/p3pp2/3p4/q4P1B/8/PPPQ2PP/K2R1B1R w k - 0 20", this, "c6a4"); ' class="line1">19...Фa4</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p3pp2/3p4/q4P1B/1P6/P1PQ2PP/K2R1B1R b k - 0 20", this, "b2b3"); ' class="line1">20.b3</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p3pp2/3p4/5P1B/qP6/P1PQ2PP/K2R1B1R w k - 0 21", this, "a4a3"); ' class="line1">Фa3</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/p3pp2/3p4/5P1B/qP1B4/P1PQ2PP/K2R3R b k - 0 21", this, "f1d3"); ' class="line1">21.Сd3</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/4pp2/p2p4/5P1B/qP1B4/P1PQ2PP/K2R3R w k - 0 22", this, "a6a5"); ' class="line1">a5</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/4pp2/p2p4/5P1B/qPQB4/P1P3PP/K2R3R b k - 0 22", this, "d2c3"); ' class="line1">22.Фc3</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/4pp2/3p4/p4P1B/qPQB4/P1P3PP/K2R3R w k - 0 23", this, "a5a4"); ' class="line1">a4</span> 
+ <span onclick='loadMove("1r2k2r/3bbp1p/4pp2/3p4/p4P1B/qPQB4/P1P3PP/KR5R b k - 0 23", this, "d1b1"); ' class="line1">23.Лb1</span> 
+ <span onclick='loadMove("1r2k1r1/3bbp1p/4pp2/3p4/p4P1B/qPQB4/P1P3PP/KR5R w - - 0 24", this, "h8g8"); ' class="line1">Лg8</span> 
+ <span onclick='loadMove("1r2k1r1/3bbp1p/4pp2/3p4/p4P1B/qPQB2P1/P1P4P/KR5R b - - 0 24", this, "g2g3"); ' class="line1">24.g3</span> 
+ <span onclick='loadMove("1r2k1r1/3bbp1p/5p2/3pp3/p4P1B/qPQB2P1/P1P4P/KR5R w - - 0 25", this, "e6e5"); ' class="line1">e5</span> 
+c обоюдными возможностями (Адамс — Кристиансен, Биль 1991).</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3pn3/3N1P1B/6Q1/PPP3PP/1K1R1B1R b k - 0 17", this, "c3g3"); ' class="line0">17.Фc3-g3</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3ppn1/3p4/3N1P1B/6Q1/PPP3PP/1K1R1B1R w k - 0 18", this, "e5g6"); ' class="line0">Кe5-g6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3ppn1/3p1P2/3N3B/6Q1/PPP3PP/1K1R1B1R b k - 0 18", this, "f4f5"); ' class="line0">18.f4-f5</span> 
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3pp2/3p1P2/3N3n/6Q1/PPP3PP/1K1R1B1R w k - 0 19", this, "g6h4"); ' class="line0">Кg6:h4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rqk2r/3bbp1p/p3Pp2/3p4/3N3n/6Q1/PPP3PP/1K1R1B1R b k - 0 19", this, "f5e6"); ' class="line0">19.f5:e6</span> 
+ <span onclick='loadMove("2rqk2r/3bb2p/p3pp2/3p4/3N3n/6Q1/PPP3PP/1K1R1B1R w k - 0 20", this, "f7e6"); ' class="line0">f7:e6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rqk2r/3bb2p/p3pp2/3p4/3N3Q/8/PPP3PP/1K1R1B1R b k - 0 20", this, "g3h4"); ' class="line0">20.Фg3:h4</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2rqk2r/3bb2p/p3pp2/3p4/3N3Q/8/PPP3PP/1K1R1B1R b k - 0 20"></div>
+<p class="longNotation">
+ <span class="ellipsis0">20. ...</span> 
+ <span onclick='loadMove("2r1k2r/3bb2p/pq2pp2/3p4/3N3Q/8/PPP3PP/1K1R1B1R w k - 0 21", this, "d8b6"); ' class="line0">Фd8-b6</span> 
+</p>
+<p>После
+ <span onclick='loadMove("2rq1rk1/3bb2p/p3pp2/3p4/3N3Q/8/PPP3PP/1K1R1B1R w - - 0 21", this, "e8g8"); ' class="line1">20...0-0?</span> 
+ <span onclick='loadMove("2rq1rk1/3bb2p/p3pp2/3p4/3N2Q1/8/PPP3PP/1K1R1B1R b - - 0 21", this, "h4g4"); ' class="line1">21.Фg4+</span> 
+ <span onclick='loadMove("2rq1r2/3bbk1p/p3pp2/3p4/3N2Q1/8/PPP3PP/1K1R1B1R w - - 0 22", this, "g8f7"); ' class="line1">Крf7</span> 
+ <span onclick='loadMove("2rq1r2/3bbk1p/p3pp2/3p4/3N2Q1/3B4/PPP3PP/1K1R3R b - - 0 22", this, "f1d3"); ' class="line1">22.Сd3</span> 
+ <span onclick='loadMove("2rq1r2/3bbk1p/p3p3/3p1p2/3N2Q1/3B4/PPP3PP/1K1R3R w - - 0 23", this, "f6f5"); ' class="line1">f5</span> 
+ <span onclick='loadMove("2rq1r2/3bbk1p/p3p3/3p1p1Q/3N4/3B4/PPP3PP/1K1R3R b - - 0 23", this, "g4h5"); ' class="line1">23.Фh5+</span> 
+ <span onclick='loadMove("2rq1r2/3bb1kp/p3p3/3p1p1Q/3N4/3B4/PPP3PP/1K1R3R w - - 0 24", this, "f7g7"); ' class="line1">Крg7</span> 
+ <span onclick='loadMove("2rq1r2/3bb1kp/p3p3/3p1p1Q/3N2P1/3B4/PPP4P/1K1R3R b - g3 0 24", this, "g2g4"); ' class="line1">24.g4</span> 
+ <span onclick='loadMove("2r1qr2/3bb1kp/p3p3/3p1p1Q/3N2P1/3B4/PPP4P/1K1R3R w - - 0 25", this, "d8e8"); ' class="line1">Фe8</span> 
+ <span onclick='loadMove("2r1qr2/3bb1kp/p3p3/3p1p2/3N2P1/3B3Q/PPP4P/1K1R3R b - - 0 25", this, "h5h3"); ' class="line1">25.Фh3</span> 
+ <span onclick='loadMove("2r1qr2/3b2kp/p3pb2/3p1p2/3N2P1/3B3Q/PPP4P/1K1R3R w - - 0 26", this, "e7f6"); ' class="line1">Сf6</span> 
+ <span onclick='loadMove("2r1qr2/3b2kp/p3pb2/3p1P2/3N4/3B3Q/PPP4P/1K1R3R b - - 0 26", this, "g4f5"); ' class="line1">26.gf</span> 
+черным плохо (Рейчелс — Ширази, США (ч) 1992).</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1k2r/3bb2p/pq2pp2/3p3Q/3N4/8/PPP3PP/1K1R1B1R b k - 0 21", this, "h4h5"); ' class="line0">21.Фh4-h5+</span> 
+ <span onclick='loadMove("2rk3r/3bb2p/pq2pp2/3p3Q/3N4/8/PPP3PP/1K1R1B1R w - - 0 22", this, "e8d8"); ' class="line0">Крe8-d8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rk3r/3bb2p/pq2pp2/3p3Q/3N4/8/PPP1B1PP/1K1R3R b - - 0 22", this, "f1e2"); ' class="line0">22.Сf1-e2</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>При
+ <span onclick='loadMove("2rk3r/3bb2p/pq2pp2/3p3Q/3N4/6P1/PPP4P/1K1R1B1R b - - 0 22", this, "g2g3"); ' class="line1">22.g3</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3p3Q/3N4/b5P1/PPP4P/1K1R1B1R w - - 0 23", this, "e7a3"); ' class="line1">Сa3</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3p3Q/8/bN4P1/PPP4P/1K1R1B1R b - - 0 23", this, "d4b3"); ' class="line1">23.Кb3</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq1bpp2/3p3Q/8/1N4P1/PPP4P/1K1R1B1R w - - 0 24", this, "a3d6"); ' class="line1">Сd6</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq1bpp2/3p3Q/8/1N4PB/PPP4P/1K1R3R b - - 0 24", this, "f1h3"); ' class="line1">24.Сh3</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3pb2Q/8/1N4PB/PPP4P/1K1R3R w - - 0 25", this, "d6e5"); ' class="line1">Сe5</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3pb2Q/8/1N4PB/PPP4P/1K1RR3 b - - 0 25", this, "h1e1"); ' class="line1">25.Лhe1</span> 
+ <span onclick='loadMove("2rk3r/2qb3p/p3pp2/3pb2Q/8/1N4PB/PPP4P/1K1RR3 w - - 0 26", this, "b6c7"); ' class="line1">Фc7</span> 
+ <span onclick='loadMove("2rk3r/2qb3p/p3pp2/3pb2Q/8/1NP3PB/PP5P/1K1RR3 b - - 0 26", this, "c2c3"); ' class="line1">26.c3</span> 
+ <span onclick='loadMove("2rkb2r/2q4p/p3pp2/3pb2Q/8/1NP3PB/PP5P/1K1RR3 w - - 0 27", this, "d7e8"); ' class="line1">Сe8</span> 
+ <span onclick='loadMove("2rkb2r/2q4p/p3pp2/3pb3/8/1NP3PB/PP2Q2P/1K1RR3 b - - 0 27", this, "h5e2"); ' class="line1">27.Фe2</span> 
+ <span onclick='loadMove("2r1b2r/2q1k2p/p3pp2/3pb3/8/1NP3PB/PP2Q2P/1K1RR3 w - - 0 28", this, "d8e7"); ' class="line1">Крe7</span> 
+позиция носит обоюдоострый характер с некоторой инициативой на стороне белых (Хольцке — Тишбирек, Бундеслига 1998).</p>
+<p class="longNotation">
+ <span class="ellipsis0">22. ...</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3p3Q/3N4/b7/PPP1B1PP/1K1R3R w - - 0 23", this, "e7a3"); ' class="line0">Сe7-a3</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3p3Q/8/bN6/PPP1B1PP/1K1R3R b - - 0 23", this, "d4b3"); ' class="line0">23.Кd4-b3</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq1bpp2/3p3Q/8/1N6/PPP1B1PP/1K1R3R w - - 0 24", this, "a3d6"); ' class="line0">Сa3-d6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rk3r/3b3p/pq1bpp2/3p4/7Q/1N6/PPP1B1PP/1K1R3R b - - 0 24", this, "h5h4"); ' class="line0">24.Фh5-h4</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3pb3/7Q/1N6/PPP1B1PP/1K1R3R w - - 0 25", this, "d6e5"); ' class="line0">Сd6-e5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/3pb3/2P4Q/1N6/PP2B1PP/1K1R3R b - c3 0 25", this, "c2c4"); ' class="line0">25.c2-c4</span> 
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/4b3/2p4Q/1N6/PP2B1PP/1K1R3R w - - 0 26", this, "d5c4"); ' class="line0">d5:c4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2rk3r/3b3p/pq2pp2/4b3/2B4Q/1N6/PP4PP/1K1R3R b - - 0 26", this, "e2c4"); ' class="line0">26.Сe2:c4</span> 
+ <span onclick='loadMove("3k3r/2rb3p/pq2pp2/4b3/2B4Q/1N6/PP4PP/1K1R3R w - - 0 27", this, "c8c7"); ' class="line0">Лc8-c7</span> 
+</p>
+<!--p>239 Часть третья. 1.e4 c5 2.Кf3 d6 3.d4 cd 4.К:d4 Кf6 5.Кc3 Кc6 6.Сg5 e6 7.Фd2</p-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3k3r/2rb3p/pq2pp2/4b3/2B4Q/1N6/PP4PP/1K1R3R w - - 0 27"></div>
+<p>Черные удачно перегруппировали свои порядки и имеют хорошие возможности (Смыковский-Лукин, С.-Петербург 1995).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

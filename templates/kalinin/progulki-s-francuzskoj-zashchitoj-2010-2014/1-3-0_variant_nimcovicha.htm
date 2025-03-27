@@ -1,0 +1,36 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 3. Вариант Нимцовича | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3", this, ""); '>[...]</span> 
+<h2>Глава 3. Вариант Нимцовича</h2>
+<p>Продолжение
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3", this, "e4e5"); ' class="line1">3.e5</span> 
+самое древнее во Французской защите и, вероятно, самое принципиальное - белые захватывают пространство. А хватит ли у них сил это пространство удержать - такой вопрос волнует любителей и знатоков уже более сотни лет.</p>
+<p>Заранее извиняемся перед читателями, если некоторые идеи, некоторые слова объяснений будут пересекаться с тем, что уже было сказано в историческом обзоре. Но мы теперь рассматриваем вариант глубже, не с точки зрения XIX, а XXI века.</p>
+<p>Начав исследоваться Л. Паульсеном, вариант с ходом
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3", this, "e4e5"); ' class="line1">3.e5</span> 
+получил права гражданства в теории дебютов благодаря практическим успехам А. Нимцовича в первой четверти XX века. Следующие две партии из карлсбадского турнира 1911 года стали самыми знаменитыми победами А. Нимцовича в варианте, который впоследствии был назван его именем.</p>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-a__Qb6.htm' %}">...Фb6 (партии 41-43)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-b_6_Be7.htm' %}">6.Сe7 (партии 44-51)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-c_6_a3_a5_c4_.htm' %}">6.a3 a5(c4) (партии 51-58)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-d_6_a3_s_figurnoj_kontrigroj.htm' %}">План фигурной контригры на 6.a3 (партии 59-65)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-e_variant_r_vejda.htm' %}">Вариант Р. Вейда (партии 66-67)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-f_drugie_otkloneniia.htm' %}">Другие отклонения (партии 68-72)</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

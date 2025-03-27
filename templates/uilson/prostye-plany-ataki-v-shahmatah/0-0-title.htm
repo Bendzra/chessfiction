@@ -1,0 +1,63 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--div>
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>У36</p>
+</div-->
+
+<div class="message page">
+<p><b>Фред Уилсон «Простые планы атаки в шахматах».</b> - М., издатель «Андрей Ельков», 2018. - 192 стр.</p>
+<p><b>ISBN 978-5-906254-42-9</b></p>
+</div>
+
+ <div class="message notification">
+<p>Книга Ф. Уилсона, опытного американского преподавателя шахмат, предлагает шахматистам, уже освоившим начала королевской игры, простые рецепты подготовки и ведения победных атак.</p>
+<p>Их число минимально, а эффект - на том игровом уровне, где понимание шахмат уже имеет значение - не замедлит сказаться. Успешность такого подхода подтверждена долгим опытом преподавания и большим количеством учеников.</p>
+<p>Для шахматистов, желающих научиться обыгрывать любителей.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<p>Fred Wilson «Simple Attacking Plans», Mongoose Press, 2015</p>
+<hr />
+
+<h2>Фред Уилсон</h2>
+<h1>«Простые планы атаки в шахматах»</h1>
+
+<!--div>
+<p>Перевод с англ. Андрей Ельков</p>
+<p>Редактор Валерий Бронзник</p>
+<p>Формат 84x108 1/32.</p>
+<p>Печать офсетная. Бумага офсетная,</p>
+<p>e-mail: elkov_andrey@mail.ru http://www.elkov.ru</p>
+</div-->
+
+<div>
+<b>ISBN 978-5-906254-42-9</b>
+<div style="float:right;">
+<p>© Фред Уилсон, 2018</p>
+<p>© Издатель А. Ельков, 2018</p>
+</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

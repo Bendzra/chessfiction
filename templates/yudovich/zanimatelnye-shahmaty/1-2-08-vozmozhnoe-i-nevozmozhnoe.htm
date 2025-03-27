@@ -1,0 +1,36 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Возможное и невозможное | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Возможное и невозможное</h3>
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/3Bb3/8/1PP3R1/4K2R w K - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/3Bb3/8/1PP3R1/4K2R w K - 0 1", this, ""); '>[...]</span> 
+<p>А вот в следующей занятной позиции неизвестно куда скрылся черный король.</p>
+<p class="capTop diagram">26</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/3Bb3/8/1PP3R1/4K2R w K - 0 1"></div>
+<p>Как ты думаешь, куда его надо поставить, чтобы белые могли заматовать беглеца в один ход?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Возможное и невозможное. Позиция, казалось бы, имеет два решения. Черного короля можно поставить на f3 или c1. В обоих случаях матует
+	 <span onclick='loadMove("8/8/8/8/3Bb3/8/1PP3R1/5RK1 b - - 0 1", this, "e1g1"); ' class="line0">1.0-0</span> 
+	. Но на c1 король не может находиться. При белых пешках b2 и c2 он не проникает на первую горизонталь с поля a2, а если он попал туда с d2, то, значит, белый король уходил с поля e1. Таким образом,
+	при черном короле на c1 рокировка невозможна.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

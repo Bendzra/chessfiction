@@ -1,0 +1,30 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Страницы жизненного пути | Автобиографический очерк | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>СТРАНИЦЫ ЖИЗНЕННОГО ПУТИ</h1>
+<p><i>Автобиографический очерк</i></p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-pervye-shagi-na-shahmatnom-poprishche.htm' %}">ПЕРВЫЕ ШАГИ НА ШАХМАТНОМ ПОПРИЩЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-match-s-bratom-aleksandrom.htm' %}">МАТЧ С БРАТОМ АЛЕКСАНДРОМ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-rannie-vystupleniia-v-turnirah.htm' %}">РАННИЕ ВЫСТУПЛЕНИЯ В ТУРНИРАХ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-trudnosti-rosta.htm' %}">ТРУДНОСТИ РОСТА</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-v-riadah-sovetskogo-shahmatnogo-dvizheniia.htm' %}">В РЯДАХ СОВЕТСКОГО ШАХМАТНОГО ДВИЖЕНИЯ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-obshchestvennaia-i-literaturnaia-deiatelnost.htm' %}">ОБЩЕСТВЕННАЯ И ЛИТЕРАТУРНАЯ ДЕЯТЕЛЬНОСТЬ</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,27 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>На пути к цели | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>На пути к цели</h3>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-1-vziavshis-za-ruki.htm' %}">Взявшись за руки! </a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-2-silnee-ferzia.htm' %}">Сильнее ферзя</a></li>
+</ul>
+
+<div class="score">
+<p>Можно представить армию без солдат, но шахматы без пешек вообще немыслимы! Стратегическое значение и тактическая роль рядовых шахматного войска настолько многообразна, что для более или менее полного освещения их деятельности в различных стадиях партии потребовалось бы немало томов...</p>
+<p>Наша задача была гораздо скромнее: научить читателя ценить пешки, и несколько заключительных «короткометражных» эпизодов из их жизни, надеюсь, вызовут у вас еще большее уважение к этим самым скромным созданиям на шахматной доске.</p>
+<p>Одно пожелание: прежде чем знакомиться с пояснительным текстом, попробуйте, закрыв его листком бумаги, найти путь к победе самостоятельно.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

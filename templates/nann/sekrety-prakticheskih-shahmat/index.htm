@@ -1,0 +1,120 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>Содержание</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Секреты практических шахмат</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-00-predislovie-marka-dvoreckogo.htm' %}">Предисловие Марка Дворецкого</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-3-00-vstuplenie.htm' %}">Вступление</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-00-za-doskoj.htm' %}">1. За доской</a></li>
+  <ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-00-priniatie-resheniia.htm' %}">Принятие решения</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-01-novoe-obrashchenie-k-derevu-variantov.htm' %}">Новое обращение к дереву вариантов</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-02-ocenochnye-funkcii.htm' %}">Оценочные функции</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-03-kogda-analizirovat.htm' %}">Когда анализировать</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-04-nant.htm' %}">НАНТ</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-05-predohranitelnaia-setka.htm' %}">Предохранительная сетка</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-06-kogda-taktika-dolzhna-srabatyvat.htm' %}">Когда тактика должна срабатывать</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-07-skrytye-obiazatelstva.htm' %}">Скрытые обязательства</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-08-pozicionnoe-myshlenie.htm' %}">Позиционное мышление</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-09-metod-sravneniia.htm' %}">Метод сравнения</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-10-zastavte-dumat-vashego-sopernika.htm' %}">Заставьте думать вашего соперника</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-00-prosmotry-i-grubye-zevki.htm' %}">Просмотры и грубые зевки</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-01-signaly-ob-opasnosti.htm' %}">Сигналы об опасности</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-02-trudnozametnye-hody.htm' %}">«Труднозаметные» ходы</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-00-cejtnot.htm' %}">Цейтнот</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-00-lenost.htm' %}">Леность</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-00-reshimost.htm' %}">Решимость</a></li>
+  </ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-00-debiut.htm' %}">2. Дебют</a></li>
+  <ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-00-postroenie-repertuara.htm' %}">Построение репертуара</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-00-ispolzovanie-debiutnyh-knig.htm' %}">Использование дебютных книг</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-01-knigi-po-ekscentrichnym-debiutam.htm' %}">Книги по эксцентричным дебютам</a></li>
+    </ul>
+  </ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-00-mittelshpil.htm' %}">3. Миттельшпиль</a></li>
+  <ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-00-horoshie-pozicii.htm' %}">Хорошие позиции</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-00-plohie-pozicii.htm' %}">Плохие позиции</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-00-ataka.htm' %}">Атака</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-01-soberite-vseh-v-kompaniiu.htm' %}">«Соберите всех в компанию»</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-02-sverh-zhertvy.htm' %}">Сверх-жертвы</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-00-zashchita.htm' %}">Защита</a></li>
+  </ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0-00-endshpil.htm' %}">4. Эндшпиль</a></li>
+  <ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-00-peshechnyj-endshpil.htm' %}">Пешечный эндшпиль</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-01-oppoziciia.htm' %}">Оппозиция</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-02-manevr-reti.htm' %}">Маневр Рети</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-03-treugolnik.htm' %}">Треугольник</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-04-ozhidanie-neozhidannogo.htm' %}">Ожидание неожиданного</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-05-shahmaty-bolshe-chem-prosto-schet.htm' %}">Шахматы - больше, чем просто счет</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-00-ladejnyj-endshpil.htm' %}">Ладейный эндшпиль</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-01-ladia-i-peshka-protiv-ladi.htm' %}">Ладья и пешка против ладьи</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-02-lishniaia-peshka.htm' %}">Лишняя пешка</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-03-pozicionnyj-pereves.htm' %}">Позиционный перевес</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-00-legkofigurnye-okonchaniia.htm' %}">Легкофигурные окончания</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-01-konevye-okonchaniia.htm' %}">Коневые окончания</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-02-endshpil-slon-protiv-konia.htm' %}">Эндшпиль «слон против коня»</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-03-slonovye-okonchaniia.htm' %}">Слоновые окончания</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-00-ferzevye-okonchaniia.htm' %}">Ферзевые окончания</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-01-ferz-i-peshka-protiv-ferzia.htm' %}">Ферзь и пешка против ферзя</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-02-lishniaia-peshka.htm' %}">Лишняя пешка</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-5-00-rasprostranennye-endshpili-bez-peshek.htm' %}">Распространенные эндшпили без пешек</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-5-01-ladia-protiv-legkoj-figury.htm' %}">Ладья против легкой фигуры</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-5-02-ladia-i-legkaia-figura-protiv-ladi.htm' %}">Ладья и легкая фигура против ладьи</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-6-00-igra-do-padeniia-flazhka.htm' %}">Игра до падения флажка</a></li>
+  </ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-0-00-ispolzovanie-kompiutera.htm' %}">5. Использование компьютера</a></li>
+  <ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-1-00-bazy-partij.htm' %}">Базы партий</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-2-00-igrovye-moduli.htm' %}">Игровые модули</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-3-00-ogranicheniia-kompiuternogo-analiza.htm' %}">Ограничения компьютерного анализа</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-4-00-uchebnyj-primer-1.htm' %}">Учебный пример 1: вариант отравленной пешки</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-5-00-uchebnyj-primer-2.htm' %}">Учебный пример 2: сицилианская защита, вариант Россолимо с 3...g6</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-6-00-shahmaty-on-lajn.htm' %}">Шахматы он-лайн</a></li>
+  </ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-0-00-shahmatnaia-literatura.htm' %}">6. Шахматная литература</a></li>
+  <ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-1-00-vybor-knigi.htm' %}">Выбор книги</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-2-00-oshibki.htm' %}">Ошибки</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-3-00-knizhnyj-obzor-1.htm' %}">Книжный обзор 1: Майкл де ла Маза «Быстрое усовершенствование в шахматах»</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-4-00-knizhnyj-obzor-2.htm' %}">Книжный обзор 2: Ройбен Файн «Базовые шахматные окончания»</a></li>
+  </ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-ukazatel-imen.htm' %}">Указатель имен</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-ukazatel-debiutov.htm' %}">Указатель дебютов</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Х.-Р.Капабланка. Последние шахматные лекции</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-ot-perevodchika.htm' %}">От переводчика</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-ob-etoj-knige-i-ee-avtore.htm' %}">Об этой игре и ее авторе</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-3-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-4-vvedenie.htm' %}">Введение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-znachenie-endshpilia.htm' %}">I. Значение эндшпиля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-peshechnye-okonchaniia.htm' %}">II. Пешечные окончания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-znachenie-figur.htm' %}">III. Значение фигур</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-raspolozhenie-peshek.htm' %}">IV. Расположение пешек</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-kombinacii-v-mittelshpile.htm' %}">V. Комбинации в миттельшпиле</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-endshpili-slon-protiv-konia.htm' %}">VI. Эндшпили «слон против коня»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-odin-ladejnyj-endshpil.htm' %}">VII. Один ладейный эндшпиль</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-ispanskaia-partiia.htm' %}">VIII. Испанская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-master-endshpilia.htm' %}">IX. Мастер эндшпиля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-odna-prakticheskaia-partiia.htm' %}">X. Одна практическая партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-prilozhenie.htm' %}">XI. Приложение</a></li>
+
+<hr />
+
+<h2>Хозе-Рауль Капабланка</h2>
+<h1>ПОСЛЕДНИЕ ШАХМАТНЫЕ ЛЕКЦИИ</h1>
+<p>Заведующий редакцией Э. П. Киян<br/>Редактор Ф. М. Малкин<br/>Художник В. В. Федоров<br/>Художественный редактор Ю. А. Архангельский<br/>Технический редактор Н. А. Суровцева<br/>Корректор Р. Б. Шупикова</p>
+<p>Сдано в производство 9/IX 1976 г. Подписано к печати<br/>3/XI 1976 г. Формат 60x90/16. Бумага тип. № 2.</p>
+<p>Печ. л. 3,5. Усл. печ. л. 3,5. Уч.-изд. л. 3,03. Тираж<br/>100 000 экз. Цена 15 коп. Изд. № 5618. Зак. 7-81</p>
+<p>Ордена «Знак Почета» издательство «Физкультура и<br/>спорт» Государственного комитета Совета Министров СССР<br/>по делам издательств, полиграфии и книжной торговли<br/>103006. Москва, К-6, Каляевская ул., 27.</p>
+<p>Книжная фабрика «Коммунист» РПО «Полиграфкнига»<br/>Госкомиздата УССР. Харьков, ул. Энгельса, 11.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

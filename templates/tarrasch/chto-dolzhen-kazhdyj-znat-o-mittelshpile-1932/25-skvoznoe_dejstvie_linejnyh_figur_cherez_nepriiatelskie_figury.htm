@@ -1,0 +1,108 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Сквозное действие линейных фигур через неприятельские фигуры | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h2>СКВОЗНОЕ ДЕЙСТВИЕ ЛИНЕЙНЫХ ФИГУР ЧЕРЕЗ НЕПРИЯТЕЛЬСКИЕ ФИГУРЫ</h2>
+<p>Иногда встречаются положения, в которых защитительные или атакующие функции фигур распространяются через неприятельские фигуры. Поясним это несколько парадоксально звучащее определение следующей схемой:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="4r1k1/8/8/8/7q/8/4R1PP/4B2K b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r1k1/8/8/8/7q/8/4R1PP/4B2K b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 208</p>
+<!--img src="images/Tarrash_1933-208.png" style="width:121pt;height:91pt;"/-->
+<!--p>88</p-->
+<p>В этом положений ладья e8 нападает на слона e1 „через” ладью e2, вследствие чего слон подвержен двойному нападению — ферзя h4 и ладьи e8. В результате получается возможность мата в 2 хода:
+ <span onclick='loadMove("4r1k1/8/8/8/8/8/4R1PP/4q2K w - - 0 2", this, "h4e1"); ' class="line0">1...Фh4:e1+!</span> 
+ <span onclick='loadMove("4r1k1/8/8/8/8/8/6PP/4R2K b - - 0 2", this, "e2e1"); ' class="line0">2.Лe2:e1</span> 
+ <span onclick='loadMove("6k1/8/8/8/8/8/6PP/4r2K w - - 0 3", this, "e8e1"); ' class="line0">Лe8:e1X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="4rrk1/p1p3pp/3b4/1P1Pn3/N2Q1p1q/3B4/PP2R1PP/4R2K w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4rrk1/p1p3pp/3b4/1P1Pn3/N2Q1p1q/3B4/PP2R1PP/4R2K w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 209</p>
+<!--img src="images/Tarrash_1933-209.png" style="width:121pt;height:91pt;"/-->
+<p>В данной позиции между ладьей e1 и ладьей e8 находится черный конь. Как только он отойдет, ладья e1 окажется под двойным ударом и черные смогут два раза бить на e1. Однако в данный момент ход за белыми. Они не видят причины, почему бы им не взять трижды атакованного и лишь дважды защищенного коня e5, и потому играют
+ <span onclick='loadMove("4rrk1/p1p3pp/3b4/1P1PR3/N2Q1p1q/3B4/PP4PP/4R2K b - - 0 1", this, "e2e5"); ' class="line0">1.Лe2:e5</span> 
+. Но именно благодаря этому получается охарактеризованное выше положение, так как ладья e1 оказывается дважды атакованной. Черные играют:
+ <span onclick='loadMove("4rrk1/p1p3pp/3b4/1P1PR3/N2Q1p2/3B4/PP4PP/4q2K w - - 0 2", this, "h4e1"); ' class="line0">1...Фh4:e1+</span> 
+ <span onclick='loadMove("4rrk1/p1p3pp/3b4/1P1P4/N2Q1p2/3B4/PP4PP/4R2K b - - 0 2", this, "e5e1"); ' class="line0">2.Лe5:e1</span> 
+ <span onclick='loadMove("5rk1/p1p3pp/3b4/1P1P4/N2Q1p2/3B4/PP4PP/4r2K w - - 0 3", this, "e8e1"); ' class="line0">Лe8:e1+</span> 
+ <span onclick='loadMove("5rk1/p1p3pp/3b4/1P1P4/N4p2/3B4/PP4PP/4r1QK b - - 0 3", this, "d4g1"); ' class="line0">3.Фd4-g1</span> 
+ <span onclick='loadMove("5rk1/p1p3pp/3b4/1P1P4/N4p2/3B4/PP4PP/6rK w - - 0 4", this, "e1g1"); ' class="line0">Лe1:g1+</span> 
+, что дает им выигрыш качества.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Приведем еще один пример:</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2r1r1k1/p4ppp/8/3QP1B1/1b6/4R2P/PPq2PP1/3R2K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2r1r1k1/p4ppp/8/3QP1B1/1b6/4R2P/PPq2PP1/3R2K1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 210</p>
+<!--img src="images/Tarrash_1933-210.png" style="width:126pt;height:91pt;"/-->
+<p>
+ <span onclick='loadMove("4r1k1/p4ppp/8/2rQP1B1/1b6/4R2P/PPq2PP1/3R2K1 w - - 0 2", this, "c8c5"); ' class="line0">1...Лc8-c5</span> 
+ <span onclick='loadMove("4r1k1/p2Q1ppp/8/2r1P1B1/1b6/4R2P/PPq2PP1/3R2K1 b - - 0 2", this, "d5d7"); ' class="line0">2.Фd5-d7</span> 
+ <span onclick='loadMove("4r1k1/p2Q1ppp/8/4r1B1/1b6/4R2P/PPq2PP1/3R2K1 w - - 0 3", this, "c5e5"); ' class="line0">Лc5:e5?</span> 
+Теперь ладья e8 оказывается дважды атакованной, и
+ <span onclick='loadMove("4Q1k1/p4ppp/8/4r1B1/1b6/4R2P/PPq2PP1/3R2K1 b - - 0 3", this, "d7e8"); ' class="line0">3.Фd7:e8+!</span> 
+ <span onclick='loadMove("4r1k1/p4ppp/8/6B1/1b6/4R2P/PPq2PP1/3R2K1 w - - 0 4", this, "e5e8"); ' class="line0">Лe5:e8</span> 
+ <span onclick='loadMove("4R1k1/p4ppp/8/6B1/1b6/7P/PPq2PP1/3R2K1 b - - 0 4", this, "e3e8"); ' class="line0">4.Лe3:e8+</span> 
+ведет к мату, так как на
+ <span onclick='loadMove("4Rbk1/p4ppp/8/6B1/8/7P/PPq2PP1/3R2K1 w - - 0 5", this, "b4f8"); ' class="line0">4...Сb4-f8</span> 
+последует жертва
+ <span onclick='loadMove("5Rk1/p4ppp/8/6B1/8/7P/PPq2PP1/3R2K1 b - - 0 5", this, "e8f8"); ' class="line0">5.Лe8:f8+!</span> 
+ <span onclick='loadMove("5k2/p4ppp/8/6B1/8/7P/PPq2PP1/3R2K1 w - - 0 6", this, "g8f8"); ' class="line0">Крg8:f8</span> 
+ <span onclick='loadMove("3R1k2/p4ppp/8/6B1/8/7P/PPq2PP1/6K1 b - - 0 6", this, "d1d8"); ' class="line0">6.Лd1-d8X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Сходные комбинации осуществимы и фигурами, бьющими по диагонали: ферзем, слоном, пешкой.</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="4r2k/4P1pp/8/8/7b/8/6PP/3R3K w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r2k/4P1pp/8/8/7b/8/6PP/3R3K w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 211</p>
+<!--img src="images/Tarrash_1933-211.png" style="width:121pt;height:91pt;"/-->
+<p>Поле d8 дважды защищено, ладьей и слоном (через пешку e7). На
+ <span onclick='loadMove("3Rr2k/4P1pp/8/8/7b/8/6PP/7K b - - 0 1", this, "d1d8"); ' class="line0">1.Лd1-d8</span> 
+черные дважды берут на d8 и в результате выигрывают пешку.</p>
+<!--p>(См. диаграмму № 212)</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="5rk1/pp1n1ppp/2pp1n2/2q1rNB1/5Q2/2P4P/PPP2PP1/R3R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5rk1/pp1n1ppp/2pp1n2/2q1rNB1/5Q2/2P4P/PPP2PP1/R3R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№ 212</p>
+<!--img src="images/Tarrash_1933-212.png" style="width:89pt;height:91pt;"/-->
+<p>После
+ <span onclick='loadMove("5rk1/pp1n1ppp/2pp1n2/2q1RNB1/5Q2/2P4P/PPP2PP1/R5K1 b - - 0 1", this, "e1e5"); ' class="line0">1.Лe1:e5</span> 
+ <span onclick='loadMove("5rk1/pp1n1ppp/2pp1n2/4qNB1/5Q2/2P4P/PPP2PP1/R5K1 w - - 0 2", this, "c5e5"); ' class="line0">Фc5:e5</span> 
+пешка d6 дважды атакована,
+<!--p>89</p-->
+ферзем и конем f5, и поэтому может быть взята конем.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

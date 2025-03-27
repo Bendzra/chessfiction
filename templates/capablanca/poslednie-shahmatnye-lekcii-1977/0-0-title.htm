@@ -1,0 +1,56 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h5>БИБЛИОТЕЧКА ШАХМАТИСТА</h5>
+<h2>Х.-Р.КАПАБЛАНКА</h2>
+<h1>Последние шахматные лекции</h1>
+
+<div class="diagram">
+<p>Издание второе</p>
+</div>
+
+<div class="diagram">
+<p>Москва</p>
+<p>«Физкультура и спорта</p>
+<p>1977</p>
+</div>
+
+<!--div>
+<p>7А9.1</p>
+<p>К 20</p>
+</div-->
+
+<div class="message page">
+<p>Перевод с немецкого</p>
+<p>В. И. МУРАХВЕРИ</p>
+</div>
+
+<div class="message notification">
+<p><b>Капабланка Х.-Р.</b></p>
+<p>К20 <b>Последние шахматные лекции</b> (перевод с немецкого Мурахвери В. И.). 2-е изд. М., «Физкультура и спорт», 1976. 53 с.</p>
+<p>Великий кубинец незадолго до кончины прочел курс лекций по радио. После его смерти эти лекции были изданы в виде небольшой книжки, перевод которой и предлагается вниманию читателя. Капабланка адресовал свои лекции тем шахматистам, которые знакомы с правилами игры и хотят знать, как им совершенствоваться.</p>
+<p>Книга выходит в серии «Библиотечка шахматиста» и адресована широким кругам любителей шахмат.</p>
+</div>
+
+<!--div class="message">
+<div>60904-016<br />009 (01)-77</div><p>117-77 7А9.1</p>
+</div-->
+
+<p class="diagram">© Издательство «Физкультура и спорт», 1976 г.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>The King's Indian Attack: Move by Move<h1>
+<p><b>by Neil McDonald</b></p>
+<h2>Contents</h2>
+<ul>
+<li><a href="0-0-title.htm">About this Publication</a></li>
+<li><a href="0-1-introduction.htm">Introduction</a></li>
+<li><a href="1-kia-vs-the-french.htm">1. KIA versus the French</a></li>
+<li><a href="2-kia-vs-the-sicilian.htm">2. KIA versus the Sicilian</a></li>
+<li><a href="3-kia-vs-the-caro-kann.htm">3. KIA versus the Caro-Kann</a></li>
+<li><a href="4-kia-vs-the-reversed-kid.htm">4. KIA versus the Reversed King's Indian Defence</a></li>
+<li><a href="5-kia-vs-the-_Bf5-system.htm">5. KIA versus the ...Bf5 System</a></li>
+<li><a href="6-kia-vs-the-_Bg4-system.htm">6. KIA versus the ...Bg4 System</a></li>
+<li><a href="7-kia-vs-the-queens-indian.htm">7. KIA versus the Queen's Indian</a></li>
+<li><a href="8-kia-vs-the-dutch-and-kings-indian.htm">8. KIA versus the Dutch (and King's Indian)</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Литература | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h1>Литература</h1>
+<div class="score">
+<p>Капабланка X.-Р. Учебник шахматной игры. ФиТ, 1936.</p>
+<p>Котов А. А. Шахматное наследие А. А. Алехина, ФиС, ч. II, 1958.</p>
+<p>Майзелис И. Л. Шахматы. Детгиз, 1949.</p>
+<p>Левенфиш Г. Я. Книга начинающего шахматиста. ФиС, 1959.</p>
+<p>Лисицын Г. М. Стратегия и тактика шахматного искусства. ФиС, 1958.</p>
+<p>Панов В. Н. Шахматы для начинающих. ФиС, 1952.</p>
+<p>Шпильман Р. Теория жертвы. ФиТ, 1936.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

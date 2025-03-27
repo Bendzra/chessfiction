@@ -1,0 +1,62 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Волокитин А. А., Грабинский В. А. Самоучитель для шахматистов высокой квалификации</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-ot-avtora.htm' %}">От авторов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-vstuplenie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-sdelay-hod.htm' %}">СДЕЛАЙ ХОД</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-primery-igry-andreia-volokitina.htm' %}">Примеры игры Андрея Волокитина</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-100-uchebnyh-primerov.htm' %}">100 учебных примеров</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения к главе «Сделай ход»</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры игры Андрея Волокитина</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">100 учебных примеров</a></li>
+</ul>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">НАЙДИ ВЫИГРЫШ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры игры Андрея Волокитина</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">100 учебных примеров</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения к главе «Найди выигрыш»</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры игры Андрея Волокитина</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">100 учебных примеров</a></li>
+</ul>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ОТВЕТЬ НА ВОПРОС</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры игры Андрея Волокитина</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">100 учебных примеров</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения к главе «Ответь на вопрос»</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примеры игры Андрея Волокитина</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">100 учебных примеров</a></li>
+</ul>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Послесловие</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

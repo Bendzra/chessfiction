@@ -1,0 +1,46 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 1: Альтернативы на четвёртом ходу | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, ""); '>[...]</span> 
+<h2>Глава 1: Альтернативы на четвёртом ходу</h2>
+<p>На практике чаще всего встречаются продолжения
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 0 4", this, "e1g1"); ' class="line1">4.0-0</span> 
+и
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 4", this, "d2d3"); ' class="line1">4.d3</span> 
+, поскольку они дают больше шансов на получение преимущества, но заслуживают внимания и три других хода:
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/3PP3/5N2/PPP2PPP/RNBQK2R b KQkq d3 0 4", this, "d2d4"); ' class="line1">4.d4</span> 
+(Вариант A),
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPPQPPP/RNB1K2R b KQkq - 0 4", this, "d1e2"); ' class="line1">4.Фe2</span> 
+(Вариант В) и
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 0 4", this, "b1c3"); ' class="line1">4.Кc3</span> 
+, последний приводит к Дебюту четырёх коней.
+Здесь и
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/5n2/1B2p3/3nP3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", this, "c6d4"); ' class="line1">4...Кd4</span> 
+, и симметричное
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/1B2p3/1b2P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", this, "f8b4"); ' class="line1">4...Сb4</span> 
+, и даже несколько эксцентричное
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/2nb1n2/1B2p3/4P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", this, "f8d6"); ' class="line1">4...Сd6</span> 
+обещают чёрным, как минимум, не меньше возможностей для уравнения игры, чем варианты «Берлина». Среди элитных игроков лишь Иванчук применяет подобный переход в другое начало.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-a-4-d4.htm' %}">A) 4.d4</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-b-4-qe2.htm' %}">B) 4.Фe2</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Points to Remember | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Points to Remember</h3>
+<p>1) Always respect the opponent's choice of variation and try to understand their aims. All the lines in this chapter have caught out several unprepared players over the years.</p>
+<p>2) <b>6...e5</b> and <b>12...Bg4!-h5-g6</b> is an excellent way to neutralize White's attacking ideals after <b>6.f4</b>.</p>
+<p>3) Developing the queenside first gives Black useful extra flexibility against <b>6.g3</b>.</p>
+<p>4) Against the likes of <b>6.a4</b>, but especially <b>6.h3</b>, Black should remember that he may prefer something other than <b>6...e5</b>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

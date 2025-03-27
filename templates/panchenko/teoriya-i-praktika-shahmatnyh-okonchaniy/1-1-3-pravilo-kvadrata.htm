@@ -1,0 +1,148 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Правило квадрата | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h3 class="diagram">Правило квадрата</h3>
+<div class="score">
+<p>Для быстрого подсчета, догонит ли король проходную пешку противника, существует так называемое правило квадрата. Рассмотрим следующий пример.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/6P1/1k6/8/1K6 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/6P1/1k6/8/1K6 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/6P1/1k6/8/1K6 w - - 0 1"></div>
+<p class="caption">10. Ход черных. Ничья<br />Ход белых. Выигрыш</p>
+<p><b>Позиция 10.</b> При своем ходе
+ <!--span onclick='loadMove("8/8/8/8/6P1/1k6/8/1K6 b - - 0 1", this, "d2e2"); ' class="line1">1.z0</span--> 
+черные, играя
+ <span onclick='loadMove("8/8/8/8/2k3P1/8/8/1K6 w - - 0 2", this, "b3c4"); ' class="line1">1...Крc4</span> 
+попадают
+в квадрат пешки g4. Его сторона равна расстоянию от пешки
+<!--p>Пешечный эндшпиль</p><p>13</p-->
+до поля ее превращения (g4-g8-c8-c4).
+Если ход белых, то после
+ <span onclick='loadMove("8/8/8/6P1/8/1k6/8/1K6 b - - 0 1", this, "g4g5"); ' class="line0">1.g5</span> 
+черные не успевают попасть в квадрат g5-g8-d8-d5 и проигрывают. На практике для простоты мысленно проводят только одну линию—диагональ квадрата, например g4-c8 или g5-d8 в рассмотренных нами примерах. При пешке на начальной позиции, то есть на 2-й или 7-й горизонталях, диагональ квадрата проводят от поля перед пешкой.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/k7/5P2/K7 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/k7/5P2/K7 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/k7/5P2/K7 w - - 0 1"></div>
+<p class="caption">11. Ход белых. Ничья</p>
+<p><b>Позиция 11</b>. Диагональ квадрата в этом случае f3-a8, поэтому ничья.</p>
+<p>Правило квадрата встречается очень часто в шахматной композиции и на практике.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7K/8/k1P5/7p/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7K/8/k1P5/7p/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="7K/8/k1P5/7p/8/8/8/8 w - - 0 1"></div>
+<p class="caption">12. Ход белых. Ничья</p>
+<p><b>Позиция 12</b>. Р.Рети (1921). На первый взгляд задание кажется невыполнимым. Но используя двойную угрозу — превращение пешки в ферзи или попадание в квадрат черной
+пешки, белые достигают ничьей:
+ <span onclick='loadMove("8/6K1/k1P5/7p/8/8/8/8 b - - 0 1", this, "h8g7"); ' class="line0">1.Крg7</span> 
+ <span onclick='loadMove("8/6K1/k1P5/8/7p/8/8/8 w - - 0 2", this, "h5h4"); ' class="line0">h4</span> 
+ <span onclick='loadMove("8/8/k1P2K2/8/7p/8/8/8 b - - 0 2", this, "g7f6"); ' class="line0">2.Крf6</span> 
+ <span onclick='loadMove("8/8/k1P2K2/8/8/7p/8/8 w - - 0 3", this, "h4h3"); ' class="line0">h3</span> 
+(или
+ <span onclick='loadMove("8/8/1kP2K2/8/7p/8/8/8 w - - 0 3", this, "a6b6"); ' class="line1">2...Крb6</span> 
+ <span onclick='loadMove("8/8/1kP5/4K3/7p/8/8/8 b - - 0 3", this, "f6e5"); ' class="line1">3.Крe5</span> 
+ <span onclick='loadMove("8/8/2k5/4K3/7p/8/8/8 w - - 0 4", this, "b6c6"); ' class="line1">Крc6</span> 
+ <span onclick='loadMove("8/8/2k5/8/5K1p/8/8/8 b - - 0 4", this, "e5f4"); ' class="line1">4.Крf4</span> 
+, попадая в квадрат =)
+ <span onclick='loadMove("8/4K3/k1P5/8/8/7p/8/8 b - - 0 3", this, "f6e7"); ' class="line0">3.Крe7!</span> 
+ <span onclick='loadMove("8/4K3/1kP5/8/8/7p/8/8 w - - 0 4", this, "a6b6"); ' class="line0">Крb6</span> 
+ <span onclick='loadMove("8/3K4/1kP5/8/8/7p/8/8 b - - 0 4", this, "e7d7"); ' class="line0">4.Крd7</span> 
+с ничьей. </p>
+<p>Эта идея получила в шахматной литературе название “охоты за двумя зайцами”.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="K7/8/p7/1k6/5P2/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("K7/8/p7/1k6/5P2/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="K7/8/p7/1k6/5P2/8/8/8 w - - 0 1"></div>
+<p class="caption">13. Ход белых. Ничья</p>
+<p> <b>Позиция 13</b>. К.Фейтер (1939).
+ <span onclick='loadMove("8/1K6/p7/1k6/5P2/8/8/8 b - - 0 1", this, "a8b7"); ' class="line0">1.Крb7</span> 
+ <span onclick='loadMove("8/1K6/8/pk6/5P2/8/8/8 w - - 0 2", this, "a6a5"); ' class="line0">a5</span> 
+ <span onclick='loadMove("8/2K5/8/pk6/5P2/8/8/8 b - - 0 2", this, "b7c7"); ' class="line0">2.Крc7</span> 
+ <span onclick='loadMove("8/2K5/8/p1k5/5P2/8/8/8 w - - 0 3", this, "b5c5"); ' class="line0">Крc5</span> 
+(
+ <span onclick='loadMove("8/2K5/8/1k6/p4P2/8/8/8 w - - 0 3", this, "a5a4"); ' class="line1">2...a4</span> 
+ <span onclick='loadMove("8/2K5/8/1k3P2/p7/8/8/8 b - - 0 3", this, "f4f5"); ' class="line1">3.f5</span> 
+)
+ <span onclick='loadMove("8/3K4/8/p1k5/5P2/8/8/8 b - - 0 3", this, "c7d7"); ' class="line0">3.Крd7</span> 
+ <span onclick='loadMove("8/3K4/8/p2k4/5P2/8/8/8 w - - 0 4", this, "c5d5"); ' class="line0">Крd5</span> 
+ <span onclick='loadMove("8/4K3/8/p2k4/5P2/8/8/8 b - - 0 4", this, "d7e7"); ' class="line0">4.Крe7</span> 
+ <span onclick='loadMove("8/4K3/8/p7/4kP2/8/8/8 w - - 0 5", this, "d5e4"); ' class="line0">Крe4</span> 
+(кажется, что черные выигрывают, но...)
+ <span onclick='loadMove("8/8/4K3/p7/4kP2/8/8/8 b - - 0 5", this, "e7e6"); ' class="line0">5.Крe6!</span> 
+ <span onclick='loadMove("8/8/4K3/p7/5k2/8/8/8 w - - 0 6", this, "e4f4"); ' class="line0">Крf4</span> 
+<!--p>14</p><p>Теория и практика шахматных окончаний</p-->
+ <span onclick='loadMove("8/8/8/p2K4/5k2/8/8/8 b - - 0 6", this, "e6d5"); ' class="line0">6.Крd5</span> 
+. Король в квадрате. Ничья.</p>
+<p>Используя эту идею, чемпиону мира Э.Ласкеру удалось спастись в следующей встрече.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/6K1/8/ppp2k2/8/1P6/1P5P/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/6K1/8/ppp2k2/8/1P6/1P5P/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/6K1/8/ppp2k2/8/1P6/1P5P/8 w - - 0 1"></div>
+<p class="caption">14. Ход белых</p>
+<p><b>Позиция 14</b>. Э.Ласкер-З.Тарраш (Петербург, 1914).
+ <span onclick='loadMove("8/6K1/8/ppp2k2/7P/1P6/1P6/8 b - h3 0 1", this, "h2h4"); ' class="line0">1.h4</span> 
+ <span onclick='loadMove("8/6K1/8/ppp5/6kP/1P6/1P6/8 w - - 0 2", this, "f5g4"); ' class="line0">Крg4</span> 
+(иначе
+ <span onclick='loadMove("8/6K1/8/ppp4P/6k1/1P6/1P6/8 b - - 0 2", this, "h4h5"); ' class="line1">2.h5</span> 
+)
+ <span onclick='loadMove("8/8/6K1/ppp5/6kP/1P6/1P6/8 b - - 0 2", this, "g7g6"); ' class="line0">2.Крg6!</span> 
+(Проигрывало
+ <span onclick='loadMove("8/8/5K2/ppp5/6kP/1P6/1P6/8 b - - 0 2", this, "g7f6"); ' class="line1">2.Крf6?</span> 
+ввиду
+ <span onclick='loadMove("8/8/5K2/pp6/2p3kP/1P6/1P6/8 w - - 0 3", this, "c5c4"); ' class="line1">2...c4</span> 
+ <span onclick='loadMove("8/8/5K2/pp6/2P3kP/8/1P6/8 b - - 0 3", this, "b3c4"); ' class="line1">3.bc</span> 
+ <span onclick='loadMove("8/8/5K2/p7/2p3kP/8/1P6/8 w - - 0 4", this, "b5c4"); ' class="line1">bc</span> 
+ <span onclick='loadMove("8/8/8/p3K3/2p3kP/8/1P6/8 b - - 0 4", this, "f6e5"); ' class="line1">4.Крe5</span> 
+ <span onclick='loadMove("8/8/8/p3K3/6kP/2p5/1P6/8 w - - 0 5", this, "c4c3"); ' class="line1">c3!</span> 
+ <span onclick='loadMove("8/8/8/p3K3/6kP/2P5/8/8 b - - 0 5", this, "b2c3"); ' class="line1">5.bc</span> 
+ <span onclick='loadMove("8/8/8/4K3/p5kP/2P5/8/8 w - - 0 6", this, "a5a4"); ' class="line1">a4</span> 
+-+)
+ <span onclick='loadMove("8/8/6K1/ppp5/7k/1P6/1P6/8 w - - 0 3", this, "g4h4"); ' class="line0">2...Крh4</span> 
+ <span onclick='loadMove("8/8/8/ppp2K2/7k/1P6/1P6/8 b - - 0 3", this, "g6f5"); ' class="line0">3.Крf5</span> 
+ <span onclick='loadMove("8/8/8/ppp2K2/8/1P4k1/1P6/8 w - - 0 4", this, "h4g3"); ' class="line0">Крg3</span> 
+ <span onclick='loadMove("8/8/8/ppp5/4K3/1P4k1/1P6/8 b - - 0 4", this, "f5e4"); ' class="line0">4.Крe4</span> 
+ <span onclick='loadMove("8/8/8/ppp5/4K3/1P6/1P3k2/8 w - - 0 5", this, "g3f2"); ' class="line0">Крf2</span> 
+ <span onclick='loadMove("8/8/8/pppK4/8/1P6/1P3k2/8 b - - 0 5", this, "e4d5"); ' class="line0">5.Крd5</span> 
+ <span onclick='loadMove("8/8/8/pppK4/8/1P2k3/1P6/8 w - - 0 6", this, "f2e3"); ' class="line0">Крe3</span> 
+ <span onclick='loadMove("8/8/8/ppK5/8/1P2k3/1P6/8 b - - 0 6", this, "d5c5"); ' class="line0">6.Крc5</span> 
+ <span onclick='loadMove("8/8/8/ppK5/8/1P1k4/1P6/8 w - - 0 7", this, "e3d3"); ' class="line0">Крd3</span> 
+ <span onclick='loadMove("8/8/8/pK6/8/1P1k4/1P6/8 b - - 0 7", this, "c5b5"); ' class="line0">7.Крb5</span> 
+ <span onclick='loadMove("8/8/8/pK6/8/1P6/1Pk5/8 w - - 0 8", this, "d3c2"); ' class="line0">Крc2</span> 
+ <span onclick='loadMove("8/8/8/K7/8/1P6/1Pk5/8 b - - 0 8", this, "b5a5"); ' class="line0">8.Крa5</span> 
+ <span onclick='loadMove("8/8/8/K7/8/1k6/1P6/8 w - - 0 9", this, "c2b3"); ' class="line0">Крb3</span> 
+. Ничья.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

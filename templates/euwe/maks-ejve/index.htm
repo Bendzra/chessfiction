@@ -1,0 +1,143 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>СОДЕРЖАНИЕ</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Макс Эйве (1979)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-iunye-gody.htm' %}">Юные годы</a></li>
+<ol>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-01-iunye-gody.htm' %}#game1">Эйве — О’Хэнлон, Итальянская партия (Гастингс, 1919)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-01-iunye-gody.htm' %}#game2">Эйве — Рети, Защита Каро-Канн (3-я партия матча, Амстердам, 1920)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-01-iunye-gody.htm' %}#game3">Карльс — Эйве, Английское начало (Гетеборг, 1920)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-stanovlenie.htm' %}">Становление</a></li>
+<ol start="4">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-02-stanovlenie.htm' %}#game4">Эйве — Боголюбов, Французская защита (Будапешт, 1921)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-02-stanovlenie.htm' %}#game5">Эйве — Мароци, Французская защита (6-я партия матча, Бад-Аусзее, 1921)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-02-stanovlenie.htm' %}#game6">Тарраш — Эйве, Староиндийская защита (Амстердам, 1923)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-02-stanovlenie.htm' %}#game7">Эйве — Рубинштейн, Дебют ферзевых пешек (Острава-Моравска, 1923)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-mezhdunarodnoe-priznanie.htm' %}">Международное признание</a></li>
+<ol start="8">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-03-mezhdunarodnoe-priznanie.htm' %}#game8">Зноско-Боровский — Эйве, Сицилианская защита (Уэстон-Сюпер-Мэр, 1924)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-03-mezhdunarodnoe-priznanie.htm' %}#game9">Эйве — Керстен, Дебют ферзевых пешек (Чемпионат Голландии, 1924)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-03-mezhdunarodnoe-priznanie.htm' %}#game10">Эйве — Давидсон, Каталонское начало (9-я партия матча, Амстердам, 1924)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-03-mezhdunarodnoe-priznanie.htm' %}#game11">Шорис — Эйве, Сицилианская защита (Висбаден, 1925)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-03-mezhdunarodnoe-priznanie.htm' %}#game12">Эйве — Алехин, Дебют Рети (8-я партия матча, Гаага, 1927)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}">В звании гроссмейстера</a></li>
+<ol start="13">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game13">Эйве — Краузе, Дебют Рети (I Олимпиада, Лондон, 1927)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game14">Эйве — Боголюбов, Дебют Рети (6-я партия матча, Гаага, 1928)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game15">Эйве — Карльс, Дебют Pemu (Гаага, 1928)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game16">Эйве — Боголюбов, Ферзевый гамбит (6-я партия матча, Утрехт, 1928)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game17">Эйве — Капабланка, Защита Нимцовича (Карлсбад, 1929)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game18">Эйве — Ландау, Дебют Рети (6-я партия матча, Амстердам, 1931)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game19">Эйве — Флор, Принятый ферзевый гамбит (8-я партия матча, Амстердам, 1932)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-04-v-zvanii-grossmejstera.htm' %}#game20">Алехин — Эйве, Защита Каро-Канн (Берн, 1932)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-na-podstupah-k-shahmatnomu-tronu.htm' %}">На подступах к шахматному трону</a></li>
+<ol start="21">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-05-na-podstupah-k-shahmatnomu-tronu.htm' %}#game21">Бернштейн — Эйве, Староиндийская защита (Цюрих, 1934)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-05-na-podstupah-k-shahmatnomu-tronu.htm' %}#game22">Эйве — Алехин, Ферзевый гамбит (Цюрих, 1934)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-05-na-podstupah-k-shahmatnomu-tronu.htm' %}#game23">Эйве — Кан, Защита Нимцовича (Ленинград, 1934)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-05-na-podstupah-k-shahmatnomu-tronu.htm' %}#game24">Ботвинник — Эйве, Защита Каро-Канн (Гастингс, 1934/35)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-05-na-podstupah-k-shahmatnomu-tronu.htm' %}#game25">Эйве — Томас, Ферзевый гамбит (Гастингс, 1934/35)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}">Титул завоеван!</a></li>
+<ol start="26">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game26">Эйве — Алехин, Защита Грюнфельда (2-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game27">Эйве — Алехин, Славянская защита (6-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game28">Эйве — Алехин, Славянская защита (8-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game29">Эйве — Алехин, Славянская защита (10-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game30">Эйве — Алехин, Защита Грюнфельда (12-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game31">Алехин — Эйве, Испанская партия (13-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game32">Эйве — Алехин, Славянская защита (20-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game33">Алехин — Эйве, Славянская защита (21-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game34">Алехин — Эйве, Ферзевый гамбит (25-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game35">Эйве — Алехин, Голландская защита (26-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-06-titul-zavoevan.htm' %}#game36">Эйве — Алехин, Принятый ферзевый гамбит (30-я партия)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}">В звании чемпиона</a></li>
+<ol start="37">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}#game37">Эйве — Мароци, Ферзевый гамбит (Зандвоорт, 1936)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}#game38">Видмар — Эйве, Славянская защита (Ноттингем, 1936)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}#game39">Александер — Эйве, Английское начало (Ноттингем, 1936)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}#game40">Эйве — Тайлор, Ферзевый гамбит (Ноттингем, 1936)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}#game41">Алехин — Эйве, Дебют четырех коней (Амстердам, 1936)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}#game42">Эйве — Алехин, Принятый ферзевый гамбит (Штутгарт, 1937)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-07-v-zvanii-chempiona.htm' %}#game43">Кастальди — Эйве, Славянская защита (Стокгольм, 1937)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-alehin-beret-revansh.htm' %}">Алехин берет реванш</a></li>
+<ol start="44">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-08-alehin-beret-revansh.htm' %}#game44">Эйве — Алехин, Славянская защита (1-я партия)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-08-alehin-beret-revansh.htm' %}#game45">Эйве — Алехин, Славянская защита (13-я партия)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-novye-ispytaniia.htm' %}">Новые испытания</a></li>
+<ol start="46">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-09-novye-ispytaniia.htm' %}#game46">Эйве — Флор, Новоиндийская защита (АВРО-турнир, 1938)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-09-novye-ispytaniia.htm' %}#game47">Эйве — Флор, Славянская защита (Голландия, 1938)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-09-novye-ispytaniia.htm' %}#game48">Эйве — Ландау, Славянская защита (6-я партия матча, Амстердам, 1939)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-09-novye-ispytaniia.htm' %}#game49">Керес — Эйве, Принятый ферзевый гамбит (14-я партия матча, Амстердам, 1939)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}">В годы войны и в мирное время</a></li>
+<ol start="50">
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}#game50">Эйве — Яновский, Защита Нимцовича (Гронинген, 1946)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}#game51">Сабо — Эйве, Принятый ферзевый гамбит (Гронинген, 1946)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}#game52">Эйве — Стейнер, Защита Нимцовича (Гронинген, 1946)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}#game53">Тартаковер — Эйве, Итальянская партия (Венеция, 1948)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}#game54">Эйве — Бисгайер, Ферзевый гамбит (Нью-Йорк, 1948)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}#game55">Геллер — Эйве, Защита Нимцовича (Турнир претендентов, Цюрих, 1953)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/1-10-b-gody-vojny-i-v-mirnoe-vremia.htm' %}#game56">Эйве — Найдорф, Староиндийская защита (Турнир претендентов, Цюрих, 1953)</a></li>
+</ol>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-epilog.htm' %}">Эпилог</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-ot-perevodchika.htm' %}">От переводчика</a></li>
+<ul>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/2-ot-perevodchika.htm' %}#game57">Нейман — Стейниц, Голландская партия (Баден-Баден, 1870)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/2-ot-perevodchika.htm' %}#game58">Милнер-Бэрри — Зноско-Боровский, Защита Каро-Канн (Тэмби, 1928)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/2-ot-perevodchika.htm' %}#game59">Эйве — Минев, Ферзевый гамбит (XI Олимпиада, Амстердам, 1954)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/2-ot-perevodchika.htm' %}#game60">Эйве — Фишер, Ферзевый гамбит (Тренировочная партия, Нью-Йорк, 1957)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/2-ot-perevodchika.htm' %}#game61">Эйве — Милич, Индийская защита (Бевервейк, 1958)</a></li>
+<li><a class="line2" href="{% url 'page-view' book.root_dir|add:'/2-ot-perevodchika.htm' %}#game62">Эйве — Таль, Сицилианская защита (По телефону, 1960/61)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-prilozheniia.htm' %}">Приложения</a></li>
+</ul>
+
+<hr />
+
+<div class="diagram">
+<p>Серия «Выдающиеся шахматисты мира»</p>
+<h1>МАКС ЭЙВЕ</h1>
+</div>
+
+<div class="diagram">
+<p>Заведующий редакцией В. И. Чепижный</p>
+<p>Редактор Ф. М. Малкин</p>
+<p>Художник В. Ю. Лукин</p>
+<p>Художественный редактор В. А. Жигарев</p>
+<p>Технический редактор Н. Н. Бурова</p>
+<p>Корректоры З. Г. Самылкина, Л. В. Чернова</p>
+</div>
+
+<div class="diagram">
+<p>ИБ №600. Сдано в набор 12.04.79. Подписано к печати 17.07.79. Формат 60x84<sup>1</sup>/<sub>16</sub>. Бумага тип. №1. Гарнитура «Литературная». Высокая печать. Усл. п. л. 14,42. Уч-пзд л 14,35. Тираж 50 000 экз. Издат. № 6244. Зак № 8. Цена 1 р 30 к. Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по делам издательств, полиграфии и книжной торговли 103006. Москва, К-6, Каляевская ул., 27. Ордена Октябрьской Революции и ордена Трудового Красного Знамени Первая Образцовая типография имени А А Жданова Союзполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли. Москва, М-54, Валовая, 28.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

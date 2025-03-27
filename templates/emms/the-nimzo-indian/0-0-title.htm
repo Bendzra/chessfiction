@@ -1,0 +1,41 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Publisher Information</p>
+<h1>The Nimzo-Indian: Move by Move</h1>
+<h2>by John Emms</h2>
+<p>First published in 2011 by Gloucester Publishers plc (formerly Everyman Publishers plc)</p>
+<p>Northburgh House, 10 Northburgh Street, London EC1V 0AT.</p>
+<p>Copyright © 2011 John Emms</p>
+<p>The right of John Emms to be identified as the author of this work has been asserted in accordance with the Copyrights, Designs and Patents Act 1988.</p>
+<p>All rights reserved. No part of this work may be reproduced, or transmitted in any form or by any means, without prior permission of the publisher.</p>
+<br>
+<p><b>British Library Cataloguing-in-Publication Data</b></p>
+<p>A catalogue record for this book is available from the British Library.</p>
+<p>All other sales enquiries should be directed to Everyman Chess, Northburgh House, 10 Northburgh Street, London EC1V 0AT</p>
+<p>tel: 020 7253 7887; fax: 020 7490 3708</p>
+<p>email: info@everymanchess.com</p>
+<p>website: www.everymanchess.com</p>
+<p>Everyman is the registered trade mark of Random House Inc. and is used in this work under licence from Random House Inc.</p>
+<br>
+<p><i>To Daniel</i></p>
+<br>
+<p><b>EVERYMAN CHESS SERIES</b> (formerly Cadogan Chess)</p>
+<p>Chief Advisor: Byron Jacobs</p>
+<p>Commissioning Editor: John Emms</p>
+<p>Assistant Editor: Richard Palliser</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

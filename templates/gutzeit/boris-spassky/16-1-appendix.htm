@@ -1,0 +1,184 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Краткая статистика | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<a name="statistics"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Краткая статистика</h1>
+
+<p>Борис Васильевич Спасский — десятый чемпион мира по шахматам (1969—1972 гг.)</p>
+<p>Чемпион мира среди юношей — 1955</p>
+<p>Четырехкратный победитель командных первенств мира среди студентов — 1955, 1957, 1958, 1962</p>
+<p>Двукратный победитель командных чемпионатов Европы — 1957, 1973</p>
+<p>Шестикратный победитель Всемирных шахматных олимпиад — 1962, 1964, 1966, 1968, 1970, 1974</p>
+<p>Двухкратный чемпион СССР — 1961, 1973</p>
+<p>Двухкратный обладатель шахматного «Оскара» — 1968, 1969</p>
+
+<div class="message">
+<p>В официальных соревнованиях с 1948 по 2002 год Борис Спасский сыграл 2218 партий (+765 -211 =1242) из числа известных авторам и подарил шахматному миру множество шедевров, отмеченных различными призами «за красоту». Достижения начались с первого международного турнира (Бухарест, 1953), где была отмечена партия <a href="{% url 'page-view' book.root_dir|add:'/02-1-buharest-1953.htm' %}#game7">№ 7</a>. На трех чемпионатах СССР (1958, 1960, 1962) красивейшими признавались <a href="{% url 'page-view' book.root_dir|add:'/03-04-riga-1958.htm' %}#game33">№ 33</a>, <a href="{% url 'page-view' book.root_dir|add:'/03-09-leningrad-1960.htm' %}#game43">№ 43</a> и <a href="{% url 'page-view' book.root_dir|add:'/03-17-erevan-1962.htm' %}#game58">№ 58</a>. О знаменитой победе над Ларсеном (партия <a href="{% url 'page-view' book.root_dir|add:'/09-2-1970.htm' %}#game122">№ 122</a>) во втором туре «Матча века» югославская газета «Спорт» писала: «Пусть пройдет еще тысяча лет — гениальная жертва чемпиона мира будет вечно зеленеть в его лавровом венке». Спасский стал соавтором 44 шедевров, где 23 раза выступил победителем и 21 раз оказался потерпевшей стороной. Кроме упомянутых, в двухтомник включены и другие призовые партии.</p>
+</div>
+
+<table>
+<tr><th>Партии</th><th>Соревнование</th><th>Место партии в «десятке» лучших</th><th>Номер партии</th></tr>
+<tr><td>Спасский — Суэтин</td><td>Москва, 1967</td><td>2</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-2-1967.htm' %}#game101">101</a></td></tr>
+<tr><td>Спасский — Геллер</td><td>Сухуми, 1968</td><td>2</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-3-match-s-gellerom-suhumi-1968.htm' %}#game105">105</a></td></tr>
+<tr><td>Корчной — Спасский</td><td>Киев, 1968</td><td>8</td><td><a class="line1" href="{% url 'page-view' book.root_dir|add:'/06-5-match-s-korchnym-kiev-1968.htm' %}#game112">112</a></td></tr>
+<tr><td>Спасский — Петросян</td><td>Москва, 1969</td><td>3</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-1-match-s-petrosianom-moskva-1969.htm' %}#game116">116</a></td></tr>
+<tr><td>Спасский — Петросян</td><td>Москва, 1969</td><td>1</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-1-match-s-petrosianom-moskva-1969.htm' %}#game119">119</a></td></tr>
+<tr><td>Ларсен — Спасский</td><td>Белград, 1970</td><td>1</td><td><a class="line1" href="{% url 'page-view' book.root_dir|add:'/09-2-1970.htm' %}#game122">122</a></td></tr>
+<tr><td>Спасский — Фишер</td><td>Зиген, 1970</td><td>5</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-2-1970.htm' %}#game125">125</a></td></tr>
+<tr><td>Спасский — Фишер</td><td>Рейкьявик, 1972</td><td>4</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-1-match-s-fisherom-rejkiavik-1972.htm' %}#game131">131</a></td></tr>
+<!--p>Окончание таблицы</p-->
+<tr><td>Кестлер — Спасский</td><td>Бат, 1973</td><td>9</td><td><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-01-1973.htm' %}#game138">138</a></td></tr>
+<tr><td>Спасский — Тукмаков</td><td>Москва, 1973</td><td>3</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-01-1973.htm' %}#game141">141</a></td></tr>
+<tr><td>Спасский — Рашковский</td><td>Москва, 1973</td><td>4</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-01-1973.htm' %}#game143">143</a></td></tr>
+<tr><td>Карпов — Спасский</td><td>Ленинград, 1974</td><td>3</td><td><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-02-1974.htm' %}#game148">148</a></td></tr>
+<tr><td>Спасский — Чебаненко</td><td>Москва, 1974</td><td>10</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-02-1974.htm' %}#game151">151</a></td></tr>
+<tr><td>Спасский — Ларсен</td><td>Монреаль, 1979</td><td>5</td><td><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-07-1979.htm' %}#game168">168</a></td></tr>
+<tr><td>А. Соколов — Спасский</td><td>Монпелье, 1985</td><td>8</td><td><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-12-1985.htm' %}#game185">185</a></td></tr>
+</table>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+
+<h2>Результаты встреч Б. Спасского с ведущими гроссмейстерами мира — участниками «Матча века», 1970 (в порядке распределения по доскам)</h2>
+<table>
+<tr><th></th><th>Всего партий</th><th>Выигрыши</th><th>Поражения</th><th>Ничьи</th><th>Годы соперничества</th></tr>
+<tr><td>Т. Петросян</td><td>74</td><td>10</td><td>10</td><td>54</td><td>1953—1983</td></tr>
+<tr><td>В. Корчной</td><td>69</td><td>14</td><td>21</td><td>34</td><td>1951—1999</td></tr>
+<tr><td>Л. Полугаевский</td><td>21</td><td>3</td><td>2</td><td>16</td><td>1954—1986</td></tr>
+<tr><td>Е. Геллер</td><td>38</td><td>11</td><td>5</td><td>22</td><td>1955—1983</td></tr>
+<tr><td>В. Смыслов</td><td>25</td><td>4</td><td>3</td><td>18</td><td>1953—1987</td></tr>
+<tr><td>М. Тайманов</td><td>20</td><td>5</td><td>3</td><td>12</td><td>1952—1981</td></tr>
+<tr><td>М. Ботвинник</td><td>7 </td><td>0</td><td>1</td><td>6</td><td>1955—1970</td></tr>
+<tr><td>М. Таль</td><td>39</td><td>9</td><td>6</td><td>24</td><td>1954—1989</td></tr>
+<tr><td>П. Керес</td><td>26</td><td>5</td><td>3</td><td>18</td><td>1955—1975</td></tr>
+<tr><td>Л. Штейн</td><td>13</td><td>1</td><td>3</td><td>9</td><td>1960—1971</td></tr>
+<tr><td>Д. Бронштейн</td><td>22</td><td>4</td><td>0</td><td>18</td><td>1955—1981</td></tr>
+<tr><td colspan="6">С советскими участниками Матча века: 181,5 очка из 354 (51%)</td></tr>
+<tr><td>Б. Ларсен</td><td>42</td><td>19</td><td>6</td><td>17</td><td>1959—1986</td></tr>
+<tr><td>Р. Фишер</td><td>56</td><td>11</td><td>17</td><td>28</td><td>1960—1992</td></tr>
+<tr><td>Л. Портиш</td><td>77</td><td>15</td><td>7</td><td>55</td><td>1955—1990</td></tr>
+<tr><td>В. Горт</td><td>40</td><td>5</td><td>2</td><td>33</td><td>1962—1989</td></tr>
+<tr><td>С. Глигорич</td><td>22</td><td>6</td><td>0</td><td>16</td><td>1962—1986</td></tr>
+<!--p>Окончание таблицы</p-->
+<!--tr><td></td><td>Всего партий</td><td>Выигрыши</td><td>Поражения</td><td>Ничьи</td><td>Годы соперничества</td></tr-->
+<tr><td>С. Решевский</td><td>3</td><td>1</td><td>0</td><td>2</td><td>1964—1966</td></tr>
+<tr><td>В. Ульман</td><td>6</td><td>2</td><td>0</td><td>4</td><td>1967—1976</td></tr>
+<tr><td>М. Матулович</td><td>5</td><td>1</td><td>0</td><td>4</td><td>1964—1966</td></tr>
+<tr><td>М. Найдорф</td><td>10</td><td>1</td><td>1</td><td>8</td><td>1955—1982</td></tr>
+<tr><td>Б. Ивков</td><td>13</td><td>2</td><td>0</td><td>11</td><td>1964—1991</td></tr>
+<tr><td>Ф. Олафссон</td><td>7</td><td>3</td><td>0</td><td>4</td><td>1959—1979</td></tr>
+<tr><td>К. Дарга</td><td>2</td><td>1</td><td>1</td><td>0</td><td>1964—1967</td></tr>
+<tr><td colspan="6">С зарубежными участниками Матча века: 158 очков из 283 (56%)</td></tr>
+<tr><td>А. Карпов</td><td>38</td><td>2</td><td>15</td><td>21</td><td>1971—1988</td></tr>
+<tr><td>Г. Каспаров</td><td>8</td><td>2</td><td>2</td><td>4</td><td>1981—1990</td></tr>
+<tr><td colspan="6">С чемпионами мира, не «принявшими участие» в Матче века 1970 года</td></tr>
+</table>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<h2>Коэффициент Эло Бориса Спасского</h2>
+
+<!--div class="diagram"-->
+<!--img src="gutzeit-spassky-2_files/img_166.jpg"/-->
+<!--p>2697 2680 2663 2646 2629 2612 2595 2578 2561 2544 2527</p-->
+<!--p>01.01.1971 04.09.1974 08.05.1976 09.01.1982 12.09.1985 17.05.1989 18.01.1993 21.09.1996 25.05.2000 27.01.2004 01.10.2007</p-->
+<!--/div-->
+
+<div id="spasskyELO" style="width: 500px; height: 400px;"></div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+
+{% block body_extras %}
+  <script src="https://www.google.com/jsapi"></script>
+  <script>
+   google.load("visualization", "1", {packages:["corechart"]});
+   google.setOnLoadCallback(drawChart);
+   function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+	['Год', 'Elo'],
+	['Oct 2001', 2551],
+	['Jul 2001', 2551],
+	['Apr 2001', 2551],
+	['Jan 2001', 2551],
+	['Oct 2000', 2551],
+	['Jul 2000', 2551],
+	['Jan 2000', 2551],
+	['Jul 1999', 2549],
+	['Jan 1999', 2549],
+	['Jul 1998', 2545],
+	['Jan 1998', 2535],
+	['Jul 1997', 2550],
+	['Jan 1997', 2550],
+	['Jul 1996', 2555],
+	['Jan 1996', 2555],
+	['Jul 1995', 2555],
+	['Jan 1995', 2555],
+	['Jul 1994', 2560],
+	['Jan 1994', 2565],
+	['Jul 1993', 2565],
+	['Jan 1993', 2565],
+	['Jul 1992', 2560],
+	['Jan 1992', 2545],
+	['Jul 1991', 2550],
+	['Jan 1991', 2560],
+	['Jul 1990', 2570],
+	['Jan 1990', 2560],
+	['Jul 1989', 2580],
+	['Jan 1989', 2580],
+	['Jul 1988', 2560],
+	['Jan 1988', 2565],
+	['Jul 1987', 2570],
+	['Jan 1987', 2605],
+	['Jul 1986', 2620],
+	['Jan 1986', 2610],
+	['Jul 1985', 2590],
+	['Jan 1985', 2580],
+	['Jul 1984', 2590],
+	['Jan 1984', 2615],
+	['Jul 1983', 2605],
+	['Jan 1983', 2605],
+	['Jul 1982', 2610],
+	['Jan 1982', 2625],
+	['Jul 1981', 2630],
+	['Jan 1981', 2635],
+	['Jan 1980', 2615],
+	['Jan 1979', 2640],
+	['Jan 1978', 2630],
+	['Jan 1977', 2610],
+	['Jan 1976', 2630],
+	['Jan 1975', 2625],
+	['May 1974', 2650],
+	['Jul 1973', 2655],
+	['Jul 1972', 2660],
+	['Jul 1971', 2690]
+    ]);
+    var options = {
+     title: 'Коэффициент Эло Бориса Спасского',
+     hAxis: {title: 'Год'},
+     vAxis: {title: 'Эло', minValue: 2500}
+    };
+    var chart = new google.visualization.LineChart(document.getElementById('spasskyELO'));
+    chart.draw(data, options);
+   }
+  </script>
+{% endblock body_extras %}

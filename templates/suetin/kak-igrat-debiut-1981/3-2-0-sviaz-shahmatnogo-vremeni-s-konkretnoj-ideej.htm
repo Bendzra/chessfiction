@@ -1,0 +1,22 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Связь шахматного «времени» с конкретной идеей | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2><a name="#42">Связь шахматного «времени» с конкретной идеей</a></h2>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-1-novaia-rol-debiutnogo-tempa.htm' %}">Новая роль дебютного темпа</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-2-aktivnost-tiazhelyh-figur.htm' %}">Активность тяжелых фигур</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-3-kogda-delat-rokirovku.htm' %}">Когда делать рокировку?</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-4-novye-predstavleniia-o-centre-i-prostranstve.htm' %}">Новые представления о центре и пространстве</a></li>
+</ul>
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

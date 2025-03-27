@@ -1,0 +1,45 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть первая. ТАЛАНТ, ПОКОРИВШИЙ МИР | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Часть первая. ТАЛАНТ, ПОКОРИВШИЙ МИР</h1>
+<blockquote class="diagram" style="margin-left:20%;">
+<p>... Капабланка</p>
+<p>Не восседает на шахматном троне,</p>
+<p>Нет, он странствует по всему миру,</p>
+<p>От Норвегии до Занзибара,</p>
+<p>От тропика Рака до северных льдов</p>
+<p>Он скачет на белом коне</p>
+<p>Мимо слонов и ладей...</p>
+<p>И белый шахматный конь</p>
+<p>Высекает яркие искры</p>
+<p>Из клетчатой мостовой!</p>
+</blockquote>
+<p style="margin-left:40%;">(Из поэмы «Спорт» кубинского поэта Николаса Гильена — лауреата Международной Ленинской премии «За укрепление мира между народами»)</p>
+
+<hr />
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-gordost-ostrova-svobody.htm' %}">Глава первая. Гордость Острова Свободы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-vunderkind-stanovitsia-maestro.htm' %}">Глава вторая. Вундеркинд становится маэстро</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-pretendent-na-mirovoe-pervenstvo.htm' %}">Глава третья. Претендент на мировое первенство</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-velichie-i-padenie-cezaria.htm' %}">Глава четвертая. Величие и падение цезаря</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-pogonia-za-bylym-velichiem.htm' %}">Глава пятая. Погоня за былым величием</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-sportivnye-vystupleniia-kapablanki.htm' %}">Спортивные выступления Капабланки</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

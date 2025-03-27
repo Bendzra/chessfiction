@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Темы комбинаций | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h2 class="diagram">Темы комбинаций</h2>
+<div class="score">
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-otvlechenie.htm' %}">Отвлечение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Завлечение (привлечение)</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Уничтожение защиты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Освобождение поля или линии</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Связывание и освобождение от связки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Перекрытие</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Сочетание тем</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,78 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="message">
+<h2>Алексей Дреев</h2>
+<h1>ПРИЕМЫ ИГРЫ В МИТТЕЛЬШПИЛЕ</h1>
+</div>
+
+<div class="message">
+<p>Библиотека ФШР</p>
+<p>Москва 2019</p>
+</div>
+
+<!--div class="message">
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>Д73</p>
+</div-->
+
+<div class="message page">
+<p>Дреев Алексей Сергеевич</p>
+<p><b>ПРИЕМЫ ИГРЫ В МИТТЕЛЬШПИЛЕ</b>. Москва, 2019, 192 с.</p>
+<p><b>ISBN 978-5-907077-04-1</b></p>
+</div>
+
+<div class="message notification">
+<p>Новая работа известного гроссмейстера, тренера и теоретика Алексея Дреева посвящена типичным приемам игры в миттельшпиле. Акцент сделан на качестве примеров. Прежде всего автор хотел донести до читателя многообразие ситуаций, с которыми любому практику приходится сталкиваться за доской, иногда в течение одной партии. Поэтому в книге достаточно примеров, посвященных так называемым «рабочим» ситуациям.</p>
+<p>С помощью упражнений читатель сумеет закрепить полученные знания, углубит свое понимание типичных приемов игры в миттельшпиле, получит представление о нестандартных решениях проблем на доске и сможет в дальнейшем применять эти знания в своих партиях. Для широкого круга любителей шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="message">
+<p>Фотографии В. Барского, Б. Долматовского и из архива А. Дреева</p>
+</div>
+
+<div class="message">
+<p>Алексей Дреев</p>
+<p>ПРИЕМЫ ИГРЫ В МИТТЕЛЬШПИЛЕ</p>
+<p>Редактор Андрей Панеях</p>
+<p>Оформление Галина Лупенко</p>
+<p>Верстка Андрей Ельков</p>
+<p>Формат 60x90 1/16</p>
+<p>Печать офсетная. Бумага офсетная. Заказ №</p>
+<p>www.ruchess.ru</p>
+</div>
+
+<div class="message">
+<p>По вопросам распространения обращаться</p>
+<p>к Владимиру Барскому: barsky@ruchess.ru</p>
+</div>
+
+<div class="message warning">
+<b>ISBN 978-5-907077-04-1</b>
+<div style="float:right;">© А.С.Дреев, 2019<br />© Федерация шахмат России, 2019</div>
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

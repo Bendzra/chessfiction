@@ -1,0 +1,38 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>ПАУЛЬ КЕРЕС</h2>
+<h1>СТО ПАРТИЙ</h1>
+
+<div class="diagram">
+<p>ИЗДАТЕЛЬСТВО</p>
+<p>«ФИЗКУЛЬТУРА И СПОРТ»</p>
+<p>МОСКВА • 1966</p>
+</div>
+
+<div class="message notification">
+<p>Сто партий Пауля Кереса - яркая история развития шахмат и шахматная биография гениального игрока с 1929-го по 1964-й год. «Керес вносит в игру атмосферу высшего приключения… Только он и Алехин могут принести нам освобождение от бесконечного однообразия позиционной игры». Спорт ли шахматы? Мог ли Керес стать первым, суждено ли ему было остаться в истоии шахмат довольствуясь «скромной ролью блестящего второго»? Борьба ли это только? В красоте отобранных автором ста партий видишь искусство, чувствуя азарт и накал страстей, вспоминаешь, что это игра, а следя за сложным процессом поиска планов и всплеском неожиданных ходов интуиции, понимаешь, что это и спорт, и искусство, и игра, и взаимопонимание партнеров-соперников, и ещё многое другое.</p>
+</div>
+
+<!--div>
+<p>7 А 9.1</p>
+<p>6—9—4</p>
+</div-->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

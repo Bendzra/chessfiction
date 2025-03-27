@@ -1,0 +1,51 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Оглавление</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Позиционная жертва</a><!--3--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vvedenie.htm' %}">Введение</a><!--3--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-zhertva-peshki.htm' %}">Глава первая. Жертва пешки</a><!--9--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-zhertva-kachestva.htm' %}">Глава вторая. Жертва качества</a><!--38--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-zhertva-legkoj-figury.htm' %}">Глава третья. Жертва легкой фигуры</a><!--66--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0-zhertva-ladi.htm' %}">Глава четвертая. Жертва ладьи</a><!--78--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-0-zhertva-ferzia.htm' %}">Глава пятая. Жертва ферзя</a><!--81--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-0-primernye-partii.htm' %}">Примерные партии</a><!--94--></li>
+</ul>
+
+<!--
+<p><b>Библиотечка шахматиста</b></p>
+<h2>Павел Евсеевич Кондратьев</h2>
+<h1>Позиционная жертва</h1>
+<p>Заведующий редакцией В. И. Чепижный</p>
+<p>Редактор Б. И. Туров</p>
+<p>Художник А. Г. Моисеев</p>
+<p>Художественный редактор В. А. Жигарев</p>
+<p>Технический редактор Н. А. Суровцова</p>
+<p>Корректор Л. В. Чернова</p>
+<p>ИБ № 1557. Сдано в набор 31.05.83. Подписано к печати 28.10.83. Формат 60X90/16. Бумага тип. № 2. Гарнитура «Литературная». Высокая печать. Усл. п. л. 6,00. Усл. кр -отт. 6,5. Уч.-изд. л. 5,87. Тираж 50000 экз. Издат.</p>
+<p>№ 7124. Зак. 1988. Цена 40 коп.</p>
+<p>Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по делам издательств, полиграфии и книжной торговли. 1014 21. Москва, Каляевская ул., 27.</p>
+<p>Набрано в ордена Октябрьской Революции и ордена Трудового Красного Знамени Первой Образцовой типографии имени А. А. Жданова Союзполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли. Москва» М-54, Валовая, 28.</p>
+<br>
+<p>Отпечатано в Московской тип. № 32.</p>
+<p>Зак. 1245.</p>
+-->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

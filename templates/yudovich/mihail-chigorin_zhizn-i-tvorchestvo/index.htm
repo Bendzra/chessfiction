@@ -1,0 +1,232 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Михаил Чигорин. Жизнь и творчество</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-rubcy-na-serdce.htm' %}">Рубцы на сердце</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}">Вечера у «Доминика»</a></li>
+<ol start="1">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game1">М. Чигорин — И. Шумов (<i>(без пешки f7)</i>), Петербург, 1874 г.</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game2">В. Кнорре — М. Чигорин (<i>Итальянская партия</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game3">М. Чигорин — А. Давыдов (<i>Королевский гамбит</i>)</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}">Лучший шахматист России</a></li>
+<ol start="4">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game4">М. Чигорин — И. Шумов (<i>Северный гамбит</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game5">М. Чигорин — А. Хардин (<i>Гамбит слона</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game6">М. Чигорин — Э. Шифферс (<i>Шотландская партия</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game7">М. Чигорин — Е. Шмидт (<i>Защита двух коней</i>), 1-я партия 3-го матча</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game8">С. Алапин — М. Чигорин (<i>Гамбит слона</i>)</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}">Окно в Европу</a></li>
+<ol start="9">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game9">М. Чигорин — Л. Паульсен (<i>Сицилианская защита</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game10">М. Чигорин — В. Стейниц (<i>Гамбит Эванса</i>), 27-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game11">И. Цукерторт — М. Чигорин (<i>Отказанный гамбит Эванса</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game12">В. Стейниц — М. Чигорин (<i>Гамбит Стейница</i>), 3-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game13">М. Чигорин — В. Стейниц (<i>Гамбит Эванса</i>), 17-й тур</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-na-vysshem-urovne.htm' %}">На высшем уровне</a></li>
+<ol start="14">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/05-na-vysshem-urovne.htm' %}#game14">М. Чигорин — В. Стейниц (<i>Гамбит Эванса</i>), 1-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/05-na-vysshem-urovne.htm' %}#game15">М. Чигорин — В. Стейниц (<i>Испанская партия</i>)</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}">Он не имел равных...</a></li>
+<ol start="16">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game16">М. Чигорин — Гор. Харьков (<i>Королевский гамбит</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game17">М. Чигорин — В. Урусов (<i>Гамбит Эванса</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game18">Лондон — Петербург (<i>Защита Чигорина</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game19">М. Чигорин — В. Стейниц (<i>Гамбит Эванса</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game20">В. Стейниц — М. Чигорин (<i>Защита двух коней</i>)</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}">Исторические матчи</a></li>
+<ol start="21">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game21">М. Чигорин — В. Стейниц (<i>Гамбит Эванса</i>), 1-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game22">В. Стейниц — М. Чигорин (<i>Испанская партия</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game23">З. Тарраш — М. Чигорин (<i>Испанская партия</i>), 7-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game24">З. Тарраш — М. Чигорин (<i>Испанская партия</i>), 11-я партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game25">М. Чигорин — З. Тарраш (<i>Французская защита</i>), 22-я (последняя) партия</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game26">Эм. Ласкер — М. Чигорин (<i>Королевский гамбит</i>), 4-я партия</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}">Гастингс — Петербург</a></li>
+<ol start="27">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game27">М. Чигорин — Г. Пильсбери (<i>Отказанный королевский гамбит</i>), 1-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game28">Эм. Ласкер — М. Чигорин (<i>Защита Чигорина</i>), 2-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game29">З. Тарраш — М. Чигорин (<i>Дебют ферзевых пешек</i>), 5-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game30">М. Чигорин — Д. Яновский (<i>Венская партия</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game31">Г. Пильсбери — М. Чигорин (<i>Защита Чигорина</i>), 11-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game32">М. Чигорин — Г. Пильсбери (<i>Испанская партия</i>)</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-v-poiskah-istiny.htm' %}">В поисках истины</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-otkrytye-debiuty.htm' %}">Открытые дебюты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-poluzakrytye-i-zakrytye-debiuty.htm' %}">Полузакрытые и закрытые дебюты</a></li>
+<ol start="33">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/11-poluzakrytye-i-zakrytye-debiuty.htm' %}#game33">А. Берн — М. Чигорин (<i>Староиндийская защита</i>), Международный турнир Вена, 1898 г.</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-0-znamenitye-partii-chigorina.htm' %}">Знаменитые партии Чигорина</a></li>
+<ol start="34">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game34">М. Чигорин — В. Поллок (<i>Гамбит Эванса</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game35">М. Чигорин — Р. Харузек (<i>Итальянская партия</i>), 7-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game36">М. Чигорин — А. Альбин (<i>Контргамбит Альбина</i>), 13-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game37">М. Чигорин — А. Вальбродт (<i>Контргамбит Фалькбеера</i>), 6-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game38">М. Чигорин — А. Цинкль (<i>Французская защита</i>)</a></li>
+</ol>
+<br />
+<ol start="39">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game39">М. Чигорин — Г. Каро (<i>Венская партия</i>), 10-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game40">Э. Шифферс — М. Чигорин (<i>Индийская защита</i>), 11-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game41">Г. Пильсбери — М. Чигорин (<i>Защита Чигорина</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game42">Ф. Ли — М. Чигорин (<i>Дебют ферзевых пешек</i>), 20-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game43">М. Чигорин — Д. Мортимер (<i>Гамбит Стейница</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game44">Ф. Маршалл — М. Чигорин (<i>Французская защита</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game45">М. Чигорин — З. Тарраш (<i>Итальянская партия</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game46">М. Чигорин — К. Шлехтер (<i>Итальянская партия</i>), 19-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game47">Ф. Маршалл — М. Чигорин (<i>Ферзевый гамбит</i>), 13-й тур</a></li>
+</ol>
+<br />
+<ol start="48">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game48">М. Чигорин — Г. Марко (<i>Королевский гамбит</i>), 2-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game49">Р. Тейхман — М. Чигорин (<i>Защита Чигорина</i>), 15-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game50">И. Мизес — М. Чигорин (<i>Английское начало</i>), 12-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game51">Ф. Маршалл — М. Чигорин (<i>Староиндийская защита</i>), Остенде, 1906 г.</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game52">Ф. Маршалл — М. Чигорин (<i>Староиндийская защита</i>), 4-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game53">О. Дурас — М. Чигорин (<i>Испанская партия</i>), 6-й тур</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game54">М. Чигорин — М. Видмар (<i>Отказанный королевский гамбит</i>), 21-й тур</a></li>
+</ol>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}">«Организация и деятельность»</a></li>
+<ol start="55">
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game55">П. Арнольд — М. Чигорин (<i>Защита двух коней</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game56">М. Чигорин — Г. Пильсбери (<i>Контргамбит Фалькбеера</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game57">А. Марков — М. Чигорин (<i>Защита двух коней</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game58">М. Чигорин — А. Рубинштейн (<i>Французская защита</i>)</a></li>
+<li><a class="line1" href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game59">М. Чигорин — Г. Сальве (<i>Французская защита</i>), 8-я партия</a></li>
+</ol>
+
+<li><a href="#app1">УКАЗАТЕЛЬ ДЕБЮТОВ</a></li>
+<li><a href="#app2">УКАЗАТЕЛЬ ПАРТНЕРОВ</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="app1"></a>
+<div class="section">
+<h2>УКАЗАТЕЛЬ ДЕБЮТОВ</h2>
+<div class="score">
+<ul>
+  <li>
+    <ul>
+      <li>(без пешки f7)	<a href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game1">1</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Итальянская партия <a href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game2">2</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game35">35</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game45">45</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game46">46</a></li>
+      <li>Защита двух коней <a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game7">7</a>, <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game20">20</a>, <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game55">55</a>, <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game57">57</a></li>
+      <li>Гамбит Эванса	<a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game10">10</a>, <a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game13">13</a>, <a href="{% url 'page-view' book.root_dir|add:'/05-na-vysshem-urovne.htm' %}#game14">14</a>, <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game17">17</a>, <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game19">19</a>, <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game21">21</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game34">34</a></li>
+      <li>Отказанный гамбит Эванса	<a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game11">11</a></li>
+      <li>Контргамбит Фалькбеера <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game37">37</a>, <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game56">56</a></li>
+      <li>Королевский гамбит <a href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game3">3</a>, <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game16">16</a>, <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game26">26</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game48">48</a></li>
+      <li>Гамбит слона	<a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game5">5</a>, <a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game8">8</a></li>
+      <li>Гамбит Стейница	<a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game12">12</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game43">43</a></li>
+      <li>Отказанный королевский гамбит <a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game27">27</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game54">54</a></li>
+      <li>Северный гамбит	<a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game4">4</a></li>
+      <li>Венская партия	<a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game30">30</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game39">39</a></li>
+      <li>Шотландская партия	<a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game6">6</a></li>
+      <li>Испанская партия <a href="{% url 'page-view' book.root_dir|add:'/05-na-vysshem-urovne.htm' %}#game15">15</a>, <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game22">22</a>, <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game23">23</a>, <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game24">24</a>, <a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game32">32</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game53">53</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Французская защита <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game25">25</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game38">38</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game44">44</a>, <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game58">58</a>, <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game59">59</a></li>
+      <li>Сицилианская защита	<a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game9">9</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Дебют ферзевых пешек	<a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game29">29</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game42">42</a></li>
+      <li>Защита Чигорина <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game18">18</a>, <a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game28">28</a>, <a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game31">31</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game41">41</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game49">49</a></li>
+      <li>Контргамбит Альбина	<a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game36">36</a></li>
+      <li>Староиндийская защита <a href="{% url 'page-view' book.root_dir|add:'/11-poluzakrytye-i-zakrytye-debiuty.htm' %}#game33">33</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game51">51</a>, <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game52">52</a></li>
+      <li>Ферзевый гамбит	<a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game47">47</a></li>
+      <li>Индийская защита	<a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game40">40</a></li>
+    </ul>
+  </li>
+  <li>
+    <ul>
+      <li>Английское начало	<a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game50">50</a></li>
+    </ul>
+  </li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="app2"></a>
+<div class="section">
+<h2>УКАЗАТЕЛЬ ПАРТНЕРОВ</h2>
+<div class="score">
+<ul>
+	<li>С. АЛАПИН <b><i><a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game8">8</a></i></b></li>
+	<li>А. АЛЬБИН <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game36">36</a></li>
+	<li>П. АРНОЛЬД <b><i><a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game55">55</a></i></b></li>
+	<li>А. БЕРН <b><i><a href="{% url 'page-view' book.root_dir|add:'/11-poluzakrytye-i-zakrytye-debiuty.htm' %}#game33">33</a></i></b></li>
+	<li>А. ВАЛЬБРОДТ <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game37">37</a></li>
+	<li>М. ВИДМАР <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game54">54</a></li>
+	<li>А. ДАВЫДОВ <a href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game3">3</a></li>
+	<li>О. ДУРАС <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game53">53</a></i></b></li>
+	<li>Г. КАРО <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game39">39</a></li>
+	<li>В. КНОРРЕ <b><i><a href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game2">2</a></i></b></li>
+	<li>ЭМ. ЛАСКЕР <b><i><a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game26">26</a></i></b>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game28">28</a></i></b></li>
+	<li>Ф. ЛИ <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game42">42</a></i></b></li>
+	<li>ЛОНДОН <b><i><a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game18">18</a></i></b></li>
+	<li>Г. МАРКО <a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game48">48</a></li>
+	<li>А. МАРКОВ <b><i><a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game57">57</a></i></b></li>
+	<li>Ф. МАРШАЛЛ <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game44">44</a></i></b>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game47">47</a></i></b>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game51">51</a></i></b>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game52">52</a></i></b></li>
+	<li>И. МИЗЕС <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game50">50</a></i></b></li>
+	<li>Д. МОРТИМЕР <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game43">43</a></li>
+	<li>Л. ПАУЛЬСЕН <a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game9">9</a></li>
+	<li>Г. ПИЛЬСБЕРИ <a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game27">27</a>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game31">31</a></i></b>, <a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game32">32</a>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game41">41</a></i></b>, <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game56">56</a></li>
+	<li>В. ПОЛЛОК <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game34">34</a></li>
+	<li>А. РУБИНШТЕЙН <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game58">58</a></li>
+	<li>Г. САЛЬВЕ <a href="{% url 'page-view' book.root_dir|add:'/13-organizaciia-i-deiatelnost.htm' %}#game59">59</a></li>
+	<li>В. СТЕЙНИЦ <a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game10">10</a>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game12">12</a></i></b>, <a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game13">13</a>, <a href="{% url 'page-view' book.root_dir|add:'/05-na-vysshem-urovne.htm' %}#game14">14</a>, <a href="{% url 'page-view' book.root_dir|add:'/05-na-vysshem-urovne.htm' %}#game15">15</a>, <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game19">19</a>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game20">20</a></i></b>, <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game21">21</a>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game22">22</a></i></b></li>
+	<li>З. ТАРРАШ <b><i><a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game23">23</a></i></b>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game24">24</a></i></b>, <a href="{% url 'page-view' book.root_dir|add:'/07-istoricheskie-matchi.htm' %}#game25">25</a>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game29">29</a></i></b>, <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game45">45</a></li>
+	<li>Р. ТЕЙХМАН <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-3-partii-48-54.htm' %}#game49">49</a></i></b></li>
+	<li>В. УРУСОВ <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game17">17</a></li>
+	<li>А. ХАРДИН <a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game5">5</a></li>
+	<li>Р. ХАРУЗЕК <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game35">35</a></li>
+	<li>ХАРЬКОВ <a href="{% url 'page-view' book.root_dir|add:'/06-on-ne-imel-ravnyh.htm' %}#game16">16</a></li>
+	<li>А. ЦИНКЛЬ <a href="{% url 'page-view' book.root_dir|add:'/12-1-partii-34-38.htm' %}#game38">38</a></li>
+	<li>И. ЦУКЕРТОРТ <b><i><a href="{% url 'page-view' book.root_dir|add:'/04-okno-v-evropu.htm' %}#game11">11</a></i></b></li>
+	<li>Э. ШИФФЕРС <a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game6">6</a>, <b><i><a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game40">40</a></i></b></li>
+	<li>К. ШЛЕХТЕР <a href="{% url 'page-view' book.root_dir|add:'/12-2-partii-39-47.htm' %}#game46">46</a></li>
+	<li>Е. ШМИДТ <a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game7">7</a></li>
+	<li>И. ШУМОВ <a href="{% url 'page-view' book.root_dir|add:'/02-vechera-u-dominika.htm' %}#game1">1</a>, <a href="{% url 'page-view' book.root_dir|add:'/03-luchshij-shahmatist-rossii.htm' %}#game4">4</a></li>
+	<li>Д. ЯНОВСКИЙ <a href="{% url 'page-view' book.root_dir|add:'/08-gastings-peterburg.htm' %}#game30">30</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

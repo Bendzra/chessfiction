@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Bibliography | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Bibliography</h2>
+<p>A Ferocious Opening Repertoire, Cyrus Lakdawala (Everyman Chess 2010)</p>
+<p>Chess Explained: The French, Viacheslav Eingorn and Valentin Bogdanov (Gambit 2008)</p>
+<p>French Classical, Byron Jacobs (Everyman Chess 2001)</p>
+<p>Korchnoi: Move by Move, Cyrus Lakdawala (Everyman Chess 2013)</p>
+<p>My 60 Memorable Games, Bobby Fischer (Batsford 2008)</p>
+<p>My Best Games, Vol. 2: Games with Black, Victor Korchnoi (Edition Olms 2001)</p>
+<p>Play the French, 4th ed., John Watson (Everyman Chess 2012)</p>
+<p>Starting Out: The French, Byron Jacobs (Everyman Chess 2002)</p>
+<p>The Classical French, Eduard Gufeld and Oleg Stetsko, (Batsford 1999)</p>
+<p>The Flexible French, Viktor Moskalenko (New In Chess 2008)</p>
+<p>The Main Line French: 3 Nc3, Steffen Pedersen (Gambit 2001)</p>
+<p>The Modern French, Dejan Antic and Branimir Maksimovic (New In Chess 2012)</p>
+<h3>Electronic/Online</h3>
+<p>Chess Today, with annotations by Alex Baburin, Vladimir Barsky and Mikhail Golubev</p>
+<p>Chesslive database</p>
+<p>Chesspublishing.com, with annotations by Neil McDonald and John Watson</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

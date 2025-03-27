@@ -1,0 +1,169 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>МАЛ ЗОЛОТНИК, ДА ДОРОГ! | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>МАЛ ЗОЛОТНИК, ДА ДОРОГ!</h3>
+<div class="message">
+<p>Допустим, что в пылу боя уничтожены все фигуры и на доске остались только короли и одна белая пешка. Что ждет эту пешку? Станет ли она ферзем или нет?</p>
+<p>— Как когда, — скажете вы, если вам уже приходилось играть такие позиции. — Иногда пешка проходит, иногда нет. А от чего это зависит — неизвестно.</p>
+<p>— Нет, известно,— отвечает шахматная теория — и это очень просто. Нужно только знать несколько выигрышных позиций и стараться свести игру к одной из них. Например, такой:</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k3/4P3/3K4/8/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">97</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4k3/4P3/3K4/8/8/8/8/8 w - - 0 1"></div>
+<p>Это положение мы назовем критическим. Черный король пока препятствует превращению пешки, но отступать ему некуда. Если ход черных, то у короля нет другой возможности, кроме
+ <!--span onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 b - - 0 1", this, "a3a4"); ' class="line1">1.z0</span--> 
+
+ <span onclick='loadMove("8/4Pk2/3K4/8/8/8/8/8 w - - 0 2", this, "e8f7"); ' class="line1">1...Крe8-f7</span>, и поле превращения пешки освобождается. Белые, конечно, отвечают
+ <span onclick='loadMove("8/3KPk2/8/8/8/8/8/8 b - - 0 2", this, "d6d7"); ' class="line1">2.Крd6-d7</span>. На следующем ходу пешка неотвратимо ступит на последний ряд, превратится в ферзя, и белые победят. Если в позиции на диаграмме ход белых, то, чтобы не потерять пешку, они должны играть
+ <span onclick='loadMove("4k3/4P3/4K3/8/8/8/8/8 b - - 0 1", this, "d6e6"); ' class="line0">1.Крd6-e6</span>, но тогда у короля черных не оказывается ходов. Пат. Белые могут избежать пата лишь отдав пешку, но тогда все равно ничья.</p>
+<p>Как видите, иметь право первого хода здесь невыгодно ни белым, ни черным. Продвигая пешку, белые должны стараться получить критическую позицию, но так, чтобы был ход противника; черные, в свою очередь, «вежливо» стремятся уступить очередь хода белым.</p>
+<p>Ориентируясь на критическую позицию, можно быстро оценивать разные другие положения, где пешка ушла не так далеко.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k3/8/4K3/4P3/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">98</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4k3/8/4K3/4P3/8/8/8/8 w - - 0 1"></div>
+<p>Если ход черных, задача белых несложна. На
+ <!--span onclick='loadMove("4k3/8/4K3/4P3/8/8/8/8 b - - 0 1", this, "d6e6"); ' class="line1">1.z0</span--> 
+
+ <span onclick='loadMove("3k4/8/4K3/4P3/8/8/8/8 w - - 0 2", this, "e8d8"); ' class="line1">1...Крe8-d8</span> 
+они играют
+ <span onclick='loadMove("3k4/5K2/8/4P3/8/8/8/8 b - - 0 2", this, "e6f7"); ' class="line1">2.Крe6-f7</span>, берут под контроль поле e8, и пешка триумфальным маршем проходит в ферзи. То же самое происходит после
+ <span onclick='loadMove("5k2/8/4K3/4P3/8/8/8/8 w - - 0 2", this, "e8f8"); ' class="line1">1...Крe8-f8</span>, только белые продолжают
+ <span onclick='loadMove("5k2/3K4/8/4P3/8/8/8/8 b - - 0 2", this, "e6d7"); ' class="line1">2.Крe6-d7</span>.</p>
+<p>Проанализируем, что будет при ходе белых.</p>
+<p class="longNotation">
+ <span onclick='loadMove("4k3/8/3K4/4P3/8/8/8/8 b - - 0 1", this, "e6d6"); ' class="line0">1.Крe6-d6</span> 
+ <span onclick='loadMove("3k4/8/3K4/4P3/8/8/8/8 w - - 0 2", this, "e8d8"); ' class="line0">Крe8-d8!</span> 
+</p>
+<p>Черные пока не позволяют королю белых взять под контроль поле превращения пешки.</p>
+<p class="longNotation">
+ <span onclick='loadMove("3k4/8/3KP3/8/8/8/8/8 b - - 0 2", this, "e5e6"); ' class="line0">2.e5-e6</span> 
+ <span onclick='loadMove("4k3/8/3KP3/8/8/8/8/8 w - - 0 3", this, "d8e8"); ' class="line0">Крd8-e8</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 b - - 0 3", this, "e6e7"); ' class="line0">3.e6-e7</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Перед нами критическая позиция, и ходить должны черные. Значит, пешка пройдет в ферзи.</p>
+<p>Анализируя следующую позицию, мы легко сможем найти правильный ход.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k3/8/3K4/4P3/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k3/8/3K4/4P3/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">99</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4k3/8/3K4/4P3/8/8/8/8 w - - 0 1"></div>
+<p>Играя
+ <span onclick='loadMove("4k3/8/4K3/4P3/8/8/8/8 b - - 0 1", this, "d6e6"); ' class="line0">1.Крd6-e6</span>, белые добиваются победы, как мы только что видели. После же неосмотрительного движения пешки
+ <span onclick='loadMove("4k3/8/3KP3/8/8/8/8/8 b - - 0 1", this, "e5e6"); ' class="line1">1.e5-e6</span> 
+ <span onclick='loadMove("3k4/8/3KP3/8/8/8/8/8 w - - 0 2", this, "e8d8"); ' class="line1">Крe8-d8</span> 
+ <span onclick='loadMove("3k4/4P3/3K4/8/8/8/8/8 b - - 0 2", this, "e6e7"); ' class="line1">2.e6-e7+</span> 
+ <span onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 w - - 0 3", this, "d8e8"); ' class="line1">Крd8-e8</span> 
+возникает критическая позиция, но, увы, ход белых, а следовательно, партия кончается вничью.</p>
+<p>Теперь мы можем сделать важный вывод: <i>когда пешка перешла границу (середину доски), то белые выигрывают, если их король расположен впереди пешки.</i></p>
+<p>(Правда, есть и исключения, но об этом позднее.)</p>
+<p>Рассмотрим новую позицию.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/4k3/8/4PK2/8/8/8/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/4k3/8/4PK2/8/8/8/8 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">100</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/4k3/8/4PK2/8/8/8/8 b - - 0 1"></div>
+<p>Для того чтобы не дать пешке пройти в ферзи, черным приходится точно защищаться. Сначала они должны пойти
+ <span onclick='loadMove("8/5k2/8/4PK2/8/8/8/8 w - - 0 2", this, "e7f7"); ' class="line0">1...Крe7-f7</span>, не пропуская короля белых. Все же после
+ <span onclick='loadMove("8/5k2/4P3/5K2/8/8/8/8 b - - 0 2", this, "e5e6"); ' class="line0">2.e5-e6+</span> 
+ <span onclick='loadMove("8/4k3/4P3/5K2/8/8/8/8 w - - 0 3", this, "f7e7"); ' class="line0">Крf7-e7</span> 
+ <span onclick='loadMove("8/4k3/4P3/4K3/8/8/8/8 b - - 0 3", this, "f5e5"); ' class="line0">3.Крf5-e5</span> 
+королю черных придется отступить. Но куда? У него есть выбор — поля f8, e8, d8. Черные обязаны отступить на e8
+ <span onclick='loadMove("4k3/8/4P3/4K3/8/8/8/8 w - - 0 4", this, "e7e8"); ' class="line0">3...Крe8</span>, и после
+ <span onclick='loadMove("4k3/8/4PK2/8/8/8/8/8 b - - 0 4", this, "e5f6"); ' class="line0">4.Крe5-f6</span> 
+ <span onclick='loadMove("5k2/8/4PK2/8/8/8/8/8 w - - 0 5", this, "e8f8"); ' class="line0">Крe8-f8</span> 
+ <span onclick='loadMove("5k2/4P3/5K2/8/8/8/8/8 b - - 0 5", this, "e6e7"); ' class="line0">5.e6-e7+</span> 
+ <span onclick='loadMove("4k3/4P3/5K2/8/8/8/8/8 w - - 0 6", this, "f8e8"); ' class="line0">Крf8-e8</span> 
+возникает критическая позиция с ходом белых. Ничья.</p>
+<p>Если бы черные сыграли
+ <span onclick='loadMove("3k4/8/4P3/4K3/8/8/8/8 w - - 0 4", this, "e7d8"); ' class="line1">3...Крe7-d8</span>, то после
+ <span onclick='loadMove("3k4/8/3KP3/8/8/8/8/8 b - - 0 4", this, "e5d6"); ' class="line1">4.Крe5-d6</span> 
+ <span onclick='loadMove("4k3/8/3KP3/8/8/8/8/8 w - - 0 5", this, "d8e8"); ' class="line1">Крd8-e8</span> 
+ <span onclick='loadMove("4k3/4P3/3K4/8/8/8/8/8 b - - 0 5", this, "e6e7"); ' class="line1">5.e6-e7</span> 
+в возникшей критической позиции ход черных, и они проигрывают.</p>
+<p>А если пешка находится на своей территории и еще не перешла границу? Что тогда?</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/3k4/8/8/3KP3/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/3k4/8/8/3KP3/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">101</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/3k4/8/8/3KP3/8/8/8 w - - 0 1"></div>
+<p>Все зависит от очереди хода. Начиная, черные играют
+ <!--span onclick='loadMove("8/3k4/8/8/3KP3/8/8/8 b - - 0 1", this, "e6e7"); ' class="line0">1.z0</span--> 
+
+ <span onclick='loadMove("8/8/3k4/8/3KP3/8/8/8 w - - 0 2", this, "d7d6"); ' class="line0">1...Крd7-d6</span> 
+(или
+ <span onclick='loadMove("8/8/4k3/8/3KP3/8/8/8 w - - 0 2", this, "d7e6"); ' class="line1">1...Крe6</span>), и после
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/3k4/4P3/3K4/8/8/8 b - - 0 2", this, "e4e5"); ' class="line0">2.e4-e5+</span> 
+ <span onclick='loadMove("8/8/4k3/4P3/3K4/8/8/8 w - - 0 3", this, "d6e6"); ' class="line0">Крd6-e6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/4k3/4P3/4K3/8/8/8 b - - 0 3", this, "d4e4"); ' class="line0">3.Крd4-e4</span> 
+ <span onclick='loadMove("8/4k3/8/4P3/4K3/8/8/8 w - - 0 4", this, "e6e7"); ' class="line0">Крe6-e7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/4k3/8/4PK2/8/8/8/8 b - - 0 4", this, "e4f5"); ' class="line0">4.Крe4-f5</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>мы видим знакомую позицию, где черные добиваются ничьей.</p>
+<p>А если ход белых?</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/3k4/8/3K4/4P3/8/8/8 b - - 0 1", this, "d4d5"); ' class="line0">1.Крd4-d5!</span> 
+ <span onclick='loadMove("8/4k3/8/3K4/4P3/8/8/8 w - - 0 2", this, "d7e7"); ' class="line0">Крd7-e7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/4k3/8/4K3/4P3/8/8/8 b - - 0 2", this, "d5e5"); ' class="line0">2.Крd5-e5!</span> 
+ <span onclick='loadMove("8/3k4/8/4K3/4P3/8/8/8 w - - 0 3", this, "e7d7"); ' class="line0">Крe7-d7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/3k4/5K2/8/4P3/8/8/8 b - - 0 3", this, "e5f6"); ' class="line0">3.Крe5-f6!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>И белые выигрывают, так как король занял поле перед пешкой.</p>
+<p>Только к ничьей вел другой ход —
+ <span onclick='loadMove("8/3k4/8/4K3/4P3/8/8/8 b - - 0 1", this, "d4e5"); ' class="line0">1.Крd4-e5</span>. Например,
+ <span onclick='loadMove("8/4k3/8/4K3/4P3/8/8/8 w - - 0 2", this, "d7e7"); ' class="line0">1...Крd7-e7!</span> 
+ <span onclick='loadMove("8/4k3/8/3K4/4P3/8/8/8 b - - 0 2", this, "e5d5"); ' class="line0">2.Крe5-d5</span> 
+ <span onclick='loadMove("8/3k4/8/3K4/4P3/8/8/8 w - - 0 3", this, "e7d7"); ' class="line0">Крe7-d7</span> 
+(или
+ <span onclick='loadMove("8/4k3/8/5K2/4P3/8/8/8 b - - 0 2", this, "e5f5"); ' class="line1">2.Крf5</span> 
+ <span onclick='loadMove("8/5k2/8/5K2/4P3/8/8/8 w - - 0 3", this, "e7f7"); ' class="line1">Крf7</span>), и белому королю не удастся стать впереди пешки, когда она перешагнет границу.</p>
+<p>Мы рассмотрели, как проводится в ферзи центральная пешка. Примерно так же обстоит дело и с другими пешками, кроме крайней. Стоит королю противника занять поле превращения пешки, и его никак не удается вытеснить из угла, а если пешка подойдет к нему вплотную, будет пат.</p>
+<p>Вы сами можете проверить это.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

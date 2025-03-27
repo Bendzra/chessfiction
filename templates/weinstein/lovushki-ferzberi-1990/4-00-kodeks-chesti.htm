@@ -1,0 +1,42 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Кодекс чести | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<a name="105"></a>
+<h1>КОДЕКС ЧЕСТИ</h1>
+
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/4-kodeks-chesti.png' %}" />
+</div>
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-01-pravila-borby.htm' %}">Правила борьбы</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-02-medal-za-spravedlivuiu-igru.htm' %}">Медаль «За справедливую игру»</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-03-pobedu-prisudili-pioneru.htm' %}">Победу присудили пионеру</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-04-zabyl-perevesti-chasy.htm' %}">Забыл перевести часы</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-05-predlozhil-nichiu.htm' %}">Предложил ничью</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-06-predsmertnyj-shah_ili-sudia-v-lovushke.htm' %}">Предсмертный шах, или Судья в ловушке</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-07-ne-te-ladi.htm' %}">Не те ладьи</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-08-mat-s-odnocvetnymi-slonami.htm' %}">Мат с одноцветными слонами</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-09-nichia_v-chetyre-hoda.htm' %}">Ничья... в четыре хода</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-10-ne-zapisal-hod.htm' %}">Не записал ход</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-11-zapisal-dva-hoda.htm' %}">Записал два хода</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-12-kodeks-chesti.htm' %}">Кодекс чести</a></li>
+	</ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

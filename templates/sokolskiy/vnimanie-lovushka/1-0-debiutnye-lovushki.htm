@@ -1,0 +1,29 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Дебютные ловушки | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h2>ДЕБЮТНЫЕ ЛОВУШКИ</h2>
+<div class="score">
+<p>Этот раздел, вероятно, более всего заинтересует шахматистов-практиков. Ловушки следует знать, умело применять их в игре, не увлекаясь, однако, некорректными ловушками, рассчитанными лишь на ошибку противника, в то время как вступительные ходы к таким ловушкам не являются сильнейшими.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-lovushki-v-otkrytyh-debiutah.htm' %}">Ловушки в открытых дебютах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ловушки в полуоткрытых дебютах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Ловушки в закрытых дебютах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Некорректные ловушки</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

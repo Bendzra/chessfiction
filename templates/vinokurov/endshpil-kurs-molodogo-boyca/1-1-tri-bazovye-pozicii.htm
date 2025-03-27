@@ -1,0 +1,79 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>1.1. Три базовые позиции | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="score">
+<h2>1.1. Три базовые позиции</h2>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1k6/8/1K6/1P6/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1k6/8/1K6/1P6/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">№ 1</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1k6/8/1K6/1P6/8/8/8/8 w - - 0 1"></div>
+<p class="caption">Выигрыш</p>
+<p><strong>Правило: король на 6-й горизонтали впереди пешки — всегда выигрыш. Исключение — крайние пешки «a» и «h».</strong></p>
+<p>Выигрыш после
+ <span onclick='loadMove("1k6/8/K7/1P6/8/8/8/8 b - - 0 1", this, "b6a6"); ' class="line0">1.Крa6</span> 
+ <span onclick='loadMove("k7/8/K7/1P6/8/8/8/8 w - - 0 2", this, "b8a8"); ' class="line0">Крa8</span> 
+ <span onclick='loadMove("k7/8/KP6/8/8/8/8/8 b - - 0 2", this, "b5b6"); ' class="line0">2.b6</span> 
+ <span onclick='loadMove("1k6/8/KP6/8/8/8/8/8 w - - 0 3", this, "a8b8"); ' class="line0">Крb8</span> 
+ <span onclick='loadMove("1k6/1P6/K7/8/8/8/8/8 b - - 0 3", this, "b6b7"); ' class="line0">3.b7</span> 
+.
+В случае
+ <span onclick='loadMove("1k6/8/2K5/1P6/8/8/8/8 b - - 0 1", this, "b6c6"); ' class="line1">1.Крc6</span> 
+ <span onclick='loadMove("8/k7/2K5/1P6/8/8/8/8 w - - 0 2", this, "b8a7"); ' class="line1">Крa7!</span> 
+возникает следующая позиция:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/k7/2K5/1P6/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/k7/2K5/1P6/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">№ 2</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/k7/2K5/1P6/8/8/8/8 w - - 0 1"></div>
+<p class="caption">Выигрыш</p>
+<p>Выигрывает только
+ <span onclick='loadMove("8/k1K5/8/1P6/8/8/8/8 b - - 0 1", this, "c6c7"); ' class="line0">1.Крc7</span> 
+ <span onclick='loadMove("k7/2K5/8/1P6/8/8/8/8 w - - 0 2", this, "a7a8"); ' class="line0">Крa8</span> 
+ <span onclick='loadMove("k7/8/1K6/1P6/8/8/8/8 b - - 0 2", this, "c7b6"); ' class="line0">2.Крb6</span> 
+, возвращаясь к позиции № 1,
+так как
+ <span onclick='loadMove("8/k7/1PK5/8/8/8/8/8 b - - 0 1", this, "b5b6"); ' class="line1">1.b6+?</span> 
+ <span onclick='loadMove("k7/8/1PK5/8/8/8/8/8 w - - 0 2", this, "a7a8"); ' class="line1">Крa8!</span> 
+ведет к ничьей.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/4k3/6K1/8/7P/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/4k3/6K1/8/7P/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">№ 3</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/4k3/6K1/8/7P/8/8/8 w - - 0 1"></div>
+<p class="caption">Ход белых — выигрыш, ход черных — ничья</p>
+<p>При ходе белых:
+ <span onclick='loadMove("8/4k1K1/8/8/7P/8/8/8 b - - 0 1", this, "g6g7"); ' class="line0">1.Крg7</span> 
++-.</p>
+<p>При ходе
+ <!--span onclick='loadMove("8/4k3/6K1/8/7P/8/8/8 b - - 0 1", this, "g6g7"); ' class="line1">1.z0</span--> 
+черных:
+ <span onclick='loadMove("5k2/8/6K1/8/7P/8/8/8 w - - 0 2", this, "e7f8"); ' class="line1">1...Крf8</span> 
+=. Именно к этому <strong>полю на вертикали слона</strong> должен стремиться король слабейшей стороны. Оно гарантирует ничью, если крайняя пешка соперника не достигла 6-й горизонтали. Учитывайте это в своих расчетах.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

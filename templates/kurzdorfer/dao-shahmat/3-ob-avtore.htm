@@ -1,0 +1,20 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Об авторе | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h1>Об авторе</h1>
+<div class="score">
+<p>Питер Курцдорфер — бывший редактор журнала «Chess Life» и автор книги (при участии Шахматной федерации США) «Основы шахматного мастерства» («The Everything Chess Basics Book»). М-р Курцдорфер завоевал звание мастера в начале 1980-х годов — мастерского рейтинга он достиг в 1981 году, а звание Original Life Master — в 1991-м. Он начал преподавать шахматы в 1980-х годах и работал прикомандированным мастером в Брэдфорде (Филадельфия) почти все 1990-е годы. Ныне он проживает во Франклинвилле (Нью-Йорк).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,29 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть 3. МИТТЕЛЬШПИЛЬ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>Часть 3. МИТТЕЛЬШПИЛЬ</h2>
+
+  <ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-00-horoshie-pozicii.htm' %}">Хорошие позиции</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-00-plohie-pozicii.htm' %}">Плохие позиции</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-00-ataka.htm' %}">Атака</a></li>
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-01-soberite-vseh-v-kompaniiu.htm' %}">«Соберите всех в компанию»</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-02-sverh-zhertvy.htm' %}">Сверх-жертвы</a></li>
+    </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-00-zashchita.htm' %}">Защита</a></li>
+  </ul>
+
+<div class="message">
+<p>Эта та часть партии, в которой труднее всего устанавливать правила и давать хорошие советы. Для каждого предложенного правила найдется так много исключений, что правило может скорее ввести в заблуждение, чем помочь. Поэтому мы собираемся говорить в большей степени о психологических аспектах миттельшпиля, чем о технических приемах.</p>
+</div>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,101 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Прогулки с французской защитой. Том 2 | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb2.jpg' %}" />
+</div>
+<div class="score">
+<h2>Виктор Корчной, Александр Калинин</h2>
+<h1>ПРОГУЛКИ С ФРАНЦУЗСКОЙ ЗАЩИТОЙ<br>Том 2</h1>
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>К70</p>
+</div-->
+
+<div class="page message">
+<h2>Корчной В.Л., Калинин А.В.</h2>
+<p>К70</p>
+<p>Прогулки с французской защитой. Том 2. - М.: «Russian CHESS House / Русский шахматный дом», 2014. - 288 с. (Шахматный университет).</p>
+<p>ISBN 978-5-94693-118-2</p>
+</div>
+
+<div class="notification message">
+<p>Новая работа легендарного Виктора Корчного и гроссмейстера Александра Калинина посвящена исследованию популярного полуоткрытого начала
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "e7e6"); ' class="line0">e7-e6</span> 
+.</p>
+<p>В.Корчной за свою длительную и блестящую шахматную карьеру не только с успехом применял французскую защиту, но и «генерировал» идеи, продвигавшие вперед теорию этого дебюта. Будучи одним из главных специалистов по французской защите, он не раз применял это начало в матчах на первенство мира. Теперь вы имеете уникальную возможность побывать в творческой лаборатории выдающегося гроссмейстера. Наряду с современным состоянием теории основных вариантов дебюта, подробно освещены вопросы его стратегического содержания.</p>
+<p>Второй том посвящен различным модификациям идеи А. Рубинштейна, связанной с разменом в центре <b>d5:e4</b>, и Классической системы.</p>
+</div>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-1_predislovie.htm' %}">Предисловие ко второму тому</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-0_sistema_rubinshtejna.htm' %}">Глава 1. Система Рубинштейна</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1_6_Nxf6-_Nxf6_7_Bd3.htm' %}">6.К:f6+ К:f6 7.Сd3 (партии 1-8)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2_6_Bd3.htm' %}">6.Сd3 (партии 9-10)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-3_6_Nxf6-_Nxf6_7_c3.htm' %}">6.К:f6+ К:f6 7.c3 (партии 11-12)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-4_6_Nxf6-_Nxf6_7_bg5.htm' %}">6.К:f6+ К:f6 7.Сg5 (партии 13-18)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-5__Be7.htm' %}">...Сe7 (партия 19)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-0_variant_rubinshtejna.htm' %}">Глава 2. Вариант Рубинштейна</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-1_5_Nbd7.htm' %}">5...Кbd7</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-2_5_Be7_6_Bxf6_gf.htm' %}">5...Сe7 6.С:f6 gf</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3_5_Be7_6_Bxf6_Bxf6.htm' %}">5...Сe7 6.С:f6 С:f6</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-4_partiia_32.htm' %}">партия 32</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-0_klassicheskaia_sistema.htm' %}">Глава 3. Классическая система</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-a_klassicheskaia_zashchita.htm' %}">Классическая защита (партии 33-49)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-b_ataka_alehina-shatara.htm' %}">Атака Алехина-Шатара (партии 50-55)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-c_variant_mak-ketchona.htm' %}">Атака Алехина-Шатара (партии 56-61)</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-d_variant_stejnica.htm' %}">Вариант Стейница (партии 62-90)</a></li>
+</ul>
+</ul>
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+
+<h6>Учебное издание</h6>
+
+<h3>Виктор Львович Корчной, Александр Владимирович Калинин</h3>
+<h1>ПРОГУЛКИ С ФРАНЦУЗСКОЙ ЗАЩИТОЙ</h1>
+<h2>Том 2</h2>
+
+<!--div>
+<p>Редактор и компьютерная верстка Андрей Ельков</p>
+<p>Художник Евгений Пермяков</p>
+<p>Подписано в печать 25.12.2013. Формат 60x90/16.</p>
+<p>Гарнитура «Ньютон». Усл. п. л. 18,00. Заказ 789.</p>
+<p>Издательство «Russian CHESS House»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел./факс: (495) 963-80-17</p>
+<p>e-mail: murad@chess-m.com или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+<p>Отпечатано в ОАО «ИПП «Правда Севера». 163002, г. Архангельск, пр. Новгородский, 32. Тел./факс (8182) 64-14-54, тел.: (8182) 65-37-65, 65-38-78</p>
+</div-->
+
+<div class="message">
+<b>ISBN 978-5-94693-118-2</b>
+<div style="float:right;">© Корчной В.Л., Калинин А.В., 2014<br />© Издательство «Russian CHESS House», 2014</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

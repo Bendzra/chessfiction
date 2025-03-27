@@ -1,0 +1,49 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h3>Выдающиеся шахматисты мира</h3>
+<div class="diagram">
+<h2>А.А.КОТОВ</h2>
+<h1>АЛЕКСАНДР АЛЕХИН</h1>
+</div>
+<div class="diagram">
+<p>Москва</p>
+<p>«Физкультура и спорт»</p>
+<p>1973</p>
+</div>
+<hr />
+<div class="diagram">
+<p><strong>Котов А. А.</strong></p>
+<p>К 55 Александр Алехин. М., «Физкультура и спорт», 1973</p>
+<p>255 с., 1 л. порт. («Выдающиеся шахматисты мира»)</p>
+</div>
+<div class="diagram">
+<p>Гроссмейстер А. А. Котов известен не только как шахматист, но и как автор многих книг, в том числе романа «Белые и черные», рисующего облик А. А. Алехина. В этой книге, продолжающей серию «Выдающиеся шахматисты мира», автор возвращается к своему герою и в свете некоторых новых фактов рассказывает о жизни и творчестве великого шахматиста. 75 партий, прокомментированных в книге, раскрывают значение творчества покойного чемпиона мира для современных шахмат.</p>
+</div>
+<div class="diagram">
+<div style="float:left;">
+<p>6-9-4</p>
+<p>107-73</p>
+</div>
+<div style="float:right;">
+<p>7A9.I</p>
+</div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

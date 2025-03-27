@@ -1,0 +1,45 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Фланговая атака | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Фланговая атака</h3>
+<p>(
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line1">1.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line1">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", this, "c2c4"); ' class="line1">2.c4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3", this, "g7g6"); ' class="line1">g6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppp1p/5np1/8/2PP4/6P1/PP2PP1P/RNBQKBNR b KQkq - 0 3", this, "g2g3"); ' class="line1">3.g3</span> 
+ <span onclick='loadMove("rnbqk2r/ppppppbp/5np1/8/2PP4/6P1/PP2PP1P/RNBQKBNR w KQkq - 0 4", this, "f8g7"); ' class="line1">Сg7</span> 
+ <span onclick='loadMove("rnbqk2r/ppppppbp/5np1/8/2PP4/6P1/PP2PPBP/RNBQK1NR b KQkq - 0 4", this, "f1g2"); ' class="line1">4.Сg2</span> 
+ <span onclick='loadMove("rnbq1rk1/ppppppbp/5np1/8/2PP4/6P1/PP2PPBP/RNBQK1NR w KQ - 0 5", this, "e8g8"); ' class="line1">0-0</span> 
+ <span onclick='loadMove("rnbq1rk1/ppppppbp/5np1/8/2PP4/5NP1/PP2PPBP/RNBQK2R b KQ - 0 5", this, "g1f3"); ' class="line1">5.Кf3</span> 
+ <span onclick='loadMove("rnbq1rk1/ppp1ppbp/3p1np1/8/2PP4/5NP1/PP2PPBP/RNBQK2R w KQ - 0 6", this, "d7d6"); ' class="line1">d6</span> 
+ <span onclick='loadMove("rnbq1rk1/ppp1ppbp/3p1np1/8/2PP4/5NP1/PP2PPBP/RNBQ1RK1 b - - 0 6", this, "e1g1"); ' class="line1">6.0-0</span> 
+ <span onclick='loadMove("r1bq1rk1/ppp1ppbp/2np1np1/8/2PP4/5NP1/PP2PPBP/RNBQ1RK1 w - - 0 7", this, "b8c6"); ' class="line1">Кc6</span> 
+ <span onclick='loadMove("r1bq1rk1/ppp1ppbp/2np1np1/8/2PP4/2N2NP1/PP2PPBP/R1BQ1RK1 b - - 0 7", this, "b1c3"); ' class="line1">7.Кc3</span> 
+)</p>
+<p>
+ <span onclick='loadMove("r1bq1rk1/1pp1ppbp/p1np1np1/8/2PP4/2N2NP1/PP2PPBP/R1BQ1RK1 w - - 0 8", this, "a7a6"); ' class="line1">7...a6</span> 
+</p>
+<!--img src="images/GufeldIndian2002-181.png" style="width:109pt;height:111pt;"/-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/1pp1ppbp/p1np1np1/8/2PP4/2N2NP1/PP2PPBP/R1BQ1RK1 w - - 0 8"></div>
+<p>Это продолжение, известное в теории как система Панно, имеет целью подготовку пешечной фланговой атаки <b>b7-b5</b>. После перевода ладьи на b8 воздействие слона g2 на ферзевый фланг не существенно.</p>
+<p>Белые применяют два основных метода игры:</p>
+<p>а) отказ от <b>d4-d5</b>, стремясь сохранить подвижный пешечный центр;</p>
+<!--p>176</p--><!--p>Э. Гуфельд «Староиндийская длиною в жизнь»</p-->
+<p>б) закрытие пешечного центра <b>d4-d5</b>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

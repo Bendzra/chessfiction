@@ -1,0 +1,62 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--p>366</p-->
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Шерешевский М. И. Моя методика. От разрядника — к гроссмейстеру</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие Андрея Филатова</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-vstuplenie.htm' %}">Вступление</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-sovetskij-shahmatnyj-konvejer.htm' %}">ЧАСТЬ I. Советский шахматный конвейер</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-postroenie-debiutnogo-repertuara.htm' %}">Построение дебютного репертуара</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Об изучении шахматной классики</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ II. Стратегия эндшпиля</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">С. Белавенец. Основные принципы игры в эндшпиле</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Централизация короля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Роль пешек в эндшпиле</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Проблема размена</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Мышление схемами</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">«Не спешить»</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Принцип двух слабостей</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Вместо заключения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ III. Из XX века в век XXI</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">О статусе шахматиста и тренера</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шахматные книги</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">НАНТ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Леность</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Техника расчета вариантов</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Результирующие ходы</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">«Метод в шахматах» Иосифа Дорфмана</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Подведение статического баланса</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Интуиция и логика</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Активисты и отражатели</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Заключение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель имен</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

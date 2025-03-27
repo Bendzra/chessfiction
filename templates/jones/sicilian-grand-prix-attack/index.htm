@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Contents</h2>
+<ul>
+<li><a href="0-0-title.htm">Sicilian Gran Prix Attack</a></li>
+<li><a href="0-1-about-this-publication.htm">About this publication</a></li>
+<li><a href="0-2-bibliography.htm">Bibliography</a></li>
+<li><a href="0-3-acknowledgments.htm">Acknowledgments</a></li>
+<li><a href="0-4-introduction.htm">Introduction</a></li>
+<li><a href="1-chapter-1.htm">Chapter 1: 2...Nc6 3 f4 g6 4 Nf3 Bg7 5 Bc4</a></li>
+<li><a href="2-chapter-2.htm">Chapter 2: 2...Nc6 3 f4 g6 4 Nf3 Bg7 5 Bb5</a></li>
+<li><a href="3-chapter-3.htm">Chapter 3: 2...d6 3 f4</a></li>
+<li><a href="4-chapter-4.htm">Chapter 4: 2...e6 3 f4</a></li>
+<li><a href="5-chapter-5.htm">Chapter 5: Other Black second moves</a></li>
+<li><a href="6-chapter-6.htm">Chapter 6: 2...Nc6 3 Bb5</a></li>
+<li><a href="7-chapter-7.htm">Chapter 7: 2...Nc6 3 Bb5 Nd4</a></li>
+<li><a href="8-1-index-of-variations.htm">Index of Variations</a></li>
+<li><a href="8-2-index-of-games.htm">Index of Complete Games</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

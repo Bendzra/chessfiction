@@ -1,0 +1,92 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ладья против слона | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>ЛАДЬЯ ПРОТИВ СЛОНА</h3>
+<div class='score'>
+<p>Эндшпиль с ладьей против слона обычно кончается вничью. Так же, как в окончании с конем против ладьи, здесь нечего бояться оттеснения, ибо при правильной защите удается спастись и на краю доски.</p>
+<p>Важно только помнить, что при отступлении королю слабейшей стороны следует стремиться в угол, противоположный цвету слона (недоступный слону).</p>
+<p>Вот важная критическая позиция.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<p class="capTop">18</p>
+<div class="chessBoard small" data-start-fen="6bk/R7/6K1/8/8/8/8/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("6bk/R7/6K1/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p>Король черных находится в безопасном углу. Читатель сможет сам убедиться, что все дальнейшие попытки оттеснения фигур черных ведут только к пату и белым не удается добиться победы.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="section score">А вот пример неудачной защиты со слоном против ладьи.</p>
+
+<div class="section">
+<p class="capTop">19</p>
+<div class="chessBoard small" data-start-fen="6k1/5R2/6K1/8/3b4/8/8/8 w - - 0 1"></div>
+<p class="capBot">Ход черных</p>
+<div class='score'>
+ <span class="line0" onclick='loadMove("6k1/5R2/6K1/8/3b4/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<!--span onclick='loadMove("6k1/5R2/6K1/8/3b4/8/8/8 b - - 0 1", this, "b1b4"); ' class="line0">1.z0</span-->
+<p>Черный король расположен неудачно, в «опасном» углу, и белым удается добиться победы.</p>
+<p class="longNotation">
+ <span class="ellipsis0">1. ...</span> 
+ <span onclick='loadMove("6k1/5R2/6K1/8/8/8/8/6b1 w - - 0 2", this, "d4g1"); ' class="line0">Сd4-g1</span>.</p>
+<p>Слона надо прятать, так как грозило
+ <span onclick='loadMove("6k1/3R4/6K1/8/3b4/8/8/8 b - - 0 1", this, "f7d7"); ' class="line1">1.Лf7-d7</span> 
+ <span onclick='loadMove("6k1/3R4/1b4K1/8/8/8/8/8 w - - 0 2", this, "d4b6"); ' class="line1">Сd4-b6</span> 
+ <span onclick='loadMove("6k1/1R6/1b4K1/8/8/8/8/8 b - - 0 2", this, "d7b7"); ' class="line1">2.Лd7-b7</span> 
+ <span onclick='loadMove("6k1/1R6/6K1/2b5/8/8/8/8 w - - 0 3", this, "b6c5"); ' class="line1">Сb6-c5</span> 
+ <span onclick='loadMove("1R4k1/8/6K1/2b5/8/8/8/8 b - - 0 3", this, "b7b8"); ' class="line1">3.Лb7-b8+</span> 
+ <span onclick='loadMove("1R3bk1/8/6K1/8/8/8/8/8 w - - 0 4", this, "c5f8"); ' class="line1">Сc5-f8</span> 
+ <span onclick='loadMove("R4bk1/8/6K1/8/8/8/8/8 b - - 0 4", this, "b8a8"); ' class="line1">4.Лb8-a8</span>, и мат следующим ходом.</p>
+<p class="longNotation">
+<span onclick='loadMove("6k1/8/6K1/8/8/8/8/5Rb1 b - - 0 2", this, "f7f1"); ' class="line0">2.Лf7-f1</span>
+<span onclick='loadMove("6k1/8/6K1/8/8/8/7b/5R2 w - - 0 3", this, "g1h2"); ' class="line0">Сg1-h2</span></p>
+<p class="longNotation">
+<span onclick='loadMove("6k1/8/6K1/8/8/8/7b/7R b - - 0 3", this, "f1h1"); ' class="line0">3.Лf1-h1</span>
+<span onclick='loadMove("6k1/8/6K1/8/8/6b1/8/7R w - - 0 4", this, "h2g3"); ' class="line0">Сh2-g3</span></p>
+<p class="longNotation">
+<span onclick='loadMove("6k1/8/6K1/8/8/6b1/8/6R1 b - - 0 4", this, "h1g1"); ' class="line0">4.Лh1-g1</span>
+<span onclick='loadMove("6k1/8/6K1/8/8/8/7b/6R1 w - - 0 5", this, "g3h2"); ' class="line0">Сg3-h2</span></p>
+<p class="longNotation">
+<span onclick='loadMove("6k1/8/6K1/8/8/8/6Rb/8 b - - 0 5", this, "g1g2"); ' class="line0">5.Лg1-g2!</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>Несмотря на отчаянную защиту черных, белым удается вытеснить слона из убежища.</p>
+<p>Остальное просто. Например:</p>
+<p class="longNotation">
+<span class="ellipsis0">5. ...</span>
+<span onclick='loadMove("6k1/8/6K1/4b3/8/8/6R1/8 w - - 0 6", this, "h2e5"); ' class="line0">Сh2-e5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("6k1/8/6K1/4b3/8/8/4R3/8 b - - 0 6", this, "g2e2"); ' class="line0">6.Лg2-e2</span>
+<span onclick='loadMove("6k1/8/3b2K1/8/8/8/4R3/8 w - - 0 7", this, "e5d6"); ' class="line0">Сe5-d6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("4R1k1/8/3b2K1/8/8/8/8/8 b - - 0 7", this, "e2e8"); ' class="line0">7.Лe2-e8+</span>
+с матом в два хода.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="section score">С ладьей против слона удается добиться победы и в том случае, когда силы противника разобщены.</p>
+
+<div class="section">
+<p class="capTop">20</p>
+<div class="chessBoard small" data-start-fen="7k/8/4R3/8/8/6b1/4K3/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("7k/8/4R3/8/8/6b1/4K3/8 w - - 0 1", this, ""); '>[...]</span>
+<p>В этой позиции, представляющей окончание этюда, белые выигрывают ходом <b>1.Крf3</b>, и, несмотря на кажущуюся свободу, слон не имеет хороших полей для отступления.</p>
+<!--p class='page'></p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<hr />
+
+</div> <!-- iBook -->
+{% endblock content %}
+

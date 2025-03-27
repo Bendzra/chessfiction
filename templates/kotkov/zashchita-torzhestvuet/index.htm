@@ -1,0 +1,63 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Котков Ю.М. ЗАЩИТА ТОРЖЕСТВУЕТ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-ot-avtora.htm' %}">ОТ АВТОРА</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-priemy-zashchity.htm' %}">ПРИЕМЫ ЗАЩИТЫ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-passivnaia-ili-aktivnaia.htm' %}">Пассивная или активная?</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-zashchita-i-kontrataka.htm' %}">Защита и контратака</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-zhertva-oruzhie-zashchity.htm' %}">Жертва — оружие защиты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-razmeny-oblegchaiut-zashchitu.htm' %}">Размены облегчают защиту</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-vnimanie-centr.htm' %}">Внимание — центр!</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-v-igru-vstupaet-korol.htm' %}">В игру вступает король</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-7-na-pomoshch-prihodit-taktika.htm' %}">На помощь приходит тактика</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-8-chuvstvo-opasnosti.htm' %}">Чувство опасности</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-9-glavnoe-spokojstvie.htm' %}">Главное — спокойствие!</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00-iz-turnirnoj-praktiki.htm' %}">ИЗ ТУРНИРНОЙ ПРАКТИКИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-vyzyvaia-ogon-na-sebia.htm' %}">Вызывая огонь на себя</a></li>				
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-na-chashah-vesov-zashchita-i-napadenie.htm' %}">На чашах весов — защита и нападение</a></li>  
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-moshchnaia-kontrataka.htm' %}">Мощная контратака</a></li>                    
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-balansiruia-nad-propastiu.htm' %}">Балансируя над пропастью</a></li>             
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05-edinstvennyj-resurs.htm' %}">Единственный ресурс</a></li>                  
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-diagonalnaia-zashchita.htm' %}">Диагональная защита</a></li>                  
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-granica-na-zamke.htm' %}">Граница на замке</a></li>                     
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-bit-ne-obiazatelno.htm' %}">Бить не обязательно!</a></li>                 
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-09-spravedlivyj-final.htm' %}">Справедливый финал</a></li>                   
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-10-ferz-v-kapkane.htm' %}">Ферзь в капкане</a></li>                      
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-11-peshki-pokidaiut-korolia.htm' %}">Пешки покидают короля</a></li>                
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-12-za-nepriiatelskoj-peshkoj.htm' %}">За неприятельской пешкой</a></li>             
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-13-kinzhalnye-udary.htm' %}">Кинжальные удары</a></li>                     
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-14-najdeno-pri-analize.htm' %}">Найдено при анализе</a></li>                  
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-15-luchshaia-zashchita-napadenie.htm' %}">Лучшая защита — нападение!</a></li>           
+<!--li><a href="#47">Задачный ход</a></li-->
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-posleslovie.htm' %}">ПОСЛЕСЛОВИЕ</a></li>
+</ul>
+<br />
+<h2>Юрий Михайлович Котков</h2>
+<h1>ЗАЩИТА ТОРЖЕСТВУЕТ</h1>
+<p class="message">Редактор Ю. А. Бразильский. Художник И. М. Пучков. Художественный редактор В. К. Сафронов. Технический редактор С. С. Басипова. Корректор З. Г Самылкина</p>
+<p class="message">А10178. Сдано в набор 19/Х-70 г. Подписано к печати 25/Х 11-70 г. Формат 60x90 1/16 Бумага типографская № 2. Печ. л. 3. Усл. печ. л. 3. Уч.-изд. л. 2,52. Бум. л. 1,5. Тираж 60 ООО экз. Издат. № 4292. Цена 8 коп. Зак. 1474.</p>
+<p class="message">Издательство «Физкультура и спорт» Комитета по печати при Совете Министров СССР Москва, К-6, Каляевская ул., 27</p>
+<p class="message">Ордена Трудового Красного Знамени Первая Образцовая типография им А. А Жданова Главполиграфпрома Комитета по печати при Совете Министров СССР. 'Москва, М-54, Валовая, 28</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

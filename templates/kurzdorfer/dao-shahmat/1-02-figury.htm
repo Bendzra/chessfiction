@@ -1,0 +1,159 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 2. Фигуры | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Глава 2. ФИГУРЫ</h2>
+
+<div class="score">
+<blockquote>
+«Пешка — душа шахмат».
+<p style="text-align:right;"><i>Приписывается Филидору</i></p>
+</blockquote>
+<p class="notification message">Нужно знать инструменты, которыми вам приходится оперировать; это всё, что у вас есть. Фигуры и пешки (пешки не считаются фигурами) -всего шесть типов, и каждый из них имеет свои особенности, которые вы должны знать.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 5: Оставляйте пешки в покое, кроме центральных и проходных.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="4rrk1/1pb2p2/p1nqp3/2p3p1/2P4p/1P1B4/PB3PPP/R2Q1RK1 w - - 0 1"></div>
+<div class="score">
+<p>Этот принцип проистекает из слабости, присущей всем пешкам: они не могут ходить назад. Если пешка сделала ход, клетки, которые она не может больше контролировать, выпадают из ее поля зрения навсегда или до тех пор, пока она не превратится в какую-либо другую фигуру, а в этом случае она уже не пешка. Таким образом, вы переходите Рубикон с каждым пешечным ходом.</p>
+<!--img src="images/Tao of Chess-6.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="4rrk1/1pb2p2/p1nqp3/2p3p1/2P4p/1P1B4/PB3PPP/R2Q1RK1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+<p>Перед вами графический пример того, что случается, когда вы играете пешками. Хотя черные угрожают поставить мат следующим ходом, они быстро проигрывают ввиду того, что выдвинули вперед пешку «g», создав брешь в своих оборонительных порядках, которую не залатать. Белые сметают оборону противника:
+ <span class="line0" onclick='loadMove("4rrk1/1pb2p2/p1nqp3/2p3p1/2P4p/1P1B4/PB3PPP/R2Q1RK1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("4rrk1/1pb2p1B/p1nqp3/2p3p1/2P4p/1P6/PB3PPP/R2Q1RK1 b - - 0 1", this, "d3h7"); ' class="line0">1.Сh7+</span> 
+ <span onclick='loadMove("4rr2/1pb2p1k/p1nqp3/2p3p1/2P4p/1P6/PB3PPP/R2Q1RK1 w - - 0 2", this, "g8h7"); ' class="line0">Кр:h7</span> 
+ <span onclick='loadMove("4rr2/1pb2p1k/p1nqp3/2p3pQ/2P4p/1P6/PB3PPP/R4RK1 b - - 0 2", this, "d1h5"); ' class="line0">2.Фh5+</span> 
+ <span onclick='loadMove("4rrk1/1pb2p2/p1nqp3/2p3pQ/2P4p/1P6/PB3PPP/R4RK1 w - - 0 3", this, "h7g8"); ' class="line0">Крg8</span> 
+ <span onclick='loadMove("4rrkQ/1pb2p2/p1nqp3/2p3p1/2P4p/1P6/PB3PPP/R4RK1 b - - 0 3", this, "h5h8"); ' class="line0">3.Фh8X</span>.</p>
+<p>Центральные пешки и проходные (те пешки, на пути которых по их вертикали или на соседних нет вражеских пешек) являются исключением из этого правила по различным причинам. Центральные пешки выгодно двигать вперед, поскольку они занимают центральные поля, а также потому, что при своем движении они открывают линии и диагонали для слонов и ферзей, чтобы те могли вступить в борьбу. Поэтому с новыми слабостями можно смириться ввиду получаемых выгод. Проходные пешки хотят двигаться вперед просто потому, что в них заложено стремление достичь поля превращения. И хотя они оставляют за собой слабые поля, конечный результат оправдывает всё.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Принятие решения требует обдумывания и подготовки. Вы не можете принимать важные решения, не взвешивая тщательно возможные последствия. Но именно так вы поступаете, когда начинаете делать слишком много ходов пешками.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 6: Чтобы получить максимальную отдачу от коней, обеспечьте им крепкую поддержку.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rn3rk1/1b2q1pp/1ppbp3/p2pNp2/2PPn3/1P2PNP1/PB3PBP/2RQ1RK1 b - - 0 1"></div>
+<div class="score">
+<p>
+ <span class="line0" onclick='loadMove("rn3rk1/1b2q1pp/1ppbp3/p2pNp2/2PPn3/1P2PNP1/PB3PBP/2RQ1RK1 w - - 0 1", this, ""); '>[...]</span> 
+Конь — единственная фигура, которая не может пойти на соседнее поле. Он по природе своей — скакун. Потому он может быть блокирован со всех сторон, но не будет от этого страдать — в смысле мобильности — ни в малейшей степени.</p>
+<p>Но эта фигура проявляет себя в лучшем виде тогда, когда имеет хорошую оперативную базу Поэтому размещайте коней в «дыры» (по возможности, в лагере противника) и обеспечивайте им крепкую поддержку. Особенно надежна пешечная поддержка.</p>
+<!--img src="images/Tao of Chess-7.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="rn3rk1/1b2q1pp/1ppbp3/p2pNp2/2PPn3/1P2PNP1/PB3PBP/2RQ1RK1 b - - 0 1"></div>
+<p class="caption"><b>Ход черных</b></p>
+<p>Белый конь на e5 расположен идеально, в то время как черный конь на e4 хотя и хорошо расположен, но занимает не самую выгодную позицию, поскольку белые имеют возможность прогнать его ходом f2-f3 когда-нибудь в будущем.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Ни один человек не является островом. Поддержка со стороны семьи, друзей или коллег по работе очень важна для достижения намеченных целей. В этом смысле все мы кони (имеется в виду фигура): мы проявляем свои лучшие качества, чувствуя дружеское плечо.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 7: Чтобы проявить себя, слонам требуются открытые диагонали и слабости, на которые можно надавить.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnb2rk1/1pq2ppp/p3p3/2npP3/8/2NB1N2/PPP2PPP/R2QR1K1 w - - 0 1"></div>
+<div class="score">
+<p>Шахматные офицеры двигаются только по диагоналям, так что любое, хотя бы и дружеское, блокирование уменьшает их силу. Слон, двигающийся по полям того цвета, на которых расположены его пешки, считается «плохим». Такая фигура лишена мобильности — никуда не пойти, никого не увидеть. Блокированного слона часто называют «большой пешкой», но такой слон зачастую даже слабее пешки, так как он не может двигаться вперед.</p>
+<p>С другой стороны, «хороший» слон — это тот, чьи пешки расположены на полях другого цвета, так что пешки и слон дополняют друг друга.</p>
+<!--img src="images/Tao of Chess-8.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb2rk1/1pq2ppp/p3p3/2npP3/8/2NB1N2/PPP2PPP/R2QR1K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+<p>На диаграмме белый слон — хороший, а черный — плохой. Разница очевидным образом проявляется в комбинации с классической жертвой слона, которая начинается ходами
+ <span class="line0" onclick='loadMove("rnb2rk1/1pq2ppp/p3p3/2npP3/8/2NB1N2/PPP2PPP/R2QR1K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnb2rk1/1pq2ppB/p3p3/2npP3/8/2N2N2/PPP2PPP/R2QR1K1 b - - 0 1", this, "d3h7"); ' class="line0">1.С:h7+</span> 
+ <span onclick='loadMove("rnb2r2/1pq2ppk/p3p3/2npP3/8/2N2N2/PPP2PPP/R2QR1K1 w - - 0 2", this, "g8h7"); ' class="line0">Кр:h7</span> 
+ <span onclick='loadMove("rnb2r2/1pq2ppk/p3p3/2npP1N1/8/2N5/PPP2PPP/R2QR1K1 b - - 0 2", this, "f3g5"); ' class="line0">2.Кg5+</span>. Черный король раскрыт, а фигуры черных на ферзевом фланге попросту «спят».</p>
+<p>Какая польза от слона c8? Пусть слоны дышат полной грудью воздухом открытых диагоналей!</p>
+
+<!--p class="bpiesesSet">P N B R Q K</p-->
+
+<p class="notification message">Совместные действия эффективны. Недостаток активности, обусловленный недостатком возможностей, суть неэффективность.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 8: Ладьям требуются открытые вертикали и горизонтали, чтобы они могли проявить себя в полной мере.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="r3k3/p1R2ppp/Pp2p3/3p4/3P4/4P3/1P3PPP/4K3 w q - 0 1"></div>
+<div class="score">
+<p>
+<span class="line0" onclick='loadMove("r3k3/p1R2ppp/Pp2p3/3p4/3P4/4P3/1P3PPP/4K3 w q - 0 1", this, ""); '>[...]</span> 
+Этот принцип сходен с предыдущим. Ладья очень похожа на слона в том, что она оперирует по открытым и полуоткрытым линиям. Разница в том, что ладье требуются вертикали и горизонтали, а не диагонали.</p>
+<p>Ладья потенциально сильнее слона, поскольку может быстро взять под обстрел любую клетку на доске, в то время как слону доступна только ее половина. Но сила ладьи не проявится до тех пор, пока не будут открыты линии, по которым она сможет «вредить» сопернику.</p>
+<!--img src="images/Tao of Chess-9.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r3k3/p1R2ppp/Pp2p3/3p4/3P4/4P3/1P3PPP/4K3 w q - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+<p>Сравните, как используются ладьи в этом примере. Белая ладья привязала ладью и короля черных к защите слабых пешек, давая, таким образом, своему королю возможность перейти на ферзевый фланг с целью поживы. Черная ладья вынуждена защищать слабую пешку «а». Если она ее бросит, белая ладья возьмет на a7 и белая пешка «а» вскоре достигнет поля превращения.</p>
+
+<!--p class="bpiesesSet">P N B R Q K</p-->
+
+<p class="notification message">Успешные люди устремляются в поиски за желаемым, и в этом они схожи с успешными ладьями. Неудачники не борются за то, что им хочется, и не вступают в свободный контакт с другими людьми. В этом они схожи с ладьями-неудачницами.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 9: Не выводите ферзя слишком рано.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+
+<p>На первый взгляд этот принцип кажется парадоксальным, но так уж получается, что сила ферзя на ранней стадии партии является в действительности гандикапом. Каждая не столь сильная фигура может ей угрожать с полной безнаказанностью, вынуждая ее ходить вновь и вновь. При этом фигуры противника будут одна за другой входить в игру.</p>
+
+<p>Хорошим примером может послужить наивная попытка поставить так называемый «детский мат». Вслед за начальными ходами
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR b KQkq - 0 2", this, "f1c4"); ' class="line0">2.Сc4</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/8/PPPP1PPP/RNBQK1NR w KQkq - 0 3", this, "b8c6"); ' class="line0">Кc6</span> 
+белые играют
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 0 3", this, "d1h5"); ' class="line0">3.Фh5</span> 
+в надежде, что черные не заметят угрозу мата. Но после
+ <span onclick='loadMove("r1b1kbnr/ppppqppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 0 4", this, "d8e7"); ' class="line0">3...Фe7</span> 
+ <span onclick='loadMove("r1b1kbnr/ppppqppp/2n5/4p2Q/2B1P3/2N5/PPPP1PPP/R1B1K1NR b KQkq - 0 4", this, "b1c3"); ' class="line0">4.Кc3</span> 
+следует
+ <span onclick='loadMove("r1b1kb1r/ppppqppp/2n2n2/4p2Q/2B1P3/2N5/PPPP1PPP/R1B1K1NR w KQkq - 0 5", this, "g8f6"); ' class="line0">4...Кf6</span>, и белый ферзь вынужден отступить, а черные получают шанс быстро развить свои фигуры.</p>
+<p>Но обратите внимание, что и черные рано сделали ход ферзем. Разница в том, что он на поле e7 не так уязвим, как белый ферзь на поле h5.</p>
+<p>Но следовать этому принципу не так просто. Что значит «слишком рано»? Центральный дебют (
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/3pP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3", this, "e5d4"); ' class="line0">e:d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/8/3QP3/8/PPP2PPP/RNB1KBNR b KQkq - 0 3", this, "d1d4"); ' class="line0">3.Ф:d4</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/8/3QP3/8/PPP2PPP/RNB1KBNR w KQkq - 0 4", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/8/4P3/4Q3/PPP2PPP/RNB1KBNR b KQkq - 0 4", this, "d4e3"); ' class="line0">4.Фe3</span>) и Скандинавская защита (<span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3P4/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2", this, "e4d5"); ' class="line0">2.e:d5</span> 
+ <span onclick='loadMove("rnb1kbnr/ppp1pppp/8/3q4/8/8/PPPP1PPP/RNBQKBNR w KQkq - 0 3", this, "d8d5"); ' class="line0">Ф:d5</span> 
+ <span onclick='loadMove("rnb1kbnr/ppp1pppp/8/3q4/8/2N5/PPPP1PPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+ <span onclick='loadMove("rnb1kbnr/ppp1pppp/8/q7/8/2N5/PPPP1PPP/R1BQKBNR w KQkq - 0 4", this, "d5a5"); ' class="line0">Фa5</span>) считаются вполне корректными началами, несмотря на раннее развитие ферзя. И как быть с разменным вариантом Испанской партии (<span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1b5"); ' class="line0">3.Сb5</span> 
+ <span onclick='loadMove("r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "a7a6"); ' class="line0">a6</span> 
+ <span onclick='loadMove("r1bqkbnr/1ppp1ppp/p1B5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 4", this, "b5c6"); ' class="line0">4.С:c6</span> 
+ <span onclick='loadMove("r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 5", this, "d7c6"); ' class="line0">d:c6</span>), где
+ <span onclick='loadMove("r1bqkbnr/1pp2ppp/p1p5/4N3/4P3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5", this, "f3e5"); ' class="line0">5.К:e5</span> 
+считается невыгодным ввиду
+ <span onclick='loadMove("r1b1kbnr/1pp2ppp/p1p5/4N3/3qP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 6", this, "d8d4"); ' class="line0">5...Фd4</span> 
+или
+ <span onclick='loadMove("r1b1kbnr/1pp2ppp/p1p5/4N1q1/4P3/8/PPPP1PPP/RNBQK2R w KQkq - 0 6", this, "d8g5"); ' class="line0">5...Фg5</span> 
+— в обоих случаях черные отыгрывают пешку, получая позиционное преимущество благодаря раннему выходу ферзя?</p>
+<p>Решение вопроса, рано или нет выводить ферзя, иногда требует глубокого обдумывания. Ответ надо искать в конкретных вариантах, которые помогут вам определить, достигаете ли вы этим своих целей. Этот принцип не так просто взять на вооружение.</p>
+<div class="notification message">
+<p>Суть, или правда, этого принципа состоит в том, что ценные фигуры не стоит вводить в бой прежде, чем будут подготовлены условия: генерал не должен находиться в бою на переднем крае; знаменитость или государственный муж не должен первым идти на контакт.</p>
+<p>Но важно и не держать в тылу свои главные силы слишком долго. Определение момента, когда еще рано, весьма тонкая материя, и простого ответа здесь нет. Каждый момент времени имеет свои нюансы и требует своего ответа.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

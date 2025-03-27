@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть первая: Наследие Ботвинника | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnb1k2r/p2p2pp/1p2p3/q1p2p2/2PP2P1/P1P5/1B1QPP1P/R3KB1R b KQkq - 0 11"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnb1k2r/p2p2pp/1p2p3/q1p2p2/2PP2P1/P1P5/1B1QPP1P/R3KB1R b KQkq - 0 11", this, ""); '>[...]</span> 
+<h2>Часть первая</h2>
+<h1>Наследие Ботвинника</h1>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1k2r/p2p2pp/1p2p3/q1p2p2/2PP2P1/P1P5/1B1QPP1P/R3KB1R b KQkq - 0 11"></div>
+<!--p>ЧАСТЬ ПЕРВАЯ. Наследие Ботвинника</p-->
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-kulturnaia-proverka.htm' %}">Глава первая. Культурная проверка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава вторая. Тяжелая артиллерия</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава третья. Любимая позиция Исаака Липницкого</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

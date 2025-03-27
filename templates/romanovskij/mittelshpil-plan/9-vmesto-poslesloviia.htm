@@ -1,0 +1,22 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ВМЕСТО ПОСЛЕСЛОВИЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ВМЕСТО ПОСЛЕСЛОВИЯ</h1>
+<p>В шахматной борьбе предприимчивость и дальновидность, смелость и хладнокровие, дерзание и настойчивость, изобретательная фантазия и точность расчета позволяют научный процесс шахматной партии претворять творчески, то есть приобщать его путем создания творческих образов к произведениям искусства.</p>
+<p>К этому призывает шахматистов настоящая книга. Вместе с тем она призывает к глубокому уважению и изучению теории шахмат и стремится оказать в этом важном деле всем любителям шахмат посильную помощь.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

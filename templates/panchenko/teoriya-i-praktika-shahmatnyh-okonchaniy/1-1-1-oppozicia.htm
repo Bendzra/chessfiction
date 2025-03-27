@@ -1,0 +1,213 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оппозиция | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h3 class="diagram">Оппозиция</h3>
+<div class="score">
+<p>Оппозиция — это расположение королей друг от друга через нечетное число полей по горизонтали (вертикали) или диагонали. Оппозиция всегда невыгодна тому, чей ход. Отсюда ясно, что необходимо стремиться к занятию оппозиции. В пешечных окончаниях оппозиция играет решающую роль, как при проведении пешки в ферзи (поз. 1), выигрыше пешки противника или прорыве к пешкам противника (поз. 2), так и при защите в худших позициях (поз. 3, 4).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/3k4/8/3K4/3P4/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/3k4/8/3K4/3P4/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/3k4/8/3K4/3P4/8/8/8 w - - 0 1"></div>
+<p class="caption">1. Ход белых. Ничья Ход черных. Белые выигрывают</p>
+<p><b>Позиция 1</b>. При ходе белых
+ <span onclick='loadMove("8/3k4/8/2K5/3P4/8/8/8 b - - 0 1", this, "d5c5"); ' class="line0">1.Крc5</span> 
+(
+ <span onclick='loadMove("8/3k4/8/4K3/3P4/8/8/8 b - - 0 1", this, "d5e5"); ' class="line1">1.Крe5</span> 
+)
+черные сохраняют оппозицию
+ <span onclick='loadMove("8/2k5/8/2K5/3P4/8/8/8 w - - 0 2", this, "d7c7"); ' class="line0">1...Крc7</span> 
+(
+ <span onclick='loadMove("8/4k3/8/2K5/3P4/8/8/8 w - - 0 2", this, "d7e7"); ' class="line1">1...Крe7</span> 
+)
+и спасают партию.
+А при своем
+ <!--span onclick='loadMove("8/3k4/8/3K4/3P4/8/8/8 b - - 0 1", this, "d7e7"); ' class="line1">1.z0</span--> 
+— вынуждены пропустить короля белых
+ <span onclick='loadMove("8/4k3/8/3K4/3P4/8/8/8 w - - 0 2", this, "d7e7"); ' class="line1">1...Крe7</span> 
+ <span onclick='loadMove("8/4k3/2K5/8/3P4/8/8/8 b - - 0 2", this, "d5c6"); ' class="line1">2.Крc6</span> 
+(
+ <span onclick='loadMove("8/2k5/8/3K4/3P4/8/8/8 w - - 0 2", this, "d7c7"); ' class="line2">1...Крc7</span> 
+ <span onclick='loadMove("8/2k5/4K3/8/3P4/8/8/8 b - - 0 2", this, "d5e6"); ' class="line2">2.Крe6</span> 
+)
+и проигрывают.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/p2k2p1/1p3pP1/1P1K1P2/P7/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/p2k2p1/1p3pP1/1P1K1P2/P7/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/p2k2p1/1p3pP1/1P1K1P2/P7/8/8 w - - 0 1"></div>
+<p class="caption">2. Ход черных. Белые выигрывают Ход белых. Ничья</p>
+<p><b>Позиция 2</b>.
+ <!--span onclick='loadMove("8/8/p2k2p1/1p3pP1/1P1K1P2/P7/8/8 b - - 0 1", this, "d5e6"); ' class="line1">1.z0</span--> 
+При своем ходе черные проигрывают, т.к. вынуждены пропустить короля противника к своим пешкам:
+ <span onclick='loadMove("8/8/p3k1p1/1p3pP1/1P1K1P2/P7/8/8 w - - 0 2", this, "d6e6"); ' class="line1">1...Крe6</span> 
+ <span onclick='loadMove("8/8/p3k1p1/1pK2pP1/1P3P2/P7/8/8 b - - 0 2", this, "d4c5"); ' class="line1">2.Крc5</span> 
++-
+(
+ <span onclick='loadMove("8/8/p1k3p1/1p3pP1/1P1K1P2/P7/8/8 w - - 0 2", this, "d6c6"); ' class="line2">1...Крc6</span> 
+ <span onclick='loadMove("8/8/p1k3p1/1p2KpP1/1P3P2/P7/8/8 b - - 0 2", this, "d4e5"); ' class="line2">2.Крe5</span> 
++-).
+При ходе белых — ничья:
+ <span onclick='loadMove("8/8/p2k2p1/1p3pP1/1P3P2/P1K5/8/8 b - - 0 1", this, "d4c3"); ' class="line0">1.Крc3!</span> 
+(
+ <span onclick='loadMove("8/8/p2k2p1/1p3pP1/1P3P2/P2K4/8/8 b - - 0 1", this, "d4d3"); ' class="line1">1.Крd3?</span> 
+ <span onclick='loadMove("8/8/p5p1/1p1k1pP1/1P3P2/P2K4/8/8 w - - 0 2", this, "d6d5"); ' class="line1">Крd5!</span> 
+и выигрывают уже черные)
+ <span onclick='loadMove("8/8/p5p1/1p1k1pP1/1P3P2/P1K5/8/8 w - - 0 2", this, "d6d5"); ' class="line0">1...Крd5</span> 
+ <span onclick='loadMove("8/8/p5p1/1p1k1pP1/1P3P2/P2K4/8/8 b - - 0 2", this, "c3d3"); ' class="line0">2.Крd3!</span> 
+(Вновь занимая оппозицию и спасаясь)
+ <span onclick='loadMove("8/8/p1k3p1/1p3pP1/1P3P2/P2K4/8/8 w - - 0 3", this, "d5c6"); ' class="line0">2...Крc6</span> 
+(
+ <span onclick='loadMove("8/8/p3k1p1/1p3pP1/1P3P2/P2K4/8/8 w - - 0 3", this, "d5e6"); ' class="line1">2...Крe6</span> 
+)<b>!</b>
+(Проигрывает
+ <span onclick='loadMove("8/8/p2k2p1/1p3pP1/1P3P2/P2K4/8/8 w - - 0 3", this, "d5d6"); ' class="line1">2...Крd6</span> 
+ <span onclick='loadMove("8/8/p2k2p1/1p3pP1/1P1K1P2/P7/8/8 b - - 0 3", this, "d3d4"); ' class="line1">3.Крd4</span> 
++-)
+ <span onclick='loadMove("8/8/p1k3p1/1p3pP1/1P1K1P2/P7/8/8 b - - 0 3", this, "d3d4"); ' class="line0">3.Крd4</span> 
+ <span onclick='loadMove("8/8/p2k2p1/1p3pP1/1P1K1P2/P7/8/8 w - - 0 4", this, "c6d6"); ' class="line0">Крd6</span> 
+=.</p>
+<!--p>9</p-->
+<!--p>10</p><p>Теория и практика шахматных окончаний</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/3p4/2k5/4P3/8/8/1K6 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/3p4/2k5/4P3/8/8/1K6 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/3p4/2k5/4P3/8/8/1K6 w - - 0 1"></div>
+<p class="caption">3. Ход белых. Ничья</p>
+<p><b>Позиция 3</b>.
+ <!--span onclick='loadMove("8/8/3p4/2k5/4P3/8/8/1K6 b - - 0 1", this, "c6d6"); ' class="line1">1.z0</span--> 
+Грозит
+ <span onclick='loadMove("8/8/3p4/8/3kP3/8/8/1K6 w - - 0 2", this, "c5d4"); ' class="line1">1...Крd4</span> 
+с выигрышем пешки.
+Единственный шанс
+ <span onclick='loadMove("8/8/3p4/2k1P3/8/8/8/1K6 b - - 0 1", this, "e4e5"); ' class="line0">1.e5!</span> 
+ <span onclick='loadMove("8/8/8/2k1p3/8/8/8/1K6 w - - 0 2", this, "d6e5"); ' class="line0">de</span> 
+(вынужденно)
+ <span onclick='loadMove("8/8/8/2k1p3/8/8/8/2K5 b - - 0 2", this, "b1c1"); ' class="line0">2.Крc1!</span> 
+(Занимая дальнюю оппозицию)
+ <span onclick='loadMove("8/8/8/4p3/3k4/8/8/2K5 w - - 0 3", this, "c5d4"); ' class="line0">2...Крd4</span> 
+ <span onclick='loadMove("8/8/8/4p3/3k4/8/3K4/8 b - - 0 3", this, "c1d2"); ' class="line0">3.Крd2</span> 
+(а теперь ближнюю). Ничья.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/4pk2/7P/7p/4K3/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/4pk2/7P/7p/4K3/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/4pk2/7P/7p/4K3/8/8 w - - 0 1"></div>
+<p class="caption">4. Ход белых </p>
+<p><b>Позиция 4.</b> Д. Хорват-С.Хорват (Венгрия, 1988).
+ <span onclick='loadMove("8/8/4pk2/7P/5K1p/8/8/8 b - - 0 1", this, "e3f4"); ' class="line0">1.Крf4</span> 
+ <span onclick='loadMove("8/8/4pk2/7P/5K2/7p/8/8 w - - 0 2", this, "h4h3"); ' class="line0">h3</span> 
+ <span onclick='loadMove("8/8/4pk2/7P/8/6Kp/8/8 b - - 0 2", this, "f4g3"); ' class="line0">2.Крg3</span> 
+ <span onclick='loadMove("8/8/4p3/6kP/8/6Kp/8/8 w - - 0 3", this, "f6g5"); ' class="line0">Крg5</span> 
+ <span onclick='loadMove("8/8/4p3/6kP/8/7p/7K/8 b - - 0 3", this, "g3h2"); ' class="line0">3.Крh2!!</span> 
+(Единственный ход. После
+ <span onclick='loadMove("8/8/4p3/6kP/8/7K/8/8 b - - 0 3", this, "g3h3"); ' class="line1">3.Крh3</span> 
+ <span onclick='loadMove("8/8/4p3/7k/8/7K/8/8 w - - 0 4", this, "g5h5"); ' class="line1">Крh5</span> 
+черные занимали оппозицию и побеждали)
+ <span onclick='loadMove("8/8/4p2k/7P/8/7p/7K/8 w - - 0 4", this, "g5h6"); ' class="line0">3...Крh6</span> 
+(или
+ <span onclick='loadMove("8/8/4p3/7k/8/7p/7K/8 w - - 0 4", this, "g5h5"); ' class="line1">3...Крh5</span> 
+ <span onclick='loadMove("8/8/4p3/7k/8/7K/8/8 b - - 0 4", this, "h2h3"); ' class="line1">4.Крh3</span> 
+=)
+ <span onclick='loadMove("8/8/4p2k/7P/8/6Kp/8/8 b - - 0 4", this, "h2g3"); ' class="line0">4.Крg3!</span> 
+Согласились на ничью.</p>
+<p>Используя оппозицию, можно сделать ничью в, казалось бы, самых безнадежных позициях.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/4p1p1/8/5P2/6K1/3k4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/4p1p1/8/5P2/6K1/3k4 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/4p1p1/8/5P2/6K1/3k4 w - - 0 1"></div>
+<p class="caption">5. Ход белых. Ничья</p>
+<p><b>Позиция 5.</b> Г.Нейштадтль.
+ <span onclick='loadMove("8/8/8/4p1p1/8/5P2/8/3k3K b - - 0 1", this, "g2h1"); ' class="line0">1.Крh1!</span> 
+(Занимая дальнюю оппозицию. После
+ <span onclick='loadMove("8/8/8/4p1p1/8/5P2/8/3k1K2 b - - 0 1", this, "g2f1"); ' class="line1">1.Крf1?</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/5P2/3k4/5K2 w - - 0 2", this, "d1d2"); ' class="line1">Крd2</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/5P2/3k1K2/8 b - - 0 2", this, "f1f2"); ' class="line1">2.Крf2</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/3k1P2/5K2/8 w - - 0 3", this, "d2d3"); ' class="line1">Крd3</span> 
+пешка f3 мешала бы занять ближнюю оппозицию, и они проигрывали
+ <span onclick='loadMove("8/8/8/4p1p1/8/3k1PK1/8/8 b - - 0 3", this, "f2g3"); ' class="line1">3.Крg3</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/4kPK1/8/8 w - - 0 4", this, "d3e3"); ' class="line1">Крe3</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/4kP2/6K1/8 b - - 0 4", this, "g3g2"); ' class="line1">4.Крg2</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/5P2/4k1K1/8 w - - 0 5", this, "e3e2"); ' class="line1">Крe2</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/5PK1/4k3/8 b - - 0 5", this, "g2g3"); ' class="line1">5.Крg3</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/5PK1/8/5k2 w - - 0 6", this, "e2f1"); ' class="line1">Крf1</span> 
+и т.д.)
+ <span onclick='loadMove("8/8/8/4p1p1/8/5P2/3k4/7K w - - 0 2", this, "d1d2"); ' class="line0">1...Крd2</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/5P2/3k3K/8 b - - 0 2", this, "h1h2"); ' class="line0">2.Крh2!</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/3k1P2/7K/8 w - - 0 3", this, "d2d3"); ' class="line0">Крd3</span> 
+ <span onclick='loadMove("8/8/8/4p1p1/8/3k1P1K/8/8 b - - 0 3", this, "h2h3"); ' class="line0">3.Крh3</span> 
+=.</p>
+<!--p>Пешечный эндшпиль</p><p>11</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/4k3/Pp6/1P3K2/8/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/4k3/Pp6/1P3K2/8/8 b - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/4k3/Pp6/1P3K2/8/8 b - - 0 1"></div>
+<p class="caption">6. Ход черных. Ничья</p>
+<p><b>Позиция 6.</b> Обычно такого рода позиции с защищенной проходной пешкой легко выигрываются.</p>
+<p>В приведенном же ниже примере после
+ <span onclick='loadMove("8/8/8/3k4/Pp6/1P3K2/8/8 w - - 0 2", this, "e5d5"); ' class="line0">1...Крd5!</span> 
+(Занимая диагональную оппозицию) черные спасаются:
+ <span onclick='loadMove("8/8/8/3k4/Pp3K2/1P6/8/8 b - - 0 2", this, "f3f4"); ' class="line0">2.Крf4</span> 
+ <span onclick='loadMove("8/8/8/8/Pp1k1K2/1P6/8/8 w - - 0 3", this, "d5d4"); ' class="line0">Крd4</span> 
+ <span onclick='loadMove("8/8/8/8/Pp1k2K1/1P6/8/8 b - - 0 3", this, "f4g4"); ' class="line0">3.Крg4</span> 
+ <span onclick='loadMove("8/8/8/8/Pp2k1K1/1P6/8/8 w - - 0 4", this, "d4e4"); ' class="line0">Крe4</span> 
+ <span onclick='loadMove("8/8/8/8/Pp2k3/1P4K1/8/8 b - - 0 4", this, "g4g3"); ' class="line0">4.Крg3</span> 
+ <span onclick='loadMove("8/8/8/4k3/Pp6/1P4K1/8/8 w - - 0 5", this, "e4e5"); ' class="line0">Крe5</span> 
+(
+ <span onclick='loadMove("8/8/8/8/Pp6/1P2k1K1/8/8 w - - 0 5", this, "e4e3"); ' class="line1">4...Крe3</span> 
+ <span onclick='loadMove("8/8/8/P7/1p6/1P2k1K1/8/8 b - - 0 5", this, "a4a5"); ' class="line1">5.a5</span> 
++-. Нельзя выходить из квадрата пешки “а”)
+ <span onclick='loadMove("8/8/8/4k3/Pp6/1P3K2/8/8 b - - 0 5", this, "g3f3"); ' class="line0">5.Крf3</span> 
+ <span onclick='loadMove("8/8/8/3k4/Pp6/1P3K2/8/8 w - - 0 6", this, "e5d5"); ' class="line0">Крd5!</span> 
+ <span onclick='loadMove("8/8/8/P2k4/1p6/1P3K2/8/8 b - - 0 6", this, "a4a5"); ' class="line0">6.a5</span> 
+(сбить оппозицию белым не удается, и они пробуют последний шанс)
+ <span onclick='loadMove("8/8/8/P1k5/1p6/1P3K2/8/8 w - - 0 7", this, "d5c5"); ' class="line0">6...Крc5</span> 
+ <span onclick='loadMove("8/8/8/P1k5/1p2K3/1P6/8/8 b - - 0 7", this, "f3e4"); ' class="line0">7.Крe4</span> 
+ <span onclick='loadMove("8/8/8/Pk6/1p2K3/1P6/8/8 w - - 0 8", this, "c5b5"); ' class="line0">Крb5</span> 
+ <span onclick='loadMove("8/8/8/Pk1K4/1p6/1P6/8/8 b - - 0 8", this, "e4d5"); ' class="line0">8.Крd5</span> 
+ <span onclick='loadMove("8/8/8/k2K4/1p6/1P6/8/8 w - - 0 9", this, "b5a5"); ' class="line0">Крa5</span> 
+ <span onclick='loadMove("8/8/8/k7/1pK5/1P6/8/8 b - - 0 9", this, "d5c4"); ' class="line0">9.Крc4</span> 
+ <span onclick='loadMove("8/8/k7/8/1pK5/1P6/8/8 w - - 0 10", this, "a5a6"); ' class="line0">Крa6!</span> 
+(
+ <span onclick='loadMove("8/8/1k6/8/1pK5/1P6/8/8 w - - 0 10", this, "a5b6"); ' class="line1">9...Крb6</span> 
+ <span onclick='loadMove("8/8/1k6/8/1K6/1P6/8/8 b - - 0 10", this, "c4b4"); ' class="line1">10.Крb4</span> 
++-)
+ <span onclick='loadMove("8/8/k7/8/1K6/1P6/8/8 b - - 0 10", this, "c4b4"); ' class="line0">10.Крb4</span> 
+ <span onclick='loadMove("8/8/1k6/8/1K6/1P6/8/8 w - - 0 11", this, "a6b6"); ' class="line0">Крb6!</span> 
+занимая оппозицию. Ничья.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

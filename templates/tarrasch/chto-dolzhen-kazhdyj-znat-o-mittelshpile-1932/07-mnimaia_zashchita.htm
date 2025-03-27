@@ -1,0 +1,165 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Мнимая защита | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h2>МНИМАЯ ЗАЩИТА</h2>
+<p>Если фигура или пешка, выполняющая определенные функции, подвергается нападению, то ее следует защитить не какой бы то ни было фигурой, а только такой, которая могла бы взять на себя ее функции. Если это правило не выполняется, защита бывает только кажущейся и атакованная фигура может быть взята, хотя бы это и было сопряжено с временным уроном.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Следующий пример наглядно демонстрирует вышесказанное.</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r3q1k1/3p2p1/2p1b2p/p2n4/8/5P2/PPPNQBP1/R2K4 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r3q1k1/3p2p1/2p1b2p/p2n4/8/5P2/PPPNQBP1/R2K4 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 99</p>
+<!--img src="images/Tarrash_1933-99.png" style="width:119pt;height:91pt;"/-->
+<p>Белая пешка b2 защищает в данный момент пункт c3 от вторжения черного коня d5, который, если бы пешки на b2 не было, мог бы напасть одновременно на короля и ферзя.</p>
+<p>После хода
+ <span onclick='loadMove("1r2q1k1/3p2p1/2p1b2p/p2n4/8/5P2/PPPNQBP1/R2K4 w - - 0 2", this, "a8b8"); ' class="line0">1...Лa8-b8</span> 
+, атакующего пешку b2, ответы
+ <span onclick='loadMove("1r2q1k1/3p2p1/2p1b2p/p2n4/8/5P2/PPPNQBP1/1R1K4 b - - 0 2", this, "a1b1"); ' class="line1">2.Лa1-b1</span> 
+или
+ <span onclick='loadMove("1r2q1k1/3p2p1/2p1b2p/p2n4/2N5/5P2/PPP1QBP1/R2K4 b - - 0 2", this, "d2c4"); ' class="line1">2.Кd2-c4</span> 
+оказались бы мнимой защитой. В обоих случаях черные спокойно могут взять пешку b2, так как на взятие ладьи последует выигрыш ферзя путем <b>Кd5-c3+</b>; поэтому правильная защита заключается в
+ <span onclick='loadMove("1r2q1k1/3p2p1/2p1b2p/p2n4/3B4/5P2/PPPNQ1P1/R2K4 b - - 0 2", this, "f2d4"); ' class="line0">2.Сf2-d4</span> 
+или
+ <span onclick='loadMove("1r2q1k1/3p2p1/2p1b2p/p2n4/8/5P2/PPPNQBP1/R1K5 b - - 0 2", this, "d1c1"); ' class="line0">2.Крd1-c1</span> 
+. Если черные теперь жертвуют ладью на b2, то берущая фигура принимает на себя функции пешки. Поэтому каждый раз, когда приходится защищать фигуру, следует тщательно проверить, не может ли она все-таки быть взята.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Другой случай мнимой защиты мы находим в следующем положении.</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2q1rk1/p1pb1pnp/2pp1bp1/8/4P3/2NBB2P/PPP1QPP1/R3R1K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2q1rk1/p1pb1pnp/2pp1bp1/8/4P3/2NBB2P/PPP1QPP1/R3R1K1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 100</p>
+<!--img src="images/Tarrash_1933-100.png" style="width:120pt;height:91pt;"/-->
+<!--p>37</p-->
+<p>Черные ходом
+ <span onclick='loadMove("1r1q1rk1/p1pb1pnp/2pp1bp1/8/4P3/2NBB2P/PPP1QPP1/R3R1K1 w - - 0 2", this, "a8b8"); ' class="line0">1...Лa8-b8</span> 
+нападают на пешку b2. Белые защищают ее посредством
+ <span onclick='loadMove("1r1q1rk1/p1pb1pnp/2pp1bp1/8/4P3/2NBB2P/PPP1QPP1/1R2R1K1 b - - 0 2", this, "a1b1"); ' class="line0">2.Лa1-b1?</span> 
+, на что все же следует
+ <span onclick='loadMove("3q1rk1/p1pb1pnp/2pp1bp1/8/4P3/2NBB2P/PrP1QPP1/1R2R1K1 w - - 0 3", this, "b8b2"); ' class="line0">2...Лb8:b2</span> 
+ <span onclick='loadMove("3q1rk1/p1pb1pnp/2pp1bp1/8/4P3/2NBB2P/PRP1QPP1/4R1K1 b - - 0 3", this, "b1b2"); ' class="line0">3.Лb1:b2</span> 
+, и черные после
+ <span onclick='loadMove("3q1rk1/p1pb1pnp/2pp2p1/8/4P3/2bBB2P/PRP1QPP1/4R1K1 w - - 0 4", this, "f6c3"); ' class="line0">3...Сf6:c3</span> 
+выигрывают сначала коня, а затем, в связи с двойным нападением на обе ладьи, еще и качество, зарабатывая таким образом на всей комбинации пешку.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Следующий, очень часто встречающийся случай имеет место, когда одна фигура или пешка выполняет две различные функции, например, защищает две фигуры или вынуждена работать в двух разных направлениях.</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="1r3rk1/3pp1p1/2n1n2p/8/8/5P1N/3P1BP1/2R1R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1r3rk1/3pp1p1/2n1n2p/8/8/5P1N/3P1BP1/2R1R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№101</p>
+<!--img src="images/Tarrash_1933-101.png" style="width:89pt;height:91pt;"/-->
+<p>Пешка d7 защищает обоих коней. Белые бьют сначала одного коня, а затем другого, оставаясь в результате с двумя легкими фигурами за ладью.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2br1k1/1ppq1p1p/p1bp1npB/8/3NP3/2NQ3P/PPP2PP1/4RRK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2br1k1/1ppq1p1p/p1bp1npB/8/3NP3/2NQ3P/PPP2PP1/4RRK1 b - - 0 1", this, ""); '>[...]</span> 
+<p>№ 102</p>
+<!--img src="images/Tarrash_1933-102.png" style="width:89pt;height:91pt;"/-->
+<!--p>(См. диаграмму № 102)</p-->
+<p>На
+ <span onclick='loadMove("r2br1k1/1ppq1p1p/p1b2npB/3p4/3NP3/2NQ3P/PPP2PP1/4RRK1 w - - 0 2", this, "d6d5"); ' class="line0">1...d6-d5?</span> 
+(Лучше
+ <span onclick='loadMove("r3r1k1/1ppqbp1p/p1bp1npB/8/3NP3/2NQ3P/PPP2PP1/4RRK1 w - - 0 2", this, "d8e7"); ' class="line1">1...Сe7</span> 
+) белые отвечают
+ <span onclick='loadMove("r2br1k1/1ppq1p1p/p1N2npB/3p4/4P3/2NQ3P/PPP2PP1/4RRK1 b - - 0 2", this, "d4c6"); ' class="line0">2.Кd4:c6</span> 
+ <span onclick='loadMove("r2br1k1/2pq1p1p/p1p2npB/3p4/4P3/2NQ3P/PPP2PP1/4RRK1 w - - 0 3", this, "b7c6"); ' class="line0">b7:c6</span> 
+ <span onclick='loadMove("r2br1k1/2pq1p1p/p1p2npB/3P4/8/2NQ3P/PPP2PP1/4RRK1 b - - 0 3", this, "e4d5"); ' class="line0">3.e4:d5</span> 
+ <span onclick='loadMove("r2br1k1/2pq1p1p/p4npB/3p4/8/2NQ3P/PPP2PP1/4RRK1 w - - 0 4", this, "c6d5"); ' class="line0">c6:d5</span> 
+и выигрывают пешку, так как ферзь d7 и конь f6 не могут
+<!--p>38</p-->
+одновременно защитить пешку d5 и ладью e8. Белые могут просто выиграть пешку, продолжая
+ <span onclick='loadMove("r2bR1k1/2pq1p1p/p4npB/3p4/8/2NQ3P/PPP2PP1/5RK1 b - - 0 4", this, "e1e8"); ' class="line0">4.Лe1:e8+</span> 
+ <!--span onclick='loadMove("r2bR1k1/2pq1p1p/p4npB/3p4/8/2NQ3P/PPP2PP1/5RK1 w - - 0 5", this, "e1e8"); ' class="line0">z0</span--> 
+с последующим
+ <span onclick='loadMove("r2bR1k1/2pq1p1p/p4npB/3N4/8/3Q3P/PPP2PP1/5RK1 b - - 0 5", this, "c3d5"); ' class="line0">5.Кc3:d5</span> 
+. Но сложнее и сильнее перестановка ходов
+ <span onclick='loadMove("r2br1k1/2pq1p1p/p4npB/3N4/8/3Q3P/PPP2PP1/4RRK1 b - - 0 4", this, "c3d5"); ' class="line1">4.Кc3:d5!</span> 
+, так как после
+ <span onclick='loadMove("r2br1k1/2pq1p1p/p5pB/3n4/8/3Q3P/PPP2PP1/4RRK1 w - - 0 5", this, "f6d5"); ' class="line1">4...Кf6:d5</span> 
+следует
+ <span onclick='loadMove("r2br1k1/2pq1p1p/p5pB/3Q4/8/7P/PPP2PP1/4RRK1 b - - 0 5", this, "d3d5"); ' class="line1">5.Фd3:d5</span> 
+, и если черные берут ферзя
+ <span onclick='loadMove("r2br1k1/2p2p1p/p5pB/3q4/8/7P/PPP2PP1/4RRK1 w - - 0 6", this, "d7d5"); ' class="line1">5...Ф:d5</span> 
+, то
+ <span onclick='loadMove("r2bR1k1/2p2p1p/p5pB/3q4/8/7P/PPP2PP1/5RK1 b - - 0 6", this, "e1e8"); ' class="line1">6.Лe1:e8X</span> 
+. Не меняет дела и промежуточный ход <b>Лe8:e1</b>, на что просто последует <b>Лf1:e1</b>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">К рубрике мнимых защит относятся также разные случаи связок, как, например, следующие:</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r4rk1/ppp3p1/6qn/3P1pP1/2P2P2/3B1Q2/P5K1/R4R2 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4rk1/ppp3p1/6qn/3P1pP1/2P2P2/3B1Q2/P5K1/R4R2 w - - 0 1", this, ""); '>[...]</span> 
+<p>№103</p>
+<!--img src="images/Tarrash_1933-103.png" style="width:89pt;height:91pt;"/-->
+<p>После
+ <span onclick='loadMove("r4rk1/ppp3p1/6qn/3P1pP1/2P2P2/3B2Q1/P5K1/R4R2 b - - 0 1", this, "f3g3"); ' class="line0">1.Фf3-g3</span> 
+пешка g5 развязывается и атакует коня. Если последний отойдет на g4
+ <span onclick='loadMove("r4rk1/ppp3p1/6q1/3P1pP1/2P2Pn1/3B2Q1/P5K1/R4R2 w - - 0 2", this, "h6g4"); ' class="line0">1...Кh6-g4</span> 
+, то следует
+ <span onclick='loadMove("r4rk1/ppp3p1/6q1/3P1pP1/2P2PQ1/3B4/P5K1/R4R2 b - - 0 2", this, "g3g4"); ' class="line0">2.Фg3:g4</span> 
+, так как после
+ <span onclick='loadMove("r4rk1/ppp3p1/6q1/3P2P1/2P2Pp1/3B4/P5K1/R4R2 w - - 0 3", this, "f5g4"); ' class="line0">2...f5:g4</span> 
+черный ферзь оказывается без защиты.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r2q1r1k/1pp3p1/p2p1n1p/8/2P1p3/2B5/PP1Q1PPP/3RR1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2q1r1k/1pp3p1/p2p1n1p/8/2P1p3/2B5/PP1Q1PPP/3RR1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№104</p>
+<!--img src="images/Tarrash_1933-104.png" style="width:89pt;height:91pt;"/-->
+<p>Или такой, часто встречающийся случай:
+ <span onclick='loadMove("r2q1r1k/1pp3p1/p2p1n1p/8/2P1R3/2B5/PP1Q1PPP/3R2K1 b - - 0 1", this, "e1e4"); ' class="line0">1.Лe1:e4!</span> 
+ <span onclick='loadMove("r2q1r1k/1pp3p1/p2p3p/8/2P1n3/2B5/PP1Q1PPP/3R2K1 w - - 0 2", this, "f6e4"); ' class="line0">Кf6:e4?</span> 
+ <span onclick='loadMove("r2q1r1k/1pp3p1/p2p3Q/8/2P1n3/2B5/PP3PPP/3R2K1 b - - 0 2", this, "d2h6"); ' class="line0">2.Фd2:h6+</span> 
+ <span onclick='loadMove("r2q1rk1/1pp3p1/p2p3Q/8/2P1n3/2B5/PP3PPP/3R2K1 w - - 0 3", this, "h8g8"); ' class="line0">Крh8-g8</span> 
+ <span onclick='loadMove("r2q1rk1/1pp3Q1/p2p4/8/2P1n3/2B5/PP3PPP/3R2K1 b - - 0 3", this, "h6g7"); ' class="line0">3.Фh6:g7X</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Подобные комбинации нами уже приводились в главе о связке. Здесь мы считаем нужным предостеречь от следующего просмотра:</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="r4rk1/ppp2ppp/1b6/8/6q1/6B1/PPPQ1PPP/R4RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4rk1/ppp2ppp/1b6/8/6q1/6B1/PPPQ1PPP/R4RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p>№105</p>
+<!--img src="images/Tarrash_1933-105.png" style="width:92pt;height:92pt;"/-->
+<p>Белые беспечно играют
+ <span onclick='loadMove("r4rk1/ppp2ppp/1b6/8/6q1/6BP/PPPQ1PP1/R4RK1 b - - 0 1", this, "h2h3"); ' class="line0">1.h2-h3?</span> 
+, на что следует неожиданный ответ
+ <span onclick='loadMove("r4rk1/ppp2ppp/1b6/8/8/6qP/PPPQ1PP1/R4RK1 w - - 0 2", this, "g4g3"); ' class="line0">1...Фg4:g3</span> 
+, возможный вследствие того, что пешка f2 из-за связки не защищает поле g3.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

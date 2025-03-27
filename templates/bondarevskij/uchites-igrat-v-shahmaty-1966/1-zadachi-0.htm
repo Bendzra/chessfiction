@@ -1,0 +1,29 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Задачи и упражнения к I главе | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2>ЗАДАЧИ И УПРАЖНЕНИЯ К I ГЛАВЕ</h2>
+
+<div class="score">
+<p>Начинающий шахматист должен обязательно выполнять упражнения и решать задачи. Это необходимо для закрепления приобретенных знании, а, кроме того, в задачах и упражнениях даются новые, важные сведения, которые пригодятся в будущем при изучении II главы книги.</p>
+<p>Первые семь упражнений рекомендуется проделать в уме, а затем уже проверить на доске.</p>
+<p>Само собой разумеется, что читатель должен решать все задачи совершенно самостоятельно и лишь после этого смотреть в ответы, которые мы сочли нужным привести для проверки.</p>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-01.htm' %}">Задачи 1-10</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-11.htm' %}">Задачи 11-14</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-15.htm' %}">Задачи 15-18</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-19.htm' %}">Задачи 19-23</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-24.htm' %}">Задача 24 (дать мат в один ход)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-zadachi-25.htm' %}">Задача 25 (найти лучший ход)</a></li>
+</ul>
+</div> <!-- score -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

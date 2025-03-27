@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Contents</h2>
+<ul>
+<li><a href="0-0-title.htm">The Nimzo-Indian: Move by Move (by John Emms)</a></li>
+<li><a href="0-1-about-this-publication.htm">About this Publication</a></li>
+<li><a href="0-2-bibliography.htm">Bibliography</a></li>
+<li><a href="0-3-introduction.htm">Introduction</a></li>
+<li><a href="1-saemisch-variation.htm">Chapter One: Saemisch Variation: 4 a3</a></li>
+<li><a href="2-the-4-f3-variation.htm">Chapter Two: The 4 f3 Variation</a></li>
+<li><a href="3-rubinstein-variation-main-line.htm">Chapter Three: Rubinstein Variation: 4 e3 Main Line</a></li>
+<li><a href="4-rubinstein-variation-other-lines.htm">Chapter Four: Rubinstein Variation: 4 e3 Other Lines</a></li>
+<li><a href="5-classical-variation.htm">Chapter Five: Classical Variation: 4 Qc2 0-0</a></li>
+<li><a href="6-classical-variation-with-_c5.htm">Chapter Six: Classical Variation: 4 Qc2 with ...c5</a></li>
+<li><a href="7-leningrad-variation.htm">Chapter Seven: Leningrad Variation: 4 Bg5</a></li>
+<li><a href="8-kasparov-variation.htm">Chapter Eight: Kasparov Variation: 4 Nf3</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

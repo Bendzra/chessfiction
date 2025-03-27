@@ -1,0 +1,73 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Садко | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2><a name="51">Садко</a></h2>
+<div class="score">
+<p>— Если ты видел фильм «Садко», то, наверное, помнишь, как в заморском царстве Садко играет в шахматы. Он выиграл, проведя комбинацию с жертвой ферзя.</p>
+<p>— Помню, — ответил Сережа. — Там получился мат одним конем. Мне кажется, эта партия связана с сюжетом картины: воюют, мол, не числом, а умением. Садко благодаря своей смелости и смекалке справится с врагами и с победой вернется из дальних краев.</p>
+<p>— Возможно. Я хотел показать такую же комби нацию в партии. Начата она, правда, уже не французской защитой, а защитой Каро-Канн.</p>
+<p>— А почему она так странно называется?</p>
+<p>— Почему странно? Просто ее изобрели два шахматиста — Горацио Каро и Маркус Канн.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span>
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1", this, "c7c6"); ' class="line0">c6</span>
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">2.d4</span>
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 1", this, "d7d5"); ' class="line0">d5</span>
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 0 1", this, "b1c3"); ' class="line0">3.Кc3</span>
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/8/3Pp3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 1", this, "d5e4"); ' class="line0">de</span>
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/2p5/8/3PN3/8/PPP2PPP/R1BQKBNR b KQkq - 0 1", this, "c3e4"); ' class="line0">4.К:e4</span>
+ <span onclick='loadMove("r1bqkbnr/pp1npppp/2p5/8/3PN3/8/PPP2PPP/R1BQKBNR w KQkq - 0 1", this, "b8d7"); ' class="line0">Кd7</span>
+ <span onclick='loadMove("r1bqkbnr/pp1npppp/2p5/8/3PN3/5N2/PPP2PPP/R1BQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">5.Кf3</span>
+ <span onclick='loadMove("r1bqkb1r/pp1npppp/2p2n2/8/3PN3/5N2/PPP2PPP/R1BQKB1R w KQkq - 0 1", this, "g8f6"); ' class="line0">Кgf6</span>
+ <span onclick='loadMove("r1bqkb1r/pp1npppp/2p2n2/6N1/3P4/5N2/PPP2PPP/R1BQKB1R b KQkq - 0 1", this, "e4g5"); ' class="line0">6.Кeg5</span>
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2p1pn2/6N1/3P4/5N2/PPP2PPP/R1BQKB1R w KQkq - 0 1", this, "e7e6"); ' class="line0">e6</span>
+ <span onclick='loadMove("r1bqkb1r/pp1n1ppp/2p1pn2/6N1/3P4/3B1N2/PPP2PPP/R1BQK2R b KQkq - 0 1", this, "f1d3"); ' class="line0">7.Сd3</span>
+ <span onclick='loadMove("r1bqk2r/pp1nbppp/2p1pn2/6N1/3P4/3B1N2/PPP2PPP/R1BQK2R w KQkq - 0 1", this, "f8e7"); ' class="line0">Сe7</span>
+ <span onclick='loadMove("r1bqk2r/pp1nbppp/2p1pn2/6N1/3P4/3B1N2/PPP2PPP/R1BQ1RK1 b kq - 0 1", this, "e1g1"); ' class="line0">8.0-0</span>
+ <span onclick='loadMove("r1bq1rk1/pp1nbppp/2p1pn2/6N1/3P4/3B1N2/PPP2PPP/R1BQ1RK1 w - - 0 1", this, "e8g8"); ' class="line0">0-0</span>
+ <span onclick='loadMove("r1bq1rk1/pp1nbppp/2p1pn2/6N1/3P4/3B1N2/PPP2PPP/R1BQR1K1 b - - 0 1", this, "f1e1"); ' class="line0">9.Лe1</span>
+ <span onclick='loadMove("r1bq1rk1/p2nbppp/1pp1pn2/6N1/3P4/3B1N2/PPP2PPP/R1BQR1K1 w - - 0 1", this, "b7b6"); ' class="line0">b6</span>
+ <span onclick='loadMove("r1bq1rk1/p2nbppp/1pp1pn2/6N1/3P4/3B1N2/PPP1QPPP/R1B1R1K1 b - - 0 1", this, "d1e2"); ' class="line0">10.Фe2</span>
+ <span onclick='loadMove("r1bqr1k1/p2nbppp/1pp1pn2/6N1/3P4/3B1N2/PPP1QPPP/R1B1R1K1 w - - 0 1", this, "f8e8"); ' class="line0">Лe8</span>.</p>
+<p>Черные сделали этот ход для защиты от назревавшей комбинации
+ <span onclick='loadMove("r1bqr1k1/p2nbppp/1pp1Nn2/8/3P4/3B1N2/PPP1QPPP/R1B1R1K1 b - - 0 1", this, "g5e6"); ' class="line1">11.К:e6</span>
+и т.д. Однако теперь возникает возможность еще более красивой комбинации:</p>
+<p>
+ <span onclick='loadMove("r1bqr1k1/p2nbNpp/1pp1pn2/8/3P4/3B1N2/PPP1QPPP/R1B1R1K1 b - - 0 1", this, "g5f7"); ' class="line0">11.К:f7</span>
+ <span onclick='loadMove("r1bqr3/p2nbkpp/1pp1pn2/8/3P4/3B1N2/PPP1QPPP/R1B1R1K1 w - - 0 1", this, "g8f7"); ' class="line0">Кр:f7</span>
+ <span onclick='loadMove("r1bqr3/p2nbkpp/1pp1pn2/6N1/3P4/3B4/PPP1QPPP/R1B1R1K1 b - - 0 1", this, "f3g5"); ' class="line0">12.Кg5+!</span>
+ <span onclick='loadMove("r1bqr1k1/p2nb1pp/1pp1pn2/6N1/3P4/3B4/PPP1QPPP/R1B1R1K1 w - - 0 1", this, "f7g8"); ' class="line0">Крg8</span>
+ <span onclick='loadMove("r1bqr1k1/p2nb1pp/1pp1Qn2/6N1/3P4/3B4/PPP2PPP/R1B1R1K1 b - - 0 1", this, "e2e6"); ' class="line0">13.Ф:e6+</span>
+ <span onclick='loadMove("r1bqr2k/p2nb1pp/1pp1Qn2/6N1/3P4/3B4/PPP2PPP/R1B1R1K1 w - - 0 1", this, "g8h8"); ' class="line0">Крh8</span>
+ <span onclick='loadMove("r1bqr2k/p2nbNpp/1pp1Qn2/8/3P4/3B4/PPP2PPP/R1B1R1K1 b - - 0 1", this, "g5f7"); ' class="line0">14.Кf7+</span>
+ <span onclick='loadMove("r1bqr1k1/p2nbNpp/1pp1Qn2/8/3P4/3B4/PPP2PPP/R1B1R1K1 w - - 0 1", this, "h8g8"); ' class="line0">Крg8</span>
+ <span onclick='loadMove("r1bqr1k1/p2nb1pp/1pp1Qn1N/8/3P4/3B4/PPP2PPP/R1B1R1K1 b - - 0 1", this, "f7h6"); ' class="line0">15.Кh6++</span>
+ <span onclick='loadMove("r1bqr2k/p2nb1pp/1pp1Qn1N/8/3P4/3B4/PPP2PPP/R1B1R1K1 w - - 0 1", this, "g8h8"); ' class="line0">Крh8</span>
+ <span onclick='loadMove("r1bqr1Qk/p2nb1pp/1pp2n1N/8/3P4/3B4/PPP2PPP/R1B1R1K1 b - - 0 1", this, "e6g8"); ' class="line0">16.Фg8+!</span>
+ <span onclick='loadMove("r1bq2rk/p2nb1pp/1pp2n1N/8/3P4/3B4/PPP2PPP/R1B1R1K1 w - - 0 1", this, "e8g8"); ' class="line0">Л:g8</span>
+ <span onclick='loadMove("r1bq2rk/p2nbNpp/1pp2n2/8/3P4/3B4/PPP2PPP/R1B1R1K1 b - - 0 1", this, "h6f7"); ' class="line0">17.Кf7X</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq2rk/p2nbNpp/1pp2n2/8/3P4/3B4/PPP2PPP/R1B1R1K1 b - - 0 1"></div>
+<p class="caption"><b>Диаграмма 47</b></p>
+
+<p>Эффектная концовка! Это так называемый спертый мат* (* Происходит от французского термина mate etouffe — букв.: мат от удушья.).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

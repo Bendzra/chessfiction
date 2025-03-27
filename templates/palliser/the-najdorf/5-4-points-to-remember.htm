@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Points to Remember | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<!--div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div-->
+<div class="score">
+ <!--span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span--> 
+<h3>Points to Remember</h3>
+<p>1) Know your theory!</p>
+<p>2) Both sides should always be examining possible sacrifices on b5, d5, e6 and even f5.</p>
+<p>3) Both <b>10.Bd3</b> and <b>10.g4</b> in the Old Main Line lead to complex positions, but also ones which can be both enjoyable to analyse and may yield some important improvements.</p>
+<p>4) <b>7...Nbd7</b> is currently in good theoretical shape as is <b>7...Qc7</b>, with the latter being the better winning try.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,91 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Таинственные исчезновения | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Таинственные исчезновения</h3>
+<div class="chessBoard small floater" data-start-fen="rnbqkb1r/ppp1pppp/8/3p4/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 5"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkb1r/ppp1pppp/8/3p4/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 5", this, ""); '>[...]</span> 
+<p>Позиция, приведенная на диаграмме № 17, возникла после четырех ходов. Ходы эти были, конечно, отнюдь не лучшие, но вполне допустимые по правилам игры.</p>
+<p class="capTop diagram">17</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/ppp1pppp/8/3p4/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 5"></div>
+<p>А теперь сними с доски и коней b1 и b8. Такую позицию можно получить за пять ходов. Как происходят эти таинственные исчезновения?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	 <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+	<p><b>Таинственные исчезновения</b>.</p>
+	<p>К позиции на диаграмме № 17 приводят ходы
+	 <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">1.Кf3</span> 
+	 <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2", this, "d7d5"); ' class="line0">d5</span> 
+	 <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3pN3/8/8/PPPPPPPP/RNBQKB1R b KQkq - 0 2", this, "f3e5"); ' class="line0">2.Кe5</span> 
+	 <span onclick='loadMove("rnbqkb1r/ppp1pppp/5n2/3pN3/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3", this, "g8f6"); ' class="line0">Кf6</span> 
+	 <span onclick='loadMove("rnbqkb1r/ppp1pppp/2N2n2/3p4/8/8/PPPPPPPP/RNBQKB1R b KQkq - 0 3", this, "e5c6"); ' class="line0">3.Кc6</span> 
+	 <span onclick='loadMove("rnbqkb1r/pppnpppp/2N5/3p4/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 4", this, "f6d7"); ' class="line0">Кfd7</span> 
+	 <span onclick='loadMove("rNbqkb1r/pppnpppp/8/3p4/8/8/PPPPPPPP/RNBQKB1R b KQkq - 0 4", this, "c6b8"); ' class="line0">4.К:b8</span> 
+	 <span onclick='loadMove("rnbqkb1r/ppp1pppp/8/3p4/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 5", this, "d7b8"); ' class="line0">К:b8</span> 
+	.
+	Без четырех коней позиция получается после
+	 <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line1">1.Кf3</span> 
+	 <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 2", this, "g8f6"); ' class="line1">Кf6</span> 
+	 <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/8/2N2N2/PPPPPPPP/R1BQKB1R b KQkq - 0 2", this, "b1c3"); ' class="line1">2.Кc3</span> 
+	 <span onclick='loadMove("r1bqkb1r/pppppppp/2n2n2/8/8/2N2N2/PPPPPPPP/R1BQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line1">Кc6</span> 
+	 <span onclick='loadMove("r1bqkb1r/pppppppp/2n2n2/8/3N4/2N5/PPPPPPPP/R1BQKB1R b KQkq - 0 3", this, "f3d4"); ' class="line1">3.Кd4</span> 
+	 <span onclick='loadMove("r1bqkb1r/pppppppp/2n5/3n4/3N4/2N5/PPPPPPPP/R1BQKB1R w KQkq - 0 4", this, "f6d5"); ' class="line1">Кd5</span> 
+	 <span onclick='loadMove("r1bqkb1r/pppppppp/2N5/3n4/8/2N5/PPPPPPPP/R1BQKB1R b KQkq - 0 4", this, "d4c6"); ' class="line1">4.К:c6</span> 
+	 <span onclick='loadMove("r1bqkb1r/ppp1pppp/2p5/3n4/8/2N5/PPPPPPPP/R1BQKB1R w KQkq - 0 5", this, "d7c6"); ' class="line1">dc</span> 
+	 <span onclick='loadMove("r1bqkb1r/ppp1pppp/2p5/3N4/8/8/PPPPPPPP/R1BQKB1R b KQkq - 0 5", this, "c3d5"); ' class="line1">5.К:d5</span> 
+	 <span onclick='loadMove("r1bqkb1r/ppp1pppp/8/3p4/8/8/PPPPPPPP/R1BQKB1R w KQkq - 0 6", this, "c6d5"); ' class="line1">cd</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rNbqkb1r/p1pppppp/8/8/8/8/P1PPPPPP/RnBQKB1R w KQkq - 0 8"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rNbqkb1r/p1pppppp/8/8/8/8/P1PPPPPP/RnBQKB1R w KQkq - 0 8", this, ""); '>[...]</span> 
+<p>И еще один комичный пример. К положению, приведенному на следующей диаграмме, можно прийти после седьмого хода черных. Какие сделаны ходы?</p>
+<p class="capTop diagram">18</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rNbqkb1r/p1pppppp/8/8/8/8/P1PPPPPP/RnBQKB1R w KQkq - 0 8"></div>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	 <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+	<p><b>Семь ходов</b>.
+	 <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">1.Кf3</span> 
+	 <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+	 <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/4N3/8/8/PPPPPPPP/RNBQKB1R b KQkq - 0 2", this, "f3e5"); ' class="line0">2.Кe5</span> 
+	 <span onclick='loadMove("rnbqkb1r/pppppppp/8/4N3/4n3/8/PPPPPPPP/RNBQKB1R w KQkq - 0 3", this, "f6e4"); ' class="line0">Кe4</span> 
+	 <span onclick='loadMove("rnbqkb1r/pppppppp/8/4N3/4n3/2N5/PPPPPPPP/R1BQKB1R b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+	 <span onclick='loadMove("rnbqkb1r/p1pppppp/8/1p2N3/4n3/2N5/PPPPPPPP/R1BQKB1R w KQkq b6 0 4", this, "b7b5"); ' class="line0">b5</span> 
+	 <span onclick='loadMove("rnbqkb1r/p1pppppp/8/1p2N3/4N3/8/PPPPPPPP/R1BQKB1R b KQkq - 0 4", this, "c3e4"); ' class="line0">4.К:e4</span> 
+	 <span onclick='loadMove("rnbqkb1r/p1pppppp/8/4N3/1p2N3/8/PPPPPPPP/R1BQKB1R w KQkq - 0 5", this, "b5b4"); ' class="line0">b4</span> 
+	 <span onclick='loadMove("rnbqkb1r/p1pppppp/8/4N3/1p6/2N5/PPPPPPPP/R1BQKB1R b KQkq - 0 5", this, "e4c3"); ' class="line0">5.Кc3</span> 
+	 <span onclick='loadMove("rnbqkb1r/p1pppppp/8/4N3/8/2p5/PPPPPPPP/R1BQKB1R w KQkq - 0 6", this, "b4c3"); ' class="line0">bc</span> 
+	 <span onclick='loadMove("rnbqkb1r/p1pppppp/2N5/8/8/2p5/PPPPPPPP/R1BQKB1R b KQkq - 0 6", this, "e5c6"); ' class="line0">6.Кc6</span> 
+	 <span onclick='loadMove("rnbqkb1r/p1pppppp/2N5/8/8/8/PpPPPPPP/R1BQKB1R w KQkq - 0 7", this, "c3b2"); ' class="line0">cb</span> 
+	 <span onclick='loadMove("rNbqkb1r/p1pppppp/8/8/8/8/PpPPPPPP/R1BQKB1R b KQkq - 0 7", this, "c6b8"); ' class="line0">7.К:b8</span> 
+	 <span onclick='loadMove("rNbqkb1r/p1pppppp/8/8/8/8/P1PPPPPP/RnBQKB1R w KQkq - 0 8", this, "b2b1"); ' class="line0">b1К</span> 
+	.</p>
+
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

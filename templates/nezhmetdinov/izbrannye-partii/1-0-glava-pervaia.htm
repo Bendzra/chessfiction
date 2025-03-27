@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава первая | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Глава первая</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-period-rannego-tvorchestva-1929-1936.htm' %}">Период раннего творчества (1929—1936 годы)</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-period-rannego-tvorchestva-1929-1936.htm' %}#game1">№ 1. Белые — Самсонов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-period-rannego-tvorchestva-1929-1936.htm' %}#game2">№ 2. Белые — А. Корчмарь</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-period-rannego-tvorchestva-1929-1936.htm' %}#game3">№ 3. Белые — Н. Косолапов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-period-rannego-tvorchestva-1929-1936.htm' %}#game4">№ 4. Черные — А. Константинов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-period-rannego-tvorchestva-1929-1936.htm' %}#game5">№ 5. Черные — С. Пименов</a></li>
+</ul>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>СОДЕРЖАНИЕ</h2>
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Ход за ходом</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-beregi-korolia.htm' %}">Береги короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-kto-ranshe_.htm' %}">Кто раньше?</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-vnimanie-prohodnaia-peshka.htm' %}">Внимание, проходная пешка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-bresh-v-oborone.htm' %}">Брешь в обороне</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-gibel-ot-udushia.htm' %}">Гибель от удушья</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-kogda-net-garmonii.htm' %}">Когда нет гармонии</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-kak-chashi-vesov.htm' %}">Как чаши весов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-bez-ferzia.htm' %}">Без ферзя</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

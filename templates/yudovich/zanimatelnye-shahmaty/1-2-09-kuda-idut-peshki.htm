@@ -1,0 +1,41 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Куда идут пешки? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Куда идут пешки?</h3>
+<div class="chessBoard small floater" data-start-fen="7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1", this, ""); '>[...]</span> 
+<p>Такой вопрос иногда задают начинающие любители, когда видят в газете или журнале шахматную диаграмму. Напоминаю тебе, что на этих диаграммах белые всегда идут снизу вверх. Но в следующей шуточной позиции это правило, оказывается, можно и не принимать во внимание. В какую бы сторону ни шли черные пешки, белые, начиная игру, дают мат в три хода. </p>
+<p class="capTop diagram">27</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1"></div>
+<p>Попробуй решить эту остроумную задачу.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p><b>Куда идут пешки?</b> При пешках h7, g7:
+	 <span onclick='loadMove("7k/4K1pp/5B1N/8/8/8/8/8 b - - 0 1", this, "a1f6"); ' class="line0">1.Сf6!</span> 
+	 <span onclick='loadMove("7k/4K2p/5p1N/8/8/8/8/8 w - - 0 2", this, "g7f6"); ' class="line0">gf</span> 
+	 <span onclick='loadMove("5K1k/7p/5p1N/8/8/8/8/8 b - - 0 2", this, "e7f8"); ' class="line0">2.Крf8</span> 
+	 <span onclick='loadMove("5K1k/7p/7N/5p2/8/8/8/8 w - - 0 3", this, "f6f5"); ' class="line0">f5</span> 
+	 <span onclick='loadMove("5K1k/5N1p/8/5p2/8/8/8/8 b - - 0 3", this, "h6f7"); ' class="line0">3.Кf7X</span> 
+	.
+	При пешках a2, b2: <b>1.Крc3! b1Ф 2.Кc2+</b>.</p>
+
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

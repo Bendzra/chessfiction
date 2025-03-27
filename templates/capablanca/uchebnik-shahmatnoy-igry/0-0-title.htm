@@ -1,0 +1,80 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+ 
+<!--div class="message">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>K20</p>
+</div-->
+
+<div class="message page">
+<p><b>Капабланка Х.Р.</b></p>
+<p>K20 Учебник шахматной игры. — М.: «Russian CHESS House / Русский шахматный дом», 2017 - 304 с.</p>
+<p>(Шахматный университет)</p>
+<p><b>ISBN 978-5-94693-627-9</b></p>
+</div>
+
+<div class="message notification">
+ <p>Одна из величайших книг в истории шахмат. Благодаря простоте и ясности изложения, принятой методике — от простого к сложному — вы быстро освоите азы игры и станете опасным соперником для своих друзей и знакомых. В настоящем издании удачно соединены все основные труды гениального кубинца, а также добавлены некоторые интересные материалы.</p>
+<p>«Нельзя понять шахматы, не изучив книг Капабланки, не посмотрев на мир его глазами», писал другой великий чемпион мира Михаил Ботвинник.</p>
+<p>Для широкого круга любителей шахмат. </p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+
+<h4>Учебное издание</h4>
+<h2>Хосе Рауль Капабланка</h2>
+<h1>УЧЕБНИК ШАХМАТНОЙ ИГРЫ</h1>
+
+<div class="message">
+<p>Составитель Николай Калиниченко </p>
+</div>
+
+<div class="message">
+<p>Редактор Михаил Соколов</p>
+ <p>Художник Евгений Пермяков</p>
+<p>Компьютерная верстка Андрей Ельков</p>
+</div>
+
+<!--div class="message">
+<p>Подписано в печать 20.04.2017. Формат 60x90/16.</p>
+<p>Гарнитура «Ньютон». Усл. п. л. 19,00.</p>
+</div-->
+
+<!--div class="message">
+<p>Издательство «Russian CHESS House»</p>
+ <p>(директор Мурад Аманназаров)</p>
+<p>Тел.: (495) 963-80-17</p>
+<p>e-mail: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+
+<div class="message">
+<b>ISBN 978-5-94693-627-9</b>
+<p style="float:right;">© Калиниченко Н.М., 2017<br />© Издательство «Russian CHESS House», 2017</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

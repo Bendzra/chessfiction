@@ -1,0 +1,50 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Дар Каиссы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-prolog.htm' %}">ПРОЛОГ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-tiaga.htm' %}">Часть первая. ТЯГА</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-perepoloh-na-nebe.htm' %}">Глава первая. ПЕРЕПОЛОХ НА НЕБЕ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-trudnoe-zadanie.htm' %}">Глава вторая. ТРУДНОЕ ЗАДАНИЕ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-doska-razluchnica.htm' %}">Глава третья. ДОСКА-РАЗЛУЧНИЦА</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-chernyj-ugolok.htm' %}">Глава четвертая. ЧЕРНЫЙ УГОЛОК</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-veter.htm' %}">Часть вторая. ВЕТЕР</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-mat-chernomu-ekspertu.htm' %}">Глава первая. MAT ЧЕРНОМУ ЭКСПЕРТУ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-revansh.htm' %}">Глава вторая. РЕВАНШ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-druzia-protivniki.htm' %}">Глава третья. ДРУЗЬЯ-ПРОТИВНИКИ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-truba-do-neba.htm' %}">Глава четвертая. ТРУБА ДО НЕБА</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-zloj-veter.htm' %}">Глава пятая. ЗЛОЙ ВЕТЕР</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-uragan.htm' %}">Часть третья. УРАГАН</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-pravo-na-risk.htm' %}">Глава первая. ПРАВО НА РИСК</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-porazhenie-viktorii.htm' %}">Глава вторая. ПОРАЖЕНИЕ ВИКТОРИИ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-perpetuum-mobile.htm' %}">Глава третья. ПЕРПЕТУУМ МОБИЛЕ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-na-sedmom-nebe.htm' %}">Глава четвертая. НА СЕДЬМОМ НЕБЕ</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-epilog.htm' %}">ЭПИЛОГ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-ot-avtora.htm' %}">ОТ АВТОРА</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/index.htm' %}">Оглавление</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

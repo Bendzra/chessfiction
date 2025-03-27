@@ -1,0 +1,58 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ферзь «взбесился» | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>Ферзь «взбесился»</h3>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2r1r1k1/1p1q1ppp/3p1b2/p2P4/3Q4/5N2/PP2RPPP/4R1K1 w - - 0 1"></div>
+<div class="score">
+<p>Если фигура много раз приносит себя в жертву, бесстрашно и даже навязчиво становясь под удар, ее называют «бешеной».</p>
+<p>Рассмотрим пример, где «бешенство» охватило самую сильную фигуру — ферзя. Положение на диаграмме возникло в партии <b>Г. Адамс — К. Торре</b>, игранной в Нью-Орлеане в 1920 году.</p>
+ <span class="line0" onclick='loadMove("2r1r1k1/1p1q1ppp/3p1b2/p2P4/3Q4/5N2/PP2RPPP/4R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">326</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2r1r1k1/1p1q1ppp/3p1b2/p2P4/3Q4/5N2/PP2RPPP/4R1K1 w - - 0 1"></div>
+<p>Ферзь черных защищает ладью e8, поэтому мы легко найдем ход, заставляющий его отступить.</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1r1k1/1p1q1ppp/3p1b2/p2P4/6Q1/5N2/PP2RPPP/4R1K1 b - - 0 1", this, "d4g4"); ' class="line0">1.Фd4-g4!</span> 
+ <span onclick='loadMove("2r1r1k1/1p3ppp/3p1b2/pq1P4/6Q1/5N2/PP2RPPP/4R1K1 w - - 0 2", this, "d7b5"); ' class="line0">Фd7-b5</span> 
+</p>
+<p>Сразу проигрывало
+ <span onclick='loadMove("2rqr1k1/1p3ppp/3p1b2/p2P4/6Q1/5N2/PP2RPPP/4R1K1 w - - 0 2", this, "d7d8"); ' class="line1">1...Фd8</span> 
+из-за
+ <span onclick='loadMove("2Qqr1k1/1p3ppp/3p1b2/p2P4/8/5N2/PP2RPPP/4R1K1 b - - 0 2", this, "g4c8"); ' class="line1">2.Ф:c8!</span> 
+ <span onclick='loadMove("2q1r1k1/1p3ppp/3p1b2/p2P4/8/5N2/PP2RPPP/4R1K1 w - - 0 3", this, "d8c8"); ' class="line1">Ф:c8</span> 
+ <span onclick='loadMove("2q1R1k1/1p3ppp/3p1b2/p2P4/8/5N2/PP3PPP/4R1K1 b - - 0 3", this, "e2e8"); ' class="line1">3.Л:e8+</span>. И ладья c8 и ферзь b5 защищают ладью e8, но стоит хотя бы одной из фигур отвлечься, как черные получают мат. Поняв это, нетрудно найти следующие эффектные ходы:</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1r1k1/1p3ppp/3p1b2/pq1P4/2Q5/5N2/PP2RPPP/4R1K1 b - - 0 2", this, "g4c4"); ' class="line0">2.Фg4-c4!!</span> 
+ <span onclick='loadMove("2r1r1k1/1p1q1ppp/3p1b2/p2P4/2Q5/5N2/PP2RPPP/4R1K1 w - - 0 3", this, "b5d7"); ' class="line0">Фb5-d7</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1r1k1/1pQq1ppp/3p1b2/p2P4/8/5N2/PP2RPPP/4R1K1 b - - 0 3", this, "c4c7"); ' class="line0">3.Фc4-c7!!</span> 
+ <span onclick='loadMove("2r1r1k1/1pQ2ppp/3p1b2/pq1P4/8/5N2/PP2RPPP/4R1K1 w - - 0 4", this, "d7b5"); ' class="line0">Фd7-b5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1r1k1/1pQ2ppp/3p1b2/pq1P4/P7/5N2/1P2RPPP/4R1K1 b - a3 0 4", this, "a2a4"); ' class="line0">4.a2-a4!</span> 
+ <span onclick='loadMove("2r1r1k1/1pQ2ppp/3p1b2/p2P4/q7/5N2/1P2RPPP/4R1K1 w - - 0 5", this, "b5a4"); ' class="line0">Фb5:a4</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1r1k1/1pQ2ppp/3p1b2/p2P4/q3R3/5N2/1P3PPP/4R1K1 b - - 0 5", this, "e2e4"); ' class="line0">5.Лe2-e4!</span> 
+ <span onclick='loadMove("2r1r1k1/1pQ2ppp/3p1b2/pq1P4/4R3/5N2/1P3PPP/4R1K1 w - - 0 6", this, "a4b5"); ' class="line0">Фa4-b5</span> 
+</p>
+<p>Черный ферзь мечется между полями d7 и a4, чтобы не «выпустить из виду» поле e8. Но следующим финальным ударом белые окончательно лишают его свободы передвижения.</p>
+<p class="longNotation">
+ <span onclick='loadMove("2r1r1k1/1Q3ppp/3p1b2/pq1P4/4R3/5N2/1P3PPP/4R1K1 b - - 0 6", this, "c7b7"); ' class="line0">6.Фc7:b7!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Пять ходов подряд (!!) белый ферзь ставил себя под удары, но у черных не было времени его забрать. Теперь они принуждены его взять, но это приводит к мату, и черные решили прекратить сопротивление.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

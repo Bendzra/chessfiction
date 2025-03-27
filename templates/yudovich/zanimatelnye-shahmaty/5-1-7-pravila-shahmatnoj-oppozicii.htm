@@ -1,0 +1,71 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Правила шахматной оппозиции | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Правила шахматной оппозиции</h3>
+<div class="score">
+<p>Если ты посмотришь в словарь иностранных слов, то узнаешь, что оппозиция — это несогласие, противодействие. В шахматных окончаниях этим словом обозначают такое положение королей, когда они отнимают друг у друга наибольшее количество полей для маневрирования, оказывая сильнейшее противодействие осуществлению планов противника. </p>
+<p>Владение оппозицией в эндшпиле очень часто имеет решающее значение для исхода борьбы.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="5k2/8/5K2/5P2/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5k2/8/5K2/5P2/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">145</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="5k2/8/5K2/5P2/8/8/8/8 w - - 0 1"></div>
+<p>Если пешка достигла пятой горизонтали от своего лагеря и король стоит впереди пешки, то выигрыш достигается всегда, так как король противника не в состоянии удержать оппозицию.</p>
+<p>Скажем, сейчас ход белых. После
+ <span onclick='loadMove("5k2/8/6K1/5P2/8/8/8/8 b - - 0 1", this, "f6g6"); ' class="line1">1.Крf6-g6</span> 
+(или
+ <span onclick='loadMove("5k2/8/4K3/5P2/8/8/8/8 b - - 0 1", this, "f6e6"); ' class="line2">1.Крe6</span> 
+)
+ <span onclick='loadMove("6k1/8/6K1/5P2/8/8/8/8 w - - 0 2", this, "f8g8"); ' class="line1">1...Крf8-g8</span> 
+ <span onclick='loadMove("6k1/8/5PK1/8/8/8/8/8 b - - 0 2", this, "f5f6"); ' class="line1">2.f5-f6</span> 
+черные утрачивают оппозицию и погибают.
+(Найди сам, как белые должны играть после
+ <span onclick='loadMove("7k/8/5PK1/8/8/8/8/8 w - - 0 3", this, "g8h8"); ' class="line2">2...Крh8</span> 
+, чтобы избежать пата).
+ <!--span onclick='loadMove("5k2/8/5K2/5P2/8/8/8/8 b - - 0 1", this, "g8h8"); ' class="line1">1.z0</span--> 
+Еще проще завершается борьба при ходе черных:
+ <span onclick='loadMove("6k1/8/5K2/5P2/8/8/8/8 w - - 0 2", this, "f8g8"); ' class="line1">1...Крf8-g8</span> 
+ <span onclick='loadMove("6k1/4K3/8/5P2/8/8/8/8 b - - 0 2", this, "f6e7"); ' class="line1">2.Крf6-e7</span> 
+, и затем пешка f6 спокойно идет вперед.</p>
+<p>В позициях, где пешка находится на пятой горизонтали, а король сильнейшей стороны расположен позади или рядом с пешкой, выигрыша нет, чей бы ход ни был.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/5k2/8/5PK1/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/5k2/8/5PK1/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">146</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5k2/8/5PK1/8/8/8/8 w - - 0 1"></div>
+ <!--span onclick='loadMove("8/5k2/8/5PK1/8/8/8/8 b - - 0 1", this, "f6e7"); ' class="line1">1.z0</span--> 
+<p>При своем ходе черные играют
+ <span onclick='loadMove("8/6k1/8/5PK1/8/8/8/8 w - - 0 2", this, "f7g7"); ' class="line1">1...Крf7-g7</span> 
+, занимая оппозицию, а на ход
+ <span onclick='loadMove("8/6k1/5P2/6K1/8/8/8/8 b - - 0 2", this, "f5f6"); ' class="line1">2.f5-f6+</span> 
+отступают королем на f7, и возникает уже
+<!--p>— 108 —</p-->
+знакомая нам картина.
+Точно выбрать поле для отступления надо, если игру начинают белые:
+ <span onclick='loadMove("8/5k2/5P2/6K1/8/8/8/8 b - - 0 1", this, "f5f6"); ' class="line1">1.f5-f6</span> 
+ <span onclick='loadMove("5k2/8/5P2/6K1/8/8/8/8 w - - 0 2", this, "f7f8"); ' class="line1">Крf7-f8!</span> 
+ <span onclick='loadMove("5k2/8/5PK1/8/8/8/8/8 b - - 0 2", this, "g5g6"); ' class="line1">2.Крg5-g6</span> 
+ <span onclick='loadMove("6k1/8/5PK1/8/8/8/8/8 w - - 0 3", this, "f8g8"); ' class="line1">Крf8-g8</span> 
+, и спасительная оппозиция выручает черных.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

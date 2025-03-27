@@ -1,0 +1,39 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Паллисер Р. Атака Торре. Дебютный репертуар за белых</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-ataka-torre-s-_g6-varianty-s-_d5.htm' %}">Глава 1. Атака Торре с ...g6: Варианты с ...d5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. Атака Торре с ...g6: Варианты с ...d6</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. Атака Торре с ...g6: Другие планы черных</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. Атака Торре с ...e6: Планы защиты, связанные с ...d5</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 5. Атака Торре с ...e6: Черные фианкеттируют слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6. Атака Торре с ...e6: Два форсированных варианта</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 7. Другие разновидности атаки Торре</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель вариантов</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель партий</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

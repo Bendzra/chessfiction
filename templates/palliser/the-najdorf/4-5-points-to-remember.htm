@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Points to Remember | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<!--div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div-->
+<div class="score">
+ <!--span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span--> 
+<h3>Points to Remember</h3>
+<p>1) White's b3-bishop must be closely monitored and Black must be careful not to allow an early and strong sacrifice on e6.</p>
+<p>2) <b>6...e6</b> blunts White's light-squared bishop. Should White reopen the a2-g8 diagonal with <b>f4-f5</b>, Black must be ready to seize the initiative and the d5-square with a key exchange sacrifice on c3.</p>
+<p>3) <b>6.Bc4 e6 7.Bb3</b> permits Black a pretty reasonable choice between immediately fighting for the initiative with the ambitious <b>7...Nbd7!?</b> and first preferring to neutralize White's pressure with <b>7...b5 8.0-0 Be7 9.Qf3 Qc7</b>.</p>
+<p>4) Black is in good shape against 6.Bc4, but he must be prepared for the position to become rather complex, even when neutralizing White's attacking intentions is his aim.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<p><b>Виктор Корчной, Александр Калинин</b></p>
+<h1>ПРОГУЛКИ С ФРАНЦУЗСКОЙ ЗАЩИТОЙ<br>Три тома</h1>
+
+<div class="notification message">
+<p>Новая работа легендарного Виктора Корчного и гроссмейстера Александра Калинина «Прогулки с французской защитой» посвящена исследованию популярного полуоткрытого начала
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "e7e6"); ' class="line0">e7-e6</span> 
+.</p>
+<p>В. Корчной за свою длительную и блестящую шахматную карьеру не только с успехом применял французскую защиту, но и «генерировал» идеи, продвигавшие вперед теорию этого дебюта. Будучи одним из главных специалистов в мире по французской защите, он не раз применял это начало в матчах на первенство мира. Теперь Вы имеете уникальную возможность прикоснуться к творческой лаборатории выдающегося гроссмейстера.</p>
+<p>Наряду с современным состоянием теории основных вариантов дебюта, подробно освещены вопросы его стратегического содержания.</p>
+</div>
+
+<ul>
+<li>В <a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-0_tom_1.htm' %}">первый том</a> вошли исторический обзор развития идей французской защиты, анализы различных модификаций разменного варианта и варианта Нимцовича.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-0_tom_2.htm' %}">Второй том</a> посвящен различным модификациям идеи А. Рубинштейна, связанной с разменом в центре <b>d5:e4</b>, и Классической системы.</li>
+<li>Заключительный <a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-0_tom_3.htm' %}">третий том</a> посвящен наиболее популярным разветвлениям французской защиты — варианту Винавера и варианту Тарраша.</li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,60 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">М.М.Юдович. План в шахматной партии</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-obdumannoe-predpolozhenie.htm' %}">Обдуманное предположение</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-razve-eto-plan.htm' %}">Разве это план?</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-pervye-opyty-planirovaniia.htm' %}">Первые опыты планирования</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-raschety-i-proschety.htm' %}">Расчеты и просчеты</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-punkty-diagonali-vertikali.htm' %}">Пункты, диагонали, вертикали</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-kak-sozdaetsia-plan.htm' %}">Как создается план</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-pozicionnye-osnovy-plana.htm' %}">Позиционные основы плана</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-orientiry-ocenki.htm' %}">Ориентиры оценки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-na-pricele-korol.htm' %}">На прицеле—король!</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-eshche-ob-orientirah-ocenki.htm' %}">Еще об ориентирах оценки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-vmeste-s-masterami.htm' %}">Вместе с мастерами</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/9-proverte-vashi-resheniia.htm' %}">Проверьте ваши решения!</a></li>
+</ul>
+
+<div class="diagram">
+<h4>Серия «Библиотечка шахматиста»</h4>
+<h2>Михаил Михайлович Юдович</h2>
+<h1>ПЛАН В ШАХМАТНОЙ ПАРТИИ</h1>
+</div>
+
+<div class="diagram">
+Заведующий редакцией В. И. Чепижный<br />
+Редактор С. Б. Воронков<br />
+Художник Ю. А. Вотоловский<br />
+Художественный редактор В. А. Жигарев<br />
+Технический редактор С. С. Басипова<br />
+Корректор Л. В. Чернова
+</div>
+
+<div class="diagram">ИБ 1354. Сдано в набор 05.05.82. Подписано к печати 25 08.82. Формат 60X90/16. Бумага тип. № 1. Гарнитура «Литературная». Высокая печать. Усл. п. л. 5,0. Усл. кр.-отт. 5,38. Уч.-изд. л. 4,71. Тираж 100 000 экз. Издат. № 6986. Заказ 2—2844. Цена 30 коп.</div>
+
+<div class="diagram">Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по делам издательств, полиграфии и книжной торговли. 101421, ГСП, Москва, К-6, Каляевская ул., 27.</div>
+
+<div class="diagram">Отпечатано с матриц ордена Октябрьской Революции и ордена Трудового Красного Знамени Первой Образцовой типографии имени А. А. Жданова Союзполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли. Москва, М-54, Валовая, 28, на Головном предприятии республиканского производственного объединения «Полиграфкнига». 252057, Киев, ул. Довженко, 3.</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--div>
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>Х38</p>
+</div-->
+
+<div class="message page">
+<p>Виктор ХЕНКИН</p>
+<p>Х38 ПОСЛЕДНИЙ ШАХ. Москва, Издатель «Андрей Ельков», М., 2019, 416 стр., 2-е издание</p>
+<p>ISBN 978-5-906254-59-7</p>
+</div>
+
+<div class="message notification">
+<p>Классический учебник шахматного мастера и известного журналиста В.Л. Хенкина, в новом веке переименованный в «1000 матовых комбинаций», выходит под своим первоначальным названием и вновь - с Предисловием Михаила Таля с любезного разрешения дочери восьмого чемпиона мира Жанны Таль. Для нового издания все позиции прошли компьютерную проверку; в целом они с честью выдержали испытание «временем и машиной», хотя некоторые иллюстративные варианты подверглись корректировке.</p>
+<p>Хорошо подобранные примеры показывают типичные приемы атаки на короля, учат находить комбинации в самых безобидных положениях. Все стандартные схемы атаки подверглись серьезной систематизации.</p>
+<p>Написанная живым языком книга рассчитана на самые широкие слои любителей шахмат. Она может служить учебным пособием для детей школьного возраста, но будет интересна и взрослым.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="diagram">
+<h2>Виктор ХЕНКИН</h2>
+<h1>ПОСЛЕДНИЙ ШАХ</h1>
+</div>
+
+<!--div>
+<p>Спец. редактор международный мастер Владимир Барский</p>
+<p>Оформление переплета, верстка Андрей Ельков</p>
+<p>Художник В. С. Карасев</p>
+<p>Формат 60x90 1/16.</p>
+<p>Печать офсетная. Бумага офсетная.</p>
+</div-->
+
+<!--div>
+<p>e-mail: elkov_andrey@mail.ru http:/ /www.elkov.ru</p>
+</div-->
+
+<div class="message warning">
+<b>ISBN 978-5-906254-59-7</b>
+<div style="float:right;">© Хенкин В., 2019<br />© Издатель Ельков А., 2019</div>
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

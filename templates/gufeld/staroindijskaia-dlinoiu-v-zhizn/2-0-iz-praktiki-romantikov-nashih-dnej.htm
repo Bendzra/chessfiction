@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Раздел 2. ИЗ ПРАКТИКИ РОМАНТИКОВ НАШИХ ДНЕЙ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Раздел 2. ИЗ ПРАКТИКИ РОМАНТИКОВ НАШИХ ДНЕЙ</h1>
+<p>В настоящее время староиндийская защита переживает подлинный ренессанс. В числе ее поклонников не только навсегда к ней прикипевшие «пожизненные староиндийцы», но и представители элиты шахматного сообщества, такие Как Каспаров, Широв, Гельфанд, Топалов, Камский. Не боится строгих экзаменаторов Юдит Полгар. Тряхнул стариной и Роберт Фишер, применив любимую «староиндийку» в матче 1992 года против Спасского.</p>
+<p>Разумеется, в рамках шахматной биографии одного гроссмейстера невозможно охватить масштабы такого многогранного дебюта. Поэтому подбор наиболее значительных партий 90-х годов, сыгранных виднейшими специалистами староиндийской защиты, в основном базировался на системах с развитием ферзевого коня черных на поле c6 и сопутствующих этому системах.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-0-sistema-zemisha.htm' %}">Система Земиша</a><!--215--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-0-klassicheskaia-sistema.htm' %}">Классическая система</a><!--234--></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-1-prodolzhenie-7-d5.htm' %}">Продолжение 7.d5</a><!--258--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-2-prodolzhenie-7-Be3.htm' %}">Продолжение 7.Сe3</a><!--267--></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-0-sistema-averbaha.htm' %}">Система Авербаха</a><!--271--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-0-fianketto-slona-na-g2.htm' %}">Фианкетто слона на g2</a><!--284--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-0-variant-chetyreh-peshek.htm' %}">Вариант четырех пешек</a><!--292--></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

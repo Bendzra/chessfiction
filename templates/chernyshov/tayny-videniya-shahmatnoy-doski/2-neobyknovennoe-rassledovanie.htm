@@ -1,0 +1,1073 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>НЕОБЫКНОВЕННОЕ РАССЛЕДОВАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>НЕОБЫКНОВЕННОЕ РАССЛЕДОВАНИЕ</h1>
+<p>Из чего состоит шахматная партия? Откуда возникает комбинация? Что несет в себе ошибка и можно ли почувствовать ее? Мы попробуем ответить на эти вопросы, восстанавливая шахматные партии. Как сыщик, идущий по следам преступника, тренер порой пытается «расшифровать» творчество ученика, «аккуратно» записанное на бланке. Попробуем видоизменить задачу: вам нужно постараться воссоздать ходы в партии, опираясь на «улики» — диаграммы, расставленные в ключевых моментах борьбы. Конечно, к одной и той же позиции можно приходить разными путями. Но мы учитываем, что в партии есть логические цепочки, отвергающие излишне вычурные ходы. Кроме того, вам помогает временной фактор — количество ходов, совершенных до возникновения диаграммы.</p>
+<p>В качестве примера приведем возможный диалог между Шерлоком Холмсом и доктором Ватсоном, героями рассказов </p>
+<p>писателя Артура Конан-Дойла о приключениях замечательного детектива и его верного друга:</p>
+<p>— Скажите, Холмс, а как Вы определили, что в компании преступников, с которыми мы имели дело, главным был профессор Мориарти, а не полковник Моран?</p>
+<p>Лицо моего друга оживилось. Еще бы! В этот дождливый вечер никаких дел не предвиделось, а Холмс не выносил отсутствия работы. Живые глаза на бледном лице наполнились воспоминаниями:</p>
+<p>— Это было в самом деле необычно, Ватсон! Я Вам об этом не рассказывал. Дело в том, что мне попала в руки партия в шахматы между Мораном и Мориарти. Однако профессор, как Вы знаете, был склонен к таинственности и партия оказалась зашифрована. Я имел перед собой лишь две диаграммы, запечатлевшие важные моменты игры, да проставленное количество сделанных ходов. Вот, извольте, этот документ...</p>
+<!--p>14</p><p>Тайны видения шахматной доски и расчета вариантов</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p class="capTop diagram"><strong>М-М</strong></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 8"></div>
+<p>В полном недоумении я разглядывал столь необычную партию.</p>
+<p>— Но как Вы определили, кто каким цветом играл, если здесь нет даже самой партии? И как на основании партии можно определить, кто среди этого ужасного дуэта был главным?</p>
+<p>— Друг мой, Вы забываете о моем методе. Давайте используем дедукцию. Попробуем сначала восстановить ход событий до первой диаграммы.
+Очевидно, что первым ходом белые сыграли
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e2-e4</span> 
+.</p>
+<p>— Холмс, но ведь можно первым ходом было пойти на f3...</p>
+<p>— Конечно. Но Моран и Мориарти люди образованные, хорошо знающие правила игры. Я уверен, что они бы выбрали наиболее логичный ход. Черные ответили:
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line1">1...e7-e5</span> 
+. Иначе выход ферзя был бы никак невозможен. Теперь, видимо, белые сыграли
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Кg1-f3</span> 
+и напали на пешку, а черные ее защитили ходом
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line1">2...Кb8-c6</span> 
+.</p>
+<p>Следующий ход белых — третий. Как же они сыграли? Очень просто! Взятие пешки на е5 пока невозможно. Следовательно, белые пошли
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1c4"); ' class="line1">3.Сf1-c4</span> 
+. У черных осталось до диаграммы два сделанных хода. Улики — расположение фигур — указывают, что это были ходы <b>Кc6-d4</b> и <b>Фd8-g5</b>. Как же черные сыграли? Конечно, конем:
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "c6d4"); ' class="line1">3...Кc6-d4</span> 
+, потому что выводить ферзя под удар коня ни Моран, ни Мориарти не стали бы! Теперь белые забрали пешку:
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4N3/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 4", this, "f3e5"); ' class="line1">4.Кf3:e5</span> 
+. Следующим ходом черные поставили поистине дьявольскую ловушку!
+ <span onclick='loadMove("r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 5", this, "d8g5"); ' class="line1">4...Фd8-g5!</span> 
+Несомненно, что черными играл Мориарти! Только такой изощренный мозг мог изобрести этот капкан.</p>
+<p>А теперь перейдем к следующей диаграмме. Белые взяли пешку конем —
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/6q1/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5", this, "e5f7"); ' class="line1">5.Кe5:f7</span> 
+— это
+<!--p>Необыкновенное расследование</p><p>15</p-->
+Моран. Жестокий и хладнокровный убийца идет к цели прямым путем и... попадает в плен собственных иллюзий! Мориарти наносит молниеносный удар. Посмотрите, Ватсон, на доске отсутствует пешка g2. Кто же мог ее уничтожить? Только ферзь!
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQK2R w KQkq - 0 6", this, "g5g2"); ' class="line1">5...Фg5:g2</span> 
+— вот как пошел профессор. Белые вынуждены спасать свою ладью, и они сыграли
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQKR2 b Qkq - 0 6", this, "h1f1"); ' class="line1">6.Лh1-f1</span> 
+. А теперь сработал зловещий замысел Мориарти:
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2Bnq3/8/PPPP1P1P/RNBQKR2 w Qkq - 0 7", this, "g2e4"); ' class="line1">6...Фg2:e4+</span> 
+. У белых, чтобы не потерять ферзя, единственная защита:
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/3nq3/8/PPPPBP1P/RNBQKR2 b Qkq - 0 7", this, "c4e2"); ' class="line1">7.Сc4-e2</span> 
+. И теперь:
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 8", this, "d4f3"); ' class="line1">7...Кd4-f3X</span> 
+.
+Так протекала и закончилась эта партия, Ватсон. Белыми играл полковник Себастьян Моран, черными профессор Мориарти — два выдающихся преступника современности:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><b>Итальянская партия и Венгерская защита</b><br /><strong>МОРАН - МОРИАРТИ</strong></p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1c4"); ' class="line0">3.Сc4</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4p3/2BnP3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "c6d4"); ' class="line0">Кd4</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/8/4N3/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 4", this, "f3e5"); ' class="line0">4.К:e5</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 5", this, "d8g5"); ' class="line0">Фg5</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 5"></div>
+<p>
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/6q1/2BnP3/8/PPPP1PPP/RNBQK2R b KQkq - 0 5", this, "e5f7"); ' class="line0">5.К:f7</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQK2R w KQkq - 0 6", this, "g5g2"); ' class="line0">Ф:g2</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2BnP3/8/PPPP1PqP/RNBQKR2 b Qkq - 0 6", this, "h1f1"); ' class="line0">6.Лf1</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/2Bnq3/8/PPPP1P1P/RNBQKR2 w Qkq - 0 7", this, "g2e4"); ' class="line0">Ф:e4+</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/3nq3/8/PPPPBP1P/RNBQKR2 b Qkq - 0 7", this, "c4e2"); ' class="line0">7.Сe2</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 8", this, "d4f3"); ' class="line0">Кf3X</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 8"></div>
+<p>— Холмс, Вы — гений!</p>
+<p>— Нет, мой друг! Это всего лишь дедукция. Логика нашего мозга способна правильно расположить имеющиеся в руках улики и принять единственно правильное решение...</p>
+<p>Самые великие сыщики будут следить за вашими успехами!</p>
+<p>Используйте логику и фантазию, опирайтесь на веру в свои силы и чувство юмора! Помните, как барон Мюнхгаузен напевал, стоя у штурвала корабля?</p>
+<blockquote class="message">
+<i>
+В просторах голубого большого океана<br />
+Я сам за рулевого, я сам за капитана.<br />
+Находчивость и храбрость, отвага и удача —<br />
+В беде не растеряться — вот главная задача!<br />
+</i>
+</blockquote>
+<!--p>16 Тайны видения шахматной доски и расчета вариантов</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>1.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbq1bnr/ppppkppp/8/4Q3/4P3/8/PPPP1PPP/RNB1KBNR b KQ - 0 3"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>2.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/pp1p1ppp/8/4p3/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq e6 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1kbnr/pp1p1ppp/8/4q3/3pP3/8/PPPB1PPP/RN1QKB1R w KQkq - 0 6"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>3.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rn1qkbnr/ppp2ppp/4p3/3p4/2P3b1/8/PP1PPPBP/RNBQK1NR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rn1qk1nr/pp3ppp/2p1p3/2bp4/6Q1/8/PP1PPPBP/RNB1K1NR b KQkq - 0 6"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>4.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1kbnr/ppp1pppp/2q5/1B6/8/2N5/PPPP1PPP/R1BQK1NR b KQkq - 0 4"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>5.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/pppp2pp/8/4N3/4p3/8/PPPP1PPP/RNBQKB1R w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnQ/pppp4/6p1/8/4p3/8/PPPP1PPP/RNB1KB1R b KQq - 0 6"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>6.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/ppp2ppp/4pn2/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1kb1r/ppp2ppp/4pn2/1B6/3qN3/8/PPP2PPP/R1BQK1NR b KQkq - 0 6"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>7.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/pppp1ppp/8/8/3QP3/8/PPP2PPP/RNB1KBNR b KQkq - 0 3"></div>
+<p class="caption">
+ <span class="line0">3. ...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk1nr/pppp1ppp/2n5/8/1b2P3/2Q5/PPP2PPP/RNB1KBNR w KQkq - 0 5"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>8.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/ppp1pppp/5n2/3p4/2P5/5NP1/PP1PPP1P/RNBQKB1R b KQkq - 0 3"></div>
+<p class="caption">
+ <span class="line0">3. ...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rn1qkb1r/ppp1pppp/8/3n1b2/4P3/5NP1/PP1P1P1P/RNBQKB1R b KQkq e3 0 5"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>9.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/pp3ppp/4p3/2pP4/3P4/8/PPPN1PPP/R1BQKBNR b KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1k1nr/pp3ppp/1q6/2bp4/8/8/PPPNNPPP/R1BQKB1R w KQkq - 0 7"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>10.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/pppnpp1p/3p2p1/8/2BPP3/8/PPP2PPP/RNBQK1NR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq2nr/pppnpkbp/3p2p1/6N1/3PP3/8/PPP2PPP/RNBQK2R b KQ - 0 6"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>11.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/ppppnppp/8/2b1p3/2B1P3/2NP4/PPP2PPP/R1BQK1NR b KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/ppppnppp/2n5/2b1p1BQ/2B1P3/2NP4/PPP2PPP/R3K1NR b KQ - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">9. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">10. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1qrk1/pppp1p1p/1bn2Bn1/4p2Q/2B1P3/3P1N2/PPP2PPP/R3K2R b KQ - 0 10"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>12.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/pp1pnppp/2p2n2/1B2N3/4P3/3P4/PPP2PPP/RNBQK2R w KQkq - 0 6"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>13.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1ppp/4p3/8/2PPn3/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1k2r/pppp1ppp/4pq2/8/1bPPn3/P7/1P1NPPPP/RNBQKB1R w KQkq - 0 6"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>14.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1ppp/5n2/4P3/8/8/PPPNPPPP/R1BQKBNR b KQkq - 0 3"></div>
+<p class="caption">
+ <span class="line0">3. ...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1ppp/8/4P3/8/4n2P/PPPNPPP1/R1BQKBNR w KQkq - 0 5"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>15.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1ppp/8/4P3/2P1n3/8/PP2PPPP/RNBQKBNR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/ppp2ppp/3b4/8/2P5/5NP1/PP2Pn1P/RNBQKB1R w KQkq - 0 7"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>16.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1ppp/8/4N1q1/2BnP3/8/PPPP1PPP/RNBQK2R w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1Npp/8/8/4q3/5n2/PPPPBP1P/RNBQKR2 w Qkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>17.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/pppp1ppp/2n2q2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/ppp2ppp/2qp4/1B6/4P3/2N5/PPP2PPP/R1BQK2R b KQkq - 0 7"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>18.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/pppn1ppp/4pn2/3p2B1/2PP4/2N5/PP2PPPP/R2QKBNR w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bBk2r/pppn1ppp/8/3n4/1b1P4/8/PP2PPPP/R2QKBNR w KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>19.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1ppp/8/4P3/2P1n3/8/PP2PPPP/RNBQKBNR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/ppp2ppp/3b4/8/2P1n3/P7/1P2PPPP/RNBQKBNR w KQkq - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/ppp2ppp/8/8/2P5/P5b1/1P2PK1P/RNBQ1BNR w kq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>20.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk1nr/pppp1ppp/2n5/2b5/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk2r/p1ppnBpp/2p5/2b5/4P3/8/PPP2PPP/RNBQK2R b KQkq - 0 7"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>21.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/ppp2ppp/8/4P3/2Pp4/8/PP2PPPP/RNBQKBNR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/ppp1qppp/2n5/4P3/2Pp4/5N2/PP1NPPPP/R1BQKB1R w KQkq - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kbnr/ppp1qppp/8/8/2PN4/P2n4/1P1NPPPP/R1BQKB1R w KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>22.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/pppp1ppp/8/4p3/2B1n3/2N5/PPPP1PPP/R1BQK1NR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1b1r/pppp1kpp/2n5/4p3/4N3/8/PPPP1PPP/R1BQK1NR w KQ - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1bkr/pppp2pp/2n5/4p1N1/8/5Q2/PPPP1PPP/R1B1K1NR b KQ - 0 7"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>23.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/pppn1ppp/3p4/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk1nr/ppp1bppp/8/4p2Q/2B1P3/8/PPP2PPP/RNB1K2R b KQkq - 0 7"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>24.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/pppp1ppp/4pn2/8/1bPP4/6P1/PP1BPP1P/RN1QKBNR b KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/pppp1ppp/4p3/8/2PPn3/6P1/PPQ1PP1P/RN2KBNR b KQkq - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1k2r/pppp1ppp/4p3/8/2PPQ3/6P1/PP2PP1P/RNq1KBNR w KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>25.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/pp1n1ppp/2p1pn2/3p2B1/2PP4/2N1P3/PP3PPP/R2QKBNR w KQkq - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kb1r/pp1n1ppp/2p1pn2/q5B1/2pP4/2NBP3/PP2NPPP/R2QK2R w KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>26.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1kbnr/ppp1pppp/8/q7/3P4/2N5/PPP2PPP/R1BQKBNR b KQkq d3 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kb1r/ppp1pppp/2n2n2/q7/3P4/2N5/PPPB1PPP/R2QKBNR w KQkq - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r3kb1r/pppbpppp/2n2n2/qB1N4/3P4/8/PPPB1PPP/R2QK1NR b KQkq - 0 7"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>27.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/p1p2ppp/1p2p3/8/3PN3/5N2/PPP2PPP/R1BQKB1R b KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/p1pn1ppp/1p2p3/1B2N1B1/3PN3/8/PPP2PPP/R2QK2R b KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>28.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/ppp2ppp/2n1p3/8/3PN3/8/PPP2PPP/R1BQKBNR w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kb1r/ppp2ppp/4pn2/1B6/3qN3/8/PPP2PPP/R1BQK2R b KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>29.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/ppp2ppp/2n5/3p4/3NP3/8/PPP2PPP/RNBQKB1R w KQkq d6 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r2qkbnr/p1pb1ppp/8/1B1Q4/8/8/PPP2PPP/RNB1K2R b KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>30.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/1pp2ppp/p1p5/4p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r2qkbnr/1pp2pp1/p1p5/4p2p/4P1b1/5N1P/PPPP1PP1/RNBQ1RK1 w kq h6 0 7"></div>
+<p class="caption">
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r3kbnr/1pp2pp1/p1p5/4N3/4P1pq/8/PPPP1PP1/RNBQ1RK1 w kq - 0 9"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>31.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkb1r/ppp2ppp/3p1n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbq1b1r/ppp2kpp/3p4/7Q/3Pn3/8/PPP2PPP/RNB1KB1R b KQ - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbq1b1r/ppp1k1pp/8/3p2B1/3Pn3/8/PPP1QPPP/RN2KB1R b KQ - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>32.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/1pp2ppp/p1np4/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/2p2ppp/p2p4/1p2p3/3nP3/1B3N2/PPP2PPP/RNBQK2R w KQkq - 0 7"></div>
+<p class="caption">
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/5ppp/p2p4/1pp5/3QP3/1B6/PPP2PPP/RNB1K2R w KQkq c6 0 9"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>33.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk1nr/p1p2ppp/1p2p3/3pP3/1b1P2Q1/2N5/PPP2PPP/R1B1KBNR b KQkq - 0 5"></div>
+<p class="caption">
+ <span class="line0">5. ...</span> 
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1kbnr/p1pq1p2/1p2p2p/3pP1p1/3P2QB/2N5/PPP2PPP/2KR1BNR w kq g6 0 9"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>34.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/ppp1pppp/8/8/2p5/N4N2/PP1PPPPP/R1BQKB1R b KQkq - 0 3"></div>
+<p class="caption">
+ <span class="line0">3. ...</span> 
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk1nr/p1p2ppp/8/1p2N3/Q1p5/b7/PP1PPPPP/R1B1KB1R w KQkq b6 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1k2r/p1p2ppp/3q1n2/1p2N3/8/QPp5/PB1PPPPP/R3KB1R w KQkq - 0 9"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>35.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnb1k2r/pp1p1ppp/4pn2/q1p5/1bPP4/PQN5/1P1BPPPP/R3KBNR b KQkq - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1k2r/pp1p1ppp/4pn2/q1p5/1bPn4/P1N1P3/1P1B1PPP/R2QKBNR b KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>36.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">4. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/pppp1ppp/2n2n2/4p3/2P5/2N2NP1/PP1PPP1P/R1BQKB1R b KQkq - 0 4"></div>
+<p class="caption">
+ <span class="line0">4. ...</span> 
+ <span class="line0">5. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">6. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk2r/pppp1ppp/2n5/3Pp3/1b6/5NP1/PP1PPP1P/R1BQKB1R b KQkq - 0 6"></div>
+<p class="caption">
+ <span class="line0">6. ...</span> 
+ <span class="line0">7. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">8. ...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqk2r/pppp1ppp/2P5/8/1b6/1Q3pP1/PP1PPP1P/R1B1KB1R b KQkq - 0 8"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p><b>37.</b></p>
+<p class="caption">
+ <span class="line0">1. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">2. ...</span> 
+ <span class="line0">...</span> 
+ <span class="line0">3. ...</span> 
+ <span class="line0">...</span> 
+</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkbnr/pppp2pp/2n5/4pp2/2P5/2N2N2/PP1PPPPP/R1BQKB1R w KQkq f6 0 4"></div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

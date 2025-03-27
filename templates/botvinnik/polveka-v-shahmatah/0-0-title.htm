@@ -1,0 +1,65 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>Выдающиеся шахматисты мира</h1>
+
+<!--div class="diagram"-->
+<!--img src="botv-1978_files/botv-1978-1.png" style="width:210pt;height:421pt;"/-->
+<!--/div-->
+
+<div class="diagram">
+<h3>ВЫДАЮЩИЕСЯ ШАХМАТИСТЫ МИРА</h3>
+<h2>М. М. БОТВИННИК</h2>
+<h1>ПОЛВЕКА В ШАХМАТАХ</h1>
+</div>
+
+<div class="diagram">
+<p>МОСКВА</p>
+<p>«ФИЗКУЛЬТУРА И СПОРТ»</p>
+<p>1978</p>
+</div>
+<hr />
+
+<div class="diagram">
+<p>7А9.1</p>
+<p>Б 86</p>
+</div>
+
+<div class="diagram">
+<p>Б 86</p>
+<p>Ботвинник М. М.</p>
+<p>Полвека в шахматах. М., «Физкультура и спорт», 1978 г.</p>
+<p>272 с с ил., портр., факс. («Выдающиеся шахматисты мира»).</p>
+</div>
+
+<div class="diagram">
+<p>Один из выдающихся советских шахматистов М. Ботвинник рассказывает о себе, о встречах с великими шахматистами мира, о методах подготовки к турнирам, комментирует спои лучшие партии, специально подобранные для этого издания.</p>
+<p>Книга рассчитана на шахматистов высокой квалификации.</p>
+</div>
+<div>
+<table style="float:left;">
+<tr><td rowspan=2>Б</td><td>60904-057</td><td rowspan=2>122-78</td></tr>
+<tr><td>009(01)-78</td></tr>
+</table>
+<p style="float:right;">7А9.1</p>
+<div class="clear"></div>
+</div>
+<p>© Издательство «Физкультура и спорт», 1978 г.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

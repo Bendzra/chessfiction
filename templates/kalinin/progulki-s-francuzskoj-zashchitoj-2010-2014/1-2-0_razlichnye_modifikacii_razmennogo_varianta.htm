@@ -1,0 +1,25 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 2. Различные модификации разменного варианта | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Глава 2. Различные модификации разменного варианта</h2>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-a_3_ed_ed.htm' %}">A) 1.e4 e6 2.d4 d5 3.ed ed</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-b_3_Nc3_Bb4_4_ed_ed.htm' %}">Б) 1.e4 e6 2.d4 d5 3.Кc3 Сb4 4.ed ed</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

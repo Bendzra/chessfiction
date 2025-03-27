@@ -1,0 +1,54 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Что должен каждый знать о мительшпиле</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-strategiia_i_taktika_mitelshpilia.htm' %}">Стратегия и тактика мительшпиля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-sviazka.htm' %}">Связка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-dvojnye_napadeniia.htm' %}">Двойные нападения</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-nezashchishchennye_figury.htm' %}">Незащищенные фигуры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06a-ustranenie_zashchity.htm' %}">Устранение защиты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-mnimaia_zashchita.htm' %}">Мнимая защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-ataka_posredstvom_vskryshki.htm' %}">Атака посредством вскрышки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-zapiranie_slona.htm' %}">Запирание слона</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-lovlia_ferzia_posle_vziatiia_peshki_na_b2_(b7).htm' %}">Ловля ферзя после взятия пешки на b2 (b7)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-obnazhenie_pozicii_korolia.htm' %}">Обнажение позиции короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-ataka_peshkoj_f.htm' %}">Атака пешкой f</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-ataka_po_linii_f.htm' %}">Атака по линии f</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/14-ataka_na_punkt_f7_(f2).htm' %}">Атака на пункт f7 (f2)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/15-razbitaia_peshechnaia_poziciia_rokirovki.htm' %}">Разбитая пешечная позиция рокировки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/16-ataka_po_linii_g_(ili_b).htm' %}">Атака по линии g (или b)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/17-peshka_h3_(h6)_kak_obekt_ataki.htm' %}">Пешка h3 (h6) как объект атаки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/18-ataka_po_linii_h_(ili_a).htm' %}">Атака по линии h (или а)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/19-dva_slona_protiv_pozicii_rokirovki.htm' %}">Два слона против позиции рокировки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/20-opasnosti_dlinnoj_rokirovki.htm' %}">Опасности длинной рокировки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/21-spertyj_mat.htm' %}">Спертый мат</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/22-mat_na_kraiu_doski.htm' %}">Мат на краю доски. недостаточная защищенность базы</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/23-vechnyj_shah.htm' %}">Вечный шах</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/24-ladia_na_otkrytoj_linii_i_na_2-j_(7-j)_gorizontali.htm' %}">Ладья на открытой линии и на 2-й (7-й) горизонтали</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/25-skvoznoe_dejstvie_linejnyh_figur_cherez_nepriiatelskie_figury.htm' %}">Сквозное действие линейных фигур через неприятельские фигуры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/26-prohodnaia_peshka.htm' %}">Проходная пешка</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/27-prodvinutye_peshki.htm' %}">Продвинутые пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/28-peshka_c6_(c3)_kak_obekt_ataki.htm' %}">Пешка c6 (c3) как объект атаки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/29-peshka_b6_(b3)_kak_obekt_ataki.htm' %}">Пешка b6 (b3) как объект атаки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/30-neskolko_sovetov.htm' %}">Несколько советов</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

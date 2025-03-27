@@ -1,0 +1,76 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Ананд В. Шахматная школа Виши Ананда</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-ataka-na-korolia.htm' %}">АТАКА НА КОРОЛЯ</a></li>
+<ol start="1">
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-anand-lautier.htm' %}">В. Ананд — Ж. Лотье, Биль 1997</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-gelfand-anand.htm' %}">Б. Гельфанд — В. Ананд, Линарес 1993</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-anand-ftacnik.htm' %}">В. Ананд — Л. Фтачник, Биль (межзональный) 1993 </a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — А. Белявский, Гронинген 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — А. Халифман, Шеньян 2000</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — К. Нинов, Багио 1987</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Иванчук — В. Ананд, Линарес 1998</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — И. Соколов, Брюссель (быстрые шахматы) 1992</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Е. Бареев, Линарес 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Б. Гельфанд, Вейк-ан-Зее 1996</a> </li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — В. Топалов. Дортмунд 1996</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — А. Карпов, Лас-Пальмас 1996</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — В. Топалов, Вейк-ан-Зее 1998</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ПОЗИЦИОННАЯ ИГРА</a></li>
+<ol start="14">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Е. Бареев, Дортмунд 1992</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Г. Каспаров, Нью-Йорк 1995</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Г. Камский, Лас-Пальмас 1995</a> </li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Г. Камский, Лас-Пальмас 1995</a> </li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Н. Шорт, Мерида 2001</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — А. Широв, Гронинген 1997</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Д. Рейндерман — В. Ананд, Вейк-ан-Зее 1999</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — П. Николич, Вейк-ан-Зее 2000</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ПОЗИЦИОННАЯ ЖЕРТВА</a></li>
+<ol start="22">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — Ю. Полгар, Линарес 1994</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Топалов — В. Ананд, Линарес 1999</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — В. Иванчук, Линарес 1993</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Ананд — В. Иванчук, Лас-Пальмас 1996</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">А. Широв — В. Ананд, Морелия/Линарес 2008</a></li>
+<!--p>155</p-->
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЗАЩИТА И КОНТРАТАКА</a></li>
+<ol start="27">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Крамник — В. Ананд, Белград 1997</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">П. Николич — В. Ананд, Гронинген 1997</a></li>
+</ol>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЭНДШПИЛЬ</a></li>
+<ol start="29">
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">В. Иванчук — В. Ананд, Матч (1), Линарес 1992</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">М. Карлсен — В. Ананд, Морелия/Линарес 2008</a></li>
+</ol>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

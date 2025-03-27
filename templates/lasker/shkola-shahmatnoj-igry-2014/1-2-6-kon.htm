@@ -1,0 +1,25 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Конь | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<a name="1-2-6-kon"></a>
+
+<div class="section">
+<h3>Конь</h3>
+<div class="chessBoard small nobuttons" data-start-fen="6k1/6n1/5N2/5n1b/8/6R1/4N3/3K4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/6n1/5N2/5n1b/8/6R1/4N3/3K4 w - - 0 1", this, ""); '>[...]</span> 
+<p>Здесь из четырех коней два неподвижны: конь e2 не может двинуться со своего места из-за слона h5, конь g7 - из-за ладьи g3; они обязаны защищать своих королей. Конь f5 может пойти на одно из следующих полей: e7, d6, d4, e3, g3 (при этом он берет ладью), h4, h6. Итак, кратчайший прыжок на доске осуществляется следующим образом: сперва отсчитываются два поля вправо или влево, вверх или вниз, а затем одно поле в направлении перпендикулярном к ним. Это дает для коня, стоящего на f5, восемь возможностей, но одна из них, именно ход на g7, отнимается у него, так как это поле занято своей фигурой. У коня f6 имеются все восемь возможностей; он угрожает неприятельскому королю, дает ему шах, и король, чтобы спастись, вынужден бежать куда-нибудь, например на f7.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

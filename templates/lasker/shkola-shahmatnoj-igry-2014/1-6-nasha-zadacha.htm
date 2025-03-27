@@ -1,0 +1,25 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Наша задача | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<a name="1-6-nasha-zadacha"></a>
+
+<div class="section">
+<h3>Наша задача</h3>
+<div class="score">
+<p>Пользуясь приведенными выше правилами в алгебраической системе нотации, мы поставим себе задачу выяснить внутренний смысл, содержание шахматной игры. В соответствии с требованиями логики мы начнем с самого простого и путем ряда умозаключений будем восходить от простого к более сложному. При этом мы вскроем все проявления разумности и целесообразности в шахматной игре и объединим их в одном общем русле.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<br />
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

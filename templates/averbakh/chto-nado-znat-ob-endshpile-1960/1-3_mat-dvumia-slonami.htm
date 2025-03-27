@@ -1,0 +1,92 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Мат двумя слонами | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>МАТ ДВУМЯ СЛОНАМИ</h3>
+<div class='score'>
+<p>Для того чтобы дать мат двумя слонами, нужно оттеснить короля противника не только на край доски, но обязательно в какой-нибудь угол. Оттеснение достигается объединенными силами.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="floater">
+<p class="capTop">3</p>
+<div class="chessBoard small" data-start-fen="8/8/8/8/4k3/8/4B2B/6K1 w - - 0 1"></div>
+</div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/8/8/8/4k3/8/4B2B/6K1 w - - 0 1", this, ""); '>[...]</span>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/4k3/8/4BK1B/8 b - - 0 1", this, "g1f2"); ' class="line0">1.Крg1-f2</span>
+<span onclick='loadMove("8/8/8/8/3k4/8/4BK1B/8 w - - 0 2", this, "e4d4"); ' class="line0">Крe4-d4</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/3k4/5B2/5K1B/8 b - - 0 2", this, "e2f3"); ' class="line0">2.Сe2-f3</span>
+<span onclick='loadMove("8/8/8/8/8/3k1B2/5K1B/8 w - - 0 3", this, "d4d3"); ' class="line0">Крd4-d3</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/4B3/8/3k1B2/5K2/8 b - - 0 3", this, "h2e5"); ' class="line0">3.Сh2-e5</span>
+<span onclick='loadMove("8/8/8/4B3/8/5B2/3k1K2/8 w - - 0 4", this, "d3d2"); ' class="line0">Крd3-d2</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/4B3/4B3/8/3k1K2/8 b - - 0 4", this, "f3e4"); ' class="line0">4.Сf3-e4</span>
+<span onclick='loadMove("8/8/8/4B3/4B3/8/5K2/2k5 w - - 0 5", this, "d2c1"); ' class="line0">Крd2-c1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/4B3/4B3/4K3/8/2k5 b - - 0 5", this, "f2e3"); ' class="line0">5.Крf2-e3!</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>При оттеснении одинокого короля нужно внимательно следить за тем, чтобы у него были свободные поля для отступления,
+ <span onclick='loadMove("8/8/8/4B3/4B3/8/4K3/2k5 b - - 0 5", this, "f2e2"); ' class="line1">5.Крf2-e2??</span> 
+вело к пату и ничьей.</p>
+<p class="longNotation">
+ <span class="ellipsis0">5. ...</span> 
+ <span onclick='loadMove("8/8/8/4B3/4B3/4K3/8/3k4 w - - 0 6", this, "c1d1"); ' class="line0">Крc1-d1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/4B3/4K3/1B6/3k4 b - - 0 6", this, "e5b2"); ' class="line0">6.Сe5-b2</span>
+<span onclick='loadMove("8/8/8/8/4B3/4K3/1B6/4k3 w - - 0 7", this, "d1e1"); ' class="line0">Крd1-e1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/8/4K3/1BB5/4k3 b - - 0 7", this, "e4c2"); ' class="line0">7.Сe4-c2</span>
+<span onclick='loadMove("8/8/8/8/8/4K3/1BB5/5k2 w - - 0 8", this, "e1f1"); ' class="line0">Крe1-f1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/8/5K2/1BB5/5k2 b - - 0 8", this, "e3f3"); ' class="line0">8.Крe3-f3</span>
+<span onclick='loadMove("8/8/8/8/8/5K2/1BB5/6k1 w - - 0 9", this, "f1g1"); ' class="line0">Крf1-g1</span>.</p>
+<p>Или
+ <span onclick='loadMove("8/8/8/8/8/5K2/1BB5/4k3 w - - 0 9", this, "f1e1"); ' class="line1">8...Крf1-e1</span> 
+ <span onclick='loadMove("8/8/8/8/8/2B2K2/2B5/4k3 b - - 0 9", this, "b2c3"); ' class="line1">9.Сb2-c3+</span> 
+ <span onclick='loadMove("8/8/8/8/8/2B2K2/2B5/5k2 w - - 0 10", this, "e1f1"); ' class="line1">Крe1-f1</span> 
+ <span onclick='loadMove("8/8/8/8/8/2BB1K2/8/5k2 b - - 0 10", this, "c2d3"); ' class="line1">10.Сc2-d3+</span> 
+ <span onclick='loadMove("8/8/8/8/8/2BB1K2/8/6k1 w - - 0 11", this, "f1g1"); ' class="line1">Крf1-g1</span> 
+ <span onclick='loadMove("8/8/8/8/8/2BB2K1/8/6k1 b - - 0 11", this, "f3g3"); ' class="line1">11.Крf3-g3</span> 
+ <span onclick='loadMove("8/8/8/8/8/2BB2K1/8/7k w - - 0 12", this, "g1h1"); ' class="line1">Крg1-h1</span> 
+ <span onclick='loadMove("8/8/8/8/8/3B2K1/3B4/7k b - - 0 12", this, "c3d2"); ' class="line1">12.Сc3-d2</span> 
+ <span onclick='loadMove("8/8/8/8/8/3B2K1/3B4/6k1 w - - 0 13", this, "h1g1"); ' class="line1">Крh1-g1</span> 
+ <span onclick='loadMove("8/8/8/8/8/3BB1K1/8/6k1 b - - 0 13", this, "d2e3"); ' class="line1">13.Сd2-e3+</span> 
+ <span onclick='loadMove("8/8/8/8/8/3BB1K1/8/7k w - - 0 14", this, "g1h1"); ' class="line1">Крg1-h1</span> 
+ <span onclick='loadMove("8/8/8/8/4B3/4B1K1/8/7k b - - 0 14", this, "d3e4"); ' class="line1">14.Сd3-e4X</span>.</p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/5B2/8/5K2/1B6/6k1 b - - 0 9", this, "c2f5"); ' class="line0">9.Сc2-f5</span>
+<span onclick='loadMove("8/8/8/5B2/8/5K2/1B6/5k2 w - - 0 10", this, "g1f1"); ' class="line0">Крg1-f1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/5B2/8/2B2K2/8/5k2 b - - 0 10", this, "b2c3"); ' class="line0">10.Сb2-c3</span>
+<span onclick='loadMove("8/8/8/5B2/8/2B2K2/8/6k1 w - - 0 11", this, "f1g1"); ' class="line0">Крf1-g1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/5B2/8/2B3K1/8/6k1 b - - 0 11", this, "f3g3"); ' class="line0">11.Крf3-g3</span>
+<span onclick='loadMove("8/8/8/5B2/8/2B3K1/8/5k2 w - - 0 12", this, "g1f1"); ' class="line0">Крg1-f1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/8/2BB2K1/8/5k2 b - - 0 12", this, "f5d3"); ' class="line0">12.Сf5-d3+</span>
+<span onclick='loadMove("8/8/8/8/8/2BB2K1/8/6k1 w - - 0 13", this, "f1g1"); ' class="line0">Крf1-g1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/3B4/3B2K1/8/6k1 b - - 0 13", this, "c3d4"); ' class="line0">13.Сc3-d4+</span>
+<span onclick='loadMove("8/8/8/8/3B4/3B2K1/8/7k w - - 0 14", this, "g1h1"); ' class="line0">Крg1-h1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/3BB3/6K1/8/7k b - - 0 14", this, "d3e4"); ' class="line0">14.Сd3-e4X</span>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="warning message">Для упражнения попробуйте дать мат в следующей позиции: Крa8, Сb1, Сe5 — Крe3. Сколько на это потребуется ходов?</p>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,161 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Михаил Шерешевскии, Константин Винокуров. ЭНДШПИЛЬ: курс молодого бойца</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vstuplenie.htm' %}">Вступление</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-peshechnye-okonchaniia.htm' %}">РАЗДЕЛ 1. ПЕШЕЧНЫЕ ОКОНЧАНИЯ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-tri-bazovye-pozicii.htm' %}">1.1. Три базовые позиции</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-oppoziciia.htm' %}">1.2. Оппозиция</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-korol-na-6-j-gorizontali.htm' %}">1.3. Король на 6-й горизонтали</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-dalnij-obhod-korolia-zahod-s-tyla-minirovannye-polia.htm' %}">1.4. Дальний обход короля, заход с тыла, «минированные» поля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-treugolnik.htm' %}">1.5. Треугольник</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-pravilo-kvadrata.htm' %}">1.6. Правило квадрата</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-7-tri-sviazannye-prohodnye.htm' %}">1.7. Три связанные проходные</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.8. Блуждающий квадрат</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.9. Идея Рети</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.10. Пешечные гонки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.11. Активный король</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.12. Отталкивание плечом</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.13. Прорыв</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.14. Отдаленная проходная</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.15. Защищенная проходная</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.16. Подрыв, усиление позиции, укрепление позиции</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.17. Пешки на одном фланге</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.18. Ничейные мотивы: крепость, пат</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1.19. Ладейные пешки</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 2. КОНЬ ПРОТИВ ПЕШЕК</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2.1. Король в углу доски</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2.2. Защита пешки конем</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2.3. Типичные приемы</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 3. КОНЕВЫЕ ОКОНЧАНИЯ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3.1. Конь и пешка против коня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3.2. Окончания с несколькими пешками</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 4. СЛОН ПРОТИВ ПЕШЕК</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4.1. Теоретические позиции и типичные приемы борьбы</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4.2. Этюдные позиции</a></li>
+</ul>
+<!--p>175</p-->
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 5. СЛОНОВЫЕ ОКОНЧАНИЯ. РАЗНОЦВЕТНЫЕ СЛОНЫ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5.1. Слон и две пешки против слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5.2. Крепости</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5.3. Отдаленная проходная</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 6. СЛОНОВЫЕ ОКОНЧАНИЯ. ОДНОЦВЕТНЫЕ СЛОНЫ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6.1. Слон и пешка против слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6.2. Слон и две пешки против слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6.3. Несколько полезных правил</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6.4. Типичная тактика</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 7. СЛОН ПРОТИВ КОНЯ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7.1. Слон и пешка против коня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7.2. Конь и пешка против слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7.3. Преимущество слона над конем</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7.4. Преимущество коня над слоном</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 8. ЛАДЬЯ ПРОТИВ ПЕШЕК</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8.1. Ладья против пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8.2. Ладья против двух связанных пешек</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8.3. Ладья против двух разрозненных пешек</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8.4. Ладья против трех пешек</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 9. ЛАДЕЙНЫЕ ОКОНЧАНИЯ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.1. Ладья и пешка против ладьи</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.1.1. Пешка на 7-й горизонтали</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.1.2. Пешка на 6-й горизонтали</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.1.3. Пешка на 5-й горизонтали</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.1.4. Пешка на своей половине доски</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.1.5. Ладья и ладейная пешка против ладьи</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.2. Ладья и две пешки против ладьи</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.2.1. Пешки сдвоенные</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.2.2. Пешки связанные</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.2.3. Пешки разрозненные</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.3. Ладья и пешка против ладьи и пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.4 Ладья и две пешки против ладьи и пешки</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.4.1. Пешки сторон на одном фланге</a></li>
+<!--p>176</p-->
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.4.2. Пешки сторон на разных флангах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.4.3. Разрозненные пешки, одна из них проходная</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.5. Окончания с несколькими пешками</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.5.1. Пешки на одном фланге</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9.5.2. Равновесие на одном фланге, лишняя пешка на другом</a></li>
+</ul>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 10. ЛАДЬЯ ПРОТИВ КОНЯ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10.1. Без пешек</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10.2. Ладья и пешка против коня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10.3. Ладья против коня и двух пешек</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10.4. Ладья и пешка против коня и пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10.5. Окончания с несколькими пешками</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 11. ЛАДЬЯ ПРОТИВ СЛОНА</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11.1. Без пешек</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11.2. Ладья и пешка против слона</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11.3. Ладья и пешка против слона и пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11.4. Окончания с несколькими пешками</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 12. ФЕРЗЬ ПРОТИВ ПЕШКИ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 13. ФЕРЗЕВЫЕ ОКОНЧАНИЯ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">13.1. Без пешек</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">13.2. Ферзь и пешка против ферзя</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">13.3. Ферзь и две пешки против ферзя</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">13.4. Окончания с несколькими пешками</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 14. ФЕРЗЬ ПРОТИВ ЛАДЬИ</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">14.1. Одинокая ладья</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">14.2. Ферзь против ладьи и пешки</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">14.3. Ферзь и пешка против ладьи и пешки</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 15. ФЕРЗЬ ПРОТИВ ДВУХ ФИГУР БЕЗ ПЕШЕК</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">15.1 Ферзь против двух ладей</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">15.2 Ферзь против двух легких фигур</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">РАЗДЕЛ 16. ЛАДЬЯ И СЛОН ПРОТИВ ЛАДЬИ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Именной указатель</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

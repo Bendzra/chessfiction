@@ -1,0 +1,136 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Задачи 11-14 | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<p class="zadacha">11. Всегда ли выгодно превращать пешку в сильнейшую фигуру - ферзя?</p>
+<div class="score">
+<div class="spoiler-wrap">
+<div class="spoiler-head folded">Решение</div>
+<div class="spoiler-body">
+<p>11. Встречаются иногда исключительные позиции, когда пешку оказывается выгоднее превратить в другую фигуру, исходя из конкретных особенностей положения. Так, на диагр. 53 мы видим, что ход <b>1. c7-c8Ф</b> приводит к равному положению, так как у каждой из сторон остается по ферзю и три пешки.</p>
+
+<div class="section">
+<p class="capTop">Диагр. 53</p>
+<div class="chessBoard small nobuttons" data-start-fen="8/q1P1kp1p/6p1/8/8/7P/5PP1/6K1 w - - 0 1"></div>
+<!--img src="images\_0047.png" /-->
+<p>Ход белых</p>
+<p>Если бы белые превратили пешку в коня, то, как легко видеть, они дали бы шах королю и одновременно напали бы на ферзя. Черные, защищаясь от шаха, должны отойти королем, после чего белые, взяв ферзя, остались бы с конем и тремя пешками против трех пешек противника, т. е. на стороне белых было бы значительное материальное преимущество. Значит, в данном случае выгоднее превратить пешку не в ферзя, а в коня.</p>
+</div> <!-- section -->
+
+<div class="section">
+<p>Другой пример показан на диагр. 54:</p>
+<p class="capTop">Диагр. 54</p>
+<div class="chessBoard small nobuttons" data-start-fen="8/k1P5/2K5/8/8/8/8/8 w - - 0 1"></div>
+<!--img src="images\_0048.png" /-->
+<p>Ход белых</p>
+<p>
+ <span class="line0" onclick='loadMove("8/k1P5/2K5/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+</p>
+<p>
+После
+ <span onclick='loadMove("2Q5/k7/2K5/8/8/8/8/8 b - - 0 1", this, "c7c8"); ' class="line1">1.c7-c8Ф</span> 
+получился бы пат, так как у черных не было бы ни одного хода.
+</p>
+<p>
+Если черные превращают пешку в ладью, то следующим ходом они дают мат:
+ <span onclick='loadMove("2R5/k7/2K5/8/8/8/8/8 b - - 0 1", this, "c7c8"); ' class="line0">1.c7-c8Л</span> 
+ <span onclick='loadMove("2R5/8/k1K5/8/8/8/8/8 w - - 0 1", this, "a7a6"); ' class="line0">Крa7-a6</span> 
+ <span onclick='loadMove("R7/8/k1K5/8/8/8/8/8 b - - 0 1", this, "c8a8"); ' class="line0">2.Лc8-a8X</span>.
+</p>
+</div> <!-- section -->
+</div>
+</div> <!-- spoiler-wrap -->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<p class="zadacha">12. Возможна ли такая позиция - белые: Крe1, Лa1 , Лh1, Сc1, Сf1, Кf4, пп. a3, c2, c3, c5, g2, h2; черные: Крe8, Лa8, Лg6, Сc8, Кc6, Кe7, пп. a7, b7, e6, f7, h7? Чтобы ответить на этот вопрос, подумайте, каким путем на вертикали «c» оказались три пешки белых.</p>
+<div class="score">
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+<div class="section">
+<p class="capTop">Диагр. 55</p>
+<div class="chessBoard small nobuttons" data-start-fen="r3kb2/pp2np1p/2n1p1r1/2P5/5N2/P1P5/2P3PP/R1B1KB1R w KQq - 0 1"></div>
+<p>12. Можно предположить, что пешка b2 после взятия перешла на c3, а пешка d4 - на c5. Следовательно, достаточно двух взятий, чтобы появились на вертикали «с» три пешки, которые называются строенными.</p>
+<p>Конкретно рассуждая, можем считать, что пешка b2 взяла на поле c3 черного слона, а пешка d4 взяла на поле c5 черную пешку. Таким образом, положение вполне возможно.</p>
+</div>
+  </div>
+</div> <!-- spoiler-wrap -->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<p class="zadacha">13. Сколько ходов есть в начальной позиции?</p>
+<div class="score">
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+<p>13. В начальной позиции по правилам игры возможно 20 ходов, в том числе 16 ходов пешками и 4 хода конями.</p>
+<p>Мы, конечно, не касаемся сейчас оценки качества различных ходов.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<p class="zadacha">14. Поставьте ферзя на свободной доске так, чтобы количество ходов, которое он может сделать, было максимальным. Подсчитайте затем количество возможных ходов ферзем, стоящим на краю и в углу свободной доски. Проделайте аналогичные подсчеты для всех фигур.</p>
+<div class="score">
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+<p>14. Возьмем такое положение.</p>
+<div class="section">
+<p class="capTop">Диагр. 55</p>
+<div class="chessBoard small nobuttons" data-start-fen="2k5/8/8/8/4Q3/8/7K/8 w - - 0 1"></div>
+<!--img src="images\_0049.png" /-->
+<p>В распоряжении белого ферзя 27 ходов: по четвертой горизонтали - 7, по вертикали «е» - 7, по диагонали h1-h8 - 7 и по диагонали b1-h7 - 6. Нетрудно убедиться, что большего количества ходов ферзь не может иметь ни с одного поля. По мере приближения к краю доски «ударная» сила ферзя падает. Поставим его, например, на поле a3. Тогда у него будет уже только 21 ход. Если мы поставим ферзя в угол, например на поле a1, то он тоже будет иметь 21 ход.</p>
+</div>
+
+<div class="section">
+<p>На следующей диаграмме показано количество ходов, которыми располагает ферзь с каждого поля доски:</p>
+<p class="capTop">Диагр. 56</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="Q7/8/8/3q4/8/8/8/8 w - - 0 1" data-markers="X TLa1a1'21 TLa2a2'21 TLa3a3'21 TLa4a4'21 TLa5a5'21 TLa6a6'21 TLa7a7'21 TLa8a8'21 TLb1b1'21 TLb2b2'23 TLb3b3'23 TLb4b4'23 TLb5b5'23 TLb6b6'23 TLb7b7'23 TLb8b8'21 TLc1c1'21 TLc2c2'23 TLc3c3'25 TLc4c4'25 TLc5c5'25 TLc6c6'25 TLc7c7'23 TLc8c8'21 TLd1d1'21 TLd2d2'23 TLd3d3'25 TLd4d4'27 TLd5d5'27 TLd6d6'25 TLd7d7'23 TLd8d8'21 TLe1e1'21 TLe2e2'23 TLe3e3'25 TLe4e4'27 TLe5e5'27 TLe6e6'25 TLe7e7'23 TLe8e8'21 TLf1f1'21 TLf2f2'23 TLf3f3'25 TLf4f4'25 TLf5f5'25 TLf6f6'25 TLf7f7'23 TLf8f8'21 TLg1g1'21 TLg2g2'23 TLg3g3'23 TLg4g4'23 TLg5g5'23 TLg6g6'23 TLg7g7'23 TLg8g8'21 TLh1h1'21 TLh2h2'21 TLh3h3'21 TLh4h4'21 TLh5h5'21 TLh6h6'21 TLh7h7'21 TLh8h8'21"></div>
+<!--img src="images\_0050.png" /-->
+<p>Для ферзя</p>
+</div>
+
+<p class="clear">Из всех фигур только одна ладья не меняет свою «ударную» силу: и в центре, и в углу свободной доски она имеет 14 ходов.</p>
+<p>Приводим соответствующие диаграммы для слона, коня и короля:</p>
+
+<div class="section">
+<p class="capTop">Диагр. 57</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/2B5/8/8/8/8/8/1b6 w - - 0 1" data-markers="X TLa1a1'7 TLa2a2'7 TLa3a3'7 TLa4a4'7 TLa5a5'7 TLa6a6'7 TLa7a7'7 TLa8a8'7 TLb1b1'7 TLb2b2'9 TLb3b3'9 TLb4b4'9 TLb5b5'9 TLb6b6'9 TLb7b7'9 TLb8b8'7 TLc1c1'7 TLc2c2'9 TLc3c3'11 TLc4c4'11 TLc5c5'11 TLc6c6'11 TLc7c7'9 TLc8c8'7 TLd1d1'7 TLd2d2'9 TLd3d3'11 TLd4d4'13 TLd5d5'13 TLd6d6'11 TLd7d7'9 TLd8d8'7 TLe1e1'7 TLe2e2'9 TLe3e3'11 TLe4e4'13 TLe5e5'13 TLe6e6'11 TLe7e7'9 TLe8e8'7 TLf1f1'7 TLf2f2'9 TLf3f3'11 TLf4f4'11 TLf5f5'11 TLf6f6'11 TLf7f7'9 TLf8f8'7 TLg1g1'7 TLg2g2'9 TLg3g3'9 TLg4g4'9 TLg5g5'9 TLg6g6'9 TLg7g7'9 TLg8g8'7 TLh1h1'7 TLh2h2'7 TLh3h3'7 TLh4h4'7 TLh5h5'7 TLh6h6'7 TLh7h7'7 TLh8h8'7"></div>
+<!--img src="images\_0051.png" /-->
+<p>Для слона</p>
+</div>
+
+<div class="section">
+<p class="capTop">Диагр. 58</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/5N2/8/8/4n3/8/8/8 w - - 0 1" data-markers="X TLa1a1'2 TLa2a2'3 TLa3a3'4 TLa4a4'4 TLa5a5'4 TLa6a6'4 TLa7a7'3 TLa8a8'2 TLb1b1'3 TLb2b2'4 TLb3b3'6 TLb4b4'6 TLb5b5'6 TLb6b6'6 TLb7b7'4 TLb8b8'3 TLc1c1'4 TLc2c2'6 TLc3c3'8 TLc4c4'8 TLc5c5'8 TLc6c6'8 TLc7c7'6 TLc8c8'4 TLd1d1'4 TLd2d2'6 TLd3d3'8 TLd4d4'8 TLd5d5'8 TLd6d6'8 TLd7d7'6 TLd8d8'4 TLe1e1'4 TLe2e2'6 TLe3e3'8 TLe4e4'8 TLe5e5'8 TLe6e6'8 TLe7e7'6 TLe8e8'4 TLf1f1'4 TLf2f2'6 TLf3f3'8 TLf4f4'8 TLf5f5'8 TLf6f6'8 TLf7f7'6 TLf8f8'4 TLg1g1'3 TLg2g2'4 TLg3g3'6 TLg4g4'6 TLg5g5'6 TLg6g6'6 TLg7g7'4 TLg8g8'3 TLh1h1'2 TLh2h2'3 TLh3h3'4 TLh4h4'4 TLh5h5'4 TLh6h6'4 TLh7h7'3 TLh8h8'2"></div>
+<!--img src="images\_0052.png" /-->
+<p>Для коня</p>
+</div>
+
+<div class="section">
+<p class="capTop">Диагр. 59</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/6K1/8/8/8/8/8/1k6 w - - 0 1"
+data-markers="X TLa1a1'3 TLa2a2'5 TLa3a3'5 TLa4a4'5 TLa5a5'5 TLa6a6'5 TLa7a7'5 TLa8a8'3 TLb1b1'5 TLb2b2'8 TLb3b3'8 TLb4b4'8 TLb5b5'8 TLb6b6'8 TLb7b7'8 TLb8b8'5 TLc1c1'5 TLc2c2'8 TLc3c3'8 TLc4c4'8 TLc5c5'8 TLc6c6'8 TLc7c7'8 TLc8c8'5 TLd1d1'5 TLd2d2'8 TLd3d3'8 TLd4d4'8 TLd5d5'8 TLd6d6'8 TLd7d7'8 TLd8d8'5 TLe1e1'5 TLe2e2'8 TLe3e3'8 TLe4e4'8 TLe5e5'8 TLe6e6'8 TLe7e7'8 TLe8e8'5 TLf1f1'5 TLf2f2'8 TLf3f3'8 TLf4f4'8 TLf5f5'8 TLf6f6'8 TLf7f7'8 TLf8f8'5 TLg1g1'5 TLg2g2'8 TLg3g3'8 TLg4g4'8 TLg5g5'8 TLg6g6'8 TLg7g7'8 TLg8g8'5 TLh1h1'3 TLh2h2'5 TLh3h3'5 TLh4h4'5 TLh5h5'5 TLh6h6'5 TLh7h7'5 TLh8h8'3"></div>
+<!--img src="images\_0054.png" /-->
+<p>Для короля</p>
+</div>
+  </div>
+</div> <!-- spoiler-wrap -->
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,57 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+
+ <div class="message">
+<p>ВЫДАЮЩИЕСЯ ШАХМАТИСТЫ МИРА</p>
+<h2>М.Н.ТАЛЬ, Я.В.ДАМСКИЙ</h2>
+<h1>В ОГОНЬ АТАКИ</h1>
+</div>
+<div class="message">
+<p>Москва</p>
+<p>«Физкультура и спорт»</p>
+<p>1978</p>
+</div>
+<div class="message">
+<p>7А9.1</p>
+<p>Т16</p>
+</div>
+<div class="message">
+<p><b>Таль М. Н.</b> и <b>Дамский Я. В.</b></p>
+<p>Т16 <b>В огонь атаки</b>. М., «Физкультура и спорт», 1978.</p>
+<p>304 с. с ил., портр., факс. («Выдающиеся шахматисты мира»),</p>
+</div>
+<div class="message">
+<p>В этой книге из диалога Михаила Таля с журналистом Яковом Дамским читатель узнает биографию одного из самых ярких и оригинальных шахматистов нашего времени, его шахматные принципы</p>
+<p>Книга рассчитана на шахматистов высокой квалификации.</p>
+</div>
+<div class="message">
+<div style="float:right;">
+<table>
+<tr><td rowspan=2>Т</td><td>60904-028</td><td rowspan=2></td>125-78</tr>
+<tr><td>009 (01)-78</td></tr>
+</table>
+</div>
+<div style="float:right;">
+<p>7А9.1</p>
+</div>
+<div class="clear"></div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

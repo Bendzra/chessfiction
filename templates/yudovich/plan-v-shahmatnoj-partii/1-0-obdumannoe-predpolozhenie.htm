@@ -1,0 +1,39 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Обдуманное предположение | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Обдуманное предположение</h2>
+<p>План — это последовательность и сроки проведения в жизнь каких-либо дел. План обычно базируется на результатах изучения объекта планирования, он строится на учете ближних и дальних перспектив. Хорошо раскрывает смысл этого понятия «Толковый словарь» В. И. Даля. План здесь определен как «обдуманное предположение, порядок действий для достижения чего-либо».</p>
+<p>А как в шахматах осуществлять «обдуманные предположения», вести борьбу по плану? И вообще, нужна ли такая — плановая игра? Оказывается, не только нужна, но и совершенно необходима для каждого шахматиста, желающего совершенствоваться. Ведь одна из характерных и самых привлекательных черт шахмат в том, что они учат искать и предвидеть.</p>
+<p>«Надо вести все операции, заранее имея в виду определенную цель, объект атаки. Плавать без цели — это стратегический конфуз», — справедливо отмечал выдающийся гроссмейстер А. Нимцович.</p>
+
+<div class="diagram">
+<i>О том поразмыслим,<br />
+что ждет впереди;<br />
+Цель выбрав благую,<br />
+к ней прямо иди.</i>
+</div>
+
+<p>Так писал почти тысячу лет назад великий таджикский и персидский поэт Абуль Касим Фирдоуси.</p>
+<p>Шахматным планам, умению их создавать и осуществлять на практике и посвящена эта книга.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-razve-eto-plan.htm' %}">Разве это план?</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-pervye-opyty-planirovaniia.htm' %}">Первые опыты планирования</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-raschety-i-proschety.htm' %}">Расчеты и просчеты</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

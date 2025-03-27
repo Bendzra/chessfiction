@@ -1,0 +1,43 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<h2>Содержание</h2>
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Мелодии шахматной миниатюры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1. Шахматная композиция</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-predislovie.htm' %}">2. Предисловие</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3. Творческий автопортрет</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-trehhodovye-miniatiury.htm' %}">4. Трехходовые миниатюры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5. Четырехходовые миниатюры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6. Многоходовые миниатюры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7. Заключение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8. Решение миниатюр</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8.1. Трехходовые миниатюры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8.2. Четырехходовые миниатюры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8.3. Многоходовые миниатюры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9. Термины шахматной композиции</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10. Тематический указатель</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11. Литература</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

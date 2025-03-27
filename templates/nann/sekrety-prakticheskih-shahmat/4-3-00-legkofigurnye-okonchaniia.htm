@@ -1,0 +1,24 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЛЕГКОФИГУРНЫЕ ОКОНЧАНИЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ЛЕГКОФИГУРНЫЕ ОКОНЧАНИЯ</h3>
+
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-01-konevye-okonchaniia.htm' %}">Коневые окончания</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-02-endshpil-slon-protiv-konia.htm' %}">Эндшпиль «слон против коня»</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-03-slonovye-okonchaniia.htm' %}">Слоновые окончания</a></li>
+    </ul>
+
+<div class="message">
+<p>Под этим названием на самом деле объединены четыре типа окончаний: коневые, слон против коня и слоновые эндшпили с одноцветными или разноцветными слонами. Детальное рассмотрение каждого типа здесь невозможно, поэтому я сконцентрирую усилия на наиболее полезной информации.</p>
+</div>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

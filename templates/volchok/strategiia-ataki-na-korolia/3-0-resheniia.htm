@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Решения | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h2>РЕШЕНИЯ</h2>
+<h6>Решения - в спойлерах.</h6>
+
+<p>Часть I.</p>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-zadaniia-1.htm' %}">Глава I</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-zadaniia-2.htm' %}">Глава II</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-zadaniia-3.htm' %}">Глава III</a></li>
+</ul>
+<p>Часть II.</p>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1-zadaniia-1.htm' %}">Глава I</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2-zadaniia-2.htm' %}">Глава II</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

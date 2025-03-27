@@ -1,0 +1,28 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть I. Как вести атаку | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h2>Часть I. КАК ВЕСТИ АТАКУ</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-korol-v-centre.htm' %}">Глава I. Король в центре<!--12--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-zadaniia-1.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-ataka-pozicii-korotkoj-rokirovki.htm' %}">Глава II. Атака позиции короткой рокировки<!--37--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-zadaniia-2.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-ataka-pri-raznostoronnih-rokirovkah.htm' %}">Глава III. Атака при разносторонних рокировках<!--85--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-zadaniia-3.htm' %}">Задания</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

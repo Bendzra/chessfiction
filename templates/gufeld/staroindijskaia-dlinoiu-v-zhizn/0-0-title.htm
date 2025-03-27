@@ -1,0 +1,71 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="message">
+<h2>Эдуард Гуфельд<br />при соавторстве<br />Олега Стецко</h2>
+<h1>СТАРОИНДИЙСКАЯ ДЛИНОЮ В ЖИЗНЬ</h1>
+</div>
+
+<div class="message">
+<p>РИПОЛ КЛАССИК</p>
+<p>МОСКВА 2002</p>
+</div>
+
+<hr />
+
+<div class="message">
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>Г97</p>
+</div>
+
+<div class="message">
+<p>Серия «Искусство шахмат» основана в 2001 году</p>
+</div>
+
+<div class="message page">
+<p><b>Гуфельд Э.</b></p>
+<p>Г97 Староиндийская длиною в жизнь /При соавторстве Олега Стецко.- М.: РИПОЛ КЛАССИК, 2002.- 304 с.-(Искусство шахмат).</p>
+<p>ISBN 5-7905-1503-7</p>
+</div>
+
+<div class="notification message">
+<p>Книга посвящена одному из сложнейших дебютов — староиндийской защите — и построена на партиях автора, который признан верным приверженцем «слона на g7», а также на партиях таких поклонников «староиндийки», как Гарри Каспаров, Гата Камский, Александр Белявский, Юдит Полгар. Предлагаются принципиально новые идеи, анализируются новейшие дискуссионные варианты.</p>
+
+<p>Эдуард Гуфельд — один из наиболее ярких
+гроссмейстеров наших дней, чьи идеи в шахматах
+заметно опережали ею чисто спортивные результаты. Он — создатель многих книг, изданных в
+разных странах, ныне профессор Лос-Анджелеского университета. Автор участвовал в десятках
+крупных соревнований, выиграл несколько международных турниров, был секундантом Леонида
+Штейна и Ефима Геллера в их борьбе за титул чемпиона мира.</p>
+</div>
+
+<div class="message">
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+</div>
+
+<div class="message warning">
+<b>ISBN 5-7905-1503-7</b>
+<div style="float:right;">© Гуфельд Э. Е., при соавторстве О. Стецко, 2002<br />© Издательский дом «РИПОЛ КЛАССИК», оформление, 2002</div>
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

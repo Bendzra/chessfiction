@@ -1,0 +1,75 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ЗНАЕТЕ ЛИ ВЫ КЛАССИКУ? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ЗНАЕТЕ ЛИ ВЫ КЛАССИКУ?</h1>
+<p>«А что, собственно, считать шахматной классикой? — вправе спросить читатель. — Выдающиеся партии выдающихся шахматистов? Именно партии или также их фрагменты — комбинации? И можно ли называть классическими произведения, созданные современными мастерами, или же это понятие применимо только к творчеству шахматистов прошлого? А если блестящая комбинация встретилась в незначительном соревновании или, скажем, в легкой партии? Если ее создали малоизвестные или совсем безвестные шахматисты, это классика или нет?»</p>
+<p>Точных критериев классического в шахматах не существует. Но мы все же попытались ответить на трудные вопросы. Ответы эти — в подборке примеров * (* При этом следует иметь в виду, что многие классические комбинации использованы были ранее для иллюстрации отдельных тем и в заданиях.). Рядом с комбинациями корифеев вы встретите не менее блестящие образцы творчества рядовых мастеров. При отборе «кандидатов» масштаб соревнования и положение в шахматной табели о рангах не имели решающего значения. Конечно же, партии чемпионов мира и знаменитых гроссмейстеров пользуются повышенным вниманием — каждая их тактическая операция на виду. Но если в одном ряду с творчеством чемпионов стоит комбинация, созданная шахматистом не слишком известным, можете быть уверены — она того стоит! Взгляните на
+<!--p>144 Знаете ли Вы классику?</p-->
+диаграммы №459 и 452. Редкая по красоте и неожиданности операция в эндшпиле была осуществлена скромным мастером, имя которого ничего не говорит большинству любителей шахмат. Но сомнений нет: эндшпиль поединка Ортуэта — Санц — подлинная шахматная классика. Так же как классическим является кочующий из учебника в учебник замечательный финал встречи Ненароков — Григорьев.</p>
+<p>С точки зрения эстетики безразлично, сыграна партия в матче за шахматную корону или в блиц-турнире.</p>
+<p>Молодой Эдуард Ласкер (впоследствии известный мастер) никак не мог предположить, что его партия-пятиминутка с жертвой ферзя на h7 (№437) выдержит тысячи публикаций.</p>
+<p>Но на одно ограничение в понятии классики читатель, несомненно, обратит внимание. Как и в любом виде искусства, в шахматах «большое видится на расстоянии». Классическими станут многие партии наших современников, но пока они лишь кандидаты в прекрасное наследие. Тому, что создано в последние десятилетия, пропуск в шахматное бессмертие дадут следующие поколения.</p>
+<p>Не все справедливо в этом мире, и популярность шахматной комбинации не всегда соответствует ее подлинной эстетической ценности. Есть немало незаслуженно забытых комбинаций, да и сам эстетический критерий очень расплывчат. Некоторые комбинации, повторяющиеся едва ли не в каждом руководстве и считающиеся классическими, согласно современным понятиям довольно примитивны. Есть и копирующие давние идеи. * (* Сравните, например, сыгранную между делом и ставшую знаменитой партию Рети — Тартаковер (№436) с давней партией Мачуский — Колиш 1864 г.:
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", this, "d2d4"); ' class="line0">3.d4</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", this, "e5d4"); ' class="line0">ed</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", this, "f3d4"); ' class="line0">4.К:d4</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1ppp/2n5/8/3NP2q/8/PPP2PPP/RNBQKB1R w KQkq - 0 5", this, "d8h4"); ' class="line0">Фh4</span> 
+ <span onclick='loadMove("r1b1kbnr/pppp1ppp/2n5/8/3NP2q/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 5", this, "b1c3"); ' class="line0">5.Кc3</span> 
+ <span onclick='loadMove("r1b1k1nr/pppp1ppp/2n5/8/1b1NP2q/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "f8b4"); ' class="line0">Сb4</span> 
+ <span onclick='loadMove("r1b1k1nr/pppp1ppp/2n5/8/1b1NP2q/2NQ4/PPP2PPP/R1B1KB1R b KQkq - 0 6", this, "d1d3"); ' class="line0">6.Фd3</span> 
+ <span onclick='loadMove("r1b1k2r/pppp1ppp/2n2n2/8/1b1NP2q/2NQ4/PPP2PPP/R1B1KB1R w KQkq - 0 7", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("r1b1k2r/pppp1ppp/2N2n2/8/1b2P2q/2NQ4/PPP2PPP/R1B1KB1R b KQkq - 0 7", this, "d4c6"); ' class="line0">7.К:c6</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p2n2/8/1b2P2q/2NQ4/PPP2PPP/R1B1KB1R w KQkq - 0 8", this, "d7c6"); ' class="line0">dc</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p2n2/8/1b2P2q/2NQ4/PPPB1PPP/R3KB1R b KQkq - 0 8", this, "c1d2"); ' class="line0">8.Сd2</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p2n2/8/4P2q/2bQ4/PPPB1PPP/R3KB1R w KQkq - 0 9", this, "b4c3"); ' class="line0">С:c3</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p2n2/8/4P2q/2BQ4/PPP2PPP/R3KB1R b KQkq - 0 9", this, "d2c3"); ' class="line0">9.С:c3</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/8/4n2q/2BQ4/PPP2PPP/R3KB1R w KQkq - 0 10", this, "f6e4"); ' class="line0">К:e4</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/8/3Qn2q/2B5/PPP2PPP/R3KB1R b KQkq - 0 10", this, "d3d4"); ' class="line0">10.Фd4</span> 
+ <span onclick='loadMove("r1b1k2r/ppp1qppp/2p5/8/3Qn3/2B5/PPP2PPP/R3KB1R w KQkq - 0 11", this, "h4e7"); ' class="line0">Фe7</span> 
+ <span onclick='loadMove("r1b1k2r/ppp1qppp/2p5/8/3Qn3/2B5/PPP2PPP/2KR1B1R b kq - 0 11", this, "e1c1"); ' class="line0">11.0-0-0</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/6q1/3Qn3/2B5/PPP2PPP/2KR1B1R w kq - 0 12", this, "e7g5"); ' class="line0">Фg5+</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/6q1/3QnP2/2B5/PPP3PP/2KR1B1R b kq f3 0 12", this, "f2f4"); ' class="line0">12.f4</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/8/3Qnq2/2B5/PPP3PP/2KR1B1R w kq - 0 13", this, "g5f4"); ' class="line0">Ф:f4+</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/8/3Qnq2/8/PPPB2PP/2KR1B1R b kq - 0 13", this, "c3d2"); ' class="line0">13.Сd2</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/8/3Qn1q1/8/PPPB2PP/2KR1B1R w kq - 0 14", this, "f4g4"); ' class="line0">Фg4</span> 
+ <span onclick='loadMove("r1bQk2r/ppp2ppp/2p5/8/4n1q1/8/PPPB2PP/2KR1B1R b kq - 0 14", this, "d4d8"); ' class="line0">14.Фd8+</span> 
+ <span onclick='loadMove("r1bk3r/ppp2ppp/2p5/8/4n1q1/8/PPPB2PP/2KR1B1R w - - 0 15", this, "e8d8"); ' class="line0">Кр:d8</span> 
+ <span onclick='loadMove("r1bk3r/ppp2ppp/2p5/6B1/4n1q1/8/PPP3PP/2KR1B1R b - - 0 15", this, "d2g5"); ' class="line0">15.Сg5++</span> 
+ <span onclick='loadMove("r1b1k2r/ppp2ppp/2p5/6B1/4n1q1/8/PPP3PP/2KR1B1R w kq - 0 16", this, "d8e8"); ' class="line0">Крe8</span> 
+ <span onclick='loadMove("r1bRk2r/ppp2ppp/2p5/6B1/4n1q1/8/PPP3PP/2K2B1R b kq - 0 16", this, "d1d8"); ' class="line0">16.Лd8X</span> 
+.)</p>
+<!--p>Знаете ли Вы классику? 145</p-->
+<p>В отличие от предыдущих разделов, в этом мы в самом начале ответа называем соперников и соревнование. Каждый из примеров — упражнение в «узнавании знакомых черт», а если позиция вам не известна,— еще одно задание.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-401-420.htm' %}">Задания 401-420</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-421-440.htm' %}">Задания 421-440</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-441-460.htm' %}">Задания 441-460</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-461-480.htm' %}">Задания 461-480</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

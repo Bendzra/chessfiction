@@ -1,0 +1,353 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Король и пешка против короля | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>КОРОЛЬ И ПЕШКА ПРОТИВ КОРОЛЯ</h3>
+<div class='score'>
+<p>Король лучше всего борется с пешкой, занимая одно из полей на ее пути, или, как принято говорить, блокируя ее. Однако король не может вечно находиться на этом поле. Очередь хода заставляет его отступить на шаг назад, освободить занятое поле и дать дорогу пешке. Пешка при поддержке короля противника двинется вперед, в конце концов все сведется к следующему критическому положению, где уже королю отступать некуда.</p>
+<p>Перед нами типичная позиция взаимного цугцванга.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<p class="capTop">45</p>
+<div class="chessBoard small" data-start-fen="2k5/2P5/3K4/8/8/8/8/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("2k5/2P5/3K4/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p>Право хода здесь оказывается невыгодным для обеих сторон. Белые, начиная, вынуждены продолжать</p>
+<p class="longNotation">
+<span onclick='loadMove("2k5/2P5/2K5/8/8/8/8/8 b - - 0 1", this, "d6c6"); ' class="line0">1.Крd6-c6</span>
+<span class="ellipsis0">...</span>
+,</p>
+<p>что ведет к пату и ничьей, а черным при своем ходе приходится играть</p>
+<p class="longNotation">
+<span class="ellipsis0">1. ...</span>
+<span onclick='loadMove("8/1kP5/3K4/8/8/8/8/8 w - - 0 2", this, "c8b7"); ' class="line0">Крc8-b7</span>,</p>
+<p>на что белые отвечают</p>
+<p class="longNotation">
+<span onclick='loadMove("8/1kPK4/8/8/8/8/8/8 b - - 0 2", this, "d6d7"); ' class="line0">2.Крd6-d7</span></p>
+<p>и проводят пешку в ферзи. Значит, белые, двигая пешку вперед, должны стремиться получить эту позицию при ходе черных, а черные — при ходе белых.</p>
+<p>Попытаемся определить, когда это возможно.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Рассмотрим позицию с белой пешкой на c5.</p>
+
+<div class="section">
+<p class="capTop">46</p>
+<div class="chessBoard small" data-start-fen="8/8/8/2P5/8/8/8/8 w - - 0 1" data-markers="X RNDb600 RNDb700 RNDc600 RNDc700 RNDd600 RNDd700"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/8/8/2P5/8/8/8/8 w - - 0 1", this, ""); rdrms(this);'>[...]</span>
+<!--span>"8/1XXX4/1XXX4/2P5/8/8/8/8 w - - 0 1"</span-->
+<p>Ясно, что если король белых успеет занять одно из трех полей b7, c7, d7 перед пешкой, то белые автоматически проведут пешку в ферзи.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Попытаемся определить, каков будет результат при короле белых на d6.</p>
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="2k5/8/3K4/2P5/8/8/8/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("2k5/8/3K4/2P5/8/8/8/8 w - - 0 1", this, "");'>[...]</span>
+<p>Если король черных при этом находится на c8, то решает обходный маневр</p>
+<p class="longNotation">
+<span onclick='loadMove("2k5/8/2K5/2P5/8/8/8/8 b - - 0 1", this, "d6c6"); ' class="line0">1.Крd6-c6</span>
+<span onclick='loadMove("3k4/8/2K5/2P5/8/8/8/8 w - - 0 2", this, "c8d8"); ' class="line0">Крc8-d8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("3k4/1K6/8/2P5/8/8/8/8 b - - 0 2", this, "c6b7"); ' class="line0">2.Крc6-b7</span></p>
+<p>или
+ <span onclick='loadMove("1k6/8/2K5/2P5/8/8/8/8 w - - 0 2", this, "c8b8"); ' class="line1">1...Крc8-b8</span> 
+ <span onclick='loadMove("1k6/3K4/8/2P5/8/8/8/8 b - - 0 2", this, "c6d7"); ' class="line1">2.Крc6-d7</span>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="3k4/8/3K4/2P5/8/8/8/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("3k4/8/3K4/2P5/8/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p>Если король черных расположен на d8, то решает</p>
+<p class="longNotation">
+<span onclick='loadMove("3k4/8/2PK4/8/8/8/8/8 b - - 0 1", this, "c5c6"); ' class="line0">1.c5-c6</span>
+<span onclick='loadMove("2k5/8/2PK4/8/8/8/8/8 w - - 0 2", this, "d8c8"); ' class="line0">Крd8-c8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("2k5/2P5/3K4/8/8/8/8/8 b - - 0 2", this, "c6c7"); ' class="line0">2.c6-c7</span>
+<span onclick='loadMove("8/1kP5/3K4/8/8/8/8/8 w - - 0 3", this, "c8b7"); ' class="line0">Крc8-b7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/1kPK4/8/8/8/8/8/8 b - - 0 3", this, "d6d7"); ' class="line0">3.Крd6-d7</span>.</p>
+<p>Продолжая анализ дальше, мы легко установим, что белые также добиваются победы, если их король сумеет занять поля c6 или b6, вне зависимости от того, где расположен король черных.</p>
+<p>Эти шесть полей — b7, c7, d7, b6, c6, d6 — получили в теории пешечных окончаний название ключевых полей пешки c5, так как занятие хотя бы одного из них королем белых ведет к осуществлению цели белых — проведению пешки в ферзи.</p>
+<p>Черные сведут окончание вничью, если им удастся не пропустить короля белых на ключевые поля.</p>
+<p class="notification message">Итак, основное сражение в этом эндшпиле будет вестись за ключевые поля. Для победы белые должны занять одно из них королем. Чтобы свести партию вничью, черные должны стремиться не пропустить короля белых на эти поля.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="8/2k5/8/1KP5/8/8/8/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/2k5/8/1KP5/8/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p>Нетрудно установить, что для ничьей при положении короля белых на d5 черный король должен находиться только на d7 или c7, а при короле белых на b5 — на b7 или c7. Тогда на ход</p>
+<p class="longNotation">
+<span onclick='loadMove("8/2k5/2P5/1K6/8/8/8/8 b - - 0 1", this, "c5c6"); ' class="line0">1.c5-c6</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>черные должны отступить королем так, чтобы в случае ответов
+<!--span onclick='loadMove("8/2k5/2P5/1K6/8/8/8/8 w - - 0 2", this, "c5c6"); ' class="line0">1...z0</span-->
+<span onclick='loadMove("8/2k5/1KP5/8/8/8/8/8 b - - 0 2", this, "b5b6"); ' class="line1">2.Крb5-b6</span>
+или <b>2. Крd6</b> у них был соответственно ход
+<span onclick='loadMove("1k6/8/1KP5/8/8/8/8/8 w - - 0 3", this, "c7b8"); ' class="line1">2...Крc7-b8</span>
+или <b>2... Крd8</b>.</p>
+<p>Поэтому при короле на c7 у черных имеется только единственный ответ, спасающий партию, а именно:</p>
+<p class="longNotation">
+<span class="ellipsis0">1. ...</span>
+<span onclick='loadMove("2k5/8/2P5/1K6/8/8/8/8 w - - 0 2", this, "c7c8"); ' class="line0">Крc7-c8</span>,</p>
+<p>который отвечает поставленным условиям, в то время как 
+ <span onclick='loadMove("3k4/8/2P5/1K6/8/8/8/8 w - - 0 2", this, "c7d8"); ' class="line1">1...Крc7-d8</span> 
+(Или
+ <span onclick='loadMove("1k6/8/2P5/1K6/8/8/8/8 w - - 0 2", this, "c7b8"); ' class="line2">1...Крb8</span>) после <b>2. Крd6</b> (Или
+ <span onclick='loadMove("3k4/8/1KP5/8/8/8/8/8 b - - 0 2", this, "b5b6"); ' class="line2">2.Крb6</span>) 
+ <span onclick='loadMove("2k5/8/1KP5/8/8/8/8/8 w - - 0 3", this, "d8c8"); ' class="line1">2...Крd8-c8</span> 
+ <span onclick='loadMove("2k5/2P5/1K6/8/8/8/8/8 b - - 0 3", this, "c6c7"); ' class="line1">3.c6-c7</span> 
+вело к цугцвангу и проигрышу черных.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="floater">
+<p class="capTop">47</p>
+<div class="chessBoard small" data-start-fen="8/8/8/2k5/8/2K5/2P5/8 w - - 0 1" data-markers="X RNDb400 RNDc400 RNDd400"></div>
+</div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/8/8/2k5/8/2K5/2P5/8 w - - 0 1", this, "");  rdrms(this);'>[...]</span>
+<!--span>"8/8/8/2k5/1XXX4/2K5/2P5/8 w - - 0 1"</span-->
+<p>Вот еще одна важная позиция взаимного цугцванга. Здесь ключевыми являются поля b4, c4, d4.</p>
+<p>Проверим это. Пусть очередь хода за черными.
+<p><!--span onclick='loadMove("8/8/8/2k5/8/2K5/2P5/8 b - - 0 1", this, "c6c7"); ' class="line0">1.z0</span-->
+Они вынуждены продолжать</p>
+<p class="longNotation">
+<span class="ellipsis0">1. ...</span>
+<span onclick='loadMove("8/8/8/1k6/8/2K5/2P5/8 w - - 0 2", this, "c5b5"); ' class="line0">Крc5-b5</span></p>
+<p>(Или
+ <span onclick='loadMove("8/8/8/3k4/8/2K5/2P5/8 w - - 0 2", this, "c5d5"); ' class="line1">1...Крc5-d5</span>), на что следует</p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/1k6/3K4/8/2P5/8 b - - 0 2", this, "c3d4"); ' class="line0">2.Крc3-d4</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>(Или (<b>2. Крb4</b>). Мы можем убедиться, что теперь пешка пройдет в ферзи автоматически, например:</p>
+<p class="longNotation">
+<span class="ellipsis0">2. ...</span>
+<span onclick='loadMove("8/8/2k5/8/3K4/8/2P5/8 w - - 0 3", this, "b5c6"); ' class="line0">Крb5-c6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/2k5/8/2K5/8/2P5/8 b - - 0 3", this, "d4c4"); ' class="line0">3.Крd4-c4</span>
+<span onclick='loadMove("8/8/1k6/8/2K5/8/2P5/8 w - - 0 4", this, "c6b6"); ' class="line0">Крc6-b6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/1k6/3K4/8/8/2P5/8 b - - 0 4", this, "c4d5"); ' class="line0">4.Крc4-d5</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>(обход)</p>
+<p class="longNotation">
+<span class="ellipsis0">4. ...</span>
+<span onclick='loadMove("8/2k5/8/3K4/8/8/2P5/8 w - - 0 5", this, "b6c7"); ' class="line0">Крb6-c7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/2k5/8/2K5/8/8/2P5/8 b - - 0 5", this, "d5c5"); ' class="line0">5.Крd5-c5</span>
+<span onclick='loadMove("8/3k4/8/2K5/8/8/2P5/8 w - - 0 6", this, "c7d7"); ' class="line0">Крc7-d7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/3k4/1K6/8/8/8/2P5/8 b - - 0 6", this, "c5b6"); ' class="line0">6.Крc5-b6</span>.</p>
+<p>Осуществив обходный маневр королем, белые заняли одно из основных ключевых полей и могут начать двигать пешку вперед.</p>
+<p>Иное дело, если очередь хода за белыми. На
+ <span onclick='loadMove("8/8/8/2k5/8/1K6/2P5/8 b - - 0 1", this, "c3b3");' class="line1">1.Крc3-b3</span> 
+черные продолжают
+ <span onclick='loadMove("8/8/8/1k6/8/1K6/2P5/8 w - - 0 2", this, "c5b5"); ' class="line1">1...Крc5-b5</span>, а на
+ <span onclick='loadMove("8/8/8/2k5/8/3K4/2P5/8 b - - 0 1", this, "c3d3"); ' class="line1">1.Крc3-d3</span> 
+—
+ <span onclick='loadMove("8/8/8/3k4/8/3K4/2P5/8 w - - 0 2", this, "c5d5"); ' class="line1">1...Крc5-d5</span>, не пропуская короля белых вперед. После
+ <span onclick='loadMove("8/8/8/3k4/2P5/3K4/8/8 b - c3 0 2", this, "c2c4"); ' class="line1">2.c2-c4+</span> 
+ <span onclick='loadMove("8/8/8/2k5/2P5/3K4/8/8 w - - 0 3", this, "d5c5"); ' class="line1">Крd5-c5</span> 
+ <span onclick='loadMove("8/8/8/2k5/2P5/2K5/8/8 b - - 0 3", this, "d3c3"); ' class="line1">3.Крd3-c3</span> 
+ <span onclick='loadMove("8/8/2k5/8/2P5/2K5/8/8 w - - 0 4", this, "c5c6"); ' class="line1">Крc5-c6</span> 
+(Возможно и
+ <span onclick='loadMove("8/8/3k4/8/2P5/2K5/8/8 w - - 0 4", this, "c5d6"); ' class="line2">3...Крd6</span> 
+и
+ <span onclick='loadMove("8/8/1k6/8/2P5/2K5/8/8 w - - 0 4", this, "c5b6"); ' class="line2">3...Крb6</span>)
+ <span onclick='loadMove("8/8/2k5/8/2PK4/8/8/8 b - - 0 4", this, "c3d4"); ' class="line1">4.Крc3-d4</span> 
+ <span onclick='loadMove("8/8/3k4/8/2PK4/8/8/8 w - - 0 5", this, "c6d6"); ' class="line1">Крc6-d6</span> 
+ <span onclick='loadMove("8/8/3k4/2P5/3K4/8/8/8 b - - 0 5", this, "c4c5"); ' class="line1">5.c4-c5+</span> 
+ <span onclick='loadMove("8/3k4/8/2P5/3K4/8/8/8 w - - 0 6", this, "d6d7"); ' class="line1">Крd6-d7</span> 
+ <span onclick='loadMove("8/3k4/8/2PK4/8/8/8/8 b - - 0 6", this, "d4d5"); ' class="line1">6.Крd4-d5</span> 
+ <span onclick='loadMove("8/2k5/8/2PK4/8/8/8/8 w - - 0 7", this, "d7c7"); ' class="line1">Крd7-c7</span> 
+ <span onclick='loadMove("8/2k5/2P5/3K4/8/8/8/8 b - - 0 7", this, "c5c6"); ' class="line1">7.c5-c6</span> 
+ <span onclick='loadMove("2k5/8/2P5/3K4/8/8/8/8 w - - 0 8", this, "c7c8"); ' class="line1">Крc7-c8!</span> 
+ <span onclick='loadMove("2k5/8/2PK4/8/8/8/8/8 b - - 0 8", this, "d5d6"); ' class="line1">8.Крd5-d6</span> 
+ <span onclick='loadMove("3k4/8/2PK4/8/8/8/8/8 w - - 0 9", this, "c8d8"); ' class="line1">Крc8-d8!</span>, как мы уже знаем, черные сводят партию вничью.</p>
+<p>Так проходит борьба за ключевые поля.</p>
+
+<p class="notification message">Не пропустить короля противника ни на одно из трех ключевых полей черным удавалось единственным способом — став своим королем против неприятельского, или, как принято говорить, заняв оппозицию. Оппозиция королей — единственное средство борьбы за три ключевых поля, расположенных рядом на одной линии.</p>
+
+<p>Как мы увидим еще не раз, борьба королей за овладение ключевыми полями является лейтмотивом большинства пешечных окончаний.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">На диаграмме 48 приведен еще один пример на ту же тему.</p>
+
+<div class="section">
+<p class="capTop">48</p>
+<div class="chessBoard small" data-start-fen="5k2/8/8/8/8/2P5/8/3K4 w - - 0 1" data-markers="X RNDb500 RNDc500 RNDd500"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("5k2/8/8/8/8/2P5/8/3K4 w - - 0 1", this, ""); rdrms(this);'>[...]</span>
+<!--span>"5k2/8/8/1XXX4/8/2P5/8/3K4 w - - 0 1"</span-->
+<p>Попытаемся найти решение этой позиции, исходя из теории ключевых полей.</p>
+<p>Как нам должно быть ясно из предыдущего, ключевые поля пешки c3 — d5, c5 и b5. Значит, при короле белых на d4 король черных должен находиться на d6, при короле белых на c4 — на c6, а при короле белых на b4 — на b6. На каждое из этих трех полей король белых попадает за три хода, в то время как черный король на поле d6 попадает за два хода, на c6 — за три и на b6 — за четыре.</p>
+<p>Если белый король немедленно направится к полю b4, черный король не успеет занять нужное для борьбы за ключевые поля поле b6 и черные проиграют. Так находится решение.</p>
+<p>
+<p class="longNotation">
+<span onclick='loadMove("5k2/8/8/8/8/2P5/2K5/8 b - - 0 1", this, "d1c2"); ' class="line0">1.Крd1-c2!</span>
+<span onclick='loadMove("8/4k3/8/8/8/2P5/2K5/8 w - - 0 2", this, "f8e7"); ' class="line0">Крf8-e7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/4k3/8/8/8/1KP5/8/8 b - - 0 2", this, "c2b3"); ' class="line0">2.Крc2-b3!</span>
+<span onclick='loadMove("8/8/3k4/8/8/1KP5/8/8 w - - 0 3", this, "e7d6"); ' class="line0">Крe7-d6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/3k4/8/1K6/2P5/8/8 b - - 0 3", this, "b3b4"); ' class="line0">3.Крb3-b4!</span>
+<span onclick='loadMove("8/8/2k5/8/1K6/2P5/8/8 w - - 0 4", this, "d6c6"); ' class="line0">Крd6-c6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/2k5/8/2K5/2P5/8/8 b - - 0 4", this, "b4c4"); ' class="line0">4.Крb4-c4!</span></p>
+<p>Черные в цугцванге, и белые, захватывая одно из ключевых полей, добиваются победы.</p>
+<p>Борьба за ключевые поля имеет свои особенности в зависимости от того, на какой вертикали находится пешка.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Если пешка коневая, то, даже захватив ключевые поля, нужно быть осторожным в связи с близостью края доски.</p>
+
+<div class="section">
+<p class="capTop">49</p>
+<div class="chessBoard small" data-start-fen="8/k7/2K5/1P6/8/8/8/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/k7/2K5/1P6/8/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p>Здесь неосторожный ход
+ <span onclick='loadMove("8/k7/1PK5/8/8/8/8/8 b - - 0 1", this, "b5b6"); ' class="line1">1.b5-b6+?</span> 
+после
+ <span onclick='loadMove("k7/8/1PK5/8/8/8/8/8 w - - 0 2", this, "a7a8"); ' class="line1">1...Крa7-a8!</span> 
+может неожиданно привести к ничьей, так как на
+ <span onclick='loadMove("k7/2K5/1P6/8/8/8/8/8 b - - 0 2", this, "c6c7"); ' class="line1">2.Крc6-c7</span> 
+у черных нет ходов.</p>
+<p>Правильным продолжением является</p>
+<p class="longNotation">
+<span onclick='loadMove("8/k1K5/8/1P6/8/8/8/8 b - - 0 1", this, "c6c7"); ' class="line0">1.Крc6-c7!</span>
+<span onclick='loadMove("k7/2K5/8/1P6/8/8/8/8 w - - 0 2", this, "a7a8"); ' class="line0">Крa7-a8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("k7/8/1K6/1P6/8/8/8/8 b - - 0 2", this, "c7b6"); ' class="line0">2.Крc7-b6</span>
+<span onclick='loadMove("1k6/8/1K6/1P6/8/8/8/8 w - - 0 3", this, "a8b8"); ' class="line0">Крa8-b8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("1k6/8/K7/1P6/8/8/8/8 b - - 0 3", this, "b6a6"); ' class="line0">3.Крb6-a6</span>
+<span onclick='loadMove("k7/8/K7/1P6/8/8/8/8 w - - 0 4", this, "b8a8"); ' class="line0">Крb8-a8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("k7/8/KP6/8/8/8/8/8 b - - 0 4", this, "b5b6"); ' class="line0">4.b5-b6</span>
+<span onclick='loadMove("1k6/8/KP6/8/8/8/8/8 w - - 0 5", this, "a8b8"); ' class="line0">Крa8-b8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("1k6/1P6/K7/8/8/8/8/8 b - - 0 5", this, "b6b7"); ' class="line0">5.b6-b7</span>, и белые выигрывают.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Если при крайней пешке неприятельский король занял одно из полей на ее пути, то вытеснить его из-под пешки вообще не удается из-за возможности пата. Однако здесь имеются ключевые поля, занятие которых королем обеспечивает продвижение пешки в ферзи.</p>
+
+<div class="section">
+<p class="capTop">50</p>
+<div class="chessBoard small" data-start-fen="8/8/8/8/1k6/7K/7P/8 w - - 0 1" data-markers="X RNDg700 RNDg800"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/8/8/8/1k6/7K/7P/8 w - - 0 1", this, ""); rdrms(this);'>[...]</span>
+<!--span>"6X1/6X1/8/8/1k6/7K/7P/8 w - - 0 1"</span-->
+<p>Такими полями в позиции на диаграмме 50 являются g7 и g8. Оценка этой позиции зависит от очереди хода. Начиная, белые успевают попасть королем на g7 и добиваются победы.</p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/1k4K1/8/7P/8 b - - 0 1", this, "h3g4"); ' class="line0">1.Крh3-g4</span>
+<span onclick='loadMove("8/8/8/2k5/6K1/8/7P/8 w - - 0 2", this, "b4c5"); ' class="line0">Крb4-c5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/2k3K1/8/8/7P/8 b - - 0 2", this, "g4g5"); ' class="line0">2.Крg4-g5</span>
+<span onclick='loadMove("8/8/3k4/6K1/8/8/7P/8 w - - 0 3", this, "c5d6"); ' class="line0">Крc5-d6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/3k2K1/8/8/8/7P/8 b - - 0 3", this, "g5g6"); ' class="line0">3.Крg5-g6</span>
+<span onclick='loadMove("8/4k3/6K1/8/8/8/7P/8 w - - 0 4", this, "d6e7"); ' class="line0">Крd6-e7</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/4k1K1/8/8/8/8/7P/8 b - - 0 4", this, "g6g7"); ' class="line0">4.Крg6-g7</span>,</p>
+<p>и черные не могут помешать движению пешки белых в ферзи. Другая картина при ходе черных:</p>
+<p class="longNotation">
+ <!--span onclick='loadMove("8/8/8/8/1k6/7K/7P/8 b - - 0 1", this, "g6g7"); ' class="line1">1.z0</span--> 
+ <span onclick='loadMove("8/8/8/2k5/8/7K/7P/8 w - - 0 2", this, "b4c5"); ' class="line1">1...Крb4-c5</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/2k5/6K1/8/7P/8 b - - 0 2", this, "h3g4"); ' class="line1">2.Крh3-g4</span> 
+ <span onclick='loadMove("8/8/3k4/8/6K1/8/7P/8 w - - 0 3", this, "c5d6"); ' class="line1">Крc5-d6</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/3k4/5K2/8/8/7P/8 b - - 0 3", this, "g4f5"); ' class="line1">3.Крg4-f5</span> 
+ <span onclick='loadMove("8/4k3/8/5K2/8/8/7P/8 w - - 0 4", this, "d6e7"); ' class="line1">Крd6-e7</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/4k3/6K1/8/8/8/7P/8 b - - 0 4", this, "f5g6"); ' class="line1">4.Крf5-g6</span> 
+ <span onclick='loadMove("5k2/8/6K1/8/8/8/7P/8 w - - 0 5", this, "e7f8"); ' class="line1">Крe7-f8</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("5k2/7K/8/8/8/8/7P/8 b - - 0 5", this, "g6h7"); ' class="line1">5.Крg6-h7</span>
+ <span class="ellipsis1">...</span>
+ </p>
+<p>Белые обязаны сделать этот ход. В противном случае король черных проходил на поле h8, откуда его вытеснить уже невозможно.</p>
+<p class="longNotation">
+ <span class="ellipsis1">5. ...</span>
+ <span onclick='loadMove("8/5k1K/8/8/8/8/7P/8 w - - 0 6", this, "f8f7"); ' class="line1">Крf8-f7</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5k1K/8/8/7P/8/8/8 b - h3 0 6", this, "h2h4"); ' class="line1">6.h2-h4</span> 
+ <span onclick='loadMove("5k2/7K/8/8/7P/8/8/8 w - - 0 7", this, "f7f8"); ' class="line1">Крf7-f8</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("5k2/7K/8/7P/8/8/8/8 b - - 0 7", this, "h4h5"); ' class="line1">7.h4-h5</span> 
+ <span onclick='loadMove("8/5k1K/8/7P/8/8/8/8 w - - 0 8", this, "f8f7"); ' class="line1">Крf8-f7</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/5k1K/7P/8/8/8/8/8 b - - 0 8", this, "h5h6"); ' class="line1">8.h5-h6</span> 
+ <span onclick='loadMove("5k2/7K/7P/8/8/8/8/8 w - - 0 9", this, "f7f8"); ' class="line1">Крf7-f8</span>,</p>
+<p>и белые стоят перед выбором, как сделать ничью: либо запатовать своего короля, либо короля противника.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">Рассмотрим теперь позицию, где оба короля удалены от пешки.</p>
+
+<div class="section">
+<p class="capTop">51</p>
+<div class="chessBoard small" data-start-fen="8/8/8/8/1P6/6k1/8/6K1 w - - 0 1" data-markers="X LNDf4f9 LNDa4a9 LNDa4f4 LNDa9f9"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/8/8/8/1P6/6k1/8/6K1 w - - 0 1", this, ""); rdrms(this);'>[...]</span>
+<p>Здесь результат зависит от очереди хода. Начиная, белые проводят пешку в ферзи:</p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/1P6/8/6k1/8/6K1 b - - 0 1", this, "b4b5"); ' class="line0">1.b4-b5</span>
+<span onclick='loadMove("8/8/8/1P6/5k2/8/8/6K1 w - - 0 2", this, "g3f4"); ' class="line0">Крg3-f4</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/1P6/8/5k2/8/8/6K1 b - - 0 2", this, "b5b6"); ' class="line0">2.b5-b6</span>
+<span onclick='loadMove("8/8/1P6/4k3/8/8/8/6K1 w - - 0 3", this, "f4e5"); ' class="line0">Крf4-e5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/1P6/8/4k3/8/8/8/6K1 b - - 0 3", this, "b6b7"); ' class="line0">3.b6-b7</span>
+<span onclick='loadMove("8/1P6/3k4/8/8/8/8/6K1 w - - 0 4", this, "e5d6"); ' class="line0">Крe5-d6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("1Q6/8/3k4/8/8/8/8/6K1 b - - 0 4", this, "b7b8"); ' class="line0">4.b7-b8Ф</span>.</p>
+<p>При своем ходе черные успевают королем догнать пешку.</p>
+<p class="longNotation">
+ <!--span onclick='loadMove("8/8/8/8/1P6/6k1/8/6K1 b - - 0 1", this, "b7b8"); ' class="line1">1.z0</span--> 
+ <span class="ellipsis1">1. ...</span>
+ <span onclick='loadMove("8/8/8/8/1P3k2/8/8/6K1 w - - 0 2", this, "g3f4"); ' class="line1">Крg3-f4</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/1P6/5k2/8/8/6K1 b - - 0 2", this, "b4b5"); ' class="line1">2.b4-b5</span> 
+ <span onclick='loadMove("8/8/8/1P2k3/8/8/8/6K1 w - - 0 3", this, "f4e5"); ' class="line1">Крf4-e5</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/1P6/4k3/8/8/8/6K1 b - - 0 3", this, "b5b6"); ' class="line1">3.b5-b6</span> 
+ <span onclick='loadMove("8/8/1P1k4/8/8/8/8/6K1 w - - 0 4", this, "e5d6"); ' class="line1">Крe5-d6</span> </p>
+<p class="longNotation">
+ <span onclick='loadMove("8/1P6/3k4/8/8/8/8/6K1 b - - 0 4", this, "b6b7"); ' class="line1">4.b6-b7</span> 
+ <span onclick='loadMove("8/1Pk5/8/8/8/8/8/6K1 w - - 0 5", this, "d6c7"); ' class="line1">Крd6-c7</span>.</p>
+<p>Чтобы быстро определить, может ли король догнать пешку, в подобных окончаниях пользуются так называемым «правилом квадрата».</p>
+<p>Квадрат пешки b4—b8—f8—f4 очерчен на диаграмме сплошной линией. Обычно за партией при расчете квадрат строят мысленно.</p>
+<p>Правило квадрата заключается в следующем: если король находится в квадрате пешки или при своем ходе может в него вступить,— он догоняет пешку, если не находится,— не догоняет.</p>
+<p>Полезно заметить, что при пешке в начальном положении, когда она имеет право продвинуться вперед на два поля сразу, квадрат следует строить от пешки, продвинутой на одно поле вперед.</p>
+<!--p class='page'></p-->
+<hr />
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

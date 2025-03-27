@@ -1,0 +1,63 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/00-0-title.htm' %}">Title</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/00-1-preface.htm' %}">Preface</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/00-2-introduction.htm' %}">Introduction</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/01-kasimdzhanov-kasparov.htm' %}">1 Kasimdzhanov-Kasparov, Linares 2005</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/02-dreev-dominguez.htm' %}">2 Dreev-Dominguez, Poikovsky 2005</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/03-adams-yusupov.htm' %}">3 Adams-Yusupov, French League 2005</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/04-topalov-anand.htm' %}">4 Topalov-Anand, Sofia 2005</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/05-bacrot-rublevsky.htm' %}">5 Bacrot-Rublevsky, Khanty-Mansiysk 2005</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/06-karjakin-anand.htm' %}">6 Karjakin-Anand, Wijk aan Zee 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/07-svidler-topalov.htm' %}">7 Svidler-Topalov, Morelia 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/08-sargissian-nisipeanu.htm' %}">8 Sargissian-Nisipeanu, German League 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/09-leko-radjabov.htm' %}">9 Leko-Radjabov, Morelia 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/10-ivanchuk-aronian.htm' %}">10 Ivanchuk-Aronian, Russian Team Championship 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/11-karpov-akopian.htm' %}">11 Karpov-Akopian, Russian Team Championship 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/12-bareev-efimenko.htm' %}">12 Bareev-Efimenko, Turin Olympiad 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/13-kramnik-leko.htm' %}">13 Kramnik-Leko, Dortmund 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/14-navara-socko.htm' %}">14 Navara-Socko, Polish Team Championship 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/15-sokolov-polgar.htm' %}">15 Sokolov-Polgar, Hoogeveen 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/16-shirov-aronian.htm' %}">16 Shirov-Aronian, Moscow 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/17-shirov-illescas_cordoba.htm' %}">17 Shirov-Illescas Cordoba, Pamplona 2006</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/18-rublevsky-grischuk.htm' %}">18 Rublevsky-Grischuk, 7th matchgame, Elista 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/19-van_wely-radjabov.htm' %}">19 Van Wely-Radjabov, Biel 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/20-ni_hua-jakovenko.htm' %}">20 Ni Hua-Jakovenko, Nizhniy Novgorod 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/21-alekseev-tkachiev.htm' %}">21 Alekseev-Tkachiev, Spanish Team Championship 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/22-stellwagen-eljanov.htm' %}">22 Stellwagen-Eljanov, German League 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/23-carlsen-tiviakov.htm' %}">23 Carlsen-Tiviakov, European Team Championship, Crete 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/24-kamsky-carlsen.htm' %}">24 Kamsky-Carlsen, Khanty-Mansiysk 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/25-morozevich-sakaev.htm' %}">25 Morozevich-Sakaev, Russian Championship, Moscow 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/26-wang_yue-movsesian.htm' %}">26 Wang Yue-Movsesian, Pamplona 2007</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/27-cheparinov-nepomniachtchi.htm' %}">27 Cheparinov-Nepomniachtchi, Wijk aan Zee 2008</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/28-eljanov-ponomariov.htm' %}">28 Eljanov-Ponomariov, Kharkiv 2008</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/29-bu_xiangzhi-zvjaginsev.htm' %}">29 Bu Xiangzhi-Zvjaginsev, Russian Team Championship 2008</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/30-gelfand-alekseev.htm' %}">30 Gelfand-Alekseev, Russian Team Championship 2008</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/31-mamedyarov-nepomniachtchi.htm' %}">31 Mamedyarov-Nepomniachtchi, Russian Team Ch'ship 2008</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/32-inarkiev-ni_hua.htm' %}">32 Inarkiev-Ni Hua, Russian Team Championship 2008</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/33-karjakin-inarkiev.htm' %}">33 Karjakin-Inarkiev, Baku 2008</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/34-index-of-openings.htm' %}">Index of Openings</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/35-index-of-games.htm' %}">Index of Games</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

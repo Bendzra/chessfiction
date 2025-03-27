@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Задания | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Задания</h2>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1a-zadaniia-i.htm' %}">I. Типовая позиция с изолированной ферзевой пешкой</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1b-otvety-na-partiiu-zadanie-i.htm' %}">Ответы на партию-задание I</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2a-zadaniia-ii.htm' %}">II. Типовая позиция с карлсбадской пешечной структурой</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2b-otvety-na-partiiu-zadanie-ii.htm' %}">Ответы на партию-задание II</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3a-zadaniia-iii.htm' %}">III. Типовая позиция с пространственным перевесом соперника</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3b-otvety-na-partiiu-zadanie-iii.htm' %}">Ответы на партию-задание III</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4a-zadaniia-iv.htm' %}">IV. Ограничение подвижности в староиндийской защите</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4b-otvety-na-partiiu-zadanie-iv.htm' %}">Ответы на партию-задание IV</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5a-zadaniia-v.htm' %}">V. Проблема размена фианкеттированного слона в сицилианской защите</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-5b-otvety-na-partiiu-zadanie-v.htm' %}">Ответы на партию-задание V</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

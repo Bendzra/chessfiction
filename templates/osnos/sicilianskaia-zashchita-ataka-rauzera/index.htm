@@ -1,0 +1,134 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-00-title.htm' %}">Сицилианская защита. Атака Раузера (Корчной В. Л., Оснос В. В., 2008)</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-01-predislovie-viktora-korchnogo.htm' %}">Предисловие Виктора Корчного</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-02-vvedenie.htm' %}">Введение</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-00-chast-1.htm' %}">ЧАСТЬ ПЕРВАЯ</a>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", this, "c7c5"); ' class="line1">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Кf3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d7d6"); ' class="line1">d6</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", this, "d2d4"); ' class="line1">3.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", this, "c5d4"); ' class="line1">cd</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", this, "f3d4"); ' class="line1">4.К:d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5", this, "g8f6"); ' class="line1">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 5", this, "b1c3"); ' class="line1">5.Кc3</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "b8c6"); ' class="line1">Кc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R b KQkq - 0 6", this, "c1g5"); ' class="line1">6.Сg5</span> 
+</li>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-01-0-glava-1.htm' %}">Глава первая</a>
+ <span onclick='loadMove("r1bqkb1r/pp2pp1p/2np1np1/6B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 7", this, "g7g6"); ' class="line1">6...g6</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-02-0-glava-2.htm' %}">Глава вторая</a>
+ <span onclick='loadMove("r1b1kb1r/pp2pppp/2np1n2/q5B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 7", this, "d8a5"); ' class="line1">6...Фa5</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-03-0-glava-3.htm' %}">Глава третья</a>
+ <span onclick='loadMove("r1bqkb1r/1p2pppp/p1np1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 7", this, "a7a6"); ' class="line1">6...a6</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-04-0-glava-4.htm' %}">Глава четвертая</a>
+ <span onclick='loadMove("r1b1kb1r/pp2pppp/1qnp1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 7", this, "d8b6"); ' class="line1">6...Фb6</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-05-0-glava-5.htm' %}">Глава пятая</a>
+ <span onclick='loadMove("r2qkb1r/pp1bpppp/2np1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 7", this, "c8d7"); ' class="line1">6...Сd7</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-putevoditel-po-pervoj-chasti.htm' %}">Путеводитель по первой части</a></li>
+</ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-00-chast-2.htm' %}">ЧАСТЬ ВТОРАЯ</a>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", this, "c7c5"); ' class="line1">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Кf3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d7d6"); ' class="line1">d6</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", this, "d2d4"); ' class="line1">3.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", this, "c5d4"); ' class="line1">cd</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", this, "f3d4"); ' class="line1">4.К:d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5", this, "g8f6"); ' class="line1">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 5", this, "b1c3"); ' class="line1">5.Кc3</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "b8c6"); ' class="line1">Кc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R b KQkq - 0 6", this, "c1g5"); ' class="line1">6.Сg5</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2nppn2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 7", this, "e7e6"); ' class="line1">e6</span> 
+</li>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-06-0-glava-6-ataka-rihtera.htm' %}">Глава шестая. Атака Рихтера</a>
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2Nppn2/6B1/4P3/2N5/PPP2PPP/R2QKB1R b KQkq - 0 7", this, "d4c6"); ' class="line1">7.К:c6</span> 
+ <span onclick='loadMove("r1bqkb1r/p4ppp/2pppn2/6B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 8", this, "b7c6"); ' class="line1">bc</span> 
+ <span onclick='loadMove("r1bqkb1r/p4ppp/2pppn2/4P1B1/8/2N5/PPP2PPP/R2QKB1R b KQkq - 0 8", this, "e4e5"); ' class="line1">8.e5</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-07-0-glava-7-margetskij-variant.htm' %}">Глава седьмая. Маргетский вариант</a>
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2nppn2/1B4B1/3NP3/2N5/PPP2PPP/R2QK2R b KQkq - 0 7", this, "f1b5"); ' class="line1">7.Сb5</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-08-0-glava-8-variant-keresa.htm' %}">Глава восьмая. Вариант Кереса</a>
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2nppn2/6B1/3NP3/2NQ4/PPP2PPP/R3KB1R b KQkq - 0 7", this, "d1d3"); ' class="line1">7.Фd3</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-putevoditel-po-vtoroj-chasti.htm' %}">Путеводитель по второй части</a></li>
+</ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-00-chast-3-ataka-rauzera.htm' %}">ЧАСТЬ ТРЕТЬЯ. АТАКА РАУЗЕРА</a>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2", this, "c7c5"); ' class="line1">c5</span> 
+ <span onclick='loadMove("rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Кf3</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d7d6"); ' class="line1">d6</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3", this, "d2d4"); ' class="line1">3.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4", this, "c5d4"); ' class="line1">cd</span> 
+ <span onclick='loadMove("rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4", this, "f3d4"); ' class="line1">4.К:d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 0 5", this, "g8f6"); ' class="line1">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 0 5", this, "b1c3"); ' class="line1">5.Кc3</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6", this, "b8c6"); ' class="line1">Кc6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp2pppp/2np1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R b KQkq - 0 6", this, "c1g5"); ' class="line1">6.Сg5</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2nppn2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 7", this, "e7e6"); ' class="line1">e6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3ppp/2nppn2/6B1/3NP3/2N5/PPPQ1PPP/R3KB1R b KQkq - 0 7", this, "d1d2"); ' class="line1">7.Фd2</span> 
+</li>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-09-0-glava-9.htm' %}">Глава девятая</a>
+ <span onclick='loadMove("r1bqkb1r/pp3pp1/2nppn1p/6B1/3NP3/2N5/PPPQ1PPP/R3KB1R w KQkq - 0 8", this, "h7h6"); ' class="line1">7...h6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3pp1/2nppB1p/8/3NP3/2N5/PPPQ1PPP/R3KB1R b KQkq - 0 8", this, "g5f6"); ' class="line1">8.С:f6</span> 
+ <span onclick='loadMove("r1bqkb1r/pp3p2/2nppp1p/8/3NP3/2N5/PPPQ1PPP/R3KB1R w KQkq - 0 9", this, "g7f6"); ' class="line1">gf</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-10-0-glava-10.htm' %}">Глава десятая</a>
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2nppn2/6B1/3NP3/2N5/PPPQ1PPP/R3KB1R w KQkq - 0 8", this, "f8e7"); ' class="line1">7...Сe7</span> 
+ <span onclick='loadMove("r1bqk2r/pp2bppp/2nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 8", this, "e1c1"); ' class="line1">8.0-0-0</span> 
+ <span onclick='loadMove("r1bq1rk1/pp2bppp/2nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w - - 0 9", this, "e8g8"); ' class="line1">0-0</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-11-0-glava-11-variant-aronina.htm' %}">Глава одиннадцатая. Вариант Аронина</a>
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/R3KB1R w KQkq - 0 8", this, "a7a6"); ' class="line1">7...a6</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 8", this, "e1c1"); ' class="line1">8.0-0-0</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3pp1/p1nppn1p/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9", this, "h7h6"); ' class="line1">h6</span> 
+</li>
+<!--p>280</p-->
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-12-0-glava-12.htm' %}">Глава двенадцатая</a>
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/R3KB1R w KQkq - 0 8", this, "a7a6"); ' class="line1">7...a6</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 8", this, "e1c1"); ' class="line1">8.0-0-0</span> 
+ <span onclick='loadMove("r2qkb1r/1p1b1ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9", this, "c8d7"); ' class="line1">Сd7</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-13-0-glava-13.htm' %}">Глава тринадцатая</a>
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/R3KB1R w KQkq - 0 8", this, "a7a6"); ' class="line1">7...a6</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1nppn2/6B1/3NP3/2N5/PPPQ1PPP/2KR1B1R b kq - 0 8", this, "e1c1"); ' class="line1">8.0-0-0</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p2ppn2/6B1/3nP3/2N5/PPPQ1PPP/2KR1B1R w kq - 0 9", this, "c6d4"); ' class="line1">К:d4</span> 
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p2ppn2/6B1/3QP3/2N5/PPP2PPP/2KR1B1R b kq - 0 9", this, "d2d4"); ' class="line1">9.Ф:d4</span> 
+ <span onclick='loadMove("r1bqk2r/1p2bppp/p2ppn2/6B1/3QP3/2N5/PPP2PPP/2KR1B1R w kq - 0 10", this, "f8e7"); ' class="line1">Сe7</span> 
+</li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-putevoditel-po-tretej-chasti.htm' %}">Путеводитель по третьей части</a></li>
+</ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/4-sistema-znakov.htm' %}">Система знаков</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/5-primernye-partii.htm' %}">Примерные партии с примечаниями Виктора Корчного</a></li>
+</ul>
+<!--p>281</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

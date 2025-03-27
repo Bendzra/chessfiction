@@ -1,0 +1,96 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Пат, где ты? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Пат, где ты?</h3>
+<div class="score">
+<p>В том случае, если речь идет о крайних пешках, расположенных на вертикалях «а» и «h», задачи слабейшей стороны проще. Здесь особенно часто возникают патовые возможности.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="k7/8/PK6/8/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("k7/8/PK6/8/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">147</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="k7/8/PK6/8/8/8/8/8 w - - 0 1"></div>
+<p>Ничья неизбежна как при ходе белых, так и при ходе черных. У белых нет возможности вытеснить короля из угла a8, а после a6-a7 возникает пат.</p>
+<p>Другая типичная для этого рода окончаний позиция приведена на следующей диаграмме. </p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/p7/8/8/k1K5/8/8/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/p7/8/8/k1K5/8/8/8 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">148</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/p7/8/8/k1K5/8/8/8 b - - 0 1"></div>
+<p>Если черные после
+ <span onclick='loadMove("8/8/8/p7/k1K5/8/8/8 w - a6 0 2", this, "a7a5"); ' class="line0">1...a7-a5</span> 
+ <span onclick='loadMove("8/8/8/p7/k7/2K5/8/8 b - - 0 2", this, "c4c3"); ' class="line0">2.Крc4-c3</span> 
+уйдут королем на b5, то постепенно возникнет позиция, сходная с приведенной на предыдущей диаграмме.
+А при
+ <span onclick='loadMove("8/8/8/p7/8/k1K5/8/8 w - - 0 3", this, "a4a3"); ' class="line1">2...Крa4-a3</span> 
+ <span onclick='loadMove("8/8/8/p7/8/k7/2K5/8 b - - 0 3", this, "c3c2"); ' class="line1">3.Крc3-c2</span> 
+ <span onclick='loadMove("8/8/8/p7/8/8/k1K5/8 w - - 0 4", this, "a3a2"); ' class="line1">Крa3-a2</span> 
+ <span onclick='loadMove("8/8/8/p7/8/8/k7/2K5 b - - 0 4", this, "c2c1"); ' class="line1">4.Крc2-c1</span> 
+ <span onclick='loadMove("8/8/8/8/p7/8/k7/2K5 w - - 0 5", this, "a5a4"); ' class="line1">a5-a4</span> 
+ <span onclick='loadMove("8/8/8/8/p7/8/k1K5/8 b - - 0 5", this, "c1c2"); ' class="line1">5.Крc1-c2</span> 
+ <span onclick='loadMove("8/8/8/8/8/p7/k1K5/8 w - - 0 6", this, "a4a3"); ' class="line1">a4-a3</span> 
+ <span onclick='loadMove("8/8/8/8/8/p7/k7/2K5 b - - 0 6", this, "c2c1"); ' class="line1">6.Крc2-c1</span> 
+дело закончится патом после
+ <span onclick='loadMove("8/8/8/8/8/p7/8/k1K5 w - - 0 7", this, "a2a1"); ' class="line1">6...Крa2-a1</span> 
+ <span onclick='loadMove("8/8/8/8/8/p7/2K5/k7 b - - 0 7", this, "c1c2"); ' class="line1">7.Крc1-c2</span> 
+ <span onclick='loadMove("8/8/8/8/8/8/p1K5/k7 w - - 0 8", this, "a3a2"); ' class="line1">a3-a2</span> 
+ <span onclick='loadMove("8/8/8/8/8/8/p7/k1K5 b - - 0 8", this, "c2c1"); ' class="line1">8.Крc2-c1</span> 
+или
+ <span onclick='loadMove("8/8/8/8/8/pk6/8/2K5 w - - 0 7", this, "a2b3"); ' class="line2">6...Крa2-b3</span> 
+ <span onclick='loadMove("8/8/8/8/8/pk6/8/1K6 b - - 0 7", this, "c1b1"); ' class="line2">7.Крc1-b1</span> 
+ <span onclick='loadMove("8/8/8/8/8/1k6/p7/1K6 w - - 0 8", this, "a3a2"); ' class="line2">a3-a2+</span> 
+ <span onclick='loadMove("8/8/8/8/8/1k6/p7/K7 b - - 0 8", this, "b1a1"); ' class="line2">8.Крb1-a1</span> 
+ <span onclick='loadMove("8/8/8/8/8/k7/p7/K7 w - - 0 9", this, "b3a3"); ' class="line2">Крb3-a3</span> 
+.</p>
+<p>На возможность пата надо все время обращать внимание в пешечных окончаниях. Вот, например, типичная позиция для коневых пешек (пешек, расположенных на линиях «b» и «g»).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/7k/5K2/6P1/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/7k/5K2/6P1/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">149</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/7k/5K2/6P1/8/8/8/8 w - - 0 1"></div>
+<p>Здесь ошибкой явилось бы естественное
+ <span onclick='loadMove("8/7k/5KP1/8/8/8/8/8 b - - 0 1", this, "g5g6"); ' class="line1">1.g5-g6+</span> 
+из-за
+ <span onclick='loadMove("7k/8/5KP1/8/8/8/8/8 w - - 0 2", this, "h7h8"); ' class="line1">1...Крh7-h8</span> 
+, и
+ <span onclick='loadMove("7k/5K2/6P1/8/8/8/8/8 b - - 0 2", this, "f6f7"); ' class="line1">2.Крf6-f7</span> 
+ведет к пату,
+а после
+ <span onclick='loadMove("7k/6P1/5K2/8/8/8/8/8 b - - 0 2", this, "g6g7"); ' class="line2">2.g6-g7+</span> 
+ <span onclick='loadMove("6k1/6P1/5K2/8/8/8/8/8 w - - 0 3", this, "h8g8"); ' class="line2">Крh8-g8</span> 
+ничья очевидна.
+Правильно
+<!--p>— 109 —</p-->
+ <span onclick='loadMove("8/5K1k/8/6P1/8/8/8/8 b - - 0 1", this, "f6f7"); ' class="line0">1.Крf6-f7!</span> 
+ <span onclick='loadMove("7k/5K2/8/6P1/8/8/8/8 w - - 0 2", this, "h7h8"); ' class="line0">Крh7-h8</span> 
+ <span onclick='loadMove("7k/8/6K1/6P1/8/8/8/8 b - - 0 2", this, "f7g6"); ' class="line0">2.Крf7-g6!</span> 
+ <span onclick='loadMove("6k1/8/6K1/6P1/8/8/8/8 w - - 0 3", this, "h8g8"); ' class="line0">Крh8-g8</span> 
+ <span onclick='loadMove("6k1/8/7K/6P1/8/8/8/8 b - - 0 3", this, "g6h6"); ' class="line0">3.Крg6-h6</span> 
+ <span onclick='loadMove("7k/8/7K/6P1/8/8/8/8 w - - 0 4", this, "g8h8"); ' class="line0">Крg8-h8</span> 
+ <span onclick='loadMove("7k/8/6PK/8/8/8/8/8 b - - 0 4", this, "g5g6"); ' class="line0">4.g5-g6</span> 
+. Черные теряют оппозицию и проигрывают партию.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

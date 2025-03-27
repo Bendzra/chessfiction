@@ -1,0 +1,186 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 4. Центр | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Глава 4. ЦЕНТР</h2>
+<div class="score">
+
+<blockquote>
+«Ход 1. e4, как показывает опыт, лучший».
+<p style="text-align:right;"><i>Бобби Фишер</i></p>
+</blockquote>
+<br />
+<blockquote>
+«После 1. e4 белые корчатся в предсмертных судорогах».
+<p style="text-align:right;"><i>Джулиус Брейер</i></p>
+</blockquote>
+<br />
+
+<div class="notification message">
+<p>Наполните вашу игру жизнью, извлекая всё лучшее, что есть в ваших фигурах и пешках. Размещайте их в центре или ставьте так, чтобы они могли присматривать за ним издалека. Возьмем крайний случай — конь на пустой доске. В зависимости от того, как близко к центру или как близко к краю доски расположен конь, он может контролировать всего лишь две или целых восемь клеток.</p>
+<p>Постоянное стремление контролировать центральные поля — одна из характерных черт хорошего игрока.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 14: Фланговую атаку лучше всего встречать контрударом в центре.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Этот принцип ставит некоторых шахматистов в тупик. Разве не лучше строить оборону на фланге, там, где тебя атакуют? Почему ничего не говорится об атаке на короля?</p>
+<p>Данный принцип отражает ту мысль, что фигуры и пешки лучше всего проявляют себя в центре доски. А раз так, почему надо вести оборону там, где фигуры не могут себя проявить в лучшем виде? Этот принцип применим вне зависимости от того, где находятся короли.</p>
+<p>Поэтому, если вы попадаете под фланговую атаку, отражайте ее лучшим оружием, которым вы располагаете: а именно, с помощью централизованных фигур.</p>
+<p>Проиллюстрируем действие принципа на примере защиты двух коней:
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">Кc6</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 3", this, "f1c4"); ' class="line0">3.Сc4</span> 
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p1N1/2B1P3/8/PPPP1PPP/RNBQK2R b KQkq - 0 4", this, "f3g5"); ' class="line0">4.Кg5</span>.</p>
+<!--img src="images/Tao of Chess-13.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bqkb1r/pppp1ppp/2n2n2/4p1N1/2B1P3/8/PPPP1PPP/RNBQK2R b KQkq - 0 4"></div>
+<p class="caption"><b>Ход черных</b></p>
+<p>Перед нами фланговая атака. Как должны на нее отвечать черные? Атакой в центре, жертвуя пешку путем
+ <span onclick='loadMove("r1bqkb1r/ppp2ppp/2n2n2/3pp1N1/2B1P3/8/PPPP1PPP/RNBQK2R w KQkq d6 0 5", this, "d7d5"); ' class="line0">4...d5</span>, что открывает линии черным фигурам (ферзю и белопольному слону), по которым они могут быстро войти в игру.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Делайте всё, что в ваших силах, особенно, когда дела ваши плохи и противник готовится выпустить снаряд по вашим укреплениям. Чтобы не допустить катастрофы, когда вы в трудном положении, надо всегда быть настороже и уметь призывать под свои знамена все имеющиеся силы.</p>
+</div> <!-- section -->
+</div> <!-- score -->
+
+<div class="section">
+<h3>Принцип 15: Прежде чем начинать атаку на фланге, следует обезопасить себя в центре.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="1r1q1rk1/p3bp1p/2p1b1p1/3p4/3P4/3B4/PPQB1PPP/R3R1K1 w - - 0 1"></div>
+<div class="score">
+<p>Вильгельм Стейниц первым обосновал это положение в конце XIX века. Он в своей практике обезвредил множество неподготовленных атак, обычных для его времени. Игрок может атаковать безнаказанно только при обеспеченном центре. Поэтому атака против хорошо организованной обороны только тогда может быть успешной, когда она должным образом подготовлена — так учил Стейниц. Это значит, что атакующий должен принять меры против контратаки в центре, о которой говорилось в принципе 14.</p>
+<p>Отличной иллюстрацией принципа служит следующий пример:</p>
+<!--img src="images/Tao of Chess-14.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1r1q1rk1/p3bp1p/2p1b1p1/3p4/3P4/3B4/PPQB1PPP/R3R1K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+<p>Белые надежно контролируют центр. Они также ослабили позицию черного короля. Игра заканчивается следующим образом:
+ <span class="line0" onclick='loadMove("1r1q1rk1/p3bp1p/2p1b1p1/3p4/3P4/3B4/PPQB1PPP/R3R1K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("1r1q1rk1/p3bp1p/2p1b1pB/3p4/3P4/3B4/PPQ2PPP/R3R1K1 b - - 0 1", this, "d2h6"); ' class="line0">1.Сh6</span> 
+ <span onclick='loadMove("1r1qr1k1/p3bp1p/2p1b1pB/3p4/3P4/3B4/PPQ2PPP/R3R1K1 w - - 0 2", this, "f8e8"); ' class="line0">Лe8</span> 
+ <span onclick='loadMove("1r1qr1k1/p3bp1p/2p1R1pB/3p4/3P4/3B4/PPQ2PPP/R5K1 b - - 0 2", this, "e1e6"); ' class="line0">2.Л:e6</span> 
+ <span onclick='loadMove("1r1qr1k1/p3b2p/2p1p1pB/3p4/3P4/3B4/PPQ2PPP/R5K1 w - - 0 3", this, "f7e6"); ' class="line0">f:e6</span> 
+ <span onclick='loadMove("1r1qr1k1/p3b2p/2p1p1BB/3p4/3P4/8/PPQ2PPP/R5K1 b - - 0 3", this, "d3g6"); ' class="line0">3.С:g6</span> 
+ <span onclick='loadMove("1r1qr1k1/p3b3/2p1p1pB/3p4/3P4/8/PPQ2PPP/R5K1 w - - 0 4", this, "h7g6"); ' class="line0">h:g6</span> 
+ <span onclick='loadMove("1r1qr1k1/p3b3/2p1p1QB/3p4/3P4/8/PP3PPP/R5K1 b - - 0 4", this, "c2g6"); ' class="line0">4.Ф:g6+</span> 
+ <span onclick='loadMove("1r1qr2k/p3b3/2p1p1QB/3p4/3P4/8/PP3PPP/R5K1 w - - 0 5", this, "g8h8"); ' class="line0">Крh8</span> 
+ <span onclick='loadMove("1r1qr2k/p3b1Q1/2p1p2B/3p4/3P4/8/PP3PPP/R5K1 b - - 0 5", this, "g6g7"); ' class="line0">5.Фg7X</span>. И никаких шансов на контратаку в центре.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Будьте начеку. Ваша машина должна быть в порядке, ножи наточены, зубы залечены, а система обогрева в рабочем состоянии. Всё, что у вас есть, должно всегда быть «на ходу». Только тогда, что бы ни случилось, вы сможете справиться с любой неожиданностью.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 16: Централизуйте фигуры, чтобы сделать их сильными.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="8/8/8/8/P7/5p1K/8/k7 b - - 0 1"></div>
+<div class="score">
+<p>Поставьте перед собой пустую доску и попереставляйте на ней коня. Сравните его силу в случаях, когда он находится в углу доски, на ее краю или в центре. Проделайте то же и со слоном. А затем с ферзем, королем и пешкой. Даже король и пешка сильнее тогда, когда они находятся вдали от края доски. Только ладья выделяется из общего ряда. Пока горизонтали и вертикали свободны, ладья с любой клетки держит под контролем четырнадцать полей.</p>
+<p>Но другие фигуры объясняют вполне, почему мастера уделяют столько внимания контролю за центральными полями. Любая фигура, которая перемещается диагонально, обретает в центре дополнительные силы, а про коня и говорить нечего!</p>
+<p>Взглянем еще раз на приведенную на с. 17 диаграмму.
+ <span class="line0" onclick='loadMove("8/8/8/8/P7/5p1K/8/k7 b - - 0 1", this, ""); '>[...]</span>
+</p>
+<!--img src="images/Tao of Chess-15.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/P7/5p1K/8/k7 b - - 0 1"></div>
+<p class="caption"><b>Черные начинают и делают ничью</b></p>
+<p>Вы познакомились с этим этюдом при ознакомлении с принципом 4, в котором говорится о различных маршрутах. Теперь посмотрите на этюд с иных позиций — какую силу обретает король, когда пролагает себе путь по центральным полям.</p>
+
+<!--p class="bpiesesSet">P N B R Q K</p-->
+
+<p class="notification message">Сила игрока пропорциональна количеству имеющихся в его распоряжении альтернатив. Чем их больше, тем выше потенциал. Это составная часть принципа «Знание — сила». Вы не можете выбрать что-то, если не знаете, из чего можете выбирать. Дайте всем вашим фигурам ту силу, которую они заслуживают, точно так же как вы даете вашей семье, друзьям, коллегам и членам вашей команды всё, чего заслуживают они. И вам воздастся сторицей.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 17: При выборе между двумя возможными взятиями предпочесть следует взятие в сторону центра.</h3>
+
+<div class="chessBoard small nobuttons floater" data-start-fen="r3r1k1/1pqn1ppp/p2b1pN1/2p5/3P4/1PPB3P/PBQ2PP1/R3R1K1 b - - 0 1"></div>
+<div class="score">
+
+<p>Этот принцип вытекает напрямую из предыдущего. Раз фигуры обладают большей силой на центральных полях, значит, вы тем сильнее, чем больше центральных полей контролируете. Вот пример:</p>
+<!--img class="diagram" src="images/Tao of Chess-16.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r3r1k1/1pqn1ppp/p2b1pN1/2p5/3P4/1PPB3P/PBQ2PP1/R3R1K1 b - - 0 1"></div>
+<p class="caption"><b>Ход черных</b></p>
+<p>Черные только что потеряли фигуру на поле g6 и теперь обязаны ее отыграть. Но как? При взятии
+ <span class="line0" onclick='loadMove("r3r1k1/1pqn1ppp/p2b1pN1/2p5/3P4/1PPB3P/PBQ2PP1/R3R1K1 b - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("r3r1k1/1pqn2pp/p2b1pp1/2p5/3P4/1PPB3P/PBQ2PP1/R3R1K1 w - - 0 2", this, "f7g6"); ' class="line0">1...f:g6</span> 
+у них только одна сдвоенная пешка, но появляется слабость на e6 — как раз посередине горячо оспариваемой открытой линии «е». Кроме того, король может подвергнуться атаке по открывающейся диагонали c4-g8.</p>
+<p>С другой стороны, при взятии в сторону центра
+ <span onclick='loadMove("r3r1k1/1pqn1pp1/p2b1pp1/2p5/3P4/1PPB3P/PBQ2PP1/R3R1K1 w - - 0 2", this, "h7g6"); ' class="line0">1...h:g6</span> 
+поле e6 остается под контролем, а пешка «h» приближается к центру. Да и король черных не попадает ни под какие атаки по открытым диагоналям. У черных, правда, теперь две сдвоенные пешки, но обратите внимание на то, как слаженно они контролируют поля, по которым было бы возможно проникновение в их (черных) лагерь белых фигур: e6, e5, f5, g5, h5, не говоря уж о f6, g6 и h6. Какой мощный оборонительный ресурс!</p>
+<p>Но держите в уме, что другие принципы, такие как быстрое развитие или безопасность короля, могут конфликтовать с этим принципом. Никогда не выполняйте взятие в сторону центра автоматически. Каждое взятие требует конкретной оценки.</p>
+<p>Старайтесь смотреть в будущее, когда делаете выбор. Предвидеть его можно только с некоторой долей вероятия, но, делая выбор, надо следовать здравым принципам.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 18: Играйте на контроль за центром — хоть в классическом, хоть в гипермодернистском стиле.</h3>
+<div class="chessBoard small nobuttons" data-start-fen="r1bq1rk1/pppp1ppp/1bn2n2/8/2BPP3/5N2/PP3PPP/RNBQ1RK1 w - - 0 1"></div>
+<div class="score">
+<p>Поскольку фигуры более сильны в центре, естественно, что вам захочется взять центр под свой контроль. Но как этого достичь?</p>
+<p>Классический центр состоит из пешек, поддержанных фигурами. Вильгельм Стейниц и Зигберт Тарраш были крупнейшими адептами подобного подхода к контролю за центром, который был в моде в конце XIX — начале XX века.</p>
+<!--img class="diagram" src="images/Tao of Chess-17.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/pppp1ppp/1bn2n2/8/2BPP3/5N2/PP3PPP/RNBQ1RK1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+<p>У белых классический центр, и они получат еще большее преимущество за счет захвата центральных полей путем
+ <span class="line0" onclick='loadMove("r1bq1rk1/pppp1ppp/1bn2n2/8/2BPP3/5N2/PP3PPP/RNBQ1RK1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("r1bq1rk1/pppp1ppp/1bn2n2/4P3/2BP4/5N2/PP3PPP/RNBQ1RK1 b - - 0 1", this, "e4e5"); ' class="line0">1.e5</span> 
+ <span onclick='loadMove("r1bqnrk1/pppp1ppp/1bn5/4P3/2BP4/5N2/PP3PPP/RNBQ1RK1 w - - 0 2", this, "f6e8"); ' class="line0">Кe8</span> 
+ <span onclick='loadMove("r1bqnrk1/pppp1ppp/1bn5/3PP3/2B5/5N2/PP3PPP/RNBQ1RK1 b - - 0 2", this, "d4d5"); ' class="line0">2.d5</span> 
+ <span onclick='loadMove("r1bqnrk1/ppppnppp/1b6/3PP3/2B5/5N2/PP3PPP/RNBQ1RK1 w - - 0 3", this, "c6e7"); ' class="line0">Кe7</span> 
+ <span onclick='loadMove("r1bqnrk1/ppppnppp/1b1P4/4P3/2B5/5N2/PP3PPP/RNBQ1RK1 b - - 0 3", this, "d5d6"); ' class="line0">3.d6</span>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Понятие гипермодернистского центра появилось позднее. В начале 1900-х годов многие мастера подвергли сомнению классическое учение. Среди них назовем Рихарда Рети, Арона Нимцовича и будущего чемпиона мира Александра Алехина. Они — и не только они — полагали, что контроль за центром можно осуществлять издали фигурами, оперирующими на флангах. Они фианкеттировали слонов и позволяли соперникам строить крепкий пешечный центр только для того, чтобы ударить по нему позднее с помощью фланговых пешечных атак и фигурной игры. Гипермодернисты изобрели несколько дебютов, например:
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/5N2/PPPPPPPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">1.Кf3</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span> 
+(дебют Рети);
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/4P3/8/8/PPPP1PPP/RNBQKBNR b KQkq - 0 2", this, "e4e5"); ' class="line0">2.e5</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/8/3nP3/8/8/PPPP1PPP/RNBQKBNR w KQkq - 0 3", this, "f6d5"); ' class="line0">Кd5</span> 
+(защита Алехина);
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2", this, "c2c4"); ' class="line0">2.c4</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кc3</span> 
+ <span onclick='loadMove("rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 0 4", this, "f8b4"); ' class="line0">Сb4</span> 
+(защита Нимцовича).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small nobuttons" data-start-fen="r1br2k1/ppq1ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/2RQ1RK1 w - - 0 1"></div>
+<div class="score">
+<!--img class="diagram" src="images/Tao of Chess-18.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r1br2k1/ppq1ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/2RQ1RK1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+<p>
+ <span class="line0" onclick='loadMove("r1br2k1/ppq1ppbp/2n3p1/2p5/2BPP3/2P1B3/P3NPPP/2RQ1RK1 w - - 0 1", this, ""); '>[...]</span> 
+У черных гипермодернистский центр. Центральная область доски заселена белыми пешками, но у черных хорошая игра против центра ввиду фианкеттированного слона, ладьи на линии «d», пешки c5 и коня c6 -все эти фигуры нацелены на сильный пункт d4 в позиции белых.</p>
+<p>Каким бы методом ни пользовался шахматист, суть принципа в контроле над ключевыми полями.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Когда у вас всё под контролем, вы в хорошей форме вне зависимости от рода занятий. Поймите, что вам по жизни требуется держать под контролем и держите в уме, что пути достижения этого тоже имеют значение.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,44 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>АТАКА ФЕРЗЕВОЙ ПЕШКИ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+
+<h2>АТАКА ФЕРЗЕВОЙ ПЕШКИ</h2>
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2"></div>
+<p>После
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d2-d4</span> 
+</p>
+<p>Атака ферзевой пешки —
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line1">2.d4</span> 
+— опаснейшее начало.</p>
+<p>Приемы ведения атаки разнообразны.</p>
+<p>Можно побить пешку ферзем и затем стремиться к скорейшему развитию фигур ферзевого фланга и длинной рокировке.</p>
+<p>Есть любители подкинуть в огонь пешку или даже две — они играют
+ <!--span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3", this, "d2d4"); ' class="line1">2...z0</span--> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/3PP3/2P5/PP3PPP/RNBQKBNR b KQkq - 0 3", this, "c2c3"); ' class="line1">3.c3</span> 
+, приглашая тех, кто любит материальные приобретения, полакомиться. Пока один складывает убитые пешки, второй исподволь подкрадывается к королю благодушно настроенного соперника.</p>
+<p>Лучшая защита — при малейших признаках матовой атаки как можно скорей вернуть принятые жертвы и восстановить примерное равенство в числе развитых на активные позиции фигур и количестве открытых линий. Другая тактика почти всегда губительна.</p>
+<p>Но самые умудренные опытом шахматисты и вовсе отказываются от принятия жертв.</p>
+<p>Остается добавить, что атака
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line1">2.d4</span> 
+находится в полном соответствии со всеми требованиями позиционной шахматной школы:</p>
+<p>открываются линии для большого числа белых фигур, и вся их позиция сразу становится намного огнеупорней.</p>
+<p>Полезно помнить также, что атака ферзевой пешки органически входит в состав почти любого дебютного варианта, начинающегося ходами
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line1">e5</span> 
+, поскольку без хода d2-d4 очень трудно создать инициативу. Таким образом, независимо от того, на каком ходу играют белые пешкой d2 на поле d4, во всех без исключения дебютах открытого типа этот ход незримо присутствует, и мы с полным правом можем считать атаку ферзевой пешки одним из наиболее опасных приемов борьбы — опасных, разумеется, для черных, а не для белых.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

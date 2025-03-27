@@ -1,0 +1,23 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Points to Remember | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<!--div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div-->
+<div class="score">
+ <!--span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span--> 
+<h3>Points to Remember</h3>
+<p>1) After <b>6.Be3 Ng4 7.Bg5 h6 8.Bh4 g5 9.Bg3 Bg7</b>, Black must continue to play actively, especially by aiming to exploit his powerful g7-bishop and control of e5.</p>
+<p>2) White must either counter <b>6.Be3 Ng4</b> aggressively or positionally by aiming to restrain Black's activity.</p>
+<p>3) <b>10.Be2</b> should be met by <b>10...h5!</b>, although both <b>10.Qd2</b> and <b>10.Be2</b> are far from played out and may well make a comeback when <b>10.h3</b> falls out of fashion.</p>
+<p>4) <b>6.f3 Qb6!?</b> appears to be a good companion to <b>6.Be3 Ng4</b>, although Black must always remember to prioritize early queenside activity.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

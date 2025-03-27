@@ -1,0 +1,100 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Как бы вы сыграли? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3 class="message">Как бы вы сыграли?</h3>
+<div class="score">
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="exercise1"></a>
+<div class="section">
+<div class="score">
+<h4>№ 1</h4>
+<div class="chessBoard small" data-start-fen="r3kb1r/pp1n1pp1/1qppp2p/4P1N1/3P1P2/2P5/P1P1Q1PP/R1B2RK1 w kq - 0 12"></div>
+<div style="margin-top:240px;"></div>
+ <span class="line0" onclick='loadMove("r3kb1r/pp1n1pp1/1qppp2p/4P1N1/3P1P2/2P5/P1P1Q1PP/R1B2RK1 w kq - 0 12", this, ""); '>[...]</span> 
+<p>Черные гонят коня, перешедшего демаркационную линию. Куда он должен отступить?</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="exercise2"></a>
+<div class="section">
+<div class="score">
+<h4>№ 2</h4>
+<div class="chessBoard small" data-start-fen="r2qrbk1/1b3pp1/5n1p/ppPnp1N1/3P4/PBP3NP/5PP1/R1BQR1K1 w - - 0 22"></div>
+<div style="margin-top:240px;"></div>
+ <span class="line0" onclick='loadMove("r2qrbk1/1b3pp1/5n1p/ppPnp1N1/3P4/PBP3NP/5PP1/R1BQR1K1 w - - 0 22", this, ""); '>[...]</span> 
+<p>И здесь у белого коня право выбора...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="exercise3"></a>
+<div class="section">
+<div class="score">
+<h4>№ 3</h4>
+<div class="chessBoard small" data-start-fen="r1b1k2r/1p2bpp1/p6p/4R3/2B1n3/qN6/P1PQ2PP/R5K1 w kq - 0 19"></div>
+<div style="margin-top:240px;"></div>
+ <span class="line0" onclick='loadMove("r1b1k2r/1p2bpp1/p6p/4R3/2B1n3/qN6/P1PQ2PP/R5K1 w kq - 0 19", this, ""); '>[...]</span> 
+<p>А вот здесь, похоже, выбора нет: коня надо брать и черный король наконец-то рокирует...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="exercise4"></a>
+<div class="section">
+<div class="score">
+<h4>№ 4</h4>
+<div class="chessBoard small" data-start-fen="rnb1k2r/pp3ppp/3b4/q2pN1B1/8/3B4/Pp3PPP/1R1Q1RK1 w kq - 0 13"></div>
+<div style="margin-top:240px;"></div>
+ <span class="line0" onclick='loadMove("rnb1k2r/pp3ppp/3b4/q2pN1B1/8/3B4/Pp3PPP/1R1Q1RK1 w kq - 0 13", this, ""); '>[...]</span> 
+<p>Очевидно, что черные увлеклись "поеданием" пешек соперника. Возможно ли наказание за такой непомерный шахматный аппетит?</p>
+<!--p>36</p--><!--p>М.Таль, Я. Дамский "Атака"</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="exercise5"></a>
+<div class="section">
+<div class="score">
+<h4>№ 5</h4>
+<div class="chessBoard small" data-start-fen="r1bq1rk1/p2n1pbp/1p3np1/2p5/3PN3/1Q1B1N2/PP1B1PPP/R4RK1 w - - 0 13"></div>
+<div style="margin-top:240px;"></div>
+ <span class="line0" onclick='loadMove("r1bq1rk1/p2n1pbp/1p3np1/2p5/3PN3/1Q1B1N2/PP1B1PPP/R4RK1 w - - 0 13", this, ""); '>[...]</span> 
+<p>Черные только что сыграли <b>12...c5?</b>, видимо, рассчитывая на теоретическое
+ <span onclick='loadMove("r1bq1rk1/p2n1pbp/1p3Np1/2p5/3P4/1Q1B1N2/PP1B1PPP/R4RK1 b - - 0 13", this, "e4f6"); ' class="line1">13.К:f6+</span> 
+...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="exercise6"></a>
+<div class="section">
+<div class="score">
+<h4>№ 6</h4>
+<div class="chessBoard small" data-start-fen="r1bq1rk1/ppp1npbp/3p2p1/4p3/3nP3/3PBNP1/PPPQNPBP/R3K2R b KQ - 0 9"></div>
+ <span class="line0" onclick='loadMove("r1bq1rk1/ppp1npbp/3p2p1/4p3/3nP3/3PBNP1/PPPQNPBP/R3K2R b KQ - 0 9", this, ""); '>[...]</span> 
+<p>Сейчас белые избавятся от вражеского форпоста на d4, а затем, судя по обстоятельствам, осуществят либо длинную рокировку с шансами на атаку (<b>Сe3-h6</b>, <b>h2-h4</b> и т.д.), либо более спокойную короткую. Но ход черных...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="exercise7"></a>
+<div class="section">
+<div class="score">
+<h4>№ 7</h4>
+<div class="chessBoard small" data-start-fen="r2qk2r/pp2pp1p/2n3p1/2P5/P1NB4/5b2/1P3PPP/R2Q1RK1 w kq - 0 15"></div>
+<div style="margin-top:240px;"></div>
+ <span class="line0" onclick='loadMove("r2qk2r/pp2pp1p/2n3p1/2P5/P1NB4/5b2/1P3PPP/R2Q1RK1 w kq - 0 15", this, ""); '>[...]</span> 
+<p>После
+ <span onclick='loadMove("r2qk2r/pp2pp1p/2n3p1/2P5/P1NB4/5Q2/1P3PPP/R4RK1 b kq - 0 15", this, "d1f3"); ' class="line1">15.Ф:f3</span> 
+ <span onclick='loadMove("r3k2r/pp2pp1p/2n3p1/2P5/P1Nq4/5Q2/1P3PPP/R4RK1 w kq - 0 16", this, "d8d4"); ' class="line1">Ф:d4</span> 
+черные выигрывают темп нападением на белого коня, сделают рокировку и — перехватят инициативу. Все правильно?</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

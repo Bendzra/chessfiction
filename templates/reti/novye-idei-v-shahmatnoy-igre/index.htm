@@ -1,0 +1,75 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--p>70</p><p>Рихард Рети</p-->
+<h2>ОГЛАВЛЕНИЕ</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Рети Р. Новые идеи в шахматной игре, 2018</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ПРЕДИСЛОВИЕ АВТОРА</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 1. СТАРЫЕ МАСТЕРА</a></li>
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-bessmertnaia-partiia.htm' %}">I. БЕССМЕРТНАЯ ПАРТИЯ</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-franc-gutmajer.htm' %}">II. ФРАНЦ ГУТМАЙЕР</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">III. КОМБИНАЦИОННАЯ И ПОЗИЦИОННАЯ ИГРА</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">IV. ОТКРЫТАЯ ИГРА - ПАУЛЬ МОРФИ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">V. ЗАКРЫТАЯ ПАРТИЯ - В. СТЕЙНИЦ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VI. ЧТО ВОСХИЩАЕТ НАС В ШАХМАТАХ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VII. ЛАСКЕР (1917 г.)</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VIII. РУДОЛЬФ ХАРУЗЕК</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">IX. БЛЭКБЕРН - ХАРУЗЕК</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">X. ШЛЕХТЕР - РУБИНШТЕЙН (1918 г.)</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XI. РУБИНШТЕЙН НА ПОСЛЕДНЕМ МЕСТЕ (1918 г.)</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XII. ТУРНИР ГРОССМЕЙСТЕРОВ (1918 г.)</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XIII. СТИЛЬ ШЛЕХТЕРА (1918 г.)</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XVI. СТАРЫЙ ВОПРОС</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЧАСТЬ 2. НОВЫЕ ИДЕИ</a></li>
+<ul>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">I. КАПАБЛАНКА</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">II. КАПАБЛАНКА - ЛЮБИТЕЛЬ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">III. КАПАБЛАНКА - NN</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">IV. «СВЕРХСОВРЕМЕННЫЙ» СТИЛЬ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">V. СЛОЖНОЕ ПОЛОЖЕНИЕ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VI. АЛЕХИН</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VII. АЛЕХИН - ФАРНИ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VIII. АЛЕХИН - БОГОЛЮБОВ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">IX. БРЕЙЕР</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">X. БРЕЙЕР - д-р ЭССЕР</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XI. БРЕЙЕР - ГАВАСИ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XII. БРЕЙЕР - РЕТИ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XIII. БОГОЛЮБОВ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XIV. БОГОЛЮБОВ - РЕТИ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XV. БОГОЛЮБОВ - NN</a></li>
+  <!--p>Новые идеи в шахматах 71</p-->
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XVI. БОГОЛЮБОВ, РЕТИ, ШПИЛЬМАН - ЭНГЛУНД, ЯКОБСОН, НИГОЛЬМ и ОЛЬСОН</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">ЭНГЛУНД, ЯКОБСОН, НИГОЛЬМ и ОЛЬСОН</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XVII. ТАРТАКОВЕР</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XVIII. ЭЙВЕ - МАРОЦИ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XIX. МАТЧ КАПАБЛАНКА - ЛАСКЕР</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XX. РЕФОРМА ШАХМАТНОЙ ИГРЫ</a></li>
+  <li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">XXI. ПОСЛЕСЛОВИЕ</a></li>
+</ul>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,69 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<p><h6>Учебное издание</h6></p>
+<p><h2>Джо Галлахер</h2></p>
+<p><h1>ШАХМАТНЫЕ КОМБИНАЦИИ</h1></p>
+<p><h3>Решебник</h3></p>
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>Г15</p>
+</div-->
+
+<div class="message page">
+<p><b>Галлахер Д.</b></p>
+<p>Г15 Шахматные комбинации. Решебник. — М.: «Russian CHESS House / Русский шахматный дом», 2017. — 232 с. (Шахматный университет). </p>
+<p>ISBN 978-5-94693-597-5</p>
+</div>
+
+<div class="message notification">
+<p>В книге известного английского гроссмейстера представлены 365 заданий, разбитых по пяти уровням сложности. У всех примеров есть подсказки, которые помогут вам при необходимости почти самостоятельно решить любую позицию. Книга построена на увлекательных и поучительных примерах, выхваченных из потока современной практики. Система подсчета очков поможет вам понять, насколько полезной оказалось её прочтение.</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+
+<!--div>
+<p>Перевод с английского Олег Русаковский</p>
+<p>Редакторы Игорь Горелов, Андрей Ельков</p>
+<p>Художник Евгений Пермяков</p>
+<p>Макет Андрей Ельков</p>
+<p>Подписано в печать 01.02.2017. Формат 60x90/16.</p>
+<p>Гарнитура «Ньютон». Усл. п. л. 14,50.</p>
+<p>Издательство «Russian CHESS House» (директор Мурад Аман Назаров)</p>
+<p>Тел.: +7(495) 963-8017(пн-пт с 11.00до 18.00)</p>
+<p>e-mail: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+
+<div class="message">
+<b>ISBN 978-5-94693-597-5</b>
+<div style="float:right;">© Галлахер Д., 2017<br />© Издательство «Russian CHESS House», 2017</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

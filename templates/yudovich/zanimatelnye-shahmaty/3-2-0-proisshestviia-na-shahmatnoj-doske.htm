@@ -1,0 +1,29 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Происшествия на шахматной доске (примеры из партий, задачи, шутки) | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>ПРОИСШЕСТВИЯ НА ШАХМАТНОЙ ДОСКЕ</h2>
+<p><b>(примеры из партий, задачи, шутки)</b></p>
+<div class="score">
+<p>А сейчас давай проверим, как ты ведешь игру по обдуманным предположениям. Разбирая примеры, которые ты найдешь в этом разделе, прежде всего попытайся оценить возможности сторон, наметить для себя план действий и лишь затем приступай к поискам тех ходов, которые обеспечивают выполнение твоего плана.</p>
+<!--p>— 71 —</p-->
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-1-vse-na-odnogo.htm' %}">Все на одного</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-2-raschety-i-proschety.htm' %}">Расчеты и просчеты</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-3-opiat-sovety!.htm' %}">Опять советы!</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-resheniia.htm' %}">Решения</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

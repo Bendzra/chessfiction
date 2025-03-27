@@ -1,0 +1,176 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 16. Расчет | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Глава 16. РАСЧЕТ</h2>
+<div class="score">
+<blockquote>
+«Гений — это 99% пота и 1% вдохновения».
+<p style="text-align:right;"><i>Томас Эдисон</i></p>
+</blockquote>
+<p class="notification message">Комбинации и планы имеют больше шансов на успешную реализацию, если за ними стоит точный расчет. Так как же научиться находить новые возможности и аккуратно ориентироваться среди имеющихся?</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 76: Смотри на всё глазами фигур.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="2r1nrk1/p4p1p/1p2p1pQ/nPqbRN2/8/P2B4/1BP2PPP/3R2K1 w - - 0 1"></div>
+<div class="score">
+<p>Надо держать в уме, что это не вы играете партию — это фигуры ее играют. Вы просто говорите им, куда идти и когда. Вы скорее тренер, чем игрок.</p>
+<p>Поэтому весьма разумно позволить фигурам сообщать вам, куда они хотели бы направиться. У них отличное чутье, даже если вы им не отличаетесь. Так что лучше прислушивайтесь к ним.</p>
+<p>Учитесь смотреть на позицию, стоящую перед вами, так, как смотрят на нее фигуры.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-86.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="2r1nrk1/p4p1p/1p2p1pQ/nPqbRN2/8/P2B4/1BP2PPP/3R2K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>У белых один слон на b2, простреливающий поля h8 и g7, другой на d3, нацеленный на поля g6 и h7, ладья на e5, посматривающая в сторону поля h5, а также конь и ферзь, которые уже пробрались в лагерь черных на поля f5 и h6. В лагере черных полно «дыр» (e7, f6, h6) и белых фигур больше, чем черных. Хотят ли белые фигуры добраться до черного монарха? Держу партии, что да!</p>
+<p>Комбинация, которую они хотят осуществить, такова:
+ <span class="line0" onclick='loadMove("2r1nrk1/p4p1p/1p2p1pQ/nPqbRN2/8/P2B4/1BP2PPP/3R2K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("2r1nrk1/p3Np1p/1p2p1pQ/nPqbR3/8/P2B4/1BP2PPP/3R2K1 b - - 0 1", this, "f5e7"); ' class="line0">1.Кe7+</span> 
+ <span onclick='loadMove("2r1nrk1/p3qp1p/1p2p1pQ/nP1bR3/8/P2B4/1BP2PPP/3R2K1 w - - 0 2", this, "c5e7"); ' class="line0">Ф:e7</span> 
+ <span onclick='loadMove("2r1nrk1/p3qp1Q/1p2p1p1/nP1bR3/8/P2B4/1BP2PPP/3R2K1 b - - 0 2", this, "h6h7"); ' class="line0">2.Ф:h7+</span> 
+ <span onclick='loadMove("2r1nr2/p3qp1k/1p2p1p1/nP1bR3/8/P2B4/1BP2PPP/3R2K1 w - - 0 3", this, "g8h7"); ' class="line0">Кр:h7</span> 
+ <span onclick='loadMove("2r1nr2/p3qp1k/1p2p1p1/nP1b3R/8/P2B4/1BP2PPP/3R2K1 b - - 0 3", this, "e5h5"); ' class="line0">3.Лh5+</span> 
+ <span onclick='loadMove("2r1nrk1/p3qp2/1p2p1p1/nP1b3R/8/P2B4/1BP2PPP/3R2K1 w - - 0 4", this, "h7g8"); ' class="line0">Крg8</span> 
+ <span onclick='loadMove("2r1nrkR/p3qp2/1p2p1p1/nP1b4/8/P2B4/1BP2PPP/3R2K1 b - - 0 4", this, "h5h8"); ' class="line0">4.Лh8X</span> 
+(Рудольф Шпильман — Балдур Хорлингер, матч 1929).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<div class="notification message">
+<p>«Let it be».</p>
+<p>Пол Маккартни</p>
+<p>Подобные действия сродни методам обучения: факты не «загружаются» в голову студента; учитель показывает, как получить то, что уже существует.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 77: Играйте «вслепую».</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="k7/p1q2p2/4b1p1/P2p3p/3Q4/7P/5PP1/1R4K1 w - - 0 1"></div>
+<div class="score">
+<p>Наиболее трудная часть на пути усиления игры — всё более точный расчет сложных вариантов типа: «Если он идет сюда, я иду сюда, затем он возьмет здесь, на что я отвечу так...»</p>
+<p>При спешке можно погубить партию. Практически невозможно добиться точности без упорной тренировки. Одним из лучших способов попрактиковаться является решение всех диаграмм, которые попадаются вам на глаза, не расставляя позиции на доске и не передвигая фигур. Также можно рекомендовать разыгрывать партии целиком, не глядя на доску. Это вначале может оказаться невозможным, но умение придет с практикой.</p>
+<p>Причина, по которой следует выполнять подобные упражнения, состоит попросту в том, что вам нужна практика в прокручивании в голове возникающих в вариантах позиций. Во время партии действует правило «тронул — ходи», поэтому тренировка необходима.</p>
+<p>Партию, в которой создалась следующая позиция, Гарри Нельсон Пильсбери играл вслепую — одновременно с пятнадцатью другими партиями, которые он также играл вслепую!</p>
+
+<!--img class="diagram" src="images/Tao of Chess-87.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="k7/p1q2p2/4b1p1/P2p3p/3Q4/7P/5PP1/1R4K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>
+ <span class="line0" onclick='loadMove("k7/p1q2p2/4b1p1/P2p3p/3Q4/7P/5PP1/1R4K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("k7/p1q2p2/P3b1p1/3p3p/3Q4/7P/5PP1/1R4K1 b - - 0 1", this, "a5a6"); ' class="line0">1.a6</span> 
+ <span onclick='loadMove("k7/p4p2/P1q1b1p1/3p3p/3Q4/7P/5PP1/1R4K1 w - - 0 2", this, "c7c6"); ' class="line0">Фc6</span> 
+ <span onclick='loadMove("k7/p4p2/P1q1b1p1/3pQ2p/8/7P/5PP1/1R4K1 b - - 0 2", this, "d4e5"); ' class="line0">2.Фe5</span> 
+ <span onclick='loadMove("k1q5/p4p2/P3b1p1/3pQ2p/8/7P/5PP1/1R4K1 w - - 0 3", this, "c6c8"); ' class="line0">Фc8</span> 
+ <span onclick='loadMove("k1q5/p4p2/P2Qb1p1/3p3p/8/7P/5PP1/1R4K1 b - - 0 3", this, "e5d6"); ' class="line0">3.Фd6</span>, и черные сдались.</p>
+<p>Угрозу
+ <span class="line1" onclick='loadMove("k1q5/p4p2/P2Qb1p1/3p3p/8/7P/5PP1/1R4K1 w - - 0 4", this, ""); '>[...]</span> 
+ <span onclick='loadMove("kRq5/p4p2/P2Qb1p1/3p3p/8/7P/5PP1/6K1 b - - 0 4", this, "b1b8"); ' class="line1">4.Лb8+</span> 
+ <span onclick='loadMove("kq6/p4p2/P2Qb1p1/3p3p/8/7P/5PP1/6K1 w - - 0 5", this, "c8b8"); ' class="line1">Ф:b8</span> 
+ <span onclick='loadMove("kq6/p4p2/P1Q1b1p1/3p3p/8/7P/5PP1/6K1 b - - 0 5", this, "d6c6"); ' class="line1">5.Фc6+</span> 
+не отразить.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Чтобы сделать нечто сложное по сути более простым, надо думать о путях решения проблемы и много практиковаться. Повторение позволит «набить руку», или, иными словами, «повторение — мать учения».</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 78: Концентрируйте внимание на форсирующих ходах.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="2rqkn1r/1b2bppp/p7/2ppN3/8/1N6/PPP1QPPP/R1B1R1K1 w k - 0 1"></div>
+<div class="score">
+<p>Эта посылка, позволяющая сделать самые сложные расчеты возможными. В обычной позиции имеется, как правило, около сорока возможных ходов с каждой стороны. Чтобы заглянуть вперед, требуется рассмотреть сорок своих ходов и сорок ответов на каждый из них. Всего получается порядка 1600 позиций, которые требуется оценить и сравнить. И это только на ОДНОМ ХОДУ! Очевидно, что расчет шестиходовой комбинации (или даже двухходовой) при таком подходе вне пределов сил человеческих.</p>
+<p>Но нам нет необходимости рассматривать все возможности. Большинство ходов не преследуют никакого плана, а многие другие попросту плохи. Ключом к расчету многоходовых комбинаций является концентрация на форсирующих ходах: шахах, взятиях, превращениях и непосредственных угрозах шахов, взятий, превращений. Ограничившись форсирующими игру ходами, вы можете ввести расчет в обозримые рамки. Ходы, которые вам следует смотреть, должны иметь влияние на результат партии.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-88.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="2rqkn1r/1b2bppp/p7/2ppN3/8/1N6/PPP1QPPP/R1B1R1K1 w k - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Я получил эту позицию в партии по переписке, и потому у меня был шанс заглянуть далеко вперед, дабы убедиться в корректности комбинации. Нерокировавший черный король на вертикали, на которой расположилась батарея ферзя с ладьей, коим мешают только белый конь и черный слон,- вот ключевые факторы, побудившие меня искать выигрывающую комбинацию. Я мог сразу отбросить все ходы слона e7, ибо в этом случае после <b>Кc6+</b> выигрывался черный ферзь.</p>
+<p>
+ <span class="line0" onclick='loadMove("2rqkn1r/1b2bppp/p7/2ppN3/8/1N6/PPP1QPPP/R1B1R1K1 w k - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("2rqkn1r/1b2bppp/p7/2ppN1B1/8/1N6/PPP1QPPP/R3R1K1 b k - 0 1", this, "c1g5"); ' class="line0">1.Сg5</span> 
+ <span onclick='loadMove("3qkn1r/1br1bppp/p7/2ppN1B1/8/1N6/PPP1QPPP/R3R1K1 w k - 0 2", this, "c8c7"); ' class="line0">Лc7</span>.</p>
+<p>Единственный другой вариант, который следовало рассчитать, начинался с
+ <span onclick='loadMove("2rqkn1r/1b2b1pp/p4p2/2ppN1B1/8/1N6/PPP1QPPP/R3R1K1 w k - 0 2", this, "f7f6"); ' class="line1">1...f6</span>. Но на это следовало
+ <span onclick='loadMove("2rqkn1r/1b2b1pp/p4B2/2ppN3/8/1N6/PPP1QPPP/R3R1K1 b k - 0 2", this, "g5f6"); ' class="line1">2.С:f6</span> 
+ <span onclick='loadMove("2rqkn1r/1b2b2p/p4p2/2ppN3/8/1N6/PPP1QPPP/R3R1K1 w k - 0 3", this, "g7f6"); ' class="line1">g:f6</span> 
+ <span onclick='loadMove("2rqkn1r/1b2b2p/p4p2/2ppN2Q/8/1N6/PPP2PPP/R3R1K1 b k - 0 3", this, "e2h5"); ' class="line1">3.Фh5+</span> 
+ <span onclick='loadMove("2rqk2r/1b2b2p/p4pn1/2ppN2Q/8/1N6/PPP2PPP/R3R1K1 w k - 0 4", this, "f8g6"); ' class="line1">Кg6</span> 
+ <span onclick='loadMove("2rqk2r/1b2b2p/p4pN1/2pp3Q/8/1N6/PPP2PPP/R3R1K1 b k - 0 4", this, "e5g6"); ' class="line1">4.К:g6</span> 
+ <span onclick='loadMove("2rqk2r/1b2b3/p4pp1/2pp3Q/8/1N6/PPP2PPP/R3R1K1 w k - 0 5", this, "h7g6"); ' class="line1">h:g6</span> 
+ <span onclick='loadMove("2rqk2Q/1b2b3/p4pp1/2pp4/8/1N6/PPP2PPP/R3R1K1 b - - 0 5", this, "h5h8"); ' class="line1">5.Ф:h8+</span>. Обратите внимание, что каждый ход белых сопровождается взятием, шахом или и тем и другим вместе.</p>
+<p>
+ <span onclick='loadMove("3qkn1r/1br1bppp/p7/2NpN1B1/8/8/PPP1QPPP/R3R1K1 b k - 0 2", this, "b3c5"); ' class="line0">2.К:c5</span> 
+ <span onclick='loadMove("3qkn1r/1b2bppp/p7/2rpN1B1/8/8/PPP1QPPP/R3R1K1 w k - 0 3", this, "c7c5"); ' class="line0">Л:c5</span>.</p>
+<p>Тот же ответ последовал бы и
+ <span onclick='loadMove("3qkn1r/1br1b1pp/p4p2/2NpN1B1/8/8/PPP1QPPP/R3R1K1 w k - 0 3", this, "f7f6"); ' class="line1">2...f6</span>.</p>
+<p>
+ <span onclick='loadMove("3qkn1r/1b2bNpp/p7/2rp2B1/8/8/PPP1QPPP/R3R1K1 b k - 0 3", this, "e5f7"); ' class="line0">3.К:f7</span> 
+ <span onclick='loadMove("3q1n1r/1b2bkpp/p7/2rp2B1/8/8/PPP1QPPP/R3R1K1 w - - 0 4", this, "e8f7"); ' class="line0">Кр:f7</span> 
+ <span onclick='loadMove("3q1n1r/1b2Bkpp/p7/2rp4/8/8/PPP1QPPP/R3R1K1 b - - 0 4", this, "g5e7"); ' class="line0">4.С:e7</span> 
+ <span onclick='loadMove("2q2n1r/1b2Bkpp/p7/2rp4/8/8/PPP1QPPP/R3R1K1 w - - 0 5", this, "d8c8"); ' class="line0">Фc8</span> 
+ <span onclick='loadMove("2q2n1r/1b3kpp/p7/2Bp4/8/8/PPP1QPPP/R3R1K1 b - - 0 5", this, "e7c5"); ' class="line0">5.С:c5</span> 
+ <span onclick='loadMove("5n1r/1b3kpp/p7/2qp4/8/8/PPP1QPPP/R3R1K1 w - - 0 6", this, "c8c5"); ' class="line0">Ф:c5</span> 
+ <span onclick='loadMove("4Qn1r/1b3kpp/p7/2qp4/8/8/PPP2PPP/R3R1K1 b - - 0 6", this, "e2e8"); ' class="line0">6.Фe8+</span> 
+ <span onclick='loadMove("4Qn1r/1b4pp/p4k2/2qp4/8/8/PPP2PPP/R3R1K1 w - - 0 7", this, "f7f6"); ' class="line0">Крf6</span> 
+ <span onclick='loadMove("3Q1n1r/1b4pp/p4k2/2qp4/8/8/PPP2PPP/R3R1K1 b - - 0 7", this, "e8d8"); ' class="line0">7.Фd8+</span> 
+ <span onclick='loadMove("3Q1n1r/1b4pp/p5k1/2qp4/8/8/PPP2PPP/R3R1K1 w - - 0 8", this, "f6g6"); ' class="line0">Крg6</span>.</p>
+<p>Комбинация завершена — король черных раскрыт, конь связан, в то время как ладьи белых готовы включиться в игру.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Просчет всех возможных вариантов невозможен и контрпродуктивен в любом виде деятельности. Концентрируйте внимание на существенном, и у вас появятся хорошие шансы просчитать весь путь к конечному успеху.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 79: Никогда не упускайте попытки решить любую позицию, которая попалась вам на глаза.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="1r2q2k/3r1p1p/1p2pPp1/1b1p4/2pQ2P1/2P1R3/PP3PBP/4R1K1 w - - 0 1"></div>
+<div class="score">
+<p>Принцип справедлив потому, что это лучший способ выработать хорошую привычку. Если вы хотите дисциплинировать свое мышление, когда вы играете партию, вы должны дисциплинировать его всегда. Так этот принцип работает. К нему следует прибегать не от случая к случаю, им следует руководствоваться постоянно.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-89.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1r2q2k/3r1p1p/1p2pPp1/1b1p4/2pQ2P1/2P1R3/PP3PBP/4R1K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>(Курцдорфер — Дэвид Найзер, по переписке, 1978). Посмотрели? Время пошло!</p>
+<p>Решение:
+ <span class="line0" onclick='loadMove("1r2q2k/3r1p1p/1p2pPp1/1b1p4/2pQ2P1/2P1R3/PP3PBP/4R1K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("1r2q2k/3r1p1p/1p2RPp1/1b1p4/2pQ2P1/2P5/PP3PBP/4R1K1 b - - 0 1", this, "e3e6"); ' class="line0">1.Л:e6</span>, и ладью брать нельзя из-за вскрытого шаха после
+ <span onclick='loadMove("1r2q2k/3r3p/1p2pPp1/1b1p4/2pQ2P1/2P5/PP3PBP/4R1K1 w - - 0 2", this, "f7e6"); ' class="line0">1...f:e6</span> 
+ <span onclick='loadMove("1r2q2k/3r1P1p/1p2p1p1/1b1p4/2pQ2P1/2P5/PP3PBP/4R1K1 b - - 0 2", this, "f6f7"); ' class="line0">2.f7+</span>.</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Вырабатывайте у себя хорошие привычки всё время. Они станут вашей частью, и в критических ситуациях вы вряд ли ошибетесь, поскольку вы просто на это не способны!</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 80: Определяйтесь с ходами-кандидатами и просматривайте их по очереди.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="1n3rk1/4n1b1/1p4pp/2p2P2/4N3/P1P2NPB/4bP1P/2BR2K1 w - - 0 1"></div>
+<div class="score">
+<p>Этот совет подсказан прекрасной книгой Александра Котова «Тайны мышления шахматиста». В ней он объясняет, как рассчитывать комбинации со многими разветвлениями. Прыганье от одного к другому и обратно ведет лишь к путанице в голове. Именно так действует большинство шахматистов при расчете. Но сильный игрок определяет ходы, которые следует рассматривать, и затем последовательно переходит от одного к другому. Потом он сравнивает конечные позиции в каждом варианте и решает, на каком следует остановить свой выбор.</p>
+<p>Это может показаться трудным поначалу. Что, если вы упустите какой-либо ход в самом начале? Или если вы неправильно оцените одну или более конечных позиций? А что, если?.. Конечно, не всё у вас пойдет сначала гладко. Вы даже не можете на это рассчитывать после нескольких лет обучения и практики. Если бы шахматы были столь простыми, мы бы в них не играли.</p>
+<p>Но все-таки подобный подход обдумывания комбинации или любого варианта дает вам лучший шанс оценить ту позицию, которая возникла у вас в партии.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-90.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="1n3rk1/4n1b1/1p4pp/2p2P2/4N3/P1P2NPB/4bP1P/2BR2K1 w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Я получил эту позицию после неожиданной для меня маленькой комбинации, после которой слон соперника оказался на поле e2 с вилкой на ладью и коня. Я увидел идею с f5-f6, позволявшую вернуть фигуру, но не знал, как при этом защитить коня e4. Поэтому я решился на интересную жертву фигуры
+ <span class="line0" onclick='loadMove("1n3rk1/4n1b1/1p4pp/2p2P2/4N3/P1P2NPB/4bP1P/2BR2K1 w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("1n3rk1/4n1b1/1p1R2pp/2p2P2/4N3/P1P2NPB/4bP1P/2B3K1 b - - 0 1", this, "d1d6"); ' class="line0">1.Лd6</span>. Но в действительности в этом не было необходимости. В поле моего зрения не попал ход
+ <span onclick='loadMove("1n3rk1/4n1b1/1p4pp/2p2P2/4N3/P1P2NPB/4bP1P/2B1R1K1 b - - 0 1", this, "d1e1"); ' class="line0">1.Лe1</span>, и белые вообще ничего не жертвуют. Ладья присматривает за конем e4 по линии «е», не забывая при этом о коне e7. Поэтому это был явный ход-кандидат (Курцдорфер -Лесли Браун, Филадельфия, 1977).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Узнайте всё про свои возможности, прежде чем приступать к делу.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

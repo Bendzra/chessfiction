@@ -1,0 +1,30 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Раздел II. Пути создания атаки | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Раздел II. ПУТИ СОЗДАНИЯ АТАКИ</h3>
+<p>В предыдущих главах книги читатель ознакомился с тем, как примерно оценивать возникающие во время атаки положения, как изобретательно и смело вести атаку на неприятельского короля. До сих пор, за исключением партий, рассмотренных в I главе первого раздела, мы разбирали примеры атаки, имевшей место лишь в специально подобранных позициях. Но как возникают эти позиции?</p>
+<p>Скажем сразу, что активная сторона в большинстве случаев получает позицию с возможностями для атаки, если ей удается успешно осуществить следующее: либо специально подготовленный дебютный вариант, либо интуитивную жертву, либо стратегический план.</p>
+<p>Вечно актуальная связь дебют — атака в этой книге не рассматривается. Однако о некоторых ее аспектах мы будем говорить в последующих главах.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3-intuitivnye-zhertvy.htm' %}">Глава III. Интуитивные жертвы<!--158--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3-partii-dlia-samostoiatelnogo-analiza.htm' %}">Партии для самостоятельного анализа</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-4-uspeshnaia-strategiia.htm' %}">Глава IV. Успешная стратегия<!--181--></a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

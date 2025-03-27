@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Минимальное преимущество</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vvedenie.htm' %}">Введение<!--3--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-realizaciia-nebolshogo-pozicionnogo-preimushchestva.htm' %}">Реализация небольшого позиционного преимущества<!--5--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-borba-pri-ferziah.htm' %}">Борьба при ферзях<!--5--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-borba-v-mnogofigurnyh-okonchaniiah.htm' %}">Борьба в многофигурных окончаниях<!--10--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-borba-v-ladejnyh-okonchaniiah.htm' %}">Борьба в ладейных окончаниях<!--20--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-borba-v-legkofigurnyh-okonchaniiah.htm' %}">Борьба в легкофигурных окончаниях<!--25--></a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-realizaciia-nebolshogo-materialnogo-preimushchestva.htm' %}">Реализация небольшого материального преимущества<!--33--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-vse-mogut-koroli.htm' %}">«Все могут короли...»<!--34--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-etiudnyj-hod.htm' %}">Этюдный ход<!--36--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-dorogu-ee-velichestvu-peshke.htm' %}">Дорогу Ее Величеству Пешке!<!--38--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-iz-shahmatnoj-klassiki.htm' %}">Из шахматной классики<!--42--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-iskusstvo-vyezdki.htm' %}">Искусство выездки<!--45--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-slon-protiv-konia.htm' %}">Слон против коня<!--48--></a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-borba-s-neobychnym-sootnosheniem-sil.htm' %}">Борьба с необычным соотношением сил<!--49--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-ferz-v-borbe-protiv-bolee-slabyh-figur.htm' %}">Ферзь в борьбе против более слабых фигур<!--50--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-ladi-ili-legkie-figury.htm' %}">Ладьи или легкие фигуры?<!--53--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-lishnee-kachestvo.htm' %}">Лишнее качество<!--54--></a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-0-psihologicheskoe-preimushchestvo.htm' %}">Психологическое преимущество<!--59--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-0-partiia-zakonchilas-vnichiu.htm' %}">Партия закончилась вничью<!--63--></a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

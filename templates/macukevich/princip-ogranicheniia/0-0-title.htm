@@ -1,0 +1,49 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h4>БИБЛИОТЕЧКА ШАХМАТИСТА</h4>
+<h2>А. А. МАЦУКЕВИЧ</h2>
+<h1>Принцип ограничения</h1>
+
+<div class="diagram">
+<p>Москва</p>
+<p>«Физкультура и спорт»</p>
+<p>1982</p>
+</div>
+
+<div class="message">
+<p>ББК 75.581</p>
+<p>М36</p>
+</div>
+
+<div class="message notification">
+<p><b>Мацукевич А. А.</b></p>
+<p>М36 <b>Принцип ограничения</b>.— М.: Физкультура и спорт, 1982.— 71 с.— (Б-чка шахматиста).</p>
+<p>Брошюра шахматного мастера и журналиста А. Мацукевича посвящена одному из законов, выведенных в результате шахматной практики. Автор исследует приемы, раскрывает методы ограничения подвижности различных фигур — от легких до королей включительно, иллюстрирует их партиями и фрагментами из партий крупнейших шахматистов мира. Для освоения принципа ограничения в брошюру включены примеры для самостоятельной работы (странички этюдов).</p>
+<p>Адресована широкому кругу любителей шахмат.</p>
+</div>
+
+<div class="message">
+<p>М-60904-144 009(01)-82 134-82 4202000000</p>
+<p>ББК 75.581 7А9.1</p>
+</div>
+
+<p style="float:right;">© Издательство «Физкультура и спорт», 1982 г.</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

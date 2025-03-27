@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h1>СОДЕРЖАНИЕ</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Ратмир Холмов (1982)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-kak-trudno-byt-grossmejsterom.htm' %}">Евг. Ильин. Как трудно быть гроссмейстером</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-slovo-k-chitateliu.htm' %}">Слово к читателю</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-izbrannye-partii.htm' %}">Избранные партии</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-prilozheniia.htm' %}">Приложения</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-prilozheniia.htm' %}#results">Основные турнирные результаты Р. Холмова</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-prilozheniia.htm' %}#openings">Указатель дебютов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-prilozheniia.htm' %}#partners">Указатель партнеров Р. Холмова</a></li>
+</ul>
+
+<h2>РАТМИР ХОЛМОВ</h2>
+
+<div class="diagram">
+<p>Заведующий редакцией В. И. Чепижный</p>
+<p>Редактор М. Ю. Архангельский</p>
+<p>Художник Ю. Н. Маркаров</p>
+<p>Художественный редактор В. А. Жигарев</p>
+<p>Технический редактор С. С. Басипова</p>
+<p>Корректор Л. В. Чернова</p>
+</div>
+
+<p class="diagram">ИБ № 1220. Сдано в набор 25.02.82. Подписано к печати 05.08.82. Формат 60X90/16. Бумага тип. № 2. Гарнитура «Литературная». Высокая печать. Усл. п. л. 9,0 Усл. кр.-отт. 9,25. Уч.-изд. л. 9,26. Тираж 100000 экз. Издат. № 6723. Зак. 131. Цена 70 коп.</p>
+<p class="diagram">Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по делам издательств, полиграфии и книжной торговли. 101421. Москва, Каляевская ул., 27</p>
+<p class="diagram">Ордена Октябрьской Революции и ордена Трудового Красного Знамени Первая Образцовая типография имени А. А. Жданова Союэполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли. Москва, М-54, Валовая, 28</p>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

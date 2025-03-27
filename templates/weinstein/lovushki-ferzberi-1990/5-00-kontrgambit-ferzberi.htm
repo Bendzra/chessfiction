@@ -1,0 +1,40 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Контргамбит Ферзьбери | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<a name="123"></a>
+<h1>КОНТРГАМБИТ ФЕРЗЬБЕРИ</h1>
+
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/5-kontrgambit-ferzberi.png' %}" />
+</div>
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-01-razoblachenie-komissara-zhiuva.htm' %}">Разоблачение комиссара Жюва</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-02-mertvaia-zyb-v-gaskonskom-zalive.htm' %}">Мертвая зыбь в Гасконском заливе</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-03-neobychnyj-seans.htm' %}">Необычный сеанс</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-04-bazovyj-variant-qd3-b5.htm' %}">Базовый вариант Фd3-b5</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-05-troianskij-kon.htm' %}">«Троянский конь»</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-06-firmennye-varianty-ferzberi.htm' %}">Фирменные варианты Ферзьбери</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-07-kinzhalnyj-udar.htm' %}">«Кинжальный удар»</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-08-10_b2-b4-i-sdavajtes.htm' %}">«10.b2-b4 и сдавайтесь!»</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-09-mercaiushchie-shahmaty.htm' %}">«Мерцающие шахматы»</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-10-ferzberi-na-pliazhe_ili-po-chervoncu.htm' %}">Ферзьбери на пляже, или По червонцу</a></li>
+	</ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,36 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/reti.jpg' %}" />
+</div>
+<div class="score">
+<h1>Содержание</h1>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Голомбек Гарри. Лучшие партии Рихарда Рети</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-1-ot-avtora.htm' %}">От автора</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-2-biografiia.htm' %}">Биография</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-nachalo-puti-1907-1912.htm' %}">I. Начало пути, 1907-1912</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-perehodnyj-period-1912-1914.htm' %}">II. Переходный период, 1912-1914</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-zrelyj-master-1918-1921.htm' %}">III. Зрелый мастер, 1918-1921</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/4-god-krupnyh-turnirov-1922.htm' %}">IV. Год крупных турниров, 1922</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/5-debiut-reti-1923-1924.htm' %}">V. Дебют Рети, 1923-1924</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/6-anglijskoe-nachalo-1924-1925.htm' %}">VI. Английское начало, 1924-1925</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/7-ot-bratislavy-do-budapeshta-1925-1926.htm' %}">VII. От Братиславы до Будапешта, 1925-1926</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/8-poslednie-gody-1927-1929.htm' %}">VIII. Последние годы, 1927-1929</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/9-1-resheniia-etiudov.htm' %}">Решения этюдов</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/9-2-prilozheniia.htm' %}">Приложения</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

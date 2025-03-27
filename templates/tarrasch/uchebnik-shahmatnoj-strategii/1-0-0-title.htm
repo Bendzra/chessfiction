@@ -1,0 +1,64 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ТОМ I | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb-1.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>З. ТАРРАШ</h2>
+<h1>УЧЕБНИК ШАХМАТНОЙ СТРАТЕГИИ</h1>
+<h3>ТОМ I</h3>
+
+<div class="diagram">
+<p>асТ издательство</p>
+<p>ФОЛИО</p>
+<p>Москва</p>
+<p>2001</p>
+</div>
+
+<hr />
+<blockquote style="text-align:right;">«Конь на краю доски<br />всегда стоит плохо»</blockquote>
+<hr />
+
+<div class="diagram">
+<p>ББК 75.581</p>
+<p>Т21</p>
+</div>
+
+<div class="diagram">
+<p>Перевод с немецкого В. И. Мурахвери</p>
+<p>Составление и редакция В. В. Эльянова</p>
+</div>
+
+<div class="diagram">
+<p>Подписано в печать 08.06.01. Формат 84x108 <sup>1</sup>/<sub>32</sub>.</p>
+<p>Усл. печ. л. 17,64. Тираж 10 000 экз. Заказ № 3914.</p>
+</div>
+
+<div class="diagram">
+<p>ISBN 5-17-006426-8 (ООО «Издательство ACT»). Т. I</p>
+<p>ISBN 5-17-008890-6 (общ.)</p>
+<p>ISBN 966-03-1213-Х («Фолио»)</p>
+</div>
+
+<div style="float:right;">
+<p>© В.И. Мурахвери, перевод на русский язык, 2001</p>
+<p>© В.В. Эльянов. составление и редакция, 2001</p>
+<p>© Художественное оформление. ООО «Издательство АСТ», 2001</p>
+</div>
+<div class="clear"></div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

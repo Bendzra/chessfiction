@@ -1,0 +1,30 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>2.1 Атака на пункт h7 | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="5rk1/5ppp/8/7Q/8/3B4/5PPP/5RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5rk1/5ppp/8/7Q/8/3B4/5PPP/5RK1 w - - 0 1", this, ""); '>[...]</span> 
+<h3>2.1 АТАКА НА ПУНКТ h7</h3>
+
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-1-1-shema-q+b-vs-h7.htm' %}">2.1.1 Ферзь и слон против пешки h7<!--7--></a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-1-2-shema-q+n-vs-h7.htm' %}">2.1.2 Ферзь и конь против пешки h7<!--21--></a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-1-3-shema-q+r-vs-h7.htm' %}">2.1.3 Ферзь и ладья против пешки h7<!--27--></a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-1-4-belopolnyj-slon-podryvnik-kamikadze.htm' %}">2.1.4 Белопольный слон - "подрывник камикадзе"<!--35--></a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-1-5-dva-slona-kamikadze.htm' %}">2.1.5 Два слона - камикадзе<!--51--></a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+
+</div> <!-- iBook -->
+{% endblock content %}
+

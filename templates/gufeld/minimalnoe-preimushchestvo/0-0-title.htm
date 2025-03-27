@@ -1,0 +1,37 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="diagram">
+<h5>БИБЛИОТЕЧКА ШАХМАТИСТА</h5>
+<h2>Э. Е. Гуфельд</h2>
+<h1>Минимальное преимущество</h1>
+</div>
+
+<div class="diagram">
+<p>Москва</p>
+<p>«Физкультура и спорт» 1984</p>
+</div>
+
+<div class="notification message">
+<p>В своей книге международный гроссмейстер, заслуженный тренер СССР Э. Гуфельд рассматривает важную проблему техники реализации небольшого преимущества. Анализ интересных окончаний из практических партий поможет изучающим совершенствовать мастерство разыгрывания эндшпиля, овладевать типичными приемами атаки и защиты.</p>
+<p>Рассчитана на широкий круг любителей шахмат.</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

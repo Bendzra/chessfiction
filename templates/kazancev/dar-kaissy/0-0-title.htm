@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+<div class="iBook">
+
+<div class="section">
+<hr />
+<h1>Дар Каиссы</h1>
+<h2>Александр Казанцев</h2>
+<div class="small floater">
+  <img src="{% static 'images/kazancev_kaissa/dar_kais_obl.jpg' %}" />
+</div>
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-prolog.htm' %}">ПРОЛОГ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-tiaga.htm' %}">Часть первая. ТЯГА</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-veter.htm' %}">Часть вторая. ВЕТЕР</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-0-uragan.htm' %}">Часть третья. УРАГАН</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-epilog.htm' %}">ЭПИЛОГ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-ot-avtora.htm' %}">ОТ АВТОРА</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/index.htm' %}">Оглавление</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

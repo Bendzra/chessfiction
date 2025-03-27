@@ -1,0 +1,19 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ФЕРЗЕВЫЕ ОКОНЧАНИЯ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ФЕРЗЕВЫЕ ОКОНЧАНИЯ</h3>
+
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-01-ferz-i-peshka-protiv-ferzia.htm' %}">Ферзь и пешка против ферзя</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-4-02-lishniaia-peshka.htm' %}">Лишняя пешка</a></li>
+    </ul>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

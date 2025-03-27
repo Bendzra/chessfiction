@@ -1,0 +1,40 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Ласкер Эмануил. Учебник шахматной игры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">М. Ботвинник. Эмануил Ласкер</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Эм. Ласкер. Предисловие к первому немецкому изданию</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Эм. Ласкер. Предисловие к четвертому изданию</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-pervonachalnye-svedeniia-o-shahmatnoj-igre.htm' %}">Глава первая. Первоначальные сведения о шахматной игре</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава вторая. Учение о дебютах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава третья. Комбинация</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава четвертая. Позиционная игра</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава пятая. Эстетика шахматной игры</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава шестая. Примерные партии</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Об обучении шахматной игре</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Я. Нейштадт. Ласкер учит шахматам</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель партий</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

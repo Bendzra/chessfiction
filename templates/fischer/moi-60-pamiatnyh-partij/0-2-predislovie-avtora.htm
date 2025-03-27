@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ПРЕДИСЛОВИЕ АВТОРА | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ПРЕДИСЛОВИЕ АВТОРА</h1>
+<p>60 партий, прокомментированных в этой книге, были сыграны в период 1957—1967 годов со строгим соблюдением турнирного регламента (за исключением партий <a href="{% url 'page-view' book.root_dir|add:'/1-08-partii-43-48.htm' %}#game44">№ 44</a> и <a href="{% url 'page-view' book.root_dir|add:'/1-09-partii-49-54.htm' %}#game50">№ 50</a>). В примечаниях часто даются ссылки на другие партии, иногда же эти партии приводятся полностью. Заинтересованный читатель найдет мои 34 ранние партии в книге «Партии Бобби Фишера» (Симон и Шустер, 1959 г.).</p>
+<p>Все 60 рассматриваемых партий, включая и три поражения, содержат для меня что-то памятное и волнующее. Я попытался быть откровенным и точным в моих комментариях, надеясь, что они помогут заглянуть в лабораторию шахматиста и приведут к более глубокому пониманию шахмат и процесса игры.</p>
+<p>Я хотел бы выразить благодарность Ларри Эвансу, моему другу и коллеге, за его неоценимую помощь в литературной обработке текста и составление тонких и умных предисловий.</p>
+<p style="text-align:right;">Роберт Фишер<br />Нью-Йорк</p>
+<hr />
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-00-partii.htm' %}">Мои 60 памятных партий</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

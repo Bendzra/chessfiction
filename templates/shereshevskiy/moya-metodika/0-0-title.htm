@@ -1,0 +1,75 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Михаил Шерешевскии</h2>
+<h1>МОЯ МЕТОДИКА</h1>
+<h3>От разрядника - к гроссмейстеру</h3>
+
+<div class="diagram">
+<p>Библиотека РШФ</p>
+<p>Москва</p>
+<p>2019</p>
+</div>
+
+<!--div class="diagram">
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>Ш49</p>
+</div-->
+
+<div class="page message">
+<p><strong>ШЕРЕШЕВСКИЙ Михаил Израилевич</strong></p>
+<p>Ш49 «Моя методика. От разрядника — к гроссмейстеру». Москва, 2019, 368 с.</p>
+<p>Издание второе, исправленное.</p>
+<p><b>ISBN 978-5-907077-06-5</b></p>
+</div>
+
+<div class="notification message">
+<p>Заслуженный тренер Белоруссии, автор классических трудов «Стратегия эндшпиля» и «Контуры эндшпиля» раскрывает свою методику работы с юными шахматистами, помогающую за несколько лет довести перворазрядника - кандидата в мастера до уровня международного мастера - гроссмейстера. В первой части книги речь идет о построении дебютного репертуара и изучении классики, во второй объясняются главные принципы сложных игровых окончаний. В третьей, заключительной части изложен взгляд автора на огромные перемены, происходящие в наши дни в работе детского тренера.</p>
+<p>Книга адресована, в первую очередь, юным шахматистам, их тренерам и родителям, но будет полезна всем любителям шахмат независимо от возраста и квалификации.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="diagram">
+<h2>Шерешевский Михаил Израилевич</h2>
+<h1>Моя методика. От разрядника — к гроссмейстеру</h1>
+</div>
+
+<div class="diagram">
+<p>Редактор Владимир Барский</p>
+<p>Обложка — Алексей Воронин</p>
+<p>Верстка Андрей Ельков</p>
+<p>Формат 60x90 1/16.</p>
+<p>Печать офсетная. Бумага офсетная. Заказ №</p>
+<p><b>www.ruchess.ru</b></p>
+</div>
+
+<div class="diagram">
+<p>По вопросам распространения обращаться к Владимиру Барскому: <b>barsky@ruchess.ru</b></p>
+</div>
+
+<div class="warning message">
+<b>ISBN 978-5-907077-06-5</b>
+<div style="float:right;">© М. Шерешевский, 2019<br />© Российская шахматная федерация, 2019</div>
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

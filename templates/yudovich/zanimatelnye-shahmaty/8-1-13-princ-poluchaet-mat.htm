@@ -1,0 +1,80 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Принц получает мат | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Принц получает мат</h3>
+<div class="score">
+<p>Великий французский мыслитель Жан-Жак Руссо любил шахматы. Он регулярно играл в парижском кафе «Режанс», где тогда собирались шахматисты французской столицы.</p>
+<p>Не раз противником Жан-Жака Руссо был принц Конти, и каждый раз высокопоставленный шахматист терпел поражение.</p>
+<p>Посмотрите единственную сохранившуюся партию между Жан-Жаком Руссо, игравшим белыми, и принцем Конти. Партия датируется 1741 годом.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+	<div class="chessBoard small" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+	<p>
+	 <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e7-e5</span> 
+	 <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">2.Кg1-f3</span> 
+	 <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 1", this, "b8c6"); ' class="line0">Кb8-c6</span> 
+	 <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 0 1", this, "f1c4"); ' class="line0">3.Сf1-c4</span> 
+	 <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 1", this, "f8c5"); ' class="line0">Сf8-c5</span> 
+	 <span onclick='loadMove("r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R b KQkq - 0 1", this, "c2c3"); ' class="line0">4.c2-c3</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppppqppp/2n5/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 0 1", this, "d8e7"); ' class="line0">Фd8-e7</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppppqppp/2n5/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQ1RK1 b kq - 0 1", this, "e1g1"); ' class="line0">5.0-0</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1qppp/2np4/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQ1RK1 w kq - 0 1", this, "d7d6"); ' class="line0">d7-d6</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1qppp/2np4/2b1p3/2BPP3/2P2N2/PP3PPP/RNBQ1RK1 b kq d3 0 1", this, "d2d4"); ' class="line0">6.d2-d4</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1qppp/1bnp4/4p3/2BPP3/2P2N2/PP3PPP/RNBQ1RK1 w kq - 0 1", this, "c5b6"); ' class="line0">Сc5-b6</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1qppp/1bnp4/4p1B1/2BPP3/2P2N2/PP3PPP/RN1Q1RK1 b kq - 0 1", this, "c1g5"); ' class="line0">7.Сc1-g5</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1q1pp/1bnp1p2/4p1B1/2BPP3/2P2N2/PP3PPP/RN1Q1RK1 w kq - 0 1", this, "f7f6"); ' class="line0">f7-f6</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1q1pp/1bnp1p2/4p3/2BPP2B/2P2N2/PP3PPP/RN1Q1RK1 b kq - 0 1", this, "g5h4"); ' class="line0">8.Сg5-h4</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1q2p/1bnp1p2/4p1p1/2BPP2B/2P2N2/PP3PPP/RN1Q1RK1 w kq g6 0 1", this, "g7g5"); ' class="line0">g7-g5?</span> 
+	</p>
+	<p>Принц горячится. Следовало играть
+	 <span onclick='loadMove("r3k1nr/ppp1q1pp/1bnp1p2/4p3/2BPP1bB/2P2N2/PP3PPP/RN1Q1RK1 w kq - 0 1", this, "c8g4"); ' class="line1">8...Сg4</span>. Теперь жертвой коня белые получают грозную атаку.</p>
+	<p>
+	 <span onclick='loadMove("r1b1k1nr/ppp1q2p/1bnp1p2/4p1N1/2BPP2B/2P5/PP3PPP/RN1Q1RK1 b kq - 0 1", this, "f3g5"); ' class="line0">9.Кf3:g5</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1q2p/1bnp4/4p1p1/2BPP2B/2P5/PP3PPP/RN1Q1RK1 w kq - 0 1", this, "f6g5"); ' class="line0">f6:g5</span> 
+	 <span onclick='loadMove("r1b1k1nr/ppp1q2p/1bnp4/4p1pQ/2BPP2B/2P5/PP3PPP/RN3RK1 b kq - 0 1", this, "d1h5"); ' class="line0">10.Фd1-h5+</span> 
+	 <span onclick='loadMove("r1b2knr/ppp1q2p/1bnp4/4p1pQ/2BPP2B/2P5/PP3PPP/RN3RK1 w - - 0 1", this, "e8f8"); ' class="line0">Крe8-f8</span> 
+	 <span onclick='loadMove("r1b2knr/ppp1q2p/1bnp4/4p1BQ/2BPP3/2P5/PP3PPP/RN3RK1 b - - 0 1", this, "h4g5"); ' class="line0">11.Сh4:g5</span> 
+	 <span onclick='loadMove("r1b2knr/ppp3qp/1bnp4/4p1BQ/2BPP3/2P5/PP3PPP/RN3RK1 w - - 0 1", this, "e7g7"); ' class="line0">Фe7-g7</span> 
+	 <span onclick='loadMove("r1b2knr/ppp3qp/1bnp4/4p1BQ/2BPPP2/2P5/PP4PP/RN3RK1 b - f3 0 1", this, "f2f4"); ' class="line0">12.f2-f4!</span> 
+	</p>
+	<p>Прекрасная идея. Не считаясь с материальными затратами, белые продолжают наступление. Королю черных не сдобровать.</p>
+	<p>
+	 <span onclick='loadMove("r1b2knr/ppp3qp/1bnp4/6BQ/2BpPP2/2P5/PP4PP/RN3RK1 w - - 0 1", this, "e5d4"); ' class="line0">12...e5:d4</span> 
+	 <span onclick='loadMove("r1b2knr/ppp3qp/1bnp4/5PBQ/2BpP3/2P5/PP4PP/RN3RK1 b - - 0 1", this, "f4f5"); ' class="line0">13.f4-f5</span> 
+	 <span onclick='loadMove("r1b2knr/ppp3qp/1bnp4/5PBQ/2B1P3/2p5/PP4PP/RN3RK1 w - - 0 1", this, "d4c3"); ' class="line0">d4:c3+</span> 
+	 <span onclick='loadMove("r1b2knr/ppp3qp/1bnp4/5PBQ/2B1P3/2p5/PP4PP/RN3R1K b - - 0 1", this, "g1h1"); ' class="line0">14.Крg1-h1</span> 
+	 <span onclick='loadMove("r1b2knr/ppp3qp/1bnp4/5PBQ/2B1P3/8/Pp4PP/RN3R1K w - - 0 1", this, "c3b2"); ' class="line0">c3:b2</span> 
+	 <span onclick='loadMove("r1b2kBr/ppp3qp/1bnp4/5PBQ/4P3/8/Pp4PP/RN3R1K b - - 0 1", this, "c4g8"); ' class="line0">15.Сc4:g8</span> 
+	 <span onclick='loadMove("r1b2kBr/ppp3qp/1bnp4/5PBQ/4P3/8/P5PP/qN3R1K w - - 0 1", this, "b2a1"); ' class="line0">b2:a1Ф</span> 
+	 <span onclick='loadMove("r1b2kBr/ppp3qp/1bnp1P2/6BQ/4P3/8/P5PP/qN3R1K b - - 0 1", this, "f5f6"); ' class="line0">16.f5-f6!</span> 
+	</p>
+<p class="capTop diagram">215</p>
+	<div class="chessBoard analysis nobuttons" data-start-fen="r1b2kBr/ppp3qp/1bnp1P2/6BQ/4P3/8/P5PP/qN3R1K b - - 0 1"></div>
+	<p>Подобную позицию мог создать только шахматист, высоко ценящий творческое начало в шахматах. У черных громадное превосходство в силах, у них даже два ферзя, а удовлетворительной защиты нет. Если, например,
+	 <span onclick='loadMove("r1b2kBr/ppp4p/1bnp1Pq1/6BQ/4P3/8/P5PP/qN3R1K w - - 0 1", this, "g7g6"); ' class="line0">16...Фg6</span>, то
+	 <span onclick='loadMove("r1b2kBr/ppp4p/1bnp1PqB/7Q/4P3/8/P5PP/qN3R1K b - - 0 1", this, "g5h6"); ' class="line0">17.Сh6+</span> 
+	 <span onclick='loadMove("r1b1k1Br/ppp4p/1bnp1PqB/7Q/4P3/8/P5PP/qN3R1K w kq - 0 1", this, "f8e8"); ' class="line0">Крe8</span> 
+	 <span onclick='loadMove("r1b1k1Br/ppp2P1p/1bnp2qB/7Q/4P3/8/P5PP/qN3R1K b kq - 0 1", this, "f6f7"); ' class="line0">18.f7+</span> 
+	 <span onclick='loadMove("r1b3Br/pppk1P1p/1bnp2qB/7Q/4P3/8/P5PP/qN3R1K w - - 0 1", this, "e8d7"); ' class="line0">Крd7</span> 
+	 <span onclick='loadMove("r1b3Br/pppk1P1p/1bnp2qB/8/4P3/7Q/P5PP/qN3R1K b - - 0 1", this, "h5h3"); ' class="line0">19.Фh3+</span> 
+	с неизбежным матом.</p>
+	<p>Пришлось принцу снова признать себя побежденным.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

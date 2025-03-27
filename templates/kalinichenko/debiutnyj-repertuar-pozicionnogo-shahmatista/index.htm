@@ -1,0 +1,81 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>ОГЛАВЛЕНИЕ</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Дебютный репертуар позиционного шахматиста. Калиниченко Н. М., 2005</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-vvedenie.htm' %}">Введение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-00-igraia-belymi.htm' %}">ЧАСТЬ ПЕРВАЯ. ИГРАЯ БЕЛЫМИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-sicilianskaia-zashchita.htm' %}">Глава 1. Сицилианская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-shotlandskaia-partiia.htm' %}">Глава 2. Шотландская партия</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-francuzskaia-zashchita.htm' %}">Глава 3. Французская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-zashchita-karo-kann.htm' %}">Глава 4. Защита Каро-Канн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-zashchita-pirca-ufimceva.htm' %}">Глава 5. Защита Пирца-Уфимцева</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-zashchita-alehina.htm' %}">Глава 6. Защита Алехина</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00-igraia-chernymi.htm' %}">ЧАСТЬ ВТОРАЯ. ИГРАЯ ЧЕРНЫМИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-sicilianskaia-zashchita.htm' %}">Глава 7. Сицилианская защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-14-staroindijskaia-zashchita.htm' %}">СТАРОИНДИЙСКАЯ ЗАЩИТА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-variant-chetyreh-peshek.htm' %}">Глава 8. Вариант четырех пешек</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-09-sistema-zemisha.htm' %}">Глава 9. Система Земиша</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-10-sistema-s-razvitiem-slona-na-g2.htm' %}">Глава 10. Система с развитием слона на g2</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-11-klassicheskaia-sistema.htm' %}">Глава 11. Классическая система</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-12-otkloneniia-belyh-ot-klassicheskoj-sistemy.htm' %}">Глава 12. Отклонения белых от классической системы (5.Сd3, Кge2)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-13-variant-makogonova.htm' %}">Глава 13. Вариант Макогонова</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-14-sistema-averbaha.htm' %}">Глава 14. Система Авербаха</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-15-ataka-torre.htm' %}">Глава 15. Атака Торре</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-16-debiut-trompovskogo.htm' %}">Глава 16. Дебют Тромповского</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-17-anglijskoe-nachalo.htm' %}">Глава 17. Английское начало</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-18-debiut-berda.htm' %}">Глава 18. Дебют Берда</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-00-primernye-partii.htm' %}">ПРИМЕРНЫЕ ПАРТИИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-01-adams-bendzhamin.htm' %}">Адамс — Бенджамин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-02-dip-bliu-kasparov.htm' %}">«Дип Блю» — Каспаров</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-03-rozentalis-kempinskij.htm' %}">Розенталис — Кемпинский</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-04-rublevskij-onishchuk.htm' %}">Рублевский — Онищук</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-05-berg-i-sokolov.htm' %}">Берг — И. Соколов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-06-gufeld-lutikov.htm' %}">Гуфельд — Лутиков</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-07-adams-korchnoj.htm' %}">Адамс — Корчной</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-08-rublevskij-lputian.htm' %}">Рублевский — Лпутян</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-09-kalinichenko-vefling.htm' %}">Калиниченко — Вефлинг</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-10-svidler-anand.htm' %}">Свидлер — Ананд</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-11-gelfand-adams.htm' %}">Гельфанд — Адамс</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-12-kasparov-topalov.htm' %}">Каспаров — Топалов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-13-korchnoj-efimov.htm' %}">Корчной — Ефимов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-14-kasparov-ivanchuk.htm' %}">Каспаров — Иванчук</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-15-damianovich-shtejn.htm' %}">Дамянович — Штейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-16-topalov-kramnik.htm' %}">Топалов — Крамник</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-17-van-der-vejde-epishin.htm' %}">Ван дер Вейде — Епишин</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-18-shtalberg-shtejn.htm' %}">Штальберг — Штейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-19-mestel-gufeld.htm' %}">Местел — Гуфельд</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-20-timman-kasparov.htm' %}">Тимман — Каспаров</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-21-gelfand-topalov.htm' %}">Гельфанд — Топалов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-22-van-der-sterren-glek.htm' %}">Ван дер Стеррен — Глек</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-23-damlianovich-radzhabov.htm' %}">Дамлянович — Раджабов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-24-dimeshi-shirov.htm' %}">Дьимеши — Широв</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-25-smyslov-gufeld.htm' %}">Смыслов — Гуфельд</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-ukazatel-partij.htm' %}">Указатель партий</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-sistema-znakov.htm' %}">Система знаков</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

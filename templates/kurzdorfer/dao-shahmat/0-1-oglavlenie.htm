@@ -1,0 +1,73 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Краткое содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1><a name="6">ОГЛАВЛЕНИЕ</a></h1>
+
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-00-tehnicheskie-aspekty.htm' %}">Часть I. Технические аспекты</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-doska.htm' %}">Глава 1. Доска</a><br />Как хорошо вы знаете арену сражения?</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-figury.htm' %}">Глава 2. Фигуры</a><br />Нужно знать инструменты, которыми вам приходится оперировать; это всё, что у вас есть.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-razvitie.htm' %}">Глава 3. Развитие</a><br />Выводите свои фигуры из их начального сонного состояния или расплачивайтесь за последствия.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-centr.htm' %}">Глава 4. Центр</a><br />Наполните вашу игру жизнью, извлекая всё лучшее, что есть в ваших фигурах и пешках.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-bezopasnost-korolia.htm' %}">Глава 5. Безопасность короля</a><br />Король — фигура, вокруг которой строится игра, ибо такова ее цель — поставить мат.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-material.htm' %}">Глава 6. Материал</a><br />Важно знать относительную стоимость фигур и пешек, которые перемещаются по стоящей перед вами доске.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-peshechnaia-struktura.htm' %}">Глава 7. Пешечная структура</a><br />Пешечная структура является ключом к любым возможным в будущем планам игры.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-prostranstvo.htm' %}">Глава 8. Пространство</a><br />Территория, которую вы контролируете, является важным фактором при оценке любой позиции.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-temp.htm' %}">Глава 9. Темп</a><br />Ход — ваше главное оружие. Пользуйтесь им расчетливо.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-mobilnost.htm' %}">Глава 10. Мобильность</a><br />Обеспечьте ваши фигуры и пешки местами, куда они могут пойти, и делами, которыми они могут заняться.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-taktika.htm' %}">Глава 11. Тактика</a><br />Тактика — это форсированная цепочка ходов, нарушающая балансировку позиции в ту или иную сторону.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-forsiruiushchie-hody.htm' %}">Глава 12. Форсирующие ходы</a><br />Взятия, шахи, превращения и угрозы взятий, шахов и превращений требуют немедленной реакции.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-13-zhertva.htm' %}">Глава 13. Жертва</a><br />Корректная жертва вовсе и не жертва. Скорее это инвестиция, отказ от чего-то одного с целью получить нечто более ценное.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-14-strategiia.htm' %}">Глава 14. Стратегия</a><br />Долговременные планы, помогающие добиваться результата, называются стратегией.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-zashchita.htm' %}">Глава 15. Защита</a><br />Защищаться труднее, чем атаковать, потому что атаковать веселее, а защита, психологически, может оказаться слишком тяжелой ношей.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-16-raschet.htm' %}">Глава 16. Расчет</a><br />Комбинации и планы имеют больше шансов на успешную реализацию, если за ними стоит точный расчет.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-17-vzaimodejstvie-figur-i-peshek.htm' %}">Глава 17. Взаимодействие фигур и пешек</a><br />Взаимоотношения между фигурами и пешками довольно замысловаты. Понимание этих отношений важно для умения хорошо играть в шахматы.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-18-razmeny.htm' %}">Глава 18. Размены</a><br />Вы должны знать, какие фигуры и пешки следует менять и когда.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-19-planirovanie.htm' %}">Глава 19. Планирование</a><br />Предсказывать будущее — нелегкое занятие, особенно когда ваш соперник ставит перед собой другие цели.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-20-debiuty.htm' %}">Глава 20. Дебюты</a><br />Иногда партия начинается энергично, иногда вяло. Как много вы знаете о дебютах?</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-21-mittelshpil.htm' %}">Глава 21. Миттельшпиль</a><br />После того как фигуры вступили в игру, а короли нашли безопасное пристанище, вступает в свои права миттельшпиль.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-22-okonchaniia.htm' %}">Глава 22. Окончания</a><br />Окончание не означает конец партии, что, казалось бы, следует из самого названия.</li>
+</ul>
+<br />
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-00-chelovecheskie-aspekty.htm' %}">Часть II. Человеческие аспекты</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-01-poznaj-samogo-sebia.htm' %}">Глава 23. Познай самого себя</a><br />Знание себя предполагает знание своего стиля, наклонностей, сведений о наличии воли к победе и умении много работать, а также многого другого.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-02-uznaj-svoego-protivnika.htm' %}">Глава 24. Узнай своего противника</a><br />Вы играете в шахматы не в вакууме. Ваш противник стремится разрушить все ваши планы.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-03-umenie-zaglianut-vpered.htm' %}">Глава 25. Умение заглянуть вперед</a><br />Умение визуализировать возможные в будущем положения — это одно из тех важнейших умений, к овладению которыми стоит стремиться.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-04-smelost.htm' %}">Глава 26. Смелость</a><br />Не обязательно плохо, если вы опасаетесь партнера, его ходов или идей. Но вы должны встречать эти страхи с открытым забралом и не поддаваться панике.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-05-shans.htm' %}">Глава 27. Шанс</a><br />Когда выпадает шанс, хороший игрок его не упускает.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-06-uverennost-v-sebe.htm' %}">Глава 28. Уверенность в себе</a><br />Вы должны верить в свои анализы и свои силы. Если вы не будете верить, то кому прикажете?</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-07-oshibki.htm' %}">Глава 29. Ошибки</a><br />Никто не играет безошибочно на протяжении долгого времени — даже сильнейшие игроки.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-08-reakciia.htm' %}">Глава 30. Реакция</a><br />То, как вы реагируете на изменение ситуации на шахматной доске, говорит о том, насколько вы хороший игрок.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-09-boevoj-duh.htm' %}">Глава 31. Боевой дух</a><br />Среди прочих способностей ваше умение подчинять позицию своей воле, быть может, является наиболее важным.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-10-vremia-prinimat-reshenie.htm' %}">Глава 32. Время принимать решение</a><br />И наконец, приходит время принимать решение, хотите вы это признавать или нет. Лучше всё же признать.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-11-rashodovanie-vremeni.htm' %}">Глава 33. Расходование времени</a><br />Время, которое вы имеете на обдумывание своих ходов, обычно очень ограничено. Учитесь использовать его рационально.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-12-myshlenie.htm' %}">Глава 34. Мышление</a><br />Какой бы характер ни носили ваши мысли во время партии — аналитический, логический или случайный, — они во многом зависят от того, насколько сильным игроком вы являетесь.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-13-koncentraciia.htm' %}">Глава 35. Концентрация</a><br />Некоторые игроки легко отвлекаются. Другие как будто не замечают, что происходит вокруг них. Почему так?</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-14-terpenie.htm' %}">Глава 36. Терпение</a><br />Все сильные игроки обладают этой добродетелью с запасом, во всяком случае это касается напряженных партий. Поэтому и вам неплохо было бы воспитать эту добродетель в себе.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-15-udacha.htm' %}">Глава 37. Удача</a><br />Если вы полагаете, что удача не имеет значения в шахматах, вы, вероятно, не много в них играете.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-16-praktika.htm' %}">Глава 38. Практика</a><br />Вы научитесь принимать правильные решения после того, как примете много решений.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-17-uchenie.htm' %}">Глава 39. Учение</a><br />Изучите то, что сделано до вас, и ваши знания будут опираться на крепкий фундамент.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-18-uvlechennost.htm' %}">Глава 40. Увлеченность</a><br />Если шахматы не захватывают вас, то вам не достичь высот, доступных тем, кто пылает страстью к Каиссе.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-19-znaniia.htm' %}">Глава 41. Знания</a><br />О шахматах было написано больше книг, чем о всех других играх, вместе взятых. Кроме того, существуют базы данных с миллионами хранящихся в них партий. Вы можете потратить всю свою жизнь на изучение шахмат, но вам никогда не узнать всего, что о них известно, и даже близко не подойти к ознакомлению со всеми важными ранее игранными партиями.</li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-20-opravdaniia.htm' %}">Глава 42. Оправдания</a><br />Почему вы проигрываете? Находить оправдания тому, что вы не показали всё, на что способны, нетрудно. Но это приведет к замедлению вашего роста как шахматиста, поскольку будет уводить от поиска действительных причин.</li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

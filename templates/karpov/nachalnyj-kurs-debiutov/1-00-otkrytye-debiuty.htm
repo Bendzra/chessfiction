@@ -1,0 +1,105 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОТКРЫТЫЕ ДЕБЮТЫ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ОТКРЫТЫЕ ДЕБЮТЫ</h1>
+<p>Открытыми называются все дебюты, в которых обе стороны на первом ходу двигают королевскую пешку —
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+. Здесь борьба за центр разгорается с первых ходов, потому каждый темп у обеих сторон на счету. Большая часть известных в теории дебютных комбинаций приходится на долю открытых начал.</p>
+<p>Вначале мы рассмотрим наиболее распространенные в современной практике открытые дебюты (
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line1">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line1">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Кf3</span> 
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line1">Кc6</span> 
+), затем те, в которых белые пытаются атаковать пункт e5 пешкой — d2-d4 или f2-f4, сразу или на 3-м ходу. Потом разберем все остальные начала.</p>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-italianskaia-partiia.htm' %}">Итальянская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-01-italianskaia-partiia.htm' %}#game-machejya-veskovi-2004">Мачейя — Вескови</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-gambit-evansa.htm' %}">Гамбит Эванса</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-gambit-evansa.htm' %}#otkazannyj-gambit-evansa">Отказанный гамбит Эванса</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02-gambit-evansa.htm' %}#game-kasparov-anand-1995">Каспаров — Ананд</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-zashchita-dvuh-konej.htm' %}">Защита двух коней</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03-zashchita-dvuh-konej.htm' %}#game-fisher-bisgajer-1963">Фишер — Бисгайер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-vengerskaia-zashchita.htm' %}">Венгерская защита</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04-vengerskaia-zashchita.htm' %}#game-timman-ivkov-1974">Тимман — Ивков</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-debiut-chetyreh-konej.htm' %}">Дебют четырех коней</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05-debiut-chetyreh-konej.htm' %}#game-kapablanka-stejner-1933">Капабланка — Стейнер</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-ispanskaia-partiia.htm' %}">Испанская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-ispanskaia-partiia.htm' %}#game-karpov-unciker-1974">Карпов — Унцикер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-ispanskaia-partiia.htm' %}#game-kasparov-anand-1995">Каспаров — Ананд</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06-ispanskaia-partiia.htm' %}#game-kramnik-leko-2004">Крамник — Леко</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-centralnyj-debiut.htm' %}">Центральный дебют</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-centralnyj-debiut.htm' %}#centralnyj-gambit">Центральный гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-centralnyj-debiut.htm' %}#severnyj-gambit">Северный гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07-centralnyj-debiut.htm' %}#game-shirov-karpov-1995">Широв — Карпов</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-debiut-ponciani.htm' %}">Дебют Понциани</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08-debiut-ponciani.htm' %}#game-chigorin-stejnic-1898">Чигорин — Стейниц</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-shotlandskaia-partiia.htm' %}">Шотландская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-shotlandskaia-partiia.htm' %}#shotlandskij-gambit">Шотландский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-shotlandskaia-partiia.htm' %}#game-kasparov-karpov-1990">Каспаров — Карпов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-09-shotlandskaia-partiia.htm' %}#game-ribli-imre-1968">Рибли — Имре</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-korolevskij-gambit.htm' %}">Королевский гамбит</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-korolevskij-gambit.htm' %}#otkazannyj-korolevskij-gambit">Отказанный королевский гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-korolevskij-gambit.htm' %}#kontrgambit-falkbeera">Контргамбит Фалькбеера</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-korolevskij-gambit.htm' %}#game-spasskij-bronshtejn-1960">Спасский — Бронштейн</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-10-korolevskij-gambit.htm' %}#fedorov-shirov-2000">А. Федоров — Широв</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-venskaia-partiia.htm' %}">Венская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-11-venskaia-partiia.htm' %}#game-spasskij-korchnoj-1978">Спасский — Корчной</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-debiut-slona.htm' %}">Дебют слона</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-12-debiut-slona.htm' %}#game-hartston-vesterinen-1973">Хартстон — Вестеринен</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-13-zashchita-filidora.htm' %}">Защита Филидора</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-13-zashchita-filidora.htm' %}#game-kalinichenko-toskano-2003">Калиниченко — Тоскано</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-14-latyshskij-gambit.htm' %}">Латышский гамбит</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-14-latyshskij-gambit.htm' %}#game-relanzh-bauer-1994">Реланж — Бауэр</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-russkaia-partiia.htm' %}">Русская партия</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-russkaia-partiia.htm' %}#game-kamskij-karpov-1996">Камский — Карпов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-15-russkaia-partiia.htm' %}#game-shirov-motylev-2002">Широв — Мотылев</a></li>
+</ul>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

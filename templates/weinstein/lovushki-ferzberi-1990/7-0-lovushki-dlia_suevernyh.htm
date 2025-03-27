@@ -1,0 +1,34 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ловушки для... суеверных? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<a name="165"></a>
+<h1>ЛОВУШКИ ДЛЯ... СУЕВЕРНЫХ?</h1>
+
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/7-lovushki-dlia_suevernyh.png' %}" />
+</div>
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-1-sakramentalnaia-istoriia.htm' %}">СакраменТАЛЬная история</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-2-seans-volfa-messinga.htm' %}">Сеанс Вольфа Мессинга</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-3-svengali.htm' %}">Свенгали</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-4-spory-vokrug-gipotezy.htm' %}">Споры вокруг гипотезы</a></li>
+	</ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

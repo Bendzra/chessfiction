@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="white message page" style="background: #0e920e">
+{% for author in book.authors.all %}
+<a href="{{ author.litres_url }}?lfrom=777059770" class="bold white" target="_blank"><span data-widget-litres-author>
+{% if forloop.counter == book.authors.all.count %}
+{{ author.last_name }} 
+{% if author.first_name %}{{author.first_name}}{% endif %}
+{% if author.second_name %}{{author.second_name}}{% endif %}</span></a>.
+{% else %}
+{{ author.last_name }}
+{% if author.first_name %}{{author.first_name}}{% endif %}
+{% if author.second_name %}{{author.second_name}}{% endif %}</span></a>, 
+{% endif %}
+{% endfor %}
+<a href="{{ book.litres_url }}?lfrom=777059770" class="bold white" target="_blank"><span data-widget-litres-book>{{book.title}}</span></a>.
+
+<small><span style="color:lightsteelblue; font-weight:bold; float:right">ознакомительный фрагмент</span></small>
+<div class="clear"></div>
+</div>

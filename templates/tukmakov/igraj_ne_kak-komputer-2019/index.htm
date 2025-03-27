@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОГЛАВЛЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>ОГЛАВЛЕНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Владимир Тукмаков. Играй (не) как компьютер</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-intro.htm' %}">Вступление</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-debut.htm' %}">Глава 1. ДЕБЮТ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. МИТТЕЛЬШПИЛЬ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. ОШИБКИ</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель партнеров</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

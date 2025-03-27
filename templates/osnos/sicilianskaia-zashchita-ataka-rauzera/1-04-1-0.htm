@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>I | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1b1kb1r/pp3ppp/1qnppn2/6B1/4P3/1NN5/PPP2PPP/R2QKB1R w KQkq - 0 8"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1b1kb1r/pp3ppp/1qnppn2/6B1/4P3/1NN5/PPP2PPP/R2QKB1R w KQkq - 0 8", this, ""); '>[...]</span> 
+<h2>I</h2>
+<p class="longNotation">
+ <span onclick='loadMove("r1b1kb1r/pp3ppp/1qnppB2/8/4P3/1NN5/PPP2PPP/R2QKB1R b KQkq - 0 8", this, "g5f6"); ' class="line0">8.Сg5:f6</span> 
+ <span onclick='loadMove("r1b1kb1r/pp3p1p/1qnppp2/8/4P3/1NN5/PPP2PPP/R2QKB1R w KQkq - 0 9", this, "g7f6"); ' class="line0">g7:f6</span> 
+</p>
+<p>Белые свели игру к позиции, характерной для многих разветвлений атаки Раузера. Пешечная структура черных на королевском фланге деформирована, однако у них есть контршансы, связанные с наличием двух слонов и полуоткрытых линий «с» и «g».</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1b1kb1r/pp3p1p/1qnppp2/8/4P3/1NN5/PPP2PPP/R2QKB1R w KQkq - 0 9"></div>
+<p>Сейчас в распоряжении белых два направления: один путь связан с короткой рокировкой (<b>A</b>), другой с рокировкой в длинную сторону (<b>B</b>).</p>
+
+<ul>
+	<li><a href="{% url 'page-view' book.root_dir|add:'/1-04-1-a-0.htm' %}">A.</a></li>
+	<li><a href="{% url 'page-view' book.root_dir|add:'/1-04-1-b-0.htm' %}">B.</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

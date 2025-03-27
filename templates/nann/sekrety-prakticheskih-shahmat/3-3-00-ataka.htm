@@ -1,0 +1,19 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>АТАКА | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>АТАКА</h3>
+
+    <ul>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-01-soberite-vseh-v-kompaniiu.htm' %}">«Соберите всех в компанию»</a></li>
+    <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-02-sverh-zhertvy.htm' %}">Сверх-жертвы</a></li>
+    </ul>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

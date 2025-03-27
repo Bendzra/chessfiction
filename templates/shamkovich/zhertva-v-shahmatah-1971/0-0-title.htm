@@ -1,0 +1,30 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Шамкович Леонид Александрович</h2>
+<h1>Жертва в шахматах</h1>
+<div class="notification message">
+<p>Комбинация, атака, жертва — не эти ли захватывающие события на шахматной доске привлекают сердца любителей?</p>
+<p>Реальная жертва, которая является главной темой этой книги, — это всегда творчество, риск, фантазия.</p>
+<p>Автор подвергает строгой классификации различные виды жертв, анализирует и систематизирует их, раскрывает закономерности нападения и защиты.</p>
+<p>Живо и нешаблонно написанная, книга может стать ценным помощником для совершенствующегося шахматиста, изучающего дебют и середину игры.</p>
+</div>
+<p>Л.А. Шамкович, международный гроссмейстер</p>
+<p>Издательство "Физкультура и спорт",</p>
+<p>Москва, 1971 г.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

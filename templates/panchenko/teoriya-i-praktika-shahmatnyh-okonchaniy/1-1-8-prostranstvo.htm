@@ -1,0 +1,84 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Пространство | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h3 class="diagram">Пространство</h3>
+<div class="score">
+<p>Как и в других стадиях партии, в окончаниях очень важно захватить пространство королем или пешками, в этом случае после возможных разменов пешки сильнейшей стороны быстрее проходят в ферзи (см. ранее пешечный прорыв).</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/7k/p6P/6K1/P7/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/7k/p6P/6K1/P7/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/7k/p6P/6K1/P7/8/8/8 w - - 0 1"></div>
+<p class="caption">33. Ход белых. Выигрыш Ход черных. Ничья</p>
+<p><b>Позиция 33</b>. Х.Фарни. Результат зависит от очереди хода. При ходе белых
+ <span onclick='loadMove("8/7k/p6P/P5K1/8/8/8/8 b - - 0 1", this, "a4a5"); ' class="line0">1.a5!</span> 
+(занимая пространство!) они выигрывают:
+ <span onclick='loadMove("6k1/8/p6P/P5K1/8/8/8/8 w - - 0 2", this, "h7g8"); ' class="line0">1...Крg8</span> 
+ <span onclick='loadMove("6k1/8/p4K1P/P7/8/8/8/8 b - - 0 2", this, "g5f6"); ' class="line0">2.Крf6</span> 
+ <span onclick='loadMove("8/7k/p4K1P/P7/8/8/8/8 w - - 0 3", this, "g8h7"); ' class="line0">Крh7</span> 
+ <span onclick='loadMove("8/7k/p3K2P/P7/8/8/8/8 b - - 0 3", this, "f6e6"); ' class="line0">3.Крe6</span> 
+ <span onclick='loadMove("8/8/p3K2k/P7/8/8/8/8 w - - 0 4", this, "h7h6"); ' class="line0">Крh6</span> 
+ <span onclick='loadMove("8/8/p2K3k/P7/8/8/8/8 b - - 0 4", this, "e6d6"); ' class="line0">4.Крd6</span> 
+ <span onclick='loadMove("8/8/p2K2k1/P7/8/8/8/8 w - - 0 5", this, "h6g6"); ' class="line0">Крg6</span> 
+ <span onclick='loadMove("8/8/p1K3k1/P7/8/8/8/8 b - - 0 5", this, "d6c6"); ' class="line0">5.Крc6</span> 
+ <span onclick='loadMove("8/5k2/p1K5/P7/8/8/8/8 w - - 0 6", this, "g6f7"); ' class="line0">Крf7</span> 
+ <span onclick='loadMove("8/5k2/pK6/P7/8/8/8/8 b - - 0 6", this, "c6b6"); ' class="line0">6.Крb6</span> 
+ <span onclick='loadMove("8/4k3/pK6/P7/8/8/8/8 w - - 0 7", this, "f7e7"); ' class="line0">Крe7</span> 
+ <span onclick='loadMove("8/4k3/K7/P7/8/8/8/8 b - - 0 7", this, "b6a6"); ' class="line0">7.Крa6</span> 
+ <span onclick='loadMove("8/3k4/K7/P7/8/8/8/8 w - - 0 8", this, "e7d7"); ' class="line0">Крd7</span> 
+ <span onclick='loadMove("8/1K1k4/8/P7/8/8/8/8 b - - 0 8", this, "a6b7"); ' class="line0">8.Крb7</span> 
++-. </p>
+<p>При ходе черных
+ <!--span onclick='loadMove("8/7k/p6P/6K1/P7/8/8/8 b - - 0 1", this, "a6b7"); ' class="line1">1.z0</span--> 
+— ничья после
+ <span onclick='loadMove("8/7k/7P/p5K1/P7/8/8/8 w - - 0 2", this, "a6a5"); ' class="line1">1...a5!</span> 
+(Не давая захватить пространство)
+ <span onclick='loadMove("8/7k/7P/p6K/P7/8/8/8 b - - 0 2", this, "g5h5"); ' class="line1">2.Крh5</span> 
+ <span onclick='loadMove("7k/8/7P/p6K/P7/8/8/8 w - - 0 3", this, "h7h8"); ' class="line1">Крh8</span> 
+ <span onclick='loadMove("7k/8/6KP/p7/P7/8/8/8 b - - 0 3", this, "h5g6"); ' class="line1">3.Крg6</span> 
+ <span onclick='loadMove("6k1/8/6KP/p7/P7/8/8/8 w - - 0 4", this, "h8g8"); ' class="line1">Крg8</span> 
+ <span onclick='loadMove("6k1/8/7P/p4K2/P7/8/8/8 b - - 0 4", this, "g6f5"); ' class="line1">4.Крf5</span> 
+ <span onclick='loadMove("8/7k/7P/p4K2/P7/8/8/8 w - - 0 5", this, "g8h7"); ' class="line1">Крh7</span> 
+ <span onclick='loadMove("8/7k/7P/p3K3/P7/8/8/8 b - - 0 5", this, "f5e5"); ' class="line1">5.Крe5</span> 
+ <span onclick='loadMove("8/8/7k/p3K3/P7/8/8/8 w - - 0 6", this, "h7h6"); ' class="line1">Крh6</span> 
+ <span onclick='loadMove("8/8/7k/p2K4/P7/8/8/8 b - - 0 6", this, "e5d5"); ' class="line1">6.Крd5</span> 
+ <span onclick='loadMove("8/8/6k1/p2K4/P7/8/8/8 w - - 0 7", this, "h6g6"); ' class="line1">Крg6</span> 
+ <span onclick='loadMove("8/8/6k1/p1K5/P7/8/8/8 b - - 0 7", this, "d5c5"); ' class="line1">7.Крc5</span> 
+ <span onclick='loadMove("8/8/5k2/p1K5/P7/8/8/8 w - - 0 8", this, "g6f6"); ' class="line1">Крf6</span> 
+ <span onclick='loadMove("8/8/5k2/pK6/P7/8/8/8 b - - 0 8", this, "c5b5"); ' class="line1">8.Крb5</span> 
+ <span onclick='loadMove("8/8/4k3/pK6/P7/8/8/8 w - - 0 9", this, "f6e6"); ' class="line1">Крe6</span> 
+ <span onclick='loadMove("8/8/4k3/K7/P7/8/8/8 b - - 0 9", this, "b5a5"); ' class="line1">9.Крa5</span> 
+ <span onclick='loadMove("8/3k4/8/K7/P7/8/8/8 w - - 0 10", this, "e6d7"); ' class="line1">Крd7!</span> 
+ <span onclick='loadMove("8/3k4/1K6/8/P7/8/8/8 b - - 0 10", this, "a5b6"); ' class="line1">10.Крb6</span> 
+ <span onclick='loadMove("2k5/8/1K6/8/P7/8/8/8 w - - 0 11", this, "d7c8"); ' class="line1">Крc8!</span> 
+— как раз вовремя. Ничья.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/p6p/P3k2P/8/8/2K5/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/p6p/P3k2P/8/8/2K5/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/p6p/P3k2P/8/8/2K5/8 w - - 0 1"></div>
+<p class="caption">34. Ход белых. Выигрыш</p>
+<p><b>Позиция 34</b>. Н.Григорьев (1927). Первое впечатление такое, что белым надо бороться за ничью, т.к. они теряют одну из пешек. Но после
+ <span onclick='loadMove("8/8/p6p/P3k2P/8/2K5/8/8 b - - 0 1", this, "c2c3"); ' class="line0">1.Крc3!</span> 
+(занимая диагональную оппозицию) они побеждают за счет...</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

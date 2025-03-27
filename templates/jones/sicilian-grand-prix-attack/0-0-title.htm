@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Starting Out: Grand Prix Attack</h1>
+<p><b>by Gawain Jones</b></p>
+<h2>Publisher Information</h2>
+<!--p>Starting Out: Grand Prix Attack</p-->
+<!--p>by Gawain Jones</p-->
+<p>First published in 2008 by Gloucester Publishers plc.</p>
+<p>Northburgh House, 10 Northburgh Street, London EC1V 0AT.</p>
+<br>
+<p>Copyright © 2008 Gawain Jones</p>
+<br>
+<p>The right of Gawain Jones to be identified as the author of this work has been asserted in accordance with the Copyrights, Designs and Patents Act 1988.</p>
+<br>
+<p>All rights reserved. No part of this work may be reproduced, or transmitted in any form or by any means, without prior permission of the publisher.</p>
+<br>
+<p>British Library Cataloguing-in-Publication Data</p>
+<p>A catalogue record for this book is available from the British Library.</p>
+<br>
+<p>All other sales enquiries should be directed to Everyman Chess, Northburgh House, 10 Northburgh Street, London EC1V 0AT</p>
+<p>tel: 020 7253 7887; fax: 020 7490 3708</p>
+<p>email: info@everymanchess.com</p>
+<p>website: www.everymanchess.com</p>
+<br>
+<p>Everyman is the registered trade mark of Random House Inc. and is used in this work under licence from Random House Inc.</p>
+<br>
+<p>EVERYMAN CHESS SERIES Chief Advisor: Byron Jacobs</p>
+<p>Commissioning Editor: John Emms</p>
+<p>Assistant Editor: Richard Palliser</p>
+<br>
+<p>Typeset and edited by First Rank Publishing, Brighton.</p>
+<p>Cover design by Horacio Monteverde.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

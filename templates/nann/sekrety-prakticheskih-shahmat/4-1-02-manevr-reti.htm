@@ -1,0 +1,87 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Маневр Рети | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h4>Маневр Рети</h4>
+
+<div class="message">
+<p>Нет лучшего способа объяснить эту идею, чем привести оригинальный пример Рети, даже несмотря на то, что это одна из наиболее известных эндшпильных позиций в истории шахмат.</p>
+<!--p>Эндшпиль</p><p>143</p-->
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7K/8/k1P5/7p/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("7K/8/k1P5/7p/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Р. Рети</strong><br />Kagan's Neueste Schachnachrichten, 1921</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7K/8/k1P5/7p/8/8/8/8 w - - 0 1"></div>
+<p>На первый взгляд кажется, что белым не хватает двух темпов для того, чтобы догнать пешку h. Тем не менее, им удается этого добиться, поскольку они, направляя короля в погоню за чужой пешкой, одновременно угрожают превращением собственной пешки с.</p>
+<p>Вот анализ позиции:
+ <span onclick='loadMove("8/6K1/k1P5/7p/8/8/8/8 b - - 0 1", this, "h8g7"); ' class="line0">1.Крg7!</span> 
+ <span onclick='loadMove("8/6K1/k1P5/8/7p/8/8/8 w - - 0 2", this, "h5h4"); ' class="line0">h4</span> 
+(в случае
+ <span onclick='loadMove("8/6K1/1kP5/7p/8/8/8/8 w - - 0 2", this, "a6b6"); ' class="line1">1...Крb6</span> 
+ <span onclick='loadMove("8/8/1kP2K2/7p/8/8/8/8 b - - 0 2", this, "g7f6"); ' class="line1">2.Крf6</span> 
+ <span onclick='loadMove("8/8/1kP2K2/8/7p/8/8/8 w - - 0 3", this, "h5h4"); ' class="line1">h4</span> 
+ <span onclick='loadMove("8/8/1kP5/4K3/7p/8/8/8 b - - 0 3", this, "f6e5"); ' class="line1">3.Крe5</span> 
+игра сводится к главному варианту)
+ <span onclick='loadMove("8/8/k1P2K2/8/7p/8/8/8 b - - 0 2", this, "g7f6"); ' class="line0">2.Крf6!</span> 
+ <span onclick='loadMove("8/8/1kP2K2/8/7p/8/8/8 w - - 0 3", this, "a6b6"); ' class="line0">Крb6</span> 
+(
+ <span onclick='loadMove("8/8/k1P2K2/8/8/7p/8/8 w - - 0 3", this, "h4h3"); ' class="line1">2...h3</span> 
+ <span onclick='loadMove("8/4K3/k1P5/8/8/7p/8/8 b - - 0 3", this, "f6e7"); ' class="line1">3.Крe7</span> 
+ <span onclick='loadMove("8/4K3/1kP5/8/8/7p/8/8 w - - 0 4", this, "a6b6"); ' class="line1">Крb6</span> 
+ <span onclick='loadMove("8/8/1kPK4/8/8/7p/8/8 b - - 0 4", this, "e7d6"); ' class="line1">4.Крd6</span> 
+, и обе стороны проводят ферзей одновременно)
+ <span onclick='loadMove("8/8/1kP5/4K3/7p/8/8/8 b - - 0 3", this, "f6e5"); ' class="line0">3.Крe5!</span> 
+ <span onclick='loadMove("8/8/2k5/4K3/7p/8/8/8 w - - 0 4", this, "b6c6"); ' class="line0">Кр:c6</span> 
+(
+ <span onclick='loadMove("8/8/1kP5/4K3/8/7p/8/8 w - - 0 4", this, "h4h3"); ' class="line1">3...h3</span> 
+ <span onclick='loadMove("8/8/1kPK4/8/8/7p/8/8 b - - 0 4", this, "e5d6"); ' class="line1">4.Крd6</span> 
+, и опять обе стороны проводят пешки в ферзи)
+ <span onclick='loadMove("8/8/2k5/8/5K1p/8/8/8 b - - 0 4", this, "e5f4"); ' class="line0">4.Крf4</span> 
+. Невозможное стало возможным!</p>
+<p>Если вы раньше не видели эту позицию, то полезно разобрать решение несколько раз, чтобы четко понять, почему оно срабатывает. Опять-таки, принцип «двух угроз» важен, но в данном случае это не вопрос темповой игры, но использование того факта, что диагональный ход короля, если измерять его линейкой, длиннее, чем эквивалентный горизонтальный или вертикальный ход. Для поимки пешки h маршруты <b>Крh7-h6-h5</b> и <b>Крg7-f6-e5</b> идентичны. Преимущество последнего в том, что он активизирует вторую угрозу - проведение пешки е. Чтобы отразить угрозу, забрав пешку королем, черные вынуждены потратить два темпа, и это как раз то время, которое необходимо белым, чтобы догнать пешку h.</p>
+<p>Несмотря на холодное логическое объяснение, это удивительная идея; от следующей позиции, кажется, все еще веет волшебством.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3K4/7p/3k4/P7/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3K4/7p/3k4/P7/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Л. Прокеш</strong><br />Sachove Umeni, 1947</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3K4/7p/3k4/P7/8/8/8/8 w - - 0 1"></div>
+<p>Использование второй угрозы как причина искривления маршрута белого короля встречается
+<!--p>Часть 4</p><p>144</p-->
+довольно часто. Эта диаграмма представляет собой еще один пример того, как белый король начинает длинный окольный путь, прежде чем поймать неприятельскую пешку.</p>
+<p>В этой позиции белым не хватает одного темпа, чтобы догнать пешку h, например:
+ <span onclick='loadMove("3K4/7p/P2k4/8/8/8/8/8 b - - 0 1", this, "a5a6"); ' class="line1">1.a6?</span> 
+ <span onclick='loadMove("3K4/7p/P1k5/8/8/8/8/8 w - - 0 2", this, "d6c6"); ' class="line1">Крc6</span> 
+ <span onclick='loadMove("2K5/7p/P1k5/8/8/8/8/8 b - - 0 2", this, "d8c8"); ' class="line1">2.Крc8</span> 
+ <span onclick='loadMove("2K5/7p/Pk6/8/8/8/8/8 w - - 0 3", this, "c6b6"); ' class="line1">Крb6</span> 
+ <span onclick='loadMove("1K6/7p/Pk6/8/8/8/8/8 b - - 0 3", this, "c8b8"); ' class="line1">3.Крb8</span> 
+ <span onclick='loadMove("1K6/7p/k7/8/8/8/8/8 w - - 0 4", this, "b6a6"); ' class="line1">Кр:a6</span> 
+ <span onclick='loadMove("8/2K4p/k7/8/8/8/8/8 b - - 0 4", this, "b8c7"); ' class="line1">4.Крc7</span> 
+ <span onclick='loadMove("8/2K5/k7/7p/8/8/8/8 w - h6 0 5", this, "h7h5"); ' class="line1">h5</span> 
+. Однако, правильно использовав угрозу проведения пешки а, белые успевают вовремя:
+ <span onclick='loadMove("2K5/7p/3k4/P7/8/8/8/8 b - - 0 1", this, "d8c8"); ' class="line0">1.Крc8!</span> 
+ <span onclick='loadMove("2K5/7p/2k5/P7/8/8/8/8 w - - 0 2", this, "d6c6"); ' class="line0">Крc6</span> 
+ <span onclick='loadMove("1K6/7p/2k5/P7/8/8/8/8 b - - 0 2", this, "c8b8"); ' class="line0">2.Крb8</span> 
+ <span onclick='loadMove("1K6/7p/8/Pk6/8/8/8/8 w - - 0 3", this, "c6b5"); ' class="line0">Крb5</span> 
+ <span onclick='loadMove("8/1K5p/8/Pk6/8/8/8/8 b - - 0 3", this, "b8b7"); ' class="line0">3.Крb7</span> 
+(ключевой ход; белый король теперь в квадрате)
+ <span onclick='loadMove("8/1K5p/8/k7/8/8/8/8 w - - 0 4", this, "b5a5"); ' class="line0">3...Кр:a5</span> 
+ <span onclick='loadMove("8/7p/2K5/k7/8/8/8/8 b - - 0 4", this, "b7c6"); ' class="line0">4.Крc6</span> 
+, и король догоняет пешку.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

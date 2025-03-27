@@ -1,0 +1,103 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>Содержание</h1>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-0-title.htm' %}">Шахматный практикум-2 (Нейштадт Я. И., 1998)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-1-priglashenie-k-trenirovke.htm' %}">ПРИГЛАШЕНИЕ К ТРЕНИРОВКЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/00-2-alfa-i-omega-shahmat.htm' %}">АЛЬФА И ОМЕГА ШАХМАТ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-0-otvlechenie.htm' %}">ОТВЛЕЧЕНИЕ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-0-zavlechenie.htm' %}">ЗАВЛЕЧЕНИЕ (ПРИВЛЕЧЕНИЕ)</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-0-unichtozhenie-zashchity.htm' %}">УНИЧТОЖЕНИЕ ЗАЩИТЫ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-0-osvobozhdenie-polia-ili-linii.htm' %}">ОСВОБОЖДЕНИЕ ПОЛЯ ИЛИ ЛИНИИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-0-sviazyvanie.htm' %}">СВЯЗЫВАНИЕ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-0-perekrytie.htm' %}">ПЕРЕКРЫТИЕ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-0-blokirovka.htm' %}">БЛОКИРОВКА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}">СОЧЕТАНИЕ ИДЕЙ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend1">Отвлечение и завлечение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend2">Отвлечение и освобождение поля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend3">Отвлечение и связывание</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend4">Отвлечение и перекрытие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend5">Завлечение и освобождение линии</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend6">Перекрытие и завлечение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend7">Уничтожение защиты и отвлечение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend8">Уничтожение защиты и освобождение поля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend9">Уничтожение защиты и перекрытие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-0-sochetanie-idej.htm' %}#blend10">Связывание, завлечение и отвлечение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-0-k-prizovomu-poliu.htm' %}">К ПРИЗОВОМУ ПОЛЮ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-0-chudesnoe-spasenie.htm' %}">ЧУДЕСНОЕ СПАСЕНИЕ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-1-kak-by-vy-sygrali.htm' %}">КАК БЫ ВЫ СЫГРАЛИ?</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-0-ekzamen.htm' %}">ЭКЗАМЕН</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-0-znaete-li-vy-klassiku.htm' %}">ЗНАЕТЕ ЛИ ВЫ КЛАССИКУ!</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/13-otvety-na-zadaniia.htm' %}">ОТВЕТЫ НА ЗАДАНИЯ</a></li>
+</ul>
+<div class="diagram">
+<h3>Учебное издание</h3>
+<h2>НЕЙШТАДТ Яков Исаевич</h2>
+<h1>ШАХМАТНЫЙ ПРАКТИКУМ-2</h1>
+</div>
+<div class="diagram">
+<p>Редактор В. В. Эльянов</p>
+<p>Художественный редактор Д. Н. Капельников</p>
+<p>Технический редактор А. С. Абызов</p>
+<p>Корректор Е. Г. Гордополова</p>
+<p>Компьютерная верстка А. С. Абызова</p>
+</div>
+<div class="diagram">
+<p>Подписано в печать с готовых диапозитивов 05.10.98. Формат 84х108 <sup>1</sup>/<sub>32</sub>.</p>
+<p>Бумага офсетная № 1. Гарнитура Балтика. Печать офсетная.</p>
+<p>Усл. печ. л. 16. Усл. кр.-отт. 16. Уч.-изд. л. 16,4.</p>
+<p>Тираж 5500 экз. Заказ №8-224.</p>
+</div>
+<div class="diagram">
+<p>«Фолио»</p>
+<p>310002, Харьков, ул. Артема, 8</p>
+</div>
+<div class="diagram">
+<p>Отпечатано с готовых диапозитивов на книжной фабрике им. М. В. Фрунзе 310057, Харьков, ул. Донец-Захаржевского, 6/8.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

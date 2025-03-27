@@ -1,0 +1,39 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Для чего это надо | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Для чего это надо</h3>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Шахматная нотация необходима для того, чтобы записывать партии. Повторяю. Некоторым любителям кажется, что вести запись партий — это просто лишняя обуза. Такое мнение глубоко ошибочно. Если бы не было шахматной азбуки, нельзя было бы накапливать полезный опыт, учиться шахматному искусству, совершенствоваться.</p>
+<!--p>- 8 -</p-->
+<p>Сотни раз люди повторяли бы одни и те же ошибки, каждому приходилось бы искать и находить то, что много раз до него находили другие любители шахмат.</p>
+<p>Это поняли уже давно. Более тысячи лет назад стали записывать партии и задачи, чтобы можно было их разбирать и проверять. Долгое время запись ходов была очень неудобной; чтобы записать только одну партию, требовалось много времени. В ту пору это была действительно трудная работа.</p>
+<p>Вот, например, отрывок из шахматной рукописи XV века. Автор этой рукописи, видимо, сильный по тому времени шахматист, поучает в своем произведении некоего высокопоставленного князя и дает ему советы, как правильно разыгрывать партию.</p>
+<p>«Ваше высочество,— говорится в одной из глав, — играет королевской пешкой на четыре пункта, считая от позиции короля. И если противник играет так же, вы играете королевским конем на три пункта, считая от позиции королевского слона. И если тот защищает пешку пешкой королевского слона, вы берете его пешку конем. И если он берет пешкой, вы даете ему шах ферзем на четыре пункта, считая от его королевской ладьи. И если он закрывается пешкой, вы берете его королевскую пешку и даете шах, нападая на ладью».</p>
+<p>Длинно, сложно, непонятно. А если перевести это пространное описание на язык современной шахматной нотации, то пять ходов, о которых рассказано в рукописи, займут всего лишь три строчки:
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кg1-f3</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/5p2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "f7f6"); ' class="line0">f7-f6</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/5p2/4N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq - 0 3", this, "f3e5"); ' class="line0">3.Кf3:e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/8/4p3/4P3/8/PPPP1PPP/RNBQKB1R w KQkq - 0 4", this, "f6e5"); ' class="line0">f6:e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/8/4p2Q/4P3/8/PPPP1PPP/RNB1KB1R b KQkq - 0 4", this, "d1h5"); ' class="line0">4.Фd1-h5+</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp3p/6p1/4p2Q/4P3/8/PPPP1PPP/RNB1KB1R w KQkq - 0 5", this, "g7g6"); ' class="line0">g7-g6</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp3p/6p1/4Q3/4P3/8/PPPP1PPP/RNB1KB1R b KQkq - 0 5", this, "h5e5"); ' class="line0">5.Фh5:e5+</span> 
+.</p>
+<p>Это сопоставление наглядно показывает удобство принятой у нас так называемой алгебраической системы шахматной нотации. Система эта также, правда, не очень уж молода — ей почти двести лет.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

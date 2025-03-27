@@ -1,0 +1,45 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>I Открытые дебюты | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>I<br />Открытые дебюты</h1>
+<p>Самая популярная среди любителей шахмат группа начал образуется после
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e5</span> 
+. Дальнейшее
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кf3</span> 
+заставляет черных решать проблему атакованной пешки e5. Они могут или контратаковать пешку e4 с помощью
+ <span onclick='loadMove("rnbqkb1r/pppp1ppp/5n2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "g8f6"); ' class="line0">2...Кf6</span> 
+(русская партия),
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/8/4pp2/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq f6 0 3", this, "f7f5"); ' class="line1">2...f5</span> 
+(латышский гамбит),
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/8/3pp3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq d6 0 3", this, "d7d5"); ' class="line1">2...d5</span> 
+или же защищать ее посредством
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/3p4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d7d6"); ' class="line1">2...d6</span> 
+и
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line1">2...Кc6</span> 
+, что ведет к новым многогранным дебютным разветвлениям. Особую неяркую, но необходимую в этой антологии ошибок ветвь составляют неправильные (так уж их окрестили) защиты пешки e5:
+ <span onclick='loadMove("rnbqkbnr/pppp2pp/5p2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "f7f6"); ' class="line1">2...f6</span> 
+,
+ <span onclick='loadMove("rnbqk1nr/pppp1ppp/3b4/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "f8d6"); ' class="line1">2...Сd6</span> 
+,
+ <span onclick='loadMove("rnb1kbnr/ppppqppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d8e7"); ' class="line1">2...Фe7</span> 
+и
+ <span onclick='loadMove("rnb1kbnr/pppp1ppp/5q2/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "d8f6"); ' class="line1">2...Фf6</span> 
+. В конце главы изучаются открытые начала без
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line1">2.Кf3</span> 
+.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

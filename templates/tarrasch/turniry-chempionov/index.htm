@@ -1,0 +1,97 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Оглавление | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--p>Оглавление</p><p>333</p-->
+<h2>Оглавление</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">З. ТАРРАШ. Международные шахматные турниры в Остенде (1907) и Санкт-Петербурге (1914). Турниры чемпионов</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-smyslov.htm' %}">В. Смыслов, экс-чемпион мира</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-ot-perevodchika.htm' %}">От переводчика</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-0-turnir-v-ostende.htm' %}">Турнир чемпионов в Остенде 1907 г</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-1-predislovie.htm' %}">Предисловие и введение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-pervyi-tur.htm' %}">Первый тур. 16 мая</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-vtoroy-tur.htm' %}">Второй тур. 17 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Третий тур. 18 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Четвертый тур. 20 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Пятый тур. 21 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шестой тур. 23 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Седьмой тур. 24 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Восьмой тур. 25 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Девятый тур. 27 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Десятый тур. 28 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Одиннадцатый тур. 30 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Двенадцатый тур. 31 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Тринадцатый тур. 1 июня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Четырнадцатый тур. 3 июня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Пятнадцатый тур. 4 июня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шестнадцатый тур. 6 июня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Семнадцатый тур. 7 июня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Восемнадцатый тур. 8 июня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Девятнацатый тур. 10 июня</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Двадцатый тур. 12 июня</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Турнир гроссмейстеров в Санкт-Петербурге 1914 г</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Дневник турнира</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">I. Санкт-Петербург, 17 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">II. Санкт-Петербург, 25 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">III. Санкт-Петербург, 4 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">IV. Санкт-Петербург, 10 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">V. Санкт-Петербург, 18 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VI. Санкт-Петербург, 21 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">VII. Санкт-Петербург, 24 мая</a></li>
+</ul>
+<!--p>334</p><p>З. Тарраш «Турниры чемпионов»</p-->
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">I. Партии общего турнира</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Первый тур. 21 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Второй тур. 22 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Третий тур. 24 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Четвертый тур. 26 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Пятый тур. 28 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шестой тур. 29 апреля</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Седьмой тур. 2 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Восьмой тур. 2 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Девятый тур. 3 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Десятый тур. 5 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Одиннадцатый тур. 6 мая</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">II. Турнир победителей</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Первый тур. 10 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Второй тур. 11 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Третий тур. 12 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Четвертый тур. 14 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Пятый тур. 15 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Шестой тур. 17 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Седьмой тур. 18 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Восьмой тур. 19 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Девятый тур. 21 мая</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Тур десятый и последний. 22 мая</a></li>
+</ul>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примечания</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Указатель дебютов</a></li>
+</ul>
+{% include '../../snippet_litres_banner2.htm' %}
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

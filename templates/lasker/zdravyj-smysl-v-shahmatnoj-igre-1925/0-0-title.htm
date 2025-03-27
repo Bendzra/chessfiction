@@ -1,0 +1,30 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>Эмануил Ласкер<br>Здравый смысл в шахматной игре</h1>
+<!--p><img src="Эм. Ласкер - Здравый смысл в шахматной игре.files/image001.jpg"></p-->
+<p>«Здравый смысл в шахматной игре. 12 лекций о шахматной игре»: Современные проблемы; М.; 1925</p>
+
+<!--h2>Аннотация</h2-->
+<p>12 лекций о шахматной игре.</p>
+<p>Второе исправленное и значительно дополненное издание. Перевод С. П. Симеон и И. П. Л-ва.</p>
+<p>Типография МКХ им. Ф. Я. Лаврова, Варгунихина гора, 8.</p>
+<p>Главлит № 39250. Москва 1925 г. Тираж 5.000 экз.</p>
+<p>Здравый смысл в шахматной игре.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

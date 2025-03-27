@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Предисловие | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Предисловие</h1>
+<div class="diagram">
+<img src="{% static 'images/'|add:book.slug|add:'/dreev-midgame-1.jpg' %}" style="width:292pt;height:219pt;"/>
+</div>
+<p>Настоящая книга посвящена типичным приемам игры в миттельшпиле. Разумеется, это не новая тема; в разное время она освещалась множеством авторов. К сожалению, не всегда содержание таких книг бывает безупречным - большинство из них содержит немалое количество ошибок. Поэтому здесь акцент сделан на качестве примеров.</p>
+<p>Автор не ставил перед собой задачи подбирать в качестве примеров наиболее эффектные партии и фрагменты. Прежде всего хотелось донести до читателя многообразие ситуаций, с которыми любому практику приходится сталкиваться за доской, иногда в течение одной партии. Поэтому в книге большинство примеров посвящены так называемым «рабочим» ситуациям.</p>
+<p>Конечно, формат книги не позволяет охватить все приемы игры в миттельшпиле. Однако в ней достаточно материала для того, чтобы познакомиться с самыми важными приемами и понять их смысл. С</p>
+<p>помощью упражнении вы сумеете закрепить полученные знания и научитесь использовать их на практике.</p>
+<p>Хочется верить, что после изучения книги читатель расширит свои знания типичных приемов игры в миттельшпиле, получит представление о нестандартных решениях проблем на доске и сможет в дальнейшем применять эти знания в своих партиях.</p>
+<p>Почти все примеры взяты из практики сильных гроссмейстеров.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

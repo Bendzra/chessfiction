@@ -1,0 +1,69 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>ВМЕСТЕ С МОРОЗЕВИЧЕМ</h1>
+<h2>Алексей Кузьмин</h2>
+
+<div class="message">
+<p>Библиотека РШФ</p>
+<p>Москва 2018</p>
+</div>
+
+<!--div class="message">
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>K87</p>
+</div-->
+
+<div class="message page">
+<p><b>КУЗЬМИН</b> Алексей</p>
+<p>K87 <b>«Вместе с Морозевичем»</b>. М., 2018, 232 с.</p>
+<p><b>ISBN 978-5-906254-52-8</b></p>
+</div>
+
+<div class="message notification">
+<p>Книга состоит из тестов-позиций и их решений. Все они взяты из партий Александра Морозевича, одного из самых ярких гроссмейстеров начала XXI века. Решения даны в форме подробно прокомментированных фрагментов партий; некоторые самые знаменитые поединки приведены целиком. Задания разного уровня сложности предназначены, в первую очередь, для тренировки расчета вариантов и умения принимать нестандартные, оригинальные решения. Читатель также проверит и разовьет свою тактическую зоркость.</p>
+<p>Для широкого круга любителей шахмат.</p>
+<p>Фото на обложке Бориса Долматовского</p>
+<p>Автор выражает глубокую благодарность Борису Долматовскому и Марии Фоминых за предоставленные фотографии.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div class="message">
+<h2>Кузьмин Алексей</h2>
+<h1>Вместе с Морозевичем</h1>
+<p>Редактор Леонид Барский</p>
+<p>Верстка Андрей Ельков</p>
+<p>Формат 60x90 1/16.</p>
+<p>Печать офсетная. Бумага офсетная. Заказ №</p>
+<p>www.ruchess.ru</p>
+<p>По вопросам распространения обращаться к Владимиру Барскому: barsky@ruchess.ru</p>
+</div-->
+
+<div class="message">
+<b>ISBN 978-5-906254-52-8</b>
+<div style="float:right;">
+<p>© А. Кузьмин, 2018</p>
+<p>© Российская шахматная федерация, 2018</p>
+</div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

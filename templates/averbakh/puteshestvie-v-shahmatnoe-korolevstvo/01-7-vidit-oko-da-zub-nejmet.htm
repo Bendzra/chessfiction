@@ -1,0 +1,125 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ВИДИТ ОКО, ДА ЗУБ НЕЙМЕТ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>ВИДИТ ОКО, ДА ЗУБ НЕЙМЕТ</h3>
+<div class="message">
+<p>Запомните еще одно важное правило.</p>
+<p>Если фигура или пешка прикрывает от нападения своего короля, то она, подобно часовому, не имеет права покинуть свой пост. Косится такая связанная фигура или пешка на неприятельскую — взяла бы с удовольствием, да нельзя своего короля открывать. Получается как в пословице: «Видит око, да зуб неймет!». Разберем теперь три примера, где главным мотивом будет связка. Мы продвинулись к концу первой главы, еще немного усилий — и все основные правила станут известны вам. Все они будут необходимы, но на связку (связанной называют фигуру или пешку, не смеющую оставить свой пост) стоит обратить особое внимание. Это уже не просто правило, но и особенность ведения боя, которая неизменно и часто встречается в сражениях не только начинающих, но и гроссмейстеров. Этой стороной боя нужно овладеть основательно.</p>
+</div>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/5p2/1b4p1/8/2B3R1/4P3/1r3PK1/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/5p2/1b4p1/8/2B3R1/4P3/1r3PK1/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">49</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/5p2/1b4p1/8/2B3R1/4P3/1r3PK1/8 w - - 0 1"></div>
+<p>Пешка e3 защищена пешкой f2. Однако черные при своем ходе могут безнаказанно взять ее слоном —
+ <!--span onclick='loadMove("6k1/5p2/1b4p1/8/2B3R1/4P3/1r3PK1/8 b - - 0 1", this, "d3d4"); ' class="line0">1.z0</span--> 
+
+ <span onclick='loadMove("6k1/5p2/6p1/8/2B3R1/4b3/1r3PK1/8 w - - 0 2", this, "b6e3"); ' class="line0">1...Сb6:e3</span>. Пешка f2 не может взять слона, так как тогда откроется король. Она связана и должна оставаться неподвижной.</p>
+<p>Рассмотрим то же положение при ходе белых. Пешка g6 защищена пешкой f7, но последняя прикрывает короля от нападения белого слона. Поэтому после
+ <span onclick='loadMove("6k1/5p2/1b4R1/8/2B5/4P3/1r3PK1/8 b - - 0 1", this, "g4g6"); ' class="line0">1.Лg4:g6+</span> 
+ход f7 : g6 недопустим — открывается король.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/3pk3/8/r3PK2/8/8/8/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/3pk3/8/r3PK2/8/8/8/8 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">50</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/3pk3/8/r3PK2/8/8/8/8 b - - 0 1"></div>
+<p>В этом положении черные сыграли
+ <span onclick='loadMove("8/4k3/8/r2pPK2/8/8/8/8 w - d6 0 2", this, "d7d5"); ' class="line0">1...d7-d5</span>. Могут ли белые воспользоваться правилом «на проходе»? Нет, это недопустимо: после <b>2. e5 : d6</b> король белых оказался бы под боем. А теперь рассмотрим окончание партии мастеров, где противники по очереди связывали неприятельские фигуры.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4r1k1/8/3R1Qpp/2p5/2P1p1q1/P3P3/1P2PK2/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r1k1/8/3R1Qpp/2p5/2P1p1q1/P3P3/1P2PK2/8 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">51</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4r1k1/8/3R1Qpp/2p5/2P1p1q1/P3P3/1P2PK2/8 b - - 0 1"></div>
+<p>Белые король и ферзь на одной вертикали, и черные, воспользовавшись этим, связали ферзя.</p>
+<p class="longNotation">
+ <span class="ellipsis0">1. ...</span> 
+ <span onclick='loadMove("5rk1/8/3R1Qpp/2p5/2P1p1q1/P3P3/1P2PK2/8 w - - 0 2", this, "e8f8"); ' class="line0">Лe8-f8</span> 
+</p>
+<p>Белые, в свою очередь, связывают ладью черных.</p>
+<p class="longNotation">
+ <span onclick='loadMove("3R1rk1/8/5Qpp/2p5/2P1p1q1/P3P3/1P2PK2/8 b - - 0 2", this, "d6d8"); ' class="line0">2.Лd6-d8</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>На этот ход белые возлагали все свои надежды — ладья черных не может взять ферзя: откроется король. Однако связка белого ферзя привела к неожиданной развязке.</p>
+<p class="longNotation">
+ <span class="ellipsis0">2. ...</span> 
+ <span onclick='loadMove("3R1rk1/8/5Qpp/2p5/2P1p2q/P3P3/1P2PK2/8 w - - 0 3", this, "g4h4"); ' class="line0">Фg4-h4+!</span> 
+</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3R1rk1/8/5Qpp/2p5/2P1p2q/P3P3/1P2PK2/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3R1rk1/8/5Qpp/2p5/2P1p2q/P3P3/1P2PK2/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">52</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3R1rk1/8/5Qpp/2p5/2P1p2q/P3P3/1P2PK2/8 w - - 0 1"></div>
+<p>Разберите внимательно это положение. Ферзь черных ступил на поле, как будто бы атакованное белым ферзем. Но это мираж. Ведь ферзь белых не имеет права покинуть вертикаль «f». Правда, ладья черных тоже связана, но дать шах она все-таки может! Поэтому белые должны ходить королем, и их ферзь гибнет.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<hr />
+
+<div class="section">
+<div class="score">
+<p>Теперь вы готовы сыграть свою первую партию! Запомните: практика — лучшая школа совершенствования. Однако не стремитесь сразу сразиться с сильным партнером. Лучше, если соперник будет примерно равен вам по силе.</p>
+<div class="notification message">
+<p>Несколько необходимых советов:</p>
+<p><i>Не делайте даже самых простых, напрашивающихся ходов не подумав.</i></p>
+<p><i>Пока вы не придумали хода, ни в коем случае не прикасайтесь к фигуре. Строжайший закон шахмат: тронул фигуру — ходи ею.</i></p>
+<p><i>Будьте строги к себе и к своему партнеру. Выполнение правила «тронул — ходи» — это норма поведения в шахматах для обоих противников. Если фигура стоит неаккуратно, нужно сначала сказать «поправляю» и лишь потом поправить ее.</i></p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="score">
+<p>Прежде чем перейти к разбору следующей главы, рекомендуем сыграть по крайней мере десяток партий. Тогда вы, без сомнения, крепко усвоите правила игры. В дальнейшем, читая книгу, вам все время придется сталкиваться с шахматной нотацией. Ее надо выучить. Дело это не слишком увлекательное, но необходимое. Поэтому, играя свои первые партии, договоритесь с противником их записывать. И друг другу не помогайте! А когда партия кончится, сравните ваши записи. Для удобства вот вам «шпаргалка», на поминающая, как надо записывать.</p>
+<div class="notification message">
+<ul>
+<table>
+<tr><td>Король</td><td>—</td><td>Кр</td></tr>
+<tr><td>Ферзь</td><td>—</td><td>Ф</td></tr>
+<tr><td>Ладья</td><td>—</td><td>Л</td></tr>
+<tr><td>Слон</td><td>—</td><td>С</td></tr>
+<tr><td>Конь</td><td>—</td><td>К</td></tr>
+<tr><td colspan=3>Пешка обозначения не имеет</td></tr>
+</table>
+</ul>
+
+<ul>
+<table>
+<tr><td>Ход</td><td>—</td><td>- (тире)</td></tr>
+<tr><td>Взятие</td><td>—</td><td>: (двоеточие)</td></tr>
+<tr><td>Короткая рокировка</td><td>—</td><td>0-0</td></tr>
+<tr><td>Длинная рокировка</td><td>—</td><td>0-0-0</td></tr>
+<tr><td>Шах</td><td>—</td><td>+ (плюс)</td></tr>
+<tr><td>Двойной шах</td><td>—</td><td>++</td></tr>
+<tr><td>Мат</td><td>—</td><td>X</td></tr>
+</table>
+</ul>
+<p>В комментариях восклицательным знаком (!) обозначают сильный ход, двумя восклицательными знаками (!!) —очень сильный ход. Вопросительным знаком (?) — слабый ход, двумя вопросительными знаками (??) — очень слабый ход.</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,37 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть третья. УРАГАН | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<hr />
+<h2>Часть третья<br>УРАГАН</h2>
+<div class="small floater" style="height:250px;">
+<img src="{% static 'images/kazancev_kaissa/dk_3.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="notification message">
+<i><p>Да, это верно все, но все же,</p>
+<p>Но все же хочется сказать,</p>
+<p>Что жизнь на шахматы похожа,</p>
+<p>Но жить - не в шахматы играть.</p></i>
+<p>Л. Безыменский. "Шахматы"</p>
+</div>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-1-pravo-na-risk.htm' %}">Глава первая. ПРАВО НА РИСК</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-2-porazhenie-viktorii.htm' %}">Глава вторая. ПОРАЖЕНИЕ ВИКТОРИИ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-3-perpetuum-mobile.htm' %}">Глава третья. ПЕРПЕТУУМ МОБИЛЕ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-4-na-sedmom-nebe.htm' %}">Глава четвертая. НА СЕДЬМОМ НЕБЕ</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

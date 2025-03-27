@@ -1,0 +1,44 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Ошеров М. Е. Психология шахматной борьбы</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Предисловие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-primery-udachnoj-psihologicheskoj-strategii.htm' %}">Глава 1. Примеры удачной психологической стратегии и психологических приёмов</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. Подготовка к игре. Установка на игру. Предварительное изучение соперника. Подготовка в день игры. Подготовка непосредственно перед игрой</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. Изучение психологического состояния противника, его слабых мест, предпочтений, стиля игры и существования</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. Игра. Наблюдение. Собственное психологическое состояние. Моторика. Модус вивенди. Настрой. Уверенность. Запись ходов соперником. Скорость действий. Подготовленность</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 5. Выбор хода и плана игры с учетом стиля игры и особенностей поведения соперника</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 6. Способы психологической борьбы. Способы психологического давления на соперника</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 7. Игра в обороне</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 8. Детская психология</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 9. Физическая подготовка</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 10. Самоконтроль</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 11. Театральные приемы психологической борьбы в шахматах</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 12. Некорректные приёмы шахматной борьбы. Неэтичные действия</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 13. Психология борьбы на высшем уровне</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 14. Примеры психологической борьбы</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Заключение</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

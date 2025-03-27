@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Избранные партии | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h2>ИЗБРАННЫЕ ПАРТИИ</h2>
+<div class="score">
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05.htm' %}">5. Россолимо - Уинсер, Гастингс 1949-50</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06.htm' %}">6. Уайтхед - Байасас, Лоун-Пайн 1977</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07.htm' %}">7. И. Гуревич - Каранья, Нью-Йорк 1987</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8. Горовиц - Кибберман, Варшава (ол) 1935</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9. Андонов - Ватсон, Сент-Джон 1988</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10. Палау - Кольсте, Лондон (ол) 1927</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11. «Lena» - Тамбурро, ICC 2009</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

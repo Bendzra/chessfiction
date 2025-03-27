@@ -1,0 +1,57 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Кто первый? Я за вами... | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Кто первый? Я за вами...</h3>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Итак, сразу бросать в бой ферзя нецелесообразно. Как же надо проводить развитие фигур, какие фигуры первыми должны начинать боевые действия?</p>
+<p>Рассмотрим, например, начало, которое называется дебют четырех коней.</p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e2-e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2", this, "e7e5"); ' class="line0">e7-e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 0 2", this, "g1f3"); ' class="line0">2.Кg1-f3</span> 
+(Белые выводят фигуру и создают нападение на центральную пешку черных)
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3", this, "b8c6"); ' class="line0">2...Кb8-c6</span> 
+(Черные также решают две задачи — выводят фигуру и защищают пешку)
+ <span onclick='loadMove("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R b KQkq - 0 3", this, "b1c3"); ' class="line0">3.Кb1-c3</span> 
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPP1PPP/R1BQKB1R w KQkq - 0 4", this, "g8f6"); ' class="line0">Кg8-f6</span> 
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/2N2N2/PPPP1PPP/R1BQK2R b KQkq - 0 4", this, "f1b5"); ' class="line0">4.Сf1-b5</span> 
+.</p>
+<p>Для развития слона было много полей. Найдем наиболее подходящие из них. Возможно было
+ <span onclick='loadMove("r1bqkb1r/pppp1ppp/2n2n2/4p3/4P3/2N2N2/PPPPBPPP/R1BQK2R b KQkq - 0 4", this, "f1e2"); ' class="line1">4.Сe2</span> 
+, но слон здесь занимал бы довольно пассивную позицию, имея мало возможностей для дальнейшей игры. В некоторых случаях он мешает движению ферзя с d1.</p>
+<p>А вот поле d3. Годится ли оно для развития слона? На этот вопрос можно сразу ответить — нет. Ведь на d3 слон упирался бы в собственную пешку e4 и затруднял бы дальнейшую активизацию слона c1.</p>
+<p>Развитие слона на c4 уже вполне приемлемо. Здесь слон занимал бы удачную позицию. Это был другой возможный план игры.</p>
+<p>
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/1B2p3/1b2P3/2N2N2/PPPP1PPP/R1BQK2R w KQkq - 0 5", this, "f8b4"); ' class="line0">4...Сf8-b4</span> 
+ <span onclick='loadMove("r1bqk2r/pppp1ppp/2n2n2/1B2p3/1b2P3/2N2N2/PPPP1PPP/R1BQ1RK1 b kq - 0 5", this, "e1g1"); ' class="line0">5.0-0</span> 
+ <span onclick='loadMove("r1bq1rk1/pppp1ppp/2n2n2/1B2p3/1b2P3/2N2N2/PPPP1PPP/R1BQ1RK1 w - - 0 6", this, "e8g8"); ' class="line0">0-0</span> 
+.</p>
+<p>Обрати особое внимание на рокировку. Это очень важный момент в партии. Рокировка обычно решает две задачи.</p>
+<p>Первая. Таким путем достигается переброска короля из центра, где обычно проходит начальная стадия сражения, в более спокойное и надежное убежище.</p>
+<p>И вторая. Противники получают возможность включить в битву резервы — свои ладьи.</p>
+<p>
+ <span onclick='loadMove("r1bq1rk1/pppp1ppp/2n2n2/1B2p3/1b2P3/2NP1N2/PPP2PPP/R1BQ1RK1 b - - 0 6", this, "d2d3"); ' class="line0">6.d2-d3</span> 
+ <span onclick='loadMove("r1bq1rk1/ppp2ppp/2np1n2/1B2p3/1b2P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 0 7", this, "d7d6"); ' class="line0">d7-d6</span> 
+.</p>
+<p class="capTop diagram">56</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq1rk1/ppp2ppp/2np1n2/1B2p3/1b2P3/2NP1N2/PPP2PPP/R1BQ1RK1 w - - 0 7"></div>
+<p>Вот пример правильного развития сил в дебюте. Создав пешечные заслоны в центре, обе стороны ввели в бой свои легкие фигуры, рокировали, создали возможности для переброски резервов. Ферзи и ладьи пока находятся в тылу, они скажут
+<!--p>- 41 -</p-->
+свое веское слово в дальнейшей борьбе, когда планы противников станут конкретнее.</p>
+<p>А теперь ответим на вопрос о том, что надо развивать раньше. После движения центральных пешек, как правило, надо вводить в игру коней и слонов. Многие теоретики считают, что первенство надо предоставлять коням, ибо удобных полей для их развития в начале партии меньше, чем у слонов. Значит, меньше и возможностей ошибиться.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

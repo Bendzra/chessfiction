@@ -1,0 +1,42 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Содержание</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Юдович М. М. Гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-staroe-no-vernoe-oruzhie.htm' %}">Старое, но верное оружие</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-bessmertnyj-gambit.htm' %}">Бессмертный гамбит</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-udar-v-centre.htm' %}">Удар в центре</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-tajna-kapitana-evansa.htm' %}">Тайна капитана Эванса</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-v-ogne-srazhenij.htm' %}">В огне сражений</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/6-sovremennye-gambitnye-idei.htm' %}">Современные гамбитные идеи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/7-iz-zolotogo-fonda.htm' %}">Из золотого фонда</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/8-tajnoe-i-iavnoe.htm' %}">Тайное и явное (ответы на вопросы)</a></li>
+</ul>
+
+<h5>Серия «Библиотечка шахматиста»</h5>
+<h2>Михаил Михайлович Юдович</h2>
+<h1>ГАМБИТ</h1>
+<div class="message">
+<p class="diagram">Заведующий редакцией В. И. Чепижный Редактор Ф. М. Малкин Художник Ю. А. Вотоловский Художественный редактор В. А. Жигарев Технический редактор О. П. Макеева Корректор 3. Г. Самылкина</p>
+<p class="diagram">ИБ. № 876. Сдано в набор 03.10.79. Подписано к печати 02.01.80. Формат 60X90/16. Бумага тип. №2. Гарнитура «Литературная». Высокая печать. Усл. п. л. 5,00. Уч.-изд. л. 4,53. Тираж 100 000 экз. Из дат. № 6260. Зак. № 2663. Цена 30 коп.</p>
+<p class="diagram">Ордена «Знак Почета» издательство «Физкультура и спорт» Государственного комитета СССР по делам издательств, полиграфии и книжной торговли. 101421. Москва, Каляевская ул., 27.</p>
+<p class="diagram">Отпечатано с готовых матриц ордена Октябрьской Революции и ордена Трудового Красного Знамени Первой Образцовой типографии имени А. А. Жданова Союзполиграфпрома при Государственном комитете СССР по делам издательств, полиграфии и книжной торговли, Москва, М-54, Валовая, 28, на Головном предприятии республиканского производственного объединения «Полнграфкнига» Госкомиздата УССР, г. Киев, Довженко, 3.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

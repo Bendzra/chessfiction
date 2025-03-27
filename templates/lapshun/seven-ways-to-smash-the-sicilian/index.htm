@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Contents</h2>
+<ul>
+<li><a href="0-0-title.htm">7 Ways to  Smash the Sicilian</a></li>
+<li><a href="0-1-bibliography.htm">Bibliography</a></li>
+<li><a href="0-2-introduction.htm">Introduction</a></li>
+<li><a href="1-the-knight-sacrifice-on-d5.htm">1 The Knight Sacrifice on d5</a></li>
+<li><a href="2-the-knight-sacrifice-on-e6.htm">2 The Knight Sacrifice on e6</a></li>
+<li><a href="3-the-bishop-sacrifice-on-e6.htm">3 The Bishop Sacrifice on e6</a></li>
+<li><a href="4-the-knight-sacrifice-on-f5.htm">4 The Knight Sacrifice on f5</a></li>
+<li><a href="5-the-knight-sacrifice-on-b5.htm">5 The Knight Sacrifice on b5</a></li>
+<li><a href="6-the-bishop-sacrifice-on-b5.htm">6 The Bishop Sacrifice on b5</a></li>
+<li><a href="7-miscellaneous-sacrifices.htm">7 Miscellaneous Sacrifices</a></li>
+<li><a href="8-1-index-of-variations.htm">Index of Variations</a></li>
+<li><a href="8-2-index-of-games.htm">Index of Games</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

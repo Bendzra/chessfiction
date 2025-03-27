@@ -1,0 +1,34 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Атака на короля | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h2>АТАКА НА КОРОЛЯ</h2>
+<div class="score">
+
+<ol start="1">
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-karlsen-aronian.htm' %}">Карлсен — Аронян, «Большой шлем», Бильбао 2008</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-karlsen-gelfand.htm' %}">Карлсен — Гельфанд, Ницца 2008, партия вслепую</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-karlsen-harestad.htm' %}">Карлсен — Харестад, Копенгаген 2003</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-karlsen-l_ami.htm' %}">Карлсен — Л’Ами, Вейк-ан-Зее 2006, турнир «В»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-karlsen-ivanchuk.htm' %}">Карлсен — Иванчук, Сан-Паулу/Бильбао 2011</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Каруана — Карлсен, Вейк-ан-Зее 2015, 6 тур</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Раджабов, Вейк-ан-Зее 2015, 9 тур</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Накамура, Вейк-ан-Зее 2011</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ван Хао, Биль 2012</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Карлсен — Ли Чао, Доха 2015</a></li>
+</ol>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

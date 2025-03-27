@@ -1,0 +1,66 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="message">
+<h2>А. С. ВОЛЧОК</h2>
+<h1>СТРАТЕГИЯ АТАКИ НА КОРОЛЯ</h2>
+</div>
+
+<div class="message">
+<p>КИЕВ</p>
+<p>«ЗДОРОВ'Я»</p>
+<p>1981</p>
+</div>
+
+<hr />
+
+<div class="message">
+<p>ББК 75.581</p>
+<p>7А9.1</p>
+<p>В68</p>
+</div>
+
+<div class="message page">
+<p>Волчок А. С.— <b>Стратегия атаки на короля</b>. Киев : Здоров'я, 1981. — 224 с.</p>
+</div>
+
+<div class="notification message">
+<p>А. С. Волчок — мастер спорта СССР по шахматам.</p>
+<p>О форме стратегии, в которой тактика находит наибольшее применение,— атаке на короля — рассказывает эта книга. Автор знакомит читателя с типичными и оригинальными стратегическими планами игры, описывает характерные ошибки и упущения, порождающие условия для проведения ранних и внезапных наступлений на короля, показывает пути создания атаки.</p>
+<p>Книга может быть полезной не только для шахматистов высших разрядов, но и для широкого круга читателей.</p>
+</div>
+
+<p>Диагр. 249.</p>
+
+<div class="message">
+<p>Рецензент мастер спорта СССР <b>Е. М. Лазарев</b></p>
+</div>
+
+<div class="message warning">
+<span>
+<span>В</span>
+<span>60904—024<br />М209 (04) — 81</span>
+<span>167.80.4202000000</span>
+</span>
+<div style="float:right;">© Издательство<br />«Здоров'я», 1980</div>
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

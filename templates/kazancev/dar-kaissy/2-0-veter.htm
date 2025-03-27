@@ -1,0 +1,41 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть вторая. ВЕТЕР | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<hr />
+<h2>Часть вторая<br>ВЕТЕР</h2>
+<div class="small floater" style="height:250px;">
+<img src="{% static 'images/kazancev_kaissa/dk_2.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="notification message">
+<i><p>Жизнь сама</p>
+<p>Сном, движеньем, шумом</p>
+<p>Даже тенью в людских глазах</p>
+<p>Вызывает во мне</p>
+<p>Думы.</p>
+<p>О шахматных делах.</p></i>
+<p>А. Безыменский.</p>
+<p>"Шахматы"</p>
+</div>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-mat-chernomu-ekspertu.htm' %}">Глава первая. MAT ЧЕРНОМУ ЭКСПЕРТУ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-revansh.htm' %}">Глава вторая. РЕВАНШ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-druzia-protivniki.htm' %}">Глава третья. ДРУЗЬЯ-ПРОТИВНИКИ</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-truba-do-neba.htm' %}">Глава четвертая. ТРУБА ДО НЕБА</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-zloj-veter.htm' %}">Глава пятая. ЗЛОЙ ВЕТЕР</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

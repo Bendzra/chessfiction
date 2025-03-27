@@ -1,0 +1,65 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--div class="message">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>О96</p>
+</div-->
+<div class="message page">
+<p><b>Ошеров М. Е.</b></p>
+<p>О96 Психология шахматной борьбы. — М.: «RUSSIAN CHESS HOUSE/ Русский Шахматный Дом», 2017,— 88 с. (Библиотечка шахматиста).</p>
+<p><b>ISBN 978-5-94693-601-9</b></p>
+</div>
+<div class="message notification">
+<p>Шахматы — это спорт, в котором соревнуются живые люди, со своими характерами и проблемами, со своими чувствами, со своим образом и способом мышления.</p>
+<p>Для того, чтобы обыграть соперника, необходимо уметь заглянуть в его душу, понять, что он за человек, как мыслит, чего хочет и чего опасается. Для побед на шахматной доске нужно управлять собой, запутывать и подавлять противника, направлять его ум по ложному следу, устрашать партнера своей уверенностью в победе.</p>
+<p>Эта книга написана о науке побеждать!</p>
+<p>Освоение данного учебного материала несомненно благотворно повлияет на вашу игровую практику.</p>
+<p>Автор — опытнейший тренер с педагогическим стажем свыше 45 лет.</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div class="message">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div-->
+<div class="message">
+<h4>Учебное издание</h4>
+<h2>Михаил Ефимович Ошеров</h2>
+<h1>ПСИХОЛОГИЯ ШАХМАТНОЙ БОРЬБЫ</h1>
+</div>
+<!--div class="message">
+<p>Редактор и верстка Андрей Ельков</p>
+<p>Подписано в печать 15.02.2017. Формат 60 х 90/16.</p>
+<p>Гарнитура «Ньютон». Усл. п. л. 5,50.</p>
+<p>Издательство «RUSSIAN CHESS HOUSE» (директор Мурад Аманназаров)</p>
+<p>Тел.: +7(495) 963-8017(пн-пт с 11.00до 18.00)</p>
+<p>email: chessm.ru@ya.ru или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+<div class="message">
+<b>ISBN 978-5-94693-601-9</b>
+<div style="float:right;">© Ошеров М. Е., 2017<br />© Издательство «RUSSIAN CHESS HOUSE», 2017</p>
+<div class="clear"></div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

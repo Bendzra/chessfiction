@@ -1,0 +1,52 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>The Kingside Attack | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>The Kingside Attack</h2>
+<p>It is not the purpose of this book to bewilder you with magical effects; it is to show you how they are produced.</p>
+<p>Take the popular kingside attack: it is attractive because it features combinative play with its brilliant sacrifices and surprise moves. It is appealing because it aims for quick checkmate and lets you play startling moves to bring it about.</p>
+<p>But when and how do you start a kingside attack? Must you wait for an inspiration?</p>
+<p>The answer is simple and may be surprising, so let us look behind the scenes:</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/8/5N2/5PPP/5RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/8/8/5N2/5PPP/5RK1 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/8/5N2/5PPP/5RK1 w - - 0 1"></div>
+<p>The diagram shows a castled position. The king is protected by a knight at 13 and the three pawns in front of him. While these protectors stay where they are, the king is highly resistant to attack. The moment the formation is changed, the structure is loosened and weakened. It is then vulnerable to attack.</p>
+<p>The position may change when a player advances <b>h2-h3</b> voluntarily to prevent a pin, or when he plays <b>g3</b> to dislodge an enemy piece, but where this does not happen, the master (and here is the secret) induces or compels by various threats the advance of the h-pawn or the g-pawn. Once either pawn makes a move, it creates a weakness in the defensive structure which can be exploited. It is then that the master embarks on a kingside attack and achieves his brilliant - yes, magical - effects.</p>
+<p>The game von Scheve-Teichmann (<a href="{% url 'page-view' book.root_dir|add:'/1-01-von-scheve-teichmann-1907.htm' %}">No. 1</a>) shows what happens when White plays <b>h3</b> instinctively to prevent a pin Teichmann fixes on the pawn that stepped out of line and makes it the object of his attack. Eventually he sacrifices a bishop for the h-pawn in order to break into the position with his other pieces.</p>
+<p>Liubarski-Soultanb&#233;ieff (<a href="{% url 'page-view' book.root_dir|add:'/1-02-liubarski-soultanbieff-1928.htm' %}">No. 2</a>) also has White playing <b>h3</b> in fear of a pin, and Black punishes him by a pawn attack beginning with <b>...h6!</b> (Why this move of the h-pawn is good, and White's is bad, is explained in the game.)</p>
+<p>In Colle-Delvaux (<a href="{% url 'page-view' book.root_dir|add:'/1-03-colle-delvaux-1929.htm' %}">No. 3</a>) Colle forces <b>h6</b> and then cleverly induces <b>...g6</b>. After this, a knight sacrifice demolishes the weakened position.</p>
+<!--p>10 The Kingside Attack</p-->
+<p>Black plays <b>...h6</b> of his own tree will to stave off an unlikely attack in Blackburne-BIanchard (<a href="{% url 'page-view' book.root_dir|add:'/1-04-blackburne-blanchard-1891.htm' %}">No. 4</a>). Blackburne sacrifices a bishop to remove Black's indiscreet h-pawn and forces an entrance into the enemy camp.</p>
+<p>Ruger-Gebhard (<a href="{% url 'page-view' book.root_dir|add:'/1-05-ruger-gebhard-1915.htm' %}">No. 5</a>) illustrates the danger of castling prematurely, coupled with neglect of the centre. When Black adds an attack on a piece with <b>...h6</b> to his other sins, he is punished by a sacrifice that rips open a file against his king.</p>
+<p>Zeissl-Walthoffen (<a href="{% url 'page-view' book.root_dir|add:'/1-06-zeissl-walthoffen-1899.htm' %}">No. 6</a>) is another instance of untimely castling coupled with disregard for the importance of the centre. White is compelled to play <b>g3</b>, weakening the light squares no longer guarded by the pawn. Walthoffen's pieces utilize these squares to work their way into the position and get at the king.</p>
+<p>In the game Spielmann-Wahle (<a href="{% url 'page-view' book.root_dir|add:'/1-07-spielmann-wahle-1926.htm' %}">No. 7</a>), Black advances his g-pawn to prevent a knight settling too close to his king. This deprives his own knight on f6 of the pawn's stout support and creates weaknesses on the squares no longer under the pawn's surveillance. Spielmann's pieces invade, fasten themselves on the weak squares and deliver mate.</p>
+<p>Przepiorka-Proke&#353; (<a href="{% url 'page-view' book.root_dir|add:'/1-08-przepiorka-prokesh-1929.htm' %}">No. 8</a>) is an illustration of <b>...g6</b> being forced, with a resultant weakening of the dark squares. Przepiorka takes the precaution of destroying the bishop that travels on the dark squares (to accentuate the weakness) before launching the decisive attack.</p>
+<p>The game between Znosko-Borovsky and Mackenzie (<a href="{% url 'page-view' book.root_dir|add:'/1-09-znosko-borovsky-mackenzie-1924.htm' %}">No. 9</a>) shows Black trying to keep an enemy knight out of his territory by playing <b>...g6</b>. He succeeds, but at the cost of weakening the dark squares near his king. White finds them convenient for his own pieces, which take turns in occupying the critical squares.</p>
+<p>Tarrasch-Eckart (<a href="{% url 'page-view' book.root_dir|add:'/1-10-tarrasch-eckart-1889.htm' %}">No. 10</a>) is an interesting example of the danger incurred in playing mechanical chess. Black is compelled to play <b>...f5</b> and then <b>...g6</b>, after which he succumbs to a bishop sacrifice which removes all the pawns guarding his king.</p>
+<p>The next two games are delightful miniatures with a lot of meat in them. Flohr-Pitschak (<a href="{% url 'page-view' book.root_dir|add:'/1-11-flohr-pitschak-1930.htm' %}">No. 11</a>) is a fascinating illustration of the process of chipping away at the king's guards to impel them to move Pitschak forces the g-pawn to advance, then the h-pawn, after which he crashes through the barriers with a queen sacrifice.</p>
+<p>Pitschak-Flohr (<a href="{% url 'page-view' book.root_dir|add:'/1-12-pitschak-flohr-1934.htm' %}">No. 12</a>), in which Flohr gets his revenge, has White playing <b>h3</b> to evict a bishop. It leads to the loss of the pawn and the entrance of Flohr's queen uncomfortably close to White's king. The concentration of attack that follows leaves White with one solitary pawn to defend his king.</p>
+<p>In Dobias-Podgorny (<a href="{% url 'page-view' book.root_dir|add:'/1-13-dobias-podgorny-1952.htm' %}">No. 13</a>), Dobias compels the advance of the g-pawn, then the h-pawn Then he subtly undermines the weakened position and causes it to collapse.</p>
+<p>Tarrasch-Mieses (<a href="{% url 'page-view' book.root_dir|add:'/1-14-tarrasch-mieses-1916.htm' %}">No. 14</a>) shows Tarrasch destroying the f6-knight, Black's best defender of a castled position, and uprooting the g-pawn in the process. The disruption of the pawn formation makes things easy for Tarrasch, who caps the victory with a quiet little pawn move.</p>
+<p>The next two games do not belong, strictly speaking, in the category of kingside attacks. I include them to show the consequences of failure to provide tor the safety of the king.</p>
+<p>Alekhine-Poindle (<a href="{% url 'page-view' book.root_dir|add:'/1-15-alekhine-poindle-1936.htm' %}">No. 15</a>) has some delightfully unconventional moves by Alekhine to punish time-wasting play. Black is hindered from castling, and his king kept in the centre, where it is exposed to a fatal attack.</p>
+<p>Tarrasch-Kurschner (<a href="{% url 'page-view' book.root_dir|add:'/1-16-tarrasch-kurschner-1889.htm' %}">No. 16</a>) is a short story depicting harsh treatment of plausible but perfunctory chess. Tarrasch punishes his opponent's infractions of principle by driving his pieces back where they interfere with each other, prevents Black's king from castling and then assails him with every piece available.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

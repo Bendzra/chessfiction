@@ -1,0 +1,71 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Мат двумя конями | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>МАТ ДВУМЯ КОНЯМИ</h3>
+
+<div class="section">
+<p class="capTop">8</p>
+<div class="chessBoard small" data-start-fen="6k1/8/6K1/6N1/6N1/8/8/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("6k1/8/6K1/6N1/6N1/8/8/8 w - - 0 1", this, ""); '>[...]</span>
+<p>Мат двумя конями при правильной защите дать не удается.</p>
+<p>Так, в этой позиции на</p>
+<p class="longNotation">
+<span onclick='loadMove("6k1/8/5NK1/6N1/8/8/8/8 b - - 0 1", this, "g4f6"); ' class="line0">1.Кg4-f6+</span>
+<span class="ellipsis0">...</span>
+</p>
+<p>черные продолжают не
+ <span onclick='loadMove("7k/8/5NK1/6N1/8/8/8/8 w - - 0 2", this, "g8h8"); ' class="line1">1...Крg8-h8</span> 
+ <span onclick='loadMove("7k/5N2/5NK1/8/8/8/8/8 b - - 0 2", this, "g5f7"); ' class="line1">2.Кg5-f7X</span>, а</p>
+<p class="longNotation">
+<span class="ellipsis0">1. ...</span>
+<span onclick='loadMove("5k2/8/5NK1/6N1/8/8/8/8 w - - 0 2", this, "g8f8"); ' class="line0">Крg8-f8</span>,</p>
+<p>вырываясь королем из опасного угла. Если белые играют
+ <span onclick='loadMove("6k1/8/4N1K1/8/6N1/8/8/8 b - - 0 1", this, "g5e6"); ' class="line1">1.Кg5-e6</span>, не выпуская короля из угла, то после
+ <span onclick='loadMove("7k/8/4N1K1/8/6N1/8/8/8 w - - 0 2", this, "g8h8"); ' class="line1">1...Крg8-h8</span> 
+мат все равно осуществить не удается. В самом деле, для мата при короле черных на g8 белые должны суметь дать шах конем с полей f6, e7 или h6, а затем на ход <b>Крh8</b> объявить мат другим конем с поля f7. Этот конь, матующий с поля f7, должен контролировать поле f8, следовательно, он должен быть расположен на полях d7, e6 или h6. Но если на ход <b>Крh8</b> белые попытаются перевести коня на f7, они это сделать не успевают, так как король черных не имеет ходов и будет запатован.</p>
+<p>Другое дело, если у черных имеется еще пешка. В этом случае она принесет им вред — пата не будет, и белые успеют дать мат.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="score">В некоторых позициях, при наличии у черных пешки, белые выигрывают, даже если король черных и не находится в углу. Теория таких редких окончаний разработана основоположником этюдной композиции А. Троицким и для начинающих слишком трудна. Здесь мы рассмотрим один пример, чтобы понять, как дается мат, если король слабейшей стороны уже находится в углу.</p>
+
+<div class="section">
+<p class="capTop">9</p>
+<div class="chessBoard small" data-start-fen="8/5K1k/8/5N2/8/3p4/3N4/8 w - - 0 1"></div>
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/5K1k/8/5N2/8/3p4/3N4/8 w - - 0 1", this, ""); '>[...]</span>
+<p>
+<p class="longNotation">
+<span onclick='loadMove("8/5K1k/8/5N2/4N3/3p4/8/8 b - - 0 1", this, "d2e4"); ' class="line0">1.Кd2-e4</span>
+<span onclick='loadMove("8/5K1k/8/5N2/4N3/8/3p4/8 w - - 0 2", this, "d3d2"); ' class="line0">d3-d2</span></p>
+<p>(К тому же ведет
+ <span onclick='loadMove("7k/5K2/8/5N2/4N3/3p4/8/8 w - - 0 2", this, "h7h8"); ' class="line1">1...Крh7-h8</span> 
+ <span onclick='loadMove("7k/5K2/5N2/5N2/8/3p4/8/8 b - - 0 2", this, "e4f6"); ' class="line1">2.Кe4-f6</span> 
+ <span onclick='loadMove("7k/5K2/5N2/5N2/8/8/3p4/8 w - - 0 3", this, "d3d2"); ' class="line1">d3-d2</span>)</p>
+<p class="longNotation">
+<span onclick='loadMove("8/5K1k/5N2/5N2/8/8/3p4/8 b - - 0 2", this, "e4f6"); ' class="line0">2.Кe4-f6+</span>
+<span onclick='loadMove("7k/5K2/5N2/5N2/8/8/3p4/8 w - - 0 3", this, "h7h8"); ' class="line0">Крh7-h8</span></p>
+<p class="longNotation">
+<span onclick='loadMove("7k/4NK2/5N2/8/8/8/3p4/8 b - - 0 3", this, "f5e7"); ' class="line0">3.Кf5-e7</span>
+<span onclick='loadMove("7k/4NK2/5N2/8/8/8/8/3q4 w - - 0 4", this, "d2d1"); ' class="line0">d2-d1Ф</span>.</p>
+<p>Ирония судьбы. Черные успели провести ферзя, но получают мат.</p>
+<p class="longNotation">
+<span onclick='loadMove("7k/5K2/5NN1/8/8/8/8/3q4 b - - 0 4", this, "e7g6"); ' class="line0">4.Кe7-g6X</span>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="warning message score">Мы предлагаем читателю попробовать заматовать короля черных в несколько более сложной позиции: Крd7, Кb3, Кc4 — Крb7, п. b4. Во сколько ходов здесь дается мат?</p>
+
+<!--p class='page'></p-->
+<hr />
+
+</div> <!-- iBook -->
+{% endblock content %}
+

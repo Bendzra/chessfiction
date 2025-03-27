@@ -1,0 +1,27 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Происшествия на шахматной доске | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>ПРОИСШЕСТВИЯ НА ШАХМАТНОЙ ДОСКЕ</h2>
+<div class="score">
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-2-1-neobychnoe-v-prostom.htm' %}">Необычное в простом</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-2-2-mat-v-50-hodov.htm' %}">Мат в 50 ходов</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-2-3-peshka-ferz-ladia.htm' %}">Пешка, ферзь, ладья</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-2-4-sem-raz-primer.htm' %}">Семь раз примерь</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/5-3-resheniia.htm' %}">Решения</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

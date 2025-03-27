@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>4. Пат. Ничья | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="score">
+<h3>4. Пат. Ничья</h3>
+<p>Когда король, не находясь под шахом, занимает такое положение, что не может никуда пойти, не оказавшись под шахом, а в то же время нет также ни одной другой фигуры его лагеря, которая по правилам игры могла бы ходить, говорят, что сторона, не имеющая
+<!--p>10</p><p>Часть I. Общие сведения о шахматной игре</p-->
+ходов, «получила пат». Такая игра признается ничьей, то есть не выигранной ни той, ни другой стороной.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1R3nk1/5p1p/5B1P/8/6K1/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1R3nk1/5p1p/5B1P/8/6K1/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">10</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1R3nk1/5p1p/5B1P/8/6K1/8/8/8 w - - 0 1"></div>
+<p>В изображенном на диаграмме 10 положении очередь хода за черными. Черный король не атакован, или, другими словами, он не находится под шахом. С другой стороны, он не может никуда пойти, не попав под шах, что, как сказано выше, не допускается правилами игры. Равным образом черные не могут пойти конем, так как это обнажило бы короля, который оказался бы под шахом от белой ладьи. Таким образом, черные находятся в патовом положении, и игра — ничья.</p>
+<p>Партия считается закончившейся вничью также в следующих случаях: 1) когда на доске остаются одни короли, 2) когда обе стороны повторяют в третий раз одну и ту же позицию, 3) когда у одной из сторон недостаточно сил для того, чтобы дать неприятельскому королю мат.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}

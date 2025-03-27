@@ -1,0 +1,29 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>2.2 Атака на пункт g7 | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="5rk1/5ppp/7B/8/8/6Q1/5PPP/5RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5rk1/5ppp/7B/8/8/6Q1/5PPP/5RK1 w - - 0 1", this, ""); '>[...]</span> 
+<h3>2.2 АТАКА НА ПУНКТ g7</h3>
+
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-2-1-shema-q+b-vs-g7.htm' %}">2.2.1 Ферзь и слон против пешки g7<!--56--></a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-2-2-shema-r+b-vs-g7-melnica.htm' %}">2.2.2 Ладья и слон против пешки g7. "Мельница"<!--59--></a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-2-3-shema-q+n-vs-pg7.htm' %}">2.2.3 Ферзь и конь против пешки g7<!--65--></a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-2-4-zhertvy-na-punkte-g7.htm' %}">2.2.4 Жертвы на пункте g7<!--69--></a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+
+</div> <!-- iBook -->
+{% endblock content %}
+

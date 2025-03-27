@@ -1,0 +1,61 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>title | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="diagram">
+<h2>Анатолий Мацукевич</h2>
+<h1>КОРОТКИЕ ШАХМАТЫ</h1>
+<h3>555 дебютных ошибок</h3>
+</div>
+
+<div class="diagram">
+<p>Астрель • ACT</p>
+<p>Москва 2002</p>
+</div>
+
+<div class="diagram">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+<p>М36</p>
+</div>
+
+<div class="diagram">
+<p>Мацукевич А. А.</p>
+<p>М36 Короткие шахматы: 555 дебютных ошибок / А. Мацукевич. — М.: ООО «Издательство Астрель»: ООО «Издательство АСТ», 2002.-361, [7] с.</p>
+<p>ISBN 5-17-012063-Х (ООО «Издательство АСТ»)</p>
+<p>ISBN 5-271-03237-Х (ООО «Издательство Астрель»)</p>
+</div>
+<div class="message notification">
+<p>В книге мастера Анатолия Мацукевича собрано и проанализировано 555 поучительных коротких шахматных поединков, сыгранных за 500-летнюю историю современных шахмат. Перед вами своеобразный учебник дебютной борьбы, написанный для истинных любителей шахмат.</p>
+</div>
+
+<div class="diagram">
+<p>УДК 794</p>
+<p>ББК 75.581</p>
+</div>
+
+<div class="diagram">
+<p>Подписано в печать 15.12.01. Формат 84x108 Бумага офсетная. Печать офсетная. Усл. печ. л. 19,32. Тираж 10 000 экз. Заказ № 66.</p>
+</div>
+
+<div class="diagram">
+<p>ISBN 5-17-012063-Х (ООО «Издательство АСТ»)</p>
+<p>ISBN 5-271-03237-Х (ООО «Издательство Астрель»)</p>
+<p>© ООО «Издательство Астрель», 2002</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

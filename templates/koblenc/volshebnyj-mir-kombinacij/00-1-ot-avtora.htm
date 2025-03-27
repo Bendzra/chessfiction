@@ -1,0 +1,25 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>От автора | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>От автора</h1>
+<p>Дорогие друзья! Знакомясь с этой работой, вы сможете незримо присутствовать на занятиях моих учеников в Рижском шахматном клубе. В процессе обучения я стараюсь не только ознакомить ребят с важнейшими комбинационными идеями и приемами, но и развить у них чувство прекрасного, без которого, на мой взгляд, немыслимо глубокое проникновение в волшебный мир комбинаций. Шахматист может только в том случае считать себя настоящим художником, если ему удалось раскрыть тайны глубоких комбинационных идей, стать творцом этого своеобразного и загадочного мира.</p>
+<p>Но путь к овладению мастерством тернист. Поэтому особое значение я придаю самостоятельным занятиям. Практика показывает, что систематический анализ различных позиций, решение задач и этюдов намного ускоряют развитие комбинационного зрения, приучают ребят самостоятельно мыслить, не теряться в неожиданных и сложных ситуациях.</p>
+<p>Надеюсь, что знакомство с этой книгой поможет вашему совершенствованию и доставит немало приятных минут.</p>
+<p style="text-align:right;">А. Кобленц</p>
+<p>Рига, август 1979 г.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

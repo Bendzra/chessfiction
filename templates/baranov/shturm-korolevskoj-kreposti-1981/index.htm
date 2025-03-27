@@ -1,0 +1,46 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2 class="diagram">СОДЕРЖАНИЕ</h2>
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Штурм королевской крепости</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-0-fundament_ataki.htm' %}">Фундамент атаки</a></li>
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-1-razvitie_sil.htm' %}">Развитие сил</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-2-0-centr.htm' %}">Центр</a></li>
+	<ul>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-2-1-otkrytyj_centr.htm' %}">Открытый центр</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-2-2-podvizhnyj_centr.htm' %}">Подвижный центр</a></li>
+		<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-2-3-zakrytyj_centr.htm' %}">Закрытый центр</a></li>
+	</ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/01-3-otkrytaia_liniia.htm' %}">Открытая линия</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/02-sredstva_ataki.htm' %}">Средства атаки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/03-razgrom_v_debiute.htm' %}">Разгром в дебюте</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/04-po_centralnym_magistraliam.htm' %}">По центральным магистралям</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/05-licom_k_licu.htm' %}">Лицом к лицу</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/06-na_raznyh_flangah.htm' %}">На разных флангах</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/07-malymi_silami.htm' %}">Малыми силами</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/08-vstrechnoe_nastuplenie.htm' %}">Встречное наступление</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/09-postoianno_i_vremenno.htm' %}">Постоянно и временно</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/10-zakliuchenie.htm' %}">Заключение</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/11-zadaniia.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/12-otvety_na_zadaniia.htm' %}">Ответы на задания</a></li>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

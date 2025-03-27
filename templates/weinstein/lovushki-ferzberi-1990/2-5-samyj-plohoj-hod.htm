@@ -1,0 +1,40 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Самый плохой ход | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2><a name="#75">Самый плохой ход</a></h2>
+<div class="score">
+<p>— Я знаю самый хороший ход из всех, когдалибо сделанных в шахматной партии! — гордо сказал Сережа. — Это ход Морфи <b>Фb3-b8!</b> И я когда-нибудь смогу сравняться с Морфи, если пожертвую ферзя и следующим ходом объявлю красивый мат.</p>
+<p>— А какой самый плохой ход? Его тоже знать полезно, чтобы не сравняться когда-нибудь с самым слабым игроком... Вот подлинная партия из одного турнира. Ход, конечно, ужасен, хотя шахматист был не так уж слаб.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 1", this, "e7e5"); ' class="line0">e5</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/8/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR b KQkq - 0 1", this, "d1h5"); ' class="line0">2.Фh5</span>.</p>
+<p>Здесь черные хотели сделать ход ферзем, чтобы защитить пешку e5, но по ошибке притронулись к королю. Что делать? «Piece touchee», как говорят французы («тронул—ходи»).</p>
+<p>Пришлось сделать ход
+ <span onclick='loadMove("rnbq1bnr/ppppkppp/8/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR w KQ - 0 1", this, "e8e7"); ' class="line0">2...Крe7</span>. Последовало
+ <span onclick='loadMove("rnbq1bnr/ppppkppp/8/4Q3/4P3/8/PPPP1PPP/RNB1KBNR b KQ - 0 1", this, "h5e5"); ' class="line0">3.Ф:e5X</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbq1bnr/ppppkppp/8/4Q3/4P3/8/PPPP1PPP/RNB1KBNR b KQ - 0 1"></div>
+<p class="caption"><b>Диаграмма 70</b></p>
+
+<p>— Да, — протянул изумленно Сережа, — этот ход королем и в самом деле, наверное, самый плохой из всех, какие только можно себе представить.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

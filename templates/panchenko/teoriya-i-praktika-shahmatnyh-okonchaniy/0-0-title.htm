@@ -1,0 +1,75 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Александр Николаевич Панченко</h2>
+<h1>ТЕОРИЯ И ПРАКТИКА ШАХМАТНЫХ ОКОНЧАНИЙ</h1>
+
+<!--div>
+<li><a href="#794">УДК</a></li>
+<li><a href="#581">ББК 75</a></li>
+<p>П16</p>
+</div-->
+
+<div class="message page">
+<p>П16 <b>Панченко А. Н.</b></p>
+<p>Теория и практика шахматных окончаний.</p>
+<p>Четвертое издание — М.: «Russian CHESS House / Русский шахматный дом», 2018 — 400 с.</p>
+<p>(Шахматный Университет)</p>
+<p><b>ISBN 978-5-94693-663-7</b></p>
+</div>
+
+<div class="message notification">
+<p>Учебник по эндшпилю заслуженного тренера России, международного гроссмейстера А.Н. Панченко предназначен для шахматистов средних и высших разрядов, желающих самостоятельно изучать шахматные окончания, а также для тренеров-преподавателей.</p>
+<p>Кроме теоретического материала в книге даются многочисленные примеры из практики классиков и современных шахматистов, в конце каждого раздела - задания для самостоятельного решения и разыгрывания.</p>
+<p>Один из лучших учебников по эндшпилю!</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<li><a href="#794">УДК</a></li>
+<li><a href="#581">ББК 75</a></li>
+</div-->
+
+<div class="message">
+<p>Учебное издание</p>
+<p>Александр Николаевич Панченко</p>
+<p>ТЕОРИЯ И ПРАКТИКА ШАХМАТНЫХ ОКОНЧАНИЙ</p>
+<p>Четвертое издание</p>
+</div>
+
+<!--div>
+<p>Ответственный редактор Владимир Онищенко</p>
+<p>Художник Евгений Пермяков</p>
+<p>Подписано в печать 25.07.2017. Формат 60x90/16.</p>
+<p>Гарнитура «Ньютон». Усл. п. л. 25,00.</p>
+<p>Издательство «Russian CHESS House»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел.: +7(495) 963-80-17 e-mail: chessm.ru@ya.ru или andy-el@mail.ru </p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+
+<div class="message">
+<b>ISBN 978-5-94693-663-7</b>
+<div style="float:right;">© Панченко А.Н., наследники, 2018<br />© Издательство «Russian CHESS House», 2018</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

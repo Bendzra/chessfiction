@@ -1,0 +1,53 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Раздел 1. ПОЛВЕКА ВМЕСТЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Раздел 1. ПОЛВЕКА ВМЕСТЕ</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-2-predislovie.htm' %}">Предисловие</a><!--5--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-0-sistema-zemisha.htm' %}">Система Земиша</a><!--9--></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-1-v-poiskah-puti.htm' %}">В поисках пути</a><!--10--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-2-moia-bessmertnaia.htm' %}">Моя бессмертная</a><!--31--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-3-pamiatnye-vstrechi.htm' %}">Памятные встречи</a><!--38--></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-0-klassicheskaia-sistema.htm' %}">Классическая система</a><!--76--></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-1-prodolzhenie-7-d5.htm' %}">Продолжение 7.d5</a><!--108--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-2-prodolzhenie-7-Be3.htm' %}">Продолжение 7.Сe3</a><!--122--></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-0-sistema-averbaha.htm' %}">Система Авербаха</a><!--128--></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-1-otkloneniia-ot-sistemy-averbaha.htm' %}">Отклонения от системы Авербаха</a><!--147--></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-0-fianketto-slona-na-g2.htm' %}">Фианкетто слона на g2</a><!--160--></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-1-kontrol-nad-punktom-e4.htm' %}">Контроль над пунктом e4</a><!--161--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-2-ataka-centra.htm' %}">Атака центра</a><!--168--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-3-0-flangovaia-ataka.htm' %}">Фланговая атака</a><!--175--></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-3-1-ne-zakryvaia-centr.htm' %}">Не закрывая центр</a><!--176--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-3-2-s-zakrytiem-centra.htm' %}">С закрытием центра</a><!--184--></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-4-iugoslavskij-variant.htm' %}">Югославский вариант</a><!--189--></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-0-variant-chetyreh-peshek.htm' %}">Вариант четырех пешек</a><!--198--></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-0-reziume.htm' %}">Резюме</a><!--211--></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

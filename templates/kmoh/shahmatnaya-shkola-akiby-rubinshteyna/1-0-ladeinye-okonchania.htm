@@ -1,0 +1,30 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ладейные окончания | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<a name="ladeinye-okonchania"></a>
+<h2>ЛАДЕЙНЫЕ ОКОНЧАНИЯ</h2>
+
+<ol start="1">
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-spielmann-rubinstein.htm' %}">Шпильман — Рубинштейн, Санкт-Петербург 1909</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-rubinstein-alekhin.htm' %}">Рубинштейн — Алехин, Карлсбад 1911</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Матисон — Рубинштейн, Карлсбад 1929</a></li>
+</ol>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

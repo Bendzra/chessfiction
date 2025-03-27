@@ -1,0 +1,76 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ловушка-автомат | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2><a name="66">Ловушка-автомат</a></h2>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>— Если вы сыграли ферзевый гамбит —
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 1", this, "d7d5"); ' class="line0">d5</span>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 1", this, "c2c4"); ' class="line0">2.c4</span>
+и видите, что партнер с некоторым недоумением смотрит то на вас, то на пешку c4, как бы спрашивая: «Зачем это белые отдали пешку?» — а затем решительно берет ее, то можете считать, что черная ладья у вас в кармане.</p>
+<p>Эта ловушка действует безотказно, как автомат, и срабатывает через каких-нибудь четыре хода по следующей схеме:</p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 1", this, "d5c4"); ' class="line0">2...dc</span>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/8/2pP4/4P3/PP3PPP/RNBQKBNR b KQkq - 0 1", this, "e2e3"); ' class="line0">3.e3</span>
+ <span onclick='loadMove("rnbqkbnr/p1p1pppp/8/1p6/2pP4/4P3/PP3PPP/RNBQKBNR w KQkq b6 0 1", this, "b7b5"); ' class="line0">b5</span>
+ <span onclick='loadMove("rnbqkbnr/p1p1pppp/8/1p6/P1pP4/4P3/1P3PPP/RNBQKBNR b KQkq a3 0 1", this, "a2a4"); ' class="line0">4.a4</span>.</p>
+<p>Партнер ваш видит, что, взяв пешку a4, он остается при равном материале, но с разбитой пешечной структурой. Видит он, что плохо играть
+ <span onclick='loadMove("rnbqkbnr/2p1pppp/p7/1p6/P1pP4/4P3/1P3PPP/RNBQKBNR w KQkq - 0 1", this, "a7a6"); ' class="line1">4...a6</span>
+ввиду
+ <span onclick='loadMove("rnbqkbnr/2p1pppp/p7/1P6/2pP4/4P3/1P3PPP/RNBQKBNR b KQkq - 0 1", this, "a4b5"); ' class="line1">5.ab</span>
+и пешку b5 нельзя брать из-за потери ладьи.
+Но почему бы, думает он, не пойти
+ <span onclick='loadMove("rnbqkbnr/p3pppp/2p5/1p6/P1pP4/4P3/1P3PPP/RNBQKBNR w KQkq - 0 1", this, "c7c6"); ' class="line0">4...c6?</span>
+На это следует
+ <span onclick='loadMove("rnbqkbnr/p3pppp/2p5/1P6/2pP4/4P3/1P3PPP/RNBQKBNR b KQkq - 0 1", this, "a4b5"); ' class="line0">5.ab</span>
+ <span onclick='loadMove("rnbqkbnr/p3pppp/8/1p6/2pP4/4P3/1P3PPP/RNBQKBNR w KQkq - 0 1", this, "c6b5"); ' class="line0">cb</span>
+ <span onclick='loadMove("rnbqkbnr/p3pppp/8/1p6/2pP4/4PQ2/1P3PPP/RNB1KBNR b KQkq - 0 1", this, "d1f3"); ' class="line0">6.Фf3</span>.</p>
+
+<div class="chessBoard analysis nobuttons" data-start-fen="rnbqkbnr/p3pppp/8/1p6/2pP4/4PQ2/1P3PPP/RNB1KBNR w KQkq - 0 1"></div>
+<p class="caption"><b>Диаграмма 62</b></p>
+
+<p>И только тут черные с ужасом убеждаются, что они перед выбором: отдать слона на b7, коня на c6 или ладью на a8. Кошмар!</p>
+<p>Если бы они одумались ходом раньше, то могли бы отделаться относительным пустяком, сыграв, например,
+ <span onclick='loadMove("rnb1kbnr/p3pppp/2pq4/1P6/2pP4/4P3/1P3PPP/RNBQKBNR w KQkq - 0 1", this, "d8d6"); ' class="line1">5...Фd6</span>
+или
+ <span onclick='loadMove("rn1qkbnr/pb2pppp/2p5/1P6/2pP4/4P3/1P3PPP/RNBQKBNR w KQkq - 0 1", this, "c8b7"); ' class="line1">5...Сb7</span>. Но в моей практике такого еще ни разу не было: если уж сыграл <b>c7-c6</b>, то, как автомат, обязательно берет и на b5.</p>
+
+<p>— Значит, пешку в ферзевом гамбите брать нельзя?</p>
+<p>— Я-то лично не беру, но брать можно. Ошибка не в том, что пешку взяли, а в том, что пытались ее удержать.</p>
+<br />
+<p>Нормально игра могла бы сложиться так:</p>
+<p>
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1", this, "d2d4"); ' class="line0">1.d4</span>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 1", this, "d7d5"); ' class="line0">d5</span>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 1", this, "c2c4"); ' class="line0">2.c4</span>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/8/2pP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 1", this, "d5c4"); ' class="line0">dc</span>
+ <span onclick='loadMove("rnbqkbnr/ppp1pppp/8/8/2pP4/4P3/PP3PPP/RNBQKBNR b KQkq - 0 1", this, "e2e3"); ' class="line0">3.e3</span>
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/8/2pP4/4P3/PP3PPP/RNBQKBNR w KQkq - 0 1", this, "e7e6"); ' class="line0">e6</span>
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/8/2pP4/4PN2/PP3PPP/RNBQKB1R b KQkq - 0 1", this, "g1f3"); ' class="line0">4.Кf3</span>
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/8/2pP4/4PN2/PP3PPP/RNBQKB1R w KQkq - 0 1", this, "g8f6"); ' class="line0">Кf6</span>
+ <span onclick='loadMove("rnbqkb1r/ppp2ppp/4pn2/8/2BP4/4PN2/PP3PPP/RNBQK2R b KQkq - 0 1", this, "f1c4"); ' class="line0">5.С:c4</span>
+ <span onclick='loadMove("rnbqkb1r/pp3ppp/4pn2/2p5/2BP4/4PN2/PP3PPP/RNBQK2R w KQkq c6 0 1", this, "c7c5"); ' class="line0">c5!</span>
+ <span onclick='loadMove("rnbqkb1r/pp3ppp/4pn2/2p5/2BP4/4PN2/PP3PPP/RNBQ1RK1 b kq - 0 1", this, "e1g1"); ' class="line0">6.0-0</span>
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p3pn2/2p5/2BP4/4PN2/PP3PPP/RNBQ1RK1 w kq - 0 1", this, "a7a6"); ' class="line0">a6</span>
+ <span onclick='loadMove("rnbqkb1r/1p3ppp/p3pn2/2p5/2BP4/4PN2/PP2QPPP/RNB2RK1 b kq - 0 1", this, "d1e2"); ' class="line0">7.Фe2</span>
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1n1pn2/2p5/2BP4/4PN2/PP2QPPP/RNB2RK1 w kq - 0 1", this, "b8c6"); ' class="line0">Кc6</span>
+ <span onclick='loadMove("r1bqkb1r/1p3ppp/p1n1pn2/2p5/2BP4/4PN2/PP2QPPP/RNBR2K1 b kq - 0 1", this, "f1d1"); ' class="line0">8.Лd1</span>
+ <span onclick='loadMove("r1bqkb1r/5ppp/p1n1pn2/1pp5/2BP4/4PN2/PP2QPPP/RNBR2K1 w kq b6 0 1", this, "b7b5"); ' class="line0">b5</span>.</p>
+
+<p>Почему же черные часто попадаются в ловушкуавтомат? Потому что в начальном положении трудно себе представить, чтобы угловая ладья оказалась вдруг беззащитной. Для этого нужно убрать со своих мест пешки «b», «с» и «d», не трогая пешку «а» и не выводя слона на b7. И все же это происходит.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

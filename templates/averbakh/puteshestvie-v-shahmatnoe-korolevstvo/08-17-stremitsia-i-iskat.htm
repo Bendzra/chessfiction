@@ -1,0 +1,162 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СТРЕМИТЬСЯ И ИСКАТЬ... | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h3>СТРЕМИТЬСЯ И ИСКАТЬ...</h3>
+<p>Обычно в задаче перед белыми ставится условие: объявить мат в определенное количество ходов — в два, три и более.</p>
+<p>Мы подобрали шесть примечательных задач. Они не самые трудные и не самые сложные. Вы в силах их решить. Сначала попробуйте это сделать передвигая фигуры. Если получается, тогда старайтесь решить задачу не переставляя фигур, прямо по диаграмме.</p>
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6K1/3r3r/5kn1/5p2/5P2/6N1/8/4R1R1 w - - 0 1"></div>
+<div class="score">
+<p><b>Задаче — тысяча лет!</b></p>
+ <span class="line0" onclick='loadMove("6K1/3r3r/5kn1/5p2/5P2/6N1/8/4R1R1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">331</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="6K1/3r3r/5kn1/5p2/5P2/6N1/8/4R1R1 w - - 0 1"></div>
+<p>Эта задача, в которой белые должны дать мат в три хода, была составлена ни много ни мало тысячу лет назад. К цели ведет эффектная жертва коня, а затем ладьи.</p>
+<p class="longNotation">
+ <span onclick='loadMove("6K1/3r3r/5kn1/5p1N/5P2/8/8/4R1R1 b - - 0 1", this, "g3h5"); ' class="line0">1.Кg3-h5+</span> 
+ <span onclick='loadMove("6K1/3r4/5kn1/5p1r/5P2/8/8/4R1R1 w - - 0 2", this, "h7h5"); ' class="line0">Лh7:h5</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6K1/3r4/5kR1/5p1r/5P2/8/8/4R3 b - - 0 2", this, "g1g6"); ' class="line0">2.Лg1:g6+</span> 
+ <span onclick='loadMove("6K1/3r4/6k1/5p1r/5P2/8/8/4R3 w - - 0 3", this, "f6g6"); ' class="line0">Крf6:g6</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("6K1/3r4/4R1k1/5p1r/5P2/8/8/8 b - - 0 3", this, "e1e6"); ' class="line0">3.Лe1-e6X</span> 
+.</p>
+<p>Конечно, задача сейчас выглядит элементарной. Решение найти нетрудно. Но нельзя не признать, что и тысячу лет назад люди кое-что понимали в шахматах.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1k6/8/8/5N2/2RBBKPP/1P3N2/P7/8 w - - 0 1"></div>
+<div class="score">
+<p><b>«Дамоклов меч»</b></p>
+<p>Составители задач разработали интересную область шахматного творчества, называемую «скахографией». Это задачи, в которых очертание расположения фигур напоминает какой-то предмет. Перед вами задача (мат в три хода), которую в середине прошлого века составил русский морской офицер И. Шумов. Как видите, расположение фигур белых напоминает кривой меч. И этот «меч Дамокла» навис над черным королем.</p>
+ <span class="line0" onclick='loadMove("1k6/8/8/5N2/2RBBKPP/1P3N2/P7/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">332</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1k6/8/8/5N2/2RBBKPP/1P3N2/P7/8 w - - 0 1"></div>
+<p>Как же решается эта задача? Если бы ход был черных, они бы радостно воскликнули: — Пат!</p>
+<p>Значит, нужно предоставить королю черных некоторую свободу:
+ <span onclick='loadMove("1k6/8/2R5/5N2/3BBKPP/1P3N2/P7/8 b - - 0 1", this, "c4c6"); ' class="line1">1.Лc6!</span> 
+ <span onclick='loadMove("8/1k6/2R5/5N2/3BBKPP/1P3N2/P7/8 w - - 0 2", this, "b8b7"); ' class="line1">Крb7</span> 
+(<span onclick='loadMove("k7/8/2R5/5N2/3BBKPP/1P3N2/P7/8 w - - 0 2", this, "b8a8"); ' class="line2">1...Крa8</span> 
+ <span onclick='loadMove("k1R5/8/8/5N2/3BBKPP/1P3N2/P7/8 b - - 0 2", this, "c6c8"); ' class="line2">2.Лc8X</span>)
+ <span onclick='loadMove("8/1k6/2RN4/8/3BBKPP/1P3N2/P7/8 b - - 0 2", this, "f5d6"); ' class="line1">2.Кd6+</span> 
+ <!--span onclick='loadMove("8/1k6/2RN4/8/3BBKPP/1P3N2/P7/8 w - - 0 3", this, "f5d6"); ' class="line1">z0</span--> 
+и
+ <span onclick='loadMove("2R5/1k6/3N4/8/3BBKPP/1P3N2/P7/8 b - - 0 3", this, "c6c8"); ' class="line1">3.Лc8X</span>.</p>
+<p>Строгие правила шахматной композиции требуют, чтобы задача решалась единственным путем, но эта задача — шутка и имеет другие решения.</p>
+<p>Попробуйте их найти.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/2P1P1P1/3PkP2/8/4K3/8/8/8 w - - 0 1"></div>
+<div class="score">
+<p><b>Машина решила задачу</b></p>
+ <span class="line0" onclick='loadMove("8/2P1P1P1/3PkP2/8/4K3/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">333</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/2P1P1P1/3PkP2/8/4K3/8/8/8 w - - 0 1"></div>
+<p>Эта задача Гофмана (тоже мат в три хода) не очень сложна, она интересна тем, что ее решала электронно-вычислительная машина и решила в несколько минут. А сколько времени вы затратите на решение? Нетрудно догадаться, что превращение пешки в ферзя к цели не ведет. Например:
+ <span onclick='loadMove("4Q3/2P3P1/3PkP2/8/4K3/8/8/8 b - - 0 1", this, "e7e8"); ' class="line1">1.e8Ф+</span> 
+ <span onclick='loadMove("4Q3/2P3P1/3P1k2/8/4K3/8/8/8 w - - 0 2", this, "e6f6"); ' class="line1">Кр:f6</span> 
+ <span onclick='loadMove("4Q1Q1/2P5/3P1k2/8/4K3/8/8/8 b - - 0 2", this, "g7g8"); ' class="line1">2.g8Ф</span>. Пат. Пешки по правилу нужно превращать в фигуры. Но в какие? Рассчитывая варианты со скоростью не меньшей, чем несколько сот вариантов в секунду, машина через две минуты установила, что к мату в три хода ведет
+ <span onclick='loadMove("4B3/2P3P1/3PkP2/8/4K3/8/8/8 b - - 0 1", this, "e7e8"); ' class="line0">1.e8С!</span> 
+ <span onclick='loadMove("4B3/2P3P1/3P1k2/8/4K3/8/8/8 w - - 0 2", this, "e6f6"); ' class="line0">Кр:f6</span> 
+ <span onclick='loadMove("4B1R1/2P5/3P1k2/8/4K3/8/8/8 b - - 0 2", this, "g7g8"); ' class="line0">2.g8Л!</span> 
+ <span onclick='loadMove("4B1R1/2P5/3Pk3/8/4K3/8/8/8 w - - 0 3", this, "f6e6"); ' class="line0">Крe6</span> 
+ <span onclick='loadMove("4B3/2P5/3Pk1R1/8/4K3/8/8/8 b - - 0 3", this, "g8g6"); ' class="line0">3.Лg6</span> 
+или
+ <span onclick='loadMove("4B3/2P3P1/3k1P2/8/4K3/8/8/8 w - - 0 2", this, "e6d6"); ' class="line1">1...Кр:d6</span> 
+ <span onclick='loadMove("2R1B3/6P1/3k1P2/8/4K3/8/8/8 b - - 0 2", this, "c7c8"); ' class="line1">2.c8Л!</span> 
+ <!--span onclick='loadMove("2R1B3/6P1/3k1P2/8/4K3/8/8/8 w - - 0 3", this, "c7c8"); ' class="line1">z0</span--> 
+и
+ <span onclick='loadMove("4B3/6P1/2Rk1P2/8/4K3/8/8/8 b - - 0 3", this, "c8c6"); ' class="line1">3.Лc6</span>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1"></div>
+<div class="score">
+<p><b>В любую сторону</b></p>
+<p>Перед вами задача-трехходовка русского композитора А. Галицкого. Позиция выглядит вполне естественной. Но есть в ней, кроме изящного решения, еще удивительная особенность...</p>
+ <span class="line0" onclick='loadMove("7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">334</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="7k/4K1pp/7N/8/8/8/8/B7 w - - 0 1"></div>
+<p>Если пешки идут вниз, как им положено на диаграмме,то к цели ведет
+ <span onclick='loadMove("7k/4K1pp/5B1N/8/8/8/8/8 b - - 0 1", this, "a1f6"); ' class="line0">1.Сf6!</span> 
+ <span onclick='loadMove("7k/4K2p/5p1N/8/8/8/8/8 w - - 0 2", this, "g7f6"); ' class="line0">gf</span> 
+ <span onclick='loadMove("5K1k/7p/5p1N/8/8/8/8/8 b - - 0 2", this, "e7f8"); ' class="line0">2.Крf8</span> 
+ <span onclick='loadMove("5K1k/7p/7N/5p2/8/8/8/8 w - - 0 3", this, "f6f5"); ' class="line0">f5</span> 
+ <span onclick='loadMove("5K1k/5N1p/8/5p2/8/8/8/8 b - - 0 3", this, "h6f7"); ' class="line0">3.Кf7X</span>. А если вверх, то <b>1. Крf6! g8Ф 2. Кf7+ Ф:f7+ 3. Кр:f7X</b>. Эту особенность позиции заметил композитор А. Гуляев.</p>
+<p>Проверьте правильность решения, если черные попытаются превратить пешку в другие фигуры.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3b4/8/7R/8/8/R7/7P/5K1k w - - 0 1"></div>
+<div class="score">
+<p><b>А ларчик просто открывался</b></p>
+ <span class="line0" onclick='loadMove("3b4/8/7R/8/8/R7/7P/5K1k w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">335</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3b4/8/7R/8/8/R7/7P/5K1k w - - 0 1"></div>
+<p>Это — задача Палича. Мат в три хода. Казалось бы, решить ее нетрудно. Нужно только отойти королем и объявить мат ладьей. Однако вот в чем «загвоздка»: на черное поле пойдешь — под шах слоном попадешь, на белое пойдешь — выпустишь короля противника из угла.</p>
+<p>И все-таки нужно идти под шах.</p>
+<p class="longNotation">
+ <span onclick='loadMove("3b4/8/7R/8/8/R7/5K1P/7k b - - 0 1", this, "f1f2"); ' class="line0">1.Крf1-f2!</span> 
+ <span onclick='loadMove("8/8/7R/8/7b/R7/5K1P/7k w - - 0 2", this, "d8h4"); ' class="line0">Сd8-h4+</span> 
+</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/7R/8/7b/6R1/5K1P/7k b - - 0 2", this, "a3g3"); ' class="line0">2.Лa3-g3!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Теперь у черных нет выбора. Если слон уйдет, последует мат ладьей на g1, а если слон возьмет ладью
+ <span onclick='loadMove("8/8/7R/8/8/6b1/5K1P/7k w - - 0 3", this, "h4g3"); ' class="line1">2...С:g3</span>, то матует
+ <span onclick='loadMove("8/8/7R/8/8/6P1/5K2/7k b - - 0 3", this, "h2g3"); ' class="line1">3.hg+</span>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/8/1B6/8/2k5/K2b2RQ w - - 0 1"></div>
+<div class="score">
+<p><b>Головоломка</b></p>
+ <span class="line0" onclick='loadMove("8/8/8/8/1B6/8/2k5/K2b2RQ w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">336</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/8/1B6/8/2k5/K2b2RQ w - - 0 1"></div>
+<p>На диаграмме задача Хавеля. Силы белых велики — четыре мощные фигуры, но пойти можно лишь двумя. Мат надо объявить в два хода.</p>
+<p class="longNotation">
+ <span onclick='loadMove("8/8/8/8/1B4R1/8/2k5/K2b3Q b - - 0 1", this, "g1g4"); ' class="line0">1.Лg1-g4!</span> 
+ <span class="ellipsis0">...</span> 
+</p>
+<p>Теперь в распоряжении черного короля три поля, как и до первого хода. Это поля b3, d3 и c1, а черный слон может свободно пойти по диагонали d1-h5. Но мат неминуем.</p>
+<p>а)
+ <span onclick='loadMove("8/8/8/8/1B4R1/1k6/8/K2b3Q w - - 0 2", this, "c2b3"); ' class="line1">1...Крc2-b3</span> 
+ <span onclick='loadMove("8/8/8/8/1B4R1/1k6/8/K2Q4 b - - 0 2", this, "h1d1"); ' class="line1">2.Фh1:d1X</span>,</p>
+<p>б)
+ <span onclick='loadMove("8/8/8/8/1B4R1/3k4/8/K2b3Q w - - 0 2", this, "c2d3"); ' class="line1">1...Крc2-d3</span> 
+ <span onclick='loadMove("8/8/8/8/1B2Q1R1/3k4/8/K2b4 b - - 0 2", this, "h1e4"); ' class="line1">2.Фh1-e4X</span>,</p>
+<p>в)
+ <span onclick='loadMove("8/8/8/8/1B4R1/8/8/K1kb3Q w - - 0 2", this, "c2c1"); ' class="line1">1...Крc2-c1</span> 
+ <span onclick='loadMove("8/8/8/8/1BR5/8/8/K1kb3Q b - - 0 2", this, "g4c4"); ' class="line1">2.Лg4-c4X</span>,</p>
+<p>г)
+ <span onclick='loadMove("8/8/8/8/1B4b1/8/2k5/K6Q w - - 0 2", this, "d1g4"); ' class="line1">1...С:g4</span> 
+(или на любое другое поле)
+ <span onclick='loadMove("8/8/8/8/1B4b1/8/2k5/KQ6 b - - 0 2", this, "h1b1"); ' class="line1">2.Фh1-b1X</span>.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="message">
+<p>Вы заметили, что за исключением первой — старинной задачи — во всех остальных, белые, делая первый ход, ни разу не объявили шах, не взяли ни фигуры, ни пешки. Это не случайность, а правило.</p>
+<p>В хорошей задаче решение, особенно его первый ход, не должно бросаться в глаза. А шах или взятие приходит на ум раньше всего. Поэтому, как правило, их избегают, чтобы задача не получилась грубой, неизящной.</p>
+</div>
+
+</div> <!-- iBook -->
+{% endblock content %}
+

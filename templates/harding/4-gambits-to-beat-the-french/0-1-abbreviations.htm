@@ -1,0 +1,43 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ABBREVIATIONS | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ABBREVIATIONS</h1>
+<table>
+<tr><td>±</td><td>White has a significant advantage</td></tr>
+<tr><td>-/+</td><td>Black has a significant advantage</td></tr>
+<tr><td>+/=</td><td>slight advantage to White</td></tr>
+<tr><td>=/+</td><td>slight advantage to Black</td></tr>
+<tr><td>+-</td><td>White is winning</td></tr>
+<tr><td>-+</td><td>Black is winning</td></tr>
+<tr><td></td><td></td></tr>
+<tr><td>ASPCC</td><td>All Services Postal Chess Club</td></tr>
+<tr><td>BPCF</td><td>British Postal Chess Federation</td></tr>
+<tr><td>CC</td><td>Correspondence Chess</td></tr>
+<tr><td>Ch</td><td>Championship</td></tr>
+<tr><td>corr</td><td>correspondence game</td></tr>
+<tr><td>ECO</td><td>Encyclopedia of Chess Openings</td></tr>
+<tr><td>FIDE</td><td>Federation Internationale des Echecs<br />(International Chess Federation)</td></tr>
+<tr><td>ICCF</td><td>International Correspondence Chess Federation</td></tr>
+<tr><td>IECG</td><td>International E-mail Chess Group</td></tr>
+<tr><td>ol</td><td>Olympiad</td></tr>
+<tr><td>OTB</td><td>Over-the-board Chess</td></tr>
+<tr><td>MCO</td><td>Modern Chess Openings</td></tr>
+<tr><td>NATT</td><td>North American Team Tournament</td></tr>
+<tr><td>tch</td><td>Team Championship</td></tr>
+<tr><td>USCF</td><td>United States Chess Federation</td></tr>
+</table>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

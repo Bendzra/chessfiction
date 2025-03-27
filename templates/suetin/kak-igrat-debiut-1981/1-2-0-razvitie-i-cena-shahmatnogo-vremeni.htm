@@ -1,0 +1,21 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Развитие и цена шахматного времени | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2><a name="#9">Развитие и цена шахматного времени</a></h2>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-1-ekonomte-tempy.htm' %}">Экономьте темпы!</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-2-o-specifike-dejstvij-figur-a-peshek-v-debiute.htm' %}">О специфике действий фигур а пешек в дебюте</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-3-o-prave-pervogo-hoda-i-ego-malenkoj-vygode.htm' %}">О праве первого хода и его маленькой выгоде</a></li>
+</ul>
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

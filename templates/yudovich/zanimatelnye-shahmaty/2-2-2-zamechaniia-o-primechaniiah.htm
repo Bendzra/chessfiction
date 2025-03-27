@@ -1,0 +1,59 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Замечания о примечаниях | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Замечания о примечаниях</h3>
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<p>Итак, условились. Ты сам составишь примечания ко всем этим «короткометражным» партиям. Но еще раз хочу тебе напомнить — не
+<!--p>— 50 —</p-->
+торопись с выводами. Ведь комментировать партию — значит хорошо разобраться в смысле событий, происходивших на шахматной доске.</p>
+<p>Как уже говорилось, плохие ходы в партиях отмечены вопросительными знаками. В примечаниях надо не только объяснить, почему эти ходы неудачны, но и, самое главное, указать, каким должно было быть правильное продолжение.</p>
+<p>А для того, чтобы дать хороший совет, надо многое продумать, проверить. Вот, например, очень слабо игранная черными партия:</p>
+<p>
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/p1pppppp/1p6/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "b7b6"); ' class="line0">b6</span> 
+ <span onclick='loadMove("rnbqkbnr/p1pppppp/1p6/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d4</span> 
+ <span onclick='loadMove("rn1qkbnr/pbpppppp/1p6/8/3PP3/8/PPP2PPP/RNBQKBNR w KQkq - 0 3", this, "c8b7"); ' class="line0">Сb7</span> 
+ <span onclick='loadMove("rn1qkbnr/pbpppppp/1p6/8/3PP3/3B4/PPP2PPP/RNBQK1NR b KQkq - 0 3", this, "f1d3"); ' class="line0">3.Сd3</span> 
+ <span onclick='loadMove("rn1qkbnr/pbppp1pp/1p6/5p2/3PP3/3B4/PPP2PPP/RNBQK1NR w KQkq f6 0 4", this, "f7f5"); ' class="line0">f5</span> 
+ <span onclick='loadMove("rn1qkbnr/pbppp1pp/1p6/5P2/3P4/3B4/PPP2PPP/RNBQK1NR b KQkq - 0 4", this, "e4f5"); ' class="line0">4.ef</span> 
+ <span onclick='loadMove("rn1qkbnr/p1ppp1pp/1p6/5P2/3P4/3B4/PPP2PbP/RNBQK1NR w KQkq - 0 5", this, "b7g2"); ' class="line0">С:g2</span> 
+ <span onclick='loadMove("rn1qkbnr/p1ppp1pp/1p6/5P1Q/3P4/3B4/PPP2PbP/RNB1K1NR b KQkq - 0 5", this, "d1h5"); ' class="line0">5.Фh5+</span> 
+ <span onclick='loadMove("rn1qkbnr/p1ppp2p/1p4p1/5P1Q/3P4/3B4/PPP2PbP/RNB1K1NR w KQkq - 0 6", this, "g7g6"); ' class="line0">g6</span> 
+ <span onclick='loadMove("rn1qkbnr/p1ppp2p/1p4P1/7Q/3P4/3B4/PPP2PbP/RNB1K1NR b KQkq - 0 6", this, "f5g6"); ' class="line0">6.fg</span> 
+ <span onclick='loadMove("rn1qkb1r/p1ppp2p/1p3nP1/7Q/3P4/3B4/PPP2PbP/RNB1K1NR w KQkq - 0 7", this, "g8f6"); ' class="line0">Кf6</span> 
+ <span onclick='loadMove("rn1qkb1r/p1ppp2P/1p3n2/7Q/3P4/3B4/PPP2PbP/RNB1K1NR b KQkq - 0 7", this, "g6h7"); ' class="line0">7.gh+</span> 
+ <span onclick='loadMove("rn1qkb1r/p1ppp2P/1p6/7n/3P4/3B4/PPP2PbP/RNB1K1NR w KQkq - 0 8", this, "f6h5"); ' class="line0">К:h5</span> 
+ <span onclick='loadMove("rn1qkb1r/p1ppp2P/1p4B1/7n/3P4/8/PPP2PbP/RNB1K1NR b KQkq - 0 8", this, "d3g6"); ' class="line0">8.Сg6X</span> 
+.</p>
+<p>Казалось бы, что о ней сказать, что комментировать? Но ведь даже позиция после
+ <span onclick='loadMove("rn1qkbnr/p1ppp2p/1p4P1/7Q/3P4/3B4/PPP2PbP/RNB1K1NR b KQkq - 0 6", this, "f5g6"); ' class="line1">6.fg</span> 
+, возникшая в канун развязки, вовсе не такая уж простая. Черные могли, например, сыграть
+ <span onclick='loadMove("rn1qk1nr/p1ppp1bp/1p4P1/7Q/3P4/3B4/PPP2PbP/RNB1K1NR w KQkq - 0 7", this, "f8g7"); ' class="line1">6...Сg7</span> 
+(вместо
+ <span onclick='loadMove("rn1qkb1r/p1ppp2p/1p3nP1/7Q/3P4/3B4/PPP2PbP/RNB1K1NR w KQkq - 0 7", this, "g8f6"); ' class="line2">6...Кf6?</span> 
+),
+и далее
+ <span onclick='loadMove("rn1qk1nr/p1ppp1bP/1p6/7Q/3P4/3B4/PPP2PbP/RNB1K1NR b KQkq - 0 7", this, "g6h7"); ' class="line1">7.gh+</span> 
+ <span onclick='loadMove("rn1q1knr/p1ppp1bP/1p6/7Q/3P4/3B4/PPP2PbP/RNB1K1NR w KQ - 0 8", this, "e8f8"); ' class="line1">Крf8</span> 
+ <span onclick='loadMove("rn1q1kQr/p1ppp1b1/1p6/7Q/3P4/3B4/PPP2PbP/RNB1K1NR b KQ - 0 8", this, "h7g8"); ' class="line1">8.hgФ+</span> 
+ <span onclick='loadMove("rn1q2kr/p1ppp1b1/1p6/7Q/3P4/3B4/PPP2PbP/RNB1K1NR w KQ - 0 9", this, "f8g8"); ' class="line1">Кр:g8</span> 
+приводило к острой борьбе.</p>
+<p>И в каждой партии-малышке можно найти варианты, скрытые за кулисами этих коротких драм. Вот почему не комментируй более двух-трех партий-малышек в неделю. Составляя примечания, обязательно сверь свои заметки о дебютах и с нашим дебютным путеводителем и с каким-либо
+руко водством по дебютной теории.</p>
+<p>Составишь примечания не спеши переписывать их в тетрадь. Подожди денька два, покажи свои примечания товарищам или сам проверь их снова.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

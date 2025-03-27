@@ -1,0 +1,48 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<div class="message">
+<h2>Михаил Ходарковский, Леонид Листенгартен</h2>
+<h1>4-х ладейные окончания</h1>
+</div>
+<div class="message">
+<p>ББК 75.581.119</p>
+<p>Л 63</p>
+</div>
+<div class="message page">
+<p>Л63 <strong>Листенгартен Л., Ходарковский М.</strong> — 4-х ладейные окончания — М.: Спорт, 2016 — 320 с.</p>
+<p>ISBN 978-5-906839-50-3</p>
+</div>
+<div class="message notification">
+<p>Эта книга — учебник по одному из актуальных видов шахматных окончаний для любителей и практическое пособие для тренеров. Английский вариант пользуется успехом за рубежом. Не будет исключением и русское издание среди российских любителей шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<div class="message">
+<p>ББК 75.581.119</p>
+</div>
+<div class="message warning">
+<b>ISBN 978-5-906839-50-3</b>
+<div style="float:right;">© Ходарковский М., 2016<br />© Листенгартен Л., 2016<br />© «Спорт», оформление, издание, 2016</div>
+<div class="clear"></div>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

@@ -1,0 +1,73 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Contents | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<h2>Contents</h2>
+
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Logical Chess: Move By Move: Every Move Explained (Irving Chernev, 1957)</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-1-introduction.htm' %}">Introduction</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-2-chess-notation-and-symbols.htm' %}">Chess Notation and Symbols</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-00-the-kingside-attack.htm' %}">The Kingside Attack</a></li>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-01-von-scheve-teichmann-1907.htm' %}">1 von Scheve-Teichmann, Berlin 1907</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-02-liubarski-soultanbieff-1928.htm' %}">2 Liubarski-Soultanb&#233;ieff, Li&#232;ge 1928</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-03-colle-delvaux-1929.htm' %}">3 Colle-Delvaux, Gand-Terneuzen 1929</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-04-blackburne-blanchard-1891.htm' %}">4 Blackburne-Blanchard, London 1891</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-05-ruger-gebhard-1915.htm' %}">5 Ruger-Gebhard, Dresden 1915</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-06-zeissl-walthoffen-1899.htm' %}">6 Zeissl-Walthoffen, Vienna 1899</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-07-spielmann-wahle-1926.htm' %}">7 Spielmann-Wahle, Vienna 1926</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-08-przepiorka-prokesh-1929.htm' %}">8 S Przepiorka-Proke&#353;, Budapest 1929</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-09-znosko-borovsky-mackenzie-1924.htm' %}">9 Znosko-Borovsky - Mackenzie, Weston-super-Mare 1924</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-10-tarrasch-eckart-1889.htm' %}">10 Tarrasch-Eckart, Nuremberg 1889</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-11-flohr-pitschak-1930.htm' %}">11 Flohr-Pitschak, Bilin 1930</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-12-pitschak-flohr-1934.htm' %}">12 Pitschak-Flohr, Liebwerda 1934</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-13-dobias-podgorny-1952.htm' %}">13 Dobias-Podgorny, Prague 1952</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-14-tarrasch-mieses-1916.htm' %}">14 Tarrasch-Mieses, Berlin 1916</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-15-alekhine-poindle-1936.htm' %}">15 Alekhine-Poindle, Vienna 1936</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-16-tarrasch-kurschner-1889.htm' %}">16 Tarrasch-Kurschner, Nuremberg 1889</a></li>
+</ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-00-the-queens-pawn-opening.htm' %}">The Queen's Pawn Opening</a></li>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-17-pillsbury-mason-1895.htm' %}">17 Pillsbury-Mason, Hastings 1895</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-18-noteboom-doesburgh-1931.htm' %}">18 Noteboom-Doesburgh, Netherlands 1931</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-19-gruenfeld-schenkein-1915.htm' %}">19 Gr&#252;nfeld-Schenkein, Vienna 1915</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-20-rubinstein-salwe-1908.htm' %}">20 Rubinstein-Salwe, Lodz 1908</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-21-chernev-hahlbohm-1942.htm' %}">21 Chernev-Hahlbohm, New York 1942</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-22-pillsbury-marco-1900.htm' %}">22 Pillsbury-Marco, Paris 1900</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-23-van-vliet-znosko-borovsky-1907.htm' %}">23 Van Vliet - Znosko-Borovsky, Ostend 1907</a></li>
+</ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-00-the-chess-master-explains-his-ideas.htm' %}">The Chess Master Explains his Ideas</a></li>
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-24-capablanca-mattison-1929.htm' %}">24 Capablanca-Mattison, Karlsbad 1929</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-25-janowsky-alapin-1905.htm' %}">25 Janowsky-Alapin, Barmen 1905</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-26-bernstein-mieses-1904.htm' %}">26 O,Bernstein-Mieses, Coburg 1904</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-27-chekhover-rudakovsky-1945.htm' %}">27 Chekhover-Rudakovsky, Moscow 1945</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-28-tarrasch-mieses-1920.htm' %}">28 Tarrasch-Mieses, Gothenburg 1920</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-29-marshall-tarrasch-1905.htm' %}">29 Marshall-Tarrasch, Nuremberg 1905</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-30-capablanca-villegas-1914.htm' %}">30 Capablanca-Villegas, Buenos Aires 1914</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-31-havasi-capablanca-1929.htm' %}">31 Havasi-Capablanca, Budapest 1929</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-32-canal-capablanca-1929.htm' %}">32 Canal-Capablanca, Budapest 1929</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/3-33-rubinstein-maroczy-1920.htm' %}">33 Rubinstein-Maroczy, Gothenburg 1920</a></li>
+</ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/041-index-of-players.htm' %}">Index of Players</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/042-index-of-openings.htm' %}">Index of Openings</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

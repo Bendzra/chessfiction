@@ -1,0 +1,44 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть первая | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h2>Часть первая</h2>
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-0-ladya-na-eshafote.htm' %}">Глава 1. Ладья на эшафоте</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-1-testy.htm' %}">Тесты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Партия А. Морозевич — М. Вашье-Лаграв, Биль 2009</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 2. Невероятная позиция</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Тесты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Партия А. Грищук — А. Морозевич, Сочи 2004</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 3. Избранные миниатюры</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Тесты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Партии</a></li>
+</ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Глава 4. Когда соперник наступает</a></li>
+<ul>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Тесты</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Партия Г. Каспаров — А. Морозевич, Сараево 2000</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Решения</a></li>
+</ul>
+</ul>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

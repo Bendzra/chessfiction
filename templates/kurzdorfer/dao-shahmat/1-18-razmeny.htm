@@ -1,0 +1,228 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава 18. Размены | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Глава 18. РАЗМЕНЫ</h2>
+<div class="score">
+<p>Вы должны знать, какие фигуры и пешки следует менять и когда. Это очень важный аспект шахматной стратегии; не пренебрегайте им.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 86: Разменивайте своих плохих слонов.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<p>Во Французской защите после
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1", this, "e2e4"); ' class="line0">1.e4</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2", this, "e7e6"); ' class="line0">e6</span> 
+ <span onclick='loadMove("rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2", this, "d2d4"); ' class="line0">2.d4</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3", this, "d7d5"); ' class="line0">d5</span> 
+ <span onclick='loadMove("rnbqkbnr/ppp2ppp/4p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR b KQkq - 0 3", this, "e4e5"); ' class="line0">3.e5</span> 
+ <span onclick='loadMove("rnbqkbnr/p1p2ppp/1p2p3/3pP3/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 0 4", this, "b7b6"); ' class="line0">b6</span> 
+ <span onclick='loadMove("rnbqkbnr/p1p2ppp/1p2p3/3pP3/3P4/2P5/PP3PPP/RNBQKBNR b KQkq - 0 4", this, "c2c3"); ' class="line0">4.c3</span> 
+ <span onclick='loadMove("rnb1kbnr/p1pq1ppp/1p2p3/3pP3/3P4/2P5/PP3PPP/RNBQKBNR w KQkq - 0 5", this, "d8d7"); ' class="line0">Фd7</span> 
+ <span onclick='loadMove("rnb1kbnr/p1pq1ppp/1p2p3/3pP3/3P4/2P4N/PP3PPP/RNBQKB1R b KQkq - 0 5", this, "g1h3"); ' class="line0">5.Кh3</span> 
+черные, глядя на свою пешечную цепь f7-d5, решают разменять плохого слона c8 на хорошего белого слона f1 путем
+ <span onclick='loadMove("rn2kbnr/p1pq1ppp/bp2p3/3pP3/3P4/2P4N/PP3PPP/RNBQKB1R w KQkq - 0 6", this, "c8a6"); ' class="line0">5...Сa6</span> 
+ <span onclick='loadMove("rn2kbnr/p1pq1ppp/Bp2p3/3pP3/3P4/2P4N/PP3PPP/RNBQK2R b KQkq - 0 6", this, "f1a6"); ' class="line0">6.С:a6</span> 
+ <span onclick='loadMove("r3kbnr/p1pq1ppp/np2p3/3pP3/3P4/2P4N/PP3PPP/RNBQK2R w KQkq - 0 7", this, "b8a6"); ' class="line0">К:a6</span> 
+ <span onclick='loadMove("r3kbnr/p1pq1ppp/np2p3/3pP3/3P4/2P4N/PP3PPP/RNBQ1RK1 b kq - 0 7", this, "e1g1"); ' class="line0">7.0-0</span> 
+ <span onclick='loadMove("r3kb1r/p1pqnppp/np2p3/3pP3/3P4/2P4N/PP3PPP/RNBQ1RK1 w kq - 0 8", this, "g8e7"); ' class="line0">Кe7</span> 
+ <span onclick='loadMove("r3kb1r/p1pqnppp/np2p3/3pP3/3P4/2P4N/PP2QPPP/RNB2RK1 b kq - 0 8", this, "d1e2"); ' class="line0">8.Фe2</span> 
+ <span onclick='loadMove("rn2kb1r/p1pqnppp/1p2p3/3pP3/3P4/2P4N/PP2QPPP/RNB2RK1 w kq - 0 9", this, "a6b8"); ' class="line0">Кb8</span>.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-98.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="rn2kb1r/p1pqnppp/1p2p3/3pP3/3P4/2P4N/PP2QPPP/RNB2RK1 w kq - 0 9"></div>
+<p class="caption"><b>После 8...Кb8</b></p>
+
+<p>Теперь белые, глядя на цепь своих пешек b2-e5, решают ответить любезностью на любезность и меняют своего плохого слона c1 на хорошего слона черных f8 путем
+ <span onclick='loadMove("rn2kb1r/p1pqnppp/1p2p3/3pP3/3P4/1PP4N/P3QPPP/RNB2RK1 b kq - 0 9", this, "b2b3"); ' class="line0">9.b3</span> 
+ <span onclick='loadMove("rn2kb1r/p1pq1ppp/1p2p3/3pPn2/3P4/1PP4N/P3QPPP/RNB2RK1 w kq - 0 10", this, "e7f5"); ' class="line0">Кf5</span> 
+ <span onclick='loadMove("rn2kb1r/p1pq1ppp/1p2p3/3pPn2/3P4/BPP4N/P3QPPP/RN3RK1 b kq - 0 10", this, "c1a3"); ' class="line0">10.Сa3</span> 
+ <span onclick='loadMove("rn2k2r/p1pq1ppp/1p2p3/3pPn2/3P4/bPP4N/P3QPPP/RN3RK1 w kq - 0 11", this, "f8a3"); ' class="line0">С:a3</span> 
+ <span onclick='loadMove("rn2k2r/p1pq1ppp/1p2p3/3pPn2/3P4/NPP4N/P3QPPP/R4RK1 b kq - 0 11", this, "b1a3"); ' class="line0">11.К:a3</span> 
+(Курцдорфер -Перетц Миллер, Сиракузы, 1987).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Избавляйтесь от всего неэффективного и добивайтесь эффективности всеми возможными средствами.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 87: Меняйте свои пассивные фигуры на активные фигуры соперника.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="5r2/1p2r2k/p1p5/3nPp2/1P1P4/P4q1B/2Q5/R3R2K w - - 0 1"></div>
+<div class="score">
+<p>Это расширение принципа 86. Смысл его очевиден. Фигуры пассивные не так сильны, как активные. Поэтому если ваш слон не очень активен, а слон соперника доставляет вам массу хлопот, добивайтесь их размена. То же самое относится и к коням.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-99.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="5r2/1p2r2k/p1p5/3nPp2/1P1P4/P4q1B/2Q5/R3R2K w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>Ферзь черных — головная боль белых. Не проходит ни
+ <span class="line0" onclick='loadMove("5r2/1p2r2k/p1p5/3nPp2/1P1P4/P4q1B/2Q5/R3R2K w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp2/1P1P4/P4q2/2Q3B1/R3R2K b - - 0 1", this, "h3g2"); ' class="line0">1.Сg2</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp1q/1P1P4/P7/2Q3B1/R3R2K w - - 0 2", this, "f3h5"); ' class="line0">Фh5+</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp1q/1P1P4/P7/2Q3B1/R3R1K1 b - - 0 2", this, "h1g1"); ' class="line0">2.Крg1</span> 
+ <span onclick='loadMove("5r2/1p4rk/p1p5/3nPp1q/1P1P4/P7/2Q3B1/R3R1K1 w - - 0 3", this, "e7g7"); ' class="line0">Лg7</span> 
+с угрозой <b>3...Кf4</b>, ни
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp2/1P1P4/P4q1B/2Q4K/R3R3 b - - 0 1", this, "h1h2"); ' class="line0">1.Крh2</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp2/1P1P1q2/P6B/2Q4K/R3R3 w - - 0 2", this, "f3f4"); ' class="line0">Фf4+</span>. С другой стороны, белый ферзь не слишком активен. Решением поэтому является размен ферзей путем
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp2/1P1P4/P4q1B/6Q1/R3R2K b - - 0 1", this, "c2g2"); ' class="line0">1.Фg2</span>, так как после
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp2/1P1P4/P6B/6q1/R3R2K w - - 0 2", this, "f3g2"); ' class="line0">1...Ф:g2+</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/3nPp2/1P1P4/P6B/6K1/R3R3 b - - 0 2", this, "h1g2"); ' class="line0">2.Кр:g2</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/4Pp2/1P1P1n2/P6B/6K1/R3R3 w - - 0 3", this, "d5f4"); ' class="line0">Кf4+</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/4Pp2/1P1P1n2/P4K1B/8/R3R3 b - - 0 3", this, "g2f3"); ' class="line0">3.Крf3</span> 
+ <span onclick='loadMove("5r2/1p2r2k/p1p1n3/4Pp2/1P1P4/P4K1B/8/R3R3 w - - 0 4", this, "f4e6"); ' class="line0">Кe6</span> 
+(черные не могут выиграть слона посредством
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/4Pp2/1P1P4/P4K1n/8/R3R3 w - - 0 4", this, "f4h3"); ' class="line1">3...К:h3</span> 
+ввиду
+ <span onclick='loadMove("5r2/1p2r2k/p1p5/4Pp2/1P1P4/P4K1n/8/R6R b - - 0 4", this, "e1h1"); ' class="line1">4.Лh1</span>)
+ <span onclick='loadMove("5r2/1p2r2k/p1p1n3/4Pp2/1P1P4/P4K1B/8/3RR3 b - - 0 4", this, "a1d1"); ' class="line0">4.Лad1</span> 
+- король белых в безопасности, а их фигуры выгодно расположены (Курцдорфер — Давид Лавинь, Нью-Хемпшир, 1979).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Если у вас появится шанс поменять вашу старую, побитую автомашину на новую последней модели, вы с радостью ухватитесь за него. Возможно, в жизни такое случается редко, но когда случается, надо уметь распознать возможность и грамотно ею воспользоваться. Обычно, если выгода слишком высока, чтобы быть правдой, так оно и есть. Но в шахматах подобное не редкость. В любом случае, всегда стремитесь получить от сделки барыш.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 88: Разменивайте атакующие фигуры соперника, чтобы ослабить атаку.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="3r1rk1/pp4pp/2p2p2/2n1NQ2/2P3R1/2B1q3/PP5P/1K3R2 b - - 0 25"></div>
+<div class="score">
+<p>Это просто здравый смысл. Если у противника не останется фигур, как сможет он продолжить атаку? Конечно, надо быть внимательным, чтобы не оставить парня, сидящего напротив вас, с фигурами, которые излучают максимальную опасность, и этого-то как раз непросто добиться.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-100.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="3r1rk1/pp4pp/2p2p2/2n1NQ2/2P3R1/2B1q3/PP5P/1K3R2 b - - 0 25"></div>
+<p class="caption"><b>Ход черных</b></p>
+
+<p>Атака белых кажется сокрушительной. Но путем систематического уничтожения большинства белых фигур черным удается одержать верх:</p>
+<p>
+ <span class="line0" onclick='loadMove("3r1rk1/pp4pp/2p2p2/2n1NQ2/2P3R1/2B1q3/PP5P/1K3R2 b - - 0 25", this, ""); '>[...]</span> 
+ <span onclick='loadMove("3r1rk1/pp4pp/2p5/2n1pQ2/2P3R1/2B1q3/PP5P/1K3R2 w - - 0 26", this, "f6e5"); ' class="line0">25...f:e5</span> 
+ <span onclick='loadMove("3r1rk1/pp4Rp/2p5/2n1pQ2/2P5/2B1q3/PP5P/1K3R2 b - - 0 26", this, "g4g7"); ' class="line0">26.Л:g7+</span> 
+ <span onclick='loadMove("3r1r2/pp4kp/2p5/2n1pQ2/2P5/2B1q3/PP5P/1K3R2 w - - 0 27", this, "g8g7"); ' class="line0">Кр:g7</span> 
+ <span onclick='loadMove("3r1r2/pp4kp/2p5/2n1BQ2/2P5/4q3/PP5P/1K3R2 b - - 0 27", this, "c3e5"); ' class="line0">27.С:e5+</span> 
+ <span onclick='loadMove("3r1r2/pp5p/2p4k/2n1BQ2/2P5/4q3/PP5P/1K3R2 w - - 0 28", this, "g7h6"); ' class="line0">Крh6</span>.</p>
+<p>Понятно, что не
+ <span onclick='loadMove("3r1rk1/pp5p/2p5/2n1BQ2/2P5/4q3/PP5P/1K3R2 w - - 0 28", this, "g7g8"); ' class="line1">27...Крg8</span> 
+ <span onclick='loadMove("3r1rk1/pp5p/2p5/2n1B3/2P3Q1/4q3/PP5P/1K3R2 b - - 0 28", this, "f5g4"); ' class="line1">28.Фg4+</span>, и атака завершается полным успехом.</p>
+<p>
+ <span onclick='loadMove("3r1r2/pp5p/2p4k/2n2Q2/2P2B2/4q3/PP5P/1K3R2 b - - 0 28", this, "e5f4"); ' class="line0">28.Сf4+</span> 
+ <span onclick='loadMove("3r1r2/pp5p/2p4k/2n2Q2/2P2q2/8/PP5P/1K3R2 w - - 0 29", this, "e3f4"); ' class="line0">Ф:f4</span> 
+ <span onclick='loadMove("3r1r2/pp5p/2p4k/2n5/2P2q2/7Q/PP5P/1K3R2 b - - 0 29", this, "f5h3"); ' class="line0">29.Фh3+</span> 
+ <span onclick='loadMove("3r1r2/pp5p/2p5/2n3k1/2P2q2/7Q/PP5P/1K3R2 w - - 0 30", this, "h6g5"); ' class="line0">Крg5</span> 
+ <span onclick='loadMove("3r1r2/pp5p/2p5/2n3k1/2P2R2/7Q/PP5P/1K6 b - - 0 30", this, "f1f4"); ' class="line0">30.Л:f4</span> 
+ <span onclick='loadMove("3r4/pp5p/2p5/2n3k1/2P2r2/7Q/PP5P/1K6 w - - 0 31", this, "f8f4"); ' class="line0">Л:f4</span>, и у черных две ладьи и конь за единственную оставшуюся атакующую фигуру белых (Леонид Хинкис — Курцдорфер, Буффало, 1993).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">В теннисе вы забрасываете мяч «за шиворот» противника, устремившегося к сетке. Выбивая жалящее оружие из рук противника, вы получаете все шансы выйти победителем в поединке.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 89: Меняйте фигуры, особенно тяжелые, когда ваша пешечная структура здоровее, чем у соперника.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="r3k2r/1pp1n1pp/p1p2q2/4b3/3Q2b1/2P5/PP3PPP/RNB1R1K1 w kq - 0 1"></div>
+<div class="score">
+<p>Суть принципа в том, что по мере исчезновения фигур с доски значение пешечной структуры возрастает. В эндшпиле слабые пешки — тяжкий груз, а хорошие — проявляют себя с самой выгодной стороны.</p>
+<p>Хорошей практикой является визуализация позиции без фигур при каждой возможности. Таким образом можно понять, следует ли вам атаковать, защищаться или же стоит разменять как можно больше фигур, чтобы приблизить выгодный эндшпиль.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-101.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="r3k2r/1pp1n1pp/p1p2q2/4b3/3Q2b1/2P5/PP3PPP/RNB1R1K1 w kq - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>У белых здоровая пешечная структура на королевском фланге, в то время как пешечное большинство черных на ферзевом скомпрометировано. Поэтому белые играют на размен фигур, поскольку чисто пешечное окончание выиграно для них:</p>
+<p>
+ <span class="line0" onclick='loadMove("r3k2r/1pp1n1pp/p1p2q2/4b3/3Q2b1/2P5/PP3PPP/RNB1R1K1 w kq - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("r3k2r/1pp1n1pp/p1p2q2/4b3/6Q1/2P5/PP3PPP/RNB1R1K1 b kq - 0 1", this, "d4g4"); ' class="line0">1.Ф:g4</span>.</p>
+<p>Конечно, после
+ <span onclick='loadMove("r3k2r/1pp1n1pp/p1p2q2/4Q3/6b1/2P5/PP3PPP/RNB1R1K1 b kq - 0 1", this, "d4e5"); ' class="line1">1.Ф:e5</span> 
+с доски уйдет больше фигур, но ценой возникновения разноцвета.</p>
+<p>
+ <span onclick='loadMove("r4rk1/1pp1n1pp/p1p2q2/4b3/6Q1/2P5/PP3PPP/RNB1R1K1 w - - 0 2", this, "e8g8"); ' class="line0">1...0-0</span> 
+ <span onclick='loadMove("r4rk1/1pp1n1pp/p1p2q2/4b3/6Q1/2P2P2/PP4PP/RNB1R1K1 b - - 0 2", this, "f2f3"); ' class="line0">2.f3</span> 
+ <span onclick='loadMove("3r1rk1/1pp1n1pp/p1p2q2/4b3/6Q1/2P2P2/PP4PP/RNB1R1K1 w - - 0 3", this, "a8d8"); ' class="line0">Лad8</span> 
+ <span onclick='loadMove("3r1rk1/1pp1n1pp/p1p2q2/4b3/6Q1/2P2P2/PP1N2PP/R1B1R1K1 b - - 0 3", this, "b1d2"); ' class="line0">3.Кd2</span> 
+ <span onclick='loadMove("3r1rk1/1pp3pp/p1p2qn1/4b3/6Q1/2P2P2/PP1N2PP/R1B1R1K1 w - - 0 4", this, "e7g6"); ' class="line0">Кg6</span> 
+ <span onclick='loadMove("3r1rk1/1pp3pp/p1p2qn1/4b3/4N1Q1/2P2P2/PP4PP/R1B1R1K1 b - - 0 4", this, "d2e4"); ' class="line0">4.Кe4</span> 
+ <span onclick='loadMove("3r1rk1/1pp3pp/p1p3n1/4bq2/4N1Q1/2P2P2/PP4PP/R1B1R1K1 w - - 0 5", this, "f6f5"); ' class="line0">Фf5</span> 
+ <span onclick='loadMove("3r1rk1/1pp3pp/p1p3n1/4bQ2/4N3/2P2P2/PP4PP/R1B1R1K1 b - - 0 5", this, "g4f5"); ' class="line0">5.Ф:f5</span> 
+ <span onclick='loadMove("3r2k1/1pp3pp/p1p3n1/4br2/4N3/2P2P2/PP4PP/R1B1R1K1 w - - 0 6", this, "f8f5"); ' class="line0">Л:f5</span> 
+ <span onclick='loadMove("3r2k1/1pp3pp/p1p3n1/4br2/4N3/2P1BP2/PP4PP/R3R1K1 b - - 0 6", this, "c1e3"); ' class="line0">6.Сe3</span> 
+ <span onclick='loadMove("3r2k1/1pp3pp/p1pb2n1/5r2/4N3/2P1BP2/PP4PP/R3R1K1 w - - 0 7", this, "e5d6"); ' class="line0">Сd6</span> 
+ <span onclick='loadMove("3r2k1/1pp3pp/p1pb2n1/5r2/2P1N3/4BP2/PP4PP/R3R1K1 b - - 0 7", this, "c3c4"); ' class="line0">7.c4</span> 
+ <span onclick='loadMove("3r2k1/1pp3pp/p2b2n1/2p2r2/2P1N3/4BP2/PP4PP/R3R1K1 w - - 0 8", this, "c6c5"); ' class="line0">c5</span> 
+ <span onclick='loadMove("3r2k1/1pp3pp/p2b2n1/2p2r2/2P1N3/4BP2/PP4PP/3RR1K1 b - - 0 8", this, "a1d1"); ' class="line0">8.Лad1</span> 
+ <span onclick='loadMove("3r2k1/1pp3p1/p2b2np/2p2r2/2P1N3/4BP2/PP4PP/3RR1K1 w - - 0 9", this, "h7h6"); ' class="line0">h6</span> 
+ <span onclick='loadMove("3r2k1/1pp3p1/p2b2np/2p2r2/2P1N3/4BP2/PP1R2PP/4R1K1 b - - 0 9", this, "d1d2"); ' class="line0">9.Лd2</span>.</p>
+<p>Белые намереваются разменяться на d6 только в случае, если удастся скомпрометировать пешки черных.</p>
+<p>
+ <span onclick='loadMove("3r2k1/2p3p1/pp1b2np/2p2r2/2P1N3/4BP2/PP1R2PP/4R1K1 w - - 0 10", this, "b7b6"); ' class="line0">9...b6</span> 
+ <span onclick='loadMove("3r2k1/2p3p1/pp1b2np/2p2r2/2P1N3/4BP2/PP1R2PP/3R2K1 b - - 0 10", this, "e1d1"); ' class="line0">10.Лed1</span>.</p>
+<p>Разумеется, в случае выигрыша пешки окончание также выиграно для белых (Курцдорфер — Роберт Пилл, по переписке, 1980).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Всегда помните о конечной цели вне зависимости от того, насколько запутаны дела в текущий момент.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 90: Меняйте блокирующие фигуры противника, чтобы обеспечить марш своих проходных пешек.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="4b3/5q1k/p2PpPp1/1p2P1Q1/2p3P1/8/PPB5/7K w - - 0 1"></div>
+<div class="score">
+<p>Поскольку проходные пешки стремятся к продвижению (принцип 30), есть смысл в том, чтобы обеспечить им пространство для его осуществления. Именно поэтому противник стремится заблокировать проходные пешки (принцип 71), а вы хотите блокаду прорвать. Один из самых удобных способов этого добиться состоит в размене блокирующих фигур.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-102.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="4b3/5q1k/p2PpPp1/1p2P1Q1/2p3P1/8/PPB5/7K w - - 0 1"></div>
+<p class="caption"><b>Ход белых</b></p>
+
+<p>У белых две проходные пешки, которые стремятся к продвижению. Но на их пути две черные фигуры. Поэтому белые играют на устранение этих двух блокеров:
+ <span class="line0" onclick='loadMove("4b3/5q1k/p2PpPp1/1p2P1Q1/2p3P1/8/PPB5/7K w - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("4b3/5q1k/p2PpPp1/1p2P2Q/2p3P1/8/PPB5/7K b - - 0 1", this, "g5h5"); ' class="line0">1.Фh5+</span> 
+ <span onclick='loadMove("4b1k1/5q2/p2PpPp1/1p2P2Q/2p3P1/8/PPB5/7K w - - 0 2", this, "h7g8"); ' class="line0">Крg8</span> 
+ <span onclick='loadMove("4b1k1/5q2/p2PpPB1/1p2P2Q/2p3P1/8/PP6/7K b - - 0 2", this, "c2g6"); ' class="line0">2.С:g6</span> 
+ <span onclick='loadMove("4b1k1/8/p2PpPq1/1p2P2Q/2p3P1/8/PP6/7K w - - 0 3", this, "f7g6"); ' class="line0">Ф:g6</span> 
+ <span onclick='loadMove("4b1k1/8/p2PpPQ1/1p2P3/2p3P1/8/PP6/7K b - - 0 3", this, "h5g6"); ' class="line0">3.Ф:g6</span> 
+ <span onclick='loadMove("6k1/8/p2PpPb1/1p2P3/2p3P1/8/PP6/7K w - - 0 4", this, "e8g6"); ' class="line0">С:g6</span> 
+ <span onclick='loadMove("6k1/3P4/p3pPb1/1p2P3/2p3P1/8/PP6/7K b - - 0 4", this, "d6d7"); ' class="line0">4.d7</span>, и черные сдались (Давид Яновский — Симон Алапин, Бармен, Германия, 1905).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Чтобы проложить путь к успеху, надо удалить имеющиеся препятствия.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<h3>Принцип 91: Меняйте защитные фигуры противника, чтобы освободить пространство для инфильтрации в его лагерь оставшихся атакующих фигур.</h3>
+<div class="chessBoard small nobuttons floater" data-start-fen="5rk1/3q2b1/pR1p3r/2pP1b1n/2P1N1nB/P2B1N2/2Q2P1P/6K1 b - - 0 1"></div>
+<div class="score">
+<p>Это принцип как будто противоречит принципу 88, но они применяются к позициям различного типа. Атакующему нужна тропа, чтобы пробраться в расположение противника, и размен фигур нередко лучший способ решения задачи. Ключевым моментом является, разумеется, знание того, какие фигуры следует менять, чтобы оставшихся хватило для доведения дела до конца.</p>
+
+<!--img class="diagram" src="images/Tao of Chess-103.png" /-->
+<div class="chessBoard analysis nobuttons" data-start-fen="5rk1/3q2b1/pR1p3r/2pP1b1n/2P1N1nB/P2B1N2/2Q2P1P/6K1 b - - 0 1"></div>
+<p class="caption"><b>Ход черных</b></p>
+
+<p>У черных не хватает пешки, и они вот-вот потеряют еще одну. Но несколько их фигур находятся в опасной близости от короля белых, у которого мало защитников.</p>
+<p>
+ <span class="line0" onclick='loadMove("5rk1/3q2b1/pR1p3r/2pP1b1n/2P1N1nB/P2B1N2/2Q2P1P/6K1 b - - 0 1", this, ""); '>[...]</span> 
+ <span onclick='loadMove("5rk1/3q2b1/pR1p3r/2pPnb1n/2P1N2B/P2B1N2/2Q2P1P/6K1 w - - 0 2", this, "g4e5"); ' class="line0">1...Кe5</span> 
+ <span onclick='loadMove("5rk1/3q2b1/pR1p3r/2pPNb1n/2P1N2B/P2B4/2Q2P1P/6K1 b - - 0 2", this, "f3e5"); ' class="line0">2.К:e5</span> 
+ <span onclick='loadMove("5rk1/3q4/pR1p3r/2pPbb1n/2P1N2B/P2B4/2Q2P1P/6K1 w - - 0 3", this, "g7e5"); ' class="line0">С:e5</span> 
+ <span onclick='loadMove("5rk1/3q4/R2p3r/2pPbb1n/2P1N2B/P2B4/2Q2P1P/6K1 b - - 0 3", this, "b6a6"); ' class="line0">3.Л:a6</span> 
+ <span onclick='loadMove("5rk1/3q4/R2p3r/2pPb2n/2P1b2B/P2B4/2Q2P1P/6K1 w - - 0 4", this, "f5e4"); ' class="line0">С:e4</span> 
+ <span onclick='loadMove("5rk1/3q4/R2p3r/2pPb2n/2P1B2B/P7/2Q2P1P/6K1 b - - 0 4", this, "d3e4"); ' class="line0">4.С:e4</span> 
+ <span onclick='loadMove("5rk1/8/R2p3r/2pPb2n/2P1B2B/P6q/2Q2P1P/6K1 w - - 0 5", this, "d7h3"); ' class="line0">Фh3</span> 
+ <span onclick='loadMove("5rk1/8/R2p3r/2pPb2n/2P1B3/P5Bq/2Q2P1P/6K1 b - - 0 5", this, "h4g3"); ' class="line0">5.Сg3</span> 
+ <span onclick='loadMove("5rk1/8/R2p3r/2pPb3/2P1B3/P5nq/2Q2P1P/6K1 w - - 0 6", this, "h5g3"); ' class="line0">К:g3</span> 
+ <span onclick='loadMove("5rk1/8/R2p3r/2pPb3/2P1B3/P5Pq/2Q2P2/6K1 b - - 0 6", this, "h2g3"); ' class="line0">6.h:g3</span> 
+ <span onclick='loadMove("5rk1/8/R2p3r/2pP4/2PbB3/P5Pq/2Q2P2/6K1 w - - 0 7", this, "e5d4"); ' class="line0">Сd4</span>.</p>
+<p>Атаку не отразить (Фиделити — Курцдорфер, Филадельфия, 1988).</p>
+<!--p class="bpiesesSet">P N B R Q K</p-->
+<p class="notification message">Решительный человек расчищает путь к успеху, не стесняясь в средствах.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,31 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава четвертая | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>Глава четвертая</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-mezhdunarodnyj-turnir-v-buhareste-1954.htm' %}">Международный турнир в Бухаресте (Март—апрель 1954 года)</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-mezhdunarodnyj-turnir-v-buhareste-1954.htm' %}#game35">№ *35*. Черные — В. Корчной</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-mezhdunarodnyj-turnir-v-buhareste-1954.htm' %}#game36">№ 35. Черные — Г. Паоли</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-mezhdunarodnyj-turnir-v-buhareste-1954.htm' %}#game37">№ 36. Белые - В. Чокылтя</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-1-mezhdunarodnyj-turnir-v-buhareste-1954.htm' %}#game38">№ 37. Черные — Г. Штальберг</a></li>
+</ul>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

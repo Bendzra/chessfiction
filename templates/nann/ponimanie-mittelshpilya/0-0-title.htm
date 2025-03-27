@@ -1,0 +1,73 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<!--div>
+<p>УДК 794</p>
+<p>ББК 75.582</p>
+<p>Н25</p>
+</div-->
+
+<div class="message page">
+<p><b>Джон Нанн</b></p>
+<p>Н25 Шахматы. Понимание миттельшпиля - М.: «Russian CHESS House / Русский шахматный дом», 2017 - 304 с.</p>
+<p>ISBN 978-5-94693-636-1</p>
+</div>
+
+<div class="message notification">
+<p>В своем новом учебнике знаменитый английский гроссмейстер и прекрасный шахматный литератор Джон Нанн обращает наше внимание на середину игры - ту стадию, в которой чаще всего решается большинство поединков.</p>
+<p>Автор учит пониманию атакующей и позиционной игры. У внимательного читателя не возникнет проблем с выбором плана, независимо от типа возникающей позиции.</p>
+<p>Каждый урок включает два ярких примера из современной шахматной практики, которые тщательно прокомментированы с обращением внимания на важнейшие детали позиции. При этом подчеркиваются идеи обеих сторон, благодаря чему читатель учится разрушать планы соперника и формировать собственные.</p>
+<p>Изучайте миттельшпиль вместе с Джоном Нанном!</p>
+<p>Для широкого круга любителей шахмат.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<p>Увеличенный формат (170x235 мм).</p>
+<p>УДК 794</p>
+<p>ББК 75.582</p>
+</div-->
+
+<h2>Джон Нанн</h2>
+<h1>ШАХМАТЫ. ПОНИМАНИЕ МИТТЕЛЬШПИЛЯ</h1>
+
+<!--div>
+<p>Перевод с английского Сергей Худяков</p>
+<p>Редактор Андрей Панеях</p>
+<p>Оформление и верстка Алексей Белов</p>
+<p>Подписано в печать 30.04.2017. Формат 70x100/16.</p>
+<p>Издательство «Russian CHESS House»</p>
+<p>(директор Мурад Аманназаров)</p>
+<p>Тел./факс: (495) 963-80-17</p>
+<p>e-mail: chessm.com@gmail.com или andy-el@mail.ru</p>
+<p>http://www.chessm.ru — Интернет-магазин</p>
+</div-->
+
+<div>
+<b>ISBN 978-5-94693-636-1</b>
+<div style="float:right;">
+<p>©Джон Нанн, 2017</p>
+<p>© Издательство «Russian CHESS House», 2017</p>
+</div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

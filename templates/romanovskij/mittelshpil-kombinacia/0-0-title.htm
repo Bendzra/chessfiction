@@ -1,0 +1,32 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>П. РОМАНОВСКИЙ</h2>
+<h1>МИТТЕЛЬШПИЛЬ. КОМБИНАЦИЯ</h1>
+<div class="diagram">
+<p>Издательство</p>
+<p>„ФИЗКУЛЬТУРА И СПОРТ“</p>
+<p>МОСКВА 1963</p>
+</div>
+<hr />
+<div class="message notification">
+Книга двукратного чемпиона СССР, заслуженного тренера СССР Петра Арсеньевича Романовского, посвященная важнейшей стадии партии — миттельшпилю — это один из лучших шахматных учебников, ставший настольным пособием для нескольких поколений шахматистов, рассматривающий основы позиционной и комбинационной игры. Во второй части миттельшпиль изучается, с замечательной ясностью и последовательностью, как поле богатых возможностей для комбинационной игры.
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

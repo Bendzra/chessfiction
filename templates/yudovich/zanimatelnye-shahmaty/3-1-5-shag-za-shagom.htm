@@ -1,0 +1,135 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Шаг за шагом | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Шаг за шагом</h3>
+<div class="score">
+<p>Мы с тобой рассматривали вопросы шахматного планирования в позиции, где было материальное равенство, а одна из сторон имела несомненное позиционное преимущество. Еще раз потолкуем о плане, на этот раз уже в позициях с материальным превосходством у одного из противников.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4k2r/8/5p2/p2B4/P3P3/1P6/8/4K3 b k - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4k2r/8/5p2/p2B4/P3P3/1P6/8/4K3 b k - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">92</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4k2r/8/5p2/p2B4/P3P3/1P6/8/4K3 b k - 0 1"></div>
+<p>У черных в эндшпиле лишнее качество. Ладья ведь сильнее слона или коня, и перевес ладьи над легкой фигурой принято в шахматной литературе называть качеством.</p>
+<p>И все же можно сделать предположение, что позиция белых вполне защитима. Ведь пешки их надежно обороняются слоном, и у черных нет путей к тому, чтобы осуществить прорыв одной из своих пешек в ферзи. Но такое предположение ошибочно.</p>
+<p>Прежде всего отметим, что черные могут резко ограничить подвижность белого короля, в то время как их король остается свободным в своих действиях. В подобной игре на ограничение подвижности обычно убедительно выявляется сила ладьи, ведь она может сразу преградить доступ на многие поля доски.</p>
+<p>Отрезав белого короля, ты сможешь начать наступление своим. Никто не помешает тебе перевести его на d4, e3 или b4.</p>
+<p>Скажем, ты приводишь короля на b4, берешь ладьей пешку b3. Затем погибает пешка a4.</p>
+<p>Следующий этап — ты уйдешь королем к пешке e4, заберешь ее и проведешь пешку f6 в ферзи.</p>
+<p>Такова ориентировочная схема. В ходе реализации
+<!--p>- 65 -</p-->
+плана обрати внимание на такие важные факторы:</p>
+<p>а) у белых неудачно расположен король;</p>
+<p>б) пешки a4 и b3 занимают невыгодное положение, удерживаются одной пешкой черных.</p>
+<p>Теперь, когда мы наметили план игры, становится совершенно очевидным, что пешку f6 разменивать на пешку e4 не стоит. Это значительно облегчило бы белым защиту.</p>
+<p>Посмотрим, как реализуется практически наше обдуманное предположение.</p>
+<p>
+ <span onclick='loadMove("4k3/8/5p2/p2B4/P3P3/1P6/7r/4K3 w - - 0 2", this, "h8h2"); ' class="line0">1...Лh8-h2</span> 
+ <span onclick='loadMove("4k3/8/5p2/p2B4/P3P3/1P6/7r/5K2 b - - 0 2", this, "e1f1"); ' class="line0">2.Крe1-f1</span> 
+ <span onclick='loadMove("8/4k3/5p2/p2B4/P3P3/1P6/7r/5K2 w - - 0 3", this, "e8e7"); ' class="line0">Крe8-e7</span> 
+ <span onclick='loadMove("8/4k3/5p2/p2B4/P3P3/1P6/7r/6K1 b - - 0 3", this, "f1g1"); ' class="line0">3.Крf1-g1</span> 
+ <span onclick='loadMove("8/4k3/5p2/p2B4/P3P3/1P6/1r6/6K1 w - - 0 4", this, "h2b2"); ' class="line0">Лh2-b2</span> 
+ <span onclick='loadMove("8/4k3/5p2/p2B4/P3P3/1P6/1r6/5K2 b - - 0 4", this, "g1f1"); ' class="line0">4.Крg1-f1</span> 
+ <span onclick='loadMove("8/8/3k1p2/p2B4/P3P3/1P6/1r6/5K2 w - - 0 5", this, "e7d6"); ' class="line0">Крe7-d6</span> 
+ <span onclick='loadMove("8/8/3k1p2/p2B4/P3P3/1P6/1r6/4K3 b - - 0 5", this, "f1e1"); ' class="line0">5.Крf1-e1</span> 
+ <span onclick='loadMove("8/8/5p2/p1kB4/P3P3/1P6/1r6/4K3 w - - 0 6", this, "d6c5"); ' class="line0">Крd6-c5</span> 
+ <span onclick='loadMove("8/8/5p2/p1kB4/P3P3/1P6/1r6/3K4 b - - 0 6", this, "e1d1"); ' class="line0">6.Крe1-d1</span> 
+ <span onclick='loadMove("8/8/5p2/p2B4/Pk2P3/1P6/1r6/3K4 w - - 0 7", this, "c5b4"); ' class="line0">Крc5-b4</span> 
+ <span onclick='loadMove("8/8/5p2/p2B4/Pk2P3/1P6/1r6/2K5 b - - 0 7", this, "d1c1"); ' class="line0">7.Крd1-c1</span> 
+ <span onclick='loadMove("8/8/5p2/p2B4/Pk2P3/1r6/8/2K5 w - - 0 8", this, "b2b3"); ' class="line0">Лb2:b3</span> 
+ <span onclick='loadMove("8/8/5p2/p7/Pk2P3/1B6/8/2K5 b - - 0 8", this, "d5b3"); ' class="line0">8.Сd5:b3</span> 
+ <span onclick='loadMove("8/8/5p2/p7/P3P3/1k6/8/2K5 w - - 0 9", this, "b4b3"); ' class="line0">Крb4:b3</span> 
+ <span onclick='loadMove("8/8/5p2/p7/P3P3/1k6/3K4/8 b - - 0 9", this, "c1d2"); ' class="line0">9.Крc1-d2</span> 
+ <span onclick='loadMove("8/8/5p2/p7/k3P3/8/3K4/8 w - - 0 10", this, "b3a4"); ' class="line0">Крb3:a4</span> 
+ <span onclick='loadMove("8/8/5p2/p7/k3P3/2K5/8/8 b - - 0 10", this, "d2c3"); ' class="line0">10.Крd2-c3</span> 
+ <span onclick='loadMove("8/8/5p2/pk6/4P3/2K5/8/8 w - - 0 11", this, "a4b5"); ' class="line0">Крa4-b5</span> 
+ <span onclick='loadMove("8/8/5p2/pk6/4P3/1K6/8/8 b - - 0 11", this, "c3b3"); ' class="line0">11.Крc3-b3</span> 
+ <span onclick='loadMove("8/8/5p2/p1k5/4P3/1K6/8/8 w - - 0 12", this, "b5c5"); ' class="line0">Крb5-c5</span> 
+ <span onclick='loadMove("8/8/5p2/p1k5/K3P3/8/8/8 b - - 0 12", this, "b3a4"); ' class="line0">12.Крb3-a4</span> 
+ <span onclick='loadMove("8/8/5p2/p7/K2kP3/8/8/8 w - - 0 13", this, "c5d4"); ' class="line0">Крc5-d4</span> 
+ <span onclick='loadMove("8/8/5p2/K7/3kP3/8/8/8 b - - 0 13", this, "a4a5"); ' class="line0">13.Крa4:a5</span> 
+ <span onclick='loadMove("8/8/5p2/K7/4k3/8/8/8 w - - 0 14", this, "d4e4"); ' class="line0">Крd4:e4</span> 
+, и пешка f6 готова начать свое победоносное продвижение.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="3B4/8/2B5/1K6/8/8/3p4/3k4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("3B4/8/2B5/1K6/8/8/3p4/3k4 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">93</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="3B4/8/2B5/1K6/8/8/3p4/3k4 w - - 0 1"></div>
+<p>Материальное преимущество белых в данный момент
+очевидно. У них два слона, в то время как черные располагают только одной пешкой. Да, но зато эта коварная пешечка уже добралась до второй горизонтали и вот-вот превратится в ферзя.</p>
+<p>Конечно, ничего не стоит ее обезвредить. Можно сыграть, скажем,
+ <span onclick='loadMove("8/8/2B5/BK6/8/8/3p4/3k4 b - - 0 1", this, "d8a5"); ' class="line1">1.Сd8-a5</span> 
+, затем отдать слона за пешку. Но тогда белым не удастся одержать победу, ведь одним слоном мат дать нельзя.</p>
+<p>Каким должен быть план белых? Несомненно, им надо блокировать поле d1, оттеснить черного короля от пешки d2 и затем забрать эту пешку.</p>
+<p>План ясен, а как его осуществить?</p>
+<p>Прямолинейные попытки вроде
+ <span onclick='loadMove("3B4/8/8/1K6/8/5B2/3p4/3k4 b - - 0 1", this, "c6f3"); ' class="line1">1.Сc6-f3+</span> 
+или
+ <span onclick='loadMove("3B4/8/2B5/8/2K5/8/3p4/3k4 b - - 0 1", this, "b5c4"); ' class="line2">1.Крb5-c4</span> 
+черные парируют, играя в первом случае
+ <span onclick='loadMove("3B4/8/8/1K6/8/5B2/2kp4/8 w - - 0 2", this, "d1c2"); ' class="line1">1...Крd1-c2</span> 
+ <span onclick='loadMove("3B4/8/8/1K6/4B3/8/2kp4/8 b - - 0 2", this, "f3e4"); ' class="line1">2.Сf3-e4+</span> 
+ <span onclick='loadMove("3B4/8/8/1K6/4B3/1k6/3p4/8 w - - 0 3", this, "c2b3"); ' class="line1">Крc2-b3</span> 
+ <span onclick='loadMove("3B4/8/8/1K6/8/1k3B2/3p4/8 b - - 0 3", this, "e4f3"); ' class="line1">3.Сe4-f3</span> 
+ <span onclick='loadMove("3B4/8/8/1K6/8/5B2/2kp4/8 w - - 0 4", this, "b3c2"); ' class="line1">Крb3-c2</span> 
+,
+а во втором (
+ <span onclick='loadMove("3B4/8/2B5/8/2K5/8/3p4/3k4 b - - 0 1", this, "b5c4"); ' class="line1">1.Крb5-c4</span> 
+) —
+ <span onclick='loadMove("3B4/8/2B5/8/2K5/8/3pk3/8 w - - 0 2", this, "d1e2"); ' class="line1">1...Крd1-e2</span> 
+. Посмотри, как хитро обеспечивают белые оперативный простор своим слонам.</p>
+<p>
+ <span onclick='loadMove("3B4/8/K1B5/8/8/8/3p4/3k4 b - - 0 1", this, "b5a6"); ' class="line0">1.Крb5-a6!</span> 
+</p>
+<p>Временное отступление, теперь для слона c6 открываются многие пути атаки.</p>
+<p>
+ <span onclick='loadMove("3B4/8/K1B5/8/8/8/3pk3/8 w - - 0 2", this, "d1e2"); ' class="line0">1...Крd1-e2</span> 
+(разбери варианты, возникающие после всех других ходов короля)
+ <span onclick='loadMove("3B4/8/K7/1B6/8/8/3pk3/8 b - - 0 2", this, "c6b5"); ' class="line0">2.Сc6-b5+</span> 
+ <span onclick='loadMove("3B4/8/K7/1B6/8/8/3p1k2/8 w - - 0 3", this, "e2f2"); ' class="line0">Крe2-f2</span> 
+(И здесь тебе надо найти, как играли бы белые при
+<!--p>— 66 —</p-->
+ <span onclick='loadMove("3B4/8/K7/1B6/8/8/3p4/4k3 w - - 0 3", this, "e2e1"); ' class="line1">2...Крe1</span> 
+или
+ <span onclick='loadMove("3B4/8/K7/1B6/8/8/3p4/3k4 w - - 0 3", this, "e2d1"); ' class="line1">2...Крd1</span> 
+)
+ <span onclick='loadMove("8/8/KB6/1B6/8/8/3p1k2/8 b - - 0 3", this, "d8b6"); ' class="line0">3.Сd8-b6+</span> 
+ <span onclick='loadMove("8/8/KB6/1B6/8/5k2/3p4/8 w - - 0 4", this, "f2f3"); ' class="line0">Крf2-f3</span> 
+(Если
+ <span onclick='loadMove("8/8/KB6/1B6/8/8/3p2k1/8 w - - 0 4", this, "f2g2"); ' class="line1">3...Крg2</span> 
+, то
+ <span onclick='loadMove("8/8/KB6/8/8/8/3pB1k1/8 b - - 0 4", this, "b5e2"); ' class="line1">4.Сe2</span> 
+, и пешка d2 незащитима).</p>
+<p>Ну, а как теперь продолжать игру? Интересный и неожиданный маневр решает борьбу.</p>
+<p>
+ <span onclick='loadMove("4B3/8/KB6/8/8/5k2/3p4/8 b - - 0 4", this, "b5e8"); ' class="line0">4.Сb5-e8!</span> 
+ <span onclick='loadMove("4B3/8/KB6/8/8/5k2/8/3q4 w - - 0 5", this, "d2d1"); ' class="line0">d2-d1Ф</span> 
+(определи, почему проигрывает
+ <span onclick='loadMove("4B3/8/KB6/8/8/8/3pk3/8 w - - 0 5", this, "f3e2"); ' class="line1">4...Крe2</span> 
+или
+ <span onclick='loadMove("4B3/8/KB6/8/6k1/8/3p4/8 w - - 0 5", this, "f3g4"); ' class="line1">4...Крg4</span> 
+)
+ <span onclick='loadMove("8/8/KB6/7B/8/5k2/8/3q4 b - - 0 5", this, "e8h5"); ' class="line0">5.Сe8-h5+</span> 
+, и черным остается только сдаться.</p>
+<p>Советую тебе не торопясь, внимательно разобрать эту поучительную позицию и многочисленные варианты, которые в ней возникают.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

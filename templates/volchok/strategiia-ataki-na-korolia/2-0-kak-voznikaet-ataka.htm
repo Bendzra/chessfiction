@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Часть II. Как возникает атака | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="score">
+<h2>Часть II. КАК ВОЗНИКАЕТ АТАКА</h2>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-0-nezaplanirovannaia-ataka.htm' %}">Раздел I. Незапланированная атака<!--107--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1-ranniaia-ataka.htm' %}">Глава I. Ранняя атака<!--107--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-1-zadaniia-1.htm' %}">Задания</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2-vnezapnaia-ataka.htm' %}">Глава II. Внезапная атака<!--134--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-2-zadaniia-2.htm' %}">Задания</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-0-puti-sozdaniia-ataki.htm' %}">Раздел II. Пути создания атаки<!--158--></a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3-intuitivnye-zhertvy.htm' %}">Глава III. Интуитивные жертвы<!--158--></a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-3-partii-dlia-samostoiatelnogo-analiza.htm' %}">Партии для самостоятельного анализа</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-4-uspeshnaia-strategiia.htm' %}">Глава IV. Успешная стратегия<!--181--></a></li>
+</ul>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}

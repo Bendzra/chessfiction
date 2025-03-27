@@ -1,0 +1,45 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>Оглавление</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Человек и компьютер: Взгляд в будущее</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Введение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">1. Интеллектуальная игра</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">2. Эпоха шахматных машин</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">3. Человек против машины</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">4. Что важно для машины?</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">5. Что важно для человека?</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">6. На арену!</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">7. Первый матч с Deep Blue</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">8. Реванш любой ценой</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">9. Доска в огне!</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">10. Святой Грааль</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">11. Человек плюс машина</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Заключение</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Вперед — за пределы возможного</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Примечания</a></li>
+<li><a class="line4" href="{{ book.litres_url }}?lfrom=777059770">Благодарности</a></li>
+</ul>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

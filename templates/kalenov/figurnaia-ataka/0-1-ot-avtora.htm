@@ -1,0 +1,24 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>От автора | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+<h2>От автора</h2>
+<p>Книга посвящена вопросам борьбы против короткой рокировки при расположении пешек на полях f7, g7, h7.</p>
+<p>Автор рассматривает наиболее типичные схемы видения фронтальной фигурной атаки на короля при данной пешечной структуре.</p>
+<p>Для шахматистов-разрядников, тренеров, руководителей шахматных кружков и секций и юных шахматистов и любителей.</p>
+<!--p>3</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+
+</div> <!-- iBook -->
+{% endblock content %}
+

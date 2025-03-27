@@ -1,0 +1,35 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Две основные задачи | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>Две основные задачи</h3>
+<div class="score">
+<p>Каковы основные задачи, которые решаются противниками в эндшпиле?</p>
+<p>Как правило, таких задач две. Довести до победы преимущество, полученное в середине игры, или попытаться добиться ничьей в позициях, где дело идет к проигрышу. </p>
+<p>Реже бывает так, что в эндшпиль оба противника вступили с совершенно равными возможностями и в заключительной стадии шахматной партии, по существу, начинают борьбу заново. «Пешка! Когда же ты стала ферзем?» Есть такая арабская поговорка. Но пешке не так просто стать ферзем.</p>
+<p>Представь себе, что партия, которую ты играешь, пришла к такой позиции.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/4k3/8/4K3/p7/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/4k3/8/4K3/p7/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">142</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/4k3/8/4K3/p7/8/8/8 w - - 0 1"></div>
+<p>Это типичное положение эндшпиля: «король и пешка против короля». Ясно, что теперь исход партии зависит только от того, сможет ли единственная оставшаяся на доске пешка прорваться в ферзи.</p>
+<p>Как обстоит дело здесь?</p>
+<p>Решающее значение приобретает очередь хода. Если твой ход и ты играешь белыми, то тебе удастся задержать пешку. Если же ход черных, то пешка неминуемо проходит в ферзи и тебе остается только сдаться.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

@@ -1,0 +1,27 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Глава I. Правила игры | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h1><a name="1">Глава I. ПРАВИЛА ИГРЫ</a></h1>
+
+<div class="score">
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-02.htm' %}">Шахматная доска. Фигуры и пешки</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-03.htm' %}">Конечная цель игры</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-04.htm' %}">Ходы пешки и фигур</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-05.htm' %}">Подробнее о мате. Шах. Открытый и двойной шахи</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-06.htm' %}">Различные случаи ничейного исхода партии</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-07.htm' %}">Шахматная нотация</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-08.htm' %}">Основные правила, определяющие порядок игры</a></li>
+</ul>
+</div> <!-- score -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

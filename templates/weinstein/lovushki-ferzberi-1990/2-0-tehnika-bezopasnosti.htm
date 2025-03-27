@@ -1,0 +1,42 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Техника безопасности | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<a name="69"></a>
+<h1>ТЕХНИКА БЕЗОПАСНОСТИ</h1>
+
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/2-tehnika-bezopasnosti.png' %}" />
+</div>
+
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-disciplina-igry.htm' %}">Дисциплина игры</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-kuda-devalis-moi-figury.htm' %}">Куда девались мои фигуры?</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-korol-upal-s-doski.htm' %}">Король упал с доски</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-sdalsia_ne-sdelav-hoda.htm' %}">Сдался, не сделав хода</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-samyj-plohoj-hod.htm' %}">Самый плохой ход</a></li>
+	</ul>
+  </li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-samaia-korotkaia-partiia.htm' %}">Самая короткая партия</a>
+	<ul>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-vosmoj-val.htm' %}">«Восьмой вал»</a></li>
+	  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-8-sekretnyj-hod.htm' %}">Секретный ход</a></li>
+	</ul>
+  </li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

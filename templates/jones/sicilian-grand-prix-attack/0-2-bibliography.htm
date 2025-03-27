@@ -1,0 +1,33 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Bibliography | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h2>Bibliography</h2>
+<h3>Books</h3>
+<p>Anti-Sicilians: A Guide for Black, Dorian Rogozenko (Gambit 2003)</p>
+<p>Chess Openings for White, Explained, Lev Alburt, Roman Dzindzichashvili and Eugene Perelshteyn (CIRC 2006)</p>
+<p>Fighting the Anti-Sicilians, Richard Palliser (Everyman 2007)</p>
+<p>The Road to Chess Improvement, Alex Yermolinsky (Gambit 1999)</p>
+<p>Sicilian Grand Prix Attack, James Plaskett (Everyman 2000)</p>
+<h3>Periodicals and Software</h3>
+<p>ChessBase</p>
+<p>ChessPublishing website</p>
+<p>Informator</p>
+<p>Mega 2007</p>
+<p>British Chess Magazine</p>
+<p>UltraCorr database</p>
+<p>The Week in Chess</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Происшествия на шахматной доске | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h2>Происшествия на шахматной доске</h2>
+<div class="score">
+
+<ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-01-kombinacii-tysiacha-let!.htm' %}">Комбинации тысяча лет!</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-02-spertyj-mat.htm' %}">Спертый мат</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-03-rokovaia-gorizontal.htm' %}">Роковая горизонталь</a></li>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-04-kombinacionnoe-zrenie.htm' %}">Комбинационное зрение</a></li>
+  <ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-05-obedinennymi-usiliiami.htm' %}">Объединенными усилиями</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-06-udarom-na-udar.htm' %}">Ударом на удар</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-07-otvlechenie-i-sviazka.htm' %}">Отвлечение и связка</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-08-kto-pervyj.htm' %}">Кто первый?</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-09-sviazka-po-gorizontali.htm' %}">Связка по горизонтали</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-10-sviazka-po-diagonali.htm' %}">Связка по диагонали</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-2-11-proryv-linii-oborony.htm' %}">Прорыв линии обороны</a></li>
+  </ul>
+  <li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/4-3-resheniia.htm' %}">Решения</a></li>
+</ul>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

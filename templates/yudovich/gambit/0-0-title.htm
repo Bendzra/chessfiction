@@ -1,0 +1,47 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h4>БИБЛИОТЕЧКА ШАХМАТИСТА</h4>
+<h2>М.М. ЮДОВИЧ</h2>
+<h1>Гамбит</h1>
+<div class="message page">
+<p>Москва</p>
+<p>«Физкультура и спорта</p>
+<p>1980</p>
+</div>
+<!--div class="message">
+<p>ББК 75.581</p>
+<p>Ю 16</p>
+</div-->
+<div class="message notification">
+<p><b>Юдович М. М.</b></p>
+<p>Ю16 <b>Гамбит</b>.— М.: Физкультура и спорт, 1980.— 80 с.— (Б-чка шахматиста).</p>
+<p>Книга международного мастера и шахматного литератора М. Юдовича посвящена сложным и острым началам — гамбитам. В ней читатель познакомится с примерами из шахматной классики и из современной практики сильнейших шахматистов, узнает много полезного о таких понятиях, как пространство и выигрыш времени, гармоничное развитие фигур и подготовка атаки. Для этой книги автор отобрал 20 наиболее интересных партий, сыгранных различными гамбитами, выделил в них важнейшие моменты, с тем чтобы читатель самостоятельно мог проанализировать игру мастеров и ответить на поставленные вопросы.</p>
+<p>Предназначена широкому кругу любителей шахмат.</p>
+</div>
+<!--div class="message">
+<p>ББК 75.581</p>
+<p>7А9.1</p>
+</div-->
+<!--div class="message">
+<p>60904-033 Ю 009 (01)-80 153-80</p>
+<p>4202000000</p>
+</div-->
+<p class="message">© Издательство «Физкультура и спорт», 1980 г.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}</div>
+

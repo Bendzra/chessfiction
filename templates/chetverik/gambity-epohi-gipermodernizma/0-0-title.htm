@@ -1,0 +1,62 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="diagram">
+<h2>Четверик Максим</h2>
+<h1>ГАМБИТЫ ЭПОХИ ГИПЕРМОДЕРНИЗМА</h1>
+</div>
+
+<!--div>
+<p>УДК 794.1</p>
+<p>ББК 75.581</p>
+<p>Б39</p>
+</div-->
+
+<div class="message page">
+<p>Четверик Максим</p>
+<p>Ч52 <b>ГАМБИТЫ ЭПОХИ ГИПЕРМОДЕРНИЗМА</b>. М.: Издательство «Андрей Ельков», 2016, - 232 с.</p>
+<p><b>ISBN 978-5-906254-32-0</b></p>
+</div>
+
+<div class="message notification">
+<p>Книга международного мастера Максима Четверика посвящена двум дебютам, которые вскоре отпразднуют столетие, хотя до сих пор не получили определенной оценки. Будапештский гамбит и гамбит Блюменфельда в целом обделены вниманием теоретиков, и автор рассчитывает восполнить пробел. В книге также приведены оригинальные варианты после 1.d4 Кf6 2.Кf3 c5, которые необходимо знать поклоннику гамбитов.</p>
+<p>Материал представлен в виде подробно прокомментированных партий. Особое внимание уделено поединкам последних лет, уточняющим сложившиеся оценки. Наиболее актуальные продолжения указаны за обе стороны, что позволяет представить более объективную картину в сравнении с репертуарной книгой.</p>
+<p>Для шахматистов разрядников и «клубных» игроков.</p>
+</div>
+
+{% include '../../snippet_litres_banner2.htm' %}
+
+<!--div>
+<p>Оформление, верстка Андрей Ельков Формат 60x90 1/16, тираж 1500.</p>
+<p>Печать офсетная. Бумага офсетная.</p>
+<p>Тел./факс: (495) 963-80-17</p>
+<p>e-mail: elkov_andrey@mail.ru, murad@chess-m.com</p>
+<p>http://www.elkov.ru http://www.chessm.ru - Интернет-магазин</p>
+</div-->
+
+<div class="message warning">
+<b>ISBN 978-5-906254-32-0</b>
+<div style="float:right">© Четверик М., 2016<br />© Издатель Ельков А., 2016</div>
+<div class="clear"></div>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

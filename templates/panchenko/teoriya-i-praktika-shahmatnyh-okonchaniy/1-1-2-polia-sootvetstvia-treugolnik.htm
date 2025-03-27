@@ -1,0 +1,130 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Поля соответствия. Треугольник | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<div class="section">
+<h3 class="diagram">Поля соответствия. Треугольник</h3>
+<div class="score">
+<p>Для понимания “полей соответствия” рассмотрим пример.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2k5/8/p1P5/P2K4/8/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2k5/8/p1P5/P2K4/8/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="2k5/8/p1P5/P2K4/8/8/8/8 w - - 0 1"></div>
+<p class="caption">7. Ход белых. Выигрыш</p>
+<p><b>Позиция 7.</b> Для выигрыша белым необходимо попасть королем на b6 и выиграть пешку “а” или занять королем поле d7, после чего пешка “с” пройдет в ферзи.
+Но после
+ <span onclick='loadMove("2k5/8/p1PK4/P7/8/8/8/8 b - - 0 1", this, "d5d6"); ' class="line1">1.Крd6</span> 
+черные играют
+ <span onclick='loadMove("3k4/8/p1PK4/P7/8/8/8/8 w - - 0 2", this, "c8d8"); ' class="line1">1...Крd8</span> 
+, и теперь
+ <span onclick='loadMove("3k4/2P5/p2K4/P7/8/8/8/8 b - - 0 2", this, "c6c7"); ' class="line1">2.c7+</span> 
+ <span onclick='loadMove("2k5/2P5/p2K4/P7/8/8/8/8 w - - 0 3", this, "d8c8"); ' class="line1">Крc8</span> 
+ <span onclick='loadMove("2k5/2P5/p1K5/P7/8/8/8/8 b - - 0 3", this, "d6c6"); ' class="line1">3.Крc6</span> 
+ведет к пату,
+а на
+ <span onclick='loadMove("2k5/8/p1P5/P1K5/8/8/8/8 b - - 0 1", this, "d5c5"); ' class="line1">1.Крc5</span> 
+черные отвечают
+ <span onclick='loadMove("8/2k5/p1P5/P1K5/8/8/8/8 w - - 0 2", this, "c8c7"); ' class="line1">1...Крc7</span> 
+, не пуская короля белых на b6. То есть, при положении короля белых на d6 черный король должен находиться только на d8, а при белом короле на c5 — только на c7. Это и есть поля соответствия — каждому положению короля белых соответствует определенное положение короля черных. Легко также заметить, что полю d5 соответствует поле c8, а полям c4 и d4 — b8 и d8.
+Но что если
+потерять (или выиграть?) темп
+ <span onclick='loadMove("2k5/8/p1P5/P7/3K4/8/8/8 b - - 0 1", this, "d5d4"); ' class="line0">1.Крd4</span> 
+и на
+ <span onclick='loadMove("1k6/8/p1P5/P7/3K4/8/8/8 w - - 0 2", this, "c8b8"); ' class="line0">1...Крb8</span> 
+(
+ <span onclick='loadMove("3k4/8/p1P5/P7/3K4/8/8/8 w - - 0 2", this, "c8d8"); ' class="line1">1...Крd8</span> 
+)
+сыграть
+ <span onclick='loadMove("1k6/8/p1P5/P7/2K5/8/8/8 b - - 0 2", this, "d4c4"); ' class="line0">2.Крc4?</span> 
+Тогда у черных не будет ходов, и они не смогут
+сохранить соответствие — после
+ <span onclick='loadMove("2k5/8/p1P5/P7/2K5/8/8/8 w - - 0 3", this, "b8c8"); ' class="line0">2...Крc8</span> 
+решает
+ <span onclick='loadMove("2k5/8/p1P5/P2K4/8/8/8/8 b - - 0 3", this, "c4d5"); ' class="line0">3.Крd5</span> 
+ <span onclick='loadMove("8/2k5/p1P5/P2K4/8/8/8/8 w - - 0 4", this, "c8c7"); ' class="line0">Крc7</span> 
+ <span onclick='loadMove("8/2k5/p1P5/P1K5/8/8/8/8 b - - 0 4", this, "d5c5"); ' class="line0">4.Крc5</span> 
+или
+ <span onclick='loadMove("3k4/8/p1P5/P2K4/8/8/8/8 w - - 0 4", this, "c8d8"); ' class="line1">3...Крd8</span> 
+<!--p>12</p><p>Теория и практика шахматных окончаний</p-->
+ <span onclick='loadMove("3k4/8/p1PK4/P7/8/8/8/8 b - - 0 4", this, "d5d6"); ' class="line1">4.Крd6</span> 
++-.
+Маневр белого короля по полям <b>d4-c4-d5</b> называется треугольником. С помощью этого простого маневра выигрывается много партий.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/p7/P3k3/1KP5/8/8/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/p7/P3k3/1KP5/8/8/8 b - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/p7/P3k3/1KP5/8/8/8 b - - 0 1"></div>
+<p class="caption">8. Ход черных. Выигрыш</p>
+<p><b>Позиция 8.</b> М.Дворецкий-А. Никитин (Москва, 1970). Если дать белым возможность перевести короля на d4, то выигрыш как в предыдущем примере. Черные стараются воспрепятствовать этому.</p>
+<p>
+ <span onclick='loadMove("8/8/p7/P7/1KPk4/8/8/8 w - - 0 2", this, "e5d4"); ' class="line0">1...Крd4</span> 
+ <span onclick='loadMove("8/8/p7/P7/2Pk4/1K6/8/8 b - - 0 2", this, "b4b3"); ' class="line0">2.Крb3</span> 
+ <span onclick='loadMove("8/8/p7/P3k3/2P5/1K6/8/8 w - - 0 3", this, "d4e5"); ' class="line0">Крe5</span> 
+ <span onclick='loadMove("8/8/p7/P3k3/K1P5/8/8/8 b - - 0 3", this, "b3a4"); ' class="line0">3.Крa4</span> 
+(поля соответствия здесь такие: c3-e4, b4-d4, b3-e5. Но у белых есть два резервных поля:
+a3 и a4, с которых они могут попасть на b4 или b3, а у черных
+только одно — e4, с которого они попадают на ключевые поля d4 и e5. Делая треугольник по полям <b>a4-a3-b3</b>, белые побеждают.)
+ <span onclick='loadMove("8/8/p7/P7/K1P1k3/8/8/8 w - - 0 4", this, "e5e4"); ' class="line0">3...Крe4</span> 
+ <span onclick='loadMove("8/8/p7/P7/2P1k3/K7/8/8 b - - 0 4", this, "a4a3"); ' class="line0">4.Крa3</span> 
+ <span onclick='loadMove("8/8/p7/P3k3/2P5/K7/8/8 w - - 0 5", this, "e4e5"); ' class="line0">Крe5</span> 
+ <span onclick='loadMove("8/8/p7/P3k3/2P5/1K6/8/8 b - - 0 5", this, "a3b3"); ' class="line0">5.Крb3!</span> 
+ <span onclick='loadMove("8/8/p7/P7/2P1k3/1K6/8/8 w - - 0 6", this, "e5e4"); ' class="line0">Крe4</span> 
+ <span onclick='loadMove("8/8/p7/P7/2P1k3/2K5/8/8 b - - 0 6", this, "b3c3"); ' class="line0">6.Крc3</span> 
+, и белые выигрывают.</p>
+<p>Следует заметить, что не вело к цели
+ <span onclick='loadMove("8/8/p7/P3k3/2P5/2K5/8/8 b - - 0 3", this, "b3c3"); ' class="line1">3.Крc3</span> 
+(вместо
+ <span onclick='loadMove("8/8/p7/P3k3/K1P5/8/8/8 b - - 0 3", this, "b3a4"); ' class="line2">3.Крa4</span> 
+)
+ввиду варианта
+ <span onclick='loadMove("8/8/p7/P7/2P1k3/2K5/8/8 w - - 0 4", this, "e5e4"); ' class="line1">3...Крe4</span> 
+ <span onclick='loadMove("8/8/p7/P1P5/4k3/2K5/8/8 b - - 0 4", this, "c4c5"); ' class="line1">4.c5</span> 
+ <span onclick='loadMove("8/8/p7/P1Pk4/8/2K5/8/8 w - - 0 5", this, "e4d5"); ' class="line1">Крd5</span> 
+ <span onclick='loadMove("8/8/p7/P1Pk4/1K6/8/8/8 b - - 0 5", this, "c3b4"); ' class="line1">5.Крb4</span> 
+ <span onclick='loadMove("8/8/p3k3/P1P5/1K6/8/8/8 w - - 0 6", this, "d5e6"); ' class="line1">Крe6!</span> 
+ <span onclick='loadMove("8/8/p3k3/P1P5/2K5/8/8/8 b - - 0 6", this, "b4c4"); ' class="line1">6.Крc4</span> 
+ <span onclick='loadMove("8/8/p7/P1P1k3/2K5/8/8/8 w - - 0 7", this, "e6e5"); ' class="line1">Крe5</span> 
+=.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/8/p2p4/P3kP2/4P3/4K3/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/8/p2p4/P3kP2/4P3/4K3/8 w - - 0 1", this, ""); '>[...]</span> 
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/8/p2p4/P3kP2/4P3/4K3/8 w - - 0 1"></div>
+<p class="caption">9. Ход белых. Выигрыш</p>
+<p><b>Позиция 9.</b> В.Алаторцев-Консультанты (1934). Прямолинейное
+ <span onclick='loadMove("8/8/8/p2p4/P3kP2/4P3/3K4/8 b - - 0 1", this, "e2d2"); ' class="line1">1.Крd2</span> 
+приводит к ничьей после
+ <span onclick='loadMove("8/8/8/p7/P2pkP2/4P3/3K4/8 w - - 0 2", this, "d5d4"); ' class="line1">1...d4</span> 
+ <span onclick='loadMove("8/8/8/p7/P2PkP2/8/3K4/8 b - - 0 2", this, "e3d4"); ' class="line1">2.ed</span> 
+ <span onclick='loadMove("8/8/8/p7/P2k1P2/8/3K4/8 w - - 0 3", this, "e4d4"); ' class="line1">Крd4</span> 
+. Решает треугольник <b>e1-d2-e2</b>.</p>
+<p>
+ <span onclick='loadMove("8/8/8/p2p4/P3kP2/4P3/8/4K3 b - - 0 1", this, "e2e1"); ' class="line0">1.Крe1!</span> 
+ <span onclick='loadMove("8/8/8/p2p1k2/P4P2/4P3/8/4K3 w - - 0 2", this, "e4f5"); ' class="line0">Крf5</span> 
+ <span onclick='loadMove("8/8/8/p2p1k2/P4P2/4P3/3K4/8 b - - 0 2", this, "e1d2"); ' class="line0">2.Крd2</span> 
+ <span onclick='loadMove("8/8/8/p2p4/P3kP2/4P3/3K4/8 w - - 0 3", this, "f5e4"); ' class="line0">Крe4</span> 
+ <span onclick='loadMove("8/8/8/p2p4/P3kP2/4P3/4K3/8 b - - 0 3", this, "d2e2"); ' class="line0">3.Крe2</span> 
++-.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

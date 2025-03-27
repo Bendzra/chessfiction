@@ -1,0 +1,135 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h2>СОДЕРЖАНИЕ</h2>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">П. А. Романовский. «Избранные партии»</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">ПРЕДИСЛОВИЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-stranicy-zhiznennogo-puti.htm' %}">СТРАНИЦЫ ЖИЗНЕННОГО ПУТИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-pervye-shagi-na-shahmatnom-poprishche.htm' %}">ПЕРВЫЕ ШАГИ НА ШАХМАТНОМ ПОПРИЩЕ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-match-s-bratom-aleksandrom.htm' %}">МАТЧ С БРАТОМ АЛЕКСАНДРОМ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-rannie-vystupleniia-v-turnirah.htm' %}">РАННИЕ ВЫСТУПЛЕНИЯ В ТУРНИРАХ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-trudnosti-rosta.htm' %}">ТРУДНОСТИ РОСТА</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-v-riadah-sovetskogo-shahmatnogo-dvizheniia.htm' %}">В РЯДАХ СОВЕТСКОГО ШАХМАТНОГО ДВИЖЕНИЯ</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-6-obshchestvennaia-i-literaturnaia-deiatelnost.htm' %}">ОБЩЕСТВЕННАЯ И ЛИТЕРАТУРНАЯ ДЕЯТЕЛЬНОСТЬ</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-0-izbrannye-partii.htm' %}">ИЗБРАННЫЕ ПАРТИИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-00-ataka-na-korolia-i-poziciiu-rokirovki.htm' %}">АТАКА НА КОРОЛЯ И ПОЗИЦИЮ РОКИРОВКИ</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-01-romanovskij-ilin-zhenevskij.htm' %}">№ 1. Романовский — Ильин-Женевский (Защита Каро-Канн)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-02-romanovskij-vajnshtejn.htm' %}">№ 2. Романовский С. — Вайнштейн (Венгерская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-03-romanovskij-vilner.htm' %}">№ 3. Романовский — Вильнер (Защита Алехина)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-04-rabinovich-romanovskij.htm' %}">№ 4. И. Рабинович — Романовский (Защита Нимцовича)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-05-romanovskij-zubarev.htm' %}">№ 5. Романовский — Зубарев (Сицилианская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-06-romanovskij-torre.htm' %}">№ 6. Романовский — Торре (Испанская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-07-romanovskij-vilner.htm' %}">№ 7. Романовский — Вильнер (Староиндийская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-08-romanovskij-kutuzov.htm' %}">№ 8. Романовский — Кутузов (Новоиндийская защита за белых)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-09-bogoliubov-romanovskij.htm' %}">№ 9. Боголюбов — Романовский *Дебют трех коней)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-10-rabinovich-romanovskij.htm' %}">№ 10. И. Рабинович — Романовский (Славянская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-11-romanovskij-ilin-zhenevskij.htm' %}">№ 11. Романовский — Ильин-Женевский (Английское начало)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-12-alatorcev-romanovskij.htm' %}">№ 12. Алаторцев — Романовский (Новоиндийская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-13-romanovskij-lisicyn.htm' %}">№ 13. Романовский — Лисицын (Новоиндийская защита за белых)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-14-romanovskij-sozin.htm' %}">№ 14. Романовский — Созин (Испанская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-15-romanovskij-savickij.htm' %}">№ 15. Романовский — Савицкий (Французская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-16-lisicyn-romanovskij.htm' %}">№ 16. Лисицын — Романовский (Дебют Рети)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-17-romanovskij-abramson.htm' %}">№ 17. Романовский — Абрамсон (Ферзевый гамбит)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-18-matrosov-romanovskij.htm' %}">№ 18. Матросов — Романовский (Дебют ферзевых пешек)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-19-romanovskij-kopylov.htm' %}">№ 19. Романовский — Копылов (Испанская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-20-mazel-romanovskij.htm' %}">№ 20. Мазель — Романовский (Дебют Рети)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-21-romanovskij-ovechkin.htm' %}">№ 21. Романовский — Овечкин (Французская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-22-romanovskij-flor.htm' %}">№ 22. Романовский — Флор (Защита Каро-Канн)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-23-baturinskij-romanovskij.htm' %}">№ 23. Батуринский — Романовский (Защита Нимцовича)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-24-aronin-romanovskij.htm' %}">№ 24. Аронин — Романовский (Новоиндийская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-25-romanovskij-budo.htm' %}">№ 25. Романовский — Будо (Защита Нимцовича)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-26-kan-romanovskij.htm' %}">№ 26. Кан — Романовский (Славянская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-27-romanovskij-kotov.htm' %}">№ 27. Романовский — Котов (Венгерская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-28-romanovskij-terpugov.htm' %}">№ 28. Романовский — Терпугов (Защита Чигорина)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-00-kontrataka.htm' %}">КОНТРАТАКА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-29-alehin-romanovskij.htm' %}">№ 29. Алехин — Романовский (Венская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-30-viahirev-romanovskij.htm' %}">№ 30. Вяхирев — Романовский (Венская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-31-grigorev-romanovskij.htm' %}">№ 31. Григорьев — Романовский (Испанская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-32-rozental-romanovskij.htm' %}">№ 32. Розенталь — Романовский (Защита Алехина)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-33-levenfish-romanovskij.htm' %}">№ 33. Левенфиш — Романовский (Защита Алехина)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-34-duz-hotimirskij-romanovskij.htm' %}">№ 34. Дуз-Хотимирский — Романовский (Новоиндийская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-35-rohlin-romanovskij.htm' %}">№ 35. Рохлин — Романовский (Голландская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-36-romanovskij-koialovich.htm' %}">№ 36. Романовский — Коялович (Голландская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-37-kmoh-romanovskij.htm' %}">№ 37. Кмох — Романовский (Новоиндийская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-38-bazhin-romanovskij.htm' %}">№ 38. Бажин — Романовский (Дебют ферзевых пешек)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-39-mikenas-romanovskij.htm' %}">№ 39. Микенас — Романовский (Испанская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-40-ravinskij-romanovskij.htm' %}">№ 40. Равинский — Романовский (Испанская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-41-solovev-romanovskij.htm' %}">№ 41. Соловьев — Романовский (Испанская партия)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-00-ataka-centra.htm' %}">АТАКА ЦЕНТРА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-42-ejts-romanovskij.htm' %}">№ 42. Ейтс — Романовский (Испанская партия)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-43-ravinskij-romanovskij.htm' %}">№ 43. Равинский — Романовский (Центральный дебют)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-44-romanovskij-iudovich.htm' %}">№ 44. Романовский — Юдович (Ферзевый гамбит)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-00-ataka-ferzevogo-flanga.htm' %}">АТАКА ФЕРЗЕВОГО ФЛАНГА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-45-rabinovich-romanovskij.htm' %}">№ 45. Рабинович — Романовский (Новоиндийская защита)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-46-bondarevskij-romanovskij.htm' %}">№ 46. Бондаревский — Романовский (Ферзевый гамбит)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-47-zagorianskij-romanovskij.htm' %}">№ 47. Загорянский — Романовский (Защита Нимцовича)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-00-dva-kombinacionnyh-finala.htm' %}">ДВА КОМБИНАЦИОННЫХ ФИНАЛА</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-48-smorodskij-romanovskij.htm' %}">№ 48. Смородский — Романовский (Защита Каро-Канн)</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-49-romanovskij-averbah.htm' %}">№ 49. Романовский — Авербах (Защита Каро-Канн)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-00-edinyj-strategicheskij-plan.htm' %}">ЕДИНЫЙ СТРАТЕГИЧЕСКИЙ ПЛАН</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-50-romanovskij-griunfeld.htm' %}">№ 50. Романовский — Грюнфельд (Испанская партия)</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-00-dvojnoj-udar.htm' %}">ДВОЙНОЙ УДАР</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-7-51-romanovskij-antoshin.htm' %}">№ 51. Романовский — Антошин (Испанская партия)</a></li>
+</ul>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-ukazatel-debiutov.htm' %}">УКАЗАТЕЛЬ ДЕБЮТОВ</a></li>
+</ul>
+
+<h2>П. А. Романовский</h2>
+<h1>Избранные партии</h1>
+
+<div class="diagram">
+<p>Редактор <i>Л. И. Прохорова</i></p>
+<p>Художественный редактор <i>А. Е. Золоторева</i></p>
+<p>Переплет художника <i>М. Л. Компанеец</i></p>
+<p>Технический редактор <i>А. А Воценке</i></p>
+<p>Корректор <i>Б. Б. Шупикова</i></p>
+</div>
+
+<div class="diagram">
+<p>Сдано в набор 13/111954 г. Л136944 Подписано к печати 14/VI 1954 г.</p>
+<p>Формат 84Х108 <sup>1</sup>/<sub>32</sub> - Объем 3,56 бум. л. 11,68 печ. л. 11,85 уч.-изд. л.</p>
+<p>40582 зн. в 1 п. л. Заказ 1066. Тираж 30 000. Цена 7 р. 90 к.</p>
+<p>Издательство «Физкультура и спорт». Москва, М. Гнездниковский</p>
+<p>пер., дом 3.</p>
+</div>
+
+<div class="diagram">
+<p>Первая Образцовая типография имени А А Жданова Союзполиграфпрома</p>
+<p>Главиздата Министерства культуры СССР. Москва,</p>
+<p>Валовая, 28.</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

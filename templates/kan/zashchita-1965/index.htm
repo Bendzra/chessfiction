@@ -1,0 +1,69 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Содержание | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>Содержание</h1>
+
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">И. Кан. Защита</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-0-zashchita-v-seredine-partii.htm' %}">I. Защита в середине партии</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-1-zashchita-pozicii-korolia.htm' %}">Защита позиции короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-2-opasnost-oslableniia-peshechnogo-prikrytiia-korolia.htm' %}">Опасность ослабления пешечного прикрытия короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-3-zashchita-pozicii-rokirovki-figurami.htm' %}">Защита позиции рокировки фигурами</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-zashchita-slabostej-krome-korolya.htm' %}">Защита слабостей, не имеющих непосредственного отношения к расположению короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-5-aktivnaia-i-passivnaia-zashchita.htm' %}">Активная и пассивная защита</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-0-pouchitelnye-primery-zashchity.htm' %}">II. Поучительные примеры защиты</a></li>
+<ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-1-aktivnaia-zashchita-kontrataka.htm' %}">Активная защита, контратака</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-2-uproshchenie-igry-i-perehod-v-okonchanie.htm' %}">Упрощение игры и переход в окончание</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-3-zhertvy-v-celiah-zashchity.htm' %}">Жертвы в целях защиты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-4-takticheskie-priemy-zashchity.htm' %}">Тактические приемы защиты</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-5-vynuzhdennaia-aktivnost-korolia.htm' %}">Вынужденная активность короля</a></li>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/2-6-razlichnye-primery-zashchity.htm' %}">Различные примеры защиты</a></li>
+</ul>
+<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/3-literatura.htm' %}">Литература</a></li>
+</ul>
+
+<h2>Илья Абрамович Кан</h2>
+<h1>ЗАЩИТА</h1>
+
+<div class="diagram">
+<p>Редактор Ю. А. Бразильский</p>
+<p>Художники И. П. Борисов, И. И. Шапенков</p>
+<p>Художественный редактор Е. М. Галинский</p>
+<p>Технический редактор М. П. Манина</p>
+<p>Корректоры Р. Б. Шупикова и А. Ю. Гринштейн.</p>
+<p>Изд. № 2774. Сдано в набор 13/VII 1964 г. Подписано к печати</p>
+<p>27/1 1965 г. Формат 84Х108 1/32. Объем 4,41 усл. печ. л., 2,625 физ. л., </p>
+<p>4,7 уч.-изд. л., А-04323. Тираж 75 000 экз. Цена 16 коп. Заказ № 2266.</p>
+<p>Тем. план 1965 г. № 88.</p>
+</div>
+
+<div class="diagram">
+<p>Издательство «Физкультура и Спорт»</p>
+<p>Государственного комитета Совета Министров СССР</p>
+<p>по печати. Москва, М. Гнездниковский, 3.</p>
+</div>
+
+<div class="diagram">
+<p>Отпечатано с матриц в типографии им. Смирнова Смоленского</p>
+<p>облуправлення по печати, г. Смоленск, пр. им Ю. Гагарина, 2.</p>
+<p>Заказ № 4092.</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

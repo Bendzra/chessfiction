@@ -1,0 +1,69 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>СОДЕРЖАНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+<h1>СОДЕРЖАНИЕ</h1>
+
+<ul>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-0-title.htm' %}">Пауль Керес. Сто партий</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-1-predislovie.htm' %}">Предисловие</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/0-2-ot-avtora.htm' %}">От автора</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-01-pervye-sorevnovaniia-1929-1935.htm' %}">I. Первые соревнования, 1929—1935 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-02-pervye-mezhdunarodnye-vystupleniia-1935-1937.htm' %}">II. Первые международные выступления, 1935—1937 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-03-na-puti-k-zvaniiu-grossmejstera-1937-1938.htm' %}">III. На пути к званию гроссмейстера, 1937—1938 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-04-predvoennye-gody-1939-1941.htm' %}">IV. Предвоенные годы, 1939—1941 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-05-dve-partii-voennyh-let-1942-1944.htm' %}">V. Две партии военных лет, 1942—1944 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-06-pered-pervenstvom-mira-1945-1947.htm' %}">VI. Перед первенством мира, 1945—1947 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-07-pervenstvo-mira-i-turniry-1948-1950.htm' %}">VII. Первенство мира и турниры, 1948—1950 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-08-turniry-i-vystupleniia-1950-1952.htm' %}">VIII. Турниры и выступления, 1950—1952 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-09-turniry-i-vystupleniia-1952-1955.htm' %}">IX. Турниры и выступления, 1952—1955 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-10-snova-v-borbe-za-pervenstvo-mira.htm' %}">X. Снова в борьбе за первенство мира</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-11-turniry-i-vystupleniia-1957-1960.htm' %}">XI. Турниры и выступления, 1957—1960 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/1-12-vystupleniia-poslednih-let-1961-1964.htm' %}">XII. Выступления последних лет, 1961—1964 гг.</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-01-perechen-sportivnyh-rezultatov.htm' %}">Перечень спортивных результатов</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-02-ukazatel-partnerov.htm' %}">Указатель партнеров</a></li>
+<li><a href="{% url 'page-view' book.root_dir|add:'/2-03-ukazatel-debiutov.htm' %}">Указатель дебютов</a></li>
+</ul>
+
+<h2>Пауль Керес</h2>
+<h1>Сто партий</h1>
+
+<div class="diagram">
+<p>Редактор Ю. А. Бразильский</p>
+<p>Художник Б. А. Леженин</p>
+<p>Художественный редактор В. К. Сафронов</p>
+<p>Технический редактор М. П. Манина</p>
+<p>Корректор З. Г. Самылкина</p>
+</div>
+
+<div class="diagram">
+<p>Изд. № 2938. Сдано в набор 30/XI 1965 г. Подписано к печати 21 /11 1966 г. А01994.</p>
+<p>Формат 70x90 1/16. Объем 24 печ. л., 28,08 усл. п. л., 23,11 уч. изд л. Тираж 80 000.</p>
+<p>Цена 1 р. 59 коп. Зак. 3221 Тем. план 1966 г. № 190</p>
+</div>
+
+<div class="diagram">
+<p>Издательство «Физкультура и спорт» Комитета печати при Совете Министров СССР</p>
+<p>Москва, Каляевская ул., 27</p>
+</div>
+
+<div class="diagram">
+<p>Первая Образцовая типография имени А. А. Жданова Главполиграфпрома</p>
+<p>Комитета по печати при Совете Министров СССР</p>
+<p>Москва, Ж-54, Валовая, 28</p>
+</div>
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

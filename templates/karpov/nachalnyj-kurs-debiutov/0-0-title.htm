@@ -1,0 +1,36 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>{{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="small floater">
+ <img src="{% static 'images/'|add:book.slug|add:'/thumb.jpg' %}" />
+</div>
+<div class="score">
+
+<div class="message">
+<h2>Анатолий Карпов<br /><br />Николай Калиниченко</h2>
+<h1>НАЧАЛЬНЫЙ КУРС ДЕБЮТОВ</h1>
+<h4>(в двух томах)</h4>
+<h3>ШКОЛЬНЫЙ ШАХМАТНЫЙ УЧЕБНИК</h3>
+</div>
+
+<div class="message notification">
+<p>Дорогие друзья!</p>
+<p>В самом начале нашего знакомства с шахматами мы осознаём, сколь многое зависит от первых ходов. Уже в ранней стадии партии оба игрока имеют огромное количество возможностей — голова идет кругом!</p>
+<p>Как не сбиться с пути неопытному шахматисту, как не сесть на мель при выходе из родной гавани, на какие маяки держать курс? На все эти и многие другие вопросы отвечает книга, которую вы держите в руках.</p>
+<p>Ваши спутники — многократный чемпион мира Анатолий Карпов и гроссмейстер, автор более 40 книг, Николай Калиниченко — всегда укажут верный путь.</p>
+<p>В дорогу, друзья!</p>
+</div>
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

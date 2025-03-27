@@ -1,0 +1,22 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Характерные нарушения основных принципов | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<h2><a name="#19">Характерные нарушения основных принципов</a></h2>
+
+<ul>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-1-neobosnovannye-flangovye-operacii.htm' %}">Необоснованные фланговые операции</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-2-kontrudar-v-centre-protiv-flangovyh-operacij.htm' %}">Контрудар в центре против фланговых операций</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-3-snachala-neobhodimoe-zatem-proizvolnoe.htm' %}">Сначала — необходимое, затем — произвольное</a></li>
+	<li><a class="line0" href="{% url 'page-view' book.root_dir|add:'/1-4-4-o-pravilnom-poriadke-hodov-v-debiute.htm' %}">О правильном порядке ходов в дебюте</a></li>
+</ul>
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

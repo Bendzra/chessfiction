@@ -1,0 +1,181 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>«Спертый мат» | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>«Спертый мат»</h3>
+<div class="score">
+<p>Правда, очень красивы комбинации с привлечением фигур противника для блокировки полей вокруг короля? Ярким примером являются комбинации на «спертый мат». У них почтенный возраст, примерно 600 лет.</p>
+<p>Вот такая комбинация из книги Дамиано, изданной в Риме в 1512 году.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1k2rr1q/pb6/8/1N6/3Q4/8/PP6/K2R4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1k2rr1q/pb6/8/1N6/3Q4/8/PP6/K2R4 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">127</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1k2rr1q/pb6/8/1N6/3Q4/8/PP6/K2R4 w - - 0 1"></div>
+<p>Белые матуют после
+ <span onclick='loadMove("1k2rr1q/pb6/3Q4/1N6/8/8/PP6/K2R4 b - - 0 1", this, "d4d6"); ' class="line0">1.Фd6+</span> 
+ <span onclick='loadMove("k3rr1q/pb6/3Q4/1N6/8/8/PP6/K2R4 w - - 0 2", this, "b8a8"); ' class="line0">Крa8</span> 
+ <span onclick='loadMove("k3rr1q/pbN5/3Q4/8/8/8/PP6/K2R4 b - - 0 2", this, "b5c7"); ' class="line0">2.Кc7+</span> 
+ <span onclick='loadMove("1k2rr1q/pbN5/3Q4/8/8/8/PP6/K2R4 w - - 0 3", this, "a8b8"); ' class="line0">Крb8</span> 
+ <span onclick='loadMove("1k2rr1q/pb6/N2Q4/8/8/8/PP6/K2R4 b - - 0 3", this, "c7a6"); ' class="line0">3.Кa6++</span> 
+ <span onclick='loadMove("k3rr1q/pb6/N2Q4/8/8/8/PP6/K2R4 w - - 0 4", this, "b8a8"); ' class="line0">Крa8</span> 
+ <span onclick='loadMove("kQ2rr1q/pb6/N7/8/8/8/PP6/K2R4 b - - 0 4", this, "d6b8"); ' class="line0">4.Фb8+</span> 
+ <span onclick='loadMove("kr3r1q/pb6/N7/8/8/8/PP6/K2R4 w - - 0 5", this, "e8b8"); ' class="line0">Л:b8</span> 
+ <span onclick='loadMove("kr3r1q/pbN5/8/8/8/8/PP6/K2R4 b - - 0 5", this, "a6c7"); ' class="line0">5.Кc7X</span> 
+.</p>
+<p>Другие такие комбинации ты уже видел в первой главе, конечно, ты обратил внимание, что в механизм комбинаций на «спертый мат» обычно входит двойной шах.</p>
+<img style="width:100%;" src="{% static 'images/'|add:book.slug|add:'/141.jpg' %}"/>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rn1k1b2/pppb2p1/8/3Q1P2/6n1/5Nq1/PPPPB3/RNBK4 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/6n1/5Nq1/PPPPB3/RNBK4 b - - 0 1", this, ""); '>[...]</span> 
+<p>А вот пример комбинации, в которой соседнее с
+<!--p>- 95 -</p-->
+королем поле блокируется конем. Позиция взята из книги Греко (1624 г.).</p>
+<p>Белые: Крd1, Фd5, Лa1, Сc1, Сe2, Кb1, Кf3, п. a2, b2, c2, d2, f5 (12). Черные: Крd8, Фg3, Лa8, Сf8, Сd7, Кb8,Кg4, п. a7,b7, c7, g7(11). Черные начинают и дают мат в 4 хода.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Позиция Греко:
+	 <span class="line0" onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/6n1/5Nq1/PPPPB3/RNBK4 b - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/8/5Nq1/PPPPBn2/RNBK4 w - - 0 2", this, "g4f2"); ' class="line0">1...Кf2+</span> 
+	 <span onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/8/5Nq1/PPPPBn2/RNB1K3 b Q - 0 2", this, "d1e1"); ' class="line0">2.Крe1</span> 
+	 <span onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/8/3n1Nq1/PPPPB3/RNB1K3 w Q - 0 3", this, "f2d3"); ' class="line0">Кd3++</span> 
+	 <span onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/8/3n1Nq1/PPPPB3/RNBK4 b - - 0 3", this, "e1d1"); ' class="line0">3.Крd1</span> 
+	 <span onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/8/3n1N2/PPPPB3/RNBKq3 w - - 0 4", this, "g3e1"); ' class="line0">Фe1+</span> 
+	 <span onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/8/3n4/PPPPB3/RNBKN3 b - - 0 4", this, "f3e1"); ' class="line0">4.К:e1</span> 
+	 <span onclick='loadMove("rn1k1b2/pppb2p1/8/3Q1P2/8/8/PPPPBn2/RNBKN3 w - - 0 5", this, "d3f2"); ' class="line0">Кf2X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="k1r5/p6r/1b6/1N3n2/5Qp1/3B1pBq/5P2/R5K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("k1r5/p6r/1b6/1N3n2/5Qp1/3B1pBq/5P2/R5K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>А теперь давай разберем еще две комбинации Ф. Стаммы.</p>
+<p class="capTop diagram">128</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="k1r5/p6r/1b6/1N3n2/5Qp1/3B1pBq/5P2/R5K1 w - - 0 1"></div>
+<p>Положение белого короля критическое —ему неотвратимо грозит мат. Но ход белых, и они приводят в действие механизм «спертого мата».</p>
+<p>
+ <span onclick='loadMove("k1r5/p6r/1b6/1N3n2/4BQp1/5pBq/5P2/R5K1 b - - 0 1", this, "d3e4"); ' class="line0">1.Сe4+</span> 
+ <span onclick='loadMove("k1r5/pr6/1b6/1N3n2/4BQp1/5pBq/5P2/R5K1 w - - 0 2", this, "h7b7"); ' class="line0">Лb7</span> 
+ <span onclick='loadMove("kQr5/pr6/1b6/1N3n2/4B1p1/5pBq/5P2/R5K1 b - - 0 2", this, "f4b8"); ' class="line0">2.Фb8+!</span> 
+ <span onclick='loadMove("kr6/pr6/1b6/1N3n2/4B1p1/5pBq/5P2/R5K1 w - - 0 3", this, "c8b8"); ' class="line0">Лc:b8</span> 
+ <span onclick='loadMove("kr6/Rr6/1b6/1N3n2/4B1p1/5pBq/5P2/6K1 b - - 0 3", this, "a1a7"); ' class="line0">3.Л:a7+!</span> 
+ <span onclick='loadMove("kr6/br6/8/1N3n2/4B1p1/5pBq/5P2/6K1 w - - 0 4", this, "b6a7"); ' class="line0">С:a7</span> 
+ <span onclick='loadMove("kr6/brN5/8/5n2/4B1p1/5pBq/5P2/6K1 b - - 0 4", this, "b5c7"); ' class="line0">4.Кc7X</span> 
+.</p>
+<p>Любопытно, как фигуры черных сами взяли своего короля в железное кольцо окружения! В этой комбинации все форсировано, каждый ход белых вынуждает определенный и совершенно единственный ответ черных. Такие комбинации, конечно, легче находить и рассчитывать, чем комбинации с многообразными защитительными возможностями у противника.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rn3r1k/6pp/1pN2p2/p3N3/1PR5/PQ2PPpq/5n2/2R1K3 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rn3r1k/6pp/1pN2p2/p3N3/1PR5/PQ2PPpq/5n2/2R1K3 w - - 0 1", this, ""); '>[...]</span> 
+<p>Следующая позиция
+Ф. Стаммы уже сложнее. Комбинационным путем белые сначала открывают линию действия своему ферзю и лишь затем проводят комбинацию «спертого мата». Найди, как это осуществляется.</p>
+<p>Белые: Крe1, Фb3, Лc1, Лc4, Кc6, Кe5, п. a3, b4, e3, f3 (10). Черные: Крh8, Фh3, Лa8, Лf8, Кb8, Кf2,
+<!--p>- 96 -</p-->
+п. a5, b6, f6, g7, g3, h7 (12). Белые начинают и выигрывают.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Позиция Стаммы:
+	 <span class="line0" onclick='loadMove("rn3r1k/6pp/1pN2p2/p3N3/1PR5/PQ2PPpq/5n2/2R1K3 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("rn3r1k/6pp/1pN2p2/p3N3/1P5R/PQ2PPpq/5n2/2R1K3 b - - 0 1", this, "c4h4"); ' class="line0">1.Лh4!</span> 
+	 <span onclick='loadMove("rn3r1k/6pp/1pN2p2/p3N3/1P5q/PQ2PPp1/5n2/2R1K3 w - - 0 2", this, "h3h4"); ' class="line0">Ф:h4</span> 
+	 <span onclick='loadMove("rn3rQk/6pp/1pN2p2/p3N3/1P5q/P3PPp1/5n2/2R1K3 b - - 0 2", this, "b3g8"); ' class="line0">2.Фg8+!</span> 
+	 <span onclick='loadMove("rn3rk1/6pp/1pN2p2/p3N3/1P5q/P3PPp1/5n2/2R1K3 w - - 0 3", this, "h8g8"); ' class="line0">Кр:g8</span> 
+	 <span onclick='loadMove("rn3rk1/4N1pp/1p3p2/p3N3/1P5q/P3PPp1/5n2/2R1K3 b - - 0 3", this, "c6e7"); ' class="line0">3.Кe7+</span> 
+	 <span onclick='loadMove("rn3r1k/4N1pp/1p3p2/p3N3/1P5q/P3PPp1/5n2/2R1K3 w - - 0 4", this, "g8h8"); ' class="line0">Крh8</span> 
+	 <span onclick='loadMove("rn3r1k/4NNpp/1p3p2/p7/1P5q/P3PPp1/5n2/2R1K3 b - - 0 4", this, "e5f7"); ' class="line0">4.Кf7+</span> 
+	 <span onclick='loadMove("rn5k/4Nrpp/1p3p2/p7/1P5q/P3PPp1/5n2/2R1K3 w - - 0 5", this, "f8f7"); ' class="line0">Л:f7</span> 
+	 <span onclick='loadMove("rnR4k/4Nrpp/1p3p2/p7/1P5q/P3PPp1/5n2/4K3 b - - 0 5", this, "c1c8"); ' class="line0">5.Лc8+</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+<br />
+<p>И еще два упражнения на эту тему.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r2br2k/pbqn2p1/1p2Qn1p/2p5/3P1P1N/P1PB4/1P1B2PP/3R1RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2br2k/pbqn2p1/1p2Qn1p/2p5/3P1P1N/P1PB4/1P1B2PP/3R1RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram">129</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r2br2k/pbqn2p1/1p2Qn1p/2p5/3P1P1N/P1PB4/1P1B2PP/3R1RK1 w - - 0 1"></div>
+<p>Это положение возникло в партии сеанса одновременной игры, который проводил А. Алехин в 1933 году. Как белые разгромили укрепления черного короля?</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Позиция Алехина:
+	 <span class="line0" onclick='loadMove("r2br2k/pbqn2p1/1p2Qn1p/2p5/3P1P1N/P1PB4/1P1B2PP/3R1RK1 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("r2br2k/pbqn2p1/1p2QnNp/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 b - - 0 1", this, "h4g6"); ' class="line0">1.Кg6+</span> 
+	 <span onclick='loadMove("r2br3/pbqn2pk/1p2QnNp/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 w - - 0 2", this, "h8h7"); ' class="line0">Крh7</span> 
+	 <span onclick='loadMove("r2br3/pbqn2pk/1p2Qn1p/2p1N3/3P1P2/P1PB4/1P1B2PP/3R1RK1 b - - 0 2", this, "g6e5"); ' class="line0">2.Кe5+</span> 
+	 <span onclick='loadMove("r2br2k/pbqn2p1/1p2Qn1p/2p1N3/3P1P2/P1PB4/1P1B2PP/3R1RK1 w - - 0 3", this, "h7h8"); ' class="line0">Крh8</span> 
+	 <span onclick='loadMove("r2br2k/pbqn1Np1/1p2Qn1p/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 b - - 0 3", this, "e5f7"); ' class="line0">3.Кf7+</span> 
+	 <span onclick='loadMove("r2br1k1/pbqn1Np1/1p2Qn1p/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 w - - 0 4", this, "h8g8"); ' class="line0">Крg8</span> 
+	 <span onclick='loadMove("r2br1k1/pbqn2p1/1p2Qn1N/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 b - - 0 4", this, "f7h6"); ' class="line0">4.К:h6++</span> 
+	 <span onclick='loadMove("r2br2k/pbqn2p1/1p2Qn1N/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 w - - 0 5", this, "g8h8"); ' class="line0">Крh8</span> 
+	 <span onclick='loadMove("r2br1Qk/pbqn2p1/1p3n1N/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 b - - 0 5", this, "e6g8"); ' class="line0">5.Фg8+</span> 
+	 <!--span onclick='loadMove("r2br1Qk/pbqn2p1/1p3n1N/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 w - - 0 6", this, "e6g8"); ' class="line0">z0</span--> 
+	и
+	 <span onclick='loadMove("r2br1Qk/pbqn1Np1/1p3n2/2p5/3P1P2/P1PB4/1P1B2PP/3R1RK1 b - - 0 6", this, "h6f7"); ' class="line0">6.Кf7X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r5rk/1pp1n1pp/p1n1b1q1/3p1p2/7R/2QB1N2/PB3PPP/4R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r5rk/1pp1n1pp/p1n1b1q1/3p1p2/7R/2QB1N2/PB3PPP/4R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p>Расставь такую позицию. Белые: Крg1, Фc3, Лe1, Лh4, Сb2, Сd3, Кf3, п. a2, f2, g2, h2 (11). Черные: Крh8, Фg6, Лa8, Лg8, Сe6, Кc6, Кe7, п. a6, b7, c7, d5, f5, g7, h7 (14). Найди, как серией жертв белые, начиная игру, добиваются победы.</p>
+
+<div class="spoiler-wrap">
+  <div class="spoiler-head folded">Решение</div>
+  <div class="spoiler-body">
+	<p>Серия жертв:
+	 <span class="line0" onclick='loadMove("r5rk/1pp1n1pp/p1n1b1q1/3p1p2/7R/2QB1N2/PB3PPP/4R1K1 w - - 0 1", this, ""); '>[...]</span> 
+	 <span onclick='loadMove("r5rk/1pp1n1pp/p1n1R1q1/3p1p2/7R/2QB1N2/PB3PPP/6K1 b - - 0 1", this, "e1e6"); ' class="line0">1.Л:e6!</span> 
+	 <span onclick='loadMove("r5rk/1pp1n1pp/p1n1q3/3p1p2/7R/2QB1N2/PB3PPP/6K1 w - - 0 2", this, "g6e6"); ' class="line0">Ф:e6</span> 
+	 <span onclick='loadMove("r5rk/1pp1n1pp/p1n1q3/3p1pN1/7R/2QB4/PB3PPP/6K1 b - - 0 2", this, "f3g5"); ' class="line0">2.Кg5</span> 
+	 <span onclick='loadMove("r5rk/1pp1n1pp/p1n3q1/3p1pN1/7R/2QB4/PB3PPP/6K1 w - - 0 3", this, "e6g6"); ' class="line0">Фg6</span> 
+	 <span onclick='loadMove("r5rk/1pp1n1pR/p1n3q1/3p1pN1/8/2QB4/PB3PPP/6K1 b - - 0 3", this, "h4h7"); ' class="line0">3.Л:h7+</span> 
+	 <span onclick='loadMove("r5rk/1pp1n1pq/p1n5/3p1pN1/8/2QB4/PB3PPP/6K1 w - - 0 4", this, "g6h7"); ' class="line0">Ф:h7</span> 
+	 <span onclick='loadMove("r5rk/1pp1nNpq/p1n5/3p1p2/8/2QB4/PB3PPP/6K1 b - - 0 4", this, "g5f7"); ' class="line0">4.Кf7X</span> 
+	.</p>
+  </div>
+</div> <!-- spoiler-wrap -->
+
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+
+{% endblock content %}
+

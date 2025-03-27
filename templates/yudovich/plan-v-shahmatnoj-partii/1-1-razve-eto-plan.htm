@@ -1,0 +1,24 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Разве это план? | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h3>Разве это план!</h3>
+<p>Пожалуй, не будет большой натяжкой сказать, что нет такого шахматиста, который, ведя игру, не ставит перед собой определенной цели. «У меня всегда есть план,— говорит иной любитель,— хочу дать мат королю противника».</p>
+<p>Намерение похвальное, но, конечно, это не план, а скорее цель игры. Совершенно очевидно, что заматовать короля сразу не удается. Быстрому осуществлению такого «плана» могут способствовать только грубые ошибки противника. А если он их не сделает?</p>
+<p>Создавать планы в расчете на то, что противник не разберется в ситуации, допустит промах, примерно то же, что строить карточный домик: дунешь на такое сооружение — оно и рассыплется...</p>
+<p>Характерно, что чем слабее шахматист, тем более «широкие» (но, увы, далекие от реальности) планы он строит. С опытом постепенно приходит понимание того, что победы можно добиться, лишь создав определенные условия для решающего наступления, наметив и осуществив цельный стратегический план.</p>
+<!--p>3</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}

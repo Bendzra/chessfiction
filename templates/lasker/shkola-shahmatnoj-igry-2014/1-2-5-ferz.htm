@@ -1,0 +1,26 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Ферзь | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+
+{% block content %}
+<div class="iBook">
+{% include '../../snippet_litres_banner1.htm' %}
+
+<a name="1-2-5-ferz"></a>
+
+<div class="section">
+<h3>Ферзь</h3>
+<div class="chessBoard small nobuttons" data-start-fen="4r2k/8/8/8/q3Q3/8/2B5/4K3 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r2k/8/8/8/q3Q3/8/2B5/4K3 w - - 0 1", this, ""); '>[...]</span> 
+<p>На доске два ферзя, одна ладья, один слон и оба короля.</p> <p>Черный ферзь a4, соединяя в себе ходы ладьи и слона, может пойти на b4, c4, d4 и e4, где он берет белого ферзя, на b3 и c2, где он берет слона, на b5, c6, d7 и a1, a2, a3, a5, a6, a7, a8. Белый ферзь e4 может пойти только на e2, e3, e5, e6, e7 и e8, так как ладья e8 обязывает его прикрывать короля. Если
+бы не это обстоятельство, он мог бы на h7 дать мат черному королю. Теперь же он должен взять ладью на e8 или позволить взять себя. </p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+{% include '../../snippet_litres_banner1.htm' %}
+</div> <!-- iBook -->
+{% endblock content %}
+

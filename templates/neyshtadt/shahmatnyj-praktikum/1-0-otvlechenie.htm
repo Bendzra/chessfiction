@@ -1,0 +1,479 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>ОТВЛЕЧЕНИЕ | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1", this, ""); '>[...]</span> 
+<h1>ОТВЛЕЧЕНИЕ</h1>
+<p>Так называется тактический прием, заставляющий фигуру или пешку противника покинуть свое место и открыть доступ к важному полю (линии).</p>
+<p>Мотивы операции (ее конечные цели) могут быть различными.</p>
+<p>Начнем с простого учебного примера из эндшпиля.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game1"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/8/2P2k2/B2Kb3/5p2/8/8/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/8/2P2k2/B2Kb3/5p2/8/8/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"></p>
+
+
+<div class="chessBoard analysis nobuttons" data-start-fen="8/8/2P2k2/B2Kb3/5p2/8/8/8 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>Черный слон обязан сторожить поле c7, иначе белая пешка пройдет в ферзи. Но, продолжая
+ <span onclick='loadMove("8/8/2P2k2/3Kb3/5p2/2B5/8/8 b - - 0 1", this, "a5c3"); ' class="line0">1.Сc3</span> 
+, белые отвлекают неприятельского слона с ключевой диагонали и после
+ <span onclick='loadMove("8/8/2P2k2/3K4/5p2/2b5/8/8 w - - 0 2", this, "e5c3"); ' class="line0">1...С:c3</span> 
+ <span onclick='loadMove("8/2P5/5k2/3K4/5p2/2b5/8/8 b - - 0 2", this, "c6c7"); ' class="line0">2.c7</span> 
+выигрывают.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game2"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="8/6pp/8/1N6/2n2P2/4k1P1/P1Kp3P/8 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("8/6pp/8/1N6/2n2P2/4k1P1/P1Kp3P/8 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Барца — Симагин</strong><br />Москва, 1949</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="8/6pp/8/1N6/2n2P2/4k1P1/P1Kp3P/8 b - - 0 1"></div>
+<p class="caption">Ход черных</p>
+<p>На прямолинейное
+ <span onclick='loadMove("8/6pp/8/1N6/2n2P2/6P1/P1Kpk2P/8 w - - 0 2", this, "e3e2"); ' class="line1">1...Крe2</span> 
+последует
+ <span onclick='loadMove("8/6pp/8/8/2n2P2/2N3P1/P1Kpk2P/8 b - - 0 2", this, "b5c3"); ' class="line1">2.Кc3+</span> 
+, и белые прочно контролируют поле превращения пешки «d». Значит, надо отвлечь коня, чтобы он не смог пойти на c3.
+Достигается это ходом
+ <span onclick='loadMove("8/6pp/8/1N6/5P2/n3k1P1/P1Kp3P/8 w - - 0 2", this, "c4a3"); ' class="line0">1...Кa3+!</span> 
+После
+ <span onclick='loadMove("8/6pp/8/8/5P2/N3k1P1/P1Kp3P/8 b - - 0 2", this, "b5a3"); ' class="line0">2.К:a3</span> 
+ <span onclick='loadMove("8/6pp/8/8/5P2/N5P1/P1Kpk2P/8 w - - 0 3", this, "e3e2"); ' class="line0">Крe2</span> 
+пешка проходит в ферзи.</p>
+<p>В рассмотренных примерах целью отвлекающей жертвы было достижение проходной пешкой поля превращения.</p>
+<p>Разберем теперь случаи, когда за отвлечением следует коневая вилка. Конечной целью такой операции является завоевание материального преимущества.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game3"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="rn3rk1/pb1qbppp/1p1p4/2pB1N2/2P5/6P1/PP2PP1P/R1BQK2R w KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("rn3rk1/pb1qbppp/1p1p4/2pB1N2/2P5/6P1/PP2PP1P/R1BQK2R w KQ - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Александер — Кордингли</strong><br />Англия, 1947</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="rn3rk1/pb1qbppp/1p1p4/2pB1N2/2P5/6P1/PP2PP1P/R1BQK2R w KQ - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>
+ <span onclick='loadMove("rn3rk1/pB1qbppp/1p1p4/2p2N2/2P5/6P1/PP2PP1P/R1BQK2R b KQ - 0 1", this, "d5b7"); ' class="line0">1.С:b7</span> 
+ <span onclick='loadMove("rn3rk1/pq2bppp/1p1p4/2p2N2/2P5/6P1/PP2PP1P/R1BQK2R w KQ - 0 2", this, "d7b7"); ' class="line0">Ф:b7</span> 
+ <span onclick='loadMove("rn3rk1/pq2bppp/1p1p4/2pQ1N2/2P5/6P1/PP2PP1P/R1B1K2R b KQ - 0 2", this, "d1d5"); ' class="line0">2.Фd5!</span> 
+Черные сдались ввиду потери фигуры:
+ <span onclick='loadMove("rn3rk1/p3bppp/1p1p4/2pq1N2/2P5/6P1/PP2PP1P/R1B1K2R w KQ - 0 3", this, "b7d5"); ' class="line1">2...Ф:d5</span> 
+ <span onclick='loadMove("rn3rk1/p3Nppp/1p1p4/2pq4/2P5/6P1/PP2PP1P/R1B1K2R b KQ - 0 3", this, "f5e7"); ' class="line1">3.К:e7+</span> 
+ <!--span onclick='loadMove("rn3rk1/p3Nppp/1p1p4/2pq4/2P5/6P1/PP2PP1P/R1B1K2R w KQ - 0 4", this, "f5e7"); ' class="line1">z0</span--> 
+и
+ <span onclick='loadMove("rn3rk1/p4ppp/1p1p4/2pN4/2P5/6P1/PP2PP1P/R1B1K2R b KQ - 0 4", this, "e7d5"); ' class="line1">4.К:d5</span> 
+;
+ <span onclick='loadMove("r4rk1/pq2bppp/1pnp4/2pQ1N2/2P5/6P1/PP2PP1P/R1B1K2R w KQ - 0 3", this, "b8c6"); ' class="line1">2...Кc6</span> 
+ <span onclick='loadMove("r4rk1/pq2bppp/1pQp4/2p2N2/2P5/6P1/PP2PP1P/R1B1K2R b KQ - 0 3", this, "d5c6"); ' class="line1">3.Ф:c6!</span> 
+</p>
+<!--p>7</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game4"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1nq3k1/r3b1p1/pp2prNp/2p5/4Q3/2P1P1B1/P4PPP/2R2RK1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1nq3k1/r3b1p1/pp2prNp/2p5/4Q3/2P1P1B1/P4PPP/2R2RK1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Панчик — Шураде</strong><br />Закопане, 1978</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1nq3k1/r3b1p1/pp2prNp/2p5/4Q3/2P1P1B1/P4PPP/2R2RK1 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>Игру закончил ошеломляюще «длинный» ход
+ <span onclick='loadMove("Qnq3k1/r3b1p1/pp2prNp/2p5/8/2P1P1B1/P4PPP/2R2RK1 b - - 0 1", this, "e4a8"); ' class="line0">1.Фa8!!</span> 
+На взятие ферзя
+ <!--span onclick='loadMove("Qnq3k1/r3b1p1/pp2prNp/2p5/8/2P1P1B1/P4PPP/2R2RK1 w - - 0 2", this, "e4a8"); ' class="line1">1...z0</span--> 
+следует
+ <span onclick='loadMove("Qnq3k1/r3N1p1/pp2pr1p/2p5/8/2P1P1B1/P4PPP/2R2RK1 b - - 0 2", this, "g6e7"); ' class="line1">2.К:e7+</span> 
+ <!--span onclick='loadMove("Qnq3k1/r3N1p1/pp2pr1p/2p5/8/2P1P1B1/P4PPP/2R2RK1 w - - 0 3", this, "g6e7"); ' class="line1">z0</span--> 
+и
+ <span onclick='loadMove("QnN3k1/r5p1/pp2pr1p/2p5/8/2P1P1B1/P4PPP/2R2RK1 b - - 0 3", this, "e7c8"); ' class="line1">3.К:c8</span> 
+, оставаясь с лишней фигурой.
+Если же
+ <span onclick='loadMove("Qnq3k1/1r2b1p1/pp2prNp/2p5/8/2P1P1B1/P4PPP/2R2RK1 w - - 0 2", this, "a7b7"); ' class="line1">1...Лb7</span> 
+, то
+ <span onclick='loadMove("Qnq3k1/1r2N1p1/pp2pr1p/2p5/8/2P1P1B1/P4PPP/2R2RK1 b - - 0 2", this, "g6e7"); ' class="line1">2.К:e7+</span> 
+ <span onclick='loadMove("Qnq3k1/4r1p1/pp2pr1p/2p5/8/2P1P1B1/P4PPP/2R2RK1 w - - 0 3", this, "b7e7"); ' class="line1">Л:e7</span> 
+ <span onclick='loadMove("1Qq3k1/4r1p1/pp2pr1p/2p5/8/2P1P1B1/P4PPP/2R2RK1 b - - 0 3", this, "a8b8"); ' class="line1">3.Ф:b8</span> 
+с тем же результатом.</p>
+<p>Познакомимся с весьма распространенным мотивом использования скрытой слабости восьмой (первой) горизонтали.</p>
+<p>Если король не имеет «форточки» (или же ею нельзя воспользоваться, так как поле это атаковано), отвлечение фигур, защищающих восьмую (первую) линию, может вызвать катастрофу.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game5"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1r3rk1/4p1bp/R2p2p1/2pP4/2P1bB2/4Q3/2q1BPPP/4R1K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1r3rk1/4p1bp/R2p2p1/2pP4/2P1bB2/4Q3/2q1BPPP/4R1K1 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Шмид — Билек</strong><br />XV Олимпиада,<br />Варна, 1962</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1r3rk1/4p1bp/R2p2p1/2pP4/2P1bB2/4Q3/2q1BPPP/4R1K1 b - - 0 1"></div>
+<p class="caption">Ход черных</p>
+<p>
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1br2/4Q3/2q1BPPP/4R1K1 w - - 0 2", this, "f8f4"); ' class="line0">1...Л:f4!</span> 
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1bQ2/8/2q1BPPP/4R1K1 b - - 0 2", this, "e3f4"); ' class="line0">2.Ф:f4</span> 
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1bQ2/8/4qPPP/4R1K1 w - - 0 3", this, "c2e2"); ' class="line0">Ф:e2!</span> 
+</p>
+<p>Брать ферзя и получать мат, конечно, не обязательно, но на
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1b3/8/4qPPP/2Q1R1K1 b - - 0 3", this, "f4c1"); ' class="line1">3.Фc1</span> 
+последует
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1b1q1/8/5PPP/2Q1R1K1 w - - 0 4", this, "e2g4"); ' class="line1">3...Фg4</span> 
+.
+Если
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1b3/4Q3/4qPPP/4R1K1 b - - 0 3", this, "f4e3"); ' class="line1">3.Фe3</span> 
+, то хотя бы
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2q1b3/4Q3/5PPP/4R1K1 w - - 0 4", this, "e2c4"); ' class="line1">3...Ф:c4</span> 
+или
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1b3/4q3/5PPP/4R1K1 w - - 0 4", this, "e2e3"); ' class="line1">3...Ф:e3</span> 
+ <span onclick='loadMove("1r4k1/4p1bp/R2p2p1/2pP4/2P1b3/4P3/6PP/4R1K1 b - - 0 4", this, "f2e3"); ' class="line1">4.fe</span> 
+ <span onclick='loadMove("6k1/4p1bp/R2p2p1/2pP4/1rP1b3/4P3/6PP/4R1K1 w - - 0 5", this, "b8b4"); ' class="line1">Лb4</span> 
+.
+Белые сдались.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game6"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="5rk1/5ppp/8/8/8/4PQ2/r1q2PPP/RR4K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5rk1/5ppp/8/8/8/4PQ2/r1q2PPP/RR4K1 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Фюштер — Балог</strong><br />Венгрия, 1964</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="5rk1/5ppp/8/8/8/4PQ2/r1q2PPP/RR4K1 b - - 0 1"></div>
+<p class="caption">Ход черных</p>
+<p>Последовало
+ <span onclick='loadMove("5rk1/5ppp/8/8/8/4PQ2/rq3PPP/RR4K1 w - - 0 2", this, "c2b2"); ' class="line0">1...Фb2!</span> 
+(мат ладье!), и белые сдались.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game7"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/5ppp/4p3/p2rP3/1p1P4/2q2PP1/P2RQ1KP/8 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/5ppp/4p3/p2rP3/1p1P4/2q2PP1/P2RQ1KP/8 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Лепек — Коонен</strong><br />По переписке, 1962</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/5ppp/4p3/p2rP3/1p1P4/2q2PP1/P2RQ1KP/8 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>
+ <span onclick='loadMove("6k1/5ppp/4p3/p2rP3/1p1P4/2q2PP1/P1R1Q1KP/8 b - - 0 1", this, "d2c2"); ' class="line0">1.Лc2!</span> 
+ <span onclick='loadMove("6k1/5ppp/4p3/p2rP3/1p1q4/5PP1/P1R1Q1KP/8 w - - 0 2", this, "c3d4"); ' class="line0">Ф:d4</span> 
+ <span onclick='loadMove("6k1/5ppp/4p3/p2rP3/1pRq4/5PP1/P3Q1KP/8 b - - 0 2", this, "c2c4"); ' class="line0">2.Лc4</span> 
+ <span onclick='loadMove("6k1/5ppp/1q2p3/p2rP3/1pR5/5PP1/P3Q1KP/8 w - - 0 3", this, "d4b6"); ' class="line0">Фb6</span> 
+(легко убедиться, что ответы черных вынужденны — иначе не защищена будет восьмая горизонталь)
+ <span onclick='loadMove("2R3k1/5ppp/1q2p3/p2rP3/1p6/5PP1/P3Q1KP/8 b - - 0 3", this, "c4c8"); ' class="line0">3.Лc8+</span> 
+ <span onclick='loadMove("2Rr2k1/5ppp/1q2p3/p3P3/1p6/5PP1/P3Q1KP/8 w - - 0 4", this, "d5d8"); ' class="line0">Лd8</span> 
+ <span onclick='loadMove("2Rr2k1/5ppp/1q2p3/pQ2P3/1p6/5PP1/P5KP/8 b - - 0 4", this, "e2b5"); ' class="line0">4.Фb5!</span> 
+Отвлечение ферзя заканчивает игру.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game8"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="6k1/1p1qrpp1/p7/7p/PQ6/8/1PPp2PP/3R2K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("6k1/1p1qrpp1/p7/7p/PQ6/8/1PPp2PP/3R2K1 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Мадсен — Наполитано</strong><br />По переписке, 1953</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="6k1/1p1qrpp1/p7/7p/PQ6/8/1PPp2PP/3R2K1 b - - 0 1"></div>
+<p class="caption">Ход черных</p>
+<!--p>8</p-->
+<p>
+ <span onclick='loadMove("6k1/1p1q1pp1/p7/7p/PQ6/8/1PPp2PP/3Rr1K1 w - - 0 2", this, "e7e1"); ' class="line0">1...Лe1+!</span> 
+ <span onclick='loadMove("6k1/1p1q1pp1/p7/7p/PQ6/8/1PPp2PP/4R1K1 b - - 0 2", this, "d1e1"); ' class="line0">2.Л:e1</span> 
+ <span onclick='loadMove("6k1/1p3pp1/p7/7p/PQ1q4/8/1PPp2PP/4R1K1 w - - 0 3", this, "d7d4"); ' class="line0">Фd4+!</span> 
+ <span onclick='loadMove("6k1/1p3pp1/p7/7p/P2Q4/8/1PPp2PP/4R1K1 b - - 0 3", this, "b4d4"); ' class="line0">3.Ф:d4</span> 
+ <span onclick='loadMove("6k1/1p3pp1/p7/7p/P2Q4/8/1PP3PP/4q1K1 w - - 0 4", this, "d2e1"); ' class="line0">deФX</span> 
+.</p>
+<p>Бывает так, что фигура слишком перегружена обязанностями — ей приходится охранять два или даже несколько важных объектов (другие фигуры, поля, линии). Отвлечение перегруженной фигуры оставляет один из объектов без защиты.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game9"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="5rk1/1pq2p1p/4p1p1/1R6/8/PP3QP1/5P1P/2rR2K1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("5rk1/1pq2p1p/4p1p1/1R6/8/PP3QP1/5P1P/2rR2K1 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Рагозин — Панов</strong><br />12-е первенство СССР, 1940</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="5rk1/1pq2p1p/4p1p1/1R6/8/PP3QP1/5P1P/2rR2K1 b - - 0 1"></div>
+<p class="caption">Ход черных</p>
+<p>Последним ходом белые закрылись ладьей от шаха. Что предпринять черным?</p>
+<p>Ход
+ <span onclick='loadMove("5rk1/1p3p1p/2q1p1p1/1R6/8/PP3QP1/5P1P/2rR2K1 w - - 0 2", this, "c7c6"); ' class="line0">1...Фc6</span> 
+, отвлекающий ферзя и использующий его перегрузку (защита обеих ладей), заставил белых сдать партию.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game10"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2kq2r1/1p1bbQP1/p7/4p1P1/4p3/1P2B3/1PP1N3/2KR4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2kq2r1/1p1bbQP1/p7/4p1P1/4p3/1P2B3/1PP1N3/2KR4 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Квейнис — Авшалумов</strong><br />Орджоникидзе, 1978</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2kq2r1/1p1bbQP1/p7/4p1P1/4p3/1P2B3/1PP1N3/2KR4 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>После оттеснения короля —
+ <span onclick='loadMove("2kq2r1/1p1bb1P1/p7/4p1P1/2Q1p3/1P2B3/1PP1N3/2KR4 b - - 0 1", this, "f7c4"); ' class="line0">1.Фc4+</span> 
+ <span onclick='loadMove("1k1q2r1/1p1bb1P1/p7/4p1P1/2Q1p3/1P2B3/1PP1N3/2KR4 w - - 0 2", this, "c8b8"); ' class="line0">Крb8</span> 
+решает тактический удар, использующий перегрузку ферзя —
+ <span onclick='loadMove("1k1q2r1/1p1Rb1P1/p7/4p1P1/2Q1p3/1P2B3/1PP1N3/2K5 b - - 0 2", this, "d1d7"); ' class="line0">2.Л:d7</span> 
+.</p>
+<p>Еще несколько примеров характерных отвлекающих жертв.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game11"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r2r2k1/ppqb1pp1/2n1pn1p/8/3P4/P1NQ2N1/1P3PPP/1B1RR1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2r2k1/ppqb1pp1/2n1pn1p/8/3P4/P1NQ2N1/1P3PPP/1B1RR1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Хёфер — Фельми</strong><br />Гамбург, 1975</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r2r2k1/ppqb1pp1/2n1pn1p/8/3P4/P1NQ2N1/1P3PPP/1B1RR1K1 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>
+ <span onclick='loadMove("r2r2k1/ppqb1pp1/2n1pn1p/7N/3P4/P1NQ4/1P3PPP/1B1RR1K1 b - - 0 1", this, "g3h5"); ' class="line0">1.Кh5!</span> 
+(отвлечение коня от защиты поля h7)
+ <span onclick='loadMove("r2r2k1/ppqb1pp1/2n1p2p/7n/3P4/P1NQ4/1P3PPP/1B1RR1K1 w - - 0 2", this, "f6h5"); ' class="line0">1...К:h5</span> 
+.</p>
+<p>В случае
+ <span onclick='loadMove("r2r2k1/ppqb1ppQ/2n1p2p/7n/3P4/P1N5/1P3PPP/1B1RR1K1 b - - 0 2", this, "d3h7"); ' class="line1">2.Фh7+</span> 
+ <span onclick='loadMove("r2r1k2/ppqb1ppQ/2n1p2p/7n/3P4/P1N5/1P3PPP/1B1RR1K1 w - - 0 3", this, "g8f8"); ' class="line1">Крf8</span> 
+ <span onclick='loadMove("r2r1k1Q/ppqb1pp1/2n1p2p/7n/3P4/P1N5/1P3PPP/1B1RR1K1 b - - 0 3", this, "h7h8"); ' class="line1">3.Фh8+</span> 
+король скрывается на e7, а потому поле это надо у него отнять.
+После нового отвлекающего удара —
+ <span onclick='loadMove("r2r2k1/ppqb1pp1/2n1p2p/3N3n/3P4/P2Q4/1P3PPP/1B1RR1K1 b - - 0 2", this, "c3d5"); ' class="line0">2.Кd5!</span> 
+черные сдались.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game12"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r1bq2rk/pp3Q1p/1npb1p1B/3p1P2/3P4/2NBR3/PPP3PP/R5K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r1bq2rk/pp3Q1p/1npb1p1B/3p1P2/3P4/2NBR3/PPP3PP/R5K1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Форманек — Григурич</strong><br />Варшава, 1927</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r1bq2rk/pp3Q1p/1npb1p1B/3p1P2/3P4/2NBR3/PPP3PP/R5K1 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>
+ <span onclick='loadMove("r1bqR1rk/pp3Q1p/1npb1p1B/3p1P2/3P4/2NB4/PPP3PP/R5K1 b - - 0 1", this, "e3e8"); ' class="line0">1.Лe8!</span> 
+Двойное отвлечение
+(
+ <span onclick='loadMove("r1b1q1rk/pp3Q1p/1npb1p1B/3p1P2/3P4/2NB4/PPP3PP/R5K1 w - - 0 2", this, "d8e8"); ' class="line1">1...Ф:e8</span> 
+ <span onclick='loadMove("r1b1q1rk/pp5p/1npb1Q1B/3p1P2/3P4/2NB4/PPP3PP/R5K1 b - - 0 2", this, "f7f6"); ' class="line1">2.Ф:f6+</span> 
+и <b>3.Ф:g7X</b> и
+ <span onclick='loadMove("r1bqr2k/pp3Q1p/1npb1p1B/3p1P2/3P4/2NB4/PPP3PP/R5K1 w - - 0 2", this, "g8e8"); ' class="line1">1...Л:e8</span> 
+ <span onclick='loadMove("r1bqr2k/pp4Qp/1npb1p1B/3p1P2/3P4/2NB4/PPP3PP/R5K1 b - - 0 2", this, "f7g7"); ' class="line1">2.Фg7X</span> 
+).
+</p>
+<p>Черные сдались.</p>
+<!--p>9</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game13"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r2r4/1p1R3p/5pk1/b1B1Pp2/p4P2/P7/1P5P/1K1R4 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r2r4/1p1R3p/5pk1/b1B1Pp2/p4P2/P7/1P5P/1K1R4 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Полугаевский — Силади</strong><br />Москва, 1960</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r2r4/1p1R3p/5pk1/b1B1Pp2/p4P2/P7/1P5P/1K1R4 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>
+ <span onclick='loadMove("r2r4/1p1R3p/5pk1/b1B1Pp2/p4P2/P7/1P5P/1K4R1 b - - 0 1", this, "d1g1"); ' class="line0">1.Лg1+</span> 
+ <span onclick='loadMove("r2r4/1p1R3p/5p1k/b1B1Pp2/p4P2/P7/1P5P/1K4R1 w - - 0 2", this, "g6h6"); ' class="line0">Крh6</span> 
+ <span onclick='loadMove("r2r1B2/1p1R3p/5p1k/b3Pp2/p4P2/P7/1P5P/1K4R1 b - - 0 2", this, "c5f8"); ' class="line0">2.Сf8+!!</span> 
+(отвлечение ладьи с поля d8 позволяет белым осуществить решающий маневр)
+ <span onclick='loadMove("r4r2/1p1R3p/5p1k/b3Pp2/p4P2/P7/1P5P/1K4R1 w - - 0 3", this, "d8f8"); ' class="line0">2...Л:f8</span> 
+ <span onclick='loadMove("r4r2/1p5p/5p1k/b3Pp2/p4P2/P2R4/1P5P/1K4R1 b - - 0 3", this, "d7d3"); ' class="line0">3.Лd3!</span> 
+, и мат на h3 непредотвратим.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game14"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="r4knr/pp2pp1p/1q1p2pb/2pP4/Q2nP1b1/2P3P1/PP1N1P1P/R1B1KBNR b KQ - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("r4knr/pp2pp1p/1q1p2pb/2pP4/Q2nP1b1/2P3P1/PP1N1P1P/R1B1KBNR b KQ - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Гликсман — Попович</strong><br />Вроцлав, 1979</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="r4knr/pp2pp1p/1q1p2pb/2pP4/Q2nP1b1/2P3P1/PP1N1P1P/R1B1KBNR b KQ - 0 1"></div>
+<p class="caption">Ход черных</p>
+<p>Конь d4 атакован, отступать ему некуда. Однако легко заметить: если бы ферзь не контролировал поле c2, белые получили бы мат. Поэтому ферзя надо как-то отвлечь. Достигается это ходом
+ <span onclick='loadMove("r4knr/pp2pp1p/3p2pb/q1pP4/Q2nP1b1/2P3P1/PP1N1P1P/R1B1KBNR w KQ - 0 2", this, "b6a5"); ' class="line0">1...Фa5!</span> 
+, после которого белым пришлось сдать партию
+(
+ <span onclick='loadMove("r4knr/pp2pp1p/3p2pb/Q1pP4/3nP1b1/2P3P1/PP1N1P1P/R1B1KBNR b KQ - 0 2", this, "a4a5"); ' class="line1">2.Ф:a5</span> 
+ <span onclick='loadMove("r4knr/pp2pp1p/3p2pb/Q1pP4/4P1b1/2P3P1/PPnN1P1P/R1B1KBNR w KQ - 0 3", this, "d4c2"); ' class="line1">Кc2X</span> 
+).
+</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game15"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4r1k1/ppr2R1p/4p1pB/2qbn3/2B3Q1/8/PPP3PP/2K2R2 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r1k1/ppr2R1p/4p1pB/2qbn3/2B3Q1/8/PPP3PP/2K2R2 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Цешковский — Корейский</strong><br />Омск, 1973</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4r1k1/ppr2R1p/4p1pB/2qbn3/2B3Q1/8/PPP3PP/2K2R2 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>Если бы не ферзь на c5, белые объявили бы мат, а потому
+ <span onclick='loadMove("4r1k1/ppr2R1p/4p1pB/2qbn3/2BQ4/8/PPP3PP/2K2R2 b - - 0 1", this, "g4d4"); ' class="line0">1.Фd4!</span> 
+ <span onclick='loadMove("4r1k1/ppr2R1p/4p1pB/2q1n3/2bQ4/8/PPP3PP/2K2R2 w - - 0 2", this, "d5c4"); ' class="line0">С:c4</span> 
+(
+ <span onclick='loadMove("4r1k1/ppr2R1p/4p1pB/3bn3/2Bq4/8/PPP3PP/2K2R2 w - - 0 2", this, "c5d4"); ' class="line1">1...Ф:d4</span> 
+ <span onclick='loadMove("4rRk1/ppr4p/4p1pB/3bn3/2Bq4/8/PPP3PP/2K2R2 b - - 0 2", this, "f7f8"); ' class="line1">2.Лf8+</span> 
+ <span onclick='loadMove("5rk1/ppr4p/4p1pB/3bn3/2Bq4/8/PPP3PP/2K2R2 w - - 0 3", this, "e8f8"); ' class="line1">Л:f8</span> 
+ <span onclick='loadMove("5Rk1/ppr4p/4p1pB/3bn3/2Bq4/8/PPP3PP/2K5 b - - 0 3", this, "f1f8"); ' class="line1">3.Л:f8X</span> 
+)
+ <span onclick='loadMove("4r1k1/ppr2R1p/4p1pB/2Q1n3/2b5/8/PPP3PP/2K2R2 b - - 0 2", this, "d4c5"); ' class="line0">2.Ф:c5</span> 
+ <span onclick='loadMove("4r1k1/pp3r1p/4p1pB/2Q1n3/2b5/8/PPP3PP/2K2R2 w - - 0 3", this, "c7f7"); ' class="line0">Л:f7</span> 
+ <span onclick='loadMove("4r1k1/pp3r1p/4p1pB/2Q1n3/2b5/8/PPP3PP/2K1R3 b - - 0 3", this, "f1e1"); ' class="line0">3.Лe1</span> 
+. Черные сдались.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game16"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2r2rk1/1p3pp1/4n3/1P1Rn1q1/4P2p/7P/2P2QN1/R4BK1 b - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2r2rk1/1p3pp1/4n3/1P1Rn1q1/4P2p/7P/2P2QN1/R4BK1 b - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Паоли — Смыслов</strong><br />Венеция, 1950</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2r2rk1/1p3pp1/4n3/1P1Rn1q1/4P2p/7P/2P2QN1/R4BK1 b - - 0 1"></div>
+<p class="caption">Ход черных</p>
+<p>
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1Rn1q1/4P2p/7P/2r2QN1/R4BK1 w - - 0 2", this, "c8c2"); ' class="line0">1...Л:c2!</span> 
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1Rn1q1/4P2p/7P/2Q3N1/R4BK1 b - - 0 2", this, "f2c2"); ' class="line0">2.Ф:c2</span> 
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1R2q1/4P2p/5n1P/2Q3N1/R4BK1 w - - 0 3", this, "e5f3"); ' class="line0">Кf3+</span> 
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1R2q1/4P2p/5n1P/2Q2KN1/R4B2 b - - 0 3", this, "g1f2"); ' class="line0">3.Крf2</span> 
+.</p>
+<p>Если
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1R2q1/4P2p/5n1P/2Q3N1/R4B1K b - - 0 3", this, "g1h1"); ' class="line1">3.Крh1</span> 
+, то
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1R4/4P2p/5nqP/2Q3N1/R4B1K w - - 0 4", this, "g5g3"); ' class="line1">3...Фg3</span> 
+с матом на h2 либо (в случае отхода коня) на g1.</p>
+<p>
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1R4/4P2p/5nqP/2Q2KN1/R4B2 w - - 0 4", this, "g5g3"); ' class="line0">3...Фg3+</span> 
+.
+На
+ <span onclick='loadMove("5rk1/1p3pp1/4n3/1P1R4/4P2p/5nqP/2Q1K1N1/R4B2 b - - 0 4", this, "f2e2"); ' class="line1">4.Крe2</span> 
+следует
+ <span onclick='loadMove("5rk1/1p3pp1/8/1P1R4/3nP2p/5nqP/2Q1K1N1/R4B2 w - - 0 5", this, "e6d4"); ' class="line1">4...Кed4+</span> 
+,
+белые сдались.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game17"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="4r3/pp6/3P2n1/3Q1bk1/4r3/2P5/P1P2PP1/5K1R w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("4r3/pp6/3P2n1/3Q1bk1/4r3/2P5/P1P2PP1/5K1R w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Абрагамс — Винтер</strong><br />Лондон, 1946</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="4r3/pp6/3P2n1/3Q1bk1/4r3/2P5/P1P2PP1/5K1R w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<!--p>10</p-->
+<p>
+ <span onclick='loadMove("4r3/pp6/3P2n1/3Q1bkR/4r3/2P5/P1P2PP1/5K2 b - - 0 1", this, "h1h5"); ' class="line0">1.Лh5+!</span> 
+ <span onclick='loadMove("4r3/pp6/3P2n1/3Q1b1k/4r3/2P5/P1P2PP1/5K2 w - - 0 2", this, "g5h5"); ' class="line0">Кр:h5</span> 
+ <span onclick='loadMove("4r3/pp6/3P2n1/5Q1k/4r3/2P5/P1P2PP1/5K2 b - - 0 2", this, "d5f5"); ' class="line0">2.Ф:f5+</span> 
+ <span onclick='loadMove("4r3/pp6/3P2nk/5Q2/4r3/2P5/P1P2PP1/5K2 w - - 0 3", this, "h5h6"); ' class="line0">Крh6</span> 
+ <span onclick='loadMove("4r3/pp6/3P2nk/8/4Q3/2P5/P1P2PP1/5K2 b - - 0 3", this, "f5e4"); ' class="line0">3.Ф:e4!</span> 
+Обе отвлекающие жертвы — временные. После
+ <span onclick='loadMove("8/pp6/3P2nk/8/4r3/2P5/P1P2PP1/5K2 w - - 0 4", this, "e8e4"); ' class="line0">3...Л:e4</span> 
+ <span onclick='loadMove("8/pp1P4/6nk/8/4r3/2P5/P1P2PP1/5K2 b - - 0 4", this, "d6d7"); ' class="line0">4.d7</span> 
+черным не воспрепятствовать превращению пешки. В результате комбинации белые выигрывают фигуру и остаются с решающим материальным перевесом.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game18"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="2r2r2/2N2pkp/3Q4/1N2p1b1/1p6/3P1qPb/PPR2P1P/4R1K1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("2r2r2/2N2pkp/3Q4/1N2p1b1/1p6/3P1qPb/PPR2P1P/4R1K1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>Левитина — Гаприндашвили</strong><br />Женское первенство СССР, Тбилиси, 1979</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="2r2r2/2N2pkp/3Q4/1N2p1b1/1p6/3P1qPb/PPR2P1P/4R1K1 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>Черные только что пошли ферзем на f3 и угрожают матом. В ответ на единственную защиту
+ <span onclick='loadMove("2r2r2/2N2pkp/2Q5/1N2p1b1/1p6/3P1qPb/PPR2P1P/4R1K1 b - - 0 1", this, "d6c6"); ' class="line0">1.Фc6</span> 
+Гаприндашвили в предварительном расчете наметила
+ <span onclick='loadMove("2r2r2/2N2pkp/2Q5/1N4b1/1p2p3/3P1qPb/PPR2P1P/4R1K1 w - - 0 2", this, "e5e4"); ' class="line0">1...e4</span> 
+и на
+ <span onclick='loadMove("2r2r2/2N2pkp/8/1N4b1/1p2Q3/3P1qPb/PPR2P1P/4R1K1 b - - 0 2", this, "c6e4"); ' class="line0">2.Ф:e4</span> 
+— отвлекающую жертву
+ <span onclick='loadMove("2r1r3/2N2pkp/8/1N4b1/1p2Q3/3P1qPb/PPR2P1P/4R1K1 w - - 0 3", this, "f8e8"); ' class="line0">2...Лfe8</span> 
+.</p>
+<p>Но, когда ход ферзем на c6 был сделан, экс-чемпионка мира обнаружила, что белые могут, в свою очередь, атаковать ферзя посредством
+ <span onclick='loadMove("2r1r3/2N2pkp/8/6b1/1p1NQ3/3P1qPb/PPR2P1P/4R1K1 b - - 0 3", this, "b5d4"); ' class="line0">3.Кd4</span> 
+, и отказалась от первоначального замысла
+(вместо
+ <span onclick='loadMove("2r2r2/2N2pkp/2Q5/1N4b1/1p2p3/3P1qPb/PPR2P1P/4R1K1 w - - 0 2", this, "e5e4"); ' class="line1">1...e4</span> 
+она сыграла
+ <span onclick='loadMove("2r2r2/2N2pkp/2Q5/1N2pqb1/1p6/3P2Pb/PPR2P1P/4R1K1 w - - 0 2", this, "f3f5"); ' class="line1">1...Фf5</span> 
+и вскоре потерпела поражение).
+</p>
+<!-- [FEN "2r1r3/2N2pkp/8/6b1/1p1NQ3/3P1qPb/PPR2P1P/4R1K1 w - - 0 1"] -->
+<div class="chessBoard analysis nobuttons" data-start-fen="2r1r3/2N2pkp/8/6b1/1p1NQ3/3P1qPb/PPR2P1P/4R1K1 b - - 0 3"></div>
+<p>Между тем новая отвлекающая жертва —
+ <span onclick='loadMove("2r1r3/2N2pkp/8/6b1/1p1NQ3/3P2Pb/PPR2PqP/4R1K1 w - - 0 4", this, "f3g2"); ' class="line0">3...Фg2+!</span> 
+приводила к мату в два хода.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<a name="game19"></a>
+<div class="section">
+<div class="chessBoard small floater" data-start-fen="1n3rk1/r4p1p/p5p1/2p4P/1p2q3/1QB1P3/PP3P2/2KR2R1 w - - 0 1"></div>
+<div class="score">
+ <span class="line0" onclick='loadMove("1n3rk1/r4p1p/p5p1/2p4P/1p2q3/1QB1P3/PP3P2/2KR2R1 w - - 0 1", this, ""); '>[...]</span> 
+<p class="capTop diagram"><strong>И. Зайцев — Спасский</strong><br />28-е первенство СССР,<br />Москва, 1961</p>
+<div class="chessBoard analysis nobuttons" data-start-fen="1n3rk1/r4p1p/p5p1/2p4P/1p2q3/1QB1P3/PP3P2/2KR2R1 w - - 0 1"></div>
+<p class="caption">Ход белых</p>
+<p>Король черных в опасности, причем важную роль в атаке может сыграть слон, которого черные своим последним ходом
+(<b>b5-b4</b>)
+пытаются согнать с большой диагонали.</p>
+<p>Однако отступать он не обязан:
+ <span onclick='loadMove("1n3rk1/r4p1p/p5P1/2p5/1p2q3/1QB1P3/PP3P2/2KR2R1 b - - 0 1", this, "h5g6"); ' class="line0">1.hg</span> 
+ <span onclick='loadMove("1n3rk1/r4p2/p5p1/2p5/1p2q3/1QB1P3/PP3P2/2KR2R1 w - - 0 2", this, "h7g6"); ' class="line0">hg</span> 
+ <span onclick='loadMove("1n3rk1/r4p2/p2R2p1/2p5/1p2q3/1QB1P3/PP3P2/2K3R1 b - - 0 2", this, "d1d6"); ' class="line0">2.Лd6!</span> 
+Угрожает <b>Лd6:g6+</b>, поэтому ответ
+ <span onclick='loadMove("1n3r2/r4p1k/p2R2p1/2p5/1p2q3/1QB1P3/PP3P2/2K3R1 w - - 0 3", this, "g8h7"); ' class="line0">2...Крh7</span> 
+вынужден.</p>
+<!-- [FEN "1n3r2/r4p1k/p2R2p1/2p5/1p2q3/1QB1P3/PP3P2/2K3R1 w - - 0 1"] -->
+<div class="chessBoard analysis nobuttons" data-start-fen="1n3r2/r4p1k/p2R2p1/2p5/1p2q3/1QB1P3/PP3P2/2K3R1 w - - 0 3"></div>
+<p>Исход борьбы решает отвлекающий ферзя «тихий» ход
+ <span onclick='loadMove("1n3r2/r4p1k/p2R2p1/2p5/1pQ1q3/2B1P3/PP3P2/2K3R1 b - - 0 3", this, "b3c4"); ' class="line0">3.Фc4!</span> 
+</p>
+<p>Взять ферзя —
+ <span onclick='loadMove("1n3r2/r4p1k/p2R2p1/2p5/1pq5/2B1P3/PP3P2/2K3R1 w - - 0 4", this, "e4c4"); ' class="line1">3...Ф:c4</span> 
+— нельзя из-за мата (
+ <span onclick='loadMove("1n3r2/r4p1k/p2R2p1/2p5/1pq5/2B1P3/PP3P2/2K4R b - - 0 4", this, "g1h1"); ' class="line1">4.Лh1+</span> 
+).
+На отступление по диагонали h1-a8 следует <b>4.Фh4+</b>,
+а если
+ <span onclick='loadMove("1n3r2/4rp1k/p2R2p1/2p5/1pQ1q3/2B1P3/PP3P2/2K3R1 w - - 0 4", this, "a7e7"); ' class="line1">3...Лe7</span> 
+, то
+ <span onclick='loadMove("1n3r2/4rp1k/p2R2p1/2p5/1p2Q3/2B1P3/PP3P2/2K3R1 b - - 0 4", this, "c4e4"); ' class="line1">4.Ф:e4</span> 
+ <!--span onclick='loadMove("1n3r2/4rp1k/p2R2p1/2p5/1p2Q3/2B1P3/PP3P2/2K3R1 w - - 0 5", this, "c4e4"); ' class="line1">z0</span--> 
+и
+ <span onclick='loadMove("1n3r2/4rp1k/p2R2p1/2p5/1p2Q3/2B1P3/PP3P2/2K4R b - - 0 5", this, "g1h1"); ' class="line1">5.Лh1+</span> 
+. В результате слон c3 все же сыграл свою роль!</p>
+<!--p>11</p-->
+</div> <!-- score -->
+</div> <!-- section -->
+
+</div> <!-- iBook -->
+{% endblock content %}
+

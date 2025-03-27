@@ -1,0 +1,89 @@
+{% extends '../../base.htm' %}
+{% load static %}
+{% block title %}
+<title>Мат ладьей | {{book.title}} | {%for author in book.authors.all%} {%if author.first_name%} {{author.first_name}} {%endif%} {%if author.second_name%} {{author.second_name}} {%endif%} {%if forloop.counter == book.authors.all.count%} {{author.last_name}} {%else%} {{author.last_name}}, {%endif%} {%endfor%} | {{book.year}}</title>
+{% endblock title %}
+{% block content %}
+
+<div class="iBook">
+
+<div class="section">
+<h3>МАТ ЛАДЬЕЙ</h3>
+<div class='score'>
+<p>И здесь нужно сначала осуществить оттеснение короля черных на край доски. Это достигается только объединенными действиями короля и ладьи.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<div class="section">
+<div class="floater">
+<p class="capTop">2</p>
+<div class="chessBoard small" data-start-fen="8/8/8/3k4/8/8/8/KR6 w - - 0 1"></div>
+</div>
+
+<div class='score'>
+ <span class="line0" onclick='loadMove("8/8/8/3k4/8/8/8/KR6 w - - 0 1", this, ""); '>[...]</span>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/3k4/8/8/1K6/1R6 b - - 0 1", this, "a1b2"); ' class="line0">1.Крa1-b2</span>
+<span onclick='loadMove("8/8/8/8/3k4/8/1K6/1R6 w - - 0 2", this, "d5d4"); ' class="line0">Крd5-d4</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/3k4/8/2K5/1R6 b - - 0 2", this, "b2c2"); ' class="line0">2.Крb2-c2</span>
+<span onclick='loadMove("8/8/8/8/4k3/8/2K5/1R6 w - - 0 3", this, "d4e4"); ' class="line0">Крd4-e4</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/4k3/2K5/8/1R6 b - - 0 3", this, "c2c3"); ' class="line0">3.Крc2-c3</span>
+<span onclick='loadMove("8/8/8/4k3/8/2K5/8/1R6 w - - 0 4", this, "e4e5"); ' class="line0">Крe4-e5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/4k3/2K5/8/8/1R6 b - - 0 4", this, "c3c4"); ' class="line0">4.Крc3-c4</span>
+<span onclick='loadMove("8/8/8/8/2K1k3/8/8/1R6 w - - 0 5", this, "e5e4"); ' class="line0">Крe5-e4</span>.</p>
+<p>Такое противостояние королей позволяет дать шах ладьей и оттеснить короля черных.</p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/2K1k3/8/8/4R3 b - - 0 5", this, "b1e1"); ' class="line0">5.Лb1-e1+</span>
+<span onclick='loadMove("8/8/8/5k2/2K5/8/8/4R3 w - - 0 6", this, "e4f5"); ' class="line0">Крe4-f5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/5k2/3K4/8/8/4R3 b - - 0 6", this, "c4d4"); ' class="line0">6.Крc4-d4</span>
+<span onclick='loadMove("8/8/8/8/3K1k2/8/8/4R3 w - - 0 7", this, "f5f4"); ' class="line0">Крf5-f4</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/3K1k2/8/8/5R2 b - - 0 7", this, "e1f1"); ' class="line0">7.Лe1-f1+</span>
+<span onclick='loadMove("8/8/8/6k1/3K4/8/8/5R2 w - - 0 8", this, "f4g5"); ' class="line0">Крf4-g5</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/6k1/4K3/8/8/5R2 b - - 0 8", this, "d4e4"); ' class="line0">8.Крd4-e4</span>
+<span onclick='loadMove("8/8/6k1/8/4K3/8/8/5R2 w - - 0 9", this, "g5g6"); ' class="line0">Крg5-g6</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/6k1/4K3/8/8/8/5R2 b - - 0 9", this, "e4e5"); ' class="line0">9.Крe4-e5</span>
+<span onclick='loadMove("8/8/8/4K1k1/8/8/8/5R2 w - - 0 10", this, "g6g5"); ' class="line0">Крg6-g5</span>.</p>
+<p>После
+ <span onclick='loadMove("8/6k1/8/4K3/8/8/8/5R2 w - - 0 10", this, "g6g7"); ' class="line1">9...Крg6-g7</span> 
+ <span onclick='loadMove("8/6k1/4K3/8/8/8/8/5R2 b - - 0 10", this, "e5e6"); ' class="line1">10.Крe5-e6</span> 
+ <span onclick='loadMove("6k1/8/4K3/8/8/8/8/5R2 w - - 0 11", this, "g7g8"); ' class="line1">Крg7-g8</span> 
+ <span onclick='loadMove("6k1/4K3/8/8/8/8/8/5R2 b - - 0 11", this, "e6e7"); ' class="line1">11.Крe6-e7</span> 
+ <span onclick='loadMove("8/4K1k1/8/8/8/8/8/5R2 w - - 0 12", this, "g8g7"); ' class="line1">Крg8-g7</span> 
+ <span onclick='loadMove("8/4K1k1/8/8/8/8/8/6R1 b - - 0 12", this, "f1g1"); ' class="line1">12.Лf1-g1+</span> 
+черный король также оттесняется на край доски.</p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/4K1k1/8/8/8/6R1 b - - 0 10", this, "f1g1"); ' class="line0">10.Лf1-g1+</span>
+<span onclick='loadMove("8/8/8/4K3/7k/8/8/6R1 w - - 0 11", this, "g5h4"); ' class="line0">Крg5-h4</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/5K2/7k/8/8/6R1 b - - 0 11", this, "e5f5"); ' class="line0">11.Крe5-f5</span>
+<span onclick='loadMove("8/8/8/5K2/8/7k/8/6R1 w - - 0 12", this, "h4h3"); ' class="line0">Крh4-h3</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/5K2/7k/8/6R1 b - - 0 12", this, "f5f4"); ' class="line0">12.Крf5-f4</span>
+<span onclick='loadMove("8/8/8/8/5K2/8/7k/6R1 w - - 0 13", this, "h3h2"); ' class="line0">Крh3-h2</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/5K2/6R1/7k/8 b - - 0 13", this, "g1g3"); ' class="line0">13.Лg1-g3</span>
+<span onclick='loadMove("8/8/8/8/5K2/6R1/8/7k w - - 0 14", this, "h2h1"); ' class="line0">Крh2-h1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/8/5KR1/8/7k b - - 0 14", this, "f4f3"); ' class="line0">14.Крf4-f3</span>
+<span onclick='loadMove("8/8/8/8/8/5KR1/7k/8 w - - 0 15", this, "h1h2"); ' class="line0">Крh1-h2</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/8/6R1/5K1k/8 b - - 0 15", this, "f3f2"); ' class="line0">15.Крf3-f2</span>
+<span onclick='loadMove("8/8/8/8/8/6R1/5K2/7k w - - 0 16", this, "h2h1"); ' class="line0">Крh2-h1</span></p>
+<p class="longNotation">
+<span onclick='loadMove("8/8/8/8/8/7R/5K2/7k b - - 0 16", this, "g3h3"); ' class="line0">16.Лg3-h3X</span>.</p>
+<p>Для мата обычно требуется не более 16 ходов.</p>
+</div> <!-- score -->
+</div> <!-- section -->
+
+<p class="warning message score">Попробуйте сами решить, во сколько ходов дается мат в следующей позиции: Крf5, Лa1 — Крh4. Ход белых.</p>
+
+</div> <!-- iBook -->
+{% endblock content %}
+
